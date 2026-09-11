@@ -5,6 +5,8 @@
   const KEY = 'alfred-u-progress-v2';
   const LEGACY_KEY = 'alfred-u-progress-v1';
   const SYNC_KEY = 'alfred-u-sync-config-v1';
+  const SYNC_PROTOCOL = 2;
+  const STUDENT_KEY_RE = /^AU-(?:[A-F0-9]{4}-){9}[A-F0-9]{4}$/;
   const $=(s,r=document)=>r.querySelector(s);
   const $$=(s,r=document)=>[...r.querySelectorAll(s)];
   const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -14,13 +16,32 @@
   function blankState(){
     return {events:{},weeks:{},readiness:{},recordTimes:{},updatedAt:null};
   }
+  function eventHasMeaningfulData(value){
+    if(!value || typeof value!=='object') return false;
+    if(value.status && value.status!=='not-started') return true;
+    if(String(value.notes||'').trim()) return true;
+    if(Object.values(value.outcomes||{}).some(Boolean)) return true;
+    if(Object.values(value.review||{}).some(Boolean)) return true;
+    return false;
+  }
   function migrate(parsed){
     const base={...blankState(),...(parsed||{})};
+    base.events=base.events||{};
+    base.weeks=base.weeks||{};
+    base.readiness=base.readiness||{};
     base.recordTimes=base.recordTimes||{};
     const fallback=Date.parse(base.updatedAt||'')||Date.now();
-    Object.keys(base.events||{}).forEach(k=>{base.recordTimes[`event:${k}`]??=fallback;});
-    Object.keys(base.weeks||{}).forEach(k=>{base.recordTimes[`week:${k}`]??=fallback;});
-    Object.keys(base.readiness||{}).forEach(k=>{base.recordTimes[`readiness:${k}`]??=fallback;});
+
+    // Older backups did not carry per-record timestamps. Only meaningful event
+    // records need a migration timestamp; untouched/default event shells do not.
+    Object.entries(base.events).forEach(([k,value])=>{
+      const recordKey=`event:${k}`;
+      if(base.recordTimes[recordKey]==null && eventHasMeaningfulData(value)){
+        base.recordTimes[recordKey]=fallback;
+      }
+    });
+    Object.keys(base.weeks).forEach(k=>{base.recordTimes[`week:${k}`]??=fallback;});
+    Object.keys(base.readiness).forEach(k=>{base.recordTimes[`readiness:${k}`]??=fallback;});
     return base;
   }
   function load(){
@@ -113,15 +134,22 @@
   function recordsFromState(){
     const records=[];
     const deviceId=syncConfig.deviceId||'unknown';
-    Object.entries(state.events||{}).forEach(([id,value])=>records.push({
-      key:`event:${id}`,value,updatedAt:state.recordTimes[`event:${id}`]||0,deviceId
-    }));
-    Object.entries(state.weeks||{}).forEach(([week,value])=>records.push({
-      key:`week:${week}`,value,updatedAt:state.recordTimes[`week:${week}`]||0,deviceId
-    }));
-    Object.entries(state.readiness||{}).forEach(([key,value])=>records.push({
-      key:`readiness:${key}`,value,updatedAt:state.recordTimes[`readiness:${key}`]||0,deviceId
-    }));
+
+    const addRecord=(key,value)=>{
+      const updatedAt=Number(state.recordTimes[key]||0);
+      if(updatedAt<=0) return; // Do not upload untouched/default UI shells.
+      records.push({key,value,updatedAt,deviceId});
+    };
+
+    Object.entries(state.events||{}).forEach(([id,value])=>{
+      addRecord(`event:${id}`,value);
+    });
+    Object.entries(state.weeks||{}).forEach(([week,value])=>{
+      addRecord(`week:${week}`,value);
+    });
+    Object.entries(state.readiness||{}).forEach(([key,value])=>{
+      addRecord(`readiness:${key}`,value);
+    });
     return records;
   }
   function applyCloudRecord(rec){
@@ -153,13 +181,16 @@
   // Cloud sync network layer
   // -----------------------------
   function normalizedApiUrl(){
-    return String(syncConfig.apiUrl||'').trim().replace(/\/+$/,'');
+    let api=String(syncConfig.apiUrl||'').trim().replace(/\/+$/,'');
+    // Be forgiving if a health/sync test URL was pasted instead of the Worker root.
+    api=api.replace(/\/(?:health|sync)$/i,'');
+    return api;
   }
   function normalizedStudentKey(){
     return String(syncConfig.studentKey||'').trim().toUpperCase();
   }
   function syncReady(){
-    return /^https:\/\/.+/i.test(normalizedApiUrl()) && normalizedStudentKey().length>=30;
+    return /^https:\/\/.+/i.test(normalizedApiUrl()) && STUDENT_KEY_RE.test(normalizedStudentKey());
   }
   async function apiFetch(path,options={}){
     const api=normalizedApiUrl();
@@ -168,11 +199,18 @@
     headers.set('Accept','application/json');
     if(path!='/health'){
       const key=normalizedStudentKey();
-      if(!key) throw new Error('Student sync key is missing.');
+      if(!STUDENT_KEY_RE.test(key)) throw new Error('Student Sync Key format is invalid.');
       headers.set('Authorization',`Bearer ${key}`);
     }
     if(options.body && !headers.has('Content-Type')) headers.set('Content-Type','application/json');
-    const response=await fetch(api+path,{...options,headers});
+
+    let response;
+    try{
+      response=await fetch(api+path,{...options,headers,cache:'no-store',credentials:'omit'});
+    }catch{
+      throw new Error('Could not reach the Cloud Sync server. Check the Worker URL, Worker deployment, and allowed GitHub origin.');
+    }
+
     let data=null;
     try{data=await response.json();}catch{}
     if(!response.ok) throw new Error(data?.error||`Sync server returned ${response.status}.`);
@@ -231,7 +269,13 @@
     try{
       const health=await apiFetch('/health');
       if(!health?.ok) throw new Error('The sync server health check failed.');
-      const payload={deviceId:syncConfig.deviceId,deviceName:syncConfig.deviceName,records:recordsFromState()};
+      if(health.databaseBound===false) throw new Error('The Cloudflare Worker is not connected to the D1 database.');
+      if(health.schemaReady===false) throw new Error('The D1 schema is incomplete. Run the current schema.sql in the D1 Console, then try again.');
+      if(Number(health.protocol)!==SYNC_PROTOCOL){
+        const workerProtocol=health.protocol==null?'older/unknown':health.protocol;
+        throw new Error(`Cloud Sync version mismatch. Website protocol ${SYNC_PROTOCOL}; Worker protocol ${workerProtocol}. Update both sides from the same repair package.`);
+      }
+      const payload={protocol:SYNC_PROTOCOL,deviceId:syncConfig.deviceId,deviceName:syncConfig.deviceName,records:recordsFromState()};
       const result=await apiFetch('/sync',{method:'POST',body:JSON.stringify(payload)});
       mergeCloudRecords(result.records||[]);
       syncConfig.connected=true;
