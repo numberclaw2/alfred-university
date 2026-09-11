@@ -1,4 +1,4 @@
-const CACHE='alfred-u-v7';
+const CACHE='alfred-u-v8';
 const CORE=[
   './','index.html','engineering.html','course.html','calendar.html','progress.html','resources.html','projects.html','documents.html','student-services.html','about.html','deployment.html','404.html',
   'styles.css','site.js','progress.js','course-data.js','manifest.webmanifest',

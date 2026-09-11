@@ -1,0 +1,22 @@
+ALFRED UNIVERSITY - MOBILE NAVIGATION HOTFIX
+
+Upload ONLY these two files to the ROOT of your existing GitHub Pages repository:
+
+1. styles.css
+2. service-worker.js
+
+Choose Replace/Overwrite for both files. Do not create copies with (1) in the names.
+
+What this fixes:
+- The mobile navigation drawer was being covered by the gray navigation backdrop.
+- Because the backdrop sat above the sticky header stacking context, it also intercepted taps.
+- styles.css moves that backdrop beneath the header/drawer.
+- service-worker.js bumps the site cache from alfred-u-v7 to alfred-u-v8 so phones receive the new CSS.
+
+After GitHub Pages finishes deploying:
+1. Close the Alfred University browser tab/site completely.
+2. Reopen the live site.
+3. Refresh once if needed.
+4. Tap the hamburger menu and test Home, Engineering, AU-ESET 301, Calendar, Progress, Resources, Projects, Documents, Student Services, and About.
+
+This hotfix is frontend-only. It does not require the Cloudflare Worker update first and does not change your progress data.
