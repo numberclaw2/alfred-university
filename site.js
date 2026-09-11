@@ -3,6 +3,7 @@
   const $=(s,r=document)=>r.querySelector(s);
   const $$=(s,r=document)=>[...r.querySelectorAll(s)];
   const EVENTS=window.ALFRED_EVENTS||[];
+  try{ if(localStorage.getItem('alfred-u-quiet-mode')==='1') document.body.classList.add('quiet-mode'); }catch{}
   const WEEKS=window.ALFRED_WEEKS||[];
   const RESOURCES=window.ALFRED_RESOURCES||[];
   const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));

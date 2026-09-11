@@ -1,16 +1,27 @@
-ALFRED UNIVERSITY — v12 CALENDAR CLARITY + CONTENT REFRESH
+ALFRED UNIVERSITY v13 — FLAT COMPLETE GITHUB UPLOAD
 
-This is the complete flat GitHub upload package.
+Upload/replace the contents of this package in the ROOT of the existing GitHub Pages repository.
 
-WHAT CHANGED
-- All 125 calendar event titles were rewritten for quick at-a-glance clarity.
-- Event IDs, dates, times, types, week assignments, and progress/sync compatibility are unchanged.
-- Every scheduled week now links to its Week Module, Search Everything, Engineering Library, and relevant Lab/Assessment Center.
-- Calendar descriptions now reinforce the priority order: CETa Core -> Career Core -> Deep Dive.
-- The downloadable .ics calendar was regenerated with the same 125 events and preserved UIDs/times.
-- PWA cache bumped to v12.
+IMPORTANT:
+1. Keep .nojekyll at the repository root.
+2. Keep .github/workflows/library-sync.yml in that exact hidden folder path. GitHub Actions requires it there.
+3. All normal site files remain flat at the repository root.
+4. Do NOT change or regenerate the Cloudflare Worker/D1 backend for v13. Existing Cloud Sync protocol 2 remains compatible.
+5. After GitHub Pages deploys, fully close and reopen the site once so the v13 service-worker cache activates.
 
-UPLOAD
-Upload all files to the root of the existing GitHub repository, replacing matching files. Preserve .github/workflows/library-sync.yml exactly in that path.
+v13 adds:
+- Student Success Center / Start Today’s Session
+- Quick, Standard, and Deep Work modes
+- Focus Mode + Quiet Mode
+- spaced retrieval queue
+- Green/Yellow/Red session confidence scheduling
+- I’m Stuck recovery flow
+- Curiosity Parking Lot
+- clearer Week Module Required / Help / Deep Dive resource layers
+- time estimates + Definitions of Done
+- Release Notes / Patch History
 
-After GitHub Pages redeploys, close and reopen the Alfred University site once on iPhone so the v12 service worker takes control.
+Calendar compatibility:
+- 125 event IDs are unchanged from v12.
+- Dates/times are unchanged.
+- Cloud Progress compatibility is preserved.

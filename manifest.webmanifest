@@ -17,5 +17,43 @@
       "type": "image/png"
     }
   ],
-  "scope": "./"
+  "scope": "./",
+  "shortcuts": [
+    {
+      "name": "Start Studying",
+      "short_name": "Study",
+      "description": "Open the Alfred University guided study session.",
+      "url": "study.html",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Calendar",
+      "short_name": "Calendar",
+      "description": "Open the AU-ESET 301 academic calendar.",
+      "url": "calendar.html",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Progress",
+      "short_name": "Progress",
+      "description": "Open Student Progress.",
+      "url": "progress.html",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
 }
