@@ -286,6 +286,24 @@
     q.addEventListener('input',renderRes); cat.addEventListener('change',renderRes); renderRes();
   }
 
+  
+  // Lightweight progress summary from the Student Progress Portal.
+  if($('#home-progress-summary')){
+    try{
+      const ps=JSON.parse(localStorage.getItem('alfred-u-progress-v2')||localStorage.getItem('alfred-u-progress-v1')||'{}');
+      let complete=0, review=0;
+      EVENTS.forEach(e=>{
+        const s=ps?.events?.[String(e.id)]||{};
+        if(s.status==='complete') complete++;
+        Object.values(s.review||{}).forEach(v=>{if(v)review++;});
+      });
+      const pct=EVENTS.length?Math.round((complete/EVENTS.length)*100):0;
+      $('#home-progress-percent').textContent=`${pct}%`;
+      $('#home-progress-events').textContent=`${complete} / ${EVENTS.length}`;
+      $('#home-progress-review').textContent=String(review);
+    }catch{}
+  }
+
   if('serviceWorker' in navigator && location.protocol.startsWith('http')){
     navigator.serviceWorker.register('service-worker.js').catch(()=>{});
   }
