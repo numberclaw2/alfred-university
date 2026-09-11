@@ -1,29 +1,44 @@
-ALFRED UNIVERSITY v13.1 HARDWARE ACCESS PATCH
-
-ALFRED UNIVERSITY v13 — FLAT COMPLETE GITHUB UPLOAD
+ALFRED UNIVERSITY v14.0 — ASSESSMENT, STANDARDS & RETENTION SYSTEM
 
 Upload/replace the contents of this package in the ROOT of the existing GitHub Pages repository.
 
-IMPORTANT:
+IMPORTANT
 1. Keep .nojekyll at the repository root.
 2. Keep .github/workflows/library-sync.yml in that exact hidden folder path. GitHub Actions requires it there.
 3. All normal site files remain flat at the repository root.
-4. Do NOT change or regenerate the Cloudflare Worker/D1 backend for v13. Existing Cloud Sync protocol 2 remains compatible.
-5. After GitHub Pages deploys, fully close and reopen the site once so the v13 service-worker cache activates.
+4. Do NOT change or regenerate the Cloudflare Worker or D1 database for v14. Cloud Sync protocol 2 and the current schema remain compatible.
+5. course-data.js and the AU-ESET 301 .ics calendar are intentionally unchanged from v13.1.
+6. After GitHub Pages deploys, fully close and reopen Alfred University once so the v14 service-worker cache activates.
 
-v13 adds:
-- Student Success Center / Start Today’s Session
-- Quick, Standard, and Deep Work modes
-- Focus Mode + Quiet Mode
-- spaced retrieval queue
-- Green/Yellow/Red session confidence scheduling
-- I’m Stuck recovery flow
-- Curiosity Parking Lot
-- clearer Week Module Required / Help / Deep Dive resource layers
-- time estimates + Definitions of Done
-- Release Notes / Patch History
+v14 ADDS
+- 125 lesson quizzes (one for every calendar item)
+- 24 lab knowledge checks
+- 31 weekly mastery tests
+- CETa Mock Certification Exam
+- Career Bridge Technical Screen
+- AU-ESET 301 Comprehensive Final
+- 1,047-question original assessment bank
+- 262 individual CETa competency rows
+- 78 Alfred career-transition standards
+- A–F grading and mastery targets
+- Standards & Retention dashboard with spaced retrieval
+- assessment results stored through the existing Progress + Cloud Sync records
+- CETa certification outline preserving ETA's published numbering
 
-Calendar compatibility:
-- 125 event IDs are unchanged from v12.
-- Dates/times are unchanged.
-- Cloud Progress compatibility is preserved.
+ASSESSMENT BALANCE
+- Normal lesson, lab, and weekly assessments are 50% CETa / 50% career transition.
+- CETa Mock is certification-only.
+- Career Bridge Technical Screen is career-only.
+- Comprehensive Final is 50% / 50%.
+
+DATA / SYNC COMPATIBILITY
+- Existing event IDs: unchanged (125 / 125)
+- Calendar dates/times: unchanged
+- iCalendar UIDs: unchanged (125 / 125)
+- Existing Progress data: migration-compatible
+- Student Sync Key: unchanged
+- Cloudflare Worker: unchanged
+- D1 schema: unchanged
+- Detailed history retains the latest 3 attempts per assessment plus total-attempt, best-score, and latest-score summaries to stay comfortably inside current Cloud Sync record limits.
+
+See V14-VALIDATION.txt for the final QA report.

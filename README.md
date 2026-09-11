@@ -77,3 +77,13 @@ The v13 release adds `study.html` as the executive-function layer for AU-ESET 30
 
 ## v13.1 Hardware Access / Virtual Lab Patch
 Every one of the 24 Engineering Lab Center labs now offers two routes: a **Virtual Lab — Free** route and the original **Physical Lab — Hardware** route. The student completes one route for the scheduled academic lab; doing both is not required. Simulation evidence counts for course progress when hardware is unavailable. Labs that teach genuinely tactile skills (especially actual soldering/desoldering/crimping) explicitly preserve a **Physical Verification Later** requirement rather than pretending simulation can reproduce the motor skill. No calendar IDs, dates, Progress records, or Cloud Sync protocol changed in v13.1.
+
+
+## v14 Assessment, Standards & Retention System
+- 125 lesson quizzes, 24 lab checks, 31 weekly mastery tests, and 3 cumulative exams.
+- Normal lesson/lab/weekly assessments use a 50/50 CETa + career-transition mix. The CETa mock and Career Bridge screen isolate each track; the comprehensive final returns to 50/50.
+- 1,047 original assessment-bank questions: 599 CETa-aligned and 448 career-transition items. Assessment selection prioritizes application, calculation, and troubleshooting scenarios before using standards-scope checks to fill required coverage.
+- 262 individual CETa competency rows + 78 Alfred career standards. The current ETA competency wording controls certification scope; the supplied Associate CET Study Guide, 6th Edition is the primary instructional reference; the official ETA practice exam calibrates breadth/style without being copied.
+- `standards.html` includes the CETa competency outline and evidence-based retention status. `quiz.html` runs the assessments and returns explanations plus weak-standard diagnostics after submission.
+- Results are stored inside existing event/week Progress records so Cloud Sync protocol 2 and the current D1 schema remain compatible. The latest 3 detailed attempts per assessment are retained for mastery/retention evidence, while `attemptCount`, `bestPct`, and `lastPct` preserve the long-term summary without exceeding production Worker limits.
+- `course-data.js` and the AU-ESET 301 `.ics` calendar remain byte-for-byte unchanged from v13.1.

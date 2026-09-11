@@ -2,6 +2,7 @@
 (() => {
   const EVENTS = window.ALFRED_EVENTS || [];
   const WEEKS = window.ALFRED_WEEKS || [];
+  const ASSESS = window.ALFRED_ASSESSMENT || {};
   const KEY = 'alfred-u-progress-v2';
   const LEGACY_KEY = 'alfred-u-progress-v1';
   const SYNC_KEY = 'alfred-u-sync-config-v1';
@@ -40,7 +41,11 @@
         base.recordTimes[recordKey]=fallback;
       }
     });
-    Object.keys(base.weeks).forEach(k=>{base.recordTimes[`week:${k}`]??=fallback;});
+    Object.keys(base.weeks).forEach(k=>{
+      if(typeof base.weeks[k]==='string') base.weeks[k]={mastery:base.weeks[k],assessments:{}};
+      else if(base.weeks[k] && typeof base.weeks[k]==='object'){base.weeks[k].mastery=base.weeks[k].mastery||'';base.weeks[k].assessments=base.weeks[k].assessments||{};}
+      base.recordTimes[`week:${k}`]??=fallback;
+    });
     Object.keys(base.readiness).forEach(k=>{base.recordTimes[`readiness:${k}`]??=fallback;});
     return base;
   }
@@ -369,7 +374,8 @@
   }
   function renderWeeks(){
     $('#weekly-mastery-list').innerHTML=WEEKS.map(w=>{
-      const status=state.weeks?.[w.week]||'';
+      const weekValue=state.weeks?.[w.week];
+      const status=typeof weekValue==='string'?weekValue:(weekValue?.mastery||'');
       return `<article class="mastery-week">
         <div class="mastery-week-head">
           <div><h3>Week ${String(w.week).padStart(2,'0')} · ${esc(w.topic)}</h3><p>${w.outcomes?.length||0} cumulative learning outcomes</p></div>
@@ -384,7 +390,8 @@
     }).join('');
     $$('.mastery-selector button').forEach(btn=>btn.addEventListener('click',()=>{
       const week=btn.closest('.mastery-selector').dataset.week;
-      state.weeks[week]=btn.dataset.mastery;
+      const existing=state.weeks[week];
+      state.weeks[week]=typeof existing==='object'&&existing!==null?{...existing,mastery:btn.dataset.mastery}:{mastery:btn.dataset.mastery,assessments:{}};
       touch(`week:${week}`);
       persist();
     }));
@@ -581,8 +588,24 @@
   window.addEventListener('online',()=>{refreshSyncUI();if(syncConfig.connected)syncNow({silent:true});});
   window.addEventListener('offline',refreshSyncUI);
 
+  function refreshAssessmentIntelligence(){
+    if(!$('#stat-assessments-taken')) return;
+    const latestScores=[]; let attempts=0; const standards={};
+    const absorb=box=>{
+      const list=box?.attempts||[]; attempts+=Number(box?.attemptCount||list.length||0); if(list.length) latestScores.push(Number((box?.lastPct ?? list[list.length-1].pct) || 0));
+      list.forEach(a=>(a.s||[]).forEach(row=>{const [id,cRaw,tRaw]=row,c=Number(cRaw||0),t=row.length>=3?Math.max(1,Number(tRaw||1)):1;const x=standards[id]||(standards[id]={c:0,t:0});x.c+=c;x.t+=t;}));
+    };
+    Object.values(state.events||{}).forEach(e=>absorb(e?.assessments?.lesson));
+    Object.values(state.weeks||{}).forEach(raw=>{const w=typeof raw==='string'?{mastery:raw,assessments:{}}:(raw||{});Object.values(w.assessments||{}).forEach(absorb);});
+    const ids=Object.keys(standards), repair=ids.filter(id=>standards[id].t&&standards[id].c/standards[id].t<.8).length;
+    const avg=latestScores.length?Math.round(latestScores.reduce((a,b)=>a+b,0)/latestScores.length):null;
+    $('#stat-assessments-taken').textContent=attempts; $('#stat-assessment-average').textContent=avg==null?'—':avg+'%';
+    $('#stat-standards-practiced').textContent=`${ids.length} / ${(ASSESS.cetaStandards?.length||262)+(ASSESS.careerStandards?.length||78)}`;
+    $('#stat-standards-repair').textContent=repair;
+  }
+
   function refreshAll(){
-    refreshStats();renderEvents();renderWeeks();renderReadiness();refreshSyncUI();
+    refreshStats();renderEvents();renderWeeks();renderReadiness();refreshAssessmentIntelligence();refreshSyncUI();
   }
   refreshAll();
 

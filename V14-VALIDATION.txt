@@ -1,0 +1,105 @@
+ALFRED UNIVERSITY v14.0 — FINAL VALIDATION REPORT
+Assessment, Standards & Retention System
+Validated: September 11, 2026
+Base release: v13.1 Hardware Access Patch
+
+STATUS: PASS
+
+ACADEMIC / ASSESSMENT INVENTORY
+- Calendar events: 125
+- Weeks: 31
+- Engineering labs: 24
+- Lesson quizzes: 125 (one for every calendar item)
+- Lab knowledge checks: 24
+- Weekly mastery tests: 31
+- Major assessments: 3
+  * CETa Mock Certification Exam
+  * Career Bridge Technical Screen
+  * AU-ESET 301 Comprehensive Final
+- Total assessment definitions: 183
+- Original question bank: 1,047
+  * CETa-aligned questions: 599
+  * Career-transition questions: 448
+- CETa competency rows represented: 262
+- Alfred career-transition standards: 78
+
+ASSESSMENT BALANCE
+- Lesson quizzes: 20 questions — 10 CETa / 10 Career
+- Lab checks: 20 questions — 10 CETa / 10 Career
+- Weekly tests: 40 questions — 20 CETa / 20 Career
+- CETa Mock: 100 CETa questions
+- Career Bridge Technical Screen: 100 Career questions
+- Comprehensive Final: 100 questions — 50 CETa / 50 Career
+
+SOURCE / STANDARDS POLICY
+- Current ETA CETa competency wording controls certification scope.
+- The student-supplied Associate CET Study Guide, 6th Edition is the primary CETa instructional reference.
+- The student-supplied official ETA practice exam was used to calibrate breadth, calculation/application emphasis, and multiple-choice style. Alfred questions are original; the official practice questions are not republished as Alfred questions.
+- Career standards are Alfred-created and grounded in current technician/embedded-role evidence, manufacturer documentation, workmanship references, and the course's validated resource stack.
+- The CETa outline preserves ETA's published numbering. The supplied 2025 document calls the listing “21 major Categories” while its visible numbered headings jump from 13.0 to 15.0; Alfred does not invent a 14.0 heading.
+
+QUESTION / STANDARD QA
+PASS — 1,047 unique question IDs.
+PASS — 0 duplicate normalized question prompts.
+PASS — 0 duplicate choices within a question.
+PASS — 0 invalid answer indices.
+PASS — 0 invalid standard references.
+PASS — every one of the 262 CETa competency rows has question-bank coverage.
+PASS — every one of the 78 Career standards has question-bank coverage.
+PASS — every assessment has enough standards-aligned candidates for its required CETa/Career mix.
+PASS — assessment selection prioritizes application/calculation/troubleshooting scenarios before standards-scope fill.
+PASS — 366 generated-form smoke tests (all 183 assessments at two different attempt numbers) returned the exact requested question counts with no duplicate question inside a form.
+PASS — in that smoke test, 6,193 of 9,040 selected questions were application/calculation/scenario items before scope-fill.
+PASS — all 183 assessments with a larger candidate pool produced different Form 1 and Form 4 question sets.
+
+GRADING / RETENTION
+- A: 90–100%
+- B: 80–89%
+- C: 70–79%
+- D: 60–69%
+- F: below 60%
+- Alfred course mastery target: 80%
+- CETa Mock Alfred readiness target: 85%
+- ETA published passing threshold is shown separately as 75%.
+- Retention intervals: miss ~2 days; successful retrievals ~7, 21, then 45 days.
+- Standard states: Not Introduced, Learning, Developing, Proficient, Mastered, Retention Due.
+
+CLOUD SYNC / STORAGE QA
+Production Worker reviewed: protocol 2, Worker version 2026-09-11-r2.
+Worker limits relevant to v14:
+- 20,000 characters maximum JSON value per record
+- 512,000 bytes maximum sync request body
+- 500 records maximum per sync request
+
+v14 storage strategy:
+- Lesson results stay inside the existing event:<id> records.
+- Lab, weekly, and major results stay inside existing week:<week> records.
+- Latest 3 detailed attempts are retained per assessment.
+- attemptCount, bestPct, and lastPct preserve long-term summary information beyond the detailed-attempt window.
+- Per-attempt evidence is aggregated by standard instead of storing one row per question.
+
+Conservative assessment-storage stress test:
+PASS — largest simulated record: 7,783 characters (limit 20,000).
+PASS — simulated full 156-record sync body: 295,655 bytes (limit 512,000).
+PASS — 156 records (limit 500).
+RESULT — no Cloudflare Worker change and no D1 schema migration are required for v14.
+
+FRONTEND / PACKAGE QA
+PASS — JavaScript syntax check on all 16 root JavaScript files.
+PASS — 21 HTML pages audited; 0 broken local href/src references.
+PASS — Standards & Retention navigation integrated wherever Assessment Center navigation is present.
+PASS — service-worker cache name is alfred-u-v14.
+PASS — all 56 service-worker CORE references exist.
+PASS — no files were removed relative to v13.1.
+
+CALENDAR / PROGRESS IDENTITY
+PASS — course-data.js is byte-for-byte unchanged from v13.1.
+SHA256: 72cb011cf7f1648e44d8ab06ddae5b850cad620c93605653f69752b0899745a4
+
+PASS — AU-ESET 301 .ics calendar is byte-for-byte unchanged from v13.1.
+SHA256: d24133e2e1055b1942bd3095db3bc25fcc473dd569ea8a93ea90f26ec54793fc
+PASS — 125 VEVENT blocks / 125 unique UIDs.
+RESULT — dates, times, event IDs, iCalendar UIDs, and existing Progress identity remain compatible.
+
+IMPORTANT SCOPE NOTE
+Alfred University is a fictional independent-study environment. It is not accredited, is not an ETA certification provider, and its original quizzes/tests are not official ETA examination questions. The official ETA competency document remains the controlling CETa scope source.

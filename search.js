@@ -1,5 +1,5 @@
 (()=>{
-const A=window.ALFRED_ACADEMIC||{},W=window.ALFRED_WEEKS||[],E=window.ALFRED_EVENTS||[],R0=window.ALFRED_RESOURCES||[],LI=window.ALFRED_LIBRARY_INDEX||[],REL=window.ALFRED_RELEASES||[];
+const A=window.ALFRED_ACADEMIC||{},D=window.ALFRED_ASSESSMENT||{},W=window.ALFRED_WEEKS||[],E=window.ALFRED_EVENTS||[],R0=window.ALFRED_RESOURCES||[],LI=window.ALFRED_LIBRARY_INDEX||[],REL=window.ALFRED_RELEASES||[];
 const $=(s,r=document)=>r.querySelector(s); const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
 const norm=s=>String(s??'').toLowerCase().normalize('NFKD').replace(/[^a-z0-9+.#/\- ]/g,' ').replace(/\s+/g,' ').trim();
 const terms=q=>norm(q).split(' ').filter(Boolean);
@@ -15,6 +15,9 @@ R0.forEach(r=>add('Resource',r.title,`${r.category||''} ${r.domain||''} ${(r.con
 A.localDocuments.forEach(d=>add('Document',d.title,d.text,d.url,{source:d.source,fulltext:true},3));
 LI.forEach(d=>add('Library PDF',d.title,`${d.text||''} ${d.keywords||''} ${d.publisher||''} ${d.collection||''}`,d.localUrl,{source:d.publisher,fulltext:true,week:d.weeks,domain:d.ceta,collection:d.collection,localPdf:true,publisherUrl:d.sourceUrl},5));
 REL.forEach(r=>add('Release Note',`${r.version} · ${r.title}`,`${r.request} ${(r.changes||[]).join(' ')} ${r.type} ${r.date}`,'patch-notes.html',{source:'Alfred University release history'},2));
+;(D.cetaStandards||[]).forEach(s=>add('CETa Standard',`CETa ${s.code} · ${s.categoryTitle}`,`${s.text} ${s.sourceChapter||''}`,'standards.html',{domain:s.category,source:'ETA competency framework'},6));
+;(D.careerStandards||[]).forEach(s=>add('Career Standard',`${s.code} · ${s.categoryTitle}`,s.text,'standards.html',{source:'Alfred career transition standards'},5));
+;(D.majorAssessments||[]).forEach(a=>add('Assessment',a.title,a.description,'quiz.html?type=major&id='+a.id,{source:'Assessment Center'},3));
 const input=$('#global-search-input'), form=$('#global-search-form'), typeSel=$('#search-type'), domainSel=$('#search-domain'), out=$('#search-results'), summary=$('#search-summary');
 A.cetaDomains.forEach(d=>domainSel.insertAdjacentHTML('beforeend',`<option value="${d.id}">${d.id}.0 ${esc(d.title)}</option>`));
 $('#search-scope-note').textContent=A.meta.searchNote;

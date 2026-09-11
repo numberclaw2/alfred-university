@@ -230,6 +230,7 @@
       <div class="modal-date">${fmtDate(e.start)} · ${fmtTime(e.start)}${e.week?` · Week ${String(e.week).padStart(2,'0')}`:''}</div>
       <h2 id="event-modal-title">${esc(e.summary.replace(/^AU-ESET 301 \| /,''))}</h2>
       ${today}${outcomes}
+      <div class="modal-section event-quiz-cta"><h3>Lesson Quiz</h3><p>20 questions · 10 CETa + 10 career-transition questions. Take it after completing this calendar item.</p><a class="button green" href="quiz.html?type=lesson&id=${e.id}">Take this lesson quiz →</a></div>
       <div class="modal-section"><h3>Complete Event Description & Resources</h3><div class="raw">${linkify(e.description)}</div></div>`;
   }
   function openEvent(id){

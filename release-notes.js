@@ -1,5 +1,21 @@
 window.ALFRED_RELEASES = [
   {
+    version:'v14.0', date:'September 11, 2026', title:'Assessment, Standards & Retention System', type:'Major Academic Assessment Release',
+    request:'Add quizzes and tests for every calendar lesson and lab, use the official CETa standards, study guide, and practice exam, give equal weight to career-transition readiness, store results in Cloud Sync, and track retention like a real school.',
+    changes:[
+      'Added 125 lesson quizzes, one for every scheduled calendar item, with 20 questions each and a balanced 10 CETa / 10 career mix.',
+      'Added 24 lab knowledge checks and 31 weekly mastery tests, plus CETa Mock, Career Bridge Technical Screen, and Comprehensive Final assessments.',
+      'Built a 1,047-question original bank: 599 CETa-aligned questions and 448 career-transition questions. The official ETA practice exam informed breadth and style; its questions were not copied.',
+      'Mapped all 262 individual current CETa competency rows and added 78 Alfred career standards across bench safety, schematics, instrumentation, workmanship, troubleshooting, C/embedded C, STM32, serial buses, Python automation, validation, documentation, and career evidence.',
+      'Added Standards & Retention with Not Introduced, Learning, Developing, Proficient, Mastered, and Retention Due states.',
+      'Added school-style A–F grading, an 80% Alfred mastery target, an 85% CETa mock readiness target, and clear separation from ETA’s published 75% passing threshold.',
+      'Added evidence-based spaced retrieval: misses return quickly while successful retrieval moves through approximately 7-, 21-, and 45-day intervals.',
+      'Stored assessment attempts inside the existing event/week Progress records so results can use the established Cloud Sync protocol without a Worker or D1 schema migration.',
+      'Added assessment links to calendar event details, Week Modules, and every Lab Center card, and indexed standards/major assessments in Search Everything.',
+      'Grounded the career framework in current BLS/O*NET technician duties, ST STM32 training, NASA workmanship references, and the already validated course resource stack.'
+    ]
+  },
+  {
     version:'v13.1', date:'September 11, 2026', title:'Hardware Access / Virtual Lab Patch', type:'Accessibility & Course-Access Patch',
     request:'Keep the physical lab option for later, but add a free virtual option so lack of money for electronics hardware never blocks course progress.',
     changes:[
