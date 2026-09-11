@@ -1,0 +1,21 @@
+ALFRED UNIVERSITY — v11 FLAT COMPLETE GITHUB UPLOAD
+
+This package was flattened for easy browsing and uploading.
+
+WHAT IS FLAT
+- All normal website files are at the top level.
+- fetch_library.py is at the top level.
+- LIBRARY-SOURCES.md is at the top level.
+- When the PDF sync runs, downloaded PDFs are saved at the top level with filenames beginning LIB-.
+
+THE ONE REQUIRED FOLDER
+- .github/workflows/library-sync.yml must stay in that exact folder because GitHub only recognizes Actions workflows there. This is the only nested folder intentionally retained.
+
+UPLOAD
+1. Extract this ZIP.
+2. Upload all top-level files to the root of your existing GitHub repository, replacing matching files.
+3. Also upload the .github folder exactly as included.
+4. In GitHub Actions, run “Refresh Alfred PDF Library” once if it does not start automatically.
+5. The action downloads approved open/public PDFs and commits them back to the repository root with LIB- filenames.
+
+DO NOT update Cloudflare for this release.

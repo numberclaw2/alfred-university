@@ -44,7 +44,7 @@ v11 turns the Engineering Library into a hybrid **local document library + verif
 Open-license, U.S. government, and explicitly public-release PDFs listed in `library-sources.json` are downloaded by the GitHub Actions workflow `.github/workflows/library-sync.yml`. The workflow:
 
 1. downloads the approved source documents,
-2. stores the actual PDFs under `library/pdfs/`,
+2. stores the actual PDFs under `the repository root as LIB-*.pdf files`,
 3. extracts searchable text from every PDF,
 4. generates `library-catalog.js` for the Engineering Library page,
 5. generates `library-index.js` for full-content Search Everything,

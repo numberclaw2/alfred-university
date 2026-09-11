@@ -5,13 +5,12 @@
   "sources": [
     {
       "id": "mit-ocw-6002",
-      "title": "MIT OpenCourseWare 6.002 Circuits and Electronics \u2014 Complete PDF Course Pack",
+      "title": "MIT OpenCourseWare 6.002 Circuits and Electronics — Complete PDF Course Pack",
       "publisher": "MIT OpenCourseWare",
       "strategy": "zip_pdfs",
       "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/6.002-spring-2007.zip",
       "sourceUrl": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/download/",
-      "destination": "library/pdfs/mit-ocw-6-002",
-      "license": "Creative Commons \u2014 MIT OpenCourseWare",
+      "license": "Creative Commons — MIT OpenCourseWare",
       "distributionBasis": "OpenCourseWare download package is published for reuse under MIT OCW's Creative Commons terms; preserve attribution and source links.",
       "collection": "Circuits & Electronics",
       "ceta": [
@@ -45,7 +44,7 @@
     },
     {
       "id": "doe-electrical-science-v1",
-      "title": "DOE Fundamentals Handbook \u2014 Electrical Science, Volume 1",
+      "title": "DOE Fundamentals Handbook — Electrical Science, Volume 1",
       "publisher": "U.S. Department of Energy",
       "strategy": "page_pdf",
       "url": "https://www.energy.gov/ehss/articles/doe-hdbk-10111-92",
@@ -72,7 +71,7 @@
     },
     {
       "id": "doe-electrical-science-v2",
-      "title": "DOE Fundamentals Handbook \u2014 Electrical Science, Volume 2",
+      "title": "DOE Fundamentals Handbook — Electrical Science, Volume 2",
       "publisher": "U.S. Department of Energy",
       "strategy": "page_pdf",
       "url": "https://www.energy.gov/ehss/articles/doe-hdbk-10112-92",
@@ -102,7 +101,7 @@
     },
     {
       "id": "doe-electrical-science-v3",
-      "title": "DOE Fundamentals Handbook \u2014 Electrical Science, Volume 3",
+      "title": "DOE Fundamentals Handbook — Electrical Science, Volume 3",
       "publisher": "U.S. Department of Energy",
       "strategy": "page_pdf",
       "url": "https://www.energy.gov/ehss/articles/doe-hdbk-10113-92",
@@ -129,7 +128,7 @@
     },
     {
       "id": "doe-electrical-science-v4",
-      "title": "DOE Fundamentals Handbook \u2014 Electrical Science, Volume 4",
+      "title": "DOE Fundamentals Handbook — Electrical Science, Volume 4",
       "publisher": "U.S. Department of Energy",
       "strategy": "page_pdf",
       "url": "https://www.energy.gov/ehss/articles/doe-hdbk-10114-92",
@@ -156,7 +155,7 @@
     },
     {
       "id": "doe-symbology-v1",
-      "title": "DOE Fundamentals Handbook \u2014 Engineering Symbology, Prints, and Drawings, Volume 1",
+      "title": "DOE Fundamentals Handbook — Engineering Symbology, Prints, and Drawings, Volume 1",
       "publisher": "U.S. Department of Energy",
       "strategy": "page_pdf",
       "url": "https://www.energy.gov/ehss/articles/doe-hdbk-10161-93",
@@ -182,7 +181,7 @@
     },
     {
       "id": "doe-symbology-v2",
-      "title": "DOE Fundamentals Handbook \u2014 Engineering Symbology, Prints, and Drawings, Volume 2",
+      "title": "DOE Fundamentals Handbook — Engineering Symbology, Prints, and Drawings, Volume 2",
       "publisher": "U.S. Department of Energy",
       "strategy": "page_pdf",
       "url": "https://www.energy.gov/ehss/articles/doe-hdbk-10162-93",
@@ -208,7 +207,7 @@
     },
     {
       "id": "doe-electrical-safety-2013",
-      "title": "DOE Handbook \u2014 Electrical Safety (DOE-HDBK-1092-2013)",
+      "title": "DOE Handbook — Electrical Safety (DOE-HDBK-1092-2013)",
       "publisher": "U.S. Department of Energy",
       "strategy": "page_pdf",
       "url": "https://www.energy.gov/ehss/articles/doe-hdbk-1092-2013",
@@ -236,7 +235,7 @@
     },
     {
       "id": "nasa-esd-873921",
-      "title": "NASA-HDBK-8739.21 \u2014 Workmanship Manual for Electrostatic Discharge Control",
+      "title": "NASA-HDBK-8739.21 — Workmanship Manual for Electrostatic Discharge Control",
       "publisher": "NASA",
       "strategy": "page_pdf",
       "url": "https://standards.nasa.gov/standard/NASA/NASA-HDBK-873921",
@@ -262,7 +261,7 @@
     },
     {
       "id": "nasa-wire-harness-87394",
-      "title": "NASA-STD-8739.4 \u2014 Crimping, Interconnecting Cables, Harnesses, and Wiring",
+      "title": "NASA-STD-8739.4 — Crimping, Interconnecting Cables, Harnesses, and Wiring",
       "publisher": "NASA",
       "strategy": "page_pdf",
       "url": "https://standards.nasa.gov/standard/NASA/NASA-STD-87394",
@@ -288,7 +287,7 @@
     },
     {
       "id": "nasa-workmanship-implementation-87396",
-      "title": "NASA-STD-8739.6 \u2014 Implementation Requirements for NASA Workmanship Standards",
+      "title": "NASA-STD-8739.6 — Implementation Requirements for NASA Workmanship Standards",
       "publisher": "NASA",
       "strategy": "page_pdf",
       "url": "https://standards.nasa.gov/standard/NASA/NASA-STD-87396",
@@ -313,7 +312,7 @@
     },
     {
       "id": "osha-3075",
-      "title": "OSHA 3075 \u2014 Controlling Electrical Hazards",
+      "title": "OSHA 3075 — Controlling Electrical Hazards",
       "publisher": "U.S. Occupational Safety and Health Administration",
       "strategy": "direct_pdf",
       "url": "https://www.osha.gov/sites/default/files/publications/OSHA3075.pdf",
@@ -338,7 +337,7 @@
     },
     {
       "id": "osha-3294",
-      "title": "OSHA 3294 \u2014 Electrical Safety QuickCard",
+      "title": "OSHA 3294 — Electrical Safety QuickCard",
       "publisher": "U.S. Occupational Safety and Health Administration",
       "strategy": "direct_pdf",
       "url": "https://www.osha.gov/sites/default/files/publications/OSHA3294.pdf",
@@ -359,7 +358,7 @@
     },
     {
       "id": "osha-4475",
-      "title": "OSHA FS-4475 \u2014 Being Aware of Arc Flash Hazards",
+      "title": "OSHA FS-4475 — Being Aware of Arc Flash Hazards",
       "publisher": "U.S. Occupational Safety and Health Administration",
       "strategy": "direct_pdf",
       "url": "https://www.osha.gov/sites/default/files/publications/OSHA4475.pdf",
@@ -381,7 +380,7 @@
     },
     {
       "id": "osha-3942",
-      "title": "OSHA FS-3942 \u2014 Working Safely with Electricity",
+      "title": "OSHA FS-3942 — Working Safely with Electricity",
       "publisher": "U.S. Occupational Safety and Health Administration",
       "strategy": "direct_pdf",
       "url": "https://www.osha.gov/sites/default/files/publications/OSHA3942.pdf",
@@ -402,7 +401,7 @@
     },
     {
       "id": "nist-sp811",
-      "title": "NIST SP 811 \u2014 Guide for the Use of the International System of Units (SI)",
+      "title": "NIST SP 811 — Guide for the Use of the International System of Units (SI)",
       "publisher": "National Institute of Standards and Technology",
       "strategy": "direct_pdf",
       "url": "https://physics.nist.gov/cuu/pdf/sp811.pdf",
@@ -426,7 +425,7 @@
     },
     {
       "id": "nist-sp330-2019",
-      "title": "NIST SP 330 (2019) \u2014 The International System of Units (SI)",
+      "title": "NIST SP 330 (2019) — The International System of Units (SI)",
       "publisher": "National Institute of Standards and Technology",
       "strategy": "direct_pdf",
       "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.330-2019.pdf",
@@ -450,7 +449,7 @@
     },
     {
       "id": "fcc-oet65",
-      "title": "FCC OET Bulletin 65 \u2014 Evaluating Compliance With RF Exposure Guidelines",
+      "title": "FCC OET Bulletin 65 — Evaluating Compliance With RF Exposure Guidelines",
       "publisher": "Federal Communications Commission",
       "strategy": "direct_pdf",
       "url": "https://transition.fcc.gov/bureaus/oet/info/documents/bulletins/oet65/oet65.pdf",
@@ -474,7 +473,7 @@
     },
     {
       "id": "navy-neets-01",
-      "title": "U.S. Navy NEETS Module 01 \u2014 Introduction to Matter, Energy, and Direct Current",
+      "title": "U.S. Navy NEETS Module 01 — Introduction to Matter, Energy, and Direct Current",
       "publisher": "U.S. Navy (NEETS), public-release copy via Historic Naval Ships Association",
       "strategy": "direct_pdf",
       "url": "https://maritime.org/doc/neets/mod01.pdf",
@@ -496,7 +495,7 @@
     },
     {
       "id": "navy-neets-02",
-      "title": "U.S. Navy NEETS Module 02 \u2014 Introduction to Alternating Current and Transformers",
+      "title": "U.S. Navy NEETS Module 02 — Introduction to Alternating Current and Transformers",
       "publisher": "U.S. Navy (NEETS), public-release copy via Historic Naval Ships Association",
       "strategy": "direct_pdf",
       "url": "https://maritime.org/doc/neets/mod02.pdf",
@@ -519,7 +518,7 @@
     },
     {
       "id": "navy-neets-03",
-      "title": "U.S. Navy NEETS Module 03 \u2014 Introduction to Circuit Protection, Control, and Measurement",
+      "title": "U.S. Navy NEETS Module 03 — Introduction to Circuit Protection, Control, and Measurement",
       "publisher": "U.S. Navy (NEETS), public-release copy via Historic Naval Ships Association",
       "strategy": "direct_pdf",
       "url": "https://maritime.org/doc/neets/mod03.pdf",
@@ -542,7 +541,7 @@
     },
     {
       "id": "navy-neets-04",
-      "title": "U.S. Navy NEETS Module 04 \u2014 Electrical Conductors, Wiring Techniques, and Schematic Reading",
+      "title": "U.S. Navy NEETS Module 04 — Electrical Conductors, Wiring Techniques, and Schematic Reading",
       "publisher": "U.S. Navy (NEETS), public-release copy via Historic Naval Ships Association",
       "strategy": "direct_pdf",
       "url": "https://maritime.org/doc/neets/mod04.pdf",
@@ -566,7 +565,7 @@
     },
     {
       "id": "navy-neets-05",
-      "title": "U.S. Navy NEETS Module 05 \u2014 Introduction to Generators and Motors",
+      "title": "U.S. Navy NEETS Module 05 — Introduction to Generators and Motors",
       "publisher": "U.S. Navy (NEETS), public-release copy via Historic Naval Ships Association",
       "strategy": "direct_pdf",
       "url": "https://maritime.org/doc/neets/mod05.pdf",
@@ -588,7 +587,7 @@
     },
     {
       "id": "navy-neets-07",
-      "title": "U.S. Navy NEETS Module 07 \u2014 Introduction to Solid-State Devices and Power Supplies",
+      "title": "U.S. Navy NEETS Module 07 — Introduction to Solid-State Devices and Power Supplies",
       "publisher": "U.S. Navy (NEETS), public-release copy via Historic Naval Ships Association",
       "strategy": "direct_pdf",
       "url": "https://maritime.org/doc/neets/mod07.pdf",
@@ -611,7 +610,7 @@
     },
     {
       "id": "navy-neets-08",
-      "title": "U.S. Navy NEETS Module 08 \u2014 Introduction to Amplifiers",
+      "title": "U.S. Navy NEETS Module 08 — Introduction to Amplifiers",
       "publisher": "U.S. Navy (NEETS), public-release copy via Historic Naval Ships Association",
       "strategy": "direct_pdf",
       "url": "https://maritime.org/doc/neets/mod08.pdf",
@@ -631,7 +630,7 @@
     },
     {
       "id": "navy-neets-09",
-      "title": "U.S. Navy NEETS Module 09 \u2014 Wave-Generation and Wave-Shaping Circuits",
+      "title": "U.S. Navy NEETS Module 09 — Wave-Generation and Wave-Shaping Circuits",
       "publisher": "U.S. Navy (NEETS), public-release copy via Historic Naval Ships Association",
       "strategy": "direct_pdf",
       "url": "https://maritime.org/doc/neets/mod09.pdf",
@@ -654,7 +653,7 @@
     },
     {
       "id": "navy-neets-10",
-      "title": "U.S. Navy NEETS Module 10 \u2014 Wave Propagation, Transmission Lines, and Antennas",
+      "title": "U.S. Navy NEETS Module 10 — Wave Propagation, Transmission Lines, and Antennas",
       "publisher": "U.S. Navy (NEETS), public-release copy via Historic Naval Ships Association",
       "strategy": "direct_pdf",
       "url": "https://maritime.org/doc/neets/mod10.pdf",
@@ -676,7 +675,7 @@
     },
     {
       "id": "navy-neets-12",
-      "title": "U.S. Navy NEETS Module 12 \u2014 Modulation Principles",
+      "title": "U.S. Navy NEETS Module 12 — Modulation Principles",
       "publisher": "U.S. Navy (NEETS), public-release copy via Historic Naval Ships Association",
       "strategy": "direct_pdf",
       "url": "https://maritime.org/doc/neets/mod12.pdf",
@@ -697,7 +696,7 @@
     },
     {
       "id": "navy-neets-13",
-      "title": "U.S. Navy NEETS Module 13 \u2014 Introduction to Number Systems and Logic Circuits",
+      "title": "U.S. Navy NEETS Module 13 — Introduction to Number Systems and Logic Circuits",
       "publisher": "U.S. Navy (NEETS), public-release copy via Historic Naval Ships Association",
       "strategy": "direct_pdf",
       "url": "https://maritime.org/doc/neets/mod13.pdf",
@@ -719,7 +718,7 @@
     },
     {
       "id": "navy-neets-14",
-      "title": "U.S. Navy NEETS Module 14 \u2014 Introduction to Microelectronics",
+      "title": "U.S. Navy NEETS Module 14 — Introduction to Microelectronics",
       "publisher": "U.S. Navy (NEETS), public-release copy via Historic Naval Ships Association",
       "strategy": "direct_pdf",
       "url": "https://maritime.org/doc/neets/mod14.pdf",
@@ -743,7 +742,7 @@
     },
     {
       "id": "navy-neets-16",
-      "title": "U.S. Navy NEETS Module 16 \u2014 Introduction to Test Equipment",
+      "title": "U.S. Navy NEETS Module 16 — Introduction to Test Equipment",
       "publisher": "U.S. Navy (NEETS), public-release copy via Historic Naval Ships Association",
       "strategy": "direct_pdf",
       "url": "https://maritime.org/doc/neets/mod16.pdf",
@@ -767,7 +766,7 @@
     },
     {
       "id": "navy-neets-17",
-      "title": "U.S. Navy NEETS Module 17 \u2014 Radio-Frequency Communications Principles",
+      "title": "U.S. Navy NEETS Module 17 — Radio-Frequency Communications Principles",
       "publisher": "U.S. Navy (NEETS), public-release copy via Historic Naval Ships Association",
       "strategy": "direct_pdf",
       "url": "https://maritime.org/doc/neets/mod17.pdf",
@@ -789,7 +788,7 @@
     },
     {
       "id": "navy-neets-19",
-      "title": "U.S. Navy NEETS Module 19 \u2014 The Technician's Handbook",
+      "title": "U.S. Navy NEETS Module 19 — The Technician's Handbook",
       "publisher": "U.S. Navy (NEETS), public-release copy via Historic Naval Ships Association",
       "strategy": "direct_pdf",
       "url": "https://maritime.org/doc/neets/mod19.pdf",
@@ -817,7 +816,7 @@
     },
     {
       "id": "navy-neets-21",
-      "title": "U.S. Navy NEETS Module 21 \u2014 Test Methods and Practices",
+      "title": "U.S. Navy NEETS Module 21 — Test Methods and Practices",
       "publisher": "U.S. Navy (NEETS), public-release copy via Historic Naval Ships Association",
       "strategy": "direct_pdf",
       "url": "https://maritime.org/doc/neets/mod21.pdf",
@@ -843,7 +842,7 @@
     },
     {
       "id": "navy-neets-22",
-      "title": "U.S. Navy NEETS Module 22 \u2014 Introduction to Digital Computers",
+      "title": "U.S. Navy NEETS Module 22 — Introduction to Digital Computers",
       "publisher": "U.S. Navy (NEETS), public-release copy via Historic Naval Ships Association",
       "strategy": "direct_pdf",
       "url": "https://maritime.org/doc/neets/mod22.pdf",
@@ -866,7 +865,7 @@
     },
     {
       "id": "navy-neets-24",
-      "title": "U.S. Navy NEETS Module 24 \u2014 Introduction to Fiber Optics",
+      "title": "U.S. Navy NEETS Module 24 — Introduction to Fiber Optics",
       "publisher": "U.S. Navy (NEETS), public-release copy via Historic Naval Ships Association",
       "strategy": "direct_pdf",
       "url": "https://maritime.org/doc/neets/mod24.pdf",
