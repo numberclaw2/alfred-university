@@ -1,4 +1,4 @@
-const CACHE='alfred-u-v11';
+const CACHE='alfred-u-v12';
 const CORE=[
   './','index.html','engineering.html','course.html','calendar.html','progress.html','resources.html','projects.html','documents.html','student-services.html','about.html','deployment.html','404.html',
   'search.html','week.html','labs.html','assessments.html','knowledge.html',
