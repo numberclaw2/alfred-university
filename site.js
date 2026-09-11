@@ -210,7 +210,7 @@
         <div class="week-detail">
           <p><strong>${esc(phaseForWeek(w.week))}</strong></p>
           ${w.start?`<p>${esc(fmtDate(w.start+'T12:00:00'))}</p>`:''}
-          ${w.outcomes?.length?`<p>By the end of this week, you should be able to explain or demonstrate:</p><ul>${w.outcomes.map(o=>`<li>${esc(o)}</li>`).join('')}</ul>`:'<p>See the academic calendar for detailed assignments and outcomes.</p>'}
+          ${w.outcomes?.length?`<p>By the end of this week, you should be able to explain or demonstrate:</p><ul>${w.outcomes.map(o=>`<li>${esc(o)}</li>`).join('')}</ul>`:'<p>See the academic calendar for detailed assignments and outcomes.</p>'}<p><a class="text-link" href="week.html?week=${w.week}">Open full Week ${String(w.week).padStart(2,'0')} module →</a></p>
         </div>
       </div>`).join('');
     $$('.week-button').forEach(b=>b.addEventListener('click',()=>{

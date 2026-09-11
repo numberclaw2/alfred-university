@@ -1,0 +1,48 @@
+ALFRED UNIVERSITY — ACADEMIC LIBRARY v11
+=========================================
+
+WHAT THIS RELEASE DOES
+- Keeps CETa readiness and electronics/embedded career preparation as the governing priority.
+- Adds a real local PDF library for open-license, U.S. government, and explicitly public-release documents.
+- Adds full-content search of those local PDFs after the first GitHub library refresh.
+- Keeps official ETA/manufacturer PDFs as publisher links when redistribution rights are not explicit.
+- Keeps the verified video/course layer from v10.
+- Requires NO Cloudflare/D1 changes.
+
+UPLOAD
+1. Unzip the replacement package.
+2. Upload every file/folder into the ROOT of your existing Alfred University GitHub repository and replace matching files.
+3. IMPORTANT: make sure the hidden folder `.github/workflows/` is uploaded. It contains `library-sync.yml`.
+4. Commit the upload.
+
+FIRST PDF LIBRARY BUILD
+- The GitHub Action named “Refresh Alfred PDF Library” should run automatically after the commit.
+- Open GitHub -> Actions -> Refresh Alfred PDF Library to watch it.
+- If it does not start automatically, open that workflow and choose “Run workflow”.
+- The workflow downloads the approved PDFs, puts the actual files in `library/pdfs/`, extracts their text, regenerates the library/search indexes, and commits the results back to the repo.
+- After the workflow commit finishes and GitHub Pages redeploys, Resources -> Downloaded PDF Library will show the actual local files.
+
+WHAT IS EXPECTED TO BE DOWNLOADED LOCALLY
+- MIT OpenCourseWare 6.002 Circuits and Electronics PDF course pack (lecture notes, labs, assignments, exams, etc.)
+- DOE Electrical Science Volumes 1-4
+- DOE engineering symbology/prints/drawings handbooks
+- DOE Electrical Safety handbook
+- NASA public ESD/workmanship/wiring standards
+- OSHA electrical-safety publications
+- NIST SI/measurement references
+- FCC RF-exposure guidance
+- Selected U.S. Navy NEETS public-release electronics training modules
+
+WHY SOME PDFs ARE LINKS ONLY
+Your GitHub Pages site is publicly accessible. “Free to download” does not automatically mean “free to republish.” ETA International’s current CETa competency is marked All Rights Reserved, and most manufacturer handbooks are publisher-controlled. Those stay as verified official links unless redistribution permission is explicit. They remain first-class resources in CETa mapping/search; they are simply not copied into your public repository.
+
+SEARCH
+Once the library action finishes, Search Everything searches actual extracted PDF content, not just titles/keywords. The Engineering Library also lets you filter local PDFs by collection and CETa domain.
+
+OFFLINE
+Local PDFs are cached after you open them. The entire large PDF library is intentionally not precached at install time so the PWA remains fast and does not force a large first download.
+
+TROUBLESHOOTING
+- `library-sync-report.json` reports any source that failed during the latest refresh.
+- `library/SOURCES.md` lists the PDFs successfully mirrored.
+- No Cloudflare Worker change is part of v11.

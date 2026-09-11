@@ -1,0 +1,61 @@
+(()=>{
+const A=window.ALFRED_ACADEMIC||{}, W=window.ALFRED_WEEKS||[], E=window.ALFRED_EVENTS||[], R=window.ALFRED_RESOURCES||[], L=window.ALFRED_LIBRARY_CATALOG||[], LM=window.ALFRED_LIBRARY_META||{};
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+const dom=id=>A.cetaDomains?.find(x=>String(x.id)===String(id));
+const domainName=id=>{const d=dom(id);return d?`${d.id}.0 ${d.title}`:`CETa ${id}`};
+const ext=(url,label='Open resource')=>`<a class="text-link" href="${esc(url)}" target="_blank" rel="noopener">${esc(label)} ↗</a>`;
+function fillDomains(sel){if(!sel)return; A.cetaDomains.forEach(d=>sel.insertAdjacentHTML('beforeend',`<option value="${d.id}">${d.id}.0 ${esc(d.title)}</option>`));}
+function fillWeeks(sel){if(!sel)return; W.forEach(w=>sel.insertAdjacentHTML('beforeend',`<option value="${w.week}">Week ${String(w.week).padStart(2,'0')} · ${esc(w.topic)}</option>`));}
+function resCard(r){const host=r.hosting==='publisher-only'?'<span class="hosting-badge publisher-only">Publisher copy</span>':r.hosting==='local-open-library'?'<span class="hosting-badge local-copy">Also in local library</span>':'';return `<article class="resource-card enhanced-card"><div class="resource-meta"><span>${esc(r.kind)}</span><span>${esc(r.source)}</span>${r.priority?`<span class="priority-${esc(r.priority.toLowerCase().replace(/[^a-z]+/g,'-'))}">${esc(r.priority)}</span>`:''}${host}</div><h3>${esc(r.title)}</h3><p>${esc(r.summary||'')}</p>${r.hostingNote?`<p class="hosting-note">${esc(r.hostingNote)}</p>`:''}<div class="resource-map">${(r.ceta||[]).slice(0,5).map(x=>`<span>CETa ${esc(x)}</span>`).join('')}${(r.weeks||[]).slice(0,5).map(x=>`<span>W${x}</span>`).join('')}</div><div class="resource-card-foot">${ext(r.url,'Open at publisher')}${r.verified?`<small>Verified ${esc(r.verified)}</small>`:''}</div></article>`}
+
+function localPdfCard(r){return `<article class="resource-card enhanced-card local-pdf-card"><div class="resource-meta"><span>Local PDF</span><span>${esc(r.publisher)}</span><span>${r.pages?esc(r.pages)+' pages':'Full-text indexed'}</span></div><h3>${esc(r.title)}</h3><p>${esc(r.collection||'Engineering Reference')}</p><div class="resource-map">${(r.ceta||[]).slice(0,6).map(x=>`<span>CETa ${esc(x)}</span>`).join('')}${(r.weeks||[]).slice(0,6).map(x=>`<span>W${x}</span>`).join('')}</div><p class="license-note"><strong>Local-copy basis:</strong> ${esc(r.license||'Open/public release')}</p><div class="resource-card-foot"><div class="library-card-actions"><a class="text-link" href="${esc(r.localUrl)}" target="_blank" rel="noopener">Open local PDF →</a><a class="text-link secondary" href="${esc(r.sourceUrl)}" target="_blank" rel="noopener">Publisher/source ↗</a></div>${r.bytes?`<small>${(r.bytes/1048576).toFixed(1)} MB</small>`:''}</div></article>`}
+
+function initResources(){
+ const count=$('#deep-resource-count'); if(count)count.textContent=A.deepResources.length;
+ const localCount=$('#local-pdf-count'); if(localCount)localCount.textContent=L.length||'0';
+ const videoCount=$('#video-resource-count'); if(videoCount)videoCount.textContent=A.deepResources.filter(r=>/(video|course|training|mooc)/i.test([r.kind,r.title].join(' '))).length;
+ const status=$('#library-sync-status'); if(status){status.textContent=L.length?`${L.length} local PDFs indexed${LM.updated?' · refreshed '+new Date(LM.updated).toLocaleDateString():''}${LM.failedSources?` · ${LM.failedSources} source(s) need review`:''}`:'First GitHub PDF-library sync pending';}
+ const lq=$('#local-library-search'), lc=$('#local-library-collection'), ld=$('#local-library-domain'), lout=$('#local-library-results'), lhelp=$('#library-empty-help');
+ if(lc){[...new Set(L.map(r=>r.collection).filter(Boolean))].sort().forEach(x=>lc.insertAdjacentHTML('beforeend',`<option>${esc(x)}</option>`)); fillDomains(ld);}
+ function renderLocal(){if(!lout)return;const q=(lq?.value||'').trim().toLowerCase(), col=lc?.value||'', dm=ld?.value||'';const list=L.filter(r=>(!col||r.collection===col)&&(!dm||(r.ceta||[]).map(String).includes(dm))&&(!q||[r.title,r.publisher,r.collection,r.keywords,(r.ceta||[]).join(' '),(r.weeks||[]).join(' ')].join(' ').toLowerCase().includes(q)));lout.innerHTML=list.length?list.map(localPdfCard).join(''):L.length?'<p class="empty-state">No local PDFs match these filters.</p>':'';if(lhelp)lhelp.hidden=Boolean(L.length);}
+ [lq,lc,ld].forEach(x=>x?.addEventListener('input',renderLocal)); renderLocal();
+ const core=$('#ceta-core-resources'); if(core)core.innerHTML=A.deepResources.filter(r=>r.priority==='CETa CORE').map(resCard).join('');
+ const ks=$('#deep-resource-kind'), ds=$('#deep-resource-domain'), ws=$('#deep-resource-week'), qs=$('#deep-resource-search'), out=$('#deep-resource-results');
+ if(ks){[...new Set(A.deepResources.map(r=>r.kind))].sort().forEach(x=>ks.insertAdjacentHTML('beforeend',`<option>${esc(x)}</option>`)); fillDomains(ds); fillWeeks(ws);}
+ function render(){if(!out)return; const q=(qs?.value||'').trim().toLowerCase(), kind=ks?.value||'', d=ds?.value||'', w=Number(ws?.value||0); const list=A.deepResources.filter(r=>(!kind||r.kind===kind)&&(!d||(r.ceta||[]).includes(d))&&(!w||(r.weeks||[]).includes(w))&&(!q||[r.title,r.source,r.kind,r.summary,r.keywords,r.career,(r.ceta||[]).join(' '),(r.weeks||[]).join(' ')].join(' ').toLowerCase().includes(q))); out.innerHTML=list.length?list.map(resCard).join(''):'<p class="empty-state">No verified resources match these filters.</p>'; }
+ [qs,ks,ds,ws].forEach(x=>x?.addEventListener('input',render)); render();
+ const assigned=$('#assigned-resource-list'); if(assigned) assigned.innerHTML=R.map(r=>`<article class="resource-card"><span class="resource-type">${esc(r.category||r.domain||'Assigned Resource')}</span><h3>${esc(r.title)}</h3><p>${esc(r.domain||'')} · ${(r.weeks||[]).map(w=>'Week '+w).join(', ')}</p>${ext(r.url,'Open assigned resource')}</article>`).join('');
+}
+
+function initWeek(){
+ const select=$('#week-jump-select'), out=$('#week-module'); if(!select||!out)return; fillWeeks(select);
+ const params=new URLSearchParams(location.search); let n=Number(params.get('week')||1); if(!W.some(x=>x.week===n))n=1; select.value=n; select.addEventListener('change',()=>{location.search='?week='+select.value});
+ const w=W.find(x=>x.week===n), sessions=E.filter(e=>e.week===n), domains=A.cetaDomains.filter(d=>(d.weeks||[]).includes(n)), resources=A.deepResources.filter(r=>(r.weeks||[]).includes(n)).sort((a,b)=>String(a.priority).localeCompare(String(b.priority))).slice(0,14), labs=A.labs.filter(l=>l.week===n), career=A.careerMap[String(n)];
+ out.innerHTML=`<div class="module-title"><div><div class="eyebrow green">Week ${String(n).padStart(2,'0')}</div><h2>${esc(w.topic)}</h2><p>${esc(w.start)} – ${esc(w.end)}</p></div><a class="button green" href="calendar.html">Open Calendar</a></div>
+ <div class="module-grid"><section class="module-panel"><h3>Required outcomes</h3><ul>${(w.outcomes||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section><section class="module-panel"><h3>CETa alignment</h3><p class="small-note">Curriculum mapping—not an ETA exam-weight claim.</p>${domains.map(d=>`<a class="domain-chip" href="knowledge.html?domain=${d.id}"><strong>${d.id}.0</strong> ${esc(d.title)}</a>`).join('')}</section></div>
+ <section class="module-panel wide"><div class="panel-heading"><h3>Scheduled learning sequence</h3><span>${sessions.length} calendar item(s)</span></div><div class="module-sessions">${sessions.map(e=>`<details><summary><span>${new Date(e.start).toLocaleDateString('en-US',{month:'short',day:'numeric'})}</span><strong>${esc(e.summary.replace(/^AU-ESET 301 \| /,''))}</strong></summary><div>${e.today?`<h4>Today’s work</h4><pre>${esc(e.today)}</pre>`:''}<h4>Learning outcomes</h4><ul>${(e.outcomes||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div></details>`).join('')}</div></section>
+ ${labs.length?`<section class="module-panel wide"><div class="panel-heading"><h3>Hands-on evidence</h3><a href="labs.html">Full Lab Center →</a></div>${labs.map(l=>`<div class="module-lab"><strong>${esc(l.id)} · ${esc(l.title)}</strong><p>${esc(l.objective)}</p><span>Evidence: ${esc(l.evidence)}</span></div>`).join('')}</section>`:''}
+ <section class="module-panel wide"><div class="panel-heading"><h3>Verified deep resources</h3><a href="resources.html">Engineering Library →</a></div><div class="resource-grid enhanced">${resources.map(resCard).join('')}</div></section>
+ <section class="career-translation"><div><div class="eyebrow">Career Translation</div><h3>${esc(career.unlock)}</h3><p><strong>Roles this builds toward:</strong> ${career.roles.map(esc).join(' · ')}</p></div><div><span>Interview prompt</span><p>${esc(career.interview)}</p></div></section>`;
+}
+
+function initLabs(){
+ const w=$('#lab-week'), d=$('#lab-domain'), q=$('#lab-search'), out=$('#lab-results'); if(!out)return; fillWeeks(w);fillDomains(d);
+ function render(){const query=(q.value||'').toLowerCase(), wk=Number(w.value||0), dm=d.value; const list=A.labs.filter(l=>(!wk||l.week===wk)&&(!dm||(l.ceta||[]).includes(dm))&&(!query||JSON.stringify(l).toLowerCase().includes(query))); out.innerHTML=list.map(l=>`<article class="lab-card"><div class="lab-card-head"><span>${esc(l.id)}</span><span>Week ${l.week}</span></div><h2>${esc(l.title)}</h2><p class="lab-objective">${esc(l.objective)}</p><div class="resource-map">${l.ceta.map(x=>`<span>CETa ${esc(x)}</span>`).join('')}</div><details><summary>Open lab brief</summary><div class="lab-details"><h3>Equipment</h3><p>${esc(l.equipment)}</p><h3>Procedure</h3><ol>${l.procedure.map(x=>`<li>${esc(x)}</li>`).join('')}</ol><h3>Required evidence</h3><p>${esc(l.evidence)}</p><h3>Career connection</h3><p>${esc(l.career)}</p></div></details></article>`).join('')||'<p class="empty-state">No labs match.</p>';}
+ [w,d,q].forEach(x=>x.addEventListener('input',render));render();
+}
+
+function initAssessments(){
+ const seq=$('#assessment-sequence'), dd=$('#domain-diagnostic'); if(seq)seq.innerHTML=A.assessments.map(a=>`<article class="assessment-card"><div><span>${esc(a.id)}</span><span>${esc(a.type)}</span></div><h3>${esc(a.title)}</h3><p>${esc(a.purpose)}</p><p><strong>Standard:</strong> ${esc(a.standard)}</p><p><strong>Evidence:</strong> ${esc(a.evidence)}</p><a href="week.html?week=${a.week}">Open Week ${a.week} →</a></article>`).join('');
+ if(dd)dd.innerHTML=A.cetaDomains.map(d=>`<details class="diagnostic-domain" id="domain-${d.id}"><summary><strong>${d.id}.0 ${esc(d.title)}</strong><span>Open self-check</span></summary><div><p>${esc(d.summary)}</p><ol>${(A.domainPrompts[d.id]||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ol><div class="diagnostic-actions"><a href="https://etai.org/comps/CETa_comps.pdf" target="_blank" rel="noopener">Official competency PDF ↗</a><a href="resources.html">Find resources →</a></div></div></details>`).join('');
+}
+
+function initKnowledge(){
+ const q=$('#knowledge-search'), d=$('#knowledge-domain'), out=$('#knowledge-results'); if(!out)return; fillDomains(d); const params=new URLSearchParams(location.search); if(params.get('domain'))d.value=params.get('domain');
+ function render(){const query=(q.value||'').toLowerCase(), dm=d.value; const list=A.knowledge.filter(k=>(!dm||k.domain===dm)&&(!query||JSON.stringify(k).toLowerCase().includes(query))); out.innerHTML=list.map(k=>`<article class="knowledge-card"><div class="resource-meta"><span>CETa ${esc(k.domain)}</span><span>${k.weeks.map(w=>'W'+w).join(' · ')}</span></div><h2>${esc(k.term)}</h2><p>${esc(k.summary)}</p>${k.formula?`<div class="formula-box">${esc(k.formula)}</div>`:''}<details><summary>Why it matters / deeper note</summary><p>${esc(k.deeper)}</p><a href="search.html?q=${encodeURIComponent(k.term)}">Search all material on this →</a></details></article>`).join('')||'<p class="empty-state">No concepts match.</p>';}
+ [q,d].forEach(x=>x.addEventListener('input',render));render();
+}
+
+const page=document.body.dataset.page; if(page==='resources')initResources(); if(page==='week')initWeek(); if(page==='labs')initLabs(); if(page==='assessments')initAssessments(); if(page==='knowledge')initKnowledge();
+})();

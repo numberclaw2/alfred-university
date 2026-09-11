@@ -1,0 +1,889 @@
+{
+  "version": 1,
+  "updated": "2026-09-11",
+  "mission": "Build a local, searchable study library from open-license or public-release primary sources that support CETa readiness and electronics/embedded career preparation.",
+  "sources": [
+    {
+      "id": "mit-ocw-6002",
+      "title": "MIT OpenCourseWare 6.002 Circuits and Electronics \u2014 Complete PDF Course Pack",
+      "publisher": "MIT OpenCourseWare",
+      "strategy": "zip_pdfs",
+      "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/6.002-spring-2007.zip",
+      "sourceUrl": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/download/",
+      "destination": "library/pdfs/mit-ocw-6-002",
+      "license": "Creative Commons \u2014 MIT OpenCourseWare",
+      "distributionBasis": "OpenCourseWare download package is published for reuse under MIT OCW's Creative Commons terms; preserve attribution and source links.",
+      "collection": "Circuits & Electronics",
+      "ceta": [
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13"
+      ],
+      "weeks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "keywords": "circuit analysis thevenin norton resistor capacitor inductor mosfet diode amplifier transient ac dc frequency response labs exams homework"
+    },
+    {
+      "id": "doe-electrical-science-v1",
+      "title": "DOE Fundamentals Handbook \u2014 Electrical Science, Volume 1",
+      "publisher": "U.S. Department of Energy",
+      "strategy": "page_pdf",
+      "url": "https://www.energy.gov/ehss/articles/doe-hdbk-10111-92",
+      "sourceUrl": "https://www.energy.gov/ehss/articles/doe-hdbk-10111-92",
+      "filename": "DOE-HDBK-1011-92-Vol1-Electrical-Science.pdf",
+      "license": "U.S. Government publication / public release",
+      "distributionBasis": "DOE handbook states Distribution Statement A: Approved for public release; distribution is unlimited.",
+      "collection": "Electrical Fundamentals",
+      "ceta": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "weeks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "keywords": "electrical theory atom current voltage resistance magnetism dc batteries transformers fundamentals"
+    },
+    {
+      "id": "doe-electrical-science-v2",
+      "title": "DOE Fundamentals Handbook \u2014 Electrical Science, Volume 2",
+      "publisher": "U.S. Department of Energy",
+      "strategy": "page_pdf",
+      "url": "https://www.energy.gov/ehss/articles/doe-hdbk-10112-92",
+      "sourceUrl": "https://www.energy.gov/ehss/articles/doe-hdbk-10112-92",
+      "filename": "DOE-HDBK-1011-92-Vol2-Electrical-Science.pdf",
+      "license": "U.S. Government publication / public release",
+      "distributionBasis": "DOE handbook states Distribution Statement A: Approved for public release; distribution is unlimited.",
+      "collection": "Electrical Fundamentals",
+      "ceta": [
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "9"
+      ],
+      "weeks": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9
+      ],
+      "keywords": "ac dc theory circuits motors generators reactive power batteries regulators transformers test instruments measurement"
+    },
+    {
+      "id": "doe-electrical-science-v3",
+      "title": "DOE Fundamentals Handbook \u2014 Electrical Science, Volume 3",
+      "publisher": "U.S. Department of Energy",
+      "strategy": "page_pdf",
+      "url": "https://www.energy.gov/ehss/articles/doe-hdbk-10113-92",
+      "sourceUrl": "https://www.energy.gov/ehss/articles/doe-hdbk-10113-92",
+      "filename": "DOE-HDBK-1011-92-Vol3-Electrical-Science.pdf",
+      "license": "U.S. Government publication / public release",
+      "distributionBasis": "DOE handbook states Distribution Statement A: Approved for public release; distribution is unlimited.",
+      "collection": "Electrical Fundamentals",
+      "ceta": [
+        "2",
+        "4",
+        "5",
+        "6",
+        "9"
+      ],
+      "weeks": [
+        4,
+        5,
+        6,
+        7,
+        9
+      ],
+      "keywords": "ac circuits impedance reactance resonance power factor transformers meters electrical science"
+    },
+    {
+      "id": "doe-electrical-science-v4",
+      "title": "DOE Fundamentals Handbook \u2014 Electrical Science, Volume 4",
+      "publisher": "U.S. Department of Energy",
+      "strategy": "page_pdf",
+      "url": "https://www.energy.gov/ehss/articles/doe-hdbk-10114-92",
+      "sourceUrl": "https://www.energy.gov/ehss/articles/doe-hdbk-10114-92",
+      "filename": "DOE-HDBK-1011-92-Vol4-Electrical-Science.pdf",
+      "license": "U.S. Government publication / public release",
+      "distributionBasis": "DOE handbook states Distribution Statement A: Approved for public release; distribution is unlimited.",
+      "collection": "Electrical Fundamentals",
+      "ceta": [
+        "2",
+        "4",
+        "5",
+        "6",
+        "9"
+      ],
+      "weeks": [
+        4,
+        5,
+        6,
+        7,
+        9
+      ],
+      "keywords": "electrical distribution relays control circuits transformers batteries motors generators test instruments"
+    },
+    {
+      "id": "doe-symbology-v1",
+      "title": "DOE Fundamentals Handbook \u2014 Engineering Symbology, Prints, and Drawings, Volume 1",
+      "publisher": "U.S. Department of Energy",
+      "strategy": "page_pdf",
+      "url": "https://www.energy.gov/ehss/articles/doe-hdbk-10161-93",
+      "sourceUrl": "https://www.energy.gov/ehss/articles/doe-hdbk-10161-93",
+      "filename": "DOE-HDBK-1016-1-93-Symbology-Prints-Drawings-Vol1.pdf",
+      "license": "U.S. Government publication / public release",
+      "distributionBasis": "Government training handbook published for public access.",
+      "collection": "Schematics & Documentation",
+      "ceta": [
+        "7",
+        "9",
+        "21"
+      ],
+      "weeks": [
+        2,
+        3,
+        5,
+        8,
+        20,
+        21
+      ],
+      "keywords": "schematics symbols prints drawings diagrams logic electrical electronic documentation blueprint"
+    },
+    {
+      "id": "doe-symbology-v2",
+      "title": "DOE Fundamentals Handbook \u2014 Engineering Symbology, Prints, and Drawings, Volume 2",
+      "publisher": "U.S. Department of Energy",
+      "strategy": "page_pdf",
+      "url": "https://www.energy.gov/ehss/articles/doe-hdbk-10162-93",
+      "sourceUrl": "https://www.energy.gov/ehss/articles/doe-hdbk-10162-93",
+      "filename": "DOE-HDBK-1016-2-93-Symbology-Prints-Drawings-Vol2.pdf",
+      "license": "U.S. Government publication / public release",
+      "distributionBasis": "Government training handbook published for public access.",
+      "collection": "Schematics & Documentation",
+      "ceta": [
+        "7",
+        "9",
+        "21"
+      ],
+      "weeks": [
+        2,
+        3,
+        5,
+        8,
+        20,
+        21
+      ],
+      "keywords": "schematics symbols prints drawings diagrams instrumentation control documentation blueprint"
+    },
+    {
+      "id": "doe-electrical-safety-2013",
+      "title": "DOE Handbook \u2014 Electrical Safety (DOE-HDBK-1092-2013)",
+      "publisher": "U.S. Department of Energy",
+      "strategy": "page_pdf",
+      "url": "https://www.energy.gov/ehss/articles/doe-hdbk-1092-2013",
+      "sourceUrl": "https://www.energy.gov/ehss/articles/doe-hdbk-1092-2013",
+      "filename": "DOE-HDBK-1092-2013-Electrical-Safety.pdf",
+      "license": "U.S. Government publication / public release",
+      "distributionBasis": "DOE technical safety handbook published for public access.",
+      "collection": "Safety",
+      "ceta": [
+        "1",
+        "9",
+        "21"
+      ],
+      "weeks": [
+        1,
+        3,
+        5,
+        12,
+        19,
+        20,
+        21,
+        22
+      ],
+      "keywords": "electrical safety shock arc flash lockout tagout PPE grounding safe work practices test equipment"
+    },
+    {
+      "id": "nasa-esd-873921",
+      "title": "NASA-HDBK-8739.21 \u2014 Workmanship Manual for Electrostatic Discharge Control",
+      "publisher": "NASA",
+      "strategy": "page_pdf",
+      "url": "https://standards.nasa.gov/standard/NASA/NASA-HDBK-873921",
+      "sourceUrl": "https://standards.nasa.gov/standard/NASA/NASA-HDBK-873921",
+      "filename": "NASA-HDBK-8739.21-ESD-Control.pdf",
+      "license": "NASA Internet Public standard",
+      "distributionBasis": "NASA marks the standard Internet Public and cleared for public accessibility.",
+      "collection": "Workmanship & ESD",
+      "ceta": [
+        "1",
+        "3",
+        "21"
+      ],
+      "weeks": [
+        1,
+        3,
+        5,
+        12,
+        19,
+        20
+      ],
+      "keywords": "ESD electrostatic discharge workmanship electronics components handling grounding wrist strap static protection"
+    },
+    {
+      "id": "nasa-wire-harness-87394",
+      "title": "NASA-STD-8739.4 \u2014 Crimping, Interconnecting Cables, Harnesses, and Wiring",
+      "publisher": "NASA",
+      "strategy": "page_pdf",
+      "url": "https://standards.nasa.gov/standard/NASA/NASA-STD-87394",
+      "sourceUrl": "https://standards.nasa.gov/standard/NASA/NASA-STD-87394",
+      "filename": "NASA-STD-8739.4-Cables-Harnesses-Wiring.pdf",
+      "license": "NASA Internet Public standard",
+      "distributionBasis": "NASA technical standard page provides public document access.",
+      "collection": "Workmanship & Fabrication",
+      "ceta": [
+        "1",
+        "3",
+        "7",
+        "21"
+      ],
+      "weeks": [
+        3,
+        5,
+        12,
+        19,
+        20
+      ],
+      "keywords": "crimp cable harness wiring workmanship connector splice insulation terminal strain relief inspection"
+    },
+    {
+      "id": "nasa-workmanship-implementation-87396",
+      "title": "NASA-STD-8739.6 \u2014 Implementation Requirements for NASA Workmanship Standards",
+      "publisher": "NASA",
+      "strategy": "page_pdf",
+      "url": "https://standards.nasa.gov/standard/NASA/NASA-STD-87396",
+      "sourceUrl": "https://standards.nasa.gov/standard/NASA/NASA-STD-87396",
+      "filename": "NASA-STD-8739.6-Workmanship-Implementation.pdf",
+      "license": "NASA Internet Public standard",
+      "distributionBasis": "NASA marks the standard Internet Public and provides public document access.",
+      "collection": "Workmanship & Fabrication",
+      "ceta": [
+        "1",
+        "3",
+        "21"
+      ],
+      "weeks": [
+        3,
+        5,
+        12,
+        19,
+        20
+      ],
+      "keywords": "workmanship quality assurance inspection training electronics fabrication cable solder ESD"
+    },
+    {
+      "id": "osha-3075",
+      "title": "OSHA 3075 \u2014 Controlling Electrical Hazards",
+      "publisher": "U.S. Occupational Safety and Health Administration",
+      "strategy": "direct_pdf",
+      "url": "https://www.osha.gov/sites/default/files/publications/OSHA3075.pdf",
+      "sourceUrl": "https://www.osha.gov/publications/bytopic/electrical",
+      "filename": "OSHA-3075-Controlling-Electrical-Hazards.pdf",
+      "license": "U.S. Government publication",
+      "distributionBasis": "Federal government safety publication offered digitally by OSHA.",
+      "collection": "Safety",
+      "ceta": [
+        "1",
+        "21"
+      ],
+      "weeks": [
+        1,
+        3,
+        5,
+        19,
+        20,
+        21
+      ],
+      "keywords": "electrical hazards shock electrocution grounding protection safe work OSHA"
+    },
+    {
+      "id": "osha-3294",
+      "title": "OSHA 3294 \u2014 Electrical Safety QuickCard",
+      "publisher": "U.S. Occupational Safety and Health Administration",
+      "strategy": "direct_pdf",
+      "url": "https://www.osha.gov/sites/default/files/publications/OSHA3294.pdf",
+      "sourceUrl": "https://www.osha.gov/publications/bytopic/electrical",
+      "filename": "OSHA-3294-Electrical-Safety-QuickCard.pdf",
+      "license": "U.S. Government publication",
+      "distributionBasis": "Federal government safety publication offered digitally by OSHA.",
+      "collection": "Safety",
+      "ceta": [
+        "1"
+      ],
+      "weeks": [
+        1,
+        3,
+        5
+      ],
+      "keywords": "electrical safety quickcard shock hazards grounding OSHA"
+    },
+    {
+      "id": "osha-4475",
+      "title": "OSHA FS-4475 \u2014 Being Aware of Arc Flash Hazards",
+      "publisher": "U.S. Occupational Safety and Health Administration",
+      "strategy": "direct_pdf",
+      "url": "https://www.osha.gov/sites/default/files/publications/OSHA4475.pdf",
+      "sourceUrl": "https://www.osha.gov/publications/bytopic/electrical",
+      "filename": "OSHA-4475-Arc-Flash-Hazards.pdf",
+      "license": "U.S. Government publication",
+      "distributionBasis": "Federal government safety fact sheet offered digitally by OSHA.",
+      "collection": "Safety",
+      "ceta": [
+        "1"
+      ],
+      "weeks": [
+        1,
+        3,
+        5,
+        19
+      ],
+      "keywords": "arc flash electrical safety boundaries PPE hazard awareness"
+    },
+    {
+      "id": "osha-3942",
+      "title": "OSHA FS-3942 \u2014 Working Safely with Electricity",
+      "publisher": "U.S. Occupational Safety and Health Administration",
+      "strategy": "direct_pdf",
+      "url": "https://www.osha.gov/sites/default/files/publications/OSHA3942.pdf",
+      "sourceUrl": "https://www.osha.gov/publications/bytopic/electrical",
+      "filename": "OSHA-FS-3942-Working-Safely-with-Electricity.pdf",
+      "license": "U.S. Government publication",
+      "distributionBasis": "Federal government safety fact sheet offered digitally by OSHA.",
+      "collection": "Safety",
+      "ceta": [
+        "1"
+      ],
+      "weeks": [
+        1,
+        3,
+        5
+      ],
+      "keywords": "working safely electricity shock electrocution OSHA safety"
+    },
+    {
+      "id": "nist-sp811",
+      "title": "NIST SP 811 \u2014 Guide for the Use of the International System of Units (SI)",
+      "publisher": "National Institute of Standards and Technology",
+      "strategy": "direct_pdf",
+      "url": "https://physics.nist.gov/cuu/pdf/sp811.pdf",
+      "sourceUrl": "https://www.nist.gov/pml/special-publication-811",
+      "filename": "NIST-SP-811-SI-Guide.pdf",
+      "license": "U.S. Government publication",
+      "distributionBasis": "NIST publication available free from the U.S. government; retained because CETa references SI notation conventions.",
+      "collection": "Measurement & Technical Writing",
+      "ceta": [
+        "2",
+        "9",
+        "21"
+      ],
+      "weeks": [
+        1,
+        2,
+        20,
+        21
+      ],
+      "keywords": "SI units metric prefixes notation symbols quantities measurement technical writing NIST"
+    },
+    {
+      "id": "nist-sp330-2019",
+      "title": "NIST SP 330 (2019) \u2014 The International System of Units (SI)",
+      "publisher": "National Institute of Standards and Technology",
+      "strategy": "direct_pdf",
+      "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.330-2019.pdf",
+      "sourceUrl": "https://www.nist.gov/publications/international-system-units-si-2019-edition",
+      "filename": "NIST-SP-330-2019-SI.pdf",
+      "license": "U.S. Government publication",
+      "distributionBasis": "NIST publication available free of charge; current U.S. interpretation of the 2019 SI.",
+      "collection": "Measurement & Technical Writing",
+      "ceta": [
+        "2",
+        "9",
+        "21"
+      ],
+      "weeks": [
+        1,
+        2,
+        20,
+        21
+      ],
+      "keywords": "SI units metric base units derived units prefixes measurement NIST 2019"
+    },
+    {
+      "id": "fcc-oet65",
+      "title": "FCC OET Bulletin 65 \u2014 Evaluating Compliance With RF Exposure Guidelines",
+      "publisher": "Federal Communications Commission",
+      "strategy": "direct_pdf",
+      "url": "https://transition.fcc.gov/bureaus/oet/info/documents/bulletins/oet65/oet65.pdf",
+      "sourceUrl": "https://www.fcc.gov/general/oet-bulletins-line",
+      "filename": "FCC-OET-Bulletin-65-RF-Exposure.pdf",
+      "license": "U.S. Government publication",
+      "distributionBasis": "Federal Communications Commission bulletin published for public use.",
+      "collection": "RF & Safety",
+      "ceta": [
+        "1",
+        "11",
+        "19"
+      ],
+      "weeks": [
+        10,
+        11,
+        19,
+        20
+      ],
+      "keywords": "RF exposure MPE radio frequency safety electromagnetic field FCC antenna power density"
+    },
+    {
+      "id": "navy-neets-01",
+      "title": "U.S. Navy NEETS Module 01 \u2014 Introduction to Matter, Energy, and Direct Current",
+      "publisher": "U.S. Navy (NEETS), public-release copy via Historic Naval Ships Association",
+      "strategy": "direct_pdf",
+      "url": "https://maritime.org/doc/neets/mod01.pdf",
+      "sourceUrl": "https://www.maritime.org/doc/",
+      "filename": "US-Navy-NEETS-Module-01.pdf",
+      "license": "U.S. Government training publication / Distribution Statement A",
+      "distributionBasis": "The NEETS module states: Approved for public release; distribution is unlimited. Included as an archival supplemental reference; current ETA/manufacturer guidance controls when newer practice differs.",
+      "collection": "NEETS Archival Electronics Training",
+      "ceta": [
+        "2"
+      ],
+      "weeks": [
+        1,
+        2,
+        4,
+        5
+      ],
+      "keywords": "matter energy current voltage resistance ohm law dc NEETS Navy electronics training archival"
+    },
+    {
+      "id": "navy-neets-02",
+      "title": "U.S. Navy NEETS Module 02 \u2014 Introduction to Alternating Current and Transformers",
+      "publisher": "U.S. Navy (NEETS), public-release copy via Historic Naval Ships Association",
+      "strategy": "direct_pdf",
+      "url": "https://maritime.org/doc/neets/mod02.pdf",
+      "sourceUrl": "https://www.maritime.org/doc/",
+      "filename": "US-Navy-NEETS-Module-02.pdf",
+      "license": "U.S. Government training publication / Distribution Statement A",
+      "distributionBasis": "The NEETS module states: Approved for public release; distribution is unlimited. Included as an archival supplemental reference; current ETA/manufacturer guidance controls when newer practice differs.",
+      "collection": "NEETS Archival Electronics Training",
+      "ceta": [
+        "2",
+        "4",
+        "5"
+      ],
+      "weeks": [
+        4,
+        6,
+        7
+      ],
+      "keywords": "alternating current AC transformer reactance impedance NEETS Navy electronics training archival"
+    },
+    {
+      "id": "navy-neets-03",
+      "title": "U.S. Navy NEETS Module 03 \u2014 Introduction to Circuit Protection, Control, and Measurement",
+      "publisher": "U.S. Navy (NEETS), public-release copy via Historic Naval Ships Association",
+      "strategy": "direct_pdf",
+      "url": "https://maritime.org/doc/neets/mod03.pdf",
+      "sourceUrl": "https://www.maritime.org/doc/",
+      "filename": "US-Navy-NEETS-Module-03.pdf",
+      "license": "U.S. Government training publication / Distribution Statement A",
+      "distributionBasis": "The NEETS module states: Approved for public release; distribution is unlimited. Included as an archival supplemental reference; current ETA/manufacturer guidance controls when newer practice differs.",
+      "collection": "NEETS Archival Electronics Training",
+      "ceta": [
+        "1",
+        "9"
+      ],
+      "weeks": [
+        1,
+        3,
+        5,
+        9
+      ],
+      "keywords": "fuse breaker protection relay control measurement meter NEETS Navy electronics training archival"
+    },
+    {
+      "id": "navy-neets-04",
+      "title": "U.S. Navy NEETS Module 04 \u2014 Electrical Conductors, Wiring Techniques, and Schematic Reading",
+      "publisher": "U.S. Navy (NEETS), public-release copy via Historic Naval Ships Association",
+      "strategy": "direct_pdf",
+      "url": "https://maritime.org/doc/neets/mod04.pdf",
+      "sourceUrl": "https://www.maritime.org/doc/",
+      "filename": "US-Navy-NEETS-Module-04.pdf",
+      "license": "U.S. Government training publication / Distribution Statement A",
+      "distributionBasis": "The NEETS module states: Approved for public release; distribution is unlimited. Included as an archival supplemental reference; current ETA/manufacturer guidance controls when newer practice differs.",
+      "collection": "NEETS Archival Electronics Training",
+      "ceta": [
+        "3",
+        "7",
+        "21"
+      ],
+      "weeks": [
+        3,
+        5,
+        12,
+        20
+      ],
+      "keywords": "conductors wiring connectors schematic symbols solder cable NEETS Navy electronics training archival"
+    },
+    {
+      "id": "navy-neets-05",
+      "title": "U.S. Navy NEETS Module 05 \u2014 Introduction to Generators and Motors",
+      "publisher": "U.S. Navy (NEETS), public-release copy via Historic Naval Ships Association",
+      "strategy": "direct_pdf",
+      "url": "https://maritime.org/doc/neets/mod05.pdf",
+      "sourceUrl": "https://www.maritime.org/doc/",
+      "filename": "US-Navy-NEETS-Module-05.pdf",
+      "license": "U.S. Government training publication / Distribution Statement A",
+      "distributionBasis": "The NEETS module states: Approved for public release; distribution is unlimited. Included as an archival supplemental reference; current ETA/manufacturer guidance controls when newer practice differs.",
+      "collection": "NEETS Archival Electronics Training",
+      "ceta": [
+        "2",
+        "3",
+        "5"
+      ],
+      "weeks": [
+        6,
+        7
+      ],
+      "keywords": "generator motor magnetism induction electromechanical NEETS Navy electronics training archival"
+    },
+    {
+      "id": "navy-neets-07",
+      "title": "U.S. Navy NEETS Module 07 \u2014 Introduction to Solid-State Devices and Power Supplies",
+      "publisher": "U.S. Navy (NEETS), public-release copy via Historic Naval Ships Association",
+      "strategy": "direct_pdf",
+      "url": "https://maritime.org/doc/neets/mod07.pdf",
+      "sourceUrl": "https://www.maritime.org/doc/",
+      "filename": "US-Navy-NEETS-Module-07.pdf",
+      "license": "U.S. Government training publication / Distribution Statement A",
+      "distributionBasis": "The NEETS module states: Approved for public release; distribution is unlimited. Included as an archival supplemental reference; current ETA/manufacturer guidance controls when newer practice differs.",
+      "collection": "NEETS Archival Electronics Training",
+      "ceta": [
+        "3",
+        "5",
+        "6"
+      ],
+      "weeks": [
+        7,
+        8,
+        9
+      ],
+      "keywords": "diode transistor semiconductor power supply rectifier regulator NEETS Navy electronics training archival"
+    },
+    {
+      "id": "navy-neets-08",
+      "title": "U.S. Navy NEETS Module 08 \u2014 Introduction to Amplifiers",
+      "publisher": "U.S. Navy (NEETS), public-release copy via Historic Naval Ships Association",
+      "strategy": "direct_pdf",
+      "url": "https://maritime.org/doc/neets/mod08.pdf",
+      "sourceUrl": "https://www.maritime.org/doc/",
+      "filename": "US-Navy-NEETS-Module-08.pdf",
+      "license": "U.S. Government training publication / Distribution Statement A",
+      "distributionBasis": "The NEETS module states: Approved for public release; distribution is unlimited. Included as an archival supplemental reference; current ETA/manufacturer guidance controls when newer practice differs.",
+      "collection": "NEETS Archival Electronics Training",
+      "ceta": [
+        "6"
+      ],
+      "weeks": [
+        8,
+        9
+      ],
+      "keywords": "amplifier gain bias transistor op amp signal NEETS Navy electronics training archival"
+    },
+    {
+      "id": "navy-neets-09",
+      "title": "U.S. Navy NEETS Module 09 \u2014 Wave-Generation and Wave-Shaping Circuits",
+      "publisher": "U.S. Navy (NEETS), public-release copy via Historic Naval Ships Association",
+      "strategy": "direct_pdf",
+      "url": "https://maritime.org/doc/neets/mod09.pdf",
+      "sourceUrl": "https://www.maritime.org/doc/",
+      "filename": "US-Navy-NEETS-Module-09.pdf",
+      "license": "U.S. Government training publication / Distribution Statement A",
+      "distributionBasis": "The NEETS module states: Approved for public release; distribution is unlimited. Included as an archival supplemental reference; current ETA/manufacturer guidance controls when newer practice differs.",
+      "collection": "NEETS Archival Electronics Training",
+      "ceta": [
+        "4",
+        "6",
+        "10"
+      ],
+      "weeks": [
+        6,
+        8,
+        9
+      ],
+      "keywords": "oscillator multivibrator waveform pulse filter wave shaping NEETS Navy electronics training archival"
+    },
+    {
+      "id": "navy-neets-10",
+      "title": "U.S. Navy NEETS Module 10 \u2014 Wave Propagation, Transmission Lines, and Antennas",
+      "publisher": "U.S. Navy (NEETS), public-release copy via Historic Naval Ships Association",
+      "strategy": "direct_pdf",
+      "url": "https://maritime.org/doc/neets/mod10.pdf",
+      "sourceUrl": "https://www.maritime.org/doc/",
+      "filename": "US-Navy-NEETS-Module-10.pdf",
+      "license": "U.S. Government training publication / Distribution Statement A",
+      "distributionBasis": "The NEETS module states: Approved for public release; distribution is unlimited. Included as an archival supplemental reference; current ETA/manufacturer guidance controls when newer practice differs.",
+      "collection": "NEETS Archival Electronics Training",
+      "ceta": [
+        "11",
+        "12",
+        "13"
+      ],
+      "weeks": [
+        10,
+        11
+      ],
+      "keywords": "wave propagation transmission line antenna impedance RF NEETS Navy electronics training archival"
+    },
+    {
+      "id": "navy-neets-12",
+      "title": "U.S. Navy NEETS Module 12 \u2014 Modulation Principles",
+      "publisher": "U.S. Navy (NEETS), public-release copy via Historic Naval Ships Association",
+      "strategy": "direct_pdf",
+      "url": "https://maritime.org/doc/neets/mod12.pdf",
+      "sourceUrl": "https://www.maritime.org/doc/",
+      "filename": "US-Navy-NEETS-Module-12.pdf",
+      "license": "U.S. Government training publication / Distribution Statement A",
+      "distributionBasis": "The NEETS module states: Approved for public release; distribution is unlimited. Included as an archival supplemental reference; current ETA/manufacturer guidance controls when newer practice differs.",
+      "collection": "NEETS Archival Electronics Training",
+      "ceta": [
+        "11",
+        "12"
+      ],
+      "weeks": [
+        10,
+        11
+      ],
+      "keywords": "AM FM modulation communications transmitter receiver NEETS Navy electronics training archival"
+    },
+    {
+      "id": "navy-neets-13",
+      "title": "U.S. Navy NEETS Module 13 \u2014 Introduction to Number Systems and Logic Circuits",
+      "publisher": "U.S. Navy (NEETS), public-release copy via Historic Naval Ships Association",
+      "strategy": "direct_pdf",
+      "url": "https://maritime.org/doc/neets/mod13.pdf",
+      "sourceUrl": "https://www.maritime.org/doc/",
+      "filename": "US-Navy-NEETS-Module-13.pdf",
+      "license": "U.S. Government training publication / Distribution Statement A",
+      "distributionBasis": "The NEETS module states: Approved for public release; distribution is unlimited. Included as an archival supplemental reference; current ETA/manufacturer guidance controls when newer practice differs.",
+      "collection": "NEETS Archival Electronics Training",
+      "ceta": [
+        "14",
+        "15"
+      ],
+      "weeks": [
+        13,
+        14,
+        15
+      ],
+      "keywords": "binary hexadecimal logic gates boolean digital number systems NEETS Navy electronics training archival"
+    },
+    {
+      "id": "navy-neets-14",
+      "title": "U.S. Navy NEETS Module 14 \u2014 Introduction to Microelectronics",
+      "publisher": "U.S. Navy (NEETS), public-release copy via Historic Naval Ships Association",
+      "strategy": "direct_pdf",
+      "url": "https://maritime.org/doc/neets/mod14.pdf",
+      "sourceUrl": "https://www.maritime.org/doc/",
+      "filename": "US-Navy-NEETS-Module-14.pdf",
+      "license": "U.S. Government training publication / Distribution Statement A",
+      "distributionBasis": "The NEETS module states: Approved for public release; distribution is unlimited. Included as an archival supplemental reference; current ETA/manufacturer guidance controls when newer practice differs.",
+      "collection": "NEETS Archival Electronics Training",
+      "ceta": [
+        "3",
+        "14",
+        "15"
+      ],
+      "weeks": [
+        13,
+        14,
+        15,
+        16
+      ],
+      "keywords": "integrated circuits microprocessor microelectronics digital analog NEETS Navy electronics training archival"
+    },
+    {
+      "id": "navy-neets-16",
+      "title": "U.S. Navy NEETS Module 16 \u2014 Introduction to Test Equipment",
+      "publisher": "U.S. Navy (NEETS), public-release copy via Historic Naval Ships Association",
+      "strategy": "direct_pdf",
+      "url": "https://maritime.org/doc/neets/mod16.pdf",
+      "sourceUrl": "https://www.maritime.org/doc/",
+      "filename": "US-Navy-NEETS-Module-16.pdf",
+      "license": "U.S. Government training publication / Distribution Statement A",
+      "distributionBasis": "The NEETS module states: Approved for public release; distribution is unlimited. Included as an archival supplemental reference; current ETA/manufacturer guidance controls when newer practice differs.",
+      "collection": "NEETS Archival Electronics Training",
+      "ceta": [
+        "9",
+        "17"
+      ],
+      "weeks": [
+        3,
+        5,
+        9,
+        17,
+        18
+      ],
+      "keywords": "multimeter oscilloscope signal generator frequency counter test equipment troubleshooting NEETS Navy electronics training archival"
+    },
+    {
+      "id": "navy-neets-17",
+      "title": "U.S. Navy NEETS Module 17 \u2014 Radio-Frequency Communications Principles",
+      "publisher": "U.S. Navy (NEETS), public-release copy via Historic Naval Ships Association",
+      "strategy": "direct_pdf",
+      "url": "https://maritime.org/doc/neets/mod17.pdf",
+      "sourceUrl": "https://www.maritime.org/doc/",
+      "filename": "US-Navy-NEETS-Module-17.pdf",
+      "license": "U.S. Government training publication / Distribution Statement A",
+      "distributionBasis": "The NEETS module states: Approved for public release; distribution is unlimited. Included as an archival supplemental reference; current ETA/manufacturer guidance controls when newer practice differs.",
+      "collection": "NEETS Archival Electronics Training",
+      "ceta": [
+        "11",
+        "12",
+        "13"
+      ],
+      "weeks": [
+        10,
+        11
+      ],
+      "keywords": "radio frequency communications transmitter receiver antenna modulation NEETS Navy electronics training archival"
+    },
+    {
+      "id": "navy-neets-19",
+      "title": "U.S. Navy NEETS Module 19 \u2014 The Technician's Handbook",
+      "publisher": "U.S. Navy (NEETS), public-release copy via Historic Naval Ships Association",
+      "strategy": "direct_pdf",
+      "url": "https://maritime.org/doc/neets/mod19.pdf",
+      "sourceUrl": "https://www.maritime.org/doc/",
+      "filename": "US-Navy-NEETS-Module-19.pdf",
+      "license": "U.S. Government training publication / Distribution Statement A",
+      "distributionBasis": "The NEETS module states: Approved for public release; distribution is unlimited. Included as an archival supplemental reference; current ETA/manufacturer guidance controls when newer practice differs.",
+      "collection": "NEETS Archival Electronics Training",
+      "ceta": [
+        "1",
+        "7",
+        "9",
+        "17",
+        "21"
+      ],
+      "weeks": [
+        3,
+        5,
+        12,
+        19,
+        20,
+        21
+      ],
+      "keywords": "technician safety tools soldering documentation troubleshooting maintenance NEETS Navy electronics training archival"
+    },
+    {
+      "id": "navy-neets-21",
+      "title": "U.S. Navy NEETS Module 21 \u2014 Test Methods and Practices",
+      "publisher": "U.S. Navy (NEETS), public-release copy via Historic Naval Ships Association",
+      "strategy": "direct_pdf",
+      "url": "https://maritime.org/doc/neets/mod21.pdf",
+      "sourceUrl": "https://www.maritime.org/doc/",
+      "filename": "US-Navy-NEETS-Module-21.pdf",
+      "license": "U.S. Government training publication / Distribution Statement A",
+      "distributionBasis": "The NEETS module states: Approved for public release; distribution is unlimited. Included as an archival supplemental reference; current ETA/manufacturer guidance controls when newer practice differs.",
+      "collection": "NEETS Archival Electronics Training",
+      "ceta": [
+        "9",
+        "17",
+        "21"
+      ],
+      "weeks": [
+        5,
+        9,
+        17,
+        18,
+        20,
+        21
+      ],
+      "keywords": "test methods troubleshooting measurement calibration procedure fault isolation NEETS Navy electronics training archival"
+    },
+    {
+      "id": "navy-neets-22",
+      "title": "U.S. Navy NEETS Module 22 \u2014 Introduction to Digital Computers",
+      "publisher": "U.S. Navy (NEETS), public-release copy via Historic Naval Ships Association",
+      "strategy": "direct_pdf",
+      "url": "https://maritime.org/doc/neets/mod22.pdf",
+      "sourceUrl": "https://www.maritime.org/doc/",
+      "filename": "US-Navy-NEETS-Module-22.pdf",
+      "license": "U.S. Government training publication / Distribution Statement A",
+      "distributionBasis": "The NEETS module states: Approved for public release; distribution is unlimited. Included as an archival supplemental reference; current ETA/manufacturer guidance controls when newer practice differs.",
+      "collection": "NEETS Archival Electronics Training",
+      "ceta": [
+        "15",
+        "16"
+      ],
+      "weeks": [
+        13,
+        14,
+        15,
+        16
+      ],
+      "keywords": "computer architecture memory processor digital computer peripherals programming NEETS Navy electronics training archival"
+    },
+    {
+      "id": "navy-neets-24",
+      "title": "U.S. Navy NEETS Module 24 \u2014 Introduction to Fiber Optics",
+      "publisher": "U.S. Navy (NEETS), public-release copy via Historic Naval Ships Association",
+      "strategy": "direct_pdf",
+      "url": "https://maritime.org/doc/neets/mod24.pdf",
+      "sourceUrl": "https://www.maritime.org/doc/",
+      "filename": "US-Navy-NEETS-Module-24.pdf",
+      "license": "U.S. Government training publication / Distribution Statement A",
+      "distributionBasis": "The NEETS module states: Approved for public release; distribution is unlimited. Included as an archival supplemental reference; current ETA/manufacturer guidance controls when newer practice differs.",
+      "collection": "NEETS Archival Electronics Training",
+      "ceta": [
+        "1",
+        "18"
+      ],
+      "weeks": [
+        18,
+        19
+      ],
+      "keywords": "fiber optics light optical safety transmitter receiver photonics NEETS Navy electronics training archival"
+    }
+  ]
+}

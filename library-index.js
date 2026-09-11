@@ -1,0 +1,1 @@
+window.ALFRED_LIBRARY_INDEX = [];
