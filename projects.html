@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0d3e31">
+<meta name="description" content="AU-ESET 301 capstone project center and employer-facing technical evidence requirements.">
+<link rel="icon" href="assets/icon-192.png">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="assets/styles.css">
+<title>Project Center | Alfred University</title>
+</head>
+<body data-page="projects">
+
+<header class="site-header">
+  <div class="topline">
+    <div class="shell topline-inner">
+      <span>School of Engineering and Applied Technology</span>
+      <span class="desktop-only">Established 1998 · Home of the Grizzlies</span>
+    </div>
+  </div>
+  <div class="shell brand-row">
+    <a class="brand" href="index.html">
+      <img src="assets/crest.webp" alt="Alfred University grizzly crest">
+      <div>
+        <span class="brand-name">ALFRED UNIVERSITY</span>
+        <span class="brand-sub">Discere · Aedificare · Servire</span>
+      </div>
+    </a>
+    <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+  </div>
+  <nav class="main-nav">
+    <div class="shell nav-links"><a href="index.html" class="">Home</a><a href="engineering.html" class="">Engineering</a><a href="course.html" class="">AU-ESET 301</a><a href="calendar.html" class="">Calendar</a><a href="resources.html" class="">Resources</a><a href="projects.html" class="active">Projects</a><a href="documents.html" class="">Documents</a><a href="student-services.html" class="">Student Services</a><a href="about.html" class="">About</a></div>
+  </nav>
+</header>
+
+<main>
+<section class="project-page-hero">
+  <div class="shell project-page-grid">
+    <div>
+      <div class="eyebrow">Grizzly Engineering Project Center</div>
+      <h1>Project 1 is where the course becomes proof.</h1>
+      <p>The capstone should look less like a hobby build and more like a compact engineering project: requirements, interfaces, controlled bring-up, firmware, automated test, fault injection, measurements, and a professional report.</p>
+      <div class="hero-actions">
+        <a class="button gold" href="calendar.html">Project Calendar</a>
+        <a class="button outline-light" href="documents/Alfred University - AU-ESET 301 - Assignment and Lab Manual.pdf" target="_blank">Open Lab Manual</a>
+      </div>
+    </div>
+    <div class="capstone-seal">
+      <img src="assets/crest.webp" alt="">
+      <strong>AU-ESET 301</strong>
+      <span>Capstone Engineering Project</span>
+      <small>Weeks 22–29</small>
+    </div>
+  </div>
+</section>
+
+<section class="section shell">
+  <div class="project-brief">
+    <div>
+      <div class="eyebrow green">Capstone Brief</div>
+      <h2>Embedded Hardware + Automated Test System</h2>
+      <p>Your system must combine a microcontroller, a real peripheral, an interactive input/output path, UART communication, modular firmware, a Python host/test tool, instrumentation evidence, fault handling, and documentation that another technical person can reproduce.</p>
+    </div>
+    <div class="capstone-requirements">
+      <div><strong>MCU</strong><span>STM32 / ARM-class</span></div>
+      <div><strong>Bus</strong><span>I²C or SPI</span></div>
+      <div><strong>Host</strong><span>UART + Python</span></div>
+      <div><strong>Evidence</strong><span>DMM · Scope · Logic Analyzer</span></div>
+      <div><strong>Firmware</strong><span>Modular C + State Machine</span></div>
+      <div><strong>Testing</strong><span>PASS/FAIL + Fault Injection</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section shell no-top">
+  <div class="section-heading">
+    <div><div class="eyebrow green">Engineering Review Sequence</div><h2>Capstone milestones</h2></div>
+    <p>Each milestone produces something you can later show or discuss in an interview.</p>
+  </div>
+  <div class="timeline">
+    <div class="timeline-step"><span>22</span><div><h3>Design Review</h3><p>Requirements, architecture, block diagram, BOM, pin map, interface plan, and test plan.</p></div></div>
+    <div class="timeline-step"><span>24</span><div><h3>Hardware Bring-Up</h3><p>Current-limited power-up, rails, GPIO, UART, SWD, baseline current, and staged verification.</p></div></div>
+    <div class="timeline-step"><span>25</span><div><h3>Sensor / Interface Integration</h3><p>I2C or SPI peripheral, raw data, engineering units, datasheet verification, and logic-analyzer evidence.</p></div></div>
+    <div class="timeline-step"><span>26</span><div><h3>Firmware Architecture</h3><p>Modular C, nonblocking state machine, timers/interrupts, timeouts, error states, and diagnostics.</p></div></div>
+    <div class="timeline-step"><span>27</span><div><h3>Python Test Automation</h3><p>Serial control, parsing, logging, PASS/FAIL checks, malformed-response handling, and plotting.</p></div></div>
+    <div class="timeline-step"><span>28</span><div><h3>Fault Injection + Test Report</h3><p>Reproduce → measure → isolate → root cause → fix → verify, with defensible evidence.</p></div></div>
+    <div class="timeline-step"><span>29</span><div><h3>R&D Role-Proof Dossier</h3><p>Solder/rework, harness/prototype workmanship, instrumentation, troubleshooting story, and employer-facing documentation.</p></div></div>
+  </div>
+</section>
+
+<section class="capstone-artifacts-band">
+  <div class="shell">
+    <div class="section-heading light-heading">
+      <div><div class="eyebrow">Required Evidence</div><h2>What should exist when Project 1 is finished.</h2></div>
+    </div>
+    <div class="artifact-grid">
+      <article><span>01</span><h3>Requirements + Block Diagram</h3><p>What the system must do and how the pieces connect.</p></article>
+      <article><span>02</span><h3>Repository + README</h3><p>Firmware, host code, build notes, wiring, and usage.</p></article>
+      <article><span>03</span><h3>Bring-Up Log</h3><p>Power, rails, current draw, GPIO/UART/SWD checks, and failures.</p></article>
+      <article><span>04</span><h3>Protocol Captures</h3><p>Logic-analyzer proof for UART and the selected I²C/SPI interface.</p></article>
+      <article><span>05</span><h3>Automated Test Results</h3><p>Python-controlled test cases, PASS/FAIL, logs, and plots.</p></article>
+      <article><span>06</span><h3>Root-Cause Report</h3><p>A real failure investigated with measurements and verified correction.</p></article>
+      <article><span>07</span><h3>Instrument Evidence</h3><p>DMM, scope, supply, analyzer, and debugger used intentionally.</p></article>
+      <article><span>08</span><h3>Portfolio Demonstration</h3><p>A concise employer-facing explanation of design, failures, and results.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section shell">
+  <div class="section-heading">
+    <div><div class="eyebrow green">Future Project Gallery</div><h2>Your actual engineering evidence will live here.</h2></div>
+    <p>Once you start building, this section can be upgraded with your real photos, logic captures, plots, schematics, and demo images.</p>
+  </div>
+  <div class="evidence-gallery">
+    <div><span>Hardware</span><strong>Board + Wiring</strong><small>Project photo placeholder</small></div>
+    <div><span>Measurement</span><strong>Oscilloscope</strong><small>Waveform placeholder</small></div>
+    <div><span>Protocol</span><strong>Logic Analyzer</strong><small>Bus capture placeholder</small></div>
+    <div><span>Automation</span><strong>Python Test</strong><small>Results/plot placeholder</small></div>
+  </div>
+</section>
+
+<section class="section shell">
+  <div class="document-mini-grid">
+    <a href="documents/Alfred University - AU-ESET 301 - Assignment and Lab Manual.pdf" target="_blank"><strong>Assignment & Lab Manual</strong><span>Lab reports, root-cause report, Project 1 forms</span></a>
+    <a href="documents/Embedded Career Transition Readiness Checklist.pdf" target="_blank"><strong>Career Readiness Checklist</strong><span>Common core, Project 1, role tracks, green-light gate</span></a>
+    <a href="calendar.html"><strong>Project Calendar</strong><span>Weeks 22–30 with daily deliverables and learning outcomes</span></a>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="shell footer-grid">
+    <div class="footer-brand">
+      <img src="assets/seal.webp" alt="" aria-hidden="true">
+      <div>
+        <strong>Alfred University</strong>
+        <p>School of Engineering and Applied Technology</p>
+        <p>Department of Applied Electronics and Embedded Technology</p>
+      </div>
+    </div>
+    <div>
+      <h3>Academic Resources</h3>
+      <a href="engineering.html">School of Engineering</a>
+      <a href="course.html">AU-ESET 301</a>
+      <a href="calendar.html">Course Calendar</a>
+      <a href="resources.html">Engineering Library</a>
+      <a href="documents.html">Course Documents</a>
+    </div>
+    <div>
+      <h3>Student Services</h3>
+      <a href="student-services.html#office-hours">Office Hours Protocol</a>
+      <a href="student-services.html#career">Career Services</a>
+      <a href="student-services.html#lab-safety">Laboratory Safety</a>
+      <a href="projects.html">Project Center</a>
+    </div>
+  </div>
+  <div class="shell legal">
+    <span>© 2026 Alfred University · EST. 1998</span>
+    <span>Fictional independent-study environment for personal learning. Not an accredited institution and no academic credit is awarded.</span>
+  </div>
+</footer>
+
+<div id="event-modal" class="event-modal" aria-hidden="true">
+  <div class="event-modal-backdrop" data-close-modal></div>
+  <div class="event-modal-card" role="dialog" aria-modal="true" aria-labelledby="event-modal-title">
+    <button class="modal-close" data-close-modal aria-label="Close">×</button>
+    <div id="event-modal-content"></div>
+  </div>
+</div>
+<script src="assets/course-data.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>

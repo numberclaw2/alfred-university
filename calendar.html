@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0d3e31">
+<meta name="description" content="Visual AU-ESET 301 month, week, and agenda calendar with daily assignments and outcomes.">
+<link rel="icon" href="assets/icon-192.png">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="assets/styles.css">
+<title>Academic Calendar | Alfred University</title>
+</head>
+<body data-page="calendar">
+
+<header class="site-header">
+  <div class="topline">
+    <div class="shell topline-inner">
+      <span>School of Engineering and Applied Technology</span>
+      <span class="desktop-only">Established 1998 · Home of the Grizzlies</span>
+    </div>
+  </div>
+  <div class="shell brand-row">
+    <a class="brand" href="index.html">
+      <img src="assets/crest.webp" alt="Alfred University grizzly crest">
+      <div>
+        <span class="brand-name">ALFRED UNIVERSITY</span>
+        <span class="brand-sub">Discere · Aedificare · Servire</span>
+      </div>
+    </a>
+    <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+  </div>
+  <nav class="main-nav">
+    <div class="shell nav-links"><a href="index.html" class="">Home</a><a href="engineering.html" class="">Engineering</a><a href="course.html" class="">AU-ESET 301</a><a href="calendar.html" class="active">Calendar</a><a href="resources.html" class="">Resources</a><a href="projects.html" class="">Projects</a><a href="documents.html" class="">Documents</a><a href="student-services.html" class="">Student Services</a><a href="about.html" class="">About</a></div>
+  </nav>
+</header>
+
+<main>
+<section class="page-hero compact">
+  <div class="shell">
+    <div class="eyebrow">Office of Academic Affairs</div>
+    <h1>Academic Calendar</h1>
+    <p>Month · Week · Agenda · Assignments · Labs · Milestones · Learning Outcomes</p>
+  </div>
+</section>
+
+<section class="section shell calendar-dashboard-wrap">
+  <div id="calendar-current-week" class="calendar-current-week"></div>
+</section>
+
+<section class="section shell no-top">
+  <div class="calendar-command-bar">
+    <div class="calendar-view-switch" role="group" aria-label="Calendar view">
+      <button class="view-button active" data-calendar-view="month">Month</button>
+      <button class="view-button" data-calendar-view="week">Week</button>
+      <button class="view-button" data-calendar-view="agenda">Agenda</button>
+    </div>
+    <div class="calendar-period-nav">
+      <button class="period-button" id="calendar-prev" aria-label="Previous period">‹</button>
+      <button class="period-button today" id="calendar-today">Today</button>
+      <button class="period-button" id="calendar-next" aria-label="Next period">›</button>
+      <strong id="calendar-period-label"></strong>
+    </div>
+    <a class="button green small" href="calendar/Alfred University - AU-ESET 301 - Simplified Course Calendar.ics">Download Apple Calendar</a>
+  </div>
+
+  <div class="calendar-toolbar refined">
+    <div class="search-box">
+      <label for="calendar-search">Search schedule</label>
+      <input id="calendar-search" type="search" placeholder="UART, oscilloscope, Project 1…">
+    </div>
+    <div>
+      <label for="week-filter">Course week</label>
+      <select id="week-filter"><option value="">All weeks</option></select>
+    </div>
+    <div>
+      <label for="type-filter">Event type</label>
+      <select id="type-filter"><option value="">All types</option></select>
+    </div>
+    <div class="toolbar-note">Click any event to open assignments, resources, and “After Today” outcomes.</div>
+  </div>
+
+  <div id="calendar-month-view" class="calendar-view-panel"></div>
+  <div id="calendar-week-view" class="calendar-view-panel hidden"></div>
+  <div id="calendar-agenda-view" class="calendar-view-panel hidden">
+    <div class="calendar-summary" id="calendar-summary"></div>
+    <div id="calendar-list" class="calendar-list"></div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="shell footer-grid">
+    <div class="footer-brand">
+      <img src="assets/seal.webp" alt="" aria-hidden="true">
+      <div>
+        <strong>Alfred University</strong>
+        <p>School of Engineering and Applied Technology</p>
+        <p>Department of Applied Electronics and Embedded Technology</p>
+      </div>
+    </div>
+    <div>
+      <h3>Academic Resources</h3>
+      <a href="engineering.html">School of Engineering</a>
+      <a href="course.html">AU-ESET 301</a>
+      <a href="calendar.html">Course Calendar</a>
+      <a href="resources.html">Engineering Library</a>
+      <a href="documents.html">Course Documents</a>
+    </div>
+    <div>
+      <h3>Student Services</h3>
+      <a href="student-services.html#office-hours">Office Hours Protocol</a>
+      <a href="student-services.html#career">Career Services</a>
+      <a href="student-services.html#lab-safety">Laboratory Safety</a>
+      <a href="projects.html">Project Center</a>
+    </div>
+  </div>
+  <div class="shell legal">
+    <span>© 2026 Alfred University · EST. 1998</span>
+    <span>Fictional independent-study environment for personal learning. Not an accredited institution and no academic credit is awarded.</span>
+  </div>
+</footer>
+
+<div id="event-modal" class="event-modal" aria-hidden="true">
+  <div class="event-modal-backdrop" data-close-modal></div>
+  <div class="event-modal-card" role="dialog" aria-modal="true" aria-labelledby="event-modal-title">
+    <button class="modal-close" data-close-modal aria-label="Close">×</button>
+    <div id="event-modal-content"></div>
+  </div>
+</div>
+<script src="assets/course-data.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>

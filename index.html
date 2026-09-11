@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b3d2e">
+<meta name="description" content="Alfred University AU-ESET 301 student gateway and embedded-systems career transition program.">
+<link rel="icon" href="assets/icon-192.png">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="assets/styles.css">
+<title>Home | Alfred University</title>
+</head>
+<body data-page="home">
+<header class="site-header">
+  <div class="topline">
+    <div class="shell topline-inner">
+      <span>School of Engineering and Applied Technology</span>
+      <span class="desktop-only">Established 1998 · Home of the Grizzlies</span>
+    </div>
+  </div>
+  <div class="shell brand-row">
+    <a class="brand" href="index.html">
+      <img src="assets/crest.webp" alt="Alfred University grizzly crest">
+      <div>
+        <span class="brand-name">ALFRED UNIVERSITY</span>
+        <span class="brand-sub">Discere · Aedificare · Servire</span>
+      </div>
+    </a>
+    <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+  </div>
+  <nav class="main-nav">
+    <div class="shell nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="course.html">AU-ESET 301</a>
+      <a href="calendar.html">Calendar</a>
+      <a href="resources.html">Resources</a>
+      <a href="projects.html">Projects</a>
+      <a href="documents.html">Documents</a>
+      <a href="student-services.html">Student Services</a>
+      <a href="about.html">About</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+<section class="hero">
+  <div class="hero-seal" aria-hidden="true"></div>
+  <div class="shell hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow">Department of Applied Electronics and Embedded Technology</div>
+      <h1>Make self-study feel like a real engineering program.</h1>
+      <p>AU-ESET 301 is your Alfred University course environment for becoming competitive for bridge roles that lead into embedded systems engineering. It combines course structure, deadlines, visuals, official-looking documents, projects, and a university-style workflow so the learning process feels real and moves with purpose.</p>
+      <div class="hero-actions">
+        <a class="button gold" href="calendar.html">Open Today’s Schedule</a>
+        <a class="button outline-light" href="documents.html">View Course Packet</a>
+      </div>
+    </div>
+
+    <div class="hero-showcase">
+      <div class="hero-showcase-head">
+        <h3>Official Course Packet</h3>
+        <p>Styled to match the Alfred University paperwork system.</p>
+      </div>
+      <div class="hero-showcase-body">
+        <div class="cover-stack">
+          <div class="cover-card">
+            <img src="assets/syllabus-cover.png" alt="Syllabus and student handbook cover">
+            <div class="cover-meta"><strong>Syllabus & Student Handbook</strong><span>Policies · structure · expectations · grading philosophy</span></div>
+          </div>
+          <div class="cover-card small">
+            <img src="assets/resource-manual-cover.png" alt="Learning resource manual cover">
+            <div class="cover-meta"><strong>Resource Manual</strong><span>Videos · references · courses</span></div>
+          </div>
+          <div class="cover-card small">
+            <img src="assets/assignment-lab-cover.png" alt="Assignment and lab manual cover">
+            <div class="cover-meta"><strong>Lab Manual</strong><span>Project forms · reports · templates</span></div>
+          </div>
+        </div>
+        <div class="hero-facts">
+          <div><strong>31</strong><span>Weeks</span></div>
+          <div><strong>125</strong><span>Calendar Items</span></div>
+          <div><strong>48</strong><span>Assigned Resources</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="announcement-strip">
+  <div class="shell announcement-inner">
+    <strong>GRIZZLY NOTICE</strong>
+    <span id="announcement-text">The Fall 2026–Spring 2027 AU-ESET 301 academic year is underway.</span>
+  </div>
+</section>
+
+<section class="section shell">
+  <div class="section-heading">
+    <div>
+      <div class="eyebrow green">Student Gateway</div>
+      <h2>Everything organized the way a real program would organize it.</h2>
+    </div>
+    <p>This site is built to feel closer to a university portal and course microsite than a plain folder of links.</p>
+  </div>
+  <div class="card-grid four">
+    <a class="portal-card" href="calendar.html"><span class="portal-icon">▦</span><h3>Academic Calendar</h3><p>Searchable daily schedule with assignments, resources, deadlines, and “After Today” learning outcomes.</p></a>
+    <a class="portal-card" href="resources.html"><span class="portal-icon">⌘</span><h3>Engineering Library</h3><p>Curated videos, official docs, and practical references for electronics, C, STM32, and test automation.</p></a>
+    <a class="portal-card" href="projects.html"><span class="portal-icon">⚙</span><h3>Project Center</h3><p>Project 1, lab milestones, bring-up, troubleshooting, and bridge-role proof work.</p></a>
+    <a class="portal-card" href="documents.html"><span class="portal-icon">▤</span><h3>Official Documents</h3><p>Your university-style packet, organized in PDF and styled like institutional paperwork.</p></a>
+  </div>
+</section>
+
+<section class="showcase-band">
+  <div class="shell">
+    <div class="section-heading">
+      <div><div class="eyebrow green">Current Week Dashboard</div><h2>Your course at a glance.</h2></div>
+      <p>No tracker required. This dashboard is generated directly from the academic calendar and today’s date.</p>
+    </div>
+    <div id="current-week-dashboard" class="current-week-dashboard"></div>
+  </div>
+</section>
+
+<section class="campus-notices">
+  <div class="shell">
+    <div class="section-heading">
+      <div><div class="eyebrow green">Campus & Department Notices</div><h2>What needs your attention.</h2></div>
+    </div>
+    <div class="notice-grid">
+      <article class="notice-card academic"><div class="notice-tag">Academic Affairs</div><h3 id="notice-academic-title">Current course week</h3><p id="notice-academic-copy">Loading the current AU-ESET 301 academic period.</p><a href="calendar.html">View schedule →</a></article>
+      <article class="notice-card lab"><div class="notice-tag">Engineering Laboratory</div><h3>Measure before you guess.</h3><p>Use current limiting, verify polarity, predict expected values, and collect evidence before changing hardware or code.</p><a href="student-services.html#lab-safety">Lab standards →</a></article>
+      <article class="notice-card career"><div class="notice-tag">Career Services</div><h3>Week 30 is the green-light gate.</h3><p>The curriculum has a finish line. When the common core, Project 1, one role track, and professional package are defensible, applications begin.</p><a href="student-services.html#career">Career center →</a></article>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="shell band-grid">
+    <div>
+      <div class="eyebrow">Your Professional Trajectory</div>
+      <h2>Study with a finish line.</h2>
+    </div>
+    <div class="pathway">
+      <div><strong>Current Experience</strong><span>Electrical / VDC + Python / Data</span></div>
+      <span class="path-arrow">→</span>
+      <div><strong>Bridge Role</strong><span>R&D · Hardware Test · Validation · Integration</span></div>
+      <span class="path-arrow">→</span>
+      <div><strong>Destination</strong><span>Embedded Systems Engineering</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section shell">
+  <div class="section-heading">
+    <div><div class="eyebrow green">This Week at Alfred</div><h2>Upcoming academic work</h2></div>
+    <a class="text-link" href="calendar.html">Full calendar →</a>
+  </div>
+  <div id="upcoming-events" class="event-preview-grid"></div>
+</section>
+
+<section class="section shell split">
+  <div class="feature-panel">
+    <div class="eyebrow green">Academic Standard</div>
+    <h2>Watching is not completion.</h2>
+    <p>The AU-ESET 301 standard is <strong>learn → retrieve → calculate/code → build/measure → debug → document</strong>. The calendar tells you what you should be able to explain or demonstrate at the end of the day.</p>
+    <a class="button green" href="course.html#mastery">Read the mastery policy</a>
+  </div>
+  <div class="feature-panel cream">
+    <div class="eyebrow green">Career Services</div>
+    <h2>The course ends in real applications.</h2>
+    <p>Week 30 is the bridge-job green-light. The goal is not endless preparation. The goal is enough competence and evidence to move into a real bridge role and keep growing from there.</p>
+    <a class="button ghost" href="projects.html">See the role-proof work</a>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="shell footer-grid">
+    <div class="footer-brand">
+      <img src="assets/seal.webp" alt="">
+      <div>
+        <strong>Alfred University</strong>
+        <p>School of Engineering and Applied Technology</p>
+        <p>Department of Applied Electronics and Embedded Technology</p>
+      </div>
+    </div>
+    <div>
+      <h3>Academic Resources</h3>
+      <a href="course.html">AU-ESET 301</a>
+      <a href="calendar.html">Course Calendar</a>
+      <a href="resources.html">Engineering Library</a>
+      <a href="documents.html">Course Documents</a>
+    </div>
+    <div>
+      <h3>Student Services</h3>
+      <a href="student-services.html#office-hours">Office Hours Protocol</a>
+      <a href="student-services.html#career">Career Services</a>
+      <a href="student-services.html#lab-safety">Laboratory Safety</a>
+      <a href="projects.html">Project Center</a>
+    </div>
+  </div>
+  <div class="shell legal">
+    <span>© 2026 Alfred University · EST. 1998</span>
+    <span>Fictional independent-study environment for personal learning. Not an accredited institution and no academic credit is awarded.</span>
+  </div>
+</footer>
+<script src="assets/course-data.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b3d2e">
+<meta name="description" content="How to deploy the Alfred University static website.">
+<link rel="icon" href="assets/icon-192.png">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="assets/styles.css">
+<title>Deployment Notes | Alfred University</title>
+</head>
+<body data-page="">
+
+<header class="site-header">
+  <div class="topline">
+    <div class="shell topline-inner">
+      <span>School of Engineering and Applied Technology</span>
+      <span class="desktop-only">Established 1998 · Home of the Grizzlies</span>
+    </div>
+  </div>
+  <div class="shell brand-row">
+    <a class="brand" href="index.html">
+      <img src="assets/crest.webp" alt="Alfred University grizzly crest">
+      <div>
+        <span class="brand-name">ALFRED UNIVERSITY</span>
+        <span class="brand-sub">Discere · Aedificare · Servire</span>
+      </div>
+    </a>
+    <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+  </div>
+  <nav class="main-nav">
+    <div class="shell nav-links"><a href="index.html" class="">Home</a><a href="course.html" class="">AU-ESET 301</a><a href="calendar.html" class="">Calendar</a><a href="resources.html" class="">Resources</a><a href="projects.html" class="">Projects</a><a href="documents.html" class="">Documents</a><a href="student-services.html" class="">Student Services</a><a href="about.html" class="">About</a></div>
+  </nav>
+</header>
+
+<main>
+<section class="page-hero compact">
+  <div class="shell"><div class="eyebrow">Site Administration</div><h1>Deployment Notes</h1><p>This site is static and requires no database, login system, or server-side code.</p></div>
+</section>
+<section class="section shell">
+  <div class="split">
+    <div>
+      <h2>What to upload</h2>
+      <p>Upload the contents of the <strong>Alfred University Website</strong> folder to any static web host. The root must contain <code>index.html</code>.</p>
+      <p>All site navigation, calendar data, resources, PDFs, images, and the Apple Calendar file use relative links and are packaged together.</p>
+    </div>
+    <div>
+      <h2>Mobile use</h2>
+      <p>The site is responsive and includes an installable web-app manifest. Once it is hosted over HTTPS, you can use Safari’s <strong>Add to Home Screen</strong> option to make Alfred University feel like a dedicated app.</p>
+      <p>The site itself stores no personal login credentials or cloud database information.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="shell footer-grid">
+    <div class="footer-brand">
+      <img src="assets/seal.webp" alt="" aria-hidden="true">
+      <div>
+        <strong>Alfred University</strong>
+        <p>School of Engineering and Applied Technology</p>
+        <p>Department of Applied Electronics and Embedded Technology</p>
+      </div>
+    </div>
+    <div>
+      <h3>Academic Resources</h3>
+      <a href="engineering.html">School of Engineering</a><a href="course.html">AU-ESET 301</a>
+      <a href="calendar.html">Course Calendar</a>
+      <a href="resources.html">Engineering Library</a>
+      <a href="documents.html">Course Documents</a>
+    </div>
+    <div>
+      <h3>Student Services</h3>
+      <a href="student-services.html#office-hours">Office Hours Protocol</a>
+      <a href="student-services.html#career">Career Services</a>
+      <a href="student-services.html#lab-safety">Laboratory Safety</a>
+      <a href="projects.html">Project Center</a>
+    </div>
+  </div>
+  <div class="shell legal">
+    <span>© 2026 Alfred University · EST. 1998</span>
+    <span>Fictional independent-study environment for personal learning. Not an accredited institution and no academic credit is awarded.</span>
+  </div>
+</footer>
+
+<script src="assets/course-data.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>
