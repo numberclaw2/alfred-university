@@ -1,0 +1,8 @@
+ALFRED UNIVERSITY v13.1 — HARDWARE ACCESS / VIRTUAL LAB PATCH
+
+Upload every file in this ZIP directly to the repository root and replace the same-name files.
+Do not create (1) copies.
+
+This patch does NOT change course-data.js, the .ics calendar, any event IDs, dates/times, Progress protocol, Student Sync Key, Cloudflare Worker, or D1 database.
+
+After GitHub Pages deploys, fully close the Alfred University tab/app on iPhone and reopen it once so the v13.1 service-worker cache takes control.

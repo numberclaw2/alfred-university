@@ -73,3 +73,7 @@ No Cloudflare/D1 changes are required for this library release.
 
 ## v13 Student Success System
 The v13 release adds `study.html` as the executive-function layer for AU-ESET 301. It provides one-next-action guided study sessions, Quick/Standard/Deep Work modes, Focus/Quiet modes, spaced review, a Curiosity Parking Lot, and recovery routes when a concept is not clicking. The release history is documented in `patch-notes.html`. Core Progress and Cloud Sync remain compatible with protocol 2; no backend migration is required for v13.
+
+
+## v13.1 Hardware Access / Virtual Lab Patch
+Every one of the 24 Engineering Lab Center labs now offers two routes: a **Virtual Lab — Free** route and the original **Physical Lab — Hardware** route. The student completes one route for the scheduled academic lab; doing both is not required. Simulation evidence counts for course progress when hardware is unavailable. Labs that teach genuinely tactile skills (especially actual soldering/desoldering/crimping) explicitly preserve a **Physical Verification Later** requirement rather than pretending simulation can reproduce the motor skill. No calendar IDs, dates, Progress records, or Cloud Sync protocol changed in v13.1.

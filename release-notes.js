@@ -1,5 +1,18 @@
 window.ALFRED_RELEASES = [
   {
+    version:'v13.1', date:'September 11, 2026', title:'Hardware Access / Virtual Lab Patch', type:'Accessibility & Course-Access Patch',
+    request:'Keep the physical lab option for later, but add a free virtual option so lack of money for electronics hardware never blocks course progress.',
+    changes:[
+      'Added a Virtual and Physical route to all 24 Engineering Lab Center labs.',
+      'Mapped free browser-based tools such as Falstad CircuitJS, Wokwi, CircuitVerse, Tinkercad Circuits, and browser C environments to the labs they fit best.',
+      'Kept the original physical equipment lists, procedures, and evidence requirements available for later hardware practice.',
+      'Made one-path completion the default so the student does not have to perform both virtual and physical versions of the same academic lab.',
+      'Added explicit physical-verification-later labeling for genuinely tactile skills such as real soldering/desoldering/crimping.',
+      'Added hardware-access status language so virtual completion can keep the course moving without pretending simulation replaces every tactile skill.',
+      'Updated Week Modules and the guided Study workflow to point students toward the Virtual/Physical choice instead of assuming hardware ownership.'
+    ]
+  },
+  {
     version:'v13.0', date:'September 11, 2026', title:'Neurodivergent Study System', type:'Major Academic UX Release',
     request:'Reduce the executive-function load of studying with ADHD and autism while keeping the CETa exam and career transition as the central goal.',
     changes:[
