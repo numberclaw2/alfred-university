@@ -1174,3 +1174,266 @@ h1,h2,.brand-name,.section-heading h2,.split h2,.band h2,.feature-panel h2,.feat
   .student-record-strip{grid-template-columns:1fr}
   .cloud-sync-card{padding:20px}
 }
+
+
+/* ===== Alfred University Navigation System v2 ===== */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:90;
+  background:rgba(255,252,245,.97);
+  box-shadow:0 1px 0 rgba(201,168,87,.18);
+}
+.brand-row{min-height:88px;gap:20px}
+.brand{min-width:0;flex:1 1 auto}
+.brand > div{min-width:0}
+.brand-name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+.nav-toggle{
+  flex:0 0 auto;
+  width:52px;
+  height:52px;
+  padding:0;
+  border-radius:15px;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  font-size:0;
+  cursor:pointer;
+  position:relative;
+  box-shadow:0 7px 18px rgba(13,62,49,.16);
+}
+.nav-toggle::before{
+  content:"";
+  width:22px;
+  height:2px;
+  background:#fff;
+  border-radius:999px;
+  box-shadow:0 -7px 0 #fff,0 7px 0 #fff;
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+body.nav-open .nav-toggle::before{transform:rotate(45deg);box-shadow:none}
+body.nav-open .nav-toggle::after{
+  content:"";
+  position:absolute;
+  width:22px;
+  height:2px;
+  background:#fff;
+  border-radius:999px;
+  transform:rotate(-45deg);
+}
+
+.main-nav{
+  display:block;
+  background:rgba(255,255,255,.985);
+  border-top:1px solid rgba(201,168,87,.32);
+  border-bottom:3px solid var(--gold);
+  box-shadow:0 10px 24px rgba(6,36,27,.055);
+}
+.nav-links{
+  display:flex;
+  align-items:stretch;
+  justify-content:center;
+  gap:2px;
+  overflow:visible;
+  min-height:52px;
+}
+.nav-links > a,
+.nav-more-button{
+  appearance:none;
+  border:0;
+  background:transparent;
+  color:#2b3d37;
+  padding:15px clamp(8px,1vw,14px);
+  font-size:clamp(.78rem,.82vw,.91rem);
+  font-weight:800;
+  white-space:nowrap;
+  border-bottom:3px solid transparent;
+  margin-bottom:-3px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  line-height:1.1;
+}
+.nav-links > a:hover,
+.nav-links > a.active,
+.nav-more.active-group > .nav-more-button,
+.nav-more:focus-within > .nav-more-button,
+.nav-more:hover > .nav-more-button{
+  color:var(--green);
+  border-bottom-color:var(--green);
+  background:linear-gradient(180deg,rgba(201,168,87,.13),transparent);
+}
+.nav-more{position:relative;display:flex;align-items:stretch}
+.nav-more-button span{font-size:.95rem;margin-left:6px;transform:translateY(-1px)}
+.nav-more-menu{
+  position:absolute;
+  top:calc(100% + 3px);
+  right:0;
+  width:220px;
+  padding:8px;
+  border:1px solid var(--line);
+  border-top:3px solid var(--gold);
+  border-radius:0 0 14px 14px;
+  background:#fffdf8;
+  box-shadow:0 18px 45px rgba(12,44,34,.16);
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(-6px);
+  transition:opacity .16s ease,transform .16s ease,visibility .16s ease;
+  z-index:110;
+}
+.nav-more:hover .nav-more-menu,
+.nav-more:focus-within .nav-more-menu,
+.nav-more.open .nav-more-menu{
+  opacity:1;
+  visibility:visible;
+  transform:none;
+}
+.nav-more-menu a{
+  display:block;
+  padding:11px 12px;
+  border-radius:9px;
+  color:#30443d;
+  font-size:.87rem;
+  font-weight:800;
+}
+.nav-more-menu a:hover,
+.nav-more-menu a.active{color:var(--green);background:#f3efe3}
+.nav-backdrop{display:none}
+
+@media(max-width:1050px){
+  .brand-row{min-height:82px}
+  .nav-toggle{display:flex}
+  .main-nav{
+    position:fixed;
+    top:0;
+    right:0;
+    width:min(390px,88vw);
+    height:100dvh;
+    transform:translateX(105%);
+    transition:transform .23s ease;
+    border:0;
+    border-left:1px solid rgba(201,168,87,.45);
+    box-shadow:-24px 0 70px rgba(7,37,28,.23);
+    z-index:105;
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    background:linear-gradient(180deg,#0b3a2c 0 112px,#fffdf8 112px 100%);
+  }
+  .main-nav.open{display:block;transform:translateX(0)}
+  .nav-links{
+    width:100%;
+    min-height:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    justify-content:flex-start;
+    gap:0;
+    padding:125px 18px 30px;
+    overflow:visible;
+  }
+  .nav-links::before{
+    content:"Explore Alfred University";
+    display:block;
+    color:#e9dfc4;
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:1.15rem;
+    font-weight:700;
+    letter-spacing:.03em;
+    padding:0 10px 18px;
+    margin-top:-91px;
+    margin-bottom:72px;
+  }
+  .nav-links > a,
+  .nav-more-button{
+    width:100%;
+    min-height:52px;
+    justify-content:flex-start;
+    padding:13px 14px;
+    margin:0;
+    border:0;
+    border-bottom:1px solid #ebe6da;
+    border-radius:0;
+    font-size:.98rem;
+    color:#294038;
+    background:transparent;
+  }
+  .nav-links > a:hover,
+  .nav-links > a.active{
+    background:#f1ecdf;
+    color:var(--green);
+    border-bottom:1px solid #e3dac6;
+    box-shadow:inset 4px 0 0 var(--gold);
+  }
+  .nav-more{display:block;width:100%}
+  .nav-more-button{display:none}
+  .nav-more-menu{
+    position:static;
+    width:auto;
+    padding:0;
+    border:0;
+    border-radius:0;
+    box-shadow:none;
+    background:transparent;
+    opacity:1;
+    visibility:visible;
+    transform:none;
+  }
+  .nav-more-menu a{
+    min-height:52px;
+    display:flex;
+    align-items:center;
+    padding:13px 14px;
+    border-radius:0;
+    border-bottom:1px solid #ebe6da;
+    color:#294038;
+    font-size:.98rem;
+  }
+  .nav-more-menu a:hover,
+  .nav-more-menu a.active{
+    background:#f1ecdf;
+    color:var(--green);
+    box-shadow:inset 4px 0 0 var(--gold);
+  }
+  .nav-backdrop{
+    display:block;
+    position:fixed;
+    inset:0;
+    background:rgba(4,24,18,.55);
+    backdrop-filter:blur(3px);
+    opacity:0;
+    visibility:hidden;
+    transition:opacity .2s ease,visibility .2s ease;
+    z-index:100;
+  }
+  body.nav-open .nav-backdrop{opacity:1;visibility:visible}
+  body.nav-open{overflow:hidden}
+  body.nav-open .nav-toggle{
+    position:fixed;
+    top:54px;
+    right:18px;
+    z-index:120;
+    background:#b08d3c;
+  }
+}
+
+@media(max-width:700px){
+  .topline{font-size:.7rem}
+  .topline-inner{padding:7px 0}
+  .brand-row{min-height:76px;padding:12px 0}
+  .brand{gap:10px}
+  .brand img{width:48px;height:48px}
+  .brand-name{font-size:clamp(.92rem,4.2vw,1.08rem);letter-spacing:.08em}
+  .brand-sub{font-size:clamp(.48rem,2.15vw,.58rem);letter-spacing:.16em}
+  .nav-toggle{width:48px;height:48px;border-radius:14px}
+  body.nav-open .nav-toggle{top:48px;right:16px}
+}
+
+@media(max-width:420px){
+  .brand-name{font-size:.88rem;letter-spacing:.055em}
+  .brand-sub{font-size:.45rem;letter-spacing:.12em}
+  .brand img{width:44px;height:44px}
+  .nav-toggle{width:46px;height:46px}
+}
