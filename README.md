@@ -1,15 +1,20 @@
 # Alfred University
 
-Static GitHub Pages site for the fictional Alfred University independent-study environment.
+Static GitHub Pages frontend for the fictional Alfred University independent-study environment.
 
-## Publish with GitHub Pages
+## Hosting
 
-1. Create a GitHub repository.
-2. Upload **the contents of this folder** so `index.html` is at the repository root.
-3. In GitHub, open **Settings → Pages**.
-4. Under **Build and deployment**, choose **Deploy from a branch**.
-5. Select **main** and **/(root)**, then save.
+The website itself is hosted on GitHub Pages from the repository root. `index.html` must remain at the repository root.
 
-The site requires no build step, database, login, or server-side code.
+GitHub Pages hosts the HTML, CSS, JavaScript, images, PDFs, calendar file, and installable web-app manifest.
+
+## Student Progress and Cloud Sync
+
+The Student Progress Portal works offline-first using browser storage.
+
+Optional cross-device sync uses a separate Cloudflare Worker + Cloudflare D1 backend. The frontend remains static on GitHub Pages; the Cloudflare backend stores synchronized progress records when the user explicitly connects it from the Progress page.
+
+There is no conventional username/password account system. Cross-device sync uses a private Alfred University Student Sync Key.
+The Student Sync Key authenticates access, but synchronized D1 record contents are not end-to-end encrypted. Avoid storing sensitive secrets in Personal Notes.
 
 > Alfred University is a fictional independent-study environment for personal learning and is not an accredited institution.

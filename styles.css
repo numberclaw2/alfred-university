@@ -1437,3 +1437,15 @@ body.nav-open .nav-toggle::after{
   .brand img{width:44px;height:44px}
   .nav-toggle{width:46px;height:46px}
 }
+
+/* Final audit hardening */
+.filter-field{display:grid;gap:4px;color:var(--muted);font-size:.72rem;font-weight:800}
+.filter-field span{padding-left:2px}
+.filter-field select{min-width:150px}
+.more-events{
+  display:inline-flex;align-items:center;border:0;background:transparent;padding:3px 0;
+  cursor:pointer;font-family:inherit;text-decoration:underline;text-underline-offset:2px
+}
+.more-events:hover,.more-events:focus-visible{color:var(--green)}
+.more-events:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+@media (max-width:700px){.tracker-filters{width:100%;display:grid;grid-template-columns:1fr 1fr}.filter-field select{width:100%;min-width:0}}

@@ -22,6 +22,16 @@
     return 'Phase VI · Career Launch';
   };
 
+  const focusableSelector='a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
+  function trapFocus(e,container,extra=[]){
+    if(e.key!=='Tab'||!container) return;
+    const items=[...extra,...$$(focusableSelector,container)].filter((el,i,arr)=>el.offsetParent!==null&&arr.indexOf(el)===i);
+    if(!items.length) return;
+    const first=items[0],last=items[items.length-1];
+    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+  }
+
   const toggle=$('.nav-toggle');
   const nav=$('.main-nav');
   const more=$('.nav-more');
@@ -35,15 +45,17 @@
       document.body.appendChild(backdrop);
     }
 
-    const closeNav=()=>{
+    const closeNav=(restoreFocus=false)=>{
       nav.classList.remove('open');
       document.body.classList.remove('nav-open');
       toggle?.setAttribute('aria-expanded','false');
+      if(restoreFocus) toggle?.focus();
     };
     const openNav=()=>{
       nav.classList.add('open');
       document.body.classList.add('nav-open');
       toggle?.setAttribute('aria-expanded','true');
+      requestAnimationFrame(()=>$('.main-nav a')?.focus());
     };
 
     toggle?.addEventListener('click',()=>{
@@ -69,9 +81,12 @@
 
     document.addEventListener('keydown',(e)=>{
       if(e.key==='Escape'){
-        closeNav();
+        const wasOpen=nav.classList.contains('open');
+        closeNav(wasOpen);
         more?.classList.remove('open');
         moreButton?.setAttribute('aria-expanded','false');
+      }else if(e.key==='Tab'&&nav.classList.contains('open')&&window.matchMedia('(max-width:1050px)').matches){
+        trapFocus(e,nav,toggle?[toggle]:[]);
       }
     });
 
@@ -84,14 +99,16 @@
     if(!EVENTS.length) return null;
     const sorted=[...EVENTS].sort((a,b)=>new Date(a.start)-new Date(b.start));
     const future=sorted.filter(e=>new Date(e.start)>=now);
-    const next=future[0]||sorted[sorted.length-1];
+    const next=future[0]||null;
+    const finalEvent=sorted[sorted.length-1];
+    const complete=now>new Date(finalEvent.end||finalEvent.start);
     const same=sorted.find(e=>sameDay(new Date(e.start),now));
     let currentWeek=null;
     for(const e of sorted.filter(e=>e.week)){
       if(new Date(e.start)<=now) currentWeek=e.week;
     }
     if(currentWeek===null && sorted.some(e=>e.week)) currentWeek=sorted.find(e=>e.week)?.week;
-    return {now,next,sameDay:same,currentWeek};
+    return {now,next,sameDay:same,currentWeek,complete};
   }
 
   function weekBounds(week){
@@ -110,6 +127,18 @@
   function currentWeekDashboardHTML(){
     const info=courseInfo();
     if(!info) return '';
+    if(info.complete){
+      return `
+        <section class="week-dashboard-primary">
+          <div class="week-kicker">Academic schedule complete</div>
+          <h3>AU-ESET 301 scheduled course complete</h3>
+          <p>All ${EVENTS.length} scheduled calendar items are now in the past. Use Student Progress, mastery gates, and your project evidence to close any remaining gaps.</p>
+          <div class="week-progress"><span style="width:100%"></span></div>
+          <div class="week-progress-meta"><span>Course start</span><span>100% through scheduled calendar</span><span>Course end</span></div>
+        </section>
+        <section class="week-dashboard-card"><h4>What to do next</h4><p>Finish any incomplete sessions, resolve review flags, and verify the career-readiness gate before treating the program as complete.</p></section>
+        <section class="week-dashboard-card"><h4>Keep the evidence</h4><p>Preserve your project documentation, instrument captures, Git history, resume, and interview examples as your transition portfolio.</p></section>`;
+    }
     const w=info.currentWeek||1;
     const bounds=weekBounds(w);
     const week=WEEKS.find(x=>x.week===w);
@@ -148,20 +177,26 @@
     const info=courseInfo();
     if(info){
       const title=$('#notice-academic-title'), copy=$('#notice-academic-copy');
-      if(title) title.textContent=`Week ${String(info.currentWeek||1).padStart(2,'0')} · ${weekTopic(info.currentWeek||1)}`;
-      if(copy) copy.textContent=info.sameDay?`Today: ${info.sameDay.summary.replace(/^AU-ESET 301 \| /,'')}`:`Next: ${info.next.summary.replace(/^AU-ESET 301 \| /,'')}`;
-      if($('#announcement-text')) $('#announcement-text').textContent=info.sameDay?`Today: ${info.sameDay.summary}`:`Next session: ${info.next.summary}`;
+      if(info.complete){
+        if(title) title.textContent='Scheduled course complete';
+        if(copy) copy.textContent=`All ${EVENTS.length} scheduled course items are in the past. Review Student Progress for anything still open.`;
+        if($('#announcement-text')) $('#announcement-text').textContent='AU-ESET 301 scheduled calendar complete · Close remaining mastery and career-readiness items in Student Progress.';
+      }else{
+        if(title) title.textContent=`Week ${String(info.currentWeek||1).padStart(2,'0')} · ${weekTopic(info.currentWeek||1)}`;
+        if(copy) copy.textContent=info.sameDay?`Today: ${info.sameDay.summary.replace(/^AU-ESET 301 \| /,'')}`:`Next: ${info.next?.summary.replace(/^AU-ESET 301 \| /,'')||'No additional scheduled session'}`;
+        if($('#announcement-text')) $('#announcement-text').textContent=info.sameDay?`Today: ${info.sameDay.summary}`:`Next session: ${info.next?.summary||'No additional scheduled session'}`;
+      }
     }
   }
   if($('#upcoming-events')){
     const now=new Date();
     const upcoming=EVENTS.filter(e=>new Date(e.start)>=now).slice(0,3);
-    $('#upcoming-events').innerHTML=upcoming.map(e=>`
+    $('#upcoming-events').innerHTML=upcoming.length?upcoming.map(e=>`
       <article class="preview-event">
         <div class="date">${esc(fmtDate(e.start))} · ${esc(fmtTime(e.start))}</div>
         <h3>${esc(e.summary.replace(/^AU-ESET 301 \| /,''))}</h3>
         <p>${esc(e.today||e.outcomes?.[0]||'Open the calendar for complete assignment details.')}</p>
-      </article>`).join('');
+      </article>`).join(''):`<article class="preview-event"><div class="date">Scheduled calendar complete</div><h3>No future course sessions</h3><p>Use Student Progress to close any incomplete work, review flags, mastery gates, or career-readiness requirements.</p></article>`;
   }
 
   // Curriculum accordion
@@ -186,6 +221,7 @@
 
   // Event modal
   const modal=$('#event-modal');
+  let modalReturnFocus=null;
   function eventDetailHTML(e){
     const outcomes=e.outcomes?.length?`<div class="modal-section"><h3>After Today — Required Learning Outcomes</h3><ul>${e.outcomes.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`:'';
     const today=e.today?`<div class="modal-section"><h3>Today’s Work</h3><div class="raw">${linkify(e.today)}</div></div>`:'';
@@ -197,15 +233,24 @@
   }
   function openEvent(id){
     const e=EVENTS.find(x=>x.id===Number(id)); if(!e||!modal) return;
+    modalReturnFocus=document.activeElement;
     $('#event-modal-content').innerHTML=eventDetailHTML(e);
     modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
     document.body.style.overflow='hidden';
+    requestAnimationFrame(()=>$('.modal-close',modal)?.focus());
   }
   function closeModal(){
-    if(!modal) return; modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow='';
+    if(!modal||!modal.classList.contains('open')) return;
+    modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow='';
+    const restore=modalReturnFocus; modalReturnFocus=null;
+    if(restore?.focus) restore.focus();
   }
   $$('[data-close-modal]').forEach(x=>x.addEventListener('click',closeModal));
-  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+  document.addEventListener('keydown',e=>{
+    if(!modal?.classList.contains('open')) return;
+    if(e.key==='Escape') closeModal();
+    else trapFocus(e,$('.event-modal-card',modal));
+  });
 
   // Calendar
   const monthView=$('#calendar-month-view');
@@ -246,7 +291,7 @@
           <div>
             <div class="eyebrow">${esc(phaseForWeek(w))}</div>
             <h2>Week ${String(w).padStart(2,'0')} · ${esc(weekTopic(w))}</h2>
-            <p>${info?.sameDay?`Today has ${EVENTS.filter(e=>sameDay(new Date(e.start),info.now)).length} scheduled course item(s).`:`Next scheduled session: ${esc(info?.next?.summary.replace(/^AU-ESET 301 \| /,'')||'—')}`}</p>
+            <p>${info?.complete?`The scheduled AU-ESET 301 calendar is complete. Use Student Progress to close remaining work.`:info?.sameDay?`Today has ${EVENTS.filter(e=>sameDay(new Date(e.start),info.now)).length} scheduled course item(s).`:`Next scheduled session: ${esc(info?.next?.summary.replace(/^AU-ESET 301 \| /,'')||'—')}`}</p>
           </div>
           <div class="mini-stats">
             <div><strong>${list.length}</strong><span>Scheduled items</span></div>
@@ -266,12 +311,20 @@
         const dayEvents=events.filter(e=>sameDay(new Date(e.start),d)).sort((a,b)=>new Date(a.start)-new Date(b.start));
         cells.push(`<div class="month-day ${d.getMonth()!==m?'outside ':''}${sameDay(d,today)?'today':''}">
           <div class="day-number">${d.getDate()}</div>
-          ${dayEvents.slice(0,3).map(e=>`<button class="month-event type-${esc(e.type)}" data-event-id="${e.id}">${fmtTime(e.start)} · ${esc(e.summary.replace(/^AU-ESET 301 \| (Week \d+ \| )?/,''))}</button>`).join('')}
-          ${dayEvents.length>3?`<div class="more-events">+${dayEvents.length-3} more</div>`:''}
+          ${dayEvents.map((e,index)=>`<button class="month-event type-${esc(e.type)}${index>=3?' month-event-extra hidden':''}" data-event-id="${e.id}">${fmtTime(e.start)} · ${esc(e.summary.replace(/^AU-ESET 301 \| (Week \d+ \| )?/,''))}</button>`).join('')}
+          ${dayEvents.length>3?`<button type="button" class="more-events" data-more-events aria-expanded="false">Show ${dayEvents.length-3} more</button>`:''}
         </div>`);
       }
       monthView.innerHTML=`<div class="month-calendar"><div class="month-weekdays">${['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(x=>`<div>${x}</div>`).join('')}</div><div class="month-grid">${cells.join('')}</div></div>`;
       $$('[data-event-id]',monthView).forEach(b=>b.addEventListener('click',()=>openEvent(b.dataset.eventId)));
+      $$('[data-more-events]',monthView).forEach(button=>button.addEventListener('click',()=>{
+        const cell=button.closest('.month-day');
+        const extras=$$('.month-event-extra',cell);
+        const opening=extras.some(x=>x.classList.contains('hidden'));
+        extras.forEach(x=>x.classList.toggle('hidden',!opening));
+        button.setAttribute('aria-expanded',String(opening));
+        button.textContent=opening?'Hide extra events':`Show ${extras.length} more`;
+      }));
     }
     function renderWeek(){
       const events=filteredEvents();

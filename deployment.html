@@ -28,9 +28,9 @@
         <span class="brand-sub">Discere · Aedificare · Servire</span>
       </div>
     </a>
-    <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation">☰</button>
   </div>
-  <nav class="main-nav" aria-label="Primary navigation">
+  <nav class="main-nav" id="primary-navigation" aria-label="Primary navigation">
     <div class="shell nav-links">
       <a href="index.html">Home</a><a href="engineering.html">Engineering</a><a href="course.html">AU-ESET 301</a><a href="calendar.html">Calendar</a><a href="progress.html">Progress</a><a href="resources.html">Resources</a><a href="projects.html">Projects</a>
       <div class="nav-more">
@@ -47,19 +47,19 @@
 
 <main>
 <section class="page-hero compact">
-  <div class="shell"><div class="eyebrow">Site Administration</div><h1>Deployment Notes</h1><p>This site is static and requires no database, login system, or server-side code.</p></div>
+  <div class="shell"><div class="eyebrow">Site Administration</div><h1>Deployment Notes</h1><p>The university website is a static GitHub Pages frontend. The optional Student Progress cloud-sync feature uses a separate Cloudflare Worker and D1 database.</p></div>
 </section>
 <section class="section shell">
   <div class="split">
     <div>
       <h2>What to upload</h2>
       <p>Upload the contents of the <strong>Alfred University Website</strong> folder to any static web host. The root must contain <code>index.html</code>.</p>
-      <p>All site navigation, calendar data, resources, PDFs, images, and the Apple Calendar file use relative links and are packaged together.</p>
+      <p>All site navigation, calendar data, resources, PDFs, images, and the Apple Calendar file use relative links and are packaged together. The Progress Portal stores data locally first and can optionally synchronize through the separately deployed Alfred Cloud Sync backend.</p>
     </div>
     <div>
       <h2>Mobile use</h2>
       <p>The site is responsive and includes an installable web-app manifest. Once it is hosted over HTTPS, you can use Safari’s <strong>Add to Home Screen</strong> option to make Alfred University feel like a dedicated app.</p>
-      <p>The site itself stores no personal login credentials or cloud database information.</p>
+      <p>The static site does not contain a master database password or conventional login credentials. When Cloud Sync is enabled, the browser stores the user's Worker URL and private Student Sync Key locally so that progress can synchronize across devices.</p>
     </div>
   </div>
 </section>
@@ -77,8 +77,10 @@
     </div>
     <div>
       <h3>Academic Resources</h3>
-      <a href="engineering.html">School of Engineering</a><a href="course.html">AU-ESET 301</a>
+      <a href="engineering.html">School of Engineering</a>
+      <a href="course.html">AU-ESET 301</a>
       <a href="calendar.html">Course Calendar</a>
+      <a href="progress.html">Student Progress</a>
       <a href="resources.html">Engineering Library</a>
       <a href="documents.html">Course Documents</a>
     </div>
@@ -96,7 +98,6 @@
   </div>
 </footer>
 
-<script src="course-data.js"></script>
 <script src="site.js"></script>
 </body>
 </html>

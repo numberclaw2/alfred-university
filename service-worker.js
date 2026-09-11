@@ -1,5 +1,17 @@
-const CACHE='alfred-u-v6';
-const CORE=['./','index.html','engineering.html','course.html','calendar.html','progress.html','resources.html','projects.html','documents.html','student-services.html','about.html','styles.css','site.js','progress.js','course-data.js','crest.webp','seal.webp'];
+const CACHE='alfred-u-v7';
+const CORE=[
+  './','index.html','engineering.html','course.html','calendar.html','progress.html','resources.html','projects.html','documents.html','student-services.html','about.html','deployment.html','404.html',
+  'styles.css','site.js','progress.js','course-data.js','manifest.webmanifest',
+  'crest.webp','seal.webp','icon-180.png','icon-192.png','icon-512.png',
+  'syllabus-cover.png','resource-manual-cover.png','assignment-lab-cover.png','binder-index-cover.png','certificate-cover.png',
+  'Alfred University - AU-ESET 301 - Syllabus and Student Handbook.pdf',
+  'Alfred University - AU-ESET 301 - Learning Resource Manual.pdf',
+  'Alfred University - AU-ESET 301 - Assignment and Lab Manual.pdf',
+  'Alfred University - AU-ESET 301 - Student Course Binder Index.pdf',
+  'Alfred University - AU-ESET 301 - Certificate of Course Completion.pdf',
+  'Embedded Career Transition Readiness Checklist.pdf',
+  'Alfred University - AU-ESET 301 - Simplified Course Calendar.ics'
+];
 
 self.addEventListener('install',event=>{
   event.waitUntil(
@@ -30,8 +42,10 @@ self.addEventListener('fetch',event=>{
     event.respondWith(
       fetch(event.request)
         .then(response=>{
-          const copy=response.clone();
-          caches.open(CACHE).then(cache=>cache.put(event.request,copy));
+          if(response.ok){
+            const copy=response.clone();
+            caches.open(CACHE).then(cache=>cache.put(event.request,copy));
+          }
           return response;
         })
         .catch(()=>caches.match(event.request).then(hit=>hit||caches.match('index.html')))
@@ -43,8 +57,10 @@ self.addEventListener('fetch',event=>{
     caches.match(event.request).then(hit=>{
       if(hit) return hit;
       return fetch(event.request).then(response=>{
-        const copy=response.clone();
-        caches.open(CACHE).then(cache=>cache.put(event.request,copy));
+        if(response.ok){
+          const copy=response.clone();
+          caches.open(CACHE).then(cache=>cache.put(event.request,copy));
+        }
         return response;
       });
     })

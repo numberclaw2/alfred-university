@@ -276,6 +276,7 @@
   // -----------------------------
   // Standard tracker UI
   // -----------------------------
+  let trackerReturnFocus=null;
   function refreshStats(){
     const m=metrics();
     $('#hero-progress-percent').textContent=`${m.coursePct}%`;
@@ -375,7 +376,7 @@
       <div class="tracker-event-top">
         <div>
           <div class="modal-date">${fmtDate(e.start)} · ${fmtTime(e.start)}${e.week?` · Week ${String(e.week).padStart(2,'0')}`:''}</div>
-          <h2>${esc(e.summary.replace(/^AU-ESET 301 \| /,''))}</h2>
+          <h2 id="tracker-modal-title">${esc(e.summary.replace(/^AU-ESET 301 \| /,''))}</h2>
         </div>
         <div class="tracker-status-control">
           <label>Status</label>
@@ -399,7 +400,9 @@
         <button class="button green" id="save-tracker-detail">Save Progress</button>
       </div>`;
     const modal=$('#tracker-modal');
+    trackerReturnFocus=document.activeElement;
     modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
+    requestAnimationFrame(()=>$('.modal-close',modal)?.focus());
     $$('[data-review]').forEach(btn=>btn.addEventListener('click',()=>{
       const i=btn.dataset.review;
       s.review[i]=!s.review[i];
@@ -418,13 +421,29 @@
   }
   function closeTracker(){
     const modal=$('#tracker-modal');
+    if(!modal.classList.contains('open')) return;
     modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';
+    const restore=trackerReturnFocus; trackerReturnFocus=null;
+    if(restore?.focus) restore.focus();
+  }
+  function trapTrackerFocus(e){
+    if(e.key!=='Tab') return;
+    const modal=$('#tracker-modal');
+    const card=$('.tracker-modal-card',modal);
+    const items=$$('a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])',card).filter(el=>el.offsetParent!==null);
+    if(!items.length) return;
+    const first=items[0],last=items[items.length-1];
+    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
   }
   $$('[data-close-tracker-modal]').forEach(x=>x.addEventListener('click',closeTracker));
-  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeTracker();});
+  document.addEventListener('keydown',e=>{
+    if(!$('#tracker-modal')?.classList.contains('open')) return;
+    if(e.key==='Escape') closeTracker(); else trapTrackerFocus(e);
+  });
 
   function exportBackup(){
-    const backup={version:2,progress:state,sync:{apiUrl:syncConfig.apiUrl||'',studentKey:syncConfig.studentKey||''}};
+    const backup={version:3,progress:state};
     const blob=new Blob([JSON.stringify(backup,null,2)],{type:'application/json'});
     const a=document.createElement('a');
     a.href=URL.createObjectURL(blob);

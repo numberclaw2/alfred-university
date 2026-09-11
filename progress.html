@@ -27,9 +27,9 @@
         <span class="brand-sub">Discere · Aedificare · Servire</span>
       </div>
     </a>
-    <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation">☰</button>
   </div>
-  <nav class="main-nav" aria-label="Primary navigation">
+  <nav class="main-nav" id="primary-navigation" aria-label="Primary navigation">
     <div class="shell nav-links">
       <a href="index.html">Home</a><a href="engineering.html">Engineering</a><a href="course.html">AU-ESET 301</a><a href="calendar.html">Calendar</a><a href="progress.html" class="active">Progress</a><a href="resources.html">Resources</a><a href="projects.html">Projects</a>
       <div class="nav-more">
@@ -56,7 +56,7 @@
       <img src="seal.webp" alt="Alfred University seal">
       <strong id="hero-progress-percent">0%</strong>
       <span>Overall Course Completion</span>
-      <small>Saved automatically on this device</small>
+      <small>Saved locally · synchronized when Cloud Sync is connected</small>
     </div>
   </div>
 </section>
@@ -152,7 +152,7 @@
       <h2>Your AU-ESET 301 progress at a glance.</h2>
     </div>
     <div class="progress-actions">
-      <button class="button ghost small" id="export-progress">Export Backup</button>
+      <button class="button ghost small" id="export-progress" title="Exports progress only; your Cloud Sync key is not included">Export Backup</button>
       <label class="button ghost small file-button">Import Backup<input id="import-progress" type="file" accept=".json,application/json"></label>
       <button class="button danger small" id="reset-progress">Reset Progress</button>
     </div>
@@ -213,7 +213,7 @@
         <div class="eyebrow green">Storage</div>
         <h3>Offline first</h3>
         <p>Your progress is always stored locally first, so the tracker keeps working even if the internet drops.</p>
-        <p>When Alfred Cloud Sync is connected, changes are also merged with your private cloud record automatically. GitHub Pages hosts the website but does not store your progress.</p>
+        <p>When Alfred Cloud Sync is connected, changes are also merged with your personal cloud record automatically. GitHub Pages hosts the website but does not store your progress. Cloud records are protected by your sync key but are not end-to-end encrypted, so do not place sensitive personal information in notes.</p>
       </div>
     </aside>
 
@@ -225,14 +225,14 @@
             <h2>Calendar completion</h2>
           </div>
           <div class="tracker-filters">
-            <select id="progress-week-filter"><option value="">All weeks</option></select>
-            <select id="progress-status-filter">
+            <label class="filter-field"><span>Week</span><select id="progress-week-filter"><option value="">All weeks</option></select></label>
+            <label class="filter-field"><span>Status</span><select id="progress-status-filter">
               <option value="">All statuses</option>
               <option value="not-started">Not Started</option>
               <option value="in-progress">In Progress</option>
               <option value="complete">Complete</option>
               <option value="review">Needs Review</option>
-            </select>
+            </select></label>
           </div>
         </div>
         <div id="progress-event-list" class="progress-event-list"></div>
@@ -286,6 +286,7 @@
       <a href="calendar.html">Course Calendar</a>
       <a href="progress.html">Student Progress</a>
       <a href="resources.html">Engineering Library</a>
+      <a href="documents.html">Course Documents</a>
     </div>
     <div>
       <h3>Student Services</h3>
@@ -303,7 +304,7 @@
 
 <div id="tracker-modal" class="event-modal" aria-hidden="true">
   <div class="event-modal-backdrop" data-close-tracker-modal></div>
-  <div class="event-modal-card tracker-modal-card" role="dialog" aria-modal="true">
+  <div class="event-modal-card tracker-modal-card" role="dialog" aria-modal="true" aria-labelledby="tracker-modal-title">
     <button class="modal-close" data-close-tracker-modal aria-label="Close">×</button>
     <div id="tracker-modal-content"></div>
   </div>
