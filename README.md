@@ -19,6 +19,12 @@ The production sync endpoint is `https://alfred-university-sync.totallywill13.wo
 There is no conventional username/password account system. Cross-device sync uses a private Alfred University Student Sync Key.
 The Student Sync Key authenticates access, but synchronized D1 record contents are not end-to-end encrypted. Avoid storing sensitive secrets in Personal Notes.
 
+## v15.2 Evidence-Backed UX Flow Audit
+
+This release applies a research-informed presentation pass across the full site. The current-week action now appears before the home system map; inner pages receive linked context trails and a skip link; the secondary navigation is grouped by task; long reading blocks use a controlled measure; very small instructional metadata is enlarged; touch targets use a consistent 44px rhythm; and reduced-motion behavior is explicit. The visual system, academic inventory, existing Progress records, Cloud Sync protocol 2, Worker/D1 schema, event IDs, and Release Notes placement remain unchanged. The service-worker cache is now v15.2.
+
+The audit was informed by the W3C cognitive accessibility guidance, WCAG 2.2, eye-tracking typography research, the Erasmus University website-complexity study, and the University of Zurich / Google Research visual-complexity study. See `UX_AUDIT_REPORT.md` in the replacement package for the findings, source links, and QA record.
+
 ## v15.1 Quality and Compatibility Patch
 
 The current release adds a Practice gateway, evidence-to-Study review links,
@@ -45,7 +51,7 @@ Added Week Modules, Lab Center, Assessment Center, Engineering Knowledge Base, v
 - 24 structured electronics/embedded laboratories
 - 8 mastery/diagnostic assessment groups
 - 61 searchable engineering knowledge-base concepts
-- 96 additional deep-study resources from ETA, universities, government/standards sources, manufacturers, and professional training providers
+- 99 additional deep-study resources from ETA, universities, government/standards sources, manufacturers, and professional training providers
 - 48 original assigned course resources retained
 - 6 Alfred University PDFs indexed by full local text for site search
 - External PDFs/video/course resources are indexed by verified metadata, CETa domains, week alignment, summaries, and keywords; the authoritative publisher copy remains the source of truth.

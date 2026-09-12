@@ -1563,3 +1563,81 @@ body.quiet-mode .study-tool-toggle[aria-pressed="true"]{background:#ece7d5;color
 .lab-completion-panel{display:flex;justify-content:space-between;gap:1rem;align-items:center;margin:1rem 0;padding:1rem;border-radius:14px;background:#f6f8f6;border:1px solid #d8e2dc}.lab-completion-panel p{margin:.2rem 0 0;color:#5b6861;font-size:.86rem}.lab-completion-actions{display:flex;gap:.55rem;flex-wrap:wrap;justify-content:flex-end}.lab-complete-btn{border:1px solid #8aa395;background:#fff;color:#0b3d2e;border-radius:999px;padding:.55rem .85rem;font-weight:800;cursor:pointer}.lab-complete-btn.is-complete{background:#0b3d2e;color:#fff;border-color:#0b3d2e}
 @media(max-width:900px){.analytics-overview-grid,.domain-analytics-grid{grid-template-columns:1fr 1fr}.analytics-split{grid-template-columns:1fr}.competency-rank-list article{grid-template-columns:1fr 110px}}
 @media(max-width:620px){.analytics-overview-grid,.domain-analytics-grid{grid-template-columns:1fr}.analytics-bar-row{grid-template-columns:1fr 54px}.analytics-bar-row .analytics-meter{grid-column:1 / -1;grid-row:2}.competency-rank-list article{grid-template-columns:1fr}.competency-score{align-items:flex-start}.competency-score em{text-align:left}.lab-completion-panel{align-items:flex-start;flex-direction:column}.lab-completion-actions{justify-content:flex-start}}
+
+/* =========================================================
+   v15.2 Evidence-backed UX / information-flow refinement
+   ========================================================= */
+:root{--reading-measure:70ch}
+
+/* Keep the institutional texture, but keep it behind the task. */
+body:before{opacity:.10}
+
+/* Orientation is a memory aid, not another competing heading. */
+.skip-link{
+  position:fixed;left:16px;top:10px;z-index:200;
+  transform:translateY(-160%);padding:10px 14px;border-radius:10px;
+  background:#fffdf8;color:var(--green);border:2px solid var(--gold);
+  box-shadow:0 10px 24px rgba(5,30,21,.20);font-weight:850
+}
+.skip-link:focus{transform:none}
+.context-trail{
+  display:flex;align-items:center;flex-wrap:wrap;gap:.42rem;
+  margin:0 0 1rem;color:#dcebe4;font-size:.76rem;font-weight:850;
+  letter-spacing:.075em;text-transform:uppercase
+}
+.context-trail a{color:#f2d88e;text-decoration:underline;text-underline-offset:3px}
+.context-trail a:hover{color:#fff}
+.context-trail [aria-current="page"]{color:#fff}
+body.quiet-mode .context-trail{color:var(--muted)}
+body.quiet-mode .context-trail a{color:#76632d}
+body.quiet-mode .context-trail [aria-current="page"]{color:var(--green)}
+
+/* Long reading blocks stay within a comfortable scan width. */
+.hero-copy p,.page-hero.compact p,.academic-hero p,.progress-hero p,
+.engineering-hero p,.project-page-hero p,.study-hero p,
+.section-heading>p,.module-panel p,.career-translation p{
+  max-width:var(--reading-measure)
+}
+.section-heading>p{line-height:1.55}
+.resource-card p,.document-card p,.portal-card p,.plain-card p,.service-card p{
+  font-size:.96rem;line-height:1.55
+}
+.resource-card .domain{font-size:.80rem}
+.doc-type,.service-kicker,.status-label,.stat-label,.notice-tag,
+.week-dashboard-primary .week-kicker,.student-record-strip span,.sync-settings-grid span,
+.sync-form-panel label{font-size:.74rem}
+.policy-grid span,.pillar-grid span{color:#8a6a22}
+
+/* Secondary navigation is chunked by task instead of presented as one wall. */
+.nav-menu-heading{
+  padding:9px 12px 5px;border-top:1px solid #e7dfce;
+  color:#806728;font-size:.68rem;font-weight:900;letter-spacing:.12em;
+  text-transform:uppercase
+}
+.nav-menu-heading:first-child{border-top:0;padding-top:4px}
+
+/* WCAG 2.2's minimum pointer target is 24px; core actions use the
+   more forgiving 44px rhythm so keyboard and touch users get the same cue. */
+button,.button{min-height:44px}
+.modal-close{min-width:44px;min-height:44px}
+
+/* A small amount of type scale consistency prevents metadata from becoming
+   the only unreadable layer on dense academic pages. */
+.analytics-bar-row>div:first-child span,.competency-rank-list article>div:first-child span,
+.competency-score small,.trend-item small{font-size:.72rem}
+
+@media(max-width:1050px){
+  .nav-menu-heading{padding:14px 14px 7px;border-top:1px solid #e2dbcc;font-size:.70rem}
+  .nav-menu-heading:first-child{padding-top:8px}
+}
+
+@media(max-width:700px){
+  .hero h1,.engineering-hero h1,.project-page-hero h1,.progress-hero h1{font-size:clamp(2.4rem,12vw,4rem)}
+  .page-hero.compact h1{font-size:clamp(2.35rem,11vw,3.4rem)}
+  .context-trail{font-size:.70rem;letter-spacing:.055em}
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+}

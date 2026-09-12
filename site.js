@@ -33,6 +33,94 @@
     else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
   }
 
+  // v15.2 orientation and access layer.  The course has many legitimate
+  // destinations, so give users a short memory aid without changing the
+  // underlying URL architecture.
+  const filePage=(location.pathname.split('/').pop()||'index.html').replace(/\.html?$/,'')||'index';
+  const pageKey=document.body?.dataset.page||filePage;
+  const pageLabels={
+    index:'Home',home:'Home',study:'Study',week:'Week Modules',calendar:'Academic Calendar',
+    practice:'Practice',progress:'Student Progress',analytics:'Mastery',
+    'au-eset-301':'Course Overview',course:'Course Overview',engineering:'Engineering',
+    resources:'Engineering Library',projects:'Projects',search:'Search Everything',
+    knowledge:'Knowledge Base',labs:'Lab Center',assessments:'Assessment Center',
+    standards:'Standards & Retention',documents:'Documents','student-services':'Student Services',
+    about:'About','patch-notes':'Release Notes',deployment:'Deployment Notes',quiz:'Assessment'
+  };
+  const parentMap={
+    week:['Course Overview','course.html'],
+    engineering:['Course Overview','course.html'],
+    projects:['Engineering','engineering.html'],
+    resources:['Engineering Library','resources.html'],
+    search:['Engineering Library','resources.html'],
+    knowledge:['Engineering Library','resources.html'],
+    labs:['Practice','practice.html'],
+    assessments:['Practice','practice.html'],
+    standards:['Mastery','analytics.html'],
+    analytics:['Mastery','analytics.html'],
+    documents:['Course Overview','course.html'],
+    deployment:['About','about.html'],
+    'patch-notes':['About','about.html'],
+    quiz:['Practice','practice.html']
+  };
+
+  function installSkipLink(){
+    const main=$('main');
+    if(!main||document.getElementById('main-content')) return;
+    main.id='main-content';
+    const skip=document.createElement('a');
+    skip.className='skip-link';
+    skip.href='#main-content';
+    skip.textContent='Skip to main content';
+    document.body.insertBefore(skip,document.body.firstChild);
+  }
+
+  function addContextTrail(){
+    if(['home','index','offline','404'].includes(pageKey)) return;
+    const label=pageLabels[pageKey];
+    const hero=$('.study-hero .shell,.academic-hero .shell,.page-hero .shell,.progress-hero .shell,.engineering-hero .shell,.project-page-hero .shell,.quiz-hero .shell');
+    if(!label||!hero||$('.context-trail',hero)) return;
+    const trail=document.createElement('nav');
+    trail.className='context-trail';
+    trail.setAttribute('aria-label','You are here');
+    const home=document.createElement('a');
+    home.href='index.html'; home.textContent='Home';
+    trail.append(home);
+    const parent=parentMap[pageKey];
+    if(parent){
+      const divider=document.createElement('span'); divider.setAttribute('aria-hidden','true'); divider.textContent='/';
+      const parentLink=document.createElement('a'); parentLink.href=parent[1]; parentLink.textContent=parent[0];
+      trail.append(divider,parentLink);
+    }
+    const divider=document.createElement('span'); divider.setAttribute('aria-hidden','true'); divider.textContent='/';
+    const current=document.createElement('span'); current.setAttribute('aria-current','page'); current.textContent=label;
+    trail.append(divider,current);
+    hero.insertBefore(trail,hero.firstElementChild);
+  }
+
+  function groupMoreMenu(){
+    const menu=$('.nav-more-menu');
+    if(!menu||menu.dataset.grouped==='true') return;
+    const groups=[
+      {label:'Course & Library',links:['course.html','engineering.html','resources.html','projects.html','search.html','knowledge.html']},
+      {label:'Practice & Mastery',links:['labs.html','assessments.html','standards.html']},
+      {label:'Documents & Support',links:['documents.html','student-services.html','about.html','patch-notes.html']}
+    ];
+    const links=$$('a',menu);
+    groups.forEach(group=>{
+      const first=links.find(link=>group.links.includes((link.getAttribute('href')||'').split('#')[0]));
+      if(!first) return;
+      const heading=document.createElement('div');
+      heading.className='nav-menu-heading'; heading.setAttribute('role','presentation'); heading.textContent=group.label;
+      menu.insertBefore(heading,first);
+    });
+    menu.dataset.grouped='true';
+  }
+
+  installSkipLink();
+  addContextTrail();
+  groupMoreMenu();
+
   const toggle=$('.nav-toggle');
   const nav=$('.main-nav');
   const more=$('.nav-more');

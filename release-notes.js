@@ -1,5 +1,19 @@
 window.ALFRED_RELEASES = [
   {
+    version:'v15.2', date:'September 12, 2026', title:'Evidence-Backed UX Flow Audit', type:'UX / Accessibility Quality Patch',
+    request:'Audit the complete site against research on visual complexity, cognitive load, typography, scanning, information scent, and cognitive accessibility, then make the flow calmer and easier to follow without removing useful academic depth.',
+    changes:[
+      'Moved the live Current Week Dashboard directly below the home announcement so returning students see the current context before the six-system map.',
+      'Added a consistent linked context trail to inner pages and a keyboard-accessible Skip to main content link, reducing orientation and memory load.',
+      'Grouped the More menu into Course & Library, Practice & Mastery, and Documents & Support so the 13 secondary destinations scan as task clusters instead of one flat list.',
+      'Constrained long reading blocks to a comfortable measure, raised the smallest instructional metadata sizes, and preserved the Georgia display / sans-serif body pairing.',
+      'Standardized the touch target rhythm for buttons and compact controls, retained visible focus treatment, and added a reduced-motion fallback.',
+      'Reduced the decorative paper texture behind task content while keeping the Alfred green, gold, cream, seal, and institutional presentation system.',
+      'Revised the service-worker cache to v15.2 so the new UX and accessibility layer replaces stale v15.1 CSS/JS on the next visit.',
+      'Preserved all academic data, calendar event IDs, assessment evidence, Progress records, Cloud Sync protocol 2, Worker/D1 schema, and Release Notes placement under About.'
+    ]
+  },
+  {
     version:'v15.1', date:'September 12, 2026', title:'Quality, Compatibility & Review Flow', type:'Quality-of-Life Patch',
     request:'Complete a final quality audit, repair confirmed issues, restore direct patch-history access, and provide upload-ready files.',
     changes:[
