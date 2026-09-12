@@ -1510,6 +1510,15 @@ body.quiet-mode:before{display:none}body.quiet-mode{background:#fbfaf5}body.quie
 @media(max-width:1050px){.card-grid.five{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:720px){.card-grid.five{grid-template-columns:1fr}}
 body.quiet-mode .study-hero,body.quiet-mode .academic-hero{background:#f8f7f2;color:var(--ink);border-bottom:1px solid #dde3df}
+/* v15.4 cognitive-accessibility refinements */
+.study-settings-help{max-width:260px;margin:.75rem 0 0;color:#d9e7e1;font-size:.78rem;line-height:1.45}
+.filter-guidance{margin:-.8rem 0 1rem;color:#64766e;font-size:.85rem}
+.resume-session-card{display:flex;justify-content:space-between;align-items:center;gap:1rem;background:#fff9e7;border:1px solid #d8c584;border-left:5px solid var(--gold);border-radius:12px;padding:1.1rem 1.2rem;box-shadow:var(--shadow)}
+.resume-session-card h2{margin:.2rem 0 .35rem;font-size:1.2rem;color:var(--green)}
+.resume-session-card p{margin:0;color:#5d6c63}
+.resume-session-actions{display:flex;flex-wrap:wrap;gap:.55rem;flex-shrink:0}
+body.focus-mode #resume-session-section{display:none!important}
+@media(max-width:620px){.resume-session-card{align-items:flex-start;flex-direction:column}.resume-session-actions{width:100%}.resume-session-actions .button{flex:1}}
 body.quiet-mode .study-hero h1,body.quiet-mode .academic-hero h1{color:var(--green)}
 body.quiet-mode .study-hero p,body.quiet-mode .academic-hero p{color:#4f625b}
 body.quiet-mode .study-hero .eyebrow,body.quiet-mode .academic-hero .eyebrow{color:#76632d}

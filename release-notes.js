@@ -1,5 +1,19 @@
 window.ALFRED_RELEASES = [
   {
+    version:'v15.4', date:'September 12, 2026', title:'Focus-Resilient Study Flow', type:'ADHD / Autism-Informed Quality Patch',
+    request:'Keep the Alfred university presentation and CETa/job-transition depth, while reducing executive-function friction for a learner who may lose focus, need predictable steps, or return after an interruption.',
+    changes:[
+      'Added an interruption-resilient Study session save: an unfinished session now offers Resume Session at the saved step instead of making the learner reconstruct the task from memory.',
+      'Added literal setting descriptions for Quiet Mode and Focus Mode so the learner knows what each control changes before using it.',
+      'Added an explicit one-line study sequence: choose a mode, follow the steps in order, rate confidence, then mark the scheduled work complete.',
+      'Added current-week-first defaults for lesson quizzes and the Lab Center, while keeping All weeks available for deliberate browsing.',
+      'Added current-filter guidance so a smaller initial list is clearly intentional rather than appearing to hide course content.',
+      'Added current-step semantics to the guided Study tabs for keyboard and screen-reader orientation.',
+      'Kept the existing visual identity, full course content, 125 events, assessment evidence, Cloud Sync records, and progressive-disclosure patterns intact.',
+      'Bumped the offline cache to v15.4 so the saved-session and focus-flow changes replace the older Study layer.'
+    ]
+  },
+  {
     version:'v15.3', date:'September 12, 2026', title:'Calendar Readability & Task-First Notes', type:'Calendar / Information Design Patch',
     request:'Keep the complete 125-item academic calendar, but make its wording, hierarchy, and event details easier to scan and retain.',
     changes:[

@@ -1,23 +1,23 @@
-ALFRED UNIVERSITY v15.3 — CALENDAR READABILITY PATCH
+ALFRED UNIVERSITY v15.4 — FOCUS-RESILIENT STUDY PATCH
 
-Upload the files in Alfred_University_v15_3_Calendar_Readability_Files.zip over the current Alfred University repository.
+Upload the files in Alfred_University_v15_4_Focus_Resilient_Study_Files.zip over the current Alfred University repository.
 
-This is a cumulative replacement package. It includes the current v15.2 baseline plus the calendar-focused v15.3 changes.
+This is a cumulative replacement package. It includes the current v15.3 calendar-readability baseline plus the v15.4 ADHD/autism-informed quality-of-life changes.
 
-Calendar-specific changes:
-- Task-first event details: Today’s work, required outcomes, mastery/career context, then references.
-- Week Focus is separated into a short focus title and readable topic line.
-- Resource links and full event notes are expandable instead of appearing as one uninterrupted wall of text.
-- Month, Week, and Agenda labels are shorter while full event identity remains available to assistive technology and the modal.
-- Week and Agenda event controls are keyboard-friendly and have descriptive labels.
-- Common display-only spacing glitches in older copy are repaired without changing course-data records.
+v15.4 changes:
+- Unfinished guided Study sessions now save the current event, mode, and step and offer Resume Session after an interruption.
+- Quiet Mode and Focus Mode explain what they do in literal language.
+- Study explicitly states the sequence: choose a mode, follow the steps, rate confidence, then mark scheduled work complete.
+- The final action now says Close Session, while the separate academic completion action says Mark Scheduled Work Complete.
+- Lesson quizzes and the Lab Center open to the current week by default, while All weeks remains available.
+- Current-step accessibility semantics were added to the guided Study tabs.
 
-The service-worker cache is v15.3. After uploading, refresh once online so the new calendar JavaScript and CSS replace the cached v15.2 layer.
+The complete academic record remains intact: 125 calendar events, dates, IDs, resources, labs, milestones, assessments, career work, outcomes, Cloud Sync records, and the v15.3 calendar presentation layer.
 
-The authoritative calendar data is preserved: 125 events, event IDs, dates, times, resource URLs, labs, milestones, mastery gates, Project 1/career work, and required outcomes.
+The service-worker cache is v15.4. After uploading, refresh once online so the new Study JavaScript and CSS replace the cached v15.3 layer.
 
 QA files included separately:
-- CALENDAR_AUDIT_REPORT.md
+- ADHD_AUTISM_AUDIT_REPORT.md
 - QA_REPORT.md
 - regression.cjs
 - package.py

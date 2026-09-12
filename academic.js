@@ -15,6 +15,7 @@ function saveLabProgress(lab,route,value){const p=normalizeProgress(loadProgress
 
 function fillDomains(sel){if(!sel)return; A.cetaDomains.forEach(d=>sel.insertAdjacentHTML('beforeend',`<option value="${d.id}">${d.id}.0 ${esc(d.title)}</option>`));}
 function fillWeeks(sel){if(!sel)return; W.forEach(w=>sel.insertAdjacentHTML('beforeend',`<option value="${w.week}">Week ${String(w.week).padStart(2,'0')} · ${esc(w.topic)}</option>`));}
+function currentWeek(){const now=Date.now();let week=1;E.filter(e=>e.week&&new Date(e.start).getTime()<=now).forEach(e=>{week=Math.max(week,Number(e.week)||1)});return week;}
 function resCard(r){const host=r.hosting==='publisher-only'?'<span class="hosting-badge publisher-only">Publisher copy</span>':r.hosting==='local-open-library'?'<span class="hosting-badge local-copy">Also in local library</span>':'';return `<article class="resource-card enhanced-card"><div class="resource-meta"><span>${esc(r.kind)}</span><span>${esc(r.source)}</span>${r.priority?`<span class="priority-${esc(r.priority.toLowerCase().replace(/[^a-z]+/g,'-'))}">${esc(r.priority)}</span>`:''}${host}</div><h3>${esc(r.title)}</h3><p>${esc(r.summary||'')}</p>${r.hostingNote?`<p class="hosting-note">${esc(r.hostingNote)}</p>`:''}<div class="resource-map">${(r.ceta||[]).slice(0,5).map(x=>`<span>CETa ${esc(x)}</span>`).join('')}${(r.weeks||[]).slice(0,5).map(x=>`<span>W${x}</span>`).join('')}</div><div class="resource-card-foot">${ext(r.url,'Open at publisher')}${r.verified?`<small>Verified ${esc(r.verified)}</small>`:''}</div></article>`}
 
 function localPdfCard(r){return `<article class="resource-card enhanced-card local-pdf-card"><div class="resource-meta"><span>Local PDF</span><span>${esc(r.publisher)}</span><span>${r.pages?esc(r.pages)+' pages':'Full-text indexed'}</span></div><h3>${esc(r.title)}</h3><p>${esc(r.collection||'Engineering Reference')}</p><div class="resource-map">${(r.ceta||[]).slice(0,6).map(x=>`<span>CETa ${esc(x)}</span>`).join('')}${(r.weeks||[]).slice(0,6).map(x=>`<span>W${x}</span>`).join('')}</div><p class="license-note"><strong>Local-copy basis:</strong> ${esc(r.license||'Open/public release')}</p><div class="resource-card-foot"><div class="library-card-actions"><a class="text-link" href="${esc(r.localUrl)}" target="_blank" rel="noopener">Open local PDF →</a><a class="text-link secondary" href="${esc(r.sourceUrl)}" target="_blank" rel="noopener">Publisher/source ↗</a></div>${r.bytes?`<small>${(r.bytes/1048576).toFixed(1)} MB</small>`:''}</div></article>`}
@@ -61,6 +62,8 @@ function initWeek(){
 
 function initLabs(){
  const w=$('#lab-week'), d=$('#lab-domain'), q=$('#lab-search'), out=$('#lab-results'); if(!out)return; fillWeeks(w);fillDomains(d);
+ w.value=String(currentWeek());
+ const filterGuidance=$('#lab-filter-guidance')||(()=>{const n=document.createElement('p');n.id='lab-filter-guidance';n.className='filter-guidance';n.textContent='Showing the current week first. Choose “All weeks” when you want to browse every lab.';out.parentNode.insertBefore(n,out);return n;})();
  const linkHtml=(links=[])=>links.map(x=>{const label=x[0],url=x[1],ext=/^https?:/i.test(url);return `<a class="button ${ext?'outline-green':'outline'}" href="${esc(url)}"${ext?' target="_blank" rel="noopener"':''}>${esc(label)}${ext?' ↗':''}</a>`}).join('');
  const steps=items=>`<ol>${(items||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ol>`;
  function completionPanel(l,tactile){const st=labProgressState(l),done=st.virtual||st.physical;return `<div class="lab-completion-panel" data-lab="${esc(l.id)}"><div><strong>Lab completion evidence</strong><p>${done?`Academic lab complete via ${st.physical?'physical hardware':'virtual lab'}${st.virtual&&st.physical?' + virtual':''}.`:'Choose a route after you complete the required evidence.'}${tactile&&st.virtual&&!st.physical?' Physical skill verification is still recommended later.':''}</p></div><div class="lab-completion-actions"><button type="button" class="lab-complete-btn ${st.virtual?'is-complete':''}" data-route="virtual" data-labid="${esc(l.id)}">${st.virtual?'✓ ':''}Virtual</button><button type="button" class="lab-complete-btn ${st.physical?'is-complete':''}" data-route="physical" data-labid="${esc(l.id)}">${st.physical?'✓ ':''}Physical</button></div></div>`}
@@ -80,7 +83,7 @@ function initLabs(){
        ${completionPanel(l,tactile)}
        <div class="lab-assessment-cta"><div><strong>Lab Knowledge Check</strong><p>20 questions · 10 CETa + 10 career</p></div><a class="button green" href="quiz.html?type=lab&id=${encodeURIComponent(l.id)}">Take lab check →</a></div>
      </article>`;
-   }).join('')||'<p class="empty-state">No labs match.</p>';bindCompletion();
+   }).join('')||'<p class="empty-state">No labs match.</p>';filterGuidance.textContent=wk?`Showing Week ${String(wk).padStart(2,'0')}. Choose “All weeks” when you want to browse every lab.`:'Showing all 24 labs. Choose a week to narrow the list.';bindCompletion();
  }
  [w,d,q].forEach(x=>x.addEventListener('input',render));render();
 }

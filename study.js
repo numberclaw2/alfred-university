@@ -10,10 +10,10 @@ const sameDay=(a,b)=>a.getFullYear()===b.getFullYear()&&a.getMonth()===b.getMont
 const fmtDate=(v,o={weekday:'short',month:'short',day:'numeric'})=>new Intl.DateTimeFormat('en-US',o).format(new Date(v));
 const fmtTime=v=>new Intl.DateTimeFormat('en-US',{hour:'numeric',minute:'2-digit'}).format(new Date(v));
 const cleanTitle=e=>String(e?.summary||'').replace(/^AU-ESET 301 \| /,'');
-function defaultState(){return {version:15,defaultMode:'standard',reviews:{},parking:[],history:[],sessionConfidence:{}};}
+function defaultState(){return {version:15,defaultMode:'standard',reviews:{},parking:[],history:[],sessionConfidence:{},session:null};}
 function load(){try{return {...defaultState(),...(JSON.parse(localStorage.getItem(STUDY_KEY)||'null')||{})};}catch{return defaultState();}}
 let state=load();
-function save(){localStorage.setItem(STUDY_KEY,JSON.stringify({version:15,defaultMode:state.defaultMode,parking:state.parking,history:state.history}));}
+function save(){localStorage.setItem(STUDY_KEY,JSON.stringify({version:15,defaultMode:state.defaultMode,parking:state.parking,history:state.history,session:state.session||null}));}
 function progress(){try{return JSON.parse(localStorage.getItem(PROGRESS_KEY)||'null')||{events:{},weeks:{},readiness:{},recordTimes:{}};}catch{return {events:{},weeks:{},readiness:{},recordTimes:{}};}}
 function eventStatus(id){const status=progress().events?.[String(id)]?.status;return status==='review'?'in-progress':status||'not-started';}
 function hydrateReviewsFromProgress(){const p=progress();state.reviews={};state.sessionConfidence={};Object.entries(p.events||{}).forEach(([id,v])=>{if(v?.studyReview)state.reviews[id]={...v.studyReview,eventId:Number(id)};if(v?.studyConfidence)state.sessionConfidence[id]=v.studyConfidence;});save();}
@@ -67,7 +67,7 @@ function buildSteps(e,mode){
     steps.push({title:`${plan[2].name} · ${plan[2].minutes} min`,body:`<p class="step-directive">Produce evidence. Watching or reading alone does not finish this step.</p><ul class="definition-list">${outcomes.slice(0,4).map(o=>`<li>${esc(o)}</li>`).join('')}</ul><div class="proof-box"><strong>Proof can be:</strong> a correct calculation, a measured value, a working circuit/code result, a truth table, a scope/logic capture, or a troubleshooting explanation.</div>${['Lab','Project'].includes(e.type)?'<a class="button green" href="labs.html">Choose Virtual or Physical Lab</a>':''}`});
   }
   const closePlan=plan[plan.length-1];
-  steps.push({title:`${closePlan.name} · ${closePlan.minutes} min`,body:`<p class="step-directive">Without notes, decide how solid this session feels.</p><div class="confidence-buttons" data-confidence><button type="button" data-rating="green"><strong>Green</strong><span>I can explain it and use it.</span></button><button type="button" data-rating="yellow"><strong>Yellow</strong><span>I understand it but need more practice.</span></button><button type="button" data-rating="red"><strong>Red</strong><span>I do not understand this yet.</span></button></div><div id="confidence-result" class="confidence-result"></div><div class="session-close-actions"><button type="button" class="button green" id="mark-session-complete">Mark Scheduled Session Complete</button><a class="button outline-green" href="quiz.html?type=lesson&id=${e.id}">Take Lesson Quiz</a><a class="button outline-green" href="progress.html">Open Full Progress Tracker</a></div><p class="small-note">Green / Yellow / Red also schedules the concept into Alfred's spaced-review queue. Official event completion remains visible in Student Progress.</p>`});
+  steps.push({title:`${closePlan.name} · ${closePlan.minutes} min`,body:`<p class="step-directive">Without notes, decide how solid this session feels.</p><div class="confidence-buttons" data-confidence><button type="button" data-rating="green"><strong>Green</strong><span>I can explain it and use it.</span></button><button type="button" data-rating="yellow"><strong>Yellow</strong><span>I understand it but need more practice.</span></button><button type="button" data-rating="red"><strong>Red</strong><span>I do not understand this yet.</span></button></div><div id="confidence-result" class="confidence-result"></div><div class="session-close-actions"><button type="button" class="button green" id="mark-session-complete">Mark Scheduled Work Complete</button><a class="button outline-green" href="quiz.html?type=lesson&id=${e.id}">Take Lesson Quiz</a><a class="button outline-green" href="progress.html">Open Full Progress Tracker</a></div><p class="small-note">Mark the scheduled work complete only after you did the assigned task. Closing this session does not mark it complete. Green / Yellow / Red schedules retrieval practice separately.</p>`});
   return steps;
 }
 let steps=[];
@@ -75,16 +75,28 @@ function renderSession(){
   if(!target)return; steps=buildSteps(target,activeMode); step=Math.max(0,Math.min(step,steps.length-1));
   $('#session-title').textContent=cleanTitle(target); $('#session-kicker').textContent=`Week ${String(target.week||currentWeek()).padStart(2,'0')} · ${activeMode==='deep'?'Deep Work':activeMode==='quick'?'Quick Session':'Standard Session'}`;
   $('#session-meta').textContent=`${steps.reduce((a,x)=>a+Number((x.title.match(/· (\d+)/)||[])[1]||0),0)} minute plan · Definition of Done: ${(target.outcomes||[]).length||'use the Week Module outcomes'} outcome(s)`;
-  $('#session-step-tabs').innerHTML=steps.map((s,i)=>`<button type="button" class="${i===step?'active':''}" data-step="${i}"><span>${i+1}</span>${esc(s.title.replace(/ · \d+ min/,''))}</button>`).join('');
+  $('#session-step-tabs').innerHTML=steps.map((s,i)=>`<button aria-current="${i===step?'step':'false'}" aria-label="Step ${i+1}: ${esc(s.title.replace(/ · \d+ min/,''))}" type="button" class="${i===step?'active':''}" data-step="${i}"><span>${i+1}</span>${esc(s.title.replace(/ · \d+ min/,''))}</button>`).join('');
   $('#session-progress-bar').style.width=`${((step+1)/steps.length)*100}%`; $('#session-step-content').innerHTML=`<div class="step-number">Step ${step+1} of ${steps.length}</div><h3>${esc(steps[step].title)}</h3>${steps[step].body}`;
-  $('#session-prev').disabled=step===0; $('#session-next').textContent=step===steps.length-1?'Finish Session':'Next Step';
+  $('#session-prev').disabled=step===0; $('#session-next').textContent=step===steps.length-1?'Close Session':'Next Step';
+  state.session={eventId:target.id,mode:activeMode,step,startedAt:state.session?.startedAt||new Date().toISOString()}; save();
   $$('[data-step]').forEach(b=>b.onclick=()=>{step=Number(b.dataset.step);renderSession()});
   $$('[data-stuck]').forEach(b=>b.onclick=openStuck);
   $$('[data-rating]').forEach(b=>b.onclick=()=>rateSession(b.dataset.rating));
   $('#mark-session-complete')?.addEventListener('click',markSessionComplete);
 }
+function renderResumeSession(){
+  const box=$('#resume-session-section'), title=$('#resume-session-title'), copy=$('#resume-session-copy');
+  const saved=state.session, savedEvent=saved&&E.find(e=>String(e.id)===String(saved.eventId));
+  if(!box||!savedEvent){if(box)box.classList.add('hidden');return;}
+  const savedStep=Math.min(Number(saved.step)||0,Math.max(0,buildSteps(savedEvent,saved.mode||'standard').length-1));
+  title.textContent=`Resume ${cleanTitle(savedEvent)}`;
+  copy.textContent=`You left this ${saved.mode==='quick'?'Quick':saved.mode==='deep'?'Deep Work':'Standard'} session at Step ${savedStep+1}. Resume there, or start the recommended action instead.`;
+  box.classList.remove('hidden');
+  $('#resume-session-button').onclick=()=>{target=savedEvent;activeMode=saved.mode||'standard';step=savedStep;$$('input[name="session-mode"]').forEach(r=>{r.checked=r.value===activeMode});$('#session-workspace').classList.remove('hidden');renderSession();document.body.classList.add('focus-mode');$('#focus-mode-toggle').setAttribute('aria-pressed','true');$('#session-workspace').scrollIntoView({behavior:'smooth',block:'start'});};
+  $('#discard-session-button').onclick=()=>{state.session=null;save();renderResumeSession();};
+}
 function startSession(){
-  activeMode=$('input[name="session-mode"]:checked')?.value||'standard'; state.defaultMode=activeMode;save(); step=0; $('#session-workspace').classList.remove('hidden');renderSession();
+  activeMode=$('input[name="session-mode"]:checked')?.value||'standard'; state.defaultMode=activeMode; step=0; state.session={eventId:target?.id,mode:activeMode,step:0,startedAt:new Date().toISOString()}; save(); $('#resume-session-section')?.classList.add('hidden'); $('#session-workspace').classList.remove('hidden');renderSession();
   document.body.classList.add('focus-mode'); $('#focus-mode-toggle').setAttribute('aria-pressed','true'); $('#session-workspace').scrollIntoView({behavior:'smooth',block:'start'});
 }
 function ratingInterval(r,old){if(r==='red')return 1;if(r==='yellow')return old?Math.max(2,Math.round(old*.6)):2;const ladder=[7,14,30,60,90];return ladder.find(x=>x>(old||0))||90;}
@@ -161,9 +173,9 @@ async function syncProgressFromCloud(){
 function applyQuiet(){const on=localStorage.getItem(QUIET_KEY)==='1';document.body.classList.toggle('quiet-mode',on);$('#quiet-mode-toggle').setAttribute('aria-pressed',String(on));}
 function toggleQuiet(){const on=localStorage.getItem(QUIET_KEY)!=='1';localStorage.setItem(QUIET_KEY,on?'1':'0');applyQuiet();}
 function toggleFocus(){const on=!document.body.classList.contains('focus-mode');if(on&&$('#session-workspace').classList.contains('hidden')){startSession();return;}document.body.classList.toggle('focus-mode',on);$('#focus-mode-toggle').setAttribute('aria-pressed',String(on));if(on)$('#session-workspace').scrollIntoView({behavior:'smooth'});}
-function finishSession(){state.history.unshift({eventId:target?.id,mode:activeMode,finished:true,at:new Date().toISOString()});state.history=state.history.slice(0,100);save();document.body.classList.remove('focus-mode');$('#focus-mode-toggle').setAttribute('aria-pressed','false');$('#session-workspace').scrollIntoView({behavior:'smooth'});}
+function finishSession(){state.history.unshift({eventId:target?.id,mode:activeMode,finished:true,at:new Date().toISOString()});state.history=state.history.slice(0,100);state.session=null;save();document.body.classList.remove('focus-mode');$('#focus-mode-toggle').setAttribute('aria-pressed','false');$('#session-workspace').scrollIntoView({behavior:'smooth'});renderResumeSession();}
 
-enqueueRequestedStandard();hydrateReviewsFromProgress();renderRecommendation();renderWeeklyPlan();renderReviews();renderParking();applyQuiet();syncProgressFromCloud();
+enqueueRequestedStandard();hydrateReviewsFromProgress();renderRecommendation();renderWeeklyPlan();renderReviews();renderParking();renderResumeSession();applyQuiet();syncProgressFromCloud();
 window.addEventListener('online',syncProgressFromCloud);
 window.addEventListener('storage',event=>{if(event.key===PROGRESS_KEY){hydrateReviewsFromProgress();renderRecommendation();renderReviews();}});
 $$('input[name="session-mode"]').forEach(r=>{r.checked=r.value===activeMode});

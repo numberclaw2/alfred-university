@@ -1,41 +1,22 @@
-# Alfred University v15.3 Calendar Readability QA
+# Alfred University v15.4 Focus-Resilient Study QA
 
 ## Result
 
-**PASS — 1,221 automated checks.**
-
-Command run:
+Run:
 
 ```text
-node qa-v153/regression.cjs
+node qa-v154/regression.cjs
 ```
 
-## Coverage
+The regression suite checks JavaScript syntax, routed HTML structure, local references, navigation order, academic data inventories, service-worker assets, calendar completeness, Study recovery hooks, and the current-week defaults for assessment and lab browsing.
 
-- 18 JavaScript files parse successfully.
-- 24 routed HTML documents were checked for unique IDs, one primary `h1`, local file references, shared `site.js`, and the current primary-navigation order.
-- Calendar data remains 125 events across 31 weeks.
-- Assigned resource count remains 48.
-- Deep resources remain 99.
-- Labs remain 24.
-- Knowledge entries remain 61.
-- Indexed local documents remain 7.
-- Assessment inventory remains 262 CETa standards, 78 career standards, 1,048 questions, 125 lesson quizzes, 24 lab quizzes, and 31 weekly tests.
-- Every event still has its ID, start, end, summary, source description, and outcomes array.
-- Service-worker cache is `alfred-u-v15-3` and every listed core asset exists.
-- Calendar orientation copy, usage cue, event hierarchy, progressive disclosure hooks, view semantics, and keyboard-friendly Week controls are present.
-- README inventory and v15.3 release note are present.
+## Manual validation still recommended after upload
 
-## Package verification
+The available environment does not include a runnable Chromium binary, so this report does not claim a screenshot pass. After upload, test the following at desktop and mobile widths:
 
-The replacement package is built from the current repository diff plus the v15.3 audit materials. The packaging script verifies ZIP integrity and byte equality after writing the archive.
+1. Start a Standard Study session, advance one step, refresh, and resume it.
+2. Turn Quiet Mode on and off; confirm required content remains available.
+3. Open Focus Mode and close the session without marking the scheduled work complete.
+4. Open Assessment Center and Lab Center; confirm current-week-first behavior and the All weeks escape hatch.
+5. Verify one long Week 1 event, one lab, and one Project 1 event in Calendar Month, Week, and Agenda views.
 
-## Manual verification still recommended after upload
-
-The environment did not have a runnable Chromium binary, so no screenshot claim is made here. After upload, open at least:
-
-1. A long Week 1 learning event.
-2. A lab event with equipment and mastery detail.
-3. A Project 1 event.
-
-Check each in Month, Week, and Agenda views at desktop and mobile widths. Confirm that Today’s work and outcomes appear before the expandable reference sections, and that the full source note opens when selected.
