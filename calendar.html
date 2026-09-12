@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
 <meta content="#0d3e31" name="theme-color"/>
-<meta content="Visual AU-ESET 301 month, week, and agenda calendar with daily assignments and outcomes." name="description"/>
+<meta content="AU-ESET 301's 125-item academic calendar with dated learning work, labs, milestones, resources, and required outcomes." name="description"/>
 <link href="icon-192.png" rel="icon"/>
 <link href="icon-180.png" rel="apple-touch-icon"/>
 <link href="manifest.webmanifest" rel="manifest"/>
@@ -37,7 +37,7 @@
 <div class="shell">
 <div class="eyebrow">Office of Academic Affairs</div>
 <h1>Academic Calendar</h1>
-<p>Clear session titles · Month · Week · Agenda · Assignments · Labs · Milestones</p>
+<p>125 dated learning items · Month · Week · Agenda · Search</p>
 </div>
 </section>
 <section class="section shell calendar-dashboard-wrap">
@@ -46,17 +46,17 @@
 <section class="section shell no-top">
 <div class="calendar-command-bar">
 <div aria-label="Calendar view" class="calendar-view-switch" role="group">
-<button class="view-button active" data-calendar-view="month">Month</button>
-<button class="view-button" data-calendar-view="week">Week</button>
-<button class="view-button" data-calendar-view="agenda">Agenda</button>
+<button aria-pressed="true" class="view-button active" data-calendar-view="month">Month</button>
+<button aria-pressed="false" class="view-button" data-calendar-view="week">Week</button>
+<button aria-pressed="false" class="view-button" data-calendar-view="agenda">Agenda</button>
 </div>
 <div class="calendar-period-nav">
 <button aria-label="Previous period" class="period-button" id="calendar-prev">‹</button>
 <button class="period-button today" id="calendar-today">Today</button>
 <button aria-label="Next period" class="period-button" id="calendar-next">›</button>
-<strong id="calendar-period-label"></strong>
+<strong aria-live="polite" id="calendar-period-label"></strong>
 </div>
-<a class="button green small" href="Alfred University - AU-ESET 301 - Simplified Course Calendar.ics">Download Apple Calendar</a>
+<a class="button green small" href="Alfred University - AU-ESET 301 - Simplified Course Calendar.ics">Download calendar file</a>
 </div>
 <div class="calendar-toolbar refined">
 <div class="search-box">
@@ -71,8 +71,9 @@
 <label for="type-filter">Event type</label>
 <select id="type-filter"><option value="">All types</option></select>
 </div>
-<div class="toolbar-note">Titles follow “Week • activity — topic” so you can see the task at a glance. Open any event for the full assignment, CETa alignment, resources, career connection, and outcomes.</div>
+<div class="toolbar-note">Choose a view, then open an item for today’s work and required outcomes. Reference notes stay available below when you need them.</div>
 </div>
+<p class="calendar-guidance" role="note"><strong>How to use this calendar:</strong> Start with today’s work. Treat the outcomes as the finish line. Use the search and filters to narrow the record without losing the full course schedule.</p>
 <div class="calendar-view-panel" id="calendar-month-view"></div>
 <div class="calendar-view-panel hidden" id="calendar-week-view"></div>
 <div class="calendar-view-panel hidden" id="calendar-agenda-view">

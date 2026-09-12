@@ -1,27 +1,41 @@
-# Alfred University v15.2 package QA
-
-Date: 2026-09-12
+# Alfred University v15.3 Calendar Readability QA
 
 ## Result
 
-PASS — the cumulative replacement package passed static, data-integrity, local-reference, service-worker, and package checks.
+**PASS — 1,221 automated checks.**
 
-## Checks run
+Command run:
 
-- `node qa-v152/regression.cjs` — **PASS, 1,215 checks**.
-  - 18 root JavaScript files parsed with Node syntax checking.
-  - 24 HTML documents checked for duplicate IDs, one primary `h1`, local references, shared navigation order, and shared `site.js` loading where applicable.
-  - Data verified: 31 weeks, 125 calendar events, 48 assigned resources, 99 deep resources, 24 labs, 61 knowledge entries, 7 indexed local documents, 262 CETa standards, 78 career standards, 1,048 assessment questions, 125 lesson quizzes, 24 lab quizzes, and 31 weekly tests.
-  - Service-worker cache is `alfred-u-v15-2`; every listed local asset exists.
-  - v15.2 current-week ordering, context/skip-link hooks, grouped navigation, 70ch reading measure, 44px control rhythm, reduced-motion rule, README inventory, release note, and audit report are present.
-- `pdfinfo` on the revised Assignment & Lab Manual — **PASS**: tagged, 13 pages, letter size, unencrypted, no embedded JavaScript.
-- ZIP manifest verification after packaging — **PASS**: cumulative replacement files plus upload instructions and audit report are present.
+```text
+node qa-v153/regression.cjs
+```
 
-## Browser-test limitation
+## Coverage
 
-No full browser screenshot pass is claimed in this report. The execution environment did not contain a usable Chromium binary after the earlier browser download attempt timed out. Perform one live visual pass after upload at desktop and mobile widths, then run the five-task usability check in `UX_AUDIT_REPORT.md` with an unfamiliar user and an ADHD/autistic learner.
+- 18 JavaScript files parse successfully.
+- 24 routed HTML documents were checked for unique IDs, one primary `h1`, local file references, shared `site.js`, and the current primary-navigation order.
+- Calendar data remains 125 events across 31 weeks.
+- Assigned resource count remains 48.
+- Deep resources remain 99.
+- Labs remain 24.
+- Knowledge entries remain 61.
+- Indexed local documents remain 7.
+- Assessment inventory remains 262 CETa standards, 78 career standards, 1,048 questions, 125 lesson quizzes, 24 lab quizzes, and 31 weekly tests.
+- Every event still has its ID, start, end, summary, source description, and outcomes array.
+- Service-worker cache is `alfred-u-v15-3` and every listed core asset exists.
+- Calendar orientation copy, usage cue, event hierarchy, progressive disclosure hooks, view semantics, and keyboard-friendly Week controls are present.
+- README inventory and v15.3 release note are present.
 
-## Upload note
+## Package verification
 
-The ZIP is cumulative relative to the repository baseline. Upload the files at the ZIP root while preserving filenames and the repository root layout. Do not upload the `qa-v152` working folder as part of the site; the report and instructions are included in the ZIP for reference only.
+The replacement package is built from the current repository diff plus the v15.3 audit materials. The packaging script verifies ZIP integrity and byte equality after writing the archive.
 
+## Manual verification still recommended after upload
+
+The environment did not have a runnable Chromium binary, so no screenshot claim is made here. After upload, open at least:
+
+1. A long Week 1 learning event.
+2. A lab event with equipment and mastery detail.
+3. A Project 1 event.
+
+Check each in Month, Week, and Agenda views at desktop and mobile widths. Confirm that Today’s work and outcomes appear before the expandable reference sections, and that the full source note opens when selected.

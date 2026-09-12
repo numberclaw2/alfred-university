@@ -1,5 +1,19 @@
 window.ALFRED_RELEASES = [
   {
+    version:'v15.3', date:'September 12, 2026', title:'Calendar Readability & Task-First Notes', type:'Calendar / Information Design Patch',
+    request:'Keep the complete 125-item academic calendar, but make its wording, hierarchy, and event details easier to scan and retain.',
+    changes:[
+      'Kept every dated event, event ID, resource, lab, milestone, mastery gate, Project 1 item, career item, and required outcome intact.',
+      'Reordered event details around the learner’s task: today’s work first, required explain-or-demonstrate outcomes next, then mastery and career context.',
+      'Separated reference links and full source notes into expandable sections so long descriptions remain available without dominating the first read.',
+      'Added a dedicated Week focus block that turns dense “WEEK … FOCUS” lines into a short focus label plus a readable topic list.',
+      'Repaired common display-only spacing glitches in older event copy without rewriting the authoritative course-data record.',
+      'Shortened month, week, and agenda labels while preserving the full event title in the accessible event label and modal heading.',
+      'Added clearer calendar orientation text, live period updates, pressed-state view buttons, keyboard-friendly Week event buttons, and descriptive Agenda controls.',
+      'Bumped the offline cache to v15.3 so the calendar presentation layer replaces the stale v15.2 JavaScript and CSS.'
+    ]
+  },
+  {
     version:'v15.2', date:'September 12, 2026', title:'Evidence-Backed UX Flow Audit', type:'UX / Accessibility Quality Patch',
     request:'Audit the complete site against research on visual complexity, cognitive load, typography, scanning, information scent, and cognitive accessibility, then make the flow calmer and easier to follow without removing useful academic depth.',
     changes:[

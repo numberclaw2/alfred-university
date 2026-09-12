@@ -8,11 +8,148 @@
   const RESOURCES=window.ALFRED_RESOURCES||[];
   const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const linkify=s=>esc(s).replace(/(https?:\/\/[^\s<]+)/g,'<a href="$1" target="_blank" rel="noopener">$1</a>');
+  const calendarCopyReplacements=[
+    [/\bresourcesalready\b/gi,'resources already'],
+    [/\bresourcestied\b/gi,'resources tied'],
+    [/\btothis\b/gi,'to this'],
+    [/\bthisweek’s\b/gi,'this week’s'],
+    [/\bweek’scompetencies\b/gi,'week’s competencies'],
+    [/\bFirst10\b/gi,'First 10'],
+    [/\bFirst10min\b/gi,'First 10 min'],
+    [/\brecallprompts\b/gi,'recall prompts'],
+    [/\bfreshcalculations\b/gi,'fresh calculations'],
+    [/\bofficialformula\b/gi,'official formula'],
+    [/\bETAcompetency\b/gi,'ETA competency'],
+    [/\bBuild\/measure\/debugthe\b/gi,'Build/measure/debug the'],
+    [/\bPhotographor\b/gi,'Photograph or'],
+    [/\bdocumentexpected\b/gi,'document expected'],
+    [/\bexpectedvsactual\b/gi,'expected vs actual'],
+    [/\bandcommit\b/gi,'and commit'],
+    [/\bCompletionrequires\b/gi,'Completion requires'],
+    [/\bnotwatching\b/gi,'not watching'],
+    [/\bApplythe\b/gi,'Apply the'],
+    [/\bPredictresults\b/gi,'Predict results'],
+    [/\bresultsbefore\b/gi,'results before'],
+    [/\bdeliberatelycreate\b/gi,'deliberately create'],
+    [/\bwhensafe\b/gi,'when safe'],
+    [/\bStudyonlythe\b/gi,'Study only the'],
+    [/\bsummaryand\b/gi,'summary and'],
+    [/\bWorkfresh\b/gi,'Work fresh'],
+    [/\bwithoutnotes\b/gi,'without notes'],
+    [/\bmissgets\b/gi,'miss gets'],
+    [/\bStart eachnon-exam\b/gi,'Start each non-exam'],
+    [/\bnon-exam studyblock\b/gi,'non-exam study block'],
+    [/\bNeveruse\b/gi,'Never use'],
+    [/\bmissedsession\b/gi,'missed session'],
+    [/\bmake-upmarathon\b/gi,'make-up marathon'],
+    [/\bportfoliobased\b/gi,'portfolio based'],
+    [/\brequestedskills\b/gi,'requested skills'],
+    [/\bjobfilter\b/gi,'job filter'],
+    [/\bgenuineelectronics\b/gi,'genuine electronics'],
+    [/\boptionalperfection\b/gi,'optional perfection'],
+    [/\bstarteach\b/gi,'start each'],
+    [/\btoembedded\b/gi,'to embedded'],
+    [/\bwitha\b/gi,'with a'],
+    [/\bonlythe\b/gi,'only the'],
+    [/\bfromolder\b/gi,'from older'],
+    [/\btheconcept\b/gi,'the concept'],
+    [/\basappropriate\b/gi,'as appropriate'],
+    [/\bandfault\b/gi,'and fault'],
+    [/\bthisweek\b/gi,'this week'],
+    [/\binspectjoints\b/gi,'inspect joints'],
+    [/\bissueand\b/gi,'issue and'],
+    [/\bformulasfrom\b/gi,'formulas from'],
+    [/\binterfaceplan\b/gi,'interface plan'],
+    [/\bissuelist\b/gi,'issue list'],
+    [/\bfortoday\b/gi,'for today'],
+    [/\bthetopic\b/gi,'the topic'],
+    [/\bitappears\b/gi,'it appears'],
+    [/\bitscorrection\b/gi,'its correction'],
+    [/\bvsactual\b/gi,'vs actual'],
+    [/\btheweek\b/gi,'the week'],
+    [/\bFeedbackLoop\b/gi,'Feedback Loop'],
+    [/\bAutomatedLogger\b/gi,'Automated Logger'],
+    [/\bTestReport\b/gi,'Test Report']
+  ];
+  function tidyCalendarLine(value){
+    let line=String(value??'').replace(/\u00a0/g,' ').trim();
+    if(!line||/^https?:\/\//i.test(line)) return line;
+    calendarCopyReplacements.forEach(([re,replacement])=>{line=line.replace(re,replacement)});
+    line=line.replace(/([.!?])(?=[A-Z])/g,'$1 ');
+    line=line.replace(/\s{2,}/g,' ');
+    return line;
+  }
+  function tidyCalendarText(value){
+    return String(value??'').replace(/\r/g,'').split('\n').map(tidyCalendarLine).join('\n').replace(/\n{3,}/g,'\n\n').trim();
+  }
+  function eventDescriptionLines(e){return tidyCalendarText(e.description||'').split('\n');}
+  function findCalendarLine(lines,pattern){return lines.find(line=>pattern.test(line))||'';}
+  function valueAfterLabel(line,label){return line.replace(label,'').trim();}
+  function tidyFocusTitle(value){
+    let title=tidyCalendarLine(value).toLowerCase();
+    title=title.charAt(0).toUpperCase()+title.slice(1);
+    return title.replace(/\bceta\b/gi,'CETa').replace(/\bi2c\b/gi,'I2C').replace(/\bspi\b/gi,'SPI').replace(/\buart\b/gi,'UART').replace(/\bgpio\b/gi,'GPIO').replace(/\bstm32\b/gi,'STM32').replace(/\brf\b/gi,'RF').replace(/\brms\b/gi,'RMS').replace(/\bdmm\b/gi,'DMM').replace(/\br\/c\/l\b/gi,'R/C/L');
+  }
+  function parseFocusLine(line){
+    const match=line.match(/^WEEK\s+(\d+)\s+FOCUS:\s*(.+)$/i);
+    if(!match)return null;
+    const parts=match[2].split(/\s*:\s*/);
+    return {week:match[1],title:tidyFocusTitle(parts.shift()),topics:parts.join(' · ').replace(/\s*\+\s*/g,' · ').replace(/\s+/g,' ').trim()};
+  }
+  function labeledLinks(text){
+    const links=[];
+    const re=/(?:^|\n)\s*[•-]?\s*([^:\n]+):\s*(https?:\/\/[^\s<]+)/g;
+    let match;
+    while((match=re.exec(text))){
+      const label=tidyCalendarLine(match[1]);
+      const url=match[2].replace(/[),.;]+$/,'');
+      if(!links.some(x=>x.url===url)) links.push({label,url});
+    }
+    return links;
+  }
+  function renderCalendarLinks(text){
+    const links=labeledLinks(text);
+    if(!links.length)return '';
+    return `<ul class="event-reference-links">${links.map(x=>`<li><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.label)} <span aria-hidden="true">↗</span></a></li>`).join('')}</ul>`;
+  }
+  function eventContext(e){
+    const lines=eventDescriptionLines(e), raw=tidyCalendarText(e.description||'');
+    const focus=parseFocusLine(findCalendarLine(lines,/^WEEK\s+\d+\s+FOCUS:/i));
+    const scopeLine=findCalendarLine(lines,/^ETA\/CETa SCOPE/i);
+    const purposeLine=findCalendarLine(lines,/^CAREER\/EMBEDDED PURPOSE:/i);
+    const careerLine=findCalendarLine(lines,/^CAREER CONNECTION:/i);
+    const masteryLine=findCalendarLine(lines,/^MASTERY GATE:/i);
+    const whyLine=findCalendarLine(lines,/^WHY THIS STARTS HERE:/i);
+    const pathLine=findCalendarLine(lines,/^START FROM ZERO/i);
+    const notes=renderCalendarLinks(raw);
+    return {
+      raw,
+      focus,
+      scope:scopeLine?valueAfterLabel(scopeLine,/^ETA\/CETa SCOPE(?:\s+—[^:]+)?:\s*/i):'',
+      purpose:purposeLine?valueAfterLabel(purposeLine,/^CAREER\/EMBEDDED PURPOSE:\s*/i):'',
+      career:careerLine?valueAfterLabel(careerLine,/^CAREER CONNECTION:\s*/i):'',
+      mastery:masteryLine?valueAfterLabel(masteryLine,/^MASTERY GATE:\s*/i):'',
+      why:whyLine?valueAfterLabel(whyLine,/^WHY THIS STARTS HERE:\s*/i):'',
+      path:pathLine?pathLine.replace(/\s+—\s+SESSION\s+\d+$/i,'').trim():'',
+      links:notes,
+      linkCount:labeledLinks(raw).length
+    };
+  }
+  function textBlock(value,empty='No additional steps are listed for this calendar item.'){
+    const text=tidyCalendarText(value);
+    return `<div class="event-body-copy">${text?linkify(text):esc(empty)}</div>`;
+  }
   const fmtDate=(iso,opts={weekday:'short',month:'short',day:'numeric',year:'numeric'})=>new Intl.DateTimeFormat('en-US',opts).format(new Date(iso));
   const fmtTime=iso=>new Intl.DateTimeFormat('en-US',{hour:'numeric',minute:'2-digit'}).format(new Date(iso));
   const sameDay=(a,b)=>a.getFullYear()===b.getFullYear()&&a.getMonth()===b.getMonth()&&a.getDate()===b.getDate();
   const startOfDay=d=>new Date(d.getFullYear(),d.getMonth(),d.getDate());
   const weekTopic=w=>WEEKS.find(x=>x.week===w)?.topic||`Week ${w}`;
+  function eventDisplayParts(e){
+    const summary=String(e.summary||'').replace(/^AU-ESET 301 \| /,'').trim();
+    const match=summary.match(/^W(\d+)\s+•\s+(.+?)\s+—\s+(.+)$/);
+    if(!match)return {summary,short:summary,week:'',activity:'',topic:summary};
+    return {summary,week:match[1],activity:match[2].trim(),topic:match[3].trim(),short:`${match[2].trim()} · ${match[3].trim()}`};
+  }
   const phaseForWeek=w=>{
     if(!w) return 'Pre-Course';
     if(w<=5) return 'Phase I · Electrical Foundations';
@@ -281,14 +418,27 @@
   const modal=$('#event-modal');
   let modalReturnFocus=null;
   function eventDetailHTML(e){
-    const outcomes=e.outcomes?.length?`<div class="modal-section"><h3>After Today — Required Learning Outcomes</h3><ul>${e.outcomes.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`:'';
-    const today=e.today?`<div class="modal-section"><h3>Today’s Work</h3><div class="raw">${linkify(e.today)}</div></div>`:'';
+    const ctx=eventContext(e);
+    const outcomes=e.outcomes?.length?`<div class="modal-section event-outcomes"><h3>After Today — Required Learning Outcomes</h3><p class="section-lede">By the end of this item, you should be able to explain or demonstrate:</p><ul>${e.outcomes.map(x=>`<li>${esc(tidyCalendarLine(x))}</li>`).join('')}</ul></div>`:'';
+    const today=`<div class="modal-section event-today"><h3>Today’s work</h3>${textBlock(e.today)}</div>`;
+    const glance=[];
+    if(ctx.scope)glance.push(`<div class="event-glance-card"><span class="event-glance-label">CETa scope</span><strong>${esc(ctx.scope)}</strong></div>`);
+    if(ctx.purpose)glance.push(`<div class="event-glance-card"><span class="event-glance-label">Why it matters</span><strong>${esc(ctx.purpose)}</strong></div>`);
+    if(ctx.career)glance.push(`<div class="event-glance-card"><span class="event-glance-label">Career connection</span><strong>${esc(ctx.career)}</strong></div>`);
+    const focus=ctx.focus?`<div class="event-glance-card event-focus"><span class="event-glance-label">Week ${esc(ctx.focus.week)} focus</span><strong>${esc(ctx.focus.title)}</strong>${ctx.focus.topics?`<span>${esc(ctx.focus.topics)}</span>`:''}</div>`:ctx.path?`<div class="event-glance-card event-focus"><span class="event-glance-label">Session focus</span><strong>${esc(ctx.path)}</strong></div>`:'';
+    const glanceHTML=focus||glance.length?`<div class="event-at-a-glance">${focus}${glance.join('')}</div>`:'';
+    const why=ctx.why?`<div class="modal-section event-note"><h3>Why this comes here</h3><p>${esc(ctx.why)}</p></div>`:'';
+    const mastery=ctx.mastery?`<div class="modal-section event-mastery"><h3>Mastery gate</h3><p>${esc(ctx.mastery)}</p></div>`:'';
+    const references=ctx.links?`<details class="event-reference"><summary>Open reference links <span>${ctx.linkCount} linked resource${ctx.linkCount===1?'':'s'}</span></summary>${ctx.links}</details>`:'';
+    const completion=`<div class="modal-section event-completion"><h3>Completion check</h3><p>Complete today’s work, then test each outcome. If one is not yet explainable or demonstrable, carry that single concept into the next review block. No spreadsheet logging is required.</p></div>`;
     return `
       <div class="modal-date">${fmtDate(e.start)} · ${fmtTime(e.start)}${e.week?` · Week ${String(e.week).padStart(2,'0')}`:''}</div>
       <h2 id="event-modal-title">${esc(e.summary.replace(/^AU-ESET 301 \| /,''))}</h2>
-      ${today}${outcomes}
+      <p class="event-modal-intro">Start with today’s work. Use the outcomes as the finish line; open the reference notes only when you need more context.</p>
+      ${glanceHTML}${today}${outcomes}${mastery}${why}${completion}
       <div class="modal-section event-quiz-cta"><h3>Lesson Quiz</h3><p>20 questions · 10 CETa + 10 career-transition questions. Take it after completing this calendar item.</p><a class="button green" href="quiz.html?type=lesson&id=${e.id}">Take this lesson quiz →</a></div>
-      <div class="modal-section"><h3>Complete Event Description & Resources</h3><div class="raw">${linkify(e.description)}</div></div>`;
+      ${references}
+      <details class="event-reference event-full-notes"><summary>Open full event notes <span>Source record</span></summary><div class="raw-desc">${linkify(ctx.raw)}</div></details>`;
   }
   function openEvent(id){
     const e=EVENTS.find(x=>x.id===Number(id)); if(!e||!modal) return;
@@ -370,11 +520,11 @@
         const dayEvents=events.filter(e=>sameDay(new Date(e.start),d)).sort((a,b)=>new Date(a.start)-new Date(b.start));
         cells.push(`<div class="month-day ${d.getMonth()!==m?'outside ':''}${sameDay(d,today)?'today':''}">
           <div class="day-number">${d.getDate()}</div>
-          ${dayEvents.map((e,index)=>`<button class="month-event type-${esc(e.type)}${index>=3?' month-event-extra hidden':''}" data-event-id="${e.id}">${fmtTime(e.start)} · ${esc(e.summary.replace(/^AU-ESET 301 \| (Week \d+ \| )?/,''))}</button>`).join('')}
+          ${dayEvents.map((e,index)=>{const p=eventDisplayParts(e);return `<button class="month-event type-${esc(e.type)}${index>=3?' month-event-extra hidden':''}" data-event-id="${e.id}">${fmtTime(e.start)} · ${esc(p.short)}</button>`}).join('')}
           ${dayEvents.length>3?`<button type="button" class="more-events" data-more-events aria-expanded="false">Show ${dayEvents.length-3} more</button>`:''}
         </div>`);
       }
-      monthView.innerHTML=`<div class="month-calendar"><div class="month-weekdays">${['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(x=>`<div>${x}</div>`).join('')}</div><div class="month-grid">${cells.join('')}</div></div>`;
+        monthView.innerHTML=`<div class="month-calendar"><div class="month-weekdays">${['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(x=>`<div>${x}</div>`).join('')}</div><div class="month-grid">${cells.join('')}</div></div>`;
       $$('[data-event-id]',monthView).forEach(b=>b.addEventListener('click',()=>openEvent(b.dataset.eventId)));
       $$('[data-more-events]',monthView).forEach(button=>button.addEventListener('click',()=>{
         const cell=button.closest('.month-day');
@@ -394,7 +544,7 @@
         const dayEvents=events.filter(e=>sameDay(new Date(e.start),d)).sort((a,b)=>new Date(a.start)-new Date(b.start));
         days.push(`<div class="week-day-column ${sameDay(d,today)?'today':''}">
           <div class="week-day-head"><strong>${fmtDate(d,{weekday:'short'})}</strong><span>${fmtDate(d,{month:'short',day:'numeric'})}</span></div>
-          <div class="week-day-events">${dayEvents.length?dayEvents.map(e=>`<div class="week-event" data-event-id="${e.id}"><strong>${fmtTime(e.start)}</strong><span>${esc(e.summary.replace(/^AU-ESET 301 \| (Week \d+ \| )?/,''))}</span></div>`).join(''):'<span style="color:#9aa39f;font-size:.75rem">No scheduled work</span>'}</div>
+          <div class="week-day-events">${dayEvents.length?dayEvents.map(e=>{const p=eventDisplayParts(e);return `<button type="button" class="week-event" data-event-id="${e.id}" aria-label="Open ${esc(p.summary)}"><strong>${fmtTime(e.start)}</strong><span>${esc(p.short)}</span></button>`}).join(''):'<span class="week-empty">No scheduled work</span>'}</div>
         </div>`);
       }
       weekView.innerHTML=`<div class="week-calendar">${days.join('')}</div>`;
@@ -403,11 +553,11 @@
     function renderAgenda(){
       const events=filteredEvents();
       $('#calendar-summary').innerHTML=`<span class="summary-chip">${events.length} scheduled items</span>${wf.value?`<span class="summary-chip">Week ${String(wf.value).padStart(2,'0')}</span>`:''}${tf.value?`<span class="summary-chip">${esc(tf.value)}</span>`:''}`;
-      $('#calendar-list').innerHTML=events.map(e=>`<article class="calendar-event">
+      $('#calendar-list').innerHTML=events.map(e=>{const p=eventDisplayParts(e);return `<article class="calendar-event">
         <div class="event-date-block"><strong>${esc(fmtDate(e.start))}</strong><span>${esc(fmtTime(e.start))} – ${esc(fmtTime(e.end))}</span>${e.week?`<span> · Week ${String(e.week).padStart(2,'0')}</span>`:''}</div>
-        <div class="event-main"><div class="event-top"><h3>${esc(e.summary.replace(/^AU-ESET 301 \| /,''))}</h3><span class="event-badge">${esc(e.type)}</span></div>
-        <div class="event-actions"><button class="event-toggle" data-event-id="${e.id}">Open assignment & outcomes</button></div></div>
-      </article>`).join('');
+        <div class="event-main"><div class="event-top"><div>${p.week?`<span class="event-kicker">Week ${esc(p.week)} · ${esc(p.activity)}</span>`:''}<h3>${esc(p.topic)}</h3></div><span class="event-badge">${esc(e.type)}</span></div>
+        <div class="event-actions"><button class="event-toggle" data-event-id="${e.id}" aria-label="Open ${esc(p.summary)} assignment and outcomes">Open assignment &amp; outcomes</button></div></div>
+      </article>`}).join('');
       $$('[data-event-id]',$('#calendar-list')).forEach(b=>b.addEventListener('click',()=>openEvent(b.dataset.eventId)));
     }
     function render(){
@@ -415,7 +565,7 @@
       monthView.classList.toggle('hidden',activeView!=='month');
       weekView.classList.toggle('hidden',activeView!=='week');
       agenda.classList.toggle('hidden',activeView!=='agenda');
-      $$('.view-button').forEach(b=>b.classList.toggle('active',b.dataset.calendarView===activeView));
+      $$('.view-button').forEach(b=>{const active=b.dataset.calendarView===activeView;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});
     }
     $$('.view-button').forEach(b=>b.addEventListener('click',()=>{activeView=b.dataset.calendarView;render();}));
     $('#calendar-prev').addEventListener('click',()=>{
