@@ -1,5 +1,19 @@
 window.ALFRED_RELEASES = [
   {
+    version:'v14.1', date:'September 11, 2026', title:'Learning Analytics & Competency Dashboard', type:'Assessment Intelligence Patch',
+    request:'Preserve richer quiz/test evidence over time and turn it into a dashboard that shows competency strengths, weaknesses, retention decay, CETa readiness, career readiness, and practical lab evidence.',
+    changes:[
+      'Added lifetime assessment analytics inside the existing event/week JSON records without changing the Cloudflare Worker or D1 schema.',
+      'Each new assessment now preserves question IDs, chosen answers, correctness, standard evidence, CETa/career track, cognitive skill, difficulty, time spent, attempt number, and compact trend history.',
+      'Added permanent lifetime rollups so standard-level evidence survives after older detailed attempts roll out of the three-attempt review window.',
+      'Added six cognitive-skill tags: Recall, Understanding, Calculation, Analysis, Troubleshooting, and Application.',
+      'Added the Competency Dashboard with overall confidence, CETa readiness, career readiness, retention-due count, domain heatmaps, cognitive/difficulty performance, assessment-type performance, trends, strongest competencies, and a prioritized repair queue.',
+      'Upgraded Standards & Retention to use lifetime evidence, evidence quantity, recency, and repeated successful retrieval when calculating confidence and mastery state.',
+      'Added Virtual/Physical lab-completion evidence controls to the Lab Center and synchronized them through the existing week records.',
+      'Preserved backward compatibility with v14.0 results: prior scores and standard evidence remain usable, while richer cognitive/difficulty analytics begin with v14.1 attempts.'
+    ]
+  },
+  {
     version:'v14.0', date:'September 11, 2026', title:'Assessment, Standards & Retention System', type:'Major Academic Assessment Release',
     request:'Add quizzes and tests for every calendar lesson and lab, use the official CETa standards, study guide, and practice exam, give equal weight to career-transition readiness, store results in Cloud Sync, and track retention like a real school.',
     changes:[

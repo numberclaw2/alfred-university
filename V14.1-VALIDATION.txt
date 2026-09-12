@@ -1,0 +1,23 @@
+ALFRED UNIVERSITY v14.1 — LEARNING ANALYTICS & COMPETENCY DASHBOARD
+FINAL VALIDATION REPORT — September 11, 2026
+
+PASS — 1,047 unique assessment question IDs.
+PASS — All 1,047 questions carry one of the six v14.1 cognitive-skill tags.
+Skill distribution: Recall=810, Understanding=28, Calculation=76, Analysis=28, Troubleshooting=34, Application=71
+PASS — 0 invalid question-to-standard references.
+PASS — 262 CETa rows + 78 career standards retained.
+PASS — Assessment metadata reports v14.1 analytics schema.
+PASS — Every lesson/lab/week/major assessment still has enough aligned candidates for its required mix.
+PASS — 22 HTML pages audited; 0 broken local href/src references.
+PASS — Service worker cache is alfred-u-v14-1 and all 58 CORE references exist.
+PASS — Competency Dashboard is included in offline/PWA precache.
+PASS — course-data.js is byte-for-byte unchanged from v14.0.
+PASS — Alfred University - AU-ESET 301 - Simplified Course Calendar.ics is byte-for-byte unchanged from v14.0.
+PASS — Calendar remains 125 VEVENTs / 125 unique UIDs.
+PASS — Competency Dashboard navigation integrated across all 21 normal site pages.
+PASS — Virtual/Physical lab evidence is stored in week records and preserved when quiz results update the same week record.
+PASS — Latest-attempt question-response map uses compact base-36 IDs and packed chosen-answer/correctness codes; older detailed attempts drop the map to protect sync size.
+PASS — analytics.html + analytics.js present.
+PASS — 50-attempt-per-assessment storage stress: largest record 14,181 chars (<20,000); full 168-record payload 462,193 bytes (<512,000).
+Changed/new files vs v14.0: 33
+search.html, patch-notes.html, calendar.html, deployment.html, standards.html, progress.html, analytics.html, analytics.js, week.html, assessment-data.js, study.html, standards.js, progress.js, search.js, quiz.html, student-services.html, course.html, README.md, 00_UPLOAD_FIRST.txt, styles.css, documents.html, resources.html, index.html, quiz.js, engineering.html, release-notes.js, service-worker.js, labs.html, knowledge.html, academic.js, assessments.html, projects.html, about.html

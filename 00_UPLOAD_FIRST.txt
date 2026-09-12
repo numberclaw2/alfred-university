@@ -1,4 +1,4 @@
-ALFRED UNIVERSITY v14.0 — ASSESSMENT, STANDARDS & RETENTION SYSTEM
+ALFRED UNIVERSITY v14.1 — LEARNING ANALYTICS & COMPETENCY DASHBOARD PATCH
 
 Upload/replace the contents of this package in the ROOT of the existing GitHub Pages repository.
 
@@ -6,39 +6,38 @@ IMPORTANT
 1. Keep .nojekyll at the repository root.
 2. Keep .github/workflows/library-sync.yml in that exact hidden folder path. GitHub Actions requires it there.
 3. All normal site files remain flat at the repository root.
-4. Do NOT change or regenerate the Cloudflare Worker or D1 database for v14. Cloud Sync protocol 2 and the current schema remain compatible.
-5. course-data.js and the AU-ESET 301 .ics calendar are intentionally unchanged from v13.1.
-6. After GitHub Pages deploys, fully close and reopen Alfred University once so the v14 service-worker cache activates.
+4. Do NOT change or regenerate the Cloudflare Worker or D1 database for v14.1. Cloud Sync protocol 2 and the current schema remain compatible.
+5. course-data.js and the AU-ESET 301 .ics calendar are intentionally unchanged from v14.0/v13.1.
+6. After GitHub Pages deploys, fully close and reopen Alfred University once so the alfred-u-v14-1 service-worker cache activates.
 
-v14 ADDS
-- 125 lesson quizzes (one for every calendar item)
-- 24 lab knowledge checks
-- 31 weekly mastery tests
-- CETa Mock Certification Exam
-- Career Bridge Technical Screen
-- AU-ESET 301 Comprehensive Final
-- 1,047-question original assessment bank
-- 262 individual CETa competency rows
-- 78 Alfred career-transition standards
-- A–F grading and mastery targets
-- Standards & Retention dashboard with spaced retrieval
-- assessment results stored through the existing Progress + Cloud Sync records
-- CETa certification outline preserving ETA's published numbering
-
-ASSESSMENT BALANCE
-- Normal lesson, lab, and weekly assessments are 50% CETa / 50% career transition.
-- CETa Mock is certification-only.
-- Career Bridge Technical Screen is career-only.
-- Comprehensive Final is 50% / 50%.
+v14.1 ADDS / CHANGES
+- Competency Dashboard (analytics.html)
+- Lifetime assessment rollups by standard, CETa/career track, cognitive skill, and question difficulty
+- Cognitive skill tags: Recall, Understanding, Calculation, Analysis, Troubleshooting, Application
+- Compact latest-attempt question-response map with question ID, chosen answer, and correctness
+- Latest 3 standard-level detailed attempts retained per assessment
+- Standards confidence based on accuracy + evidence quantity + recency + repeated successful retrieval
+- CETa and career domain readiness panels
+- Weakness / retention priority queue
+- Assessment trend and assessment-type analytics
+- Virtual / Physical lab completion evidence stored in existing week records
+- v14.0 result compatibility and partial backfill of older standard evidence
 
 DATA / SYNC COMPATIBILITY
-- Existing event IDs: unchanged (125 / 125)
-- Calendar dates/times: unchanged
-- iCalendar UIDs: unchanged (125 / 125)
-- Existing Progress data: migration-compatible
 - Student Sync Key: unchanged
 - Cloudflare Worker: unchanged
 - D1 schema: unchanged
-- Detailed history retains the latest 3 attempts per assessment plus total-attempt, best-score, and latest-score summaries to stay comfortably inside current Cloud Sync record limits.
+- Cloud Sync protocol: 2 (unchanged)
+- Existing event IDs: unchanged (125 / 125)
+- Calendar dates/times: unchanged
+- iCalendar UIDs: unchanged (125 / 125)
+- course-data.js: unchanged
+- Existing Progress / v14.0 assessment records: compatible
 
-See V14-VALIDATION.txt for the final QA report.
+STORAGE POLICY
+- Lifetime aggregate evidence is retained.
+- The latest 3 attempts retain standard-level detail.
+- Only the latest attempt retains the compact question-response map; earlier detailed attempts drop that map to protect Cloud Sync size limits.
+- Per-assessment trend history is capped to the latest 6 score points.
+
+See V14.1-VALIDATION.txt for the final QA report.

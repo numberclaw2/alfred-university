@@ -4,6 +4,7 @@ const $=(s,r=document)=>r.querySelector(s); const esc=s=>String(s??'').replace(/
 const norm=s=>String(s??'').toLowerCase().normalize('NFKD').replace(/[^a-z0-9+.#/\- ]/g,' ').replace(/\s+/g,' ').trim();
 const terms=q=>norm(q).split(' ').filter(Boolean);
 const items=[];
+add('Site Tool','Competency Dashboard','Learning analytics dashboard for CETa readiness, career readiness, standards confidence, retention due, cognitive skill performance, difficulty performance, assessment trends, and lab evidence.','analytics.html',{source:'Alfred learning analytics'},5);
 function add(type,title,text,url,meta={},boost=1){items.push({type,title,text:String(text||''),url,meta,boost,hay:norm([title,text,JSON.stringify(meta)].join(' '))});}
 A.cetaDomains.forEach(d=>add('CETa Domain',`${d.id}.0 ${d.title}`,`${d.summary} ${d.keywords}`,'assessments.html#domain-'+d.id,{domain:d.id,weeks:d.weeks},5));
 W.forEach(w=>add('Week Module',`Week ${String(w.week).padStart(2,'0')} · ${w.topic}`,(w.outcomes||[]).join(' '),'week.html?week='+w.week,{week:w.week},4));

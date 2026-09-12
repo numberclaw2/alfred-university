@@ -87,3 +87,13 @@ Every one of the 24 Engineering Lab Center labs now offers two routes: a **Virtu
 - `standards.html` includes the CETa competency outline and evidence-based retention status. `quiz.html` runs the assessments and returns explanations plus weak-standard diagnostics after submission.
 - Results are stored inside existing event/week Progress records so Cloud Sync protocol 2 and the current D1 schema remain compatible. The latest 3 detailed attempts per assessment are retained for mastery/retention evidence, while `attemptCount`, `bestPct`, and `lastPct` preserve the long-term summary without exceeding production Worker limits.
 - `course-data.js` and the AU-ESET 301 `.ics` calendar remain byte-for-byte unchanged from v13.1.
+
+## v14.1 Learning Analytics & Competency Dashboard
+- Added `analytics.html` / `analytics.js` to turn assessment evidence into readiness, confidence, domain, trend, and repair-priority views.
+- New assessment attempts retain a compact question-level ID/choice/correctness map for the latest attempt plus lifetime standard, CETa/career track, cognitive-skill, difficulty, timestamp, time-spent, and attempt-number evidence.
+- Added lifetime rollups inside each existing assessment record so older detailed attempts can roll off without losing cumulative standard evidence.
+- Added six cognitive-skill dimensions: Recall, Understanding, Calculation, Analysis, Troubleshooting, and Application.
+- Standards & Retention now uses lifetime accuracy, evidence quantity, recency, and repeated retrieval when calculating confidence/mastery.
+- Lab Center now records Virtual and Physical completion evidence in the existing week records; one route still completes the academic lab, while physical practice can be added later.
+- No Cloudflare Worker, D1 schema, Student Sync Key, calendar event ID, date/time, or iCalendar UID migration is required.
+- v14.0 assessment history remains compatible. Older attempts continue to contribute score/standard evidence; cognitive/difficulty analytics begin when those richer fields exist.

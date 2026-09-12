@@ -23,6 +23,7 @@
     if(String(value.notes||'').trim()) return true;
     if(Object.values(value.outcomes||{}).some(Boolean)) return true;
     if(Object.values(value.review||{}).some(Boolean)) return true;
+    if(value.assessments && Object.keys(value.assessments).length) return true;
     return false;
   }
   function migrate(parsed){
@@ -592,8 +593,9 @@
     if(!$('#stat-assessments-taken')) return;
     const latestScores=[]; let attempts=0; const standards={};
     const absorb=box=>{
-      const list=box?.attempts||[]; attempts+=Number(box?.attemptCount||list.length||0); if(list.length) latestScores.push(Number((box?.lastPct ?? list[list.length-1].pct) || 0));
-      list.forEach(a=>(a.s||[]).forEach(row=>{const [id,cRaw,tRaw]=row,c=Number(cRaw||0),t=row.length>=3?Math.max(1,Number(tRaw||1)):1;const x=standards[id]||(standards[id]={c:0,t:0});x.c+=c;x.t+=t;}));
+      const list=box?.attempts||[]; attempts+=Number(box?.attemptCount||list.length||0); if(list.length||box?.lastPct!=null) latestScores.push(Number((box?.lastPct ?? list[list.length-1]?.pct) || 0));
+      if(box?.analytics?.v===1&&box.analytics.s){Object.entries(box.analytics.s).forEach(([id,row])=>{const x=standards[id]||(standards[id]={c:0,t:0});x.c+=Number(row[0]||0);x.t+=Number(row[1]||0);});}
+      else list.forEach(a=>(a.s||[]).forEach(row=>{const [id,cRaw,tRaw]=row,c=Number(cRaw||0),t=row.length>=3?Math.max(1,Number(tRaw||1)):1;const x=standards[id]||(standards[id]={c:0,t:0});x.c+=c;x.t+=t;}));
     };
     Object.values(state.events||{}).forEach(e=>absorb(e?.assessments?.lesson));
     Object.values(state.weeks||{}).forEach(raw=>{const w=typeof raw==='string'?{mastery:raw,assessments:{}}:(raw||{});Object.values(w.assessments||{}).forEach(absorb);});

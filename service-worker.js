@@ -1,8 +1,8 @@
-const CACHE='alfred-u-v14';
+const CACHE='alfred-u-v14-1';
 const CORE=[
   './','index.html','engineering.html','course.html','calendar.html','progress.html','resources.html','projects.html','documents.html','student-services.html','about.html','deployment.html','404.html',
-  'study.html','search.html','week.html','labs.html','assessments.html','quiz.html','standards.html','knowledge.html','patch-notes.html',
-  'styles.css','site.js','progress.js','study.js','course-data.js','academic-content.js','academic.js','assessment-data.js','assessment.js','quiz.js','standards.js','search.js','release-notes.js','patch-notes.js','library-catalog.js','library-index.js','manifest.webmanifest',
+  'study.html','search.html','week.html','labs.html','assessments.html','quiz.html','standards.html','analytics.html','knowledge.html','patch-notes.html',
+  'styles.css','site.js','progress.js','study.js','course-data.js','academic-content.js','academic.js','assessment-data.js','assessment.js','quiz.js','standards.js','analytics.js','search.js','release-notes.js','patch-notes.js','library-catalog.js','library-index.js','manifest.webmanifest',
   'crest.webp','seal.webp','icon-180.png','icon-192.png','icon-512.png',
   'syllabus-cover.png','resource-manual-cover.png','assignment-lab-cover.png','binder-index-cover.png','certificate-cover.png',
   'Alfred University - AU-ESET 301 - Syllabus and Student Handbook.pdf',
