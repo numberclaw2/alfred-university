@@ -1,4 +1,5 @@
 window.ALFRED_RELEASES = [
+  {version:'v15.5',date:'September 12, 2026',title:'Study Continuity & Clear Next Actions',type:'Quality of Life',request:'Make starting, pausing, and returning easier.',changes:['Resume appears before the new recommendation.','Study shows the actual assigned work and book reading.','Optional next-action notes stay with the saved session on this browser.','Help is available in the same place on every step.','Review blocks stop after three ratings, with an explicit choice to continue.','Week links into labs preserve the selected week.','Session estimates match the 20, 60, and 120 minute plans.']},
   {
     version:'v15.4', date:'September 12, 2026', title:'Focus-Resilient Study Flow', type:'ADHD / Autism-Informed Quality Patch',
     request:'Keep the Alfred university presentation and CETa/job-transition depth, while reducing executive-function friction for a learner who may lose focus, need predictable steps, or return after an interruption.',

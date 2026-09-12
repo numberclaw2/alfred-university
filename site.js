@@ -139,6 +139,7 @@
     const text=tidyCalendarText(value);
     return `<div class="event-body-copy">${text?linkify(text):esc(empty)}</div>`;
   }
+  window.AlfredCalendarCopy={tidy:tidyCalendarText};
   const fmtDate=(iso,opts={weekday:'short',month:'short',day:'numeric',year:'numeric'})=>new Intl.DateTimeFormat('en-US',opts).format(new Date(iso));
   const fmtTime=iso=>new Intl.DateTimeFormat('en-US',{hour:'numeric',minute:'2-digit'}).format(new Date(iso));
   const sameDay=(a,b)=>a.getFullYear()===b.getFullYear()&&a.getMonth()===b.getMonth()&&a.getDate()===b.getDate();

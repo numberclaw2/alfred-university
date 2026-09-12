@@ -1702,3 +1702,6 @@ button,.button{min-height:44px}
   .event-reference summary{align-items:flex-start;padding:13px 0}
   .event-reference summary span{font-size:.70rem}
 }
+
+/* v15.5 session continuity */
+.session-support{display:flex;gap:1rem;align-items:start;margin-top:1rem}.session-support details{flex:1}.session-support summary{cursor:pointer;padding:.7rem}.session-support label,.session-support small{display:block;margin:.4rem 0}.session-support textarea{width:100%;font:inherit;padding:.7rem;border:1px solid #a7b9af;border-radius:8px;box-sizing:border-box}.study-assignment{border-left:4px solid var(--gold);padding:.8rem 1rem;background:#f7f3e4;margin:1rem 0}.study-assignment p{white-space:pre-line}.study-assignment h4{margin:0} @media(max-width:620px){.session-support{flex-direction:column}.session-support details{width:100%}}

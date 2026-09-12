@@ -1,22 +1,11 @@
-# Alfred University v15.4 Focus-Resilient Study QA
+# Alfred v15.5 — Study flow quality check
 
-## Result
+Implemented: Resume appears before the new recommendation; actual calendar task and book assignment appear within Study; optional next-action note saves on this browser; Help stays in the same position on every step; reviews stop after three ratings with a choice to continue; Week-to-Lab and Study-to-Lab links carry the chosen week; mode labels match 20/60/120 minute plans and explain that times are estimates.
 
-Run:
+Closing an unfinished block preserves its step and note. Closing after marking the scheduled work complete clears the resume record. Notes are local UI state and do not sync between devices.
 
-```text
-node qa-v154/regression.cjs
-```
+Validation: 1,225 structural/data checks passed. Node VM behavior tests passed for plan totals, task/book display, note persistence, pause/resume, absence of accidental completion, review stopping point, and resume placement. These are code behavior tests, not browser interaction tests.
 
-The regression suite checks JavaScript syntax, routed HTML structure, local references, navigation order, academic data inventories, service-worker assets, calendar completeness, Study recovery hooks, and the current-week defaults for assessment and lab browsing.
+Browser limitation: No installed Chromium or Firefox executable was available. Attempted Chromium installation timed out at the download server. Desktop/mobile screenshots and actual browser interactions remain unverified. After upload, check a refresh/resume, a three-item review block, Week 8 to Lab navigation, and the Study layout on your phone.
 
-## Manual validation still recommended after upload
-
-The available environment does not include a runnable Chromium binary, so this report does not claim a screenshot pass. After upload, test the following at desktop and mobile widths:
-
-1. Start a Standard Study session, advance one step, refresh, and resume it.
-2. Turn Quiet Mode on and off; confirm required content remains available.
-3. Open Focus Mode and close the session without marking the scheduled work complete.
-4. Open Assessment Center and Lab Center; confirm current-week-first behavior and the All weeks escape hatch.
-5. Verify one long Week 1 event, one lab, and one Project 1 event in Calendar Month, Week, and Agenda views.
-
+Academic data files and calendar dates are unchanged in this release. Existing green/gold/cream presentation and Release Notes remain.
