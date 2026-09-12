@@ -1,0 +1,261 @@
+ALFRED UNIVERSITY v14.2 — ASSESSMENT VALIDITY QA PATCH
+FINAL VALIDATION REPORT
+Validated: September 11, 2026
+
+OVERALL RESULT
+PASS — release/package integrity, assessment selection, calculation keys, standards coverage,
+legacy migration, retention/analytics storage, PWA references, calendar identity, and Cloud Sync
+capacity checks passed.
+
+This patch is specifically a validity/quality repair. It does not change the AU-ESET 301 calendar,
+Cloudflare Worker, D1 schema, Student Sync Key, or Cloud Sync protocol.
+
+======================================================================
+1. ASSESSMENT BANK VALIDITY
+======================================================================
+PASS — 1,048 unique source-bank question IDs.
+PASS — 491 validated graded questions.
+  • 335 CETa graded questions
+  • 156 Career graded questions
+PASS — 557 standards-orientation/study-aid questions remain available but have zero mastery weight
+       and are excluded from every graded form.
+PASS — 0 duplicate question IDs.
+PASS — 0 duplicate normalized prompts.
+PASS — 0 exact duplicate answer choices inside a question.
+PASS — 0 invalid answer indices.
+PASS — 0 invalid standard references.
+PASS — every graded question has explanation, source/provenance metadata, cognitive-skill tag,
+       true-difficulty tag, and a valid evidence weight.
+
+Cognitive-skill distribution in the graded bank:
+  • Recall: 23
+  • Understanding: 295
+  • Calculation: 76
+  • Analysis: 8
+  • Troubleshooting: 28
+  • Application: 61
+
+True-difficulty distribution in the graded bank:
+  • Foundation: 313
+  • Intermediate: 164
+  • Advanced: 14
+
+Final QA additionally retagged appropriate items so Recall and Analysis are actually represented by
+validated graded evidence instead of existing only as empty dashboard categories.
+
+Answer-choice cueing repair:
+PASS — quiz.js deterministically shuffles the four answer choices for each question/form while
+       preserving the correct semantic answer through a stable original-choice map.
+Across 915 generated smoke-test forms, correct-answer positions were:
+  • A: 5,738
+  • B: 5,526
+  • C: 5,659
+  • D: 5,677
+This materially removes the original raw-bank answer-position skew as a test-taking cue.
+
+======================================================================
+2. STANDARDS COVERAGE
+======================================================================
+CETa:
+  • 262 current ETA competency rows are represented in the standards source.
+  • CETa 2.5.1 is treated as a reference/cross-link row because ETA directs the learner to EM5
+    competencies for further detail rather than defining a stand-alone skill in that row.
+  • 261 CETa rows are therefore assessable.
+PASS — all 261 assessable CETa rows have substantive graded-question coverage.
+
+Career transition:
+  • 78 Alfred career-transition standards.
+PASS — all 78 have substantive graded-question coverage.
+PASS — every Career standard has at least 2 distinct graded questions.
+
+CETa bank-breadth safeguard:
+  • 235 assessable CETa rows currently have one distinct substantive graded item attached directly
+    to that exact row.
+  • v14.2 therefore prevents a one-item standard from receiving a Mastered label solely by repeating
+    the same question. A one-item standard may accumulate evidence and reach Proficient, but Mastered
+    requires at least two distinct substantive bank items plus the normal repeated-session,
+    accuracy, recency, and Intermediate/Advanced evidence requirements.
+  • Foundation-only evidence cannot produce Proficient or Mastered status.
+
+This guard is intentional: it prevents the competency dashboard from claiming more certainty than the
+question bank can support.
+
+======================================================================
+3. GENERATED FORM QA
+======================================================================
+Definitions tested:
+  • 125 lesson quizzes
+  • 24 lab knowledge checks
+  • 31 weekly mastery tests
+  • 3 major assessments
+  = 183 assessment definitions
+
+Smoke test:
+  • 5 forms generated for every assessment definition
+  • 915 total generated forms
+
+PASS — every form returned the exact requested question count.
+PASS — every form returned the exact CETa/Career mix specified by that assessment.
+PASS — 0 duplicate questions inside a form.
+PASS — 0 standards-orientation items leaked into a graded form.
+PASS — 0 broken presented-answer mappings after answer-choice shuffling.
+PASS — all 183 assessments produced different question sets across the five tested attempts.
+
+Across the 915 smoke-test forms:
+  • 11,300 CETa selections
+  • 11,300 Career selections
+  • 12,120 Foundation selections
+  • 9,360 Intermediate selections
+  • 1,120 Advanced selections
+
+Major-assessment behavior remains intentional:
+  • CETa Mock: CETa-only graded technical questions
+  • Career Bridge Technical Screen: Career-only graded technical questions
+  • Comprehensive Final: balanced CETa + Career
+
+======================================================================
+4. CALCULATION QUESTION RECOMPUTATION
+======================================================================
+PASS — independently recomputed all 76 graded Calculation questions.
+PASS — 76 / 76 answer keys matched the displayed problem.
+PASS — 0 calculation-key failures.
+
+Families recomputed include:
+  • Ohm's law current
+  • electrical power
+  • series/parallel resistance
+  • voltage dividers
+  • capacitive reactance
+  • inductive reactance
+  • LC resonance
+  • sine-wave RMS
+  • frequency/period
+  • decimal-to-hex conversion
+  • decibel power ratios
+  • inverting op-amp gain/output
+
+======================================================================
+5. LEGACY v14.0 / v14.1 MIGRATION
+======================================================================
+PASS — v14.0/v14.1 scores remain in attempt history.
+PASS — pre-v14.2 evidence does not inflate validated competency confidence.
+PASS — old mixed-validity standard evidence is surfaced as Revalidation Needed.
+PASS — direct v14.0 upgrades are covered: standard IDs retained in old attempt-level `s` summaries
+       are recognized as legacy evidence even before a new assessment is taken.
+PASS — when a new v14.2 assessment is saved, those old standard IDs migrate into compact legacy
+       analytics shards rather than disappearing.
+
+A Node VM test exercised the actual v14.2 quiz migration function with a simulated v14.0 assessment:
+  • legacy score migrated: 1 / 1
+  • legacy CETA:1.1 evidence preserved: 1 question
+  • analytics shard marked changed for Cloud Sync
+
+======================================================================
+6. ANALYTICS / RETENTION VALIDITY
+======================================================================
+PASS — standards-orientation questions have zero competency weight.
+PASS — graded evidence is tracked by standard, CETa/Career track, cognitive skill, true difficulty,
+       assessment type, timestamp/time spent, attempt number, and correctness.
+PASS — lifetime standard evidence is stored in compact category/domain analytics shards.
+PASS — latest three assessment attempts retain compact score/timing summaries.
+PASS — only the newest attempt retains the detailed standard map and compact question-response map.
+PASS — `attemptCount`, `bestPct`, `lastPct`, cumulative analytics, and recent trend history preserve
+       long-term performance without retaining unlimited raw attempts.
+PASS — Mastered requires repeated strong evidence, recent retrieval, Intermediate/Advanced evidence,
+       and at least two distinct substantive bank items for that exact standard.
+
+Retention intervals remain:
+  • miss: about 2 days
+  • first successful retrieval: about 7 days
+  • second successful retrieval: about 21 days
+  • third+ successful retrieval: about 45 days
+
+======================================================================
+7. CLOUD SYNC / D1 CAPACITY STRESS TEST
+======================================================================
+Production limits used by the current Worker:
+  • 20,000 characters maximum JSON value per record
+  • 512,000 bytes maximum sync request body
+  • 500 records maximum per sync request
+
+Stress condition:
+  • simulated 200 attempts on every one of the 183 assessments
+  • compact lifetime rollups enabled
+  • latest 3 score/timing attempt summaries retained per assessment
+  • newest detailed standard/question map retained
+
+Result:
+PASS — 189 records total (limit 500).
+PASS — largest simulated record: 5,678 characters (limit 20,000).
+PASS — simulated full-sync body: 314,278 bytes (limit 512,000).
+
+Headroom:
+  • per-record headroom on the largest record: 14,322 characters (~71.6%)
+  • full-sync request headroom: 197,722 bytes (~38.6%)
+
+RESULT — no Cloudflare Worker change and no D1 schema migration are required for v14.2.
+
+Known Cloud Sync behavior retained from the existing architecture:
+If two devices modify different fields inside the same `week:<n>` record while both are offline,
+the record-level newest-write merge can cause one whole week record to win. This is an existing
+same-record/offline conflict behavior, not a v14.2 regression. Normal connected use syncs changes
+after a short delay and greatly reduces the chance of that edge case.
+
+======================================================================
+8. STATIC SITE / PWA / FILE INTEGRITY
+======================================================================
+PASS — JavaScript syntax check on all 17 root JavaScript files.
+PASS — Python syntax check on fetch_library.py.
+PASS — 22 HTML pages audited.
+PASS — 958 local href/src references checked; 0 missing local targets.
+PASS — service-worker cache name is `alfred-u-v14-2`.
+PASS — all 58 service-worker CORE entries exist.
+PASS — manifest.webmanifest parses and both declared icon files exist.
+PASS — Competency Dashboard, Standards & Retention, Assessment Center, quiz runner, and analytics
+       scripts are included in the PWA core cache.
+PASS — .github/workflows/library-sync.yml remains at the required GitHub Actions path.
+
+The artifact environment blocks automated Chromium navigation to localhost/file URLs, so GUI browser
+navigation was not used as a release gate. Runtime-sensitive quiz logic was instead executed directly
+in a Node VM using the production v14.2 functions, while page/file integrity was checked through HTML,
+JavaScript, manifest, PWA, and link audits.
+
+Mobile-navigation regression protection:
+PASS — site.js is byte-for-byte unchanged from v14.1.
+PASS — the only v14.2 styles.css change is the addition of Standards status-pill styling
+       (`Revalidation Needed` / `Reference`); the previously repaired drawer/backdrop rules were not
+       modified.
+
+======================================================================
+9. CALENDAR / PROGRESS IDENTITY
+======================================================================
+PASS — course-data.js is byte-for-byte unchanged from v14.1.
+SHA256: 72cb011cf7f1648e44d8ab06ddae5b850cad620c93605653f69752b0899745a4
+
+PASS — AU-ESET 301 .ics calendar is byte-for-byte unchanged from v14.1.
+SHA256: d24133e2e1055b1942bd3095db3bc25fcc473dd569ea8a93ea90f26ec54793fc
+
+PASS — 125 VEVENT blocks.
+PASS — 125 UIDs / 125 unique UIDs.
+RESULT — event IDs, dates, times, iCalendar identity, and existing Progress identity remain compatible.
+
+======================================================================
+10. RELEASE VERDICT
+======================================================================
+PASS — v14.2 is cleared for packaging and deployment.
+
+The validity defect identified in the independent v14.1 audit is repaired:
+  • scope-recognition items cannot produce grades or mastery evidence,
+  • graded forms use substantive CETa/career questions only,
+  • standards coverage is complete at the assessable-row level,
+  • calculation keys were independently recomputed,
+  • difficulty and cognitive skill are separate dimensions,
+  • answer positions are shuffled to reduce cueing,
+  • old mixed-validity evidence is conservatively revalidated,
+  • single-item bank breadth cannot produce a false Mastered label,
+  • analytics storage has substantially more Cloud Sync headroom.
+
+IMPORTANT SCOPE NOTE
+Alfred University is a fictional independent-study environment. It is not accredited, is not an ETA
+certification provider, and its original quizzes/tests are not official ETA examination questions.
+The official ETA competency document remains the controlling CETa certification-scope source.

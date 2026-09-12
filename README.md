@@ -44,7 +44,7 @@ v11 turns the Engineering Library into a hybrid **local document library + verif
 Open-license, U.S. government, and explicitly public-release PDFs listed in `library-sources.json` are downloaded by the GitHub Actions workflow `.github/workflows/library-sync.yml`. The workflow:
 
 1. downloads the approved source documents,
-2. stores the actual PDFs under `the repository root as LIB-*.pdf files`,
+2. stores the actual PDFs at the repository root as `LIB-*.pdf` files,
 3. extracts searchable text from every PDF,
 4. generates `library-catalog.js` for the Engineering Library page,
 5. generates `library-index.js` for full-content Search Everything,
@@ -82,10 +82,10 @@ Every one of the 24 Engineering Lab Center labs now offers two routes: a **Virtu
 ## v14 Assessment, Standards & Retention System
 - 125 lesson quizzes, 24 lab checks, 31 weekly mastery tests, and 3 cumulative exams.
 - Normal lesson/lab/weekly assessments use a 50/50 CETa + career-transition mix. The CETa mock and Career Bridge screen isolate each track; the comprehensive final returns to 50/50.
-- 1,047 original assessment-bank questions: 599 CETa-aligned and 448 career-transition items. Assessment selection prioritizes application, calculation, and troubleshooting scenarios before using standards-scope checks to fill required coverage.
+- v14 introduced the first assessment bank and standards mapping. **v14.2 supersedes the original grading policy:** the current source bank contains 1,048 IDs, but only 491 substantive technical/career questions are eligible for graded forms and competency evidence; 557 standards-orientation items remain available as zero-weight study aids.
 - 262 individual CETa competency rows + 78 Alfred career standards. The current ETA competency wording controls certification scope; the supplied Associate CET Study Guide, 6th Edition is the primary instructional reference; the official ETA practice exam calibrates breadth/style without being copied.
 - `standards.html` includes the CETa competency outline and evidence-based retention status. `quiz.html` runs the assessments and returns explanations plus weak-standard diagnostics after submission.
-- Results are stored inside existing event/week Progress records so Cloud Sync protocol 2 and the current D1 schema remain compatible. The latest 3 detailed attempts per assessment are retained for mastery/retention evidence, while `attemptCount`, `bestPct`, and `lastPct` preserve the long-term summary without exceeding production Worker limits.
+- Results are stored inside existing event/week Progress records so Cloud Sync protocol 2 and the current D1 schema remain compatible. v14.2 retains the latest 3 score/timing attempt summaries, keeps the latest attempt’s compact standard/question detail, and moves lifetime mastery evidence into analytics rollups so old detail can roll off without exceeding production Worker limits.
 - `course-data.js` and the AU-ESET 301 `.ics` calendar remain byte-for-byte unchanged from v13.1.
 
 ## v14.1 Learning Analytics & Competency Dashboard
@@ -96,4 +96,19 @@ Every one of the 24 Engineering Lab Center labs now offers two routes: a **Virtu
 - Standards & Retention now uses lifetime accuracy, evidence quantity, recency, and repeated retrieval when calculating confidence/mastery.
 - Lab Center now records Virtual and Physical completion evidence in the existing week records; one route still completes the academic lab, while physical practice can be added later.
 - No Cloudflare Worker, D1 schema, Student Sync Key, calendar event ID, date/time, or iCalendar UID migration is required.
-- v14.0 assessment history remains compatible. Older attempts continue to contribute score/standard evidence; cognitive/difficulty analytics begin when those richer fields exist.
+- v14.0/v14.1 assessment history remains compatible for scores and attempt history. Because the older bank mixed substantive and standards-recognition items, pre-v14.2 standard evidence is retained as legacy history but does **not** raise validated competency confidence until the relevant skills are re-demonstrated on v14.2 graded questions.
+
+
+## v14.2 Assessment Validity QA Patch
+- Corrects the assessment-validity issue found in the independent v14.1 audit: standards-number/scope-recognition questions are no longer eligible for graded quiz/test forms and carry **zero competency weight**.
+- Current bank: **1,048 total source-bank IDs = 491 validated graded questions + 557 orientation/study-aid questions**. Graded questions are 335 CETa and 156 Career; all assessable CETa standards and all 78 Career standards have substantive question coverage.
+- Rebuilt previously uncovered CETa rows with technical/concept/application questions grounded in current ETA competency wording, the student-supplied Associate CET Study Guide, and the validated course source stack. CETa 2.5.1 is treated as a reference cross-link rather than a stand-alone mastery row.
+- Rebuilt Career evidence so each Career standard has aligned substantive scenario evidence; repetitive scenario-template variants are excluded from graded forms.
+- Separates **true difficulty** (Foundation / Intermediate / Advanced) from **cognitive skill** (Recall / Understanding / Calculation / Analysis / Troubleshooting / Application).
+- Final QA refined cognitive-skill tagging so Recall and Analysis are represented by graded evidence, and each graded form now deterministically shuffles answer choices to reduce answer-position cueing while preserving reproducible forms.
+- Competency confidence now uses weighted validated evidence. Foundation-only performance can begin a standard but cannot by itself produce Proficient or Mastered status; those states require repeated sessions plus Intermediate/Advanced evidence.
+- Bank-breadth guard: a standard represented by only one distinct validated question can reach Proficient with repeated strong evidence, but it cannot be labeled Mastered until the bank contains at least two substantive items for that standard.
+- Pre-v14.2 assessment history remains visible for scores, but older scope-contaminated standard evidence is marked **Revalidation Needed** instead of inflating the new dashboard.
+- Direct upgrades from v14.0 are covered too: retained attempt-level standard IDs are surfaced as legacy/revalidation evidence and are migrated conservatively when a new v14.2 assessment is saved.
+- Storage hardening keeps the latest three score/timing summaries per assessment, only the newest detailed standard/question map, and permanent lifetime aggregates in compact analytics shards; this materially increases full-sync headroom without losing competency history.
+- Uses the existing Progress + Cloud Sync JSON architecture. **No Cloudflare Worker, D1 schema, Student Sync Key, calendar event, or iCalendar migration is required.**

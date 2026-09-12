@@ -1,4 +1,4 @@
-ALFRED UNIVERSITY v14.1 — LEARNING ANALYTICS & COMPETENCY DASHBOARD PATCH
+ALFRED UNIVERSITY v14.2 — ASSESSMENT VALIDITY QA PATCH
 
 Upload/replace the contents of this package in the ROOT of the existing GitHub Pages repository.
 
@@ -6,22 +6,30 @@ IMPORTANT
 1. Keep .nojekyll at the repository root.
 2. Keep .github/workflows/library-sync.yml in that exact hidden folder path. GitHub Actions requires it there.
 3. All normal site files remain flat at the repository root.
-4. Do NOT change or regenerate the Cloudflare Worker or D1 database for v14.1. Cloud Sync protocol 2 and the current schema remain compatible.
-5. course-data.js and the AU-ESET 301 .ics calendar are intentionally unchanged from v14.0/v13.1.
-6. After GitHub Pages deploys, fully close and reopen Alfred University once so the alfred-u-v14-1 service-worker cache activates.
+4. Do NOT change or regenerate the Cloudflare Worker or D1 database for v14.2. Cloud Sync protocol 2 and the current schema remain compatible.
+5. course-data.js and the AU-ESET 301 .ics calendar are intentionally unchanged from v14.1/v14.0/v13.1.
+6. After GitHub Pages deploys, fully close and reopen Alfred University once so the alfred-u-v14-2 service-worker cache activates.
 
-v14.1 ADDS / CHANGES
-- Competency Dashboard (analytics.html)
-- Lifetime assessment rollups by standard, CETa/career track, cognitive skill, and question difficulty
-- Cognitive skill tags: Recall, Understanding, Calculation, Analysis, Troubleshooting, Application
-- Compact latest-attempt question-response map with question ID, chosen answer, and correctness
-- Latest 3 standard-level detailed attempts retained per assessment
-- Standards confidence based on accuracy + evidence quantity + recency + repeated successful retrieval
-- CETa and career domain readiness panels
-- Weakness / retention priority queue
-- Assessment trend and assessment-type analytics
-- Virtual / Physical lab completion evidence stored in existing week records
-- v14.0 result compatibility and partial backfill of older standard evidence
+v14.2 QA REPAIRS
+- Standards/scope-recognition items are excluded from all graded forms and carry zero competency weight.
+- Current source bank: 1,048 IDs = 491 validated graded questions + 557 orientation/study-aid questions.
+- Validated graded bank: 335 CETa + 156 Career questions.
+- Every assessable CETa standard and all 78 Career standards have substantive graded coverage.
+- CETa 2.5.1 is treated as an ETA cross-reference/reference row rather than a stand-alone mastery row.
+- Career repetitive scenario-template variants are excluded from graded forms.
+- Difficulty is now a real dimension: Foundation / Intermediate / Advanced.
+- Cognitive skill remains separate: Recall / Understanding / Calculation / Analysis / Troubleshooting / Application.
+- Competency confidence uses weighted validated evidence; Foundation-only evidence cannot produce Proficient or Mastered status.
+- Pre-v14.2 scores remain in history, but older mixed-validity standard evidence is shown as Revalidation Needed until retested under v14.2.
+
+FINAL QA HARDENING
+- Final cognitive tagging includes real graded Recall and Analysis evidence.
+- Answer choices are deterministically shuffled per form to reduce answer-position cueing.
+- All 76 calculation questions were independently recomputed; 76/76 keys passed.
+- A one-item exact standard cannot be labeled Mastered until the bank has a second distinct substantive item.
+- Direct v14.0 legacy standard summaries are preserved as Revalidation Needed evidence.
+- Storage was further compacted: latest 3 score/timing summaries + newest detailed map + permanent lifetime analytics.
+- 200-attempt-per-assessment stress test: 189 records, 5,678-char largest record, 314,278-byte full sync.
 
 DATA / SYNC COMPATIBILITY
 - Student Sync Key: unchanged
@@ -32,12 +40,6 @@ DATA / SYNC COMPATIBILITY
 - Calendar dates/times: unchanged
 - iCalendar UIDs: unchanged (125 / 125)
 - course-data.js: unchanged
-- Existing Progress / v14.0 assessment records: compatible
+- Existing Progress / v14.0 / v14.1 assessment records: compatible; older scores remain, competency evidence is conservatively revalidated
 
-STORAGE POLICY
-- Lifetime aggregate evidence is retained.
-- The latest 3 attempts retain standard-level detail.
-- Only the latest attempt retains the compact question-response map; earlier detailed attempts drop that map to protect Cloud Sync size limits.
-- Per-assessment trend history is capped to the latest 6 score points.
-
-See V14.1-VALIDATION.txt for the final QA report.
+See V14.2-VALIDATION.txt for final QA results.

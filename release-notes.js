@@ -1,5 +1,23 @@
 window.ALFRED_RELEASES = [
   {
+    version:'v14.2', date:'September 11, 2026', title:'Assessment Validity QA Patch', type:'Academic Validity Patch',
+    request:'Repair the final-audit finding that standards/scope-recognition items could inflate competency scores, while preserving the new analytics dashboard and existing Cloud Sync architecture.',
+    changes:[
+      'Excluded standards-number and scope-recognition items from every graded lesson quiz, lab check, weekly test, mock exam, and final; those items remain orientation aids with zero mastery weight.',
+      'Rebuilt uncovered CETa standards with substantive technical/concept/application questions grounded in current ETA competency wording, the supplied Associate CET Study Guide, and the validated course source stack.',
+      'Rebuilt Career evidence around standard-specific technical scenarios and removed repetitive scenario-template variants from graded forms.',
+      'Separated true difficulty (Foundation, Intermediate, Advanced) from cognitive skill (Recall, Understanding, Calculation, Analysis, Troubleshooting, Application).',
+      'Refined cognitive-skill tagging during final QA so graded evidence actually exercises Recall and Analysis instead of leaving those dashboard dimensions empty or underrepresented.',
+      'Deterministically shuffles answer choices on each assessment form to reduce answer-position cueing while keeping forms reproducible from assessment ID and attempt number.',
+      'Hardened storage by retaining three compact score/timing summaries, only the newest detailed standard/question map, and permanent lifetime competency rollups in analytics shards.',
+      'Changed competency scoring to weighted validated evidence. Foundation-only performance can start a standard but cannot by itself produce Proficient or Mastered status.',
+      'Added a bank-breadth safeguard: repeated success on a single unique question can support Proficient evidence but cannot by itself produce a Mastered label.',
+      'Added conservative legacy migration: v14.0/v14.1 scores remain in history, but older mixed-validity standard evidence is labeled Revalidation Needed until retested under v14.2.',
+      'Final migration QA also preserves standard IDs from unmigrated v14.0 attempt summaries as legacy/revalidation evidence, so direct upgrades do not silently lose which competencies were previously tested.',
+      'Preserved Cloud Sync protocol 2, the current Worker/D1 schema, Student Sync Key, calendar event IDs, dates/times, and iCalendar UIDs.'
+    ]
+  },
+  {
     version:'v14.1', date:'September 11, 2026', title:'Learning Analytics & Competency Dashboard', type:'Assessment Intelligence Patch',
     request:'Preserve richer quiz/test evidence over time and turn it into a dashboard that shows competency strengths, weaknesses, retention decay, CETa readiness, career readiness, and practical lab evidence.',
     changes:[
@@ -10,7 +28,7 @@ window.ALFRED_RELEASES = [
       'Added the Competency Dashboard with overall confidence, CETa readiness, career readiness, retention-due count, domain heatmaps, cognitive/difficulty performance, assessment-type performance, trends, strongest competencies, and a prioritized repair queue.',
       'Upgraded Standards & Retention to use lifetime evidence, evidence quantity, recency, and repeated successful retrieval when calculating confidence and mastery state.',
       'Added Virtual/Physical lab-completion evidence controls to the Lab Center and synchronized them through the existing week records.',
-      'Preserved backward compatibility with v14.0 results: prior scores and standard evidence remain usable, while richer cognitive/difficulty analytics begin with v14.1 attempts.'
+      'Preserved backward compatibility with v14.0 results. v14.2 later tightened validity: older scores remain visible, while mixed-validity standard evidence requires revalidation before it can raise current competency confidence.'
     ]
   },
   {

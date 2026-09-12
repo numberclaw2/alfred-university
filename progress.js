@@ -15,7 +15,7 @@
   const fmtTime=iso=>new Intl.DateTimeFormat('en-US',{hour:'numeric',minute:'2-digit'}).format(new Date(iso));
 
   function blankState(){
-    return {events:{},weeks:{},readiness:{},recordTimes:{},updatedAt:null};
+    return {events:{},weeks:{},readiness:{},analytics:{},recordTimes:{},updatedAt:null};
   }
   function eventHasMeaningfulData(value){
     if(!value || typeof value!=='object') return false;
@@ -31,6 +31,7 @@
     base.events=base.events||{};
     base.weeks=base.weeks||{};
     base.readiness=base.readiness||{};
+    base.analytics=base.analytics||{};
     base.recordTimes=base.recordTimes||{};
     const fallback=Date.parse(base.updatedAt||'')||Date.now();
 
@@ -48,6 +49,7 @@
       base.recordTimes[`week:${k}`]??=fallback;
     });
     Object.keys(base.readiness).forEach(k=>{base.recordTimes[`readiness:${k}`]??=fallback;});
+    Object.keys(base.analytics).forEach(k=>{base.recordTimes[`analytics:${k}`]??=fallback;});
     return base;
   }
   function load(){
@@ -156,6 +158,9 @@
     Object.entries(state.readiness||{}).forEach(([key,value])=>{
       addRecord(`readiness:${key}`,value);
     });
+    Object.entries(state.analytics||{}).forEach(([key,value])=>{
+      addRecord(`analytics:${key}`,value);
+    });
     return records;
   }
   function applyCloudRecord(rec){
@@ -171,6 +176,10 @@
     }else if(rec.key.startsWith('readiness:')){
       const key=rec.key.slice(10);
       state.readiness[key]=!!rec.value;
+    }else if(rec.key.startsWith('analytics:')){
+      const key=rec.key.slice(10);
+      state.analytics=state.analytics||{};
+      state.analytics[key]=rec.value||{v:2,s:{},l:{}};
     }else{
       return false;
     }
@@ -592,17 +601,15 @@
   function refreshAssessmentIntelligence(){
     if(!$('#stat-assessments-taken')) return;
     const latestScores=[]; let attempts=0; const standards={};
-    const absorb=box=>{
-      const list=box?.attempts||[]; attempts+=Number(box?.attemptCount||list.length||0); if(list.length||box?.lastPct!=null) latestScores.push(Number((box?.lastPct ?? list[list.length-1]?.pct) || 0));
-      if(box?.analytics?.v===1&&box.analytics.s){Object.entries(box.analytics.s).forEach(([id,row])=>{const x=standards[id]||(standards[id]={c:0,t:0});x.c+=Number(row[0]||0);x.t+=Number(row[1]||0);});}
-      else list.forEach(a=>(a.s||[]).forEach(row=>{const [id,cRaw,tRaw]=row,c=Number(cRaw||0),t=row.length>=3?Math.max(1,Number(tRaw||1)):1;const x=standards[id]||(standards[id]={c:0,t:0});x.c+=c;x.t+=t;}));
-    };
+    const absorb=box=>{const list=box?.attempts||[];attempts+=Number(box?.attemptCount||list.length||0);if(list.length||box?.lastPct!=null)latestScores.push(Number((box?.lastPct ?? list[list.length-1]?.pct)||0));};
     Object.values(state.events||{}).forEach(e=>absorb(e?.assessments?.lesson));
     Object.values(state.weeks||{}).forEach(raw=>{const w=typeof raw==='string'?{mastery:raw,assessments:{}}:(raw||{});Object.values(w.assessments||{}).forEach(absorb);});
-    const ids=Object.keys(standards), repair=ids.filter(id=>standards[id].t&&standards[id].c/standards[id].t<.8).length;
+    Object.values(state.analytics||{}).forEach(sh=>Object.entries(sh?.s||{}).forEach(([id,row])=>{const wc=Number(row[7]||0),wt=Number(row[8]||0);if(wt)standards[id]={c:wc,t:wt};}));
+    const ids=Object.keys(standards),repair=ids.filter(id=>standards[id].t&&standards[id].c/standards[id].t<.8).length;
+    const totalStandards=(ASSESS.cetaStandards||[]).filter(s=>s.assessable!==false).length+(ASSESS.careerStandards||[]).length;
     const avg=latestScores.length?Math.round(latestScores.reduce((a,b)=>a+b,0)/latestScores.length):null;
-    $('#stat-assessments-taken').textContent=attempts; $('#stat-assessment-average').textContent=avg==null?'—':avg+'%';
-    $('#stat-standards-practiced').textContent=`${ids.length} / ${(ASSESS.cetaStandards?.length||262)+(ASSESS.careerStandards?.length||78)}`;
+    $('#stat-assessments-taken').textContent=attempts;$('#stat-assessment-average').textContent=avg==null?'—':avg+'%';
+    $('#stat-standards-practiced').textContent=`${ids.length} / ${totalStandards||339}`;
     $('#stat-standards-repair').textContent=repair;
   }
 
