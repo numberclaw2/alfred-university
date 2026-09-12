@@ -1,7 +1,7 @@
-const CACHE='alfred-u-v15-0';
+const CACHE='alfred-u-v15-1';
 const CORE=[
   './','index.html','engineering.html','course.html','calendar.html','progress.html','resources.html','projects.html','documents.html','student-services.html','about.html','deployment.html','404.html','offline.html',
-  'study.html','search.html','week.html','labs.html','assessments.html','quiz.html','standards.html','analytics.html','knowledge.html','patch-notes.html',
+  'study.html','search.html','week.html','practice.html','labs.html','assessments.html','quiz.html','standards.html','analytics.html','knowledge.html','patch-notes.html','academic-state.js',
   'styles.css','site.js','progress.js','study.js','course-data.js','academic-content.js','academic.js','assessment-data.js','assessment.js','quiz.js','standards.js','analytics.js','search.js','release-notes.js','patch-notes.js','library-catalog.js','library-index.js','manifest.webmanifest',
   'crest.webp','seal.webp','icon-180.png','icon-192.png','icon-512.png',
   'syllabus-cover.png','resource-manual-cover.png','assignment-lab-cover.png','binder-index-cover.png','certificate-cover.png',
@@ -16,11 +16,15 @@ const CORE=[
 ];
 
 self.addEventListener('install',event=>{
-  event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE)).then(()=>self.skipWaiting()));
+  event.waitUntil(caches.open(CACHE).then(async cache=>{
+    const essential=CORE.filter(path=>!(/\.(pdf|png|webp|ics)$/i.test(path)));
+    await cache.addAll(essential);
+    await Promise.allSettled(CORE.filter(path=>!essential.includes(path)).map(path=>cache.add(path)));
+  }).then(()=>self.skipWaiting()));
 });
 
 self.addEventListener('activate',event=>{
-  event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim()));
+  event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('alfred-u-')&&key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim()));
 });
 
 self.addEventListener('fetch',event=>{
@@ -44,7 +48,7 @@ self.addEventListener('fetch',event=>{
         .catch(async()=>{
           const hit=await caches.match(event.request);
           if(hit) return hit;
-          if(isNavigation) return (await caches.match('offline.html')) || Response.error();
+          if(isNavigation) return (await caches.match(event.request,{ignoreSearch:true})) || (await caches.match('offline.html')) || Response.error();
           return Response.error();
         })
     );

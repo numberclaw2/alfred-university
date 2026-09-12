@@ -19,6 +19,15 @@ The production sync endpoint is `https://alfred-university-sync.totallywill13.wo
 There is no conventional username/password account system. Cross-device sync uses a private Alfred University Student Sync Key.
 The Student Sync Key authenticates access, but synchronized D1 record contents are not end-to-end encrypted. Avoid storing sensitive secrets in Personal Notes.
 
+## v15.1 Quality and Compatibility Patch
+
+The current release adds a Practice gateway, evidence-to-Study review links,
+legacy-review migration, safer Study sync responses, offline deep-link fallback,
+explicit advanced-server saving, and the revised Lab Manual. Release Notes remain
+under About > Site Administration. Existing recovery keys, protocol 2, and the
+Worker/D1 schema are unchanged. Export progress before upgrading; do not clear
+browser storage to refresh the site.
+
 ## v15 Academic System Consolidation
 
 v15 removes overlapping workflows and assigns one authoritative home to each function: Study owns the next action and review queue; Week Modules own weekly instruction; Calendar owns dates and times; Labs and Assessments own practice; Progress owns completion and records; Standards and Analytics own mastery intelligence. Manual Weekly Mastery, manual Needs Review flags, the Course weekly-content duplicate, the Engineering Library assigned-resource duplicate, and Student Services Study Hall were retired from the UI without deleting compatible historical data.

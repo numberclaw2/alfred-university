@@ -30,9 +30,7 @@
 </a>
 <button aria-controls="primary-navigation" aria-expanded="false" aria-label="Open navigation" class="nav-toggle">☰</button>
 </div>
-<nav aria-label="Primary navigation" class="main-nav" id="primary-navigation">
-<div class="shell nav-links"><a class="active" href="index.html">Home</a><a href="study.html">Study</a><a href="course.html">AU-ESET 301</a><a href="calendar.html">Calendar</a><a href="progress.html">Progress</a><a href="resources.html">Resources</a><a href="projects.html">Projects</a><div class="nav-more"><button aria-expanded="false" aria-haspopup="true" class="nav-more-button" type="button">More <span aria-hidden="true">⌄</span></button><div class="nav-more-menu"><a href="engineering.html">Engineering</a><a href="search.html">Search Everything</a><a href="week.html">Week Modules</a><a href="labs.html">Lab Center</a><a href="assessments.html">Assessment Center</a><a href="standards.html">Standards & Retention</a><a href="analytics.html">Competency Dashboard</a><a href="knowledge.html">Knowledge Base</a><a href="documents.html">Documents</a><a href="student-services.html">Student Services</a><a href="about.html">About</a></div></div></div>
-</nav>
+<nav aria-label="Primary navigation" class="main-nav" id="primary-navigation"><div class="shell nav-links"><a class="active" aria-current="page" href="index.html">Home</a><a href="study.html">Study</a><a href="week.html">Week</a><a href="calendar.html">Calendar</a><a href="practice.html">Practice</a><a href="progress.html">Progress</a><a href="analytics.html">Mastery</a><div class="nav-more"><button aria-expanded="false" aria-haspopup="true" class="nav-more-button" type="button">More <span aria-hidden="true">⌄</span></button><div class="nav-more-menu"><a href="course.html">Course Overview</a><a href="engineering.html">Engineering</a><a href="resources.html">Engineering Library</a><a href="projects.html">Projects</a><a href="search.html">Search Everything</a><a href="knowledge.html">Knowledge Base</a><a href="labs.html">Lab Center</a><a href="assessments.html">Assessment Center</a><a href="standards.html">Standards & Retention</a><a href="documents.html">Documents</a><a href="student-services.html">Student Services</a><a href="about.html">About</a><a href="patch-notes.html">Release Notes</a></div></div></div></nav>
 </header>
 <main>
 <section class="hero">
@@ -90,7 +88,7 @@
 <div class="card-grid six system-map"><a class="portal-card featured-study-card" href="study.html"><span class="portal-icon">▶</span><h3>Study</h3><p>What should I do right now? Start the next action and complete due reviews.</p></a>
 <a class="portal-card" href="week.html"><span class="portal-icon">31</span><h3>Week</h3><p>What am I learning this week? See outcomes, sequence, labs, and resources.</p></a>
 <a class="portal-card" href="calendar.html"><span class="portal-icon">▦</span><h3>Calendar</h3><p>When is it scheduled? See dates, times, deadlines, and upcoming work.</p></a>
-<a class="portal-card" href="labs.html"><span class="portal-icon">⚗</span><h3>Practice</h3><p>How do I prove it? Complete labs, then use the Assessment Center.</p></a>
+<a class="portal-card" href="practice.html"><span class="portal-icon">⚗</span><h3>Practice</h3><p>How do I prove it? Complete labs, then use the Assessment Center.</p></a>
 <a class="portal-card" href="progress.html"><span class="portal-icon">✓</span><h3>Progress</h3><p>What is complete? Manage the official completion record, notes, and sync.</p></a>
 <a class="portal-card" href="analytics.html"><span class="portal-icon">◇</span><h3>Mastery</h3><p>What do I actually know? Use evidence, retention, and repair priorities.</p></a>
 </div>
@@ -99,7 +97,7 @@
 <div class="shell">
 <div class="section-heading">
 <div><div class="eyebrow green">Current Week Dashboard</div><h2>Your course at a glance.</h2></div>
-<p>This dashboard is generated directly from the academic calendar and today’s date. Detailed completion and mastery tracking lives in the Student Progress Portal.</p>
+<p>This dashboard is generated directly from the academic calendar and today’s date. Completion lives in Progress; competency evidence and retention priorities live in Mastery.</p>
 </div>
 <div class="current-week-dashboard" id="current-week-dashboard"></div>
 </div>
@@ -151,6 +149,6 @@
 </div>
 </footer>
 <script src="course-data.js"></script>
-<script src="site.js"></script>
+<script src="academic-state.js"></script><script src="site.js"></script>
 </body>
 </html>

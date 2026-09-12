@@ -33,12 +33,11 @@ function initResources(){
  if(ks){[...new Set(A.deepResources.map(r=>r.kind))].sort().forEach(x=>ks.insertAdjacentHTML('beforeend',`<option>${esc(x)}</option>`)); fillDomains(ds); fillWeeks(ws);}
  function render(){if(!out)return; const q=(qs?.value||'').trim().toLowerCase(), kind=ks?.value||'', d=ds?.value||'', w=Number(ws?.value||0); const list=A.deepResources.filter(r=>(!kind||r.kind===kind)&&(!d||(r.ceta||[]).includes(d))&&(!w||(r.weeks||[]).includes(w))&&(!q||[r.title,r.source,r.kind,r.summary,r.keywords,r.career,(r.ceta||[]).join(' '),(r.weeks||[]).join(' ')].join(' ').toLowerCase().includes(q))); out.innerHTML=list.length?list.map(resCard).join(''):'<p class="empty-state">No verified resources match these filters.</p>'; }
  [qs,ks,ds,ws].forEach(x=>x?.addEventListener('input',render)); render();
- const assigned=$('#assigned-resource-list'); if(assigned) assigned.innerHTML=R.map(r=>`<article class="resource-card"><span class="resource-type">${esc(r.category||r.domain||'Assigned Resource')}</span><h3>${esc(r.title)}</h3><p>${esc(r.domain||'')} · ${(r.weeks||[]).map(w=>'Week '+w).join(', ')}</p>${ext(r.url,'Open assigned resource')}</article>`).join('');
 }
 
 function initWeek(){
  const select=$('#week-jump-select'), out=$('#week-module'); if(!select||!out)return; fillWeeks(select);
- const params=new URLSearchParams(location.search); let n=Number(params.get('week')||1); if(!W.some(x=>x.week===n))n=1; select.value=n; select.addEventListener('change',()=>{location.search='?week='+select.value});
+ const params=new URLSearchParams(location.search); let n=Number(params.get('week')||E.filter(e=>e.week&&new Date(e.start)<=new Date()).sort((a,b)=>new Date(b.start)-new Date(a.start))[0]?.week||1); if(!W.some(x=>x.week===n))n=1; select.value=n; select.addEventListener('change',()=>{location.search='?week='+select.value});
  const w=W.find(x=>x.week===n), sessions=E.filter(e=>e.week===n), domains=A.cetaDomains.filter(d=>(d.weeks||[]).includes(n)), allResources=A.deepResources.filter(r=>(r.weeks||[]).includes(n)), labs=A.labs.filter(l=>l.week===n), career=A.careerMap[String(n)];
  const minutes=sessions.filter(e=>e.type!=='Equipment').reduce((sum,e)=>sum+Math.max(0,(new Date(e.end)-new Date(e.start))/60000),0);
  const priority=r=>String(r.priority||'').toLowerCase();

@@ -189,37 +189,6 @@
       }
     }
   }
-  if($('#upcoming-events')){
-    const now=new Date();
-    const upcoming=EVENTS.filter(e=>new Date(e.start)>=now).slice(0,3);
-    $('#upcoming-events').innerHTML=upcoming.length?upcoming.map(e=>`
-      <article class="preview-event">
-        <div class="date">${esc(fmtDate(e.start))} · ${esc(fmtTime(e.start))}</div>
-        <h3>${esc(e.summary.replace(/^AU-ESET 301 \| /,''))}</h3>
-        <p>${esc(e.today||e.outcomes?.[0]||'Open the calendar for complete assignment details.')}</p>
-      </article>`).join(''):`<article class="preview-event"><div class="date">Scheduled calendar complete</div><h3>No future course sessions</h3><p>Use Progress for incomplete work, Study for due reviews, and Analytics for competency gaps.</p></article>`;
-  }
-
-  // Curriculum accordion
-  if($('#curriculum-weeks')){
-    $('#curriculum-weeks').innerHTML=WEEKS.map(w=>`
-      <div class="week-item">
-        <button class="week-button" aria-expanded="false">
-          <span class="week-number">Week ${String(w.week).padStart(2,'0')}</span>
-          <strong>${esc(w.topic)}</strong><span>＋</span>
-        </button>
-        <div class="week-detail">
-          <p><strong>${esc(phaseForWeek(w.week))}</strong></p>
-          ${w.start?`<p>${esc(fmtDate(w.start+'T12:00:00'))}</p>`:''}
-          ${w.outcomes?.length?`<p>By the end of this week, you should be able to explain or demonstrate:</p><ul>${w.outcomes.map(o=>`<li>${esc(o)}</li>`).join('')}</ul>`:'<p>See the academic calendar for detailed assignments and outcomes.</p>'}<p><a class="text-link" href="week.html?week=${w.week}">Open full Week ${String(w.week).padStart(2,'0')} module →</a></p>
-        </div>
-      </div>`).join('');
-    $$('.week-button').forEach(b=>b.addEventListener('click',()=>{
-      const item=b.closest('.week-item'); const open=item.classList.toggle('open');
-      b.setAttribute('aria-expanded',open); b.lastElementChild.textContent=open?'−':'＋';
-    }));
-  }
-
   // Event modal
   const modal=$('#event-modal');
   let modalReturnFocus=null;
@@ -402,6 +371,7 @@
         if(s.status==='complete') complete++;
         if(s.studyReview?.due && new Date(s.studyReview.due)<=new Date()) review++;
       });
+      Object.values(ps.weeks||{}).forEach(w=>Object.values(w?.reviewQueue||{}).forEach(r=>{if(Date.parse(r.due)<=Date.now())review++;}));
       const pct=EVENTS.length?Math.round((complete/EVENTS.length)*100):0;
       $('#home-progress-percent').textContent=`${pct}%`;
       $('#home-progress-events').textContent=`${complete} / ${EVENTS.length}`;

@@ -25,10 +25,11 @@
     if(Object.values(value.outcomes||{}).some(Boolean)) return true;
     if(Object.values(value.review||{}).some(Boolean)) return true;
     if(value.assessments && Object.keys(value.assessments).length) return true;
+    if(value.studyReview || value.studyConfidence) return true;
     return false;
   }
   function migrate(parsed){
-    const base={...blankState(),...(parsed||{})};
+    const base={...blankState(),...(window.AlfredState?.migrate(parsed||{})||parsed||{})};
     base.events=base.events||{};
     base.weeks=base.weeks||{};
     base.readiness=base.readiness||{};
@@ -170,7 +171,7 @@
     if(cloudTime < localTime) return false;
     if(rec.key.startsWith('event:')){
       const id=rec.key.slice(6);
-      state.events[id]=rec.value||{};
+      state.events[id]=window.AlfredState?.normalizeEvent(rec.value)||rec.value||{};
     }else if(rec.key.startsWith('week:')){
       const week=rec.key.slice(5);
       state.weeks[week]=rec.value;
@@ -366,7 +367,7 @@
           <span>${fmtDate(e.start)} · ${fmtTime(e.start)}${e.week?` · Week ${String(e.week).padStart(2,'0')}`:''}</span>
         </div>
         <div class="progress-event-actions">
-          <select data-event-status="${e.id}">
+          <select aria-label="Completion status: ${esc(e.summary)}" data-event-status="${e.id}">
             <option value="not-started" ${s.status==='not-started'?'selected':''}>Not Started</option>
             <option value="in-progress" ${s.status==='in-progress'||s.status==='review'?'selected':''}>In Progress</option>
             <option value="complete" ${s.status==='complete'?'selected':''}>Complete</option>
@@ -392,7 +393,7 @@
         persist();
       };
     });
-    const items=['common-core','project-one','role-track','professional-package','offer-standard'];
+    const items=['common-core','project-one','role-track','professional-package'];
     const count=items.filter(k=>state.readiness?.[k]).length;
     const gate=$('#career-gate-status');
     const technicalReady=['common-core','project-one','role-track','professional-package'].every(k=>state.readiness?.[k]);
@@ -405,7 +406,7 @@
     const e=EVENTS.find(x=>x.id===id);if(!e)return;
     const s=eventState(id);
     const outcomes=(e.outcomes||[]).map((o,i)=>`
-      <label class="outcome-check ${s.review?.[i]?'review-flag':''}">
+      <label class="outcome-check">
         <input type="checkbox" data-outcome="${i}" ${s.outcomes?.[i]?'checked':''}>
         <span>${esc(o)}</span>
       </label>`).join('');
@@ -416,7 +417,7 @@
           <h2 id="tracker-modal-title">${esc(e.summary.replace(/^AU-ESET 301 \| /,''))}</h2>
         </div>
         <div class="tracker-status-control">
-          <label>Status</label>
+          <label for="modal-event-status">Status</label>
           <select id="modal-event-status">
             <option value="not-started" ${s.status==='not-started'?'selected':''}>Not Started</option>
             <option value="in-progress" ${s.status==='in-progress'||s.status==='review'?'selected':''}>In Progress</option>
@@ -539,6 +540,14 @@
     if(ok) refreshSyncUI();
   });
   $('#sync-now')?.addEventListener('click',()=>syncNow());
+  $('#save-sync-server')?.addEventListener('click',async()=>{
+    const candidate=$('#sync-api-url').value.trim().replace(/\/+$/,'').replace(/\/(?:health|sync)$/i,'')||DEFAULT_SYNC_API;
+    let url; try {url=new URL(candidate);} catch {alert('Enter a valid HTTPS server address.');return;}
+    if(url.protocol!=='https:'||url.username||url.password||url.search||url.hash){alert('Use an HTTPS server address without credentials, query strings, or fragments.');return;}
+    if(candidate!==normalizedApiUrl()&&!confirm('Change Cloud Sync server? Connecting sends your recovery key and progress to this address. Only continue if you trust and control this server.'))return;
+    syncConfig.apiUrl=candidate;saveSyncConfig();
+    if(syncReady()) await syncNow(); else {refreshSyncUI();alert('Server saved. Enter your recovery key and connect.');}
+  });
   $('#show-sync-settings')?.addEventListener('click',()=>$('#sync-settings-drawer').classList.remove('hidden'));
   $('#show-sync-settings-setup')?.addEventListener('click',()=>$('#sync-settings-drawer').classList.remove('hidden'));
   $('#hide-sync-settings')?.addEventListener('click',()=>$('#sync-settings-drawer').classList.add('hidden'));

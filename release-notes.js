@@ -1,5 +1,21 @@
 window.ALFRED_RELEASES = [
   {
+    version:'v15.1', date:'September 12, 2026', title:'Quality, Compatibility & Review Flow', type:'Quality-of-Life Patch',
+    request:'Complete a final quality audit, repair confirmed issues, restore direct patch-history access, and provide upload-ready files.',
+    changes:[
+      'Aligned primary navigation with Study, Week, Calendar, Practice, Progress, and Mastery; restored Release Notes in More while retaining the About administration link.',
+      'Added a lightweight Practice gateway linking to existing Lab and Assessment Centers.',
+      'Fixed offline query-string navigation, made optional document caching failure-tolerant, and restricted cache cleanup to Alfred caches.',
+      'Migrated legacy review statuses and flags into Study reviews while preserving outcomes, notes, scores, and Study-only review schedules.',
+      'Added Review in Study links for weak competencies, with reviews stored in existing synced week records. Retrieval ratings never change assessment mastery.',
+      'Repaired career pillar counts, connected status labels for accessibility, and added an explicit Save Server and Reconnect action with a server-change warning.',
+      'Protected Study cloud merges against edits made during network requests and included analytics records in Study sync.',
+      'Updated the Lab Manual to Revision 2.0, indexed the Academic System Guide and revised manual, and labeled the archived binder in search.',
+      'Removed obsolete homepage and curriculum renderers and the retired assigned-resource renderer; Week opens at the current week by default.',
+      'Preserved protocol 2, the existing Worker and D1 schema, recovery keys, event IDs, and assessment bank.'
+    ]
+  },
+  {
     version:'v15.0', date:'September 12, 2026', title:'Academic System Consolidation', type:'Architecture & UX Release',
     request:'Remove redundant workflows that remained after newer academic tools replaced them, and give every major function one authoritative home.',
     changes:[

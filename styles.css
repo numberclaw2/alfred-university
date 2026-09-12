@@ -1021,11 +1021,9 @@ h1,h2,.brand-name,.section-heading h2,.split h2,.band h2,.feature-panel h2,.feat
   display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;background:#fffdf9
 }
 .progress-event-row.complete{background:#edf6f0;border-color:#b8d4c2}
-.progress-event-row.review{background:#fff6e0;border-color:#e4ca84}
 .progress-event-row.in-progress{background:#eef3f9;border-color:#c2cedd}
 .status-dot{width:12px;height:12px;border-radius:50%;background:#c9c6bd}
 .progress-event-row.complete .status-dot{background:#2f7a53}
-.progress-event-row.review .status-dot{background:#cf9b1f}
 .progress-event-row.in-progress .status-dot{background:#50749a}
 .progress-event-info strong{display:block;color:var(--green);font-size:.92rem}
 .progress-event-info span{display:block;color:var(--muted);font-size:.78rem;margin-top:3px}
@@ -1033,20 +1031,6 @@ h1,h2,.brand-name,.section-heading h2,.split h2,.band h2,.feature-panel h2,.feat
 .progress-event-actions select{border:1px solid var(--line);border-radius:8px;padding:7px;background:#fff;color:var(--ink);font-size:.78rem}
 .progress-detail-button{border:0;background:transparent;color:var(--green);font-weight:850;cursor:pointer;font-size:.8rem}
 
-.weekly-mastery-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.mastery-week{
-  border:1px solid var(--line);border-radius:14px;padding:15px;background:#fffdf9
-}
-.mastery-week-head{display:flex;justify-content:space-between;gap:12px;align-items:start}
-.mastery-week h3{font-family:Georgia,serif;color:var(--green);font-size:1rem;margin:0}
-.mastery-week p{color:var(--muted);font-size:.8rem;margin:4px 0 10px}
-.mastery-selector{display:flex;gap:7px}
-.mastery-selector button{
-  border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 9px;cursor:pointer;font-size:.72rem;font-weight:800
-}
-.mastery-selector button.active[data-mastery="green"]{background:#26734d;color:#fff;border-color:#26734d}
-.mastery-selector button.active[data-mastery="yellow"]{background:#d2a62a;color:#fff;border-color:#d2a62a}
-.mastery-selector button.active[data-mastery="red"]{background:#a34242;color:#fff;border-color:#a34242}
 
 .career-check-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 .career-check-grid label{
@@ -1073,7 +1057,10 @@ h1,h2,.brand-name,.section-heading h2,.split h2,.band h2,.feature-panel h2,.feat
   display:flex;gap:10px;align-items:start;border:1px solid var(--line);border-radius:10px;padding:11px;background:#fffdf9
 }
 .outcome-check input{margin-top:4px;accent-color:var(--green)}
-.outcome-check.review-flag{background:#fff6e0;border-color:#e4ca84}
+/* v15.1 keyboard access and review links */
+:focus-visible{outline:3px solid #b18b20;outline-offset:3px}
+.review-item a{overflow-wrap:anywhere}
+#review-queue{scroll-margin-top:2rem}
 .outcome-check .outcome-actions{margin-left:auto}
 .flag-review{
   border:0;background:transparent;color:#9a6e13;font-weight:850;cursor:pointer;font-size:.76rem;white-space:nowrap
