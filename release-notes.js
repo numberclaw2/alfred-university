@@ -1,5 +1,22 @@
 window.ALFRED_RELEASES = [
   {
+    version:'v15.0', date:'September 12, 2026', title:'Academic System Consolidation', type:'Architecture & UX Release',
+    request:'Remove redundant workflows that remained after newer academic tools replaced them, and give every major function one authoritative home.',
+    changes:[
+      'Rebuilt Home around six clear systems: Study, Week, Calendar, Practice, Progress, and Mastery; removed repeated weekly, career, and instructional sections.',
+      'Made Study the daily command center and single review queue; Week Modules now own detailed weekly instruction; Calendar remains the schedule authority.',
+      'Removed the manual Weekly Mastery and manual Needs Review systems from Progress while preserving existing stored records for backward compatibility.',
+      'Kept Progress focused on completion, outcome checkoffs, notes, career gates, backup/import, and Cloud Sync; Standards and Analytics remain the mastery authority.',
+      'Replaced the Course page’s duplicate 31-week accordion with a direct Week Modules gateway and removed the duplicate Assigned Resources catalog from the Engineering Library.',
+      'Removed the obsolete Study Hall section from Student Services and routed daily work to Study.',
+      'Simplified Cloud Sync setup around the Recovery Key and built in the production Worker URL; server configuration now lives under advanced Sync Settings.',
+      'Moved Release Notes and Deployment Notes under About as site-administration information rather than academic destinations.',
+      'Added the Revision 2.0 Academic System Guide and marked the older Binder Index workflow as archived where its instructions conflict with the live platform.',
+      'Rebuilt the PWA cache as v15, added all current academic systems and the new guide, and replaced misleading homepage fallback with a dedicated offline page.',
+      'Preserved assessment history, competency evidence, event IDs, calendar dates, Cloud Sync protocol 2, the current D1 schema, and existing Student Sync Keys.'
+    ]
+  },
+  {
     version:'v14.2', date:'September 11, 2026', title:'Assessment Validity QA Patch', type:'Academic Validity Patch',
     request:'Repair the final-audit finding that standards/scope-recognition items could inflate competency scores, while preserving the new analytics dashboard and existing Cloud Sync architecture.',
     changes:[

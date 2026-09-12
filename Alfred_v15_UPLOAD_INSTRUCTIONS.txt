@@ -1,0 +1,30 @@
+ALFRED UNIVERSITY v15.0 - ACADEMIC SYSTEM CONSOLIDATION
+
+UPLOAD METHOD
+
+1. Open the GitHub repository: numberclaw2/alfred-university
+2. Select Add file, then Upload files.
+3. Open the Alfred_University_v15_Replacement_Files.zip file on your device.
+4. Drag every file from inside the ZIP into the ROOT of the repository.
+5. Allow GitHub to replace files with matching names.
+6. Commit the upload directly to the main branch.
+7. Wait a few minutes for GitHub Pages to redeploy.
+
+IMPORTANT
+
+- Upload the files themselves, not the ZIP file.
+- Keep every file in the repository root. Do not create a v15 folder.
+- Do not delete the existing PDFs or data files that are not included in this package.
+- The package contains two new files: offline.html and the Revision 2.0 Academic System Guide PDF.
+- No Cloudflare Worker or D1 changes are required.
+- Existing Student Sync Keys, progress records, calendar IDs, assessment history, and competency evidence remain compatible.
+
+AFTER UPLOAD
+
+Open the live website and refresh it once. If the installed home-screen version still looks old, close it completely and reopen it so the v15 service worker can replace the v14.2 cache.
+
+PRODUCTION CLOUD SYNC
+
+https://alfred-university-sync.totallywill13.workers.dev
+
+Expected health status: protocol 2, database bound, schema ready.

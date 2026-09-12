@@ -133,11 +133,11 @@
         <section class="week-dashboard-primary">
           <div class="week-kicker">Academic schedule complete</div>
           <h3>AU-ESET 301 scheduled course complete</h3>
-          <p>All ${EVENTS.length} scheduled calendar items are now in the past. Use Student Progress, mastery gates, and your project evidence to close any remaining gaps.</p>
+          <p>All ${EVENTS.length} scheduled calendar items are now in the past. Use Student Progress for incomplete work and the Competency Dashboard for remaining mastery gaps.</p>
           <div class="week-progress"><span style="width:100%"></span></div>
           <div class="week-progress-meta"><span>Course start</span><span>100% through scheduled calendar</span><span>Course end</span></div>
         </section>
-        <section class="week-dashboard-card"><h4>What to do next</h4><p>Finish any incomplete sessions, resolve review flags, and verify the career-readiness gate before treating the program as complete.</p></section>
+        <section class="week-dashboard-card"><h4>What to do next</h4><p>Finish incomplete sessions, complete due reviews in Study, and verify the career-readiness gate before treating the program as complete.</p></section>
         <section class="week-dashboard-card"><h4>Keep the evidence</h4><p>Preserve your project documentation, instrument captures, Git history, resume, and interview examples as your transition portfolio.</p></section>`;
     }
     const w=info.currentWeek||1;
@@ -181,7 +181,7 @@
       if(info.complete){
         if(title) title.textContent='Scheduled course complete';
         if(copy) copy.textContent=`All ${EVENTS.length} scheduled course items are in the past. Review Student Progress for anything still open.`;
-        if($('#announcement-text')) $('#announcement-text').textContent='AU-ESET 301 scheduled calendar complete · Close remaining mastery and career-readiness items in Student Progress.';
+        if($('#announcement-text')) $('#announcement-text').textContent='AU-ESET 301 scheduled calendar complete · Close incomplete work in Progress and mastery gaps in Analytics.';
       }else{
         if(title) title.textContent=`Week ${String(info.currentWeek||1).padStart(2,'0')} · ${weekTopic(info.currentWeek||1)}`;
         if(copy) copy.textContent=info.sameDay?`Today: ${info.sameDay.summary.replace(/^AU-ESET 301 \| /,'')}`:`Next: ${info.next?.summary.replace(/^AU-ESET 301 \| /,'')||'No additional scheduled session'}`;
@@ -197,7 +197,7 @@
         <div class="date">${esc(fmtDate(e.start))} · ${esc(fmtTime(e.start))}</div>
         <h3>${esc(e.summary.replace(/^AU-ESET 301 \| /,''))}</h3>
         <p>${esc(e.today||e.outcomes?.[0]||'Open the calendar for complete assignment details.')}</p>
-      </article>`).join(''):`<article class="preview-event"><div class="date">Scheduled calendar complete</div><h3>No future course sessions</h3><p>Use Student Progress to close any incomplete work, review flags, mastery gates, or career-readiness requirements.</p></article>`;
+      </article>`).join(''):`<article class="preview-event"><div class="date">Scheduled calendar complete</div><h3>No future course sessions</h3><p>Use Progress for incomplete work, Study for due reviews, and Analytics for competency gaps.</p></article>`;
   }
 
   // Curriculum accordion
@@ -400,7 +400,7 @@
       EVENTS.forEach(e=>{
         const s=ps?.events?.[String(e.id)]||{};
         if(s.status==='complete') complete++;
-        Object.values(s.review||{}).forEach(v=>{if(v)review++;});
+        if(s.studyReview?.due && new Date(s.studyReview.due)<=new Date()) review++;
       });
       const pct=EVENTS.length?Math.round((complete/EVENTS.length)*100):0;
       $('#home-progress-percent').textContent=`${pct}%`;

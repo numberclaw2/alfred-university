@@ -1,6 +1,6 @@
-const CACHE='alfred-u-v14-2';
+const CACHE='alfred-u-v15-0';
 const CORE=[
-  './','index.html','engineering.html','course.html','calendar.html','progress.html','resources.html','projects.html','documents.html','student-services.html','about.html','deployment.html','404.html',
+  './','index.html','engineering.html','course.html','calendar.html','progress.html','resources.html','projects.html','documents.html','student-services.html','about.html','deployment.html','404.html','offline.html',
   'study.html','search.html','week.html','labs.html','assessments.html','quiz.html','standards.html','analytics.html','knowledge.html','patch-notes.html',
   'styles.css','site.js','progress.js','study.js','course-data.js','academic-content.js','academic.js','assessment-data.js','assessment.js','quiz.js','standards.js','analytics.js','search.js','release-notes.js','patch-notes.js','library-catalog.js','library-index.js','manifest.webmanifest',
   'crest.webp','seal.webp','icon-180.png','icon-192.png','icon-512.png',
@@ -10,6 +10,7 @@ const CORE=[
   'Alfred University - AU-ESET 301 - Assignment and Lab Manual.pdf',
   'Alfred University - AU-ESET 301 - Student Course Binder Index.pdf',
   'Alfred University - AU-ESET 301 - Certificate of Course Completion.pdf',
+  'Alfred University - AU-ESET 301 - Academic System Guide.pdf',
   'Embedded Career Transition Readiness Checklist.pdf',
   'Alfred University - AU-ESET 301 - Simplified Course Calendar.ics'
 ];
@@ -43,7 +44,7 @@ self.addEventListener('fetch',event=>{
         .catch(async()=>{
           const hit=await caches.match(event.request);
           if(hit) return hit;
-          if(isNavigation) return (await caches.match('index.html')) || Response.error();
+          if(isNavigation) return (await caches.match('offline.html')) || Response.error();
           return Response.error();
         })
     );

@@ -6,6 +6,7 @@
   const KEY = 'alfred-u-progress-v2';
   const LEGACY_KEY = 'alfred-u-progress-v1';
   const SYNC_KEY = 'alfred-u-sync-config-v1';
+  const DEFAULT_SYNC_API = 'https://alfred-university-sync.totallywill13.workers.dev';
   const SYNC_PROTOCOL = 2;
   const STUDENT_KEY_RE = /^AU-(?:[A-F0-9]{4}-){9}[A-F0-9]{4}$/;
   const $=(s,r=document)=>r.querySelector(s);
@@ -72,6 +73,7 @@
     try{return JSON.parse(localStorage.getItem(SYNC_KEY)||'null')||{};}catch{return {};}
   }
   let syncConfig=loadSync();
+  if(!syncConfig.apiUrl) syncConfig.apiUrl=DEFAULT_SYNC_API;
 
   function ensureDeviceId(){
     if(!syncConfig.deviceId){
@@ -121,11 +123,10 @@
   }
   function metrics(){
     const totalEvents=EVENTS.length;
-    let complete=0,reviewCount=0,doneOutcomes=0,totalOutcomes=0;
+    let complete=0,doneOutcomes=0,totalOutcomes=0;
     EVENTS.forEach(e=>{
       const s=eventState(e.id);
       if(s.status==='complete') complete++;
-      Object.values(s.review||{}).forEach(v=>{if(v)reviewCount++});
       (e.outcomes||[]).forEach((_,i)=>{
         totalOutcomes++;
         if(s.outcomes?.[i]) doneOutcomes++;
@@ -133,7 +134,7 @@
     });
     const coursePct=totalEvents?Math.round((complete/totalEvents)*100):0;
     const outcomePct=totalOutcomes?Math.round((doneOutcomes/totalOutcomes)*100):0;
-    return {totalEvents,complete,reviewCount,doneOutcomes,totalOutcomes,coursePct,outcomePct};
+    return {totalEvents,complete,doneOutcomes,totalOutcomes,coursePct,outcomePct};
   }
 
   // -----------------------------
@@ -273,7 +274,7 @@
   }
   async function syncNow({silent=false}={}){
     if(!syncReady()){
-      if(!silent) showSyncMessage('Enter a valid Worker URL and Student Sync Key first.','error');
+      if(!silent) showSyncMessage('Enter a valid Student Sync Key first.','error');
       return false;
     }
     if(!navigator.onLine){
@@ -343,7 +344,8 @@
     $('#bar-course-completion').style.width=`${m.coursePct}%`;
     $('#stat-events-complete').textContent=`${m.complete} / ${m.totalEvents}`;
     $('#stat-outcomes-complete').textContent=`${m.outcomePct}%`;
-    $('#stat-needs-review').textContent=String(m.reviewCount);
+    const careerCount=Object.values(state.readiness||{}).filter(Boolean).length;
+    $('#stat-career-gates').textContent=`${careerCount} / 5`;
 
     const w=currentWeek(),weekEvents=EVENTS.filter(e=>e.week===w),done=weekEvents.filter(e=>eventState(e.id).status==='complete').length;
     const pct=weekEvents.length?Math.round((done/weekEvents.length)*100):0;
@@ -366,9 +368,8 @@
         <div class="progress-event-actions">
           <select data-event-status="${e.id}">
             <option value="not-started" ${s.status==='not-started'?'selected':''}>Not Started</option>
-            <option value="in-progress" ${s.status==='in-progress'?'selected':''}>In Progress</option>
+            <option value="in-progress" ${s.status==='in-progress'||s.status==='review'?'selected':''}>In Progress</option>
             <option value="complete" ${s.status==='complete'?'selected':''}>Complete</option>
-            <option value="review" ${s.status==='review'?'selected':''}>Needs Review</option>
           </select>
           <button class="progress-detail-button" data-open-tracker="${e.id}">Details</button>
         </div>
@@ -381,30 +382,6 @@
       persist();
     }));
     $$('[data-open-tracker]').forEach(btn=>btn.addEventListener('click',()=>openTracker(Number(btn.dataset.openTracker))));
-  }
-  function renderWeeks(){
-    $('#weekly-mastery-list').innerHTML=WEEKS.map(w=>{
-      const weekValue=state.weeks?.[w.week];
-      const status=typeof weekValue==='string'?weekValue:(weekValue?.mastery||'');
-      return `<article class="mastery-week">
-        <div class="mastery-week-head">
-          <div><h3>Week ${String(w.week).padStart(2,'0')} · ${esc(w.topic)}</h3><p>${w.outcomes?.length||0} cumulative learning outcomes</p></div>
-        </div>
-        <div class="mastery-selector" data-week="${w.week}">
-          <button data-mastery="green" class="${status==='green'?'active':''}">Green</button>
-          <button data-mastery="yellow" class="${status==='yellow'?'active':''}">Yellow</button>
-          <button data-mastery="red" class="${status==='red'?'active':''}">Red</button>
-          <button data-mastery="" class="${status===''?'active':''}">Clear</button>
-        </div>
-      </article>`;
-    }).join('');
-    $$('.mastery-selector button').forEach(btn=>btn.addEventListener('click',()=>{
-      const week=btn.closest('.mastery-selector').dataset.week;
-      const existing=state.weeks[week];
-      state.weeks[week]=typeof existing==='object'&&existing!==null?{...existing,mastery:btn.dataset.mastery}:{mastery:btn.dataset.mastery,assessments:{}};
-      touch(`week:${week}`);
-      persist();
-    }));
   }
   function renderReadiness(){
     $$('[data-readiness]').forEach(cb=>{
@@ -431,7 +408,6 @@
       <label class="outcome-check ${s.review?.[i]?'review-flag':''}">
         <input type="checkbox" data-outcome="${i}" ${s.outcomes?.[i]?'checked':''}>
         <span>${esc(o)}</span>
-        <span class="outcome-actions"><button type="button" class="flag-review" data-review="${i}">${s.review?.[i]?'Remove Review Flag':'Flag for Review'}</button></span>
       </label>`).join('');
     $('#tracker-modal-content').innerHTML=`
       <div class="tracker-event-top">
@@ -443,9 +419,8 @@
           <label>Status</label>
           <select id="modal-event-status">
             <option value="not-started" ${s.status==='not-started'?'selected':''}>Not Started</option>
-            <option value="in-progress" ${s.status==='in-progress'?'selected':''}>In Progress</option>
+            <option value="in-progress" ${s.status==='in-progress'||s.status==='review'?'selected':''}>In Progress</option>
             <option value="complete" ${s.status==='complete'?'selected':''}>Complete</option>
-            <option value="review" ${s.status==='review'?'selected':''}>Needs Review</option>
           </select>
         </div>
       </div>
@@ -464,13 +439,6 @@
     trackerReturnFocus=document.activeElement;
     modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
     requestAnimationFrame(()=>$('.modal-close',modal)?.focus());
-    $$('[data-review]').forEach(btn=>btn.addEventListener('click',()=>{
-      const i=btn.dataset.review;
-      s.review[i]=!s.review[i];
-      touch(`event:${id}`);
-      persist();
-      openTracker(id);
-    }));
     $('#save-tracker-detail').onclick=()=>{
       s.status=$('#modal-event-status').value;
       $$('[data-outcome]').forEach(cb=>s.outcomes[cb.dataset.outcome]=cb.checked);
@@ -564,7 +532,7 @@
     $('#toggle-sync-key').textContent=field.type==='password'?'Show':'Hide';
   });
   $('#connect-sync')?.addEventListener('click',async()=>{
-    syncConfig.apiUrl=$('#sync-api-url').value.trim();
+    syncConfig.apiUrl=$('#sync-api-url').value.trim()||DEFAULT_SYNC_API;
     syncConfig.studentKey=$('#sync-key').value.trim().toUpperCase();
     saveSyncConfig();
     const ok=await syncNow();
@@ -572,6 +540,7 @@
   });
   $('#sync-now')?.addEventListener('click',()=>syncNow());
   $('#show-sync-settings')?.addEventListener('click',()=>$('#sync-settings-drawer').classList.remove('hidden'));
+  $('#show-sync-settings-setup')?.addEventListener('click',()=>$('#sync-settings-drawer').classList.remove('hidden'));
   $('#hide-sync-settings')?.addEventListener('click',()=>$('#sync-settings-drawer').classList.add('hidden'));
   $('#disconnect-sync')?.addEventListener('click',()=>{
     syncConfig.connected=false;
@@ -614,7 +583,7 @@
   }
 
   function refreshAll(){
-    refreshStats();renderEvents();renderWeeks();renderReadiness();refreshAssessmentIntelligence();refreshSyncUI();
+    refreshStats();renderEvents();renderReadiness();refreshAssessmentIntelligence();refreshSyncUI();
   }
   refreshAll();
 

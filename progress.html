@@ -31,7 +31,7 @@
 <button aria-controls="primary-navigation" aria-expanded="false" aria-label="Open navigation" class="nav-toggle">☰</button>
 </div>
 <nav aria-label="Primary navigation" class="main-nav" id="primary-navigation">
-<div class="shell nav-links"><a href="index.html">Home</a><a href="study.html">Study</a><a href="course.html">AU-ESET 301</a><a href="calendar.html">Calendar</a><a class="active" href="progress.html">Progress</a><a href="resources.html">Resources</a><a href="projects.html">Projects</a><div class="nav-more"><button aria-expanded="false" aria-haspopup="true" class="nav-more-button" type="button">More <span aria-hidden="true">⌄</span></button><div class="nav-more-menu"><a href="engineering.html">Engineering</a><a href="search.html">Search Everything</a><a href="week.html">Week Modules</a><a href="labs.html">Lab Center</a><a href="assessments.html">Assessment Center</a><a href="standards.html">Standards & Retention</a><a href="analytics.html">Competency Dashboard</a><a href="knowledge.html">Knowledge Base</a><a href="documents.html">Documents</a><a href="student-services.html">Student Services</a><a href="patch-notes.html">Release Notes</a><a href="about.html">About</a></div></div></div>
+<div class="shell nav-links"><a href="index.html">Home</a><a href="study.html">Study</a><a href="course.html">AU-ESET 301</a><a href="calendar.html">Calendar</a><a class="active" href="progress.html">Progress</a><a href="resources.html">Resources</a><a href="projects.html">Projects</a><div class="nav-more"><button aria-expanded="false" aria-haspopup="true" class="nav-more-button" type="button">More <span aria-hidden="true">⌄</span></button><div class="nav-more-menu"><a href="engineering.html">Engineering</a><a href="search.html">Search Everything</a><a href="week.html">Week Modules</a><a href="labs.html">Lab Center</a><a href="assessments.html">Assessment Center</a><a href="standards.html">Standards & Retention</a><a href="analytics.html">Competency Dashboard</a><a href="knowledge.html">Knowledge Base</a><a href="documents.html">Documents</a><a href="student-services.html">Student Services</a><a href="about.html">About</a></div></div></div>
 </nav>
 </header>
 <main>
@@ -40,7 +40,7 @@
 <div>
 <div class="eyebrow">Office of Academic Progress</div>
 <h1>Student Progress Portal</h1>
-<p>A lightweight professional tracker for AU-ESET 301. Mark work complete, flag concepts for review, track weekly mastery, and preserve your progress without a spreadsheet.</p>
+<p>The authoritative completion record for AU-ESET 301. Mark scheduled work complete, preserve notes and career gates, and keep the record synchronized without a spreadsheet.</p>
 </div>
 <div class="progress-seal-card">
 <img alt="Alfred University seal" src="seal.webp"/>
@@ -80,15 +80,6 @@
 <div class="sync-form-panel">
 <div class="sync-step-number">1</div>
 <div>
-<h3>Cloud Sync Server</h3>
-<p>Paste the Cloudflare Worker URL from the Alfred University sync backend.</p>
-<label for="sync-api-url">Worker URL</label>
-<input autocomplete="off" id="sync-api-url" inputmode="url" placeholder="https://alfred-university-sync.your-subdomain.workers.dev" type="url"/>
-</div>
-</div>
-<div class="sync-form-panel">
-<div class="sync-step-number">2</div>
-<div>
 <h3>Student Sync Key</h3>
 <p>This private key is your identity for sync. Use the same key on every device.</p>
 <label for="sync-key">Recovery / Sync Key</label>
@@ -103,16 +94,22 @@
 </div>
 </div>
 <div class="sync-form-panel">
-<div class="sync-step-number">3</div>
+<div class="sync-step-number">2</div>
 <div>
 <h3>Connect This Device</h3>
 <p>The first connection merges this device's local progress with the cloud record. Your browser continues to work offline.</p>
 <button class="button gold" id="connect-sync" type="button">Connect &amp; Sync</button>
+<button class="text-button" id="show-sync-settings-setup" type="button">Advanced server settings</button>
 <div class="sync-inline-message" id="sync-inline-message"></div>
 </div>
 </div>
 </div>
 <div class="sync-settings-drawer hidden" id="sync-settings-drawer">
+<div class="sync-advanced-server">
+<label for="sync-api-url">Advanced: Cloud Sync server</label>
+<input autocomplete="off" id="sync-api-url" inputmode="url" type="url" value="https://alfred-university-sync.totallywill13.workers.dev"/>
+<p class="small-note">Alfred’s production server is already configured. Change this only when maintaining the backend.</p>
+</div>
 <div class="sync-settings-grid">
 <div><span>Server</span><strong id="settings-server">—</strong></div>
 <div><span>Device ID</span><strong id="settings-device-id">—</strong></div>
@@ -151,14 +148,14 @@
 <small>Calendar events marked complete</small>
 </article>
 <article>
-<span class="stat-label">Mastery Outcomes</span>
+<span class="stat-label">Outcome Completion</span>
 <strong id="stat-outcomes-complete">0%</strong>
 <small>Learning outcomes checked off</small>
 </article>
 <article>
-<span class="stat-label">Needs Review</span>
-<strong id="stat-needs-review">0</strong>
-<small>Concepts currently flagged</small>
+<span class="stat-label">Career Gates</span>
+<strong id="stat-career-gates">0 / 5</strong>
+<small>Real-world readiness checks completed</small>
 </article>
 </div>
 <div class="assessment-intelligence-card">
@@ -182,14 +179,10 @@
 <a class="text-link" href="calendar.html">Open academic calendar →</a>
 </div>
 <div class="sidebar-card">
-<div class="eyebrow green">Weekly Mastery</div>
-<h3>Green · Yellow · Red</h3>
-<p>Use a simple gate at the end of each week:</p>
-<div class="mastery-legend">
-<div><span class="dot green-dot"></span><strong>Green</strong><small>Can explain and demonstrate it.</small></div>
-<div><span class="dot yellow-dot"></span><strong>Yellow</strong><small>Mostly solid; one or two repairs remain.</small></div>
-<div><span class="dot red-dot"></span><strong>Red</strong><small>Core gap still blocks mastery.</small></div>
-</div>
+<div class="eyebrow green">Mastery Intelligence</div>
+<h3>Evidence, not a manual color</h3>
+<p>Quiz, test, lab, difficulty, recency, and repeated-retrieval evidence now determine competency status.</p>
+<a class="text-link" href="analytics.html">Open Competency Dashboard →</a>
 </div>
 <div class="sidebar-card">
 <div class="eyebrow green">Storage</div>
@@ -212,20 +205,10 @@
 <option value="not-started">Not Started</option>
 <option value="in-progress">In Progress</option>
 <option value="complete">Complete</option>
-<option value="review">Needs Review</option>
 </select></label>
 </div>
 </div>
 <div class="progress-event-list" id="progress-event-list"></div>
-</section>
-<section class="tracker-panel">
-<div class="tracker-panel-head">
-<div>
-<div class="eyebrow green">Weekly Gates</div>
-<h2>Mastery by week</h2>
-</div>
-</div>
-<div class="weekly-mastery-list" id="weekly-mastery-list"></div>
 </section>
 <section class="tracker-panel" id="career-readiness-panel">
 <div class="tracker-panel-head">
@@ -258,7 +241,7 @@
 </div>
 </div>
 <div><h3>Academic Resources</h3><a href="study.html">Start Studying</a><a href="search.html">Search Everything</a><a href="week.html">Week Modules</a><a href="labs.html">Engineering Lab Center</a><a href="assessments.html">Assessment Center</a><a href="standards.html">Standards & Retention</a><a href="analytics.html">Competency Dashboard</a><a href="knowledge.html">Knowledge Base</a><a href="resources.html">Engineering Library</a></div>
-<div><h3>Student Services</h3><a href="progress.html">Student Progress</a><a href="student-services.html#career">Career Services</a><a href="student-services.html#lab-safety">Laboratory Safety</a><a href="projects.html">Project Center</a><a href="documents.html">Course Documents</a><a href="patch-notes.html">Release Notes</a></div>
+<div><h3>Student Services</h3><a href="progress.html">Student Progress</a><a href="student-services.html#career">Career Services</a><a href="student-services.html#lab-safety">Laboratory Safety</a><a href="projects.html">Project Center</a><a href="documents.html">Course Documents</a></div>
 </div>
 <div class="shell legal">
 <span>© 2026 Alfred University · EST. 1998</span>

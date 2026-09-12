@@ -10,13 +10,13 @@ const sameDay=(a,b)=>a.getFullYear()===b.getFullYear()&&a.getMonth()===b.getMont
 const fmtDate=(v,o={weekday:'short',month:'short',day:'numeric'})=>new Intl.DateTimeFormat('en-US',o).format(new Date(v));
 const fmtTime=v=>new Intl.DateTimeFormat('en-US',{hour:'numeric',minute:'2-digit'}).format(new Date(v));
 const cleanTitle=e=>String(e?.summary||'').replace(/^AU-ESET 301 \| /,'');
-function defaultState(){return {version:13,defaultMode:'standard',reviews:{},parking:[],history:[],sessionConfidence:{}};}
+function defaultState(){return {version:15,defaultMode:'standard',reviews:{},parking:[],history:[],sessionConfidence:{}};}
 function load(){try{return {...defaultState(),...(JSON.parse(localStorage.getItem(STUDY_KEY)||'null')||{})};}catch{return defaultState();}}
 let state=load();
-function save(){localStorage.setItem(STUDY_KEY,JSON.stringify(state));}
+function save(){localStorage.setItem(STUDY_KEY,JSON.stringify({version:15,defaultMode:state.defaultMode,parking:state.parking,history:state.history}));}
 function progress(){try{return JSON.parse(localStorage.getItem(PROGRESS_KEY)||'null')||{events:{},weeks:{},readiness:{},recordTimes:{}};}catch{return {events:{},weeks:{},readiness:{},recordTimes:{}};}}
 function eventStatus(id){return progress().events?.[String(id)]?.status||'not-started';}
-function hydrateReviewsFromProgress(){const p=progress();Object.entries(p.events||{}).forEach(([id,v])=>{if(v?.studyReview)state.reviews[id]={...v.studyReview,eventId:Number(id)};if(v?.studyConfidence)state.sessionConfidence[id]=v.studyConfidence;});save();}
+function hydrateReviewsFromProgress(){const p=progress();state.reviews={};state.sessionConfidence={};Object.entries(p.events||{}).forEach(([id,v])=>{if(v?.studyReview)state.reviews[id]={...v.studyReview,eventId:Number(id)};if(v?.studyConfidence)state.sessionConfidence[id]=v.studyConfidence;});save();}
 function saveStudyMetaToProgress(id,confidence,review){let p=progress();p.events=p.events||{};p.recordTimes=p.recordTimes||{};const key=String(id),stamp=Date.now();p.events[key]={...(p.events[key]||{}),studyConfidence:confidence,studyReview:review};p.recordTimes[`event:${key}`]=stamp;p.updatedAt=new Date().toISOString();localStorage.setItem(PROGRESS_KEY,JSON.stringify(p));pushProgressRecord(`event:${key}`,p.events[key],stamp);}
 function currentWeek(){const t=now();let w=1;E.filter(e=>e.week).forEach(e=>{if(new Date(e.start)<=t)w=e.week});return w;}
 function targetEvent(){
@@ -50,9 +50,9 @@ function renderRecommendation(){
   box.innerHTML=`<div class="recommended-label">${esc(when)} · ${esc(target.type)}${target.week?` · Week ${String(target.week).padStart(2,'0')}`:''}</div><h2>${esc(cleanTitle(target))}</h2><p>${esc((target.outcomes||wk.outcomes||[])[0]||wk.topic||'Complete the next scheduled learning action.')}</p><div class="recommended-meta"><span>${eventMinutes(target)>=180?'Scheduled lab block':`${fmtTime(target.start)} scheduled`}</span><span>Progress: ${esc(st.replace('-',' '))}</span></div>`;
 }
 function renderWeeklyPlan(){
-  const w=currentWeek(), wd=weekData(w), list=E.filter(e=>e.week===w), mins=list.filter(e=>e.type!=='Equipment').reduce((a,e)=>a+eventMinutes(e),0), lab=list.find(e=>e.type==='Lab'||e.type==='Project'); const p=progress(); const rawMastery=p.weeks?.[w]||''; const mastery=typeof rawMastery==='string'?rawMastery:(rawMastery?.mastery||'');
+  const w=currentWeek(), wd=weekData(w), list=E.filter(e=>e.week===w), mins=list.filter(e=>e.type!=='Equipment').reduce((a,e)=>a+eventMinutes(e),0), lab=list.find(e=>e.type==='Lab'||e.type==='Project');
   $('#open-week-module').href=`week.html?week=${w}`;
-  $('#weekly-plan').innerHTML=`<article class="weekly-plan-main"><div class="week-kicker">Week ${String(w).padStart(2,'0')}</div><h3>${esc(wd.topic||'Current Week')}</h3><p><strong>Estimated scheduled time:</strong> ${Math.round(mins/60*10)/10} hours</p><div class="three-priorities">${(wd.outcomes||[]).slice(0,3).map((x,i)=>`<div><span>${i+1}</span><p>${esc(x)}</p></div>`).join('')}</div></article><article class="weekly-plan-side"><h3>Definition of Done</h3><ul>${(wd.outcomes||[]).slice(0,5).map(x=>`<li>${esc(x)}</li>`).join('')}</ul>${lab?`<div class="weekly-lab"><strong>Hands-on block</strong><span>${esc(cleanTitle(lab))}</span><small>${fmtDate(lab.start)} · ${fmtTime(lab.start)}</small></div>`:''}<div class="mastery-readout mastery-${esc(mastery||'clear')}"><strong>Progress mastery:</strong> ${mastery?esc(mastery.toUpperCase()):'Not rated yet'} <a href="progress.html#weekly-mastery">Update in Progress →</a></div></article>`;
+  $('#weekly-plan').innerHTML=`<article class="weekly-plan-main"><div class="week-kicker">Week ${String(w).padStart(2,'0')}</div><h3>${esc(wd.topic||'Current Week')}</h3><p><strong>Estimated scheduled time:</strong> ${Math.round(mins/60*10)/10} hours</p><div class="three-priorities">${(wd.outcomes||[]).slice(0,3).map((x,i)=>`<div><span>${i+1}</span><p>${esc(x)}</p></div>`).join('')}</div></article><article class="weekly-plan-side"><h3>Definition of Done</h3><ul>${(wd.outcomes||[]).slice(0,5).map(x=>`<li>${esc(x)}</li>`).join('')}</ul>${lab?`<div class="weekly-lab"><strong>Hands-on block</strong><span>${esc(cleanTitle(lab))}</span><small>${fmtDate(lab.start)} · ${fmtTime(lab.start)}</small></div>`:''}<div class="mastery-readout"><strong>Mastery is evidence-based.</strong> <a href="analytics.html">View competency evidence →</a></div></article>`;
 }
 function buildSteps(e,mode){
   const plan=modePlan(mode,e), wk=weekData(e.week), outcomes=e.outcomes||wk.outcomes||[], resources=sessionResources(e), domain=firstDomain(e.week);

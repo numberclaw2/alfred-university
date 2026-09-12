@@ -14,8 +14,16 @@ The Student Progress Portal works offline-first using browser storage.
 
 Optional cross-device sync uses a separate Cloudflare Worker + Cloudflare D1 backend. The frontend remains static on GitHub Pages; the Cloudflare backend stores synchronized progress records when the user explicitly connects it from the Progress page.
 
+The production sync endpoint is `https://alfred-university-sync.totallywill13.workers.dev`. Ordinary setup only requires the private Student Sync Key; the endpoint can be changed under advanced Sync Settings for maintenance.
+
 There is no conventional username/password account system. Cross-device sync uses a private Alfred University Student Sync Key.
 The Student Sync Key authenticates access, but synchronized D1 record contents are not end-to-end encrypted. Avoid storing sensitive secrets in Personal Notes.
+
+## v15 Academic System Consolidation
+
+v15 removes overlapping workflows and assigns one authoritative home to each function: Study owns the next action and review queue; Week Modules own weekly instruction; Calendar owns dates and times; Labs and Assessments own practice; Progress owns completion and records; Standards and Analytics own mastery intelligence. Manual Weekly Mastery, manual Needs Review flags, the Course weekly-content duplicate, the Engineering Library assigned-resource duplicate, and Student Services Study Hall were retired from the UI without deleting compatible historical data.
+
+The production Worker URL is now built in, Release Notes moved under About, the PWA uses a dedicated offline fallback, and the Revision 2.0 Academic System Guide supersedes conflicting workflow instructions in the older Student Course Binder Index. No Cloudflare Worker, D1 schema, Student Sync Key, event ID, calendar date/time, or iCalendar UID migration is required.
 
 > Alfred University is a fictional independent-study environment for personal learning and is not an accredited institution.
 
