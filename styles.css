@@ -1726,3 +1726,8 @@ button,.button{min-height:44px}
     flex-basis:100%;max-width:none;font-size:.78rem;line-height:1.45;
   }
 }
+
+/* v15.8.1: scannable requirements for every virtual and physical lab route. */
+.lab-equipment-list{margin:.5rem 0 1.2rem;padding-left:1.2rem;display:grid;gap:.35rem}
+.lab-equipment-list li{line-height:1.45}
+.lab-prep-direction{margin-top:.7rem;padding-top:.7rem;border-top:1px solid rgba(13,62,49,.14)}

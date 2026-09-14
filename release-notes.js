@@ -1,5 +1,21 @@
 window.ALFRED_RELEASES = [
   {
+    "version": "v15.8.1",
+    "date": "September 14, 2026",
+    "title": "Complete Lab Readiness Guidance",
+    "type": "Course Guidance Fix",
+    "request": "Fix the DC Lab Kit Check because it asks the learner to identify required equipment without showing the equipment, then check every lab for the same kind of instructional hole.",
+    "changes": [
+      "All nine equipment-preparation reminders now contain an actionable Today checklist instead of relying on generic outcomes.",
+      "The Week 1 DC kit check names the low-voltage source, DMM, breadboard, LED, resistor choices and jumper wires, explains their purposes, and states the approved virtual fallback.",
+      "Later instrument, soldering, STM32, UART, serial-bus, cabling, project-BOM and Week 29 preparation reminders identify required items, compatibility checks, safety boundaries and no-purchase alternatives.",
+      "Twenty-six scheduled lab and practical items now direct the learner to the matching Lab Center route and state what evidence completes the task; late Project 1 labs receive specific bring-up, interface, firmware, fault-injection and workmanship steps.",
+      "Study displays the full preparation checklist and provides a direct Lab Center or Project Center link from the assigned-work panel.",
+      "Every Lab Center card separates virtual and physical requirements into scannable lists and explains what to do before the scheduled lab.",
+      "The 24 Lab Center records were checked for an objective, both routes, required equipment, procedure steps, evidence, completion rules and working tool links. Existing progress records, calendar dates, questions and assessment evidence are unchanged."
+    ]
+  },
+  {
     "version": "v15.8",
     "date": "September 14, 2026",
     "title": "Final Pre-Release Quality and Reliability Audit",

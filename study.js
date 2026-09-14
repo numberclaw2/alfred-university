@@ -57,7 +57,8 @@ function buildSteps(e,mode){
   const plan=modePlan(mode,e), wk=weekData(e.week), outcomes=e.outcomes||wk.outcomes||[], resources=sessionResources(e), domain=firstDomain(e.week);
   const tidy=window.AlfredCalendarCopy?.tidy||String;
   const reading=(e.description||'').match(/READ \/ USE:\s*([^\n]+)/)?.[1]||'';
-  const assignment=`<section class="study-assignment"><h4>Assigned work</h4><p>${esc(tidy(e.today||outcomes[0]||'Open the week module for this task.'))}</p>${reading?`<p><strong>Book assignment:</strong> ${esc(tidy(reading))}</p>`:''}<a href="week.html?week=${e.week}">Week ${e.week} · full instructions and resources →</a></section>`;
+  const taskLink=e.type==='Equipment'?(e.week&&e.week!==29?`<a href="labs.html?week=${e.week}">Open the Week ${String(e.week).padStart(2,'0')} equipment and route checklist →</a>`:'<a href="projects.html">Open Project Center for the BOM, materials, and compatibility check →</a>'):`<a href="week.html?week=${e.week}">Week ${e.week} · full instructions and resources →</a>`;
+  const assignment=`<section class="study-assignment"><h4>Assigned work</h4><p>${esc(tidy(e.today||outcomes[0]||'Open the week module for this task.'))}</p>${reading?`<p><strong>Book assignment:</strong> ${esc(tidy(reading))}</p>`:''}${taskLink}</section>`;
   const recallPrompt=(outcomes[0]||wk.topic||cleanTitle(e));
   const resourceHtml=resources.length?resources.map(r=>`<a class="session-resource" href="${esc(r.url)}" target="_blank" rel="noopener"><strong>${esc(r.title)}</strong><span>${esc(r.source||r.kind||'Verified resource')} · ${esc(r.priority||'Support')}</span></a>`).join(''):'<a class="session-resource" href="week.html?week='+e.week+'"><strong>Open the Week Module</strong><span>Use the required weekly sequence.</span></a>';
   const steps=[];
