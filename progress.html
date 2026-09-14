@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
-<meta content="#0d3e31" name="theme-color"/>
-<meta content="Alfred University AU-ESET 301 professional student progress portal." name="description"/>
-<link href="icon-192.png" rel="icon"/>
-<link href="icon-180.png" rel="apple-touch-icon"/>
-<link href="manifest.webmanifest" rel="manifest"/>
-<link href="styles.css" rel="stylesheet"/>
+<meta charset="utf-8">
+<meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport">
+<meta content="#0d3e31" name="theme-color">
+<meta content="Alfred University AU-ESET 301 professional student progress portal." name="description">
+<link href="icon-192.png" rel="icon">
+<link href="icon-180.png" rel="apple-touch-icon">
+<link href="manifest.webmanifest" rel="manifest">
+<link href="styles.css" rel="stylesheet">
 <title>Student Progress | Alfred University</title>
 </head>
 <body data-page="progress">
@@ -22,15 +21,15 @@
 </div>
 <div class="shell brand-row">
 <a class="brand" href="index.html">
-<img alt="Alfred University grizzly crest" src="crest.webp"/>
+<img alt="Alfred University grizzly crest" src="crest.webp">
 <div>
 <span class="brand-name">ALFRED UNIVERSITY</span>
 <span class="brand-sub">Discere · Aedificare · Servire</span>
 </div>
 </a>
-<button aria-controls="primary-navigation" aria-expanded="false" aria-label="Open navigation" class="nav-toggle">☰</button>
+<button aria-controls="primary-navigation" aria-expanded="false" aria-label="Open navigation" class="nav-toggle" type="button">☰</button>
 </div>
-<nav aria-label="Primary navigation" class="main-nav" id="primary-navigation"><div class="shell nav-links"><a href="index.html">Home</a><a href="study.html">Study</a><a href="week.html">Week</a><a href="calendar.html">Calendar</a><a href="practice.html">Practice</a><a class="active" aria-current="page" href="progress.html">Progress</a><a href="analytics.html">Mastery</a><div class="nav-more"><button aria-expanded="false" aria-haspopup="true" class="nav-more-button" type="button">More <span aria-hidden="true">⌄</span></button><div class="nav-more-menu"><a href="course.html">Course Overview</a><a href="engineering.html">Engineering</a><a href="resources.html">Engineering Library</a><a href="projects.html">Projects</a><a href="search.html">Search Everything</a><a href="knowledge.html">Knowledge Base</a><a href="labs.html">Lab Center</a><a href="assessments.html">Assessment Center</a><a href="standards.html">Standards & Retention</a><a href="documents.html">Documents</a><a href="student-services.html">Student Services</a><a href="about.html">About</a><a href="patch-notes.html">Release Notes</a></div></div></div></nav>
+<nav aria-label="Primary navigation" class="main-nav" id="primary-navigation"><div class="shell nav-links"><a href="index.html">Home</a><a href="study.html">Study</a><a href="week.html">Week</a><a href="calendar.html">Calendar</a><a href="practice.html">Practice</a><a class="active" aria-current="page" href="progress.html">Progress</a><a href="analytics.html">Mastery</a><div class="nav-more"><button aria-expanded="false" aria-haspopup="true" class="nav-more-button" type="button">More <span aria-hidden="true">⌄</span></button><div class="nav-more-menu"><a href="course.html">Course Overview</a><a href="engineering.html">Engineering</a><a href="resources.html">Engineering Library</a><a href="projects.html">Projects</a><a href="search.html">Search Everything</a><a href="knowledge.html">Knowledge Base</a><a href="labs.html">Lab Center</a><a href="assessments.html">Assessment Center</a><a href="standards.html">Standards &amp; Retention</a><a href="documents.html">Documents</a><a href="student-services.html">Student Services</a><a href="about.html">About</a><a href="patch-notes.html">Release Notes</a></div></div></div></nav>
 </header>
 <main>
 <section class="progress-hero">
@@ -41,7 +40,7 @@
 <p>The authoritative completion record for AU-ESET 301. Mark scheduled work complete, preserve notes and career gates, and keep the record synchronized without a spreadsheet.</p>
 </div>
 <div class="progress-seal-card">
-<img alt="Alfred University seal" src="seal.webp"/>
+<img alt="Alfred University seal" src="seal.webp">
 <strong id="hero-progress-percent">0%</strong>
 <span>Overall Course Completion</span>
 <small>Saved locally · synchronized when Cloud Sync is connected</small>
@@ -69,9 +68,9 @@
 <div><span>Sync Mode</span><strong>Offline First</strong></div>
 </div>
 <div class="sync-connected-actions">
-<button class="button green small" id="sync-now">Sync Now</button>
-<button class="button ghost small" id="copy-sync-key-connected">Copy Recovery Key</button>
-<button class="button ghost small" id="show-sync-settings">Sync Settings</button>
+<button class="button green small" id="sync-now" type="button">Sync Now</button>
+<button class="button ghost small" id="copy-sync-key-connected" type="button">Copy Recovery Key</button>
+<button class="button ghost small" id="show-sync-settings" type="button">Sync Settings</button>
 </div>
 </div>
 <div class="sync-setup-grid" id="sync-setup-grid">
@@ -82,7 +81,7 @@
 <p>This private key is your identity for sync. Use the same key on every device.</p>
 <label for="sync-key">Recovery / Sync Key</label>
 <div class="sync-key-row">
-<input autocomplete="off" id="sync-key" placeholder="AU-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX" spellcheck="false" type="password"/>
+<input autocomplete="off" id="sync-key" placeholder="AU-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX" spellcheck="false" type="password">
 <button class="button ghost small" id="toggle-sync-key" type="button">Show</button>
 </div>
 <div class="sync-key-actions">
@@ -105,7 +104,7 @@
 <div class="sync-settings-drawer hidden" id="sync-settings-drawer">
 <div class="sync-advanced-server">
 <label for="sync-api-url">Advanced: Cloud Sync server</label>
-<input autocomplete="off" id="sync-api-url" inputmode="url" type="url" value="https://alfred-university-sync.totallywill13.workers.dev"/>
+<input autocomplete="off" id="sync-api-url" inputmode="url" type="url" value="https://alfred-university-sync.totallywill13.workers.dev">
 <p class="small-note">Alfred’s production server is already configured. Change this only when maintaining the backend.</p>
 </div>
 <div class="sync-settings-grid">
@@ -115,9 +114,9 @@
 </div>
 <div class="sync-settings-actions">
 <button class="button green small" id="save-sync-server" type="button">Save Server &amp; Reconnect</button>
-<button class="button ghost small" id="hide-sync-settings">Close Settings</button>
-<button class="button ghost small" id="disconnect-sync">Disconnect This Device</button>
-<button class="button danger small" id="erase-cloud-record">Erase Cloud Record</button>
+<button class="button ghost small" id="hide-sync-settings" type="button">Close Settings</button>
+<button class="button ghost small" id="disconnect-sync" type="button">Disconnect This Device</button>
+<button class="button danger small" id="erase-cloud-record" type="button">Erase Cloud Record</button>
 </div>
 <p class="sync-warning"><strong>Recovery key:</strong> keep a copy somewhere safe. Anyone with this key and the server URL can access this progress record. Alfred University never stores the readable key in the cloud database.</p>
 </div>
@@ -130,9 +129,9 @@
 <h2>Your AU-ESET 301 progress at a glance.</h2>
 </div>
 <div class="progress-actions">
-<button class="button ghost small" id="export-progress" title="Exports progress only; your Cloud Sync key is not included">Export Backup</button>
-<label class="button ghost small file-button">Import Backup<input accept=".json,application/json" id="import-progress" type="file"/></label>
-<button class="button danger small" id="reset-progress">Reset Progress</button>
+<button class="button ghost small" id="export-progress" title="Exports progress only; your Cloud Sync key is not included" type="button">Export Backup</button>
+<label class="button ghost small file-button">Import Backup<input accept=".json,application/json" id="import-progress" type="file"></label>
+<button class="button danger small" id="reset-progress" type="button">Reset Progress</button>
 </div>
 </div>
 <div class="progress-stat-grid">
@@ -158,9 +157,9 @@
 </article>
 </div>
 <div class="assessment-intelligence-card">
-<div class="assessment-intelligence-head"><div><div class="eyebrow green">Assessment Intelligence</div><h3>Quizzes, tests & standards evidence</h3></div><div><a class="button outline-green small" href="assessments.html">Assessment Center</a><a class="button outline-green small" href="standards.html">Standards & Retention</a><a class="button green small" href="analytics.html">Competency Dashboard</a></div></div>
+<div class="assessment-intelligence-head"><div><div class="eyebrow green">Assessment Intelligence</div><h3>Quizzes, tests &amp; standards evidence</h3></div><div><a class="button outline-green small" href="assessments.html">Assessment Center</a><a class="button outline-green small" href="standards.html">Standards &amp; Retention</a><a class="button green small" href="analytics.html">Competency Dashboard</a></div></div>
 <div class="assessment-intelligence-grid"><div><span>Assessments Taken</span><strong id="stat-assessments-taken">0</strong></div><div><span>Latest-Score Average</span><strong id="stat-assessment-average">—</strong></div><div><span>Standards Practiced</span><strong id="stat-standards-practiced">0 / 340</strong></div><div><span>Standards Below 80%</span><strong id="stat-standards-repair">0</strong></div></div>
-<p>Assessment history is saved inside the same event/week records used by Alfred Cloud Sync. Open the Competency Dashboard for readiness, cognitive-skill performance, trends, and prioritized weaknesses; use Standards & Retention for exact CETa and career-standard evidence.</p>
+<p>Assessment history is saved inside the same event/week records used by Alfred Cloud Sync. Open the Competency Dashboard for readiness, cognitive-skill performance, trends, and prioritized weaknesses; use Standards &amp; Retention for exact CETa and career-standard evidence.</p>
 </div>
 <div class="progress-note">
 <strong>How this tracker works:</strong>
@@ -217,11 +216,11 @@
 </div>
 </div>
 <div class="career-check-grid">
-<label><input data-readiness="common-core" type="checkbox"/><span><strong>Common Core</strong><small>Electronics, C, STM32, instruments, Python, Git, troubleshooting.</small></span></label>
-<label><input data-readiness="project-one" type="checkbox"/><span><strong>Project 1</strong><small>Working embedded system with instrument evidence and documentation.</small></span></label>
-<label><input data-readiness="role-track" type="checkbox"/><span><strong>One Role Track</strong><small>R&amp;D lab, hardware test/validation, integration, or another chosen bridge family.</small></span></label>
-<label><input data-readiness="professional-package" type="checkbox"/><span><strong>Professional Package</strong><small>Resume, GitHub/portfolio, transition story, technical/behavioral examples.</small></span></label>
-<label><input data-readiness="offer-standard" type="checkbox"/><span><strong>Offer Standard</strong><small>Permanent/full-time, financially viable, school-compatible, meaningful hardware adjacency.</small></span></label>
+<label><input data-readiness="common-core" type="checkbox"><span><strong>Common Core</strong><small>Electronics, C, STM32, instruments, Python, Git, troubleshooting.</small></span></label>
+<label><input data-readiness="project-one" type="checkbox"><span><strong>Project 1</strong><small>Working embedded system with instrument evidence and documentation.</small></span></label>
+<label><input data-readiness="role-track" type="checkbox"><span><strong>One Role Track</strong><small>R&amp;D lab, hardware test/validation, integration, or another chosen bridge family.</small></span></label>
+<label><input data-readiness="professional-package" type="checkbox"><span><strong>Professional Package</strong><small>Resume, GitHub/portfolio, transition story, technical/behavioral examples.</small></span></label>
+<label><input data-readiness="offer-standard" type="checkbox"><span><strong>Offer Standard</strong><small>Permanent/full-time, financially viable, school-compatible, meaningful hardware adjacency.</small></span></label>
 </div>
 <div class="career-gate-status" id="career-gate-status"></div>
 </section>
@@ -232,14 +231,14 @@
 <footer class="site-footer">
 <div class="shell footer-grid">
 <div class="footer-brand">
-<img alt="" src="seal.webp"/>
+<img alt="" src="seal.webp">
 <div>
 <strong>Alfred University</strong>
 <p>School of Engineering and Applied Technology</p>
 <p>Department of Applied Electronics and Embedded Technology</p>
 </div>
 </div>
-<div><h3>Academic Resources</h3><a href="study.html">Start Studying</a><a href="search.html">Search Everything</a><a href="week.html">Week Modules</a><a href="labs.html">Engineering Lab Center</a><a href="assessments.html">Assessment Center</a><a href="standards.html">Standards & Retention</a><a href="analytics.html">Competency Dashboard</a><a href="knowledge.html">Knowledge Base</a><a href="resources.html">Engineering Library</a></div>
+<div><h3>Academic Resources</h3><a href="study.html">Start Studying</a><a href="search.html">Search Everything</a><a href="week.html">Week Modules</a><a href="labs.html">Engineering Lab Center</a><a href="assessments.html">Assessment Center</a><a href="standards.html">Standards &amp; Retention</a><a href="analytics.html">Competency Dashboard</a><a href="knowledge.html">Knowledge Base</a><a href="resources.html">Engineering Library</a></div>
 <div><h3>Student Services</h3><a href="progress.html">Student Progress</a><a href="student-services.html#career">Career Services</a><a href="student-services.html#lab-safety">Laboratory Safety</a><a href="projects.html">Project Center</a><a href="documents.html">Course Documents</a></div>
 </div>
 <div class="shell legal">
@@ -247,11 +246,11 @@
 <span>Fictional independent-study environment for personal learning. Not an accredited institution and no academic credit is awarded.</span>
 </div>
 </footer>
-<div aria-hidden="true" class="event-modal" id="tracker-modal">
+<div aria-hidden="true" class="event-modal" id="tracker-modal" inert>
 <div class="event-modal-backdrop" data-close-tracker-modal=""></div>
 <div aria-labelledby="tracker-modal-title" aria-modal="true" class="event-modal-card tracker-modal-card" role="dialog">
-<button aria-label="Close" class="modal-close" data-close-tracker-modal="">×</button>
-<div id="tracker-modal-content"></div>
+<button aria-label="Close" class="modal-close" data-close-tracker-modal="" type="button">×</button>
+<div id="tracker-modal-content"><h2 id="tracker-modal-title">Progress details</h2></div>
 </div>
 </div>
 <script src="course-data.js"></script>

@@ -1,8 +1,8 @@
-const CACHE='alfred-u-v15-7';
+const CACHE='alfred-u-v15-8';
 const CORE=[
   './','index.html','engineering.html','course.html','calendar.html','progress.html','resources.html','projects.html','documents.html','student-services.html','about.html','deployment.html','404.html','offline.html',
   'study.html','search.html','week.html','practice.html','labs.html','assessments.html','quiz.html','standards.html','analytics.html','knowledge.html','patch-notes.html','academic-state.js',
-  'styles.css','site.js','progress.js','study.js','course-data.js','academic-content.js','academic.js','assessment-data.js','assessment-engine.js','readiness.js','assessment.js','quiz.js','standards.js','analytics.js','search.js','release-notes.js','patch-notes.js','library-catalog.js','library-index.js','manifest.webmanifest',
+  'styles.css','site.js','progress.js','study.js','course-data.js','academic-content.js','academic.js','assessment-data.js','assessment-engine.js','readiness.js','assessment.js','quiz.js','standards.js','analytics.js','search.js','release-notes.js','patch-notes.js','manifest.webmanifest',
   'crest.webp','seal.webp','icon-180.png','icon-192.png','icon-512.png',
   'syllabus-cover.png','resource-manual-cover.png','assignment-lab-cover.png','binder-index-cover.png','certificate-cover.png',
   'Alfred University - AU-ESET 301 - Syllabus and Student Handbook.pdf',
@@ -33,20 +33,22 @@ self.addEventListener('fetch',event=>{
   if(url.origin!==self.location.origin) return;
 
   const isNavigation=event.request.mode==='navigate';
+  const cacheKey=isNavigation?new URL(url.pathname,self.location.origin).href:event.request;
   const networkFirst=isNavigation || /\.(?:html|css|js|webmanifest)$/.test(url.pathname);
 
   if(networkFirst){
     event.respondWith(
       fetch(event.request)
         .then(response=>{
+          if(response.status>=500)throw new Error('Temporary host failure');
           if(response.ok){
             const copy=response.clone();
-            caches.open(CACHE).then(cache=>cache.put(event.request,copy));
+            event.waitUntil(caches.open(CACHE).then(cache=>cache.put(cacheKey,copy)).catch(()=>{}));
           }
           return response;
         })
         .catch(async()=>{
-          const hit=await caches.match(event.request);
+          const hit=await caches.match(cacheKey);
           if(hit) return hit;
           if(isNavigation) return (await caches.match(event.request,{ignoreSearch:true})) || (await caches.match('offline.html')) || Response.error();
           return Response.error();
@@ -59,7 +61,7 @@ self.addEventListener('fetch',event=>{
     caches.match(event.request).then(hit=>hit||fetch(event.request).then(response=>{
       if(response.ok){
         const copy=response.clone();
-        caches.open(CACHE).then(cache=>cache.put(event.request,copy));
+        event.waitUntil(caches.open(CACHE).then(cache=>cache.put(event.request,copy)).catch(()=>{}));
       }
       return response;
     }))

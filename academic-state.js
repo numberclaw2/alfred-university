@@ -9,8 +9,15 @@
       else if (flagged.length) v.studyReview = {...v.studyReview,outcomeIndices:[...new Set([...(v.studyReview.outcomeIndices || []),...flagged])]};
     }
     if (v.status === 'review') v.status = 'in-progress';
+    if(v.status&&!['not-started','in-progress','complete'].includes(v.status))v.status='not-started';
     delete v.review;
     return v;
+  }
+  function currentWeek(events=window.ALFRED_EVENTS||[],when=new Date(),weeks=window.ALFRED_WEEKS||[]){
+    const day=new Date(when);day.setHours(0,0,0,0);
+    const starts=weeks.filter(w=>w.week&&w.start).sort((a,b)=>a.week-b.week);
+    if(starts.length){let n=Number(starts[0].week)||1;starts.forEach(w=>{if(new Date(w.start+'T00:00:00')<=day)n=Math.max(n,Number(w.week)||1)});return n;}
+    let n=1;events.filter(e=>e.week&&e.type!=='Equipment').forEach(e=>{const t=new Date(e.start);t.setHours(0,0,0,0);if(t<=day)n=Math.max(n,Number(e.week)||1)});return n;
   }
   function migrate(p, legacyStudy = {}) {
     p.events = p.events || {}; p.recordTimes = p.recordTimes || {};
@@ -22,7 +29,7 @@
     });
     return p;
   }
-  window.AlfredState = {normalizeEvent,migrate};
+  window.AlfredState = {normalizeEvent,migrate,currentWeek};
   try {
     const raw = localStorage.getItem(key) || localStorage.getItem('alfred-u-progress-v1');
     const legacyStudy = JSON.parse(localStorage.getItem('alfred-u-study-v13') || '{}');

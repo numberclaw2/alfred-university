@@ -69,6 +69,7 @@
   }
   let state=load();
   let syncTimer=null;
+  let syncEpoch=0;
 
   function loadSync(){
     try{return JSON.parse(localStorage.getItem(SYNC_KEY)||'null')||{};}catch{return {};}
@@ -116,12 +117,7 @@
     if(!state.events[key]) state.events[key]={status:'not-started',outcomes:{},review:{},notes:''};
     return state.events[key];
   }
-  function currentWeek(){
-    const now=new Date();
-    let w=1;
-    EVENTS.filter(e=>e.week).forEach(e=>{if(new Date(e.start)<=now)w=e.week});
-    return w;
-  }
+  function currentWeek(){return window.AlfredState.currentWeek();}
   function metrics(){
     const totalEvents=EVENTS.length;
     let complete=0,doneOutcomes=0,totalOutcomes=0;
@@ -282,9 +278,13 @@
       setSyncBadge('offline','Offline','Progress is saved locally. Sync will resume when internet returns.');
       return false;
     }
+    const epoch=++syncEpoch;
+    const signature=JSON.stringify([syncConfig.apiUrl,syncConfig.studentKey]);
+    const active=()=>epoch===syncEpoch&&signature===JSON.stringify([loadSync().apiUrl,loadSync().studentKey]);
     setSyncBadge('syncing','Syncing…','Merging this device with the Alfred University cloud record.');
     try{
       const health=await apiFetch('/health');
+      if(!active())return false;
       if(!health?.ok) throw new Error('The sync server health check failed.');
       if(health.databaseBound===false) throw new Error('The Cloudflare Worker is not connected to the D1 database.');
       if(health.schemaReady===false) throw new Error('The D1 schema is incomplete. Run the current schema.sql in the D1 Console, then try again.');
@@ -292,8 +292,11 @@
         const workerProtocol=health.protocol==null?'older/unknown':health.protocol;
         throw new Error(`Cloud Sync version mismatch. Website protocol ${SYNC_PROTOCOL}; Worker protocol ${workerProtocol}. Update both sides from the same repair package.`);
       }
+      state=load();
       const payload={protocol:SYNC_PROTOCOL,deviceId:syncConfig.deviceId,deviceName:syncConfig.deviceName,records:recordsFromState()};
       const result=await apiFetch('/sync',{method:'POST',body:JSON.stringify(payload)});
+      if(!active())return false;
+      state=load();
       mergeCloudRecords(result.records||[]);
       syncConfig.connected=true;
       syncConfig.lastSync=new Date().toISOString();
@@ -303,6 +306,7 @@
       if(!silent) showSyncMessage('Sync complete. This device and the cloud record are up to date.','success');
       return true;
     }catch(err){
+      if(!active())return false;
       setSyncBadge('error','Sync Error',err.message||'Cloud sync failed.');
       if(!silent) showSyncMessage(err.message||'Cloud sync failed.','error');
       return false;
@@ -430,7 +434,7 @@
         ${outcomes||'<p>No outcome checklist is attached to this event.</p>'}
       </div>
       <div class="modal-section tracker-notes">
-        <h3>Private Notes</h3>
+        <h3><label for="tracker-notes">Private Notes</label></h3>
         <textarea id="tracker-notes" placeholder="Optional: one short note about what is still weak, what failed, or what to revisit.">${esc(s.notes||'')}</textarea>
       </div>
       <div class="tracker-modal-save">
@@ -438,9 +442,10 @@
       </div>`;
     const modal=$('#tracker-modal');
     trackerReturnFocus=document.activeElement;
-    modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
+    modal.inert=false;modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
     requestAnimationFrame(()=>$('.modal-close',modal)?.focus());
     $('#save-tracker-detail').onclick=()=>{
+      state=load();const s=eventState(id);s.outcomes=s.outcomes||{};
       s.status=$('#modal-event-status').value;
       $$('[data-outcome]').forEach(cb=>s.outcomes[cb.dataset.outcome]=cb.checked);
       s.notes=$('#tracker-notes').value.trim();
@@ -452,7 +457,7 @@
   function closeTracker(){
     const modal=$('#tracker-modal');
     if(!modal.classList.contains('open')) return;
-    modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';
+    modal.inert=true;modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';
     const restore=trackerReturnFocus; trackerReturnFocus=null;
     if(restore?.focus) restore.focus();
   }
@@ -473,6 +478,7 @@
   });
 
   function exportBackup(){
+    state=load();
     const backup={version:3,progress:state};
     const blob=new Blob([JSON.stringify(backup,null,2)],{type:'application/json'});
     const a=document.createElement('a');
@@ -486,13 +492,12 @@
     const reader=new FileReader();
     reader.onload=()=>{
       try{
-        const data=JSON.parse(reader.result);
+        const data=JSON.parse(reader.result,(key,value)=>['__proto__','prototype','constructor'].includes(key)?undefined:value);
         const imported=data?.progress||data;
-        if(!imported||typeof imported!=='object') throw new Error('Invalid backup');
-        state=migrate(imported);
-        if(data?.sync?.apiUrl) syncConfig.apiUrl=data.sync.apiUrl;
-        if(data?.sync?.studentKey) syncConfig.studentKey=data.sync.studentKey;
-        saveSyncConfig();
+        if(!imported||typeof imported!=='object'||Array.isArray(imported)||!imported.events||typeof imported.events!=='object'||Array.isArray(imported.events))throw new Error('Invalid backup');
+        for(const key of ['weeks','readiness','analytics','recordTimes'])if(imported[key]&&(typeof imported[key]!=='object'||Array.isArray(imported[key])))throw new Error('Invalid backup');
+        if(!confirm('Replace this device’s academic progress with this backup? Your cloud credentials will stay unchanged. Export first if you need to keep the current records.'))return;
+        syncEpoch++;clearTimeout(syncTimer);state=migrate(imported);
         persist({skipSync:true});
         refreshSyncUI();
         alert('Progress backup imported successfully.');
@@ -506,8 +511,9 @@
   $('#export-progress').addEventListener('click',exportBackup);
   $('#import-progress').addEventListener('change',e=>{if(e.target.files?.[0])importBackup(e.target.files[0]);});
   $('#reset-progress').addEventListener('click',()=>{
-    if(confirm('Reset all Alfred University progress on this device? This does not erase the cloud record unless you use Erase Cloud Record.')){
-      state=blankState();persist();
+    if(confirm('Clear academic progress and saved Study sessions on this device, then disconnect Cloud Sync? Your Recovery Key and cloud record will be kept. Reconnecting can restore cloud data.')){
+      syncEpoch++;clearTimeout(syncTimer);syncConfig.connected=false;syncConfig.lastSync=null;saveSyncConfig();
+      localStorage.removeItem('alfred-u-study-v13');localStorage.removeItem(LEGACY_KEY);state=blankState();persist({skipSync:true});
     }
   });
 
@@ -552,6 +558,7 @@
   $('#show-sync-settings-setup')?.addEventListener('click',()=>$('#sync-settings-drawer').classList.remove('hidden'));
   $('#hide-sync-settings')?.addEventListener('click',()=>$('#sync-settings-drawer').classList.add('hidden'));
   $('#disconnect-sync')?.addEventListener('click',()=>{
+    syncEpoch++;clearTimeout(syncTimer);
     syncConfig.connected=false;
     saveSyncConfig();
     $('#sync-settings-drawer').classList.add('hidden');
@@ -561,6 +568,7 @@
   $('#erase-cloud-record')?.addEventListener('click',async()=>{
     if(!confirm('Permanently erase the Alfred University cloud progress record for this sync key? Local progress on this device will remain.'))return;
     try{
+      syncEpoch++;clearTimeout(syncTimer);syncConfig.connected=false;saveSyncConfig();
       await apiFetch('/sync',{method:'DELETE'});
       syncConfig.connected=false;
       syncConfig.lastSync=null;
@@ -582,7 +590,7 @@
     const absorb=box=>{const list=box?.attempts||[];attempts+=Number(box?.attemptCount||list.length||0);if(list.length||box?.lastPct!=null)latestScores.push(Number((box?.lastPct ?? list[list.length-1]?.pct)||0));};
     Object.values(state.events||{}).forEach(e=>absorb(e?.assessments?.lesson));
     Object.values(state.weeks||{}).forEach(raw=>{const w=typeof raw==='string'?{mastery:raw,assessments:{}}:(raw||{});Object.values(w.assessments||{}).forEach(absorb);});
-    Object.values(state.analytics||{}).forEach(sh=>Object.entries(sh?.s||{}).forEach(([id,row])=>{const wc=Number(row[7]||0),wt=Number(row[8]||0);if(wt)standards[id]={c:wc,t:wt};}));
+    Object.values(state.analytics||{}).filter(sh=>sh?.bankRevision==='15.8').forEach(sh=>Object.entries(sh?.s||{}).forEach(([id,row])=>{const wc=Number(row[7]||0),wt=Number(row[8]||0);if(wt)standards[id]={c:wc,t:wt};}));
     const ids=Object.keys(standards),repair=ids.filter(id=>standards[id].t&&standards[id].c/standards[id].t<.8).length;
     const totalStandards=(ASSESS.cetaStandards||[]).filter(s=>s.assessable!==false).length+(ASSESS.careerStandards||[]).length;
     const avg=latestScores.length?Math.round(latestScores.reduce((a,b)=>a+b,0)/latestScores.length):null;
@@ -594,6 +602,8 @@
   function refreshAll(){
     refreshStats();renderEvents();renderReadiness();refreshAssessmentIntelligence();refreshSyncUI();
   }
+  $('#tracker-modal').inert=true;
+  window.addEventListener('storage',event=>{if(event.key===SYNC_KEY){syncEpoch++;clearTimeout(syncTimer);syncConfig=loadSync();if(!syncConfig.apiUrl)syncConfig.apiUrl=DEFAULT_SYNC_API;refreshSyncUI();}if(event.key===KEY){state=load();refreshAll();}});
   refreshAll();
 
   // Pull/merge automatically when the Progress page opens.

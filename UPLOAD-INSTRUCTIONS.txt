@@ -1,22 +1,39 @@
-ALFRED UNIVERSITY - MOBILE NAVIGATION HOTFIX
+ALFRED UNIVERSITY v15.8 — COMPLETE FLAT UPLOAD
 
-Upload ONLY these two files to the ROOT of your existing GitHub Pages repository:
+The complete website contains 64 files directly at the ZIP root.
+No nested folders. No frontend build. No Worker or D1 migration.
 
-1. styles.css
-2. service-worker.js
+1. Open Progress on the existing site and choose Export Backup.
+   Save your Recovery / Student Sync Key separately; it is not in the export.
+2. Extract Alfred-University-v15.8-FINAL-FLAT.zip on your computer.
+3. Open the existing numberclaw2/alfred-university repository at the root,
+   where index.html already lives.
+4. Choose Add file > Upload files and select ALL 64 extracted files together.
+   Do not upload the ZIP, a wrapper folder, or duplicates ending in (1).
+5. Commit replacements. Keep the existing GitHub Pages branch/root setting.
+6. After Pages deployment finishes, close old Alfred tabs and reopen the site.
+   Release Notes should show v15.8 at the top.
 
-Choose Replace/Overwrite for both files. Do not create copies with (1) in the names.
+QUICK CHECK AFTER UPLOAD
+- At 100% zoom, click More. Every destination, including Release Notes, must
+  be reachable. The menu scrolls internally when the screen is short.
+- Open Study and start/resume. Confirm your existing Progress records remain.
+  Do not mark real work complete just to test the website.
+- Open Calendar, switch Month / Week / Agenda, and open an event.
+- Open Academic System Guide in Documents; it should say Revision 2.1 / v15.8.
+- If using Cloud Sync, check its status on your normal device.
 
-What this fixes:
-- The mobile navigation drawer was being covered by the gray navigation backdrop.
-- Because the backdrop sat above the sticky header stacking context, it also intercepted taps.
-- styles.css moves that backdrop beneath the header/drawer.
-- service-worker.js bumps the site cache from alfred-u-v7 to alfred-u-v8 so phones receive the new CSS.
+DO NOT CLEAR BROWSER SITE DATA AS A NORMAL UPDATE STEP.
+That can erase local progress and the stored key. The service worker updates
+its own cache without requiring a learner-data reset. Do not erase the cloud
+record as a troubleshooting step.
 
-After GitHub Pages finishes deploying:
-1. Close the Alfred University browser tab/site completely.
-2. Reopen the live site.
-3. Refresh once if needed.
-4. Tap the hamburger menu and test Home, Engineering, AU-ESET 301, Calendar, Progress, Resources, Projects, Documents, Student Services, and About.
+Historical quiz scores remain. Some mastery rows may say Revalidation Needed
+because earlier aggregates mixed in later-retired questions. Current optional
+practice rebuilds evidence; completed coursework is not reset.
 
-This hotfix is frontend-only. It does not require the Cloudflare Worker update first and does not change your progress data.
+The private CETa booklet, Recovery Key, exported backups and QA files must not
+be uploaded to GitHub. The separate audit report is for you and need not be
+uploaded. Old unused mirror scripts and hotfix notes can remain in the repo;
+the current app does not load them. Keep the same site address to retain the
+browser's access to its local data.

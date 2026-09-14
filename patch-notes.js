@@ -8,7 +8,7 @@
     const q=(filter?.value||'').trim().toLowerCase();
     const list=releases.filter(r=>!q||JSON.stringify(r).toLowerCase().includes(q));
     if(summary) summary.textContent=`${list.length} release${list.length===1?'':'s'} shown`;
-    out.innerHTML=list.map((r,i)=>`<article class="release-card ${i===0?'latest':''}">
+    out.innerHTML=list.map((r,i)=>`<article id="release-${esc(r.version.replace(/[^a-z0-9]+/gi,'-'))}" class="release-card ${i===0?'latest':''}">
       <div class="release-card-head"><div><span class="release-version">${esc(r.version)}</span><span class="release-type">${esc(r.type)}</span></div><time>${esc(r.date)}</time></div>
       <h2>${esc(r.title)}</h2>
       <div class="release-request"><strong>Request that drove this release</strong><p>${esc(r.request)}</p></div>
