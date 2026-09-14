@@ -437,7 +437,7 @@
       <h2 id="event-modal-title">${esc(e.summary.replace(/^AU-ESET 301 \| /,''))}</h2>
       <p class="event-modal-intro">Start with today’s work. Use the outcomes as the finish line; open the reference notes only when you need more context.</p>
       ${glanceHTML}${today}${outcomes}${mastery}${why}${completion}
-      <div class="modal-section event-quiz-cta"><h3>Lesson Quiz</h3><p>20 questions · 10 CETa + 10 career-transition questions. Take it after completing this calendar item.</p><a class="button green" href="quiz.html?type=lesson&id=${e.id}">Take this lesson quiz →</a></div>
+      <div class="modal-section event-quiz-cta"><h3>Optional Week Practice</h3><p>Up to five optional questions from this week’s learning. Use after completing this calendar item if a check helps.</p><a class="button green" href="quiz.html?type=lesson&id=${e.id}">Open optional week practice →</a></div>
       ${references}
       <details class="event-reference event-full-notes"><summary>Open full event notes <span>Source record</span></summary><div class="raw-desc">${linkify(ctx.raw)}</div></details>`;
   }

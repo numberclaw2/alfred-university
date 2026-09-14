@@ -103,7 +103,7 @@ Every one of the 24 Engineering Lab Center labs now offers two routes: a **Virtu
 
 
 ## v14 Assessment, Standards & Retention System
-- 125 lesson quizzes, 24 lab checks, 31 weekly mastery tests, and 3 cumulative exams.
+- 125 optional week-practice forms, 24 lab checks, 31 optional weekly reviews, and 3 cumulative assessments.
 - Normal lesson/lab/weekly assessments use a 50/50 CETa + career-transition mix. The CETa mock and Career Bridge screen isolate each track; the comprehensive final returns to 50/50.
 - v14 introduced the first assessment bank and standards mapping. **v14.2 supersedes the original grading policy:** the current source bank contains 1,048 IDs, but only 491 substantive technical/career questions are eligible for graded forms and competency evidence; 557 standards-orientation items remain available as zero-weight study aids.
 - 262 individual CETa competency rows + 78 Alfred career standards. The current ETA competency wording controls certification scope; the supplied Associate CET Study Guide, 6th Edition is the primary instructional reference; the official ETA practice exam calibrates breadth/style without being copied.
