@@ -1711,3 +1711,18 @@ button,.button{min-height:44px}
 @media(max-width:1050px){.main-nav:not(.open){visibility:hidden}.main-nav.open{visibility:visible}.nav-more-menu{display:block;max-height:none;overflow:visible;scrollbar-gutter:auto}.nav-menu-group{margin-bottom:10px}}
 
 .not-found-heading{font-family:Georgia,serif;color:#0b3d2e}
+
+/* v15.8 Study desktop header correction: the injected trail owns a full row. */
+@media (min-width:901px){
+  .study-hero-grid{
+    grid-template-columns:minmax(0,1fr) 280px;
+    gap:1rem 2rem;
+  }
+  .study-hero-grid > .context-trail{grid-column:1 / -1;margin-bottom:0}
+  .study-hero-grid > div{min-width:0}
+  .study-hero .study-mode-tools{align-content:flex-end;align-items:flex-start}
+  .study-hero .study-tool-toggle{white-space:nowrap}
+  .study-hero .study-settings-help{
+    flex-basis:100%;max-width:none;font-size:.78rem;line-height:1.45;
+  }
+}
