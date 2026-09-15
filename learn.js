@@ -221,7 +221,7 @@
   function renderIntegratedLesson(lessonItem,index){
     const d=lessonItem.integrated;
     if(!d)return '<p>Integrated v16.3 lesson data is unavailable.</p>';
-    const visual=d.visualId?`<figure class="lesson-visual"><img src="${esc(d.visualId)}.svg" alt="Instructional diagram for ${esc(lessonItem.title)}"><figcaption>Use the diagram to explain the relationship or sequence before moving to practice.</figcaption></figure>`:'';
+    const visual=d.visualId?`<figure class="lesson-visual" aria-label="Instructional visual for ${esc(lessonItem.title)}"><div class="lesson-visual-scroll" tabindex="0" role="group" aria-label="Scrollable instructional diagram. On smaller screens, swipe horizontally to inspect the diagram at a readable scale."><img src="${esc(d.visualId)}.svg" alt="Instructional diagram for ${esc(lessonItem.title)}"></div><figcaption><span>Use the diagram to explain the relationship or sequence before moving to practice.</span><span class="lesson-visual-mobile-hint">On a phone, swipe the diagram left or right to inspect labels at a readable size.</span><a class="lesson-visual-fullsize" href="${esc(d.visualId)}.svg" target="_blank" rel="noopener">Open full-size diagram ↗</a></figcaption></figure>`:'';
     return `<section class="integrated-lesson" data-v="16.3">
       <section class="integrated-purpose"><div><span>v16.3 integrated lesson · ${esc(lessonItem.track)}</span><h3>Purpose and prerequisite</h3></div><p>${esc(d.purpose)}</p><aside><strong>Bring this forward:</strong><p>${esc(d.prereq)}</p></aside></section>
       ${visual}

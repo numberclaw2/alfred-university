@@ -1819,3 +1819,26 @@ body.quiet-mode .depth-overview,body.quiet-mode .depth-worked,body.quiet-mode .d
 .semantic-evidence>*,.compact-semantic,.compact-semantic>*,.semantic-check,.semantic-check>*{min-width:0;max-width:100%;box-sizing:border-box}
 .semantic-required{margin-left:0!important;padding-left:0!important}
 @media(max-width:1050px){html,body{overflow-x:hidden}}
+
+
+/* v16.3.2 final mobile instructional-visual readability repair
+   Keep dense 1000px lesson diagrams readable on narrow screens instead of
+   shrinking their labels to a few CSS pixels. Desktop remains fit-to-card;
+   phones get a touch-scroll viewport plus a full-size fallback link. */
+.lesson-visual-scroll{min-width:0;max-width:100%;border-radius:12px}
+.lesson-visual-scroll img{display:block;width:100%;height:auto;max-height:460px;object-fit:contain}
+.lesson-visual figcaption{display:flex;flex-wrap:wrap;align-items:center;gap:.35rem .8rem}
+.lesson-visual figcaption>span:first-child{flex:1 1 24rem}
+.lesson-visual-mobile-hint{display:none}
+.lesson-visual-fullsize{font-weight:800;color:var(--green);text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+.lesson-visual-fullsize:focus-visible,.lesson-visual-scroll:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+@media(max-width:760px){
+  .lesson-visual{overflow:visible}
+  .lesson-visual-scroll{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior-inline:contain;scrollbar-gutter:stable;padding-bottom:.35rem}
+  .lesson-visual-scroll img{width:900px;min-width:900px;max-width:none;max-height:none;height:auto}
+  .lesson-visual-mobile-hint{display:block;flex:1 1 100%;font-size:.82rem;font-weight:750;color:#3f5d52}
+  .lesson-visual-fullsize{display:inline-flex;min-height:44px;align-items:center;white-space:normal}
+}
+@media(max-width:420px){
+  .lesson-visual-scroll img{width:900px;min-width:900px}
+}

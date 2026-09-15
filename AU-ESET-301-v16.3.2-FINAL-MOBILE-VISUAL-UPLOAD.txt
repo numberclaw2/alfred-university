@@ -1,0 +1,23 @@
+ALFRED UNIVERSITY AU-ESET 301 — FINAL MOBILE VISUAL ACCEPTANCE REPAIR
+
+Apply these files at the existing GitHub repository root beside index.html.
+
+REPLACE:
+- styles.css
+- learn.js
+- service-worker.js
+- build-info.json
+- release-notes.js
+- README.md
+
+ADD:
+- AU-ESET-301-v16.3.2-FINAL-MOBILE-VISUAL-REPAIR.md
+- AU-ESET-301-v16.3.2-FINAL-MOBILE-VISUAL-UPLOAD.txt
+
+DO NOT delete or replace curriculum-data.js, assessment files, calendar files, the DOCX, SVG source files, progress files, or Cloud Sync/Worker data.
+
+After GitHub Pages deploys:
+1. Open build-info.json and confirm runtimePatch is 16.3.2 and presentationPatch is mobile-visual-readability-final.
+2. Open raw/public service-worker.js and confirm cache alfred-u-v16-3-2-mobile-visual-final.
+3. On a phone, open Classroom > a dense lesson visual (Week 18 CETa is a good check). The diagram should remain large and swipe horizontally; the caption should show the phone swipe instruction and Open full-size diagram link.
+4. Do NOT clear browser site data. The service worker updates application assets without erasing progress or the Student Sync Key.

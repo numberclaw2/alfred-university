@@ -14,8 +14,9 @@ The v16.3.2 runtime patch is a surgical assessment/deployment/documentation repa
 
 - Reviewed-bank answer choices now use a deterministic **constrained-random learner-facing layout** rather than the earlier LCG choice shuffle. The runtime rejects conspicuously concentrated position sequences and long same-letter runs without imposing an exploitable “exactly N of each letter” quota. Question IDs, wording, distractors, explanations, standard tags, canonical bank answers, question selection, and question order remain unchanged.
 - `build-info.json` provides a public deployment marker: course release **16.3**, runtime patch **16.3.2**, objective evidence revision **16.2**, Cloud Sync protocol **2**, plus a unique build ID. The service worker intentionally does not cache this marker.
-- The service-worker cache is **`alfred-u-v16-3-2`**. Activation deletes only older Alfred Cache Storage entries; it does not clear localStorage, IndexedDB, progress, notes, assessment history, or sync credentials.
+- The final service-worker cache is **`alfred-u-v16-3-2-mobile-visual-final`**. Activation deletes only older Alfred Cache Storage entries; it does not clear localStorage, IndexedDB, progress, notes, assessment history, or sync credentials.
 - The v15.8 Academic System Guide remains available for provenance but is explicitly labeled historical/superseded in Documents and Search so its old operational wording cannot masquerade as current workflow.
+- Final mobile visual acceptance repair: on phone widths, dense 1000 px lesson SVGs are presented inside a horizontally scrollable 900 px inspection viewport instead of being shrunk until labels are unreadable. A visible swipe instruction and **Open full-size diagram** link provide redundant access. Desktop/tablet presentation remains fit-to-card.
 
 ## Runtime hotfix v16.3.1
 

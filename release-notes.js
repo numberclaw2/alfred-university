@@ -9,8 +9,9 @@ window.ALFRED_RELEASES = [
       "Replaced the reviewed-bank choice-order shuffle with a deterministic constrained-random placement strategy. Question selection, IDs, wording, distractors, correct content, explanations, standards tags, and saved-history identities remain unchanged; conspicuous concentration and long runs are rejected without imposing a fixed per-form answer-letter quota.",
       "Kept the objective evidence revision at 16.2 while identifying the course curriculum as 16.3 and the runtime patch as 16.3.2.",
       "Added build-info.json as a non-sensitive deployment marker containing course release, runtime patch, evidence revision, Cloud Sync protocol, and a unique build identifier. The service worker intentionally does not cache this marker.",
-      "Bumped the application cache to alfred-u-v16-3-2 and retained activate-time cleanup of obsolete Alfred caches without clearing localStorage, IndexedDB, progress, assessment history, notes, or Cloud Sync configuration.",
+      "Bumped the final application cache to alfred-u-v16-3-2-mobile-visual-final and retained activate-time cleanup of obsolete Alfred caches without clearing localStorage, IndexedDB, progress, assessment history, notes, or Cloud Sync configuration.",
       "Marked the v15.8 Academic System Guide as historical/superseded in Documents and Search while preserving the original PDF unchanged for provenance.",
+      "Final mobile visual acceptance repair: dense lesson SVGs now stay at a readable 900 px inspection scale inside a touch-scroll viewport on phones, with an explicit swipe hint and a full-size diagram link. Desktop/tablet fit-to-card behavior, all 62 SVG source files, lesson content, and progress/evidence identities are unchanged.",
       "Preserved all 62 integrated lessons, 62 teaching visuals, 340 teaching routes, 24 labs, 125 calendar identities, Week 18 cumulative embedded gate, 2,790/2,790 weighting, protocol-2 Cloud Sync, and existing progress/history keys."
     ]
   },
