@@ -1,5 +1,7 @@
 # AU-ESET 301 v16.3.2 Final Runtime Acceptance Report
 
+> **HISTORICAL / SUPERSEDED DEPLOYMENT RECORD:** This report documents the v16.3.2 runtime state *before* the final mobile visual acceptance repair. References below to build `v16.3.2-20260915T134653Z-8496298d62` or service-worker cache `alfred-u-v16-3-2` are historical evidence, not current deployment instructions. The current final production identifiers are build `v16.3.2-final-mobile-visual-20260915`, presentation patch `mobile-visual-readability-final`, and service-worker cache `alfred-u-v16-3-2-mobile-visual-final`. See `AU-ESET-301-v16.3.2-FINAL-MOBILE-VISUAL-REPAIR.md` and current `build-info.json` for the final release state.
+
 **Course curriculum release:** 16.3 — Final Instructional Depth  
 **Runtime patch:** 16.3.2  
 **Reviewed objective-evidence revision:** 16.2  

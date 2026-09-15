@@ -1,44 +1,68 @@
-ALFRED UNIVERSITY — v16.3 CURRICULUM / v16.3.2 RUNTIME HOTFIX
+ALFRED UNIVERSITY AU-ESET 301 — FINAL CURRENT DEPLOYMENT INSTRUCTIONS
 
-This is a surgical root-level GitHub Pages update for an existing v16.3.1 deployment.
-It does not change the 62 lessons, 24 labs, 125-event calendar, Cloud Sync protocol 2,
-progress keys, or the objective-bank evidence revision (16.2).
+CURRENT RELEASE STATE
+Course / instructional release: 16.3 Final Instructional Depth
+Runtime patch: 16.3.2
+Objective assessment evidence revision: 16.2
+Cloud Sync protocol: 2
+Build: v16.3.2-final-mobile-visual-20260915
+Presentation patch: mobile-visual-readability-final
+Service-worker cache: alfred-u-v16-3-2-mobile-visual-final
+
+This file supersedes the older v16.3.2 runtime-only upload instructions.
 
 BEFORE UPDATING
 1. Open Progress and choose Export Backup.
 2. Keep the Recovery / Student Sync Key separately. It is not included in the export.
 3. Do NOT clear browser site data as a routine update step.
 
-UPLOAD THE v16.3.2 HOTFIX
-1. Extract Alfred-University-v16.3.2-RUNTIME-DEPLOYMENT-HOTFIX.zip on your computer.
-2. Open numberclaw2/alfred-university at the repository root where index.html lives.
-3. Upload every file listed under ADD and REPLACE in AU-ESET-301-v16.3.2-Upload-Manifest.txt.
-4. Replace matching filenames. Do not upload the ZIP itself and do not create a wrapper folder.
-5. Keep the existing GitHub Pages branch/root setting and site address.
-6. No Worker redeployment or D1 migration is required.
+UPLOAD
+1. Upload the current final project files at the repository root where index.html lives.
+2. Replace matching filenames.
+3. Do not upload ZIP archives themselves and do not create a wrapper folder.
+4. Keep the existing GitHub Pages branch/root setting and site address.
+5. No Worker redeployment or D1 migration is required for the final mobile presentation repair.
 
 VERIFY AFTER GITHUB PAGES FINISHES
-- Open build-info.json from the public Pages URL. It must report:
-  courseRelease = 16.3
-  runtimePatch = 16.3.2
-  evidenceRevision = 16.2
-  cloudSyncProtocol = 2
-- Open the raw service-worker.js in GitHub. It must contain alfred-u-v16-3-2.
-- Close old Alfred tabs and reopen the normal Pages URL. The new service worker removes only
-  older Alfred Cache Storage entries; it does not erase localStorage, IndexedDB, progress,
-  assessment history, notes, or Cloud Sync configuration.
-- Open Assessments and run a form. Correct-answer letters should not show an obvious position pattern.
-- Open Search and search "v15.8" or "current website". The Academic System Guide may appear,
-  but it must be labeled Historical document — not current operating instructions.
-- Open Progress and confirm existing completion/history remains present.
-- If Cloud Sync is used, verify normal sync status on the usual device.
 
-CURRENT VERSION IDENTITIES
-Course curriculum release: 16.3
-Runtime patch: 16.3.2
-Objective evidence revision: 16.2
-Cloud Sync protocol: 2
-Production Worker: https://alfred-university-sync.totallywill13.workers.dev
+1. Open the public build-info.json. It MUST report:
+   courseRelease = 16.3
+   runtimePatch = 16.3.2
+   evidenceRevision = 16.2
+   cloudSyncProtocol = 2
+   build = v16.3.2-final-mobile-visual-20260915
+   presentationPatch = mobile-visual-readability-final
 
-The complete Alfred-University-v16.3-FINAL-INSTRUCTIONAL-DEPTH-FLAT.zip remains the clean-install
-curriculum baseline. Do not re-upload all 140+ unchanged files just to apply this runtime patch.
+2. Open the current raw/public service-worker.js. It MUST contain:
+   alfred-u-v16-3-2-mobile-visual-final
+
+3. Open Classroom on a phone and inspect a dense lesson visual, preferably Week 18.
+   The diagram must:
+   - remain at readable inspection scale;
+   - scroll horizontally by touch;
+   - show the phone swipe instruction; and
+   - provide an Open full-size diagram link.
+
+4. Confirm desktop/tablet lesson visuals remain fit-to-card.
+
+5. Open Assessments and run a form. Correct-answer letters should not show an obvious
+   fixed position pattern or exact per-form quota.
+
+6. Open Search and search for historical version text such as "v15.8".
+   Historical documents may appear, but they must be clearly labeled as historical/
+   superseded rather than current operating instructions.
+
+7. Open Progress and confirm existing completion/history remains present.
+
+8. If Cloud Sync is used, verify normal sync status on the usual device.
+
+IMPORTANT
+The service worker may replace older Alfred Cache Storage entries during activation.
+It does NOT clear localStorage, IndexedDB, saved progress, assessment history, notes,
+the Recovery / Student Sync Key, or Cloud Sync data.
+
+Production Cloud Sync Worker:
+https://alfred-university-sync.totallywill13.workers.dev
+
+This is the current operational deployment instruction file. Older runtime-only references
+to cache "alfred-u-v16-3-2" are historical and must not be used to verify the final release.

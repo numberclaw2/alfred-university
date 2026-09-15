@@ -13,7 +13,7 @@ It is not an accredited university, an ETA-endorsed course, an official exam, or
 The v16.3.2 runtime patch is a surgical assessment/deployment/documentation repair on top of the accepted v16.3 curriculum and v16.3.1 mastery-evidence hotfix. It does **not** alter lesson content, labs, standards mapping, calendar identities, Cloud Sync protocol, progress keys, or the reviewed objective-bank evidence revision.
 
 - Reviewed-bank answer choices now use a deterministic **constrained-random learner-facing layout** rather than the earlier LCG choice shuffle. The runtime rejects conspicuously concentrated position sequences and long same-letter runs without imposing an exploitable “exactly N of each letter” quota. Question IDs, wording, distractors, explanations, standard tags, canonical bank answers, question selection, and question order remain unchanged.
-- `build-info.json` provides a public deployment marker: course release **16.3**, runtime patch **16.3.2**, objective evidence revision **16.2**, Cloud Sync protocol **2**, plus a unique build ID. The service worker intentionally does not cache this marker.
+- `build-info.json` provides the public deployment marker: course release **16.3**, runtime patch **16.3.2**, objective evidence revision **16.2**, Cloud Sync protocol **2**, build **`v16.3.2-final-mobile-visual-20260915`**, and presentation patch **`mobile-visual-readability-final`**. The service worker intentionally does not cache this marker.
 - The final service-worker cache is **`alfred-u-v16-3-2-mobile-visual-final`**. Activation deletes only older Alfred Cache Storage entries; it does not clear localStorage, IndexedDB, progress, notes, assessment history, or sync credentials.
 - The v15.8 Academic System Guide remains available for provenance but is explicitly labeled historical/superseded in Documents and Search so its old operational wording cannot masquerade as current workflow.
 - Final mobile visual acceptance repair: on phone widths, dense 1000 px lesson SVGs are presented inside a horizontally scrollable 900 px inspection viewport instead of being shrunk until labels are unreadable. A visible swipe instruction and **Open full-size diagram** link provide redundant access. Desktop/tablet presentation remains fit-to-card.
@@ -88,16 +88,33 @@ The semantic matrix's guided/independent-practice columns identify the integrate
 
 ## Upload / update
 
-For a repository already running v16.3.1, apply **`Alfred-University-v16.3.2-RUNTIME-DEPLOYMENT-HOTFIX.zip`** as a root-level overlay, replacing matching files and adding the new build marker/report files listed in the v16.3.2 upload manifest. Do not upload the ZIP itself or create a wrapper directory.
+The current production target is the accepted **v16.3 Final Instructional Depth** curriculum with **runtime patch v16.3.2**, **objective evidence revision 16.2**, **Cloud Sync protocol 2**, and the final mobile visual presentation repair.
 
-`Alfred-University-v16.3-FINAL-INSTRUCTIONAL-DEPTH-FLAT.zip` remains the complete curriculum baseline for a clean install. No frontend build, package installation, Worker redeployment, D1 migration, progress reset, or browser-site-data clearing is required for v16.3.2.
+For an existing v16.3.2 deployment, apply the final mobile visual repair files at the repository root, replacing matching filenames. Do not upload a ZIP itself or create a wrapper directory.
+
+For a clean install, use the latest complete final project package that already includes the final mobile visual repair. Do not restore older runtime-only files over the final presentation layer.
+
+After GitHub Pages deploys, verify the actual public files:
+
+- `build-info.json` must report:
+  - `courseRelease = 16.3`
+  - `runtimePatch = 16.3.2`
+  - `evidenceRevision = 16.2`
+  - `cloudSyncProtocol = 2`
+  - `build = v16.3.2-final-mobile-visual-20260915`
+  - `presentationPatch = mobile-visual-readability-final`
+- `service-worker.js` must contain **`alfred-u-v16-3-2-mobile-visual-final`**.
+- On a phone, a dense Classroom visual such as Week 18 must remain at readable inspection scale inside a horizontally scrollable viewport, show the phone swipe instruction, and provide **Open full-size diagram**.
+- Desktop and tablet lesson visuals must remain fit-to-card.
+
+No frontend build, package installation, Worker redeployment, D1 migration, progress reset, or browser-site-data clearing is required for this final presentation repair.
 
 Production Cloud Sync endpoint:
 
 `https://alfred-university-sync.totallywill13.workers.dev`
 
-Protocol 2 and the existing D1 record structure are unchanged. Export Progress before replacing site files, preserve the Recovery / Student Sync Key separately, wait for GitHub Pages to finish, close old tabs, then reopen the same site URL so the `alfred-u-v16-3-2` service worker can install the current cache. Do not clear browser site data as a routine update step.
+Protocol 2 and the existing D1 record structure are unchanged. Export Progress before replacing site files, preserve the Recovery / Student Sync Key separately, wait for GitHub Pages to finish, close old tabs, then reopen the same site URL so the **`alfred-u-v16-3-2-mobile-visual-final`** service worker can install the current cache. Do not clear browser site data as a routine update step.
 
 ## Release integrity
 
-The final acceptance report records the release gate: 24 production JavaScript files with 0 syntax failures, 25 HTML pages, 0 missing local references, 0 broken anchors, 125 calendar events / 125 unique UIDs, `.nojekyll` present, flat-root ZIP structure, and passing ZIP CRC/integrity validation.
+The accepted release gate preserves 24 production JavaScript files with 0 syntax failures, 25 HTML pages, 0 missing local references, 0 broken anchors, 125 calendar events / 125 unique UIDs, `.nojekyll`, the 62-lesson v16.3 instructional system, 24 labs, 262 CETa objectives, 78 Career objectives, and the 2,790 / 2,790 CETa/Career balance. The final mobile repair changes presentation/deployment files only and does not alter those protected instructional identities.
