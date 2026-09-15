@@ -1,7 +1,7 @@
 (()=>{
 const D=window.ALFRED_ASSESSMENT||{}, $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const EVIDENCE_REVISION='15.8';
+const EVIDENCE_REVISION='16.1';
 const KEY='alfred-u-progress-v2', SYNC_KEY='alfred-u-sync-config-v1';
 const params=new URLSearchParams(location.search), type=params.get('type')||'lesson', id=params.get('id')||'1';
 let REQUIRED=params.get('required')==='1'||type==='week';
@@ -18,7 +18,7 @@ const prior=priorAssessment();
 const attemptNo=Math.max(Number(prior.attemptCount||0),...(prior.attempts||[]).map(x=>Number(x.form||0)),(prior.attempts||[]).length)+1;
 function evidenceQuestion(q){return q?.masteryEvidence!==false&&q?.difficulty!=='Orientation'}
 let questions=[];
-try{questions=window.AlfredAssessmentEngine.select(D,A,attemptNo)}catch(error){document.querySelector('main').innerHTML='<section class="section shell"><h1>Practice could not load</h1><p>The release files may be incomplete. Refresh after uploading the complete v16 release.</p><a href="assessments.html">Return to assessments</a></section>';return}
+try{questions=window.AlfredAssessmentEngine.select(D,A,attemptNo)}catch(error){document.querySelector('main').innerHTML='<section class="section shell"><h1>Practice could not load</h1><p>The release files may be incomplete. Refresh after uploading the complete v16.1 release.</p><a href="assessments.html">Return to assessments</a></section>';return}
 const answers={};let started=Date.now(),submitted=false;
 const actualMix={CETa:questions.filter(q=>q.track==='CETa').length,Career:questions.filter(q=>q.track==='Career').length};
 const shortForm=questions.length<A.count;
@@ -29,6 +29,7 @@ $('#quiz-meta').innerHTML=`<span>${questions.length} questions</span><span>${act
 $('#quiz-meta').insertAdjacentHTML('afterend',`<p class="filter-guidance"><strong>${REQUIRED?'Required course assessment.':'Supplemental practice.'}</strong> Original Alfred questions, editorially reviewed. Work closed-note first; references appear after grading. Forms reuse a finite bank, so a familiar item is weaker evidence than a fresh application.${REQUIRED?' Reach the stated target, repair exact misses, and retake as needed.':' This extra form does not replace the required in-lesson and weekly mastery checks.'}${shortForm?' This form has fewer questions because items were retired; it is not a full-length mock.':''}</p>`);
 const exitLink=$('.quiz-progress-sticky a');if(exitLink&&A.week){exitLink.href=`learn.html?week=${A.week}&stage=${type==='lab'?'application':'mastery'}`;exitLink.textContent='Exit to Classroom';}
 if(A.blueprint)$('#quiz-meta').insertAdjacentHTML('afterend','<p class="filter-guidance">Breadth check: five questions per CETa domain. This is Alfred’s study design, not ETA’s unpublished exam weighting. Use the official practice and your booklet exams for independent checks; repeated questions are not fresh evidence.</p>');
+if(A.id==='ceta-mock')$('#quiz-meta').insertAdjacentHTML('afterend',`<p class="filter-guidance"><strong>Readiness rule:</strong> ${esc(A.readinessRule||'Complete two separate current full-length Alfred CETa practice runs at 85% or higher.')}</p>`);
 function render(){
  $('#quiz-form').innerHTML=questions.map((q,i)=>`<fieldset class="quiz-question" data-q="${q.id}"><legend><span>${i+1}</span>${esc(q.prompt)}</legend><div class="question-standard-row">${q.track==='CETa'?'<span class="track-ceta">CETa</span>':'<span class="track-career">Career</span>'}${q.standards.map(s=>`<span>${esc(s.replace(/^CETA:|^CAREER:/,''))}</span>`).join('')}<span>${esc(q.difficulty)}</span><span>${esc(q.skill||'Unclassified')}</span></div><div class="quiz-options">${q.choices.map((c,j)=>`<label><input type="radio" name="${q.id}" value="${j}"><span>${String.fromCharCode(65+j)}. ${esc(c)}</span></label>`).join('')}</div></fieldset>`).join('');
  $$('input[type=radio]').forEach(x=>x.onchange=()=>{answers[x.name]=Number(x.value);updateProgress()});updateProgress();
@@ -68,7 +69,7 @@ function saveAttempt(results,pct){
  valid.forEach(r=>r.q.standards.forEach(s=>{const x=stdAgg[s]||(stdAgg[s]={c:0,t:0});x.t++;if(r.correct)x.c++}));
  const compact={at:new Date(now).toISOString(),pct,correct:valid.filter(r=>r.correct).length,total:valid.length,seconds:Math.round((now-started)/1000),form:attemptNo,s:Object.entries(stdAgg).map(([sid,v])=>[sid,v.c,v.t]),q:valid.map(r=>`${parseInt(r.q.id.replace(/^CQ/,''),10).toString(36)}${(r.q.choiceOrder?.[r.chosen]??r.chosen)+(r.correct?4:0)}`).join('.'),b:D.meta?.version||'14.2'};
  let recordKey,value;
- function finishRecord(a){addAssessmentSummary(a,p,changedShards,results,compact,now);addGlobalEvidence(p,results,now,changedShards);const priorAttempts=(a.attempts||[]).map(old=>{if(!old||typeof old!=='object')return old;const copy={...old};delete copy.q;delete copy.b;delete copy.s;return copy});a.attempts=[...priorAttempts,compact].slice(-3);a.attemptCount=Math.max(Number(a.attemptCount||0),attemptNo);a.bestPct=Math.max(Number(a.bestPct||0),pct);a.lastPct=pct;a.analyticsVersion=2;return a}
+ function finishRecord(a){addAssessmentSummary(a,p,changedShards,results,compact,now);addGlobalEvidence(p,results,now,changedShards);const priorAttempts=(a.attempts||[]).map(old=>{if(!old||typeof old!=='object')return old;const copy={...old};delete copy.q;delete copy.s;return copy});a.attempts=[...priorAttempts,compact].slice(-3);a.attemptCount=Math.max(Number(a.attemptCount||0),attemptNo);a.bestPct=Math.max(Number(a.bestPct||0),pct);a.lastPct=pct;a.analyticsVersion=2;return a}
  if(type==='lesson'){p.events[id]=p.events[id]||{status:'not-started',outcomes:{},review:{},notes:''};p.events[id].assessments=p.events[id].assessments||{};const a=finishRecord(p.events[id].assessments.lesson||{attempts:[],attemptCount:0});p.events[id].assessments.lesson=a;recordKey=`event:${id}`;value=p.events[id]}
  else{const wo=weekObj(p.weeks[week]);wo.assessments=wo.assessments||{};const k=`${type}:${id}`,a=finishRecord(wo.assessments[k]||{attempts:[],attemptCount:0});wo.assessments[k]=a;p.weeks[week]=wo;recordKey=`week:${week}`;value=wo}
  p.recordTimes[recordKey]=now;const records=[{key:recordKey,value,updatedAt:now}];changedShards.forEach(shard=>{const key=`analytics:${shard}`;p.recordTimes[key]=now;records.push({key,value:p.analytics[shard],updatedAt:now})});p.updatedAt=new Date(now).toISOString();localStorage.setItem(KEY,JSON.stringify(p));push(records);return compact;

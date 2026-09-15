@@ -1,18 +1,18 @@
-ALFRED UNIVERSITY v16.0 — COMPLETE FLAT UPLOAD
+ALFRED UNIVERSITY v16.1 — INSTRUCTIONAL COMPLETION — FLAT UPLOAD
 
-The complete website contains 69 files directly at the ZIP root.
+The complete website contains 78 files directly at the ZIP root.
 No nested folders. No frontend build. No Worker or D1 migration.
 
 1. Open Progress on the existing site and choose Export Backup.
    Save your Recovery / Student Sync Key separately; it is not in the export.
-2. Extract Alfred-University-v16.0-INSTRUCTIONAL-REBUILD-FINAL-FLAT.zip on your computer.
+2. Extract Alfred-University-v16.1-INSTRUCTIONAL-COMPLETION-FINAL-FLAT.zip on your computer.
 3. Open the existing numberclaw2/alfred-university repository at the root,
    where index.html already lives.
-4. Choose Add file > Upload files and select ALL 69 extracted files together.
+4. Choose Add file > Upload files and select ALL 78 extracted files together.
    Do not upload the ZIP, a wrapper folder, or duplicates ending in (1).
 5. Commit replacements. Keep the existing GitHub Pages branch/root setting.
 6. After Pages deployment finishes, close old Alfred tabs and reopen the site.
-   Release Notes should show v16.0 at the top: “Instructional Rebuild — The Classroom Becomes the Product.”
+   Release Notes should show v16.1 at the top: “Instructional Completion — Every Requirement Gets a Teaching Path.”
 
 QUICK CHECK AFTER UPLOAD
 - At 100% zoom, click More. Every destination, including Release Notes, must
@@ -22,7 +22,7 @@ QUICK CHECK AFTER UPLOAD
 - Open Learn / Classroom. Choose a week and confirm the seven-stage path, the in-house
   CETa and Career lessons, required knowledge checks, and the weekly mastery gate.
 - Open Calendar, switch Month / Week / Agenda, and open an event.
-- Open Documents and confirm the v16 Curriculum & Instruction Plan opens as a Word file.
+- Open Documents and confirm the v16.1 Curriculum & Instruction Plan opens as a Word file.
 - Open the Academic System Guide and confirm the live workflow is still present.
 - If using Cloud Sync, check its status on your normal device.
 

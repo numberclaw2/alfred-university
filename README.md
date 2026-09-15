@@ -1,82 +1,112 @@
-# Alfred University — v16.0
+# Alfred University — v16.1
 
-A university-style independent-study environment for **CETa preparation and practical electronics/test-technician skills**, supporting a longer path toward embedded-systems engineering while continuing school and employment.
+A university-style independent-study environment for two equal goals:
 
-This personal learning site is not an accredited university, ETA-endorsed course or guarantee of certification/employment. The green/gold/cream institutional setting is intentional: a familiar place to return to the work.
+1. Prepare for the ETA Associate Certified Electronics Technician (CETa) exam.
+2. Build demonstrable electronics, hardware-test, and embedded-systems skill for a career transition while continuing school.
 
-## Daily use
+This is a fictional personal learning environment. It is not an accredited university, an ETA-endorsed course, an official exam, or a guarantee of certification or employment. Its green, gold, and cream institutional presentation is intentional: the atmosphere supports returning to serious work, while the Classroom—not the aesthetics—is the product.
 
-Open **Learn / Classroom** to be taught the current week. Resume a saved classroom stage or take the recommended next action. Study remains the daily planning and review companion. Follow the in-house lesson first; videos, university materials, simulations, PDFs, and the private booklet are additional explanations and practice, not a substitute for the lesson.
+## Start here
 
-| Area | Responsibility |
+Open **Learn / Classroom**. Select the current week and follow the seven required stages in order:
+
+1. Start Here
+2. CETa Lesson
+3. Career Lesson
+4. Teaching Media / accessible text path
+5. Guided and independent practice
+6. Lab or application
+7. Weekly Mastery
+
+Each week includes two complete Alfred-authored lessons. Videos, university lectures, manufacturer resources, simulations, official PDFs, and the learner’s private sixth-edition study booklet add other explanations and practice; they do not replace Alfred’s in-house teaching.
+
+| Area | One authoritative responsibility |
 | --- | --- |
-| Learn / Classroom | The authoritative seven-stage teaching path, checks, practice, lab/application and weekly mastery |
-| Study | Next action, guided sessions, review and local resume |
-| Week | Weekly context, outcomes, lab requirements and source map |
-| Calendar | Schedule and full event details |
-| Practice | Lab Center and Assessment Center |
-| Progress | Completion, notes, career gates, backup and Cloud Sync |
-| Mastery | Current web evidence, retention and repair priorities |
+| Learn / Classroom | Complete teaching sequence, required lesson checks, practice, lab/application, and weekly mastery |
+| Study | Next action, timed focus session, spaced review, interruption notes, and resume |
+| Week Overview | Weekly outcomes, schedule, lab requirements, and supporting sources |
+| Calendar | Dates, today’s assignment, outcomes, and detailed source notes |
+| Practice | Entry point for Lab Center and Assessment Center |
+| Progress | Completion, notes, career gates, backup, and Cloud Sync |
+| Mastery | Current assessment evidence, retention, and repair priorities |
 
-More contains Course Overview, Engineering, Library, Projects, Search, Knowledge Base, Labs, Assessments, Standards, Documents, Student Services, About and Release Notes. Release Notes also remains under About. Click More; on a short screen it scrolls internally. Mobile uses a scrollable navigation drawer.
+More contains Week Overview, Course Overview, Engineering, Engineering Library, Projects, Search, Knowledge Base, Labs, Assessments, Standards, Documents, Student Services, About, and Release Notes. At desktop 100% zoom it uses a grouped, viewport-bounded menu; on mobile it becomes a scrollable drawer.
 
-Quick, Standard and Deep Work are 20-, 60- and 120-minute plans, not forced deadlines. Classroom stages are predictable and resumable. Quiet Mode reduces decoration; Focus Mode concentrates on the active session. Save a next-action note when interrupted. Confidence schedules retrieval; explicit completion records completed work. Required lesson checks, lab checks, and weekly mastery make quizzes part of teaching; calendar-event quizzes remain supplemental. No mandatory hours log, spreadsheet gradebook or manual weekly mastery rating is required.
+Quick, Standard, and Deep Work are 20-, 60-, and 120-minute plans, not forced deadlines. Quiet Mode reduces nonessential decoration. Focus Mode hides surrounding study material while a session is active. Work can be paused and resumed, and no streak penalty or make-up marathon is imposed.
 
-## Inventory and honest scope
+## Verified instructional inventory
 
-- 24 HTML pages; 31 weeks, six phases, 62 in-house lessons and 125 calendar events.
-- 24 labs with virtual/physical evidence kept distinct; 61 knowledge entries.
-- 48 assigned and 99 deep-study resource listings, representing 133 normalized unique URLs.
-- 262 CETa objective rows across 20 domains and 78 Alfred career standards.
-- 223 active supplementary questions: 180 CETa and 43 career. The 1,195 historical/current records retain stable identifiers; they are not all active questions.
-- 183 form/task definitions: 125 lesson/task entries, 24 lab checks, 31 weekly reviews and three major forms. Some entries provide task guidance instead of a quiz.
-- Seven course PDFs plus the v16 Curriculum and Instruction Plan (Word). The live Classroom and that plan govern current teaching; the Academic System Guide governs platform workflow. Older binder workflow is explicitly archived.
+- 31 weeks and 62 required primary lessons: one CETa and one Career lesson every week.
+- Equal track weight: 2,790 weighted CETa minutes and 2,790 weighted career minutes.
+- 262 current CETa objective rows across 20 official competency categories.
+- 78 Alfred career standards across 13 technician/embedded evidence domains.
+- 340-row coverage matrix; every row identifies its lesson, teaching section, guided task, independent transfer, assessment, mastery evidence, and lab/project route.
+- 24 structured labs, each with virtual and physical requirements, procedure, evidence, completion rule, and an honest statement of what its route proves.
+- 125 dated calendar items from September 8, 2026 through April 10, 2027.
+- 1,381 stable assessment records; 409 are current, substantive, and editorially reviewed for course use. All 262 CETa and 78 career rows have a direct current question path.
+- 125 supplemental calendar-event practice definitions, 24 required lab checks, 31 required weekly mastery gates, and three major forms.
 
-The curriculum is deliberately source-rich and source-independent. Each week has a CETa lesson, a Career lesson, a combined application, a worked example, an embedded check with feedback, guided/independent practice, and a source-role map. The two tracks carry equal weight: 2,790 weighted minutes each across 31 weeks. The course target is 80% on weekly mastery and 100% on safety-critical checks; ETA's official exam information remains the authority for the actual credential.
+The instructional-depth layer adds purpose, prerequisite activation, retrieval, mechanism-level explanation, calculation and representation guidance, evidence rules, a worked diagnostic chain, misconceptions, guided practice, independent transfer, technician context, troubleshooting, teach-back, and exact standard traceability to every primary lesson. Row mapping or one multiple-choice item is not treated as mastery by itself.
 
-The active bank directly tags 111 of 262 CETa objective rows. Use your own study booklet, current ETA competencies, errata and independent practice for full preparation. The 100-question breadth form uses five per domain and a 120-minute suggested window: Alfred's study design, not ETA's exam weighting. Forms reuse a finite bank. AI-assisted editorial answer review is not external psychometric validation.
+## Mastery and readiness rules
 
-Pre-v15.8 mixed-question aggregates are historical evidence rather than current mastery. Older scores and completed coursework remain. New required Classroom checks and current assessments build current evidence; there is no need to restart the course. Evidence indices do not predict exam passage or hiring. Low coverage may be unmeasured knowledge, not failure. Physical instrument handling, workmanship and board-debugging claims need physical evidence.
+- Required lesson checks must be correct before their lesson stage completes.
+- Weekly and lab mastery require at least 80%.
+- Safety-critical checks require 100% before related hands-on work continues.
+- A miss opens targeted correction and a new attempt; it is not a punishment or a reason to restart the course.
+- CETa readiness requires **two separate current full-length 100-question Alfred CETa practice runs at 85% or higher**.
+- ETA’s published 75% official exam threshold is separate from Alfred’s conservative internal readiness rule.
+- Alfred’s five-per-domain practice blueprint is a breadth design, not a claim about ETA’s unpublished question weighting.
+- Repeated finite-bank questions are weaker evidence than fresh calculations, explanations, official practice, and changed-context transfer.
 
-The schedule remains September 8, 2026 through April 10, 2027. This release does not generate a rolling schedule for a new cohort.
+Historical records and prior course completion remain intact. Pre-v15.8 mixed evidence may be classified as historical rather than current mastery, but the learner does not need to restart the course. Scores estimate study needs; they do not prove certification, job qualification, or physical competence.
+
+## Practical evidence and safety
+
+Simulation can prove concepts, calculations, logic, procedure, and software behavior. It cannot prove real probe handling, current-jack safety, solder quality, crimp/harness workmanship, physical assembly, or physical board debugging. Claims must identify the actual virtual or physical route.
+
+LAB-018 is the cumulative embedded gate: controlled STM32 baseline → build → flash → SWD observation → UART log → I²C or SPI peripheral → raw/decoded logic capture → safe reversible fault → evidence-based diagnosis → correction → nominal and recovery retest → technical report.
+
+When a setup hazard is found, the course requires: stop and de-energize as appropriate → identify and record the condition and risk → document the corrective action → independently verify the safe state → obtain required authorization → continue. The course is limited to safe, isolated, low-voltage work unless qualified supervision and an approved facility explicitly provide otherwise.
+
+## Files and sources of truth
+
+- `curriculum-data.js`: v16 base curriculum.
+- `instructional-completion.js`: v16.1 complete-lesson and 340-row traceability layer.
+- `assessment-data.js`: stable question bank and standards.
+- `assessment-completion.js`: direct current assessment coverage for every standard.
+- `assessment-policy.js`: required/supplemental roles and readiness rules.
+- `academic-content.js`: labs, knowledge entries, and document search text.
+- `practical-completion.js`: v16.1 lab completeness and cumulative-gate layer.
+- `course-data.js`: calendar schedule, weekly summaries, and resource records.
+- `academic-state.js`: shared compatibility helpers and calendar editorial normalization.
+- `learn.html` / `learn.js`: authoritative Classroom delivery.
+- `AU-ESET-301-v16.1-Curriculum-and-Instruction-Plan.docx`: printable teaching and maintenance plan.
+- v16.1 CSV/JSON coverage matrices and Markdown audit reports: release evidence.
+
+Do not remove or reorder the completion overlays without rebuilding and rerunning the acceptance audit. Preserve existing event IDs, question IDs, lab IDs, week numbers, progress keys, and Cloud Sync records.
 
 ## Upload this release
 
-Read `UPLOAD-INSTRUCTIONS.txt`. Extract the flat ZIP and upload **all 69 files together** to the existing GitHub repository root beside `index.html`. Do not upload the ZIP itself, add a wrapper folder or rename referenced files. There is no frontend build or package installation.
+Read `UPLOAD-INSTRUCTIONS.txt`. Extract the flat v16.1 ZIP and upload every extracted file together to the existing GitHub repository root beside `index.html`. Do not upload the ZIP itself, create a wrapper folder, or add nested folders. No frontend build, package installation, Worker deployment, or D1 migration is required.
 
-Keep the existing GitHub Pages branch/root setting. Assets use relative paths. A different domain is a new browser origin: back up/restore progress and configure an allowed Cloud Sync origin before changing hosts. This release does not configure a new domain or require a backend migration.
+Keep the existing GitHub Pages branch/root and site address. A different domain is a different browser origin: export Progress first, preserve the Recovery / Student Sync Key separately, restore data after the move, and add the new host to the Worker’s allowed origins before using Cloud Sync.
 
-Export Progress and keep your Recovery Key separately before replacing files. After deployment, close old tabs and reopen the site. Do not routinely clear site data, which can erase local records and the stored key. The service worker replaces only its own older caches.
-
-Unused mirror tools, old hotfix instructions and unused image files are excluded from the package. Their historical GitHub copies can remain because the app no longer loads them. No private booklet, learner backup, recovery key, backend credential, repository history or QA dependency folder belongs in the public upload.
-
-## Architecture and records
-
-The frontend is static HTML/CSS/JavaScript with no conventional login. Optional Cloud Sync uses Cloudflare Worker + D1 at:
+Production sync endpoint:
 
 `https://alfred-university-sync.totallywill13.workers.dev`
 
-Normal setup requires a private Recovery / Student Sync Key; the server address is built in. Advanced server settings are for maintenance. The public Worker root may return 404; `/health` reports service status. Protocol 2 and existing event/week/readiness/analytics keys remain compatible. No Worker or D1 schema update is required for v16.0.
+Normal Cloud Sync setup uses the private Recovery / Student Sync Key; server configuration remains under advanced maintenance settings. Protocol 2 and the existing D1 record structure are unchanged. The Worker root may return 404; `/health` is the status endpoint.
 
-| Local key | Purpose |
-| --- | --- |
-| `alfred-u-progress-v2` | Canonical academic records, completion, review schedules, assessments and evidence |
-| `alfred-u-study-v13` | Local session, preferences, parking lot and recent UI history |
-| `alfred-u-quiet-mode` | Local Quiet Mode preference |
-| `alfred-u-sync-config-v1` | Worker address, private recovery key and device/sync configuration |
+Do not clear browser site data as a routine update step. That can erase local progress and the locally stored key. Export a backup before replacing files, close old tabs after GitHub Pages finishes, and reopen the same site URL so the v16.1 service worker can replace the old cache.
 
-Cloud records are not end-to-end encrypted. Anyone holding the Recovery Key can access that record. Do not enter unrelated secrets in notes or put the key in website files.
+## Offline behavior
 
-Export Backup contains academic progress, not the key. Import confirms local replacement and does not silently replace cloud credentials. Local reset clears academic/saved Study state and disconnects sync while preserving the key and cloud record. Reconnecting can restore cloud data. Erase Cloud Record is a separate permanent action.
+The v16.1 service worker covers all current HTML routes and core application dependencies, including the three completion layers. Documents, images, reports, and the ICS calendar are cached when available but cannot block installation if an optional asset fails. Unknown offline navigation uses the dedicated offline page. External videos, publishers, simulations, and official sites still require internet access; visit needed material online before depending on it offline.
 
-Sync before switching devices and keep periodic exported backups. Avoid editing the same record simultaneously on multiple offline devices; record-level last-write-wins is not field-level conflict resolution. Frontend stale-response guards protect local reset but do not control another connected device's actions.
+## Maintenance and limits
 
-## Offline use
+The complete coverage matrix proves that each current row has a deliberate instructional and assessment route. It does not prove that a learner has mastered the row, that the questions are externally psychometrically validated, that ETA endorses the course, or that external resources will never change. Recheck official ETA scope and exam information before a future cohort or exam booking, revalidate external resources periodically, and advance the cache version whenever deployable assets change.
 
-The v16.0 service worker covers all current HTML routes and app dependencies, including the Classroom curriculum, assessment policy, current Word teaching plan, documents, images and the ICS export. Essential-file failure rejects an incomplete installation; optional image/PDF failure does not block the application. Unknown offline navigation shows the offline page; temporary host failures can use cached content. External videos, publisher pages and simulators still need the internet. Browser storage limits or eviction can prevent a PDF from remaining cached. Visit needed content online before relying on it offline. Local records and caches belong to this browser/origin.
-
-## Source map and maintenance
-
-`curriculum-data.js` is the v16 instructional source of truth for 31 weeks, 62 lessons, checks, teaching media, applications and standards. `learn.html`/`learn.js` deliver the Classroom. `course-data.js` holds schedule/resources. `academic-content.js` holds labs, concepts and PDF search text. `assessment-data.js` holds questions and scope metadata; `assessment-engine.js` selects forms; `assessment-policy.js` defines required versus supplemental roles. `academic-state.js` provides shared compatibility/week helpers. Page scripts implement the tools; `styles.css` and `site.js` supply presentation/navigation. `release-notes.js` supplies the visible history.
-
-Preserve record IDs when maintaining content, regenerate PDF search text after document edits, check internal references and advance the app-cache version for coherent updates. Release Notes records the detailed change history; the v16 Curriculum & Instruction Plan records the teaching rationale and maintenance limits. QA tooling is not required on the public host.
+Release Notes remains in More and under About by request. It records the detailed history; the v16.1 Curriculum & Instruction Plan explains instructional design and maintenance; the Acceptance Report records the final structural and technical evidence.

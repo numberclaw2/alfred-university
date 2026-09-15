@@ -174,6 +174,25 @@
     <button class="button green classroom-complete" data-complete="orientation" type="button">${stageComplete('orientation') ? '✓ Orientation complete' : 'I understand the week’s destination'}</button>`;
   }
 
+  function renderDepth(lessonItem){
+    const d=lessonItem.instructionalDepth;if(!d)return'';
+    const paragraphs=value=>String(value||'').split(/\n\n+/).filter(Boolean).map(x=>`<p>${esc(x)}</p>`).join('');
+    const block=(item,index)=>index===d.teaching.length-1&&/^Competency clinic/i.test(item.title)
+      ? `<details class="depth-competency-clinic"><summary><span>${esc(item.title)}</span><small>${d.coverage.length} exact requirement${d.coverage.length===1?'':'s'} · open for row-level teaching</small></summary><div>${paragraphs(item.text)}</div></details>`
+      : `<section class="depth-teaching-block"><span>${index+1}</span><div><h3>${esc(item.title)}</h3>${paragraphs(item.text)}</div></section>`;
+    return `<div class="instructional-depth" id="${esc(d.sectionId)}">
+      <section class="depth-overview"><div><span>v16.1 complete lesson</span><h3>Purpose, context, and prerequisite activation</h3></div><p><strong>Purpose:</strong> ${esc(d.purpose)}</p><p><strong>What and why:</strong> ${esc(d.whatWhy)}</p><p><strong>Prerequisites:</strong> ${esc(d.prerequisites)}</p><aside><strong>Retrieval before new work</strong><p>${esc(d.retrieval)}</p></aside></section>
+      <div class="depth-heading"><span>Alfred teaches the core</span><h3>Mechanism → representation → evidence</h3><p>External media comes later. These sections contain the required in-house explanation.</p></div>
+      <div class="depth-teaching">${d.teaching.map(block).join('')}</div>
+      <section class="depth-worked"><span>Worked reasoning · full diagnostic chain</span><h3>${esc(d.worked.problem)}</h3><dl><dt>Known information</dt><dd>${esc(d.worked.known)}</dd><dt>Reasoning and method</dt><dd>${esc(d.worked.reasoning)}</dd><dt>Work</dt><dd>${esc(d.worked.work)}</dd><dt>Result</dt><dd>${esc(d.worked.result)}</dd><dt>Sanity check</dt><dd>${esc(d.worked.sanity)}</dd><dt>Interpretation</dt><dd>${esc(d.worked.interpretation)}</dd></dl></section>
+      <section class="depth-misconceptions"><h3>Misconceptions and failure modes</h3><div>${d.misconceptions.map(x=>`<article><strong>${esc(x.mistake)}</strong><p><b>Why it is tempting:</b> ${esc(x.why)}</p><p><b>Repair:</b> ${esc(x.repair)}</p></article>`).join('')}</div></section>
+      <section class="depth-practice"><div><span>Guided practice</span><h3>Use support, then remove it</h3><ol>${d.guidedPractice.map(x=>`<li>${esc(x)}</li>`).join('')}</ol></div><div><span>Independent transfer</span><h3>Prove it in a changed context</h3><p>${esc(d.independentTransfer)}</p></div></section>
+      <section class="depth-connection"><div><h3>Technician / engineering connection</h3><p>${esc(d.technicianConnection)}</p></div><div><h3>Troubleshooting method</h3><p>${esc(d.troubleshooting)}</p></div></section>
+      <section class="depth-teachback"><span>Teach-back gate</span><h3>Explain it without borrowing the lesson’s words</h3><p>${esc(d.teachBack)}</p></section>
+      <details class="depth-coverage"><summary><span>Exact competency traceability</span><small>${d.coverage.length} row${d.coverage.length===1?'':'s'} taught here</small></summary>${d.coverage.length?`<div class="depth-coverage-list">${d.coverage.map(x=>`<article><strong>${esc(x.code)}</strong><p>${esc(x.officialRequirement)}</p><small>${esc(x.teachingSection)} · ${esc(x.teachingLevel)}</small></article>`).join('')}</div>`:'<p>This is a cumulative retention lesson; its earlier competency rows remain traceable in the coverage matrix.</p>'}</details>
+    </div>`;
+  }
+
   function renderLesson(index){
     const lessonItem = moduleData.lessons[index];
     const stageId = index === 0 ? 'ceta-lesson' : 'career-lesson';
@@ -185,6 +204,7 @@
     <section class="lesson-objectives"><h3>By the end, you can</h3><ul>${lessonItem.objectives.map(x => `<li>${esc(x)}</li>`).join('')}</ul></section>
     ${index === 0 ? renderConceptMap() : ''}
     <div class="teaching-sections">${lessonItem.sections.map((section,i) => `<section class="teaching-block${section.critical ? ' critical-teaching' : ''}"><span class="concept-number">${i + 1}</span><div><h3>${esc(section.title)}</h3><p>${esc(section.teach)}</p><aside><strong>Hold onto this</strong><p>${esc(section.remember)}</p></aside>${section.critical ? '<div class="critical-flag">Safety-critical: do not continue to related hands-on work until this rule is correct.</div>' : ''}</div></section>`).join('')}</div>
+    ${renderDepth(lessonItem)}
     <section class="worked-example"><div class="worked-label">Worked example · follow the reasoning</div><h3>${esc(lessonItem.worked.problem)}</h3><ol>${lessonItem.worked.steps.map(x => `<li>${esc(x)}</li>`).join('')}</ol><div class="worked-answer"><strong>Answer</strong><p>${esc(lessonItem.worked.answer)}</p></div><p><strong>Transfer:</strong> ${esc(lessonItem.worked.transfer)}</p></section>
     <section class="required-check${checkItem.critical ? ' critical-check' : ''}" data-lesson-check="${index}">
       <div class="required-check-head"><div><span>${checkItem.critical ? 'Safety-critical check · 100% required' : 'Required knowledge check · correct answer required'}</span><h3>${esc(checkItem.prompt)}</h3></div>${saved.correct ? '<b class="check-passed">✓ Passed</b>' : ''}</div>

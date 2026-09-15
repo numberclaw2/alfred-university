@@ -1,8 +1,8 @@
-const CACHE='alfred-u-v16-0';
+const CACHE='alfred-u-v16-1';
 const CORE=[
   './','index.html','engineering.html','course.html','calendar.html','progress.html','resources.html','projects.html','documents.html','student-services.html','about.html','deployment.html','404.html','offline.html',
   'study.html','learn.html','search.html','week.html','practice.html','labs.html','assessments.html','quiz.html','standards.html','analytics.html','knowledge.html','patch-notes.html','academic-state.js',
-  'styles.css','site.js','progress.js','study.js','learn.js','curriculum-data.js','course-data.js','academic-content.js','academic.js','assessment-data.js','assessment-policy.js','assessment-engine.js','readiness.js','assessment.js','quiz.js','standards.js','analytics.js','search.js','release-notes.js','patch-notes.js','manifest.webmanifest',
+  'styles.css','site.js','progress.js','study.js','learn.js','curriculum-data.js','instructional-completion.js','course-data.js','academic-content.js','practical-completion.js','academic.js','assessment-data.js','assessment-completion.js','assessment-policy.js','assessment-engine.js','readiness.js','assessment.js','quiz.js','standards.js','analytics.js','search.js','release-notes.js','patch-notes.js','manifest.webmanifest',
   'crest.webp','seal.webp','icon-180.png','icon-192.png','icon-512.png',
   'syllabus-cover.png','resource-manual-cover.png','assignment-lab-cover.png','binder-index-cover.png','certificate-cover.png',
   'Alfred University - AU-ESET 301 - Syllabus and Student Handbook.pdf',
@@ -11,14 +11,19 @@ const CORE=[
   'Alfred University - AU-ESET 301 - Student Course Binder Index.pdf',
   'Alfred University - AU-ESET 301 - Certificate of Course Completion.pdf',
   'Alfred University - AU-ESET 301 - Academic System Guide.pdf',
-  'AU-ESET-301-v16-Curriculum-and-Instruction-Plan.docx',
+  'AU-ESET-301-v16.1-Curriculum-and-Instruction-Plan.docx',
+  'AU-ESET-301-v16.1-CETa-Career-Coverage-Matrix.csv',
+  'AU-ESET-301-v16.1-CETa-Career-Coverage-Matrix.json',
+  'AU-ESET-301-v16.1-Acceptance-Report.md',
+  'AU-ESET-301-v16.1-Instructional-Depth-Audit.md',
+  'AU-ESET-301-v16.1-Resource-Verification.md',
   'Embedded Career Transition Readiness Checklist.pdf',
   'Alfred University - AU-ESET 301 - Simplified Course Calendar.ics'
 ];
 
 self.addEventListener('install',event=>{
   event.waitUntil(caches.open(CACHE).then(async cache=>{
-    const essential=CORE.filter(path=>!(/\.(pdf|png|webp|ics)$/i.test(path)));
+    const essential=CORE.filter(path=>!(/\.(pdf|png|webp|ics|docx|csv|json|md)$/i.test(path)));
     await cache.addAll(essential);
     await Promise.allSettled(CORE.filter(path=>!essential.includes(path)).map(path=>cache.add(path)));
   }).then(()=>self.skipWaiting()));

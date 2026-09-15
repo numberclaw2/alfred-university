@@ -1,5 +1,30 @@
 window.ALFRED_RELEASES = [
   {
+    "version": "v16.1",
+    "date": "September 15, 2026",
+    "title": "Instructional Completion — Every Requirement Gets a Teaching Path",
+    "type": "Academic Completion & Final Audit",
+    "request": "Finish the instructional rebuild so Alfred can teach the complete course rather than merely point to references, preserve equal CETa and career preparation, close every lab and competency gap, and deliver a stable long-term release with detailed evidence.",
+    "changes": [
+      "Expanded all 62 required lessons with an in-house instructional-depth layer: purpose, why the topic matters, prerequisite activation, retrieval, mechanism-level teaching, calculation and representation guidance, evidence rules, worked diagnostic reasoning, misconceptions, guided practice, independent transfer, technician context, troubleshooting, teach-back, and exact traceability.",
+      "Mapped all 262 current ETA Associate CET competency rows and all 78 Alfred career standards to a specific week, lesson, teaching section, guided task, independent task, current assessment path, mastery evidence, and lab/project evidence route. The machine-readable coverage matrix contains all 340 rows with no unmapped row.",
+      "Preserved the v16 equal-weight design: 2,790 weighted minutes of CETa preparation and 2,790 weighted minutes of career-transition preparation. Every week still labels the certification lesson, career lesson, and combined application separately.",
+      "Added one original, reviewed current-course assessment path for every formerly uncovered standard while keeping historical question IDs and records intact. The bank now contains 1,381 total records, of which 409 are active substantive reviewed items; all 262 CETa rows and 78 career rows have direct current assessment coverage.",
+      "Removed a predictable answer-position pattern from the 186 standards-gap evidence questions. Their stems now vary by review context, distractors identify distinct evidence failures, and the correct positions are balanced across A–D (47/46/46/47) so answer-letter guessing cannot substitute for reading the requirement.",
+      "Made the CETa readiness rule explicit in policy, guidance, assessment cards, and saved evidence: two separate current full-length 100-question Alfred CETa practice runs at 85% or higher. ETA’s published 75% official threshold remains clearly distinct, and Alfred makes no pass guarantee or official-weighting claim.",
+      "Strengthened all 24 lab records with complete virtual and physical requirements, procedures, evidence definitions, honest route limitations, and practical-completeness metadata. LAB-018 is now one cumulative STM32 build/flash/SWD/UART/I²C-or-SPI/logic-capture/fault/diagnosis/correction/retest/report gate.",
+      "Closed the C1.6 safety traceability gap with an explicit hazard-log rule: stop and de-energize as appropriate, record the condition and risk, document the corrective action, independently verify the safe state, obtain required authorization, and only then continue testing.",
+      "Kept external videos, university materials, official PDFs, simulations, manufacturer instruction, and the private study booklet integrated as additional teachers and practice—not as dependencies that excuse incomplete Alfred instruction.",
+      "Normalized calendar typography, missing word spaces, labels, punctuation, and link formatting without changing any event date, order, ID, or UID. The downloadable 125-event ICS was regenerated and its malformed Week 1 Engineering Library host was corrected.",
+      "Preserved the v15.8 desktop Study header correction and the bounded More menu: grouped two-column presentation on desktop, viewport-aware scrolling on short screens, a full scrollable mobile drawer, keyboard escape/focus handling, and Release Notes in its requested location.",
+      "Updated every consumer page so Classroom, Assessment Center, quizzes, Progress, Standards, Analytics, Study, Search, Lab Center, and Week Overview load the same v16.1 completion data rather than parallel or partial copies.",
+      "Advanced the offline cache to v16.1 and added all three completion layers, the current Word curriculum plan, coverage matrix, audit reports, and the complete route set while keeping documents and reports optional during installation.",
+      "Added a v16.1 Curriculum & Instruction Plan and machine-readable CSV/JSON coverage matrices plus acceptance, instructional-depth, and resource-verification reports. These make the release’s scope, evidence, limitations, and maintenance rules inspectable outside the interface.",
+      "Preserved the existing static GitHub Pages architecture, production Cloudflare Worker URL, protocol 2, D1 schema, recovery-key model, local progress records, event IDs, assessment history, PWA routes, university presentation, and flat root-level upload workflow. No deployment or backend migration is included.",
+      "The final audit distinguishes structural coverage from proven learning: mapping and original questions do not constitute ETA endorsement, accreditation, external psychometric validation, certification, job qualification, or proof of physical skill. Physical handling and workmanship claims still require honest physical evidence."
+    ]
+  },
+  {
     "version": "v16.0",
     "date": "September 15, 2026",
     "title": "Instructional Rebuild — The Classroom Becomes the Product",
