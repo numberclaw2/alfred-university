@@ -1,3 +1,6 @@
+HISTORICAL RECORD — SUPERSEDED BY v16.3.2
+Do NOT use this file as the current upload procedure. For the current runtime patch, use UPLOAD-INSTRUCTIONS.txt and AU-ESET-301-v16.3.2-Upload-Manifest.txt supplied with the v16.3.2 overlay.
+
 ALFRED UNIVERSITY AU-ESET 301 — v16.3.1 GITHUB RUNTIME HOTFIX
 
 This is a small overlay for the already-uploaded v16.3 release.

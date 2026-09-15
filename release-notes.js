@@ -1,5 +1,20 @@
 window.ALFRED_RELEASES = [
   {
+    "version": "v16.3.2",
+    "date": "September 15, 2026",
+    "title": "Runtime Assessment Integrity & Deployment Verification",
+    "type": "Surgical Runtime / Deployment Repair",
+    "request": "Remove learner-facing answer-position bias, make the deployed build directly verifiable, and prevent historical platform documentation from masquerading as current operating instructions without touching the instructional rebuild.",
+    "changes": [
+      "Replaced the reviewed-bank choice-order shuffle with a deterministic constrained-random placement strategy. Question selection, IDs, wording, distractors, correct content, explanations, standards tags, and saved-history identities remain unchanged; conspicuous concentration and long runs are rejected without imposing a fixed per-form answer-letter quota.",
+      "Kept the objective evidence revision at 16.2 while identifying the course curriculum as 16.3 and the runtime patch as 16.3.2.",
+      "Added build-info.json as a non-sensitive deployment marker containing course release, runtime patch, evidence revision, Cloud Sync protocol, and a unique build identifier. The service worker intentionally does not cache this marker.",
+      "Bumped the application cache to alfred-u-v16-3-2 and retained activate-time cleanup of obsolete Alfred caches without clearing localStorage, IndexedDB, progress, assessment history, notes, or Cloud Sync configuration.",
+      "Marked the v15.8 Academic System Guide as historical/superseded in Documents and Search while preserving the original PDF unchanged for provenance.",
+      "Preserved all 62 integrated lessons, 62 teaching visuals, 340 teaching routes, 24 labs, 125 calendar identities, Week 18 cumulative embedded gate, 2,790/2,790 weighting, protocol-2 Cloud Sync, and existing progress/history keys."
+    ]
+  },
+  {
     "version": "v16.3.1",
     "date": "September 15, 2026",
     "title": "Runtime Evidence Revision Hotfix",

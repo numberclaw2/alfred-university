@@ -157,7 +157,7 @@ The sample includes Ohm’s law/electrical quantities, KCL/KVL, instruments, AC 
 - **Auto-graded bank:** 223 pre-existing substantive/editorially reviewed bank questions remain active.
 - **Retired historical items:** the 186 generic v16.1 coverage-fill question IDs are preserved for history compatibility, but v16.3 reconstructs them as retired history from creation time (`masteryEvidence=false`, retired question class). They never enter the current mastery pool, even before the later semantic-evidence script runs.
 - **Integrated lesson checks:** every one of the 62 lessons contains an additional auto-graded MCQ and a model-answer short-response check; the existing primary lesson gate remains.
-- **Choice-position control:** graded assessment-engine forms already shuffle choices deterministically. The final v16.3 Classroom also deterministically shuffles each integrated lesson MCQ at render time while keeping the original answer mapping, removing the source-order A/B bias without changing question content or saved question identities.
+- **Choice-position control:** v16.3 Classroom deterministically shuffles each integrated lesson MCQ at render time while keeping the original answer mapping. The reviewed-bank engine also shuffled choices in v16.3, but a later cold runtime audit found a learner-facing position imbalance in that engine; the surgical v16.3.2 runtime patch corrects that bias without changing question IDs, wording, correct content, explanations, standards, question selection, or saved-history identities.
 - **Rubric/self-reviewed evidence:** 87 subject-specific semantic constructed-response / teach-back / technical-evidence tasks cover 262/262 CETa and 78/78 Career rows.
 - **Practical/physical evidence:** 24 labs and project gates provide simulation, measurement, code, capture, documentation, workmanship, and physical evidence as appropriate. Simulation is never claimed as proof of physical bench skill.
 
@@ -185,7 +185,7 @@ These evidence types are intentionally not collapsed into one misleading “340/
 
 - Simplified calendar: **125 VEVENTs / 125 UIDs / 125 unique UIDs**.
 - Calendar file is byte-for-byte unchanged from the accepted v16.2 calendar, preserving event identity/date/time.
-- Previously malformed `AST Practice` variants remain absent from the current text assets.
+- Previously corrupted AST/practice wording remains absent from the current text assets.
 
 ## K. Word curriculum QA
 
@@ -252,6 +252,12 @@ After the 140-file v16.3 release was uploaded to the public GitHub repository, t
 - A synthetic runtime regression test loaded the real v16.3 assessment data and a current `bankRevision: 16.2` evidence shard. Standards recognized it as current validated evidence, and a standard with only one independently scored bank item remained blocked from automatic `Mastered` despite having a semantic-task mapping. A second synthetic Analytics test confirmed a current 16.2 record is counted as current rather than historical and that the learner-facing rule reports revision 16.2.
 
 The hotfix does **not** change lesson content, the 340-row semantic mapping, the 24 labs, calendar events/UIDs, Cloud Sync protocol 2, D1 compatibility, event/progress keys, or the 16.2 objective-bank evidence revision. It is a runtime consumer correction on top of the accepted v16.3 instructional release.
+
+## Q. v16.3.2 runtime/deployment postscript
+
+A later cold runtime audit did **not** reopen or fail the v16.3 instructional rebuild. It found three runtime/documentation issues outside the accepted lesson content: reviewed-bank learner-facing answer-position bias, lack of a simple non-cached live-build marker, and historical v15.8 operating text surfacing in Search without sufficiently strong context. The v16.3.2 overlay repairs those issues while preserving the 62 lessons, 340 teaching routes, 24 labs, 125 calendar identities, 2,790/2,790 weighting, protocol-2 Cloud Sync, progress/history keys, and objective-bank evidence revision 16.2.
+
+The current runtime acceptance authority for those post-v16.3 issues is `AU-ESET-301-v16.3.2-Final-Runtime-Acceptance-Report.md`. This v16.3 document remains the instructional-depth acceptance record.
 
 ## Final decision
 

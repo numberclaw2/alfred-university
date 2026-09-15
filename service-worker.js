@@ -1,4 +1,4 @@
-const CACHE='alfred-u-v16-3-1';
+const CACHE='alfred-u-v16-3-2';
 const CORE=[
   './','index.html','engineering.html','course.html','calendar.html','progress.html','resources.html','projects.html','documents.html','student-services.html','about.html','deployment.html','404.html','offline.html',
   'study.html','learn.html','search.html','week.html','practice.html','labs.html','assessments.html','quiz.html','standards.html','analytics.html','knowledge.html','patch-notes.html','academic-state.js',
@@ -16,6 +16,7 @@ const CORE=[
   'AU-ESET-301-v16.3-Semantic-Coverage-Matrix.csv',
   'AU-ESET-301-v16.3-Semantic-Coverage-Matrix.json',
   'AU-ESET-301-v16.3-Final-Lesson-Acceptance-Report.md',
+  'AU-ESET-301-v16.3.2-Final-Runtime-Acceptance-Report.md',
   'AU-ESET-301-v16.3-Resource-Verification.md',
 
   'w01-bench-sequence.svg','w01-dc-quantities.svg','w02-fault-boundary.svg','w02-kcl-kvl-divider.svg','w03-instrument-connections.svg','w03-measurement-plan.svg','w04-filter-response.svg','w04-rc-rl-response.svg','w05-model-selection.svg','w05-troubleshooting-loop.svg','w06-frequency-sweep.svg','w06-reactance-phasor.svg','w07-relay-driver.svg','w07-transformer-relay.svg','w08-low-side-switch.svg','w08-semiconductor-roles.svg','w09-power-supply-blocks.svg','w09-power-tree.svg','w10-opamp-amplifier.svg','w10-signal-budget.svg','w11-digital-logic.svg','w11-pullup-debounce.svg','w12-solder-rework.svg','w12-traceable-repair.svg','w13-hypothesis-tree.svg','w13-signal-flow.svg','w14-build-computer.svg','w14-c-memory.svg','w15-register-gpio.svg','w15-state-machine.svg','w16-bringup-ladder.svg','w16-mcu-architecture.svg','w17-python-serial.svg','w17-uart-frame.svg','w18-i2c-spi.svg','w18-peripheral-stack.svg','w19-harness-test.svg','w19-media-opto.svg','w20-rf-system.svg','w20-spectrum-handoff.svg','w21-model-router.svg','w21-tech-decision-tree.svg','w22-repair-map.svg','w22-requirement-trace.svg','w23-project-baseline.svg','w23-readiness-gate.svg','w24-bringup-dependencies.svg','w24-safe-power.svg','w25-conversion-chain.svg','w25-vertical-slice.svg','w26-firmware-layers.svg','w26-state-memory.svg','w27-data-integrity.svg','w27-hw-test-loop.svg','w28-fault-report.svg','w28-service-procedure.svg','w29-evidence-map.svg','w29-workmanship-evidence.svg','w30-career-greenlight.svg','w30-mixed-retention.svg','w31-career-feedback.svg','w31-retention-loop.svg',
@@ -39,6 +40,13 @@ self.addEventListener('fetch',event=>{
   if(event.request.method!=='GET') return;
   const url=new URL(event.request.url);
   if(url.origin!==self.location.origin) return;
+
+  // build-info.json is a deployment-verification marker, not an offline asset. Always ask
+  // the network for it so a stale application cache cannot masquerade as the current release.
+  if(url.pathname.endsWith('/build-info.json')){
+    event.respondWith(fetch(event.request,{cache:'no-store'}));
+    return;
+  }
 
   const isNavigation=event.request.mode==='navigate';
   const cacheKey=isNavigation?new URL(url.pathname,self.location.origin).href:event.request;

@@ -1,5 +1,7 @@
 # AU-ESET 301 v16.3.1 GitHub Runtime Hotfix Report
 
+> **Historical record — superseded for current runtime operations by v16.3.2.** This report is retained for provenance and does not describe the current deployment procedure.
+
 **Date:** 2026-09-15  
 **Base course release:** v16.3 Final Instructional Depth  
 **Objective assessment evidence revision:** 16.2 (intentionally unchanged)

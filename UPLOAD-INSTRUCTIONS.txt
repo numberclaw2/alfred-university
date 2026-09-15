@@ -1,35 +1,44 @@
-ALFRED UNIVERSITY v16.3 — FINAL INSTRUCTIONAL DEPTH — FLAT UPLOAD
+ALFRED UNIVERSITY — v16.3 CURRICULUM / v16.3.2 RUNTIME HOTFIX
 
-This is a complete flat GitHub Pages release.
-No nested project folder. No frontend build. No Worker or D1 migration.
+This is a surgical root-level GitHub Pages update for an existing v16.3.1 deployment.
+It does not change the 62 lessons, 24 labs, 125-event calendar, Cloud Sync protocol 2,
+progress keys, or the objective-bank evidence revision (16.2).
 
-1. On the existing Alfred site, open Progress and choose Export Backup.
-   Save the Recovery / Student Sync Key separately; it is not included in the export.
-2. Extract Alfred-University-v16.3-FINAL-INSTRUCTIONAL-DEPTH-FLAT.zip on your computer.
-3. Open the existing numberclaw2/alfred-university repository at the root where index.html already lives.
-4. Choose Add file > Upload files and select ALL extracted files together.
-   Do not upload the ZIP itself and do not create a wrapper directory.
-5. Commit the replacements. Keep the existing GitHub Pages branch/root setting and site address.
-6. After Pages finishes deploying, close old Alfred tabs and reopen the normal site URL.
-   Release Notes should show v16.3 at the top: “Final Instructional Depth — The Lesson Becomes the Professor.”
+BEFORE UPDATING
+1. Open Progress and choose Export Backup.
+2. Keep the Recovery / Student Sync Key separately. It is not included in the export.
+3. Do NOT clear browser site data as a routine update step.
 
-QUICK CHECK AFTER UPLOAD
-- At 100% zoom, open More and verify every destination remains reachable.
-- Open Learn / Classroom. A lesson should render as one integrated lesson: subject-specific instruction, an instructional visual when useful, worked examples, guided practice, a concrete independent scenario, misconceptions/repairs, knowledge checks, and any required semantic evidence task—without the old stacked instructional-completion layer.
-- Open Assessments. The page should report 223 active reviewed bank items; the 186 v16.1 generic fill questions are historical only and must not appear in selected mastery forms.
-- Open Standards. Current rows should show a v16.3 subject-specific teaching route and semantic task ID.
-- Open Calendar, switch Month / Week / Agenda, and open an event. Event dates/identity remain unchanged; malformed corrupted AST/practice wording should be absent.
-- Open Documents and confirm the v16.3 Curriculum & Instruction Plan, Lesson-Depth Audit, Semantic Coverage Matrix, and Final Lesson Acceptance Report open correctly.
-- Open Progress and confirm existing completion/history is still present.
-- If you use Cloud Sync, verify its status on your normal device.
+UPLOAD THE v16.3.2 HOTFIX
+1. Extract Alfred-University-v16.3.2-RUNTIME-DEPLOYMENT-HOTFIX.zip on your computer.
+2. Open numberclaw2/alfred-university at the repository root where index.html lives.
+3. Upload every file listed under ADD and REPLACE in AU-ESET-301-v16.3.2-Upload-Manifest.txt.
+4. Replace matching filenames. Do not upload the ZIP itself and do not create a wrapper folder.
+5. Keep the existing GitHub Pages branch/root setting and site address.
+6. No Worker redeployment or D1 migration is required.
 
-DO NOT CLEAR BROWSER SITE DATA AS A NORMAL UPDATE STEP.
-That can erase local progress and the locally stored recovery key. The v16.3 service worker advances the application cache without requiring a learner-data reset.
+VERIFY AFTER GITHUB PAGES FINISHES
+- Open build-info.json from the public Pages URL. It must report:
+  courseRelease = 16.3
+  runtimePatch = 16.3.2
+  evidenceRevision = 16.2
+  cloudSyncProtocol = 2
+- Open the raw service-worker.js in GitHub. It must contain alfred-u-v16-3-2.
+- Close old Alfred tabs and reopen the normal Pages URL. The new service worker removes only
+  older Alfred Cache Storage entries; it does not erase localStorage, IndexedDB, progress,
+  assessment history, notes, or Cloud Sync configuration.
+- Open Assessments and run a form. Correct-answer letters should not show an obvious position pattern.
+- Open Search and search "v15.8" or "current website". The Academic System Guide may appear,
+  but it must be labeled Historical document — not current operating instructions.
+- Open Progress and confirm existing completion/history remains present.
+- If Cloud Sync is used, verify normal sync status on the usual device.
 
-Cloud Sync remains on protocol 2 and the existing D1 record model. The production Worker URL is unchanged:
-https://alfred-university-sync.totallywill13.workers.dev
+CURRENT VERSION IDENTITIES
+Course curriculum release: 16.3
+Runtime patch: 16.3.2
+Objective evidence revision: 16.2
+Cloud Sync protocol: 2
+Production Worker: https://alfred-university-sync.totallywill13.workers.dev
 
-IMPORTANT ASSESSMENT NOTE
-v16.3 preserves the 186 v16.1 generated coverage-fill question IDs for saved-history compatibility but retires them from current mastery evidence. The active auto-graded bank contains the pre-existing substantive reviewed items. Complete row-level coverage is supplied by required topic-specific constructed-response/performance tasks integrated into Classroom; those responses are learner-audited against explicit technical rubrics rather than falsely auto-graded by generic text matching.
-
-The private ETA study guide, Recovery / Student Sync Key, and personal exported backups are not part of this package and must not be committed to the public repository.
+The complete Alfred-University-v16.3-FINAL-INSTRUCTIONAL-DEPTH-FLAT.zip remains the clean-install
+curriculum baseline. Do not re-upload all 140+ unchanged files just to apply this runtime patch.

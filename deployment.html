@@ -33,13 +33,13 @@
 </header>
 <main>
 <section class="page-hero compact">
-<div class="shell"><div class="eyebrow">Site Administration · v16.3</div><h1>Deployment Notes</h1><p>The university website is a static GitHub Pages frontend. The v16.3 integrated Classroom is the instructional source of truth; Student Progress can synchronize through the production Cloudflare Worker and D1 database.</p></div>
-</section>
+<div class="shell"><div class="eyebrow">Site Administration · v16.3 curriculum / v16.3.2 runtime</div><h1>Deployment Notes</h1><p>The university website is a static GitHub Pages frontend. The v16.3 integrated Classroom is the instructional source of truth; the current runtime patch is v16.3.2. Student Progress can synchronize through the production Cloudflare Worker and D1 database.</p></div>
+<div class="info-banner"><strong>Deployment verification:</strong><span>Open <a href="build-info.json" target="_blank" rel="noopener">build-info.json</a> from the deployed site. It should report courseRelease 16.3, runtimePatch 16.3.2, evidenceRevision 16.2, and cloudSyncProtocol 2. The build marker is network-fetched rather than served from the offline cache.</span></div></section>
 <section class="section shell">
 <div class="split">
 <div>
 <h2>What to upload</h2>
-<p>Extract the complete flat ZIP and upload every file together to the existing repository root beside index.html. Do not upload a wrapper folder or the ZIP itself. No frontend build or backend migration is required.</p><p>All site navigation, the 31-week Classroom curriculum, calendar data, resources, Word/PDF documents, images, and the Apple Calendar file use relative links and are packaged together. The Progress Portal stores data locally first and can synchronize through <code>https://alfred-university-sync.totallywill13.workers.dev</code>.</p>
+<p>If the repository already has v16.3.1, extract the v16.3.2 runtime hotfix ZIP and upload its files to the repository root beside index.html, replacing matching names and adding the new build marker/report. Do not upload the ZIP itself or create a wrapper folder. A clean install can still start from the complete v16.3 flat package. No frontend build, Worker redeployment, D1 migration, or progress reset is required.</p><p>All site navigation, the 31-week Classroom curriculum, calendar data, resources, Word/PDF documents, images, and the Apple Calendar file use relative links and are packaged together. The Progress Portal stores data locally first and can synchronize through <code>https://alfred-university-sync.totallywill13.workers.dev</code>.</p>
 </div>
 <div>
 <h2>Mobile use</h2>

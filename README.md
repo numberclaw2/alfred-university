@@ -8,6 +8,15 @@ AU-ESET 301 is a fictional, university-style independent-study environment built
 It is not an accredited university, an ETA-endorsed course, an official exam, or a guarantee of certification or employment. The learner-facing Classroom is the instructional product.
 
 
+## Runtime hotfix v16.3.2
+
+The v16.3.2 runtime patch is a surgical assessment/deployment/documentation repair on top of the accepted v16.3 curriculum and v16.3.1 mastery-evidence hotfix. It does **not** alter lesson content, labs, standards mapping, calendar identities, Cloud Sync protocol, progress keys, or the reviewed objective-bank evidence revision.
+
+- Reviewed-bank answer choices now use a deterministic **constrained-random learner-facing layout** rather than the earlier LCG choice shuffle. The runtime rejects conspicuously concentrated position sequences and long same-letter runs without imposing an exploitable “exactly N of each letter” quota. Question IDs, wording, distractors, explanations, standard tags, canonical bank answers, question selection, and question order remain unchanged.
+- `build-info.json` provides a public deployment marker: course release **16.3**, runtime patch **16.3.2**, objective evidence revision **16.2**, Cloud Sync protocol **2**, plus a unique build ID. The service worker intentionally does not cache this marker.
+- The service-worker cache is **`alfred-u-v16-3-2`**. Activation deletes only older Alfred Cache Storage entries; it does not clear localStorage, IndexedDB, progress, notes, assessment history, or sync credentials.
+- The v15.8 Academic System Guide remains available for provenance but is explicitly labeled historical/superseded in Documents and Search so its old operational wording cannot masquerade as current workflow.
+
 ## Runtime hotfix v16.3.1
 
 A post-upload GitHub/runtime audit found that Standards, Analytics, and the Progress assessment-intelligence summary still hard-coded the historical `15.8` bank revision even though the current reviewed objective evidence revision is intentionally `16.2`. The v16.3.1 runtime hotfix makes those consumers derive the revision from assessment metadata, preserves older evidence as revalidation history, and prevents uncompleted self-reviewed semantic-task mappings from satisfying the automatic objective-bank breadth guard for `Mastered`. The 62 integrated lessons, calendar, labs, Cloud Sync protocol, event identities, and objective bank itself are unchanged.
@@ -51,7 +60,7 @@ Quick, Standard, and Deep Work remain 20-, 60-, and 120-minute plans rather than
 
 Evidence types are intentionally separated:
 
-- **Auto-graded:** 223 reviewed bank questions, required primary gates, and one additional integrated MCQ in every primary lesson. Assessment-engine forms shuffle answer choices deterministically; v16.3 Classroom also deterministically shuffles the integrated lesson MCQ display while preserving the correct answer mapping.
+- **Auto-graded:** 223 reviewed bank questions, required primary gates, and one additional integrated MCQ in every primary lesson. Assessment-engine forms use deterministic constrained-random answer placement so canonical source order does not create a learner-facing answer-letter cue or a fixed per-form letter quota; v16.3 Classroom also deterministically shuffles the integrated lesson MCQ display while preserving the correct answer mapping.
 - **Rubric/self-reviewed:** 87 subject-specific semantic tasks covering all 262 CETa and 78 Career standards.
 - **Practical/physical:** 24 labs and project gates. Simulation may establish conceptual or analytical performance but does not establish tactile workmanship, actual probe handling, solder quality, crimp quality, harness workmanship, or real-board debugging.
 
@@ -76,17 +85,17 @@ The reviewed objective assessment bank itself was not rewritten for v16.3. Its e
 
 The semantic matrix's guided/independent-practice columns identify the integrated lesson practice associated with a row; they should not be read as 340 separate unique practice exercises. The row's named semantic task is the competency-specific active demonstration/evidence route.
 
-## Upload this release
+## Upload / update
 
-Read `UPLOAD-INSTRUCTIONS.txt` first.
+For a repository already running v16.3.1, apply **`Alfred-University-v16.3.2-RUNTIME-DEPLOYMENT-HOTFIX.zip`** as a root-level overlay, replacing matching files and adding the new build marker/report files listed in the v16.3.2 upload manifest. Do not upload the ZIP itself or create a wrapper directory.
 
-Extract **`Alfred-University-v16.3-FINAL-INSTRUCTIONAL-DEPTH-FLAT.zip`** and upload every extracted file together to the existing GitHub repository root beside `index.html`. Do not upload the ZIP itself, create a wrapper directory, or create nested folders. No frontend build, package installation, Worker redeployment, or D1 migration is required.
+`Alfred-University-v16.3-FINAL-INSTRUCTIONAL-DEPTH-FLAT.zip` remains the complete curriculum baseline for a clean install. No frontend build, package installation, Worker redeployment, D1 migration, progress reset, or browser-site-data clearing is required for v16.3.2.
 
 Production Cloud Sync endpoint:
 
 `https://alfred-university-sync.totallywill13.workers.dev`
 
-Protocol 2 and the existing D1 record structure are unchanged. Export Progress before replacing site files, preserve the Recovery / Student Sync Key separately, wait for GitHub Pages to finish, close old tabs, then reopen the same site URL so the `alfred-u-v16-3` service worker can install the current cache. Do not clear browser site data as a routine update step.
+Protocol 2 and the existing D1 record structure are unchanged. Export Progress before replacing site files, preserve the Recovery / Student Sync Key separately, wait for GitHub Pages to finish, close old tabs, then reopen the same site URL so the `alfred-u-v16-3-2` service worker can install the current cache. Do not clear browser site data as a routine update step.
 
 ## Release integrity
 
