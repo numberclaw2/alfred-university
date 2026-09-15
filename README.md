@@ -7,6 +7,11 @@ AU-ESET 301 is a fictional, university-style independent-study environment built
 
 It is not an accredited university, an ETA-endorsed course, an official exam, or a guarantee of certification or employment. The learner-facing Classroom is the instructional product.
 
+
+## Runtime hotfix v16.3.1
+
+A post-upload GitHub/runtime audit found that Standards, Analytics, and the Progress assessment-intelligence summary still hard-coded the historical `15.8` bank revision even though the current reviewed objective evidence revision is intentionally `16.2`. The v16.3.1 runtime hotfix makes those consumers derive the revision from assessment metadata, preserves older evidence as revalidation history, and prevents uncompleted self-reviewed semantic-task mappings from satisfying the automatic objective-bank breadth guard for `Mastered`. The 62 integrated lessons, calendar, labs, Cloud Sync protocol, event identities, and objective bank itself are unchanged.
+
 ## What v16.3 changes
 
 v16.3 is the final lesson-depth rebuild of the accepted v16.2 semantic baseline. It preserves the 31-week schedule, 125 calendar events and UIDs, 24 labs, Week 18 cumulative embedded gate, saved-progress identities, Cloud Sync protocol 2, and the equal 2,790 / 2,790 CETa/Career weighting.

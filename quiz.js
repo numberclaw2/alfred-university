@@ -1,8 +1,8 @@
 (()=>{
 const D=window.ALFRED_ASSESSMENT||{}, $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-// Evidence revision intentionally remains 16.2: the reviewed bank did not change in the v16.3 lesson-depth release.
-const EVIDENCE_REVISION='16.2';
+// The reviewed bank did not change in the v16.3 lesson-depth release; derive its revision from current metadata.
+const EVIDENCE_REVISION=String(D.meta?.evidenceRevision||D.meta?.version||'16.2');
 const KEY='alfred-u-progress-v2', SYNC_KEY='alfred-u-sync-config-v1';
 const params=new URLSearchParams(location.search), type=params.get('type')||'lesson', id=params.get('id')||'1';
 let REQUIRED=params.get('required')==='1'||type==='week';
@@ -68,7 +68,7 @@ function addGlobalEvidence(p,results,now,changed){const grouped={};results.filte
 function saveAttempt(results,pct){
  let p=normalize(load()),now=Date.now(),week=A.week||(type==='major'?(id==='ceta-mock'?23:id==='career-screen'?30:31):1),changedShards=new Set(),stdAgg={};const valid=results.filter(r=>evidenceQuestion(r.q));
  valid.forEach(r=>r.q.standards.forEach(s=>{const x=stdAgg[s]||(stdAgg[s]={c:0,t:0});x.t++;if(r.correct)x.c++}));
- const compact={at:new Date(now).toISOString(),pct,correct:valid.filter(r=>r.correct).length,total:valid.length,seconds:Math.round((now-started)/1000),form:attemptNo,s:Object.entries(stdAgg).map(([sid,v])=>[sid,v.c,v.t]),q:valid.map(r=>`${parseInt(r.q.id.replace(/^CQ/,''),10).toString(36)}${(r.q.choiceOrder?.[r.chosen]??r.chosen)+(r.correct?4:0)}`).join('.'),b:D.meta?.version||'14.2'};
+ const compact={at:new Date(now).toISOString(),pct,correct:valid.filter(r=>r.correct).length,total:valid.length,seconds:Math.round((now-started)/1000),form:attemptNo,s:Object.entries(stdAgg).map(([sid,v])=>[sid,v.c,v.t]),q:valid.map(r=>`${parseInt(r.q.id.replace(/^CQ/,''),10).toString(36)}${(r.q.choiceOrder?.[r.chosen]??r.chosen)+(r.correct?4:0)}`).join('.'),b:EVIDENCE_REVISION};
  let recordKey,value;
  function finishRecord(a){addAssessmentSummary(a,p,changedShards,results,compact,now);addGlobalEvidence(p,results,now,changedShards);const priorAttempts=(a.attempts||[]).map(old=>{if(!old||typeof old!=='object')return old;const copy={...old};delete copy.q;delete copy.s;return copy});a.attempts=[...priorAttempts,compact].slice(-3);a.attemptCount=Math.max(Number(a.attemptCount||0),attemptNo);a.bestPct=Math.max(Number(a.bestPct||0),pct);a.lastPct=pct;a.analyticsVersion=2;return a}
  if(type==='lesson'){p.events[id]=p.events[id]||{status:'not-started',outcomes:{},review:{},notes:''};p.events[id].assessments=p.events[id].assessments||{};const a=finishRecord(p.events[id].assessments.lesson||{attempts:[],attemptCount:0});p.events[id].assessments.lesson=a;recordKey=`event:${id}`;value=p.events[id]}

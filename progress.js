@@ -3,6 +3,7 @@
   const EVENTS = window.ALFRED_EVENTS || [];
   const WEEKS = window.ALFRED_WEEKS || [];
   const ASSESS = window.ALFRED_ASSESSMENT || {};
+  const EVIDENCE_REVISION = String(ASSESS.meta?.evidenceRevision || ASSESS.meta?.version || '16.2');
   const CURRICULUM = window.ALFRED_CURRICULUM || {};
   const KEY = 'alfred-u-progress-v2';
   const LEGACY_KEY = 'alfred-u-progress-v1';
@@ -623,7 +624,7 @@
     const absorb=box=>{const list=box?.attempts||[];attempts+=Number(box?.attemptCount||list.length||0);if(list.length||box?.lastPct!=null)latestScores.push(Number((box?.lastPct ?? list[list.length-1]?.pct)||0));};
     Object.values(state.events||{}).forEach(e=>absorb(e?.assessments?.lesson));
     Object.values(state.weeks||{}).forEach(raw=>{const w=typeof raw==='string'?{mastery:raw,assessments:{}}:(raw||{});Object.values(w.assessments||{}).forEach(absorb);});
-    Object.values(state.analytics||{}).filter(sh=>sh?.bankRevision==='15.8').forEach(sh=>Object.entries(sh?.s||{}).forEach(([id,row])=>{const wc=Number(row[7]||0),wt=Number(row[8]||0);if(wt)standards[id]={c:wc,t:wt};}));
+    Object.values(state.analytics||{}).filter(sh=>String(sh?.bankRevision||'')===EVIDENCE_REVISION).forEach(sh=>Object.entries(sh?.s||{}).forEach(([id,row])=>{const wc=Number(row[7]||0),wt=Number(row[8]||0);if(wt)standards[id]={c:wc,t:wt};}));
     const ids=Object.keys(standards),repair=ids.filter(id=>standards[id].t&&standards[id].c/standards[id].t<.8).length;
     const totalStandards=(ASSESS.cetaStandards||[]).filter(s=>s.assessable!==false).length+(ASSESS.careerStandards||[]).length;
     const avg=latestScores.length?Math.round(latestScores.reduce((a,b)=>a+b,0)/latestScores.length):null;

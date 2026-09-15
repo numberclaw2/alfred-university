@@ -1,22 +1,25 @@
 (()=>{
 const D=window.ALFRED_ASSESSMENT||{}, $=(s,r=document)=>r.querySelector(s), esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const EVIDENCE_REVISION=String(D.meta?.evidenceRevision||D.meta?.version||'16.2');
 const KEY='alfred-u-progress-v2';
-const BANK={};(D.questions||[]).filter(q=>q?.masteryEvidence!==false&&q?.difficulty!=='Orientation').forEach(q=>(q.standards||[]).forEach(id=>BANK[id]=(BANK[id]||0)+1));(D.semanticTasks||[]).forEach(t=>(t.standards||[]).forEach(code=>{const id=(t.track==='Career'?'CAREER:':'CETA:')+code;BANK[id]=(BANK[id]||0)+1}));
+// Automatic mastery breadth is intentionally based only on independently scored bank items.
+// Semantic tasks remain separate rubric/self-reviewed evidence and do not inflate this count.
+const BANK={};(D.questions||[]).filter(q=>q?.masteryEvidence!==false&&q?.difficulty!=='Orientation'&&!q?.retired).forEach(q=>(q.standards||[]).forEach(id=>BANK[id]=(BANK[id]||0)+1));
 function load(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch{return {}}}
 function weekObj(v){return typeof v==='string'?{mastery:v,assessments:{}}:{mastery:v?.mastery||'',assessments:v?.assessments||{}}}
 function allAssessmentRecords(p){const out=[];Object.values(p.events||{}).forEach(e=>{if(e?.assessments?.lesson)out.push(e.assessments.lesson)});Object.values(p.weeks||{}).forEach(raw=>{const w=weekObj(raw);Object.values(w.assessments||{}).forEach(a=>out.push(a))});return out}
 function row(m,id){return m[id]??={id,total:0,correct:0,weightedTotal:0,weightedCorrect:0,high:0,sessions:0,last:0,lastCorrect:0,lastTotal:0,streak:0,legacyTotal:0}}
 function evidence(){
  const p=load(),m={};
- // v14.2 validated lifetime evidence lives once in small category/domain shards.
+ // Current reviewed-bank lifetime evidence lives once in small category/domain shards.
  Object.values(p.analytics||{}).forEach(sh=>{
    Object.entries(sh?.legacyS||{}).forEach(([id,v])=>row(m,id).legacyTotal+=Number(v[1]||0));
-   if(sh?.bankRevision!=='15.8'){Object.entries(sh?.s||{}).forEach(([id,v])=>row(m,id).legacyTotal+=Number(v[1]||0));Object.entries(sh?.l||{}).forEach(([id,n])=>row(m,id).legacyTotal+=Number(n||0));return;}
+   if(String(sh?.bankRevision||'')!==EVIDENCE_REVISION){Object.entries(sh?.s||{}).forEach(([id,v])=>row(m,id).legacyTotal+=Number(v[1]||0));Object.entries(sh?.l||{}).forEach(([id,n])=>row(m,id).legacyTotal+=Number(n||0));return;}
    Object.entries(sh?.s||{}).forEach(([id,v])=>{const z=row(m,id),c=Number(v[0]||0),t=Number(v[1]||0),sessions=Number(v[2]||0),lastC=Number(v[3]||0),lastT=Number(v[4]||0),lastAt=Number(v[5]||0),streak=Number(v[6]||0),wc=Number(v[7]||0),wt=Number(v[8]||0),high=Number(v[9]||0);z.correct+=c;z.total+=t;z.sessions+=sessions;z.weightedCorrect+=wc;z.weightedTotal+=wt;z.high+=high;if(lastAt>=z.last){z.last=lastAt;z.lastCorrect=lastC;z.lastTotal=lastT;z.streak=streak}});
    Object.entries(sh?.l||{}).forEach(([id,n])=>{row(m,id).legacyTotal+=Number(n||0)});
  });
  // Unmigrated v14.0/v14.1 records remain visible as legacy/revalidation evidence.
- allAssessmentRecords(p).forEach(a=>{const x=a?.analytics;if(x?.bankRevision!=='15.8'&&x?.s)Object.entries(x.s).forEach(([id,v])=>{row(m,id).legacyTotal+=Number(v[1]||0)});else if(x?.v===2&&x.s)Object.entries(x.s).forEach(([id,v])=>{const z=row(m,id),wt=Number(v[8]||0);if(wt){z.correct+=Number(v[0]||0);z.total+=Number(v[1]||0);z.sessions+=Number(v[2]||0);z.weightedCorrect+=Number(v[7]||0);z.weightedTotal+=wt;z.high+=Number(v[9]||0);const last=Number(v[5]||0);if(last>=z.last){z.last=last;z.lastCorrect=Number(v[3]||0);z.lastTotal=Number(v[4]||0);z.streak=Number(v[6]||0)}}else z.legacyTotal+=Number(v[1]||0)});else if(!x)(a?.attempts||[]).forEach(at=>Array.isArray(at?.s)&&at.s.forEach(v=>{const id=v?.[0],n=Number(v?.[2]||0);if(id&&n)row(m,id).legacyTotal+=n}))});
+ allAssessmentRecords(p).forEach(a=>{const x=a?.analytics;if(String(x?.bankRevision||'')!==EVIDENCE_REVISION&&x?.s)Object.entries(x.s).forEach(([id,v])=>{row(m,id).legacyTotal+=Number(v[1]||0)});else if(x?.v===2&&x.s)Object.entries(x.s).forEach(([id,v])=>{const z=row(m,id),wt=Number(v[8]||0);if(wt){z.correct+=Number(v[0]||0);z.total+=Number(v[1]||0);z.sessions+=Number(v[2]||0);z.weightedCorrect+=Number(v[7]||0);z.weightedTotal+=wt;z.high+=Number(v[9]||0);const last=Number(v[5]||0);if(last>=z.last){z.last=last;z.lastCorrect=Number(v[3]||0);z.lastTotal=Number(v[4]||0);z.streak=Number(v[6]||0)}}else z.legacyTotal+=Number(v[1]||0)});else if(!x)(a?.attempts||[]).forEach(at=>Array.isArray(at?.s)&&at.s.forEach(v=>{const id=v?.[0],n=Number(v?.[2]||0);if(id&&n)row(m,id).legacyTotal+=n}))});
  Object.values(m).forEach(x=>{x.pct=x.total?Math.round(x.correct/x.total*100):0;x.validPct=x.weightedTotal?Math.round(x.weightedCorrect/x.weightedTotal*100):0;const ok=x.last&&x.lastCorrect===x.lastTotal,days=ok?(x.streak>=3?45:x.streak===2?21:7):2;x.due=x.last?new Date(x.last+days*86400000):null});
  return m;
 }

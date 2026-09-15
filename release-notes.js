@@ -1,5 +1,19 @@
 window.ALFRED_RELEASES = [
   {
+    "version": "v16.3.1",
+    "date": "September 15, 2026",
+    "title": "Runtime Evidence Revision Hotfix",
+    "type": "Compatibility & Mastery Evidence Fix",
+    "request": "Audit the uploaded GitHub release and correct runtime defects without changing the 62-lesson instructional content, calendar, labs, Cloud Sync contract, or saved course history.",
+    "changes": [
+      "Fixed Standards, Analytics, and Progress consumers that still treated the old v15.8 bank revision as current. They now derive the active evidence revision from assessment metadata, which is intentionally 16.2 for v16.3 saved-run compatibility.",
+      "Prevented uncompleted rubric/self-reviewed semantic tasks from inflating the automatic Mastered breadth guard. Automatic mastery breadth now counts only active independently scored reviewed-bank items; semantic tasks remain a separate evidence type.",
+      "Updated learner-facing Standards and Analytics language so current versus historical evidence is described by the active evidence revision rather than stale v14.2/v15.8 labels.",
+      "Kept the course instructional release at v16.3 and the objective-bank evidence revision at 16.2; no assessment history, event identity, calendar UID, lab, lesson, or Cloud Sync migration is introduced.",
+      "Bumped the offline cache to alfred-u-v16-3-1 so GitHub Pages clients refresh the corrected runtime files cleanly."
+    ]
+  },
+  {
     "version": "v16.3",
     "date": "September 15, 2026",
     "title": "Final Instructional Depth — The Lesson Becomes the Professor",

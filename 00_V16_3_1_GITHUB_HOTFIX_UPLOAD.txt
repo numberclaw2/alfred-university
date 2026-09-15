@@ -1,0 +1,41 @@
+ALFRED UNIVERSITY AU-ESET 301 — v16.3.1 GITHUB RUNTIME HOTFIX
+
+This is a small overlay for the already-uploaded v16.3 release.
+Do NOT delete the rest of the repository and do NOT upload the ZIP itself.
+
+1. Extract Alfred-University-v16.3.1-GITHUB-RUNTIME-HOTFIX.zip.
+2. Upload every extracted file to the SAME GitHub repository root where index.html lives.
+3. When GitHub shows files with the same names, commit the replacements/updates.
+4. Keep all existing v16.3 lesson SVGs, PDFs, course data, calendar, labs, and other files in place.
+5. Wait for GitHub Pages to finish deploying, then reload the site. The service-worker cache name is now alfred-u-v16-3-1 so clients refresh the corrected runtime files.
+
+FILES REPLACED
+- README.md
+- standards.html
+- standards.js
+- analytics.js
+- progress.js
+- assessment-policy.js
+- quiz.js
+- service-worker.js
+- release-notes.js
+- AU-ESET-301-v16.3-Final-Lesson-Acceptance-Report.md
+
+NEW FILES
+- AU-ESET-301-v16.3.1-GitHub-Runtime-Hotfix-Report.md
+- 00_V16_3_1_GITHUB_HOTFIX_UPLOAD.txt
+
+WHAT THIS FIXES
+- Current assessment evidence revision is 16.2, but Standards/Analytics/Progress still treated 15.8 as current.
+- Valid new 16.2 evidence could therefore appear as legacy/revalidation evidence outside the quiz page.
+- Automatic Mastered breadth could count an uncompleted self/rubric-reviewed semantic-task mapping as if it were a second independently scored bank item.
+
+WHAT THIS DOES NOT CHANGE
+- 62 integrated lessons
+- 262 CETa + 78 Career semantic coverage
+- 24 labs
+- Week 18 cumulative embedded gate
+- 125 calendar events / UIDs / dates
+- Cloud Sync protocol 2 / D1 compatibility
+- saved progress keys
+- reviewed objective bank itself (evidence revision remains 16.2)

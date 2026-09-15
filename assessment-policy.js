@@ -1,5 +1,5 @@
 /* AU-ESET 301 v16.3 assessment policy overlay.
-   Keeps the vetted v15.8 question bank intact while integrating required
+   Keeps the reviewed 16.2 evidence-revision question bank intact while integrating required
    assessment gates into the v16 Classroom sequence. */
 (() => {
   const data = window.ALFRED_ASSESSMENT;

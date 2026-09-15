@@ -211,7 +211,7 @@ These evidence types are intentionally not collapsed into one misleading “340/
 - The Word accessibility audit retains medium structural warnings for layout/callout tables as described above.
 - The semantic matrix `guidedPractice` / `independentPractice` cells point to the integrated lesson practice associated with each standards row; they are not 340 separate unique competency drills. Competency-specific active demonstration is supplied by the row’s named semantic task/evidence route.
 
-## N. Final technical and package gate
+## N. Original v16.3 technical and package gate
 
 - Production JavaScript syntax: **24 files / 0 failures**.
 - HTML pages: **25**.
@@ -240,6 +240,18 @@ A separate pre-upload audit was run against the exact release candidate after th
 - The semantic matrix practice columns are explicitly documented as lesson-level practice associations rather than 340 unique drills; each row's named semantic task remains the competency-specific active demonstration/evidence route.
 
 After those corrections, JavaScript syntax, HTML references/anchors, service-worker assets, runtime assessment selection, semantic mapping, calendar identity, protected architecture hashes, flat-root ZIP structure, standalone-versus-ZIP file identity, and ZIP CRC were rerun against the corrected candidate.
+
+## P. Post-upload GitHub/runtime audit — v16.3.1 hotfix
+
+After the 140-file v16.3 release was uploaded to the public GitHub repository, the public web crawler still exposed an older cached repository/Pages snapshot. The exact uploaded release files were therefore audited directly rather than treating that stale crawl as proof of the new upload state. That runtime-focused audit found one material compatibility defect and one mastery-breadth defect:
+
+- `standards.js`, `analytics.js`, and the Progress assessment-intelligence summary still hard-coded assessment bank revision `15.8` as current. The actual reviewed objective evidence revision for v16.3 is intentionally `16.2`. As a result, newly saved 16.2 evidence could be misclassified as legacy/revalidation evidence outside the quiz page. The v16.3.1 hotfix makes all three consumers derive the active revision from `ALFRED_ASSESSMENT.meta.evidenceRevision` (falling back to the assessment version only if necessary).
+- `standards.js` counted the existence of an uncompleted rubric/self-reviewed semantic task as a second bank item for the automatic `Mastered` breadth guard. The hotfix now bases automatic mastery breadth only on active independently scored reviewed-bank items. Semantic tasks remain visible and required where assigned, but remain a separate rubric/self-reviewed evidence type rather than inflating objective-bank breadth.
+- `standards.html`, Analytics runtime language, `assessment-policy.js`, and `quiz.js` were cleaned so current evidence language and saved attempt metadata use the same evidence-revision authority.
+- The service-worker cache was bumped to **`alfred-u-v16-3-1`** so GitHub Pages clients refresh the corrected runtime files instead of continuing to serve the earlier cached JavaScript.
+- A synthetic runtime regression test loaded the real v16.3 assessment data and a current `bankRevision: 16.2` evidence shard. Standards recognized it as current validated evidence, and a standard with only one independently scored bank item remained blocked from automatic `Mastered` despite having a semantic-task mapping. A second synthetic Analytics test confirmed a current 16.2 record is counted as current rather than historical and that the learner-facing rule reports revision 16.2.
+
+The hotfix does **not** change lesson content, the 340-row semantic mapping, the 24 labs, calendar events/UIDs, Cloud Sync protocol 2, D1 compatibility, event/progress keys, or the 16.2 objective-bank evidence revision. It is a runtime consumer correction on top of the accepted v16.3 instructional release.
 
 ## Final decision
 
