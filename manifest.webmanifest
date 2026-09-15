@@ -20,6 +20,18 @@
   "scope": "./",
   "shortcuts": [
     {
+      "name": "Continue Classroom",
+      "short_name": "Learn",
+      "description": "Resume the complete required AU-ESET 301 lesson sequence.",
+      "url": "learn.html",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
       "name": "Start Studying",
       "short_name": "Study",
       "description": "Open the Alfred University guided study session.",

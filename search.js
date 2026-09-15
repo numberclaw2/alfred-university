@@ -1,5 +1,5 @@
 (()=>{
-const A=window.ALFRED_ACADEMIC||{},D=window.ALFRED_ASSESSMENT||{},W=window.ALFRED_WEEKS||[],E=window.ALFRED_EVENTS||[],R0=window.ALFRED_RESOURCES||[],REL=window.ALFRED_RELEASES||[];
+const A=window.ALFRED_ACADEMIC||{},D=window.ALFRED_ASSESSMENT||{},C=window.ALFRED_CURRICULUM||{},W=window.ALFRED_WEEKS||[],E=window.ALFRED_EVENTS||[],R0=window.ALFRED_RESOURCES||[],REL=window.ALFRED_RELEASES||[];
 const $=(s,r=document)=>r.querySelector(s); const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
 const norm=s=>String(s??'').toLowerCase().normalize('NFKD').replace(/[^a-z0-9+.#/\- ]/g,' ').replace(/\s+/g,' ').trim();
 const terms=q=>norm(q).split(' ').filter(Boolean);
@@ -7,6 +7,10 @@ const items=[];
 add('Site Tool','Competency Dashboard','Learning analytics dashboard for CETa readiness, career readiness, standards confidence, retention due, cognitive skill performance, difficulty performance, assessment trends, and lab evidence.','analytics.html',{source:'Alfred learning analytics'},5);
 function add(type,title,text,url,meta={},boost=1){items.push({type,title,text:String(text||''),url,meta,boost,hay:norm([title,text,JSON.stringify(meta)].join(' '))});}
 A.cetaDomains.forEach(d=>add('CETa Domain',`${d.id}.0 ${d.title}`,`${d.summary} ${d.keywords}`,'assessments.html#domain-'+d.id,{domain:d.id,weeks:d.weeks},5));
+(C.modules||[]).forEach(m=>{
+  (m.lessons||[]).forEach((lesson,index)=>add('Classroom Lesson',`Week ${String(m.week).padStart(2,'0')} · ${lesson.title}`,[m.promise,...(lesson.objectives||[]),...(lesson.sections||[]).flatMap(section=>[section.title,section.teach,section.remember]),lesson.worked?.problem,...(lesson.worked?.steps||[]),lesson.worked?.answer,...(m.commonMistakes||[])].join(' '),`learn.html?week=${m.week}&stage=${index===0?'ceta-lesson':'career-lesson'}`,{week:m.week,domain:m.standards?.ceta,track:lesson.track,source:'Alfred Classroom'},7));
+  add('Classroom Lesson',`Week ${String(m.week).padStart(2,'0')} · ${m.integration.title}`,[m.integration.brief,...(m.integration.guided||[]),m.integration.independent,m.integration.evidence,m.integration.practiceCheck].join(' '),`learn.html?week=${m.week}&stage=practice`,{week:m.week,domain:m.standards?.ceta,track:'CETa + Career',source:'Alfred Classroom'},6);
+});
 W.forEach(w=>add('Week Module',`Week ${String(w.week).padStart(2,'0')} · ${w.topic}`,(w.outcomes||[]).join(' '),'week.html?week='+w.week,{week:w.week},4));
 E.forEach(e=>add('Scheduled Session',e.summary,`${e.today||''} ${e.description||''} ${(e.outcomes||[]).join(' ')}`,'calendar.html?event='+e.id,{week:e.week,type:e.type},2));
 A.labs.forEach(l=>add('Lab',`${l.id} · ${l.title}`,`${l.objective} ${l.equipment} ${(l.procedure||[]).join(' ')} ${l.evidence} ${l.career}`,'labs.html?week='+l.week+'#'+encodeURIComponent(l.id),{week:l.week,domain:l.ceta},4));

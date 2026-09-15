@@ -1,8 +1,8 @@
-const CACHE='alfred-u-v15-8-1';
+const CACHE='alfred-u-v16-0';
 const CORE=[
   './','index.html','engineering.html','course.html','calendar.html','progress.html','resources.html','projects.html','documents.html','student-services.html','about.html','deployment.html','404.html','offline.html',
-  'study.html','search.html','week.html','practice.html','labs.html','assessments.html','quiz.html','standards.html','analytics.html','knowledge.html','patch-notes.html','academic-state.js',
-  'styles.css','site.js','progress.js','study.js','course-data.js','academic-content.js','academic.js','assessment-data.js','assessment-engine.js','readiness.js','assessment.js','quiz.js','standards.js','analytics.js','search.js','release-notes.js','patch-notes.js','manifest.webmanifest',
+  'study.html','learn.html','search.html','week.html','practice.html','labs.html','assessments.html','quiz.html','standards.html','analytics.html','knowledge.html','patch-notes.html','academic-state.js',
+  'styles.css','site.js','progress.js','study.js','learn.js','curriculum-data.js','course-data.js','academic-content.js','academic.js','assessment-data.js','assessment-policy.js','assessment-engine.js','readiness.js','assessment.js','quiz.js','standards.js','analytics.js','search.js','release-notes.js','patch-notes.js','manifest.webmanifest',
   'crest.webp','seal.webp','icon-180.png','icon-192.png','icon-512.png',
   'syllabus-cover.png','resource-manual-cover.png','assignment-lab-cover.png','binder-index-cover.png','certificate-cover.png',
   'Alfred University - AU-ESET 301 - Syllabus and Student Handbook.pdf',
@@ -11,6 +11,7 @@ const CORE=[
   'Alfred University - AU-ESET 301 - Student Course Binder Index.pdf',
   'Alfred University - AU-ESET 301 - Certificate of Course Completion.pdf',
   'Alfred University - AU-ESET 301 - Academic System Guide.pdf',
+  'AU-ESET-301-v16-Curriculum-and-Instruction-Plan.docx',
   'Embedded Career Transition Readiness Checklist.pdf',
   'Alfred University - AU-ESET 301 - Simplified Course Calendar.ics'
 ];

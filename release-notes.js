@@ -1,5 +1,29 @@
 window.ALFRED_RELEASES = [
   {
+    "version": "v16.0",
+    "date": "September 15, 2026",
+    "title": "Instructional Rebuild — The Classroom Becomes the Product",
+    "type": "Major Academic Release",
+    "request": "Rebuild the full 31-week program as a real asynchronous classroom that teaches CETa knowledge and electronics-to-embedded career skills in-house, with external resources supporting rather than replacing the lessons.",
+    "changes": [
+      "Added a complete 31-week Classroom path with 62 in-house lessons: one explicitly labeled CETa lesson and one explicitly labeled Career lesson every week, plus a CETa + Career application that joins both goals without allowing either to disappear.",
+      "Replaced optional learning checks with required instructional gates. Every lesson has an embedded knowledge check, targeted correct-answer feedback, a correction after a miss, and a safety-critical gate where the activity requires it.",
+      "Added a predictable seven-stage sequence—Start Here, CETa Lesson, Career Lesson, Teaching Media, Guided Practice, Lab/Application, and Weekly Mastery—with pause/resume state, one next action, Quiet Mode, text-first alternatives, and explicit required versus supplemental labels.",
+      "Wrote original teaching sequences for every lesson: learning objectives, three concept explanations, concise hold-onto-this summaries, worked examples, transfer prompts, corrective feedback, common mistakes, guided practice, independent transfer, and evidence contracts.",
+      "Added one compact concept map for every week so the learner can see the controlling relationship before reading the detail. Maps are text-based and keyboard/screen-reader friendly rather than decorative images.",
+      "Balanced the two program goals by design: 2,790 weighted minutes of CETa preparation and 2,790 weighted minutes of career preparation. Combined work counts half toward each track, and every weekly plan identifies the intended track label.",
+      "Mapped the scope against the current ETA Associate CET competency document, official exam information and formula sheet, O*NET and BLS technician work, the learner-provided private study-guide scope, and the approved university, government, manufacturer, and open-learning source stack. The private booklet is used as a scope reference and is not republished.",
+      "Kept external videos, university lectures, PDFs, simulations, manufacturer training, safety standards, embedded-development references, and career sources abundant, but placed them after Alfred's explanation and added a statement of what to watch for and what the in-house lesson still supplies.",
+      "Made weekly mastery cumulative and spaced: each required weekly assessment targets 80%, safety-critical checks target 100%, and missed work routes to a bounded correction and fresh attempt rather than a punishment streak. Calendar-event quizzes remain supplemental practice so the calendar does not create a competing course path.",
+      "Connected the Classroom to Lab Center requirements, virtual and physical evidence routes, lab checks, project bring-up, safe low-voltage boundaries, and the existing assessment/progress/sync records without changing Cloud Sync protocol 2, the Worker/D1 schema, recovery-key model, event IDs, or saved academic evidence.",
+      "Updated Home, Study, Week Overview, Calendar, Practice, Progress, Search, Resources, Student Services, and offline guidance so the Classroom is the authoritative teaching route while each surrounding page keeps its narrower job.",
+      "Added the complete AU-ESET 301 Curriculum and Instruction Plan as a Word document in the Document Center. It includes the standards rationale, teaching psychology/evidence basis, learner-access design, assessment and safety policy, every week's lesson plan, source-role map, maintenance limits, and cited sources.",
+      "Updated the PWA cache and manifest for learn.html, curriculum-data.js, assessment-policy.js, the current document plan, and the complete v16 route set. Release Notes remains in the existing More/About location by request.",
+      "Completed structural audits: 31 modules, 62 lessons, 62 embedded checks, 24 lab quizzes, 31 weekly tests, 3 readiness assessments, 1,195 assessment items, equal track minutes, complete lab records, valid offline asset references, and no curriculum validation errors.",
+      "The course remains a fictional independent-study environment, not an accredited institution. External sources can change, Alfred questions are supplemental rather than official ETA exam content, and physical work must remain within the learner's equipment, training, supervision, and safety limits."
+    ]
+  },
+  {
     "version": "v15.8.1",
     "date": "September 14, 2026",
     "title": "Complete Lab Readiness Guidance",

@@ -3,6 +3,7 @@
   const EVENTS = window.ALFRED_EVENTS || [];
   const WEEKS = window.ALFRED_WEEKS || [];
   const ASSESS = window.ALFRED_ASSESSMENT || {};
+  const CURRICULUM = window.ALFRED_CURRICULUM || {};
   const KEY = 'alfred-u-progress-v2';
   const LEGACY_KEY = 'alfred-u-progress-v1';
   const SYNC_KEY = 'alfred-u-sync-config-v1';
@@ -129,9 +130,28 @@
         if(s.outcomes?.[i]) doneOutcomes++;
       });
     });
-    const coursePct=totalEvents?Math.round((complete/totalEvents)*100):0;
+    const calendarPct=totalEvents?Math.round((complete/totalEvents)*100):0;
     const outcomePct=totalOutcomes?Math.round((doneOutcomes/totalOutcomes)*100):0;
-    return {totalEvents,complete,doneOutcomes,totalOutcomes,coursePct,outcomePct};
+    const modules=CURRICULUM.modules||[];
+    let classroomDone=0;
+    const classroomTotal=modules.length*7;
+    let masteredWeeks=0;
+    modules.forEach(module=>{
+      const raw=state.weeks?.[module.week];
+      const w=typeof raw==='string'?{mastery:raw,assessments:{},labs:{},learning:{}}:(raw||{});
+      const learning=w.learning||{};
+      ['orientation','ceta-lesson','career-lesson','media','practice'].forEach(stage=>{if(learning.completed?.[stage])classroomDone++;});
+      const labId=module.integration?.labId;
+      const applicationDone=labId
+        ? !!(w.labs?.[labId]?.virtual||w.labs?.[labId]?.physical)&&Number(w.assessments?.[`lab:${labId}`]?.bestPct||0)>=80
+        : !!learning.completed?.application;
+      if(applicationDone)classroomDone++;
+      const criticalDone=(module.lessons||[]).every((lesson,index)=>!lesson.knowledgeCheck?.critical||learning.checks?.[`lesson-${index}`]?.correct===true);
+      const masteryDone=Number(w.assessments?.[`week:${module.week}`]?.bestPct||0)>=Number(module.mastery?.target||80)&&criticalDone;
+      if(masteryDone){classroomDone++;masteredWeeks++;}
+    });
+    const coursePct=classroomTotal?Math.round(classroomDone/classroomTotal*100):calendarPct;
+    return {totalEvents,complete,doneOutcomes,totalOutcomes,coursePct,calendarPct,outcomePct,classroomDone,classroomTotal,masteredWeeks,totalWeeks:modules.length};
   }
 
   // -----------------------------
@@ -348,15 +368,28 @@
     $('#stat-course-completion').textContent=`${m.coursePct}%`;
     $('#bar-course-completion').style.width=`${m.coursePct}%`;
     $('#stat-events-complete').textContent=`${m.complete} / ${m.totalEvents}`;
-    $('#stat-outcomes-complete').textContent=`${m.outcomePct}%`;
+    $('#stat-classroom-stages').textContent=`${m.classroomDone} / ${m.classroomTotal}`;
+    $('#stat-weeks-mastered').textContent=`${m.masteredWeeks} / ${m.totalWeeks}`;
     const careerCount=Object.values(state.readiness||{}).filter(Boolean).length;
     $('#stat-career-gates').textContent=`${careerCount} / 5`;
 
     const w=currentWeek(),weekEvents=EVENTS.filter(e=>e.week===w),done=weekEvents.filter(e=>eventState(e.id).status==='complete').length;
-    const pct=weekEvents.length?Math.round((done/weekEvents.length)*100):0;
     $('#current-week-title').textContent=`Week ${String(w).padStart(2,'0')} · ${WEEKS.find(x=>x.week===w)?.topic||''}`;
-    $('#current-week-bar').style.width=`${pct}%`;
-    $('#current-week-meta').textContent=`${done} of ${weekEvents.length} scheduled items complete this week (${pct}%).`;
+    const currentRaw=state.weeks?.[w];
+    const currentRecord=typeof currentRaw==='string'?{}:(currentRaw||{});
+    const currentModule=(CURRICULUM.modules||[]).find(module=>module.week===w);
+    let stageCount=['orientation','ceta-lesson','career-lesson','media','practice'].filter(stage=>currentRecord.learning?.completed?.[stage]).length;
+    if(currentModule){
+      const labId=currentModule.integration?.labId;
+      const applicationDone=labId
+        ? !!(currentRecord.labs?.[labId]?.virtual||currentRecord.labs?.[labId]?.physical)&&Number(currentRecord.assessments?.[`lab:${labId}`]?.bestPct||0)>=80
+        : !!currentRecord.learning?.completed?.application;
+      if(applicationDone)stageCount++;
+      const criticalDone=(currentModule.lessons||[]).every((lesson,index)=>!lesson.knowledgeCheck?.critical||currentRecord.learning?.checks?.[`lesson-${index}`]?.correct===true);
+      if(Number(currentRecord.assessments?.[`week:${w}`]?.bestPct||0)>=Number(currentModule.mastery?.target||80)&&criticalDone)stageCount++;
+    }
+    $('#current-week-bar').style.width=`${Math.round(stageCount/7*100)}%`;
+    $('#current-week-meta').textContent=`${stageCount} of 7 required Classroom stages complete · ${done} of ${weekEvents.length} scheduled items complete.`;
   }
   function renderEvents(){
     const weekFilter=$('#progress-week-filter').value;

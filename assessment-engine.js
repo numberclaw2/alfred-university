@@ -1,4 +1,4 @@
-/* Alfred v15.7: a shared, deterministic selector for reviewed practice. */
+/* Alfred v16: shared deterministic selector for reviewed mastery and practice forms. */
 (()=>{
 function hash(s){let h=2166136261;for(const ch of String(s)){h^=ch.charCodeAt(0);h=Math.imul(h,16777619)}return h>>>0}
 function shuffle(a,seed){a=a.slice();let x=seed||1;for(let i=a.length-1;i>0;i--){x=(Math.imul(x,1664525)+1013904223)>>>0;const j=x%(i+1);[a[i],a[j]]=[a[j],a[i]]}return a}

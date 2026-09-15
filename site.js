@@ -177,7 +177,7 @@
   const filePage=(location.pathname.split('/').pop()||'index.html').replace(/\.html?$/,'')||'index';
   const pageKey=document.body?.dataset.page||filePage;
   const pageLabels={
-    index:'Home',home:'Home',study:'Study',week:'Week Modules',calendar:'Academic Calendar',
+    index:'Home',home:'Home',study:'Study',learn:'Classroom',week:'Week Overview',calendar:'Academic Calendar',
     practice:'Practice',progress:'Student Progress',analytics:'Mastery',
     'au-eset-301':'Course Overview',course:'Course Overview',engineering:'Engineering',
     resources:'Engineering Library',projects:'Projects',search:'Search Everything',
@@ -186,7 +186,8 @@
     about:'About','patch-notes':'Release Notes',deployment:'Deployment Notes',quiz:'Assessment'
   };
   const parentMap={
-    week:['Course Overview','course.html'],
+    learn:['Course Overview','course.html'],
+    week:['Classroom','learn.html'],
     engineering:['Course Overview','course.html'],
     projects:['Engineering','engineering.html'],
     resources:['Engineering Library','resources.html'],
@@ -240,7 +241,7 @@
     const menu=$('.nav-more-menu');
     if(!menu||menu.dataset.grouped==='true') return;
     const groups=[
-      {label:'Course & Library',links:['course.html','engineering.html','resources.html','projects.html','search.html','knowledge.html']},
+      {label:'Course & Library',links:['week.html','course.html','engineering.html','resources.html','projects.html','search.html','knowledge.html']},
       {label:'Practice & Mastery',links:['labs.html','assessments.html','standards.html']},
       {label:'Documents & Support',links:['documents.html','student-services.html','about.html','patch-notes.html']}
     ];
@@ -345,6 +346,7 @@
         <p>${bounds?`${fmtDate(bounds.first.toISOString(),{month:'long',day:'numeric'})} – ${fmtDate(bounds.last.toISOString(),{month:'long',day:'numeric',year:'numeric'})}`:''}</p>
         <div class="week-progress"><span style="width:${progress.toFixed(0)}%"></span></div>
         <div class="week-progress-meta"><span>Week start</span><span>${progress.toFixed(0)}% through calendar week</span><span>Week end</span></div>
+        <a class="button gold" href="learn.html?week=${w}">Continue Week ${String(w).padStart(2,'0')} Classroom</a>
       </section>
       <section class="week-dashboard-card">
         <h4>Next on your calendar</h4>
@@ -394,9 +396,9 @@
     return `
       <div class="modal-date">${fmtDate(e.start)} · ${fmtTime(e.start)}${e.week?` · Week ${String(e.week).padStart(2,'0')}`:''}</div>
       <h2 id="event-modal-title">${esc(e.summary.replace(/^AU-ESET 301 \| /,''))}</h2>
-      <p class="event-modal-intro">Start with today’s work. Use the outcomes as the finish line; open the reference notes only when you need more context.</p>
+      <p class="event-modal-intro">The calendar tells you when and what. The Classroom teaches it. Start with the required Classroom path, then use this event’s outcomes and timing as the finish line.</p>
       ${glanceHTML}${today}${outcomes}${mastery}${why}${completion}
-      <div class="modal-section event-quiz-cta"><h3>Optional Week Practice</h3><p>Up to five optional questions from this week’s learning. Use after completing this calendar item if a check helps.</p><a class="button green" href="quiz.html?type=lesson&id=${e.id}">Open optional week practice →</a></div>
+      <div class="modal-section event-quiz-cta"><h3>Required teaching and mastery path</h3><p>Open the complete Week ${String(e.week||1).padStart(2,'0')} lesson sequence: original teaching, expert media, worked examples, required checks, guided practice, lab/application, and weekly mastery.</p><a class="button green" href="learn.html?week=${e.week||1}">Continue in Classroom →</a> <a class="text-link" href="quiz.html?type=lesson&id=${e.id}">Open extra practice only if needed →</a></div>
       ${references}
       <details class="event-reference event-full-notes"><summary>Open full event notes <span>Source record</span></summary><div class="raw-desc">${linkify(ctx.raw)}</div></details>`;
   }

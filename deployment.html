@@ -29,17 +29,17 @@
 </a>
 <button aria-controls="primary-navigation" aria-expanded="false" aria-label="Open navigation" class="nav-toggle" type="button">☰</button>
 </div>
-<nav aria-label="Primary navigation" class="main-nav" id="primary-navigation"><div class="shell nav-links"><a href="index.html">Home</a><a href="study.html">Study</a><a href="week.html">Week</a><a href="calendar.html">Calendar</a><a href="practice.html">Practice</a><a href="progress.html">Progress</a><a href="analytics.html">Mastery</a><div class="nav-more"><button aria-expanded="false" aria-haspopup="true" class="nav-more-button" type="button">More <span aria-hidden="true">⌄</span></button><div class="nav-more-menu"><a href="course.html">Course Overview</a><a href="engineering.html">Engineering</a><a href="resources.html">Engineering Library</a><a href="projects.html">Projects</a><a href="search.html">Search Everything</a><a href="knowledge.html">Knowledge Base</a><a href="labs.html">Lab Center</a><a href="assessments.html">Assessment Center</a><a href="standards.html">Standards &amp; Retention</a><a href="documents.html">Documents</a><a href="student-services.html">Student Services</a><a href="about.html">About</a><a href="patch-notes.html">Release Notes</a></div></div></div></nav>
+<nav aria-label="Primary navigation" class="main-nav" id="primary-navigation"><div class="shell nav-links"><a href="index.html">Home</a><a href="study.html">Study</a><a href="learn.html">Learn</a><a href="calendar.html">Calendar</a><a href="practice.html">Practice</a><a href="progress.html">Progress</a><a href="analytics.html">Mastery</a><div class="nav-more"><button aria-expanded="false" aria-haspopup="true" class="nav-more-button" type="button">More <span aria-hidden="true">⌄</span></button><div class="nav-more-menu"><a href="week.html">Week Overview</a><a href="course.html">Course Overview</a><a href="engineering.html">Engineering</a><a href="resources.html">Engineering Library</a><a href="projects.html">Projects</a><a href="search.html">Search Everything</a><a href="knowledge.html">Knowledge Base</a><a href="labs.html">Lab Center</a><a href="assessments.html">Assessment Center</a><a href="standards.html">Standards &amp; Retention</a><a href="documents.html">Documents</a><a href="student-services.html">Student Services</a><a href="about.html">About</a><a href="patch-notes.html">Release Notes</a></div></div></div></nav>
 </header>
 <main>
 <section class="page-hero compact">
-<div class="shell"><div class="eyebrow">Site Administration</div><h1>Deployment Notes</h1><p>The university website is a static GitHub Pages frontend. Student Progress can synchronize through the production Cloudflare Worker and D1 database.</p></div>
+<div class="shell"><div class="eyebrow">Site Administration · v16.0</div><h1>Deployment Notes</h1><p>The university website is a static GitHub Pages frontend. The v16 Classroom is the instructional source of truth; Student Progress can synchronize through the production Cloudflare Worker and D1 database.</p></div>
 </section>
 <section class="section shell">
 <div class="split">
 <div>
 <h2>What to upload</h2>
-<p>Extract the complete flat ZIP and upload every file together to the existing repository root beside index.html. Do not upload a wrapper folder or the ZIP itself. No frontend build or backend migration is required.</p><p>All site navigation, calendar data, resources, PDFs, images, and the Apple Calendar file use relative links and are packaged together. The Progress Portal stores data locally first and can synchronize through <code>https://alfred-university-sync.totallywill13.workers.dev</code>.</p>
+<p>Extract the complete flat ZIP and upload every file together to the existing repository root beside index.html. Do not upload a wrapper folder or the ZIP itself. No frontend build or backend migration is required.</p><p>All site navigation, the 31-week Classroom curriculum, calendar data, resources, Word/PDF documents, images, and the Apple Calendar file use relative links and are packaged together. The Progress Portal stores data locally first and can synchronize through <code>https://alfred-university-sync.totallywill13.workers.dev</code>.</p>
 </div>
 <div>
 <h2>Mobile use</h2>
@@ -59,7 +59,7 @@
 <p>Department of Applied Electronics and Embedded Technology</p>
 </div>
 </div>
-<div><h3>Academic Resources</h3><a href="study.html">Start Studying</a><a href="search.html">Search Everything</a><a href="week.html">Week Modules</a><a href="labs.html">Engineering Lab Center</a><a href="assessments.html">Assessment Center</a><a href="standards.html">Standards &amp; Retention</a><a href="analytics.html">Competency Dashboard</a><a href="knowledge.html">Knowledge Base</a><a href="resources.html">Engineering Library</a></div>
+<div><h3>Academic Resources</h3><a href="study.html">Start Studying</a><a href="search.html">Search Everything</a><a href="learn.html">Classroom</a><a href="week.html">Week Overview</a><a href="labs.html">Engineering Lab Center</a><a href="assessments.html">Assessment Center</a><a href="standards.html">Standards &amp; Retention</a><a href="analytics.html">Competency Dashboard</a><a href="knowledge.html">Knowledge Base</a><a href="resources.html">Engineering Library</a></div>
 <div><h3>Student Services</h3><a href="progress.html">Student Progress</a><a href="student-services.html#career">Career Services</a><a href="student-services.html#lab-safety">Laboratory Safety</a><a href="projects.html">Project Center</a><a href="documents.html">Course Documents</a></div>
 </div>
 <div class="shell legal">
