@@ -1,4 +1,4 @@
-/* v16.1: bounded preparation guidance and explicit readiness evidence rules. */
+/* v16.3: bounded preparation guidance and explicit readiness evidence rules. */
 (()=>{'use strict';
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const host=document.getElementById('readiness-guide');
@@ -8,5 +8,5 @@ if(host){host.innerHTML=`<h2>Your two finish lines</h2><p>Use the existing assig
 if(location.pathname.endsWith('week.html')){const w=Number(new URLSearchParams(location.search).get('week'));if(w<21)host.querySelectorAll('details').forEach(d=>d.open=false);}
 }
 const coverage=document.getElementById('audit-coverage'),data=window.ALFRED_ASSESSMENT;
-if(coverage&&data){const rows=data.meta.coverage||[];coverage.innerHTML=rows.map(r=>`<details><summary>${esc(r.id)}. ${esc(r.title)} — ${r.practiceItems} practice items</summary><p><strong>Assigned book:</strong> ${esc(r.book)}. <strong>Course weeks:</strong> ${r.weeks.join(', ')}.</p><p>${r.directlySampled} of ${r.objectiveRows} listed objective rows have a directly tagged Alfred question. Parent and sub-objective rows are counted separately; this is not an exam weighting or mastery score.</p><p><strong>Use the booklet and competency checklist for remaining objectives:</strong> ${r.notDirectlySampled.length?r.notDirectlySampled.map(esc).join(', '):'All rows directly sampled; still practice beyond the bank.'}</p></details>`).join('');}
+if(coverage&&data){const rows=data.meta.coverage||[];coverage.innerHTML=rows.map(r=>`<details><summary>${esc(r.id)}. ${esc(r.title)} — ${r.practiceItems} active reviewed bank items</summary><p><strong>Assigned book:</strong> ${esc(r.book)}. <strong>Course weeks:</strong> ${r.weeks.join(', ')}.</p><p>${r.directlySampled} of ${r.objectiveRows} listed objective rows have a directly tagged active reviewed Alfred bank question. <strong>${r.semanticRows||0} of ${r.objectiveRows}</strong> have a required v16.3 subject-specific semantic task. These are different evidence types; neither is ETA exam weighting.</p><p><strong>Rows without a direct active bank question:</strong> ${r.notDirectlySampled.length?r.notDirectlySampled.map(esc).join(', '):'None.'} These rows are still assessed through their required topic-specific semantic task, weekly mastery, and any applicable lab/application evidence.</p></details>`).join('');}
 })();

@@ -1,4 +1,4 @@
-/* AU-ESET 301 v16.1 assessment policy overlay.
+/* AU-ESET 301 v16.3 assessment policy overlay.
    Keeps the vetted v15.8 question bank intact while integrating required
    assessment gates into the v16 Classroom sequence. */
 (() => {
@@ -6,10 +6,14 @@
   if (!data) return;
 
   data.meta = data.meta || {};
-  data.meta.version = '16.1';
+  // `version` remains the reviewed assessment-bank/evidence revision so valid v16.2 runs stay comparable.
+  // The course release itself is v16.3; keep these concepts separate.
+  data.meta.version = '16.2';
+  data.meta.releaseVersion = '16.3';
+  data.meta.evidenceRevision = '16.2';
   data.meta.updated = '2026-09-15';
-  data.meta.classroomPolicy = 'Two embedded lesson checks, one required lab check when a lab is assigned, and one required weekly mastery check are integrated into each Classroom module. Weekly and lab mastery require at least 80%; safety-critical embedded checks require 100%. CETa readiness requires two separate current full-length Alfred CETa practice runs at 85% or higher. Calendar-event quizzes remain supplemental retrieval practice.';
-  data.meta.sourcePolicy = 'Original Alfred assessment items aligned to the current ETA competency framework, the student-provided private sixth-edition study guide scope, authoritative technical sources, and technician/embedded work standards. No official ETA questions or private study-guide pages are republished. Scores are learning evidence, not certification, hiring qualification, or a guarantee.';
+  data.meta.classroomPolicy = 'Two embedded lesson checks, required v16.3 integrated subject-specific semantic tasks for the standards attached to each primary lesson, one required lab check when a lab is assigned, and one required weekly mastery check are integrated into each Classroom module. Weekly and lab mastery require at least 80%; safety-critical embedded checks require 100%. CETa readiness requires two separate current full-length Alfred CETa practice runs at 85% or higher. Calendar-event quizzes remain supplemental retrieval practice.';
+  data.meta.sourcePolicy = 'Original Alfred assessment items plus v16.3 integrated subject-specific constructed-response/performance tasks aligned to the current ETA competency framework, the student-provided private sixth-edition study guide scope, authoritative technical sources, and technician/embedded work standards. The 186 v16.1 generic coverage-fill questions remain preserved only for historical compatibility and do not count as current mastery evidence. No official ETA questions or private study-guide pages are republished. Scores and self-reviewed semantic tasks are learning evidence, not certification, hiring qualification, or a guarantee.';
 
   (data.lessonQuizzes || []).forEach(item => {
     item.optional = true;

@@ -8,7 +8,7 @@
   const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
   const KEY = 'alfred-u-progress-v2';
   const SYNC_KEY = 'alfred-u-sync-config-v1';
-  const DEVICE = 'classroom-v16';
+  const DEVICE = 'classroom-v16-3';
   const params = new URLSearchParams(location.search);
   const requestedWeek = Number(params.get('week'));
   let week = MODULES.some(m => m.week === requestedWeek) ? requestedWeek : (window.AlfredState?.currentWeek?.() || 1);
@@ -86,7 +86,7 @@
     const p = normalize(loadProgress());
     const w = weekObject(p.weeks[week]);
     const l = w.learning || {};
-    l.version = 1; l.completed = l.completed || {}; l.checks = l.checks || {}; l.responses = l.responses || {};
+    l.version = 1; l.completed = l.completed || {}; l.checks = l.checks || {}; l.responses = l.responses || {}; l.semanticTasks = l.semanticTasks || {};
     return {p,w,l};
   }
   function saveLearning(mutator,{sync=true,notify=true}={}){
@@ -120,8 +120,15 @@
     const description = track === 'CETa' ? 'Certification knowledge' : track === 'Career' ? 'Technician / embedded job skill' : 'Certification knowledge + job skill';
     return `<span class="lesson-track ${trackClass(track)}"><strong>${esc(track)}</strong><small>${esc(detail || description)}</small></span>`;
   }
+  function semanticTasksComplete(index,l=learningState().l){
+    const lessonItem=moduleData.lessons[index];
+    const items=lessonItem?.integrated?.semanticTasks||lessonItem?.semanticTeaching||[];
+    return items.every(item=>l.semanticTasks?.[item.taskId]?.complete===true);
+  }
   function stageComplete(stageId){
     const {w,l} = learningState();
+    if (stageId === 'ceta-lesson') return !!l.completed?.[stageId] && semanticTasksComplete(0,l);
+    if (stageId === 'career-lesson') return !!l.completed?.[stageId] && semanticTasksComplete(1,l);
     if (stageId === 'application') {
       const labId = moduleData.integration.labId;
       if (labId) {
@@ -174,45 +181,78 @@
     <button class="button green classroom-complete" data-complete="orientation" type="button">${stageComplete('orientation') ? '✓ Orientation complete' : 'I understand the week’s destination'}</button>`;
   }
 
-  function renderDepth(lessonItem){
-    const d=lessonItem.instructionalDepth;if(!d)return'';
-    const paragraphs=value=>String(value||'').split(/\n\n+/).filter(Boolean).map(x=>`<p>${esc(x)}</p>`).join('');
-    const block=(item,index)=>index===d.teaching.length-1&&/^Competency clinic/i.test(item.title)
-      ? `<details class="depth-competency-clinic"><summary><span>${esc(item.title)}</span><small>${d.coverage.length} exact requirement${d.coverage.length===1?'':'s'} · open for row-level teaching</small></summary><div>${paragraphs(item.text)}</div></details>`
-      : `<section class="depth-teaching-block"><span>${index+1}</span><div><h3>${esc(item.title)}</h3>${paragraphs(item.text)}</div></section>`;
-    return `<div class="instructional-depth" id="${esc(d.sectionId)}">
-      <section class="depth-overview"><div><span>v16.1 complete lesson</span><h3>Purpose, context, and prerequisite activation</h3></div><p><strong>Purpose:</strong> ${esc(d.purpose)}</p><p><strong>What and why:</strong> ${esc(d.whatWhy)}</p><p><strong>Prerequisites:</strong> ${esc(d.prerequisites)}</p><aside><strong>Retrieval before new work</strong><p>${esc(d.retrieval)}</p></aside></section>
-      <div class="depth-heading"><span>Alfred teaches the core</span><h3>Mechanism → representation → evidence</h3><p>External media comes later. These sections contain the required in-house explanation.</p></div>
-      <div class="depth-teaching">${d.teaching.map(block).join('')}</div>
-      <section class="depth-worked"><span>Worked reasoning · full diagnostic chain</span><h3>${esc(d.worked.problem)}</h3><dl><dt>Known information</dt><dd>${esc(d.worked.known)}</dd><dt>Reasoning and method</dt><dd>${esc(d.worked.reasoning)}</dd><dt>Work</dt><dd>${esc(d.worked.work)}</dd><dt>Result</dt><dd>${esc(d.worked.result)}</dd><dt>Sanity check</dt><dd>${esc(d.worked.sanity)}</dd><dt>Interpretation</dt><dd>${esc(d.worked.interpretation)}</dd></dl></section>
-      <section class="depth-misconceptions"><h3>Misconceptions and failure modes</h3><div>${d.misconceptions.map(x=>`<article><strong>${esc(x.mistake)}</strong><p><b>Why it is tempting:</b> ${esc(x.why)}</p><p><b>Repair:</b> ${esc(x.repair)}</p></article>`).join('')}</div></section>
-      <section class="depth-practice"><div><span>Guided practice</span><h3>Use support, then remove it</h3><ol>${d.guidedPractice.map(x=>`<li>${esc(x)}</li>`).join('')}</ol></div><div><span>Independent transfer</span><h3>Prove it in a changed context</h3><p>${esc(d.independentTransfer)}</p></div></section>
-      <section class="depth-connection"><div><h3>Technician / engineering connection</h3><p>${esc(d.technicianConnection)}</p></div><div><h3>Troubleshooting method</h3><p>${esc(d.troubleshooting)}</p></div></section>
-      <section class="depth-teachback"><span>Teach-back gate</span><h3>Explain it without borrowing the lesson’s words</h3><p>${esc(d.teachBack)}</p></section>
-      <details class="depth-coverage"><summary><span>Exact competency traceability</span><small>${d.coverage.length} row${d.coverage.length===1?'':'s'} taught here</small></summary>${d.coverage.length?`<div class="depth-coverage-list">${d.coverage.map(x=>`<article><strong>${esc(x.code)}</strong><p>${esc(x.officialRequirement)}</p><small>${esc(x.teachingSection)} · ${esc(x.teachingLevel)}</small></article>`).join('')}</div>`:'<p>This is a cumulative retention lesson; its earlier competency rows remain traceable in the coverage matrix.</p>'}</details>
-    </div>`;
+  function paragraphs(value){
+    return String(value||'').split(/\n\n+/).filter(Boolean).map(x=>`<p>${esc(x)}</p>`).join('');
+  }
+
+  function renderWorkedExample(example,label='Worked example'){
+    if(!example || !Object.keys(example).length)return '';
+    const steps=example.steps||[];
+    const answer=example.answer||example.result||'';
+    const meaning=example.meaning||example.transfer||example.interpretation||'';
+    return `<section class="worked-example integrated-worked"><div class="worked-label">${esc(label)} · follow the reasoning</div><h3>${esc(example.problem||'Technical reasoning')}</h3>${example.known?`<p><strong>Known:</strong> ${esc(example.known)}</p>`:''}${example.reasoning?`<p><strong>Reasoning:</strong> ${esc(example.reasoning)}</p>`:''}${steps.length?`<ol>${steps.map(x=>`<li>${esc(x)}</li>`).join('')}</ol>`:''}${example.work?`<p><strong>Work:</strong> ${esc(example.work)}</p>`:''}<div class="worked-answer"><strong>Answer / result</strong><p>${esc(answer)}</p></div>${meaning?`<p><strong>Meaning / transfer:</strong> ${esc(meaning)}</p>`:''}${example.sanity?`<p><strong>Sanity check:</strong> ${esc(example.sanity)}</p>`:''}</section>`;
+  }
+
+  function integratedChoiceOrder(q,index,checkIndex){
+    const items=(q.choices||[]).map((text,original)=>({text,original}));
+    let h=2166136261;
+    for(const ch of `${week}:${index}:${checkIndex}:${q.prompt||''}`){h^=ch.charCodeAt(0);h=Math.imul(h,16777619)}
+    let x=h>>>0;
+    for(let i=items.length-1;i>0;i--){x=(Math.imul(x,1664525)+1013904223)>>>0;const j=x%(i+1);[items[i],items[j]]=[items[j],items[i]]}
+    return items;
+  }
+
+  function renderIntegratedChecks(lessonItem,index){
+    const checks=lessonItem.integrated?.checks||[];
+    if(!checks.length)return '';
+    return `<section class="integrated-checks"><div class="integrated-section-head"><span>Check your understanding</span><h3>Use the lesson, then answer without guessing</h3></div>${checks.map((q,i)=>{
+      if(q.type==='mcq'){const displayed=integratedChoiceOrder(q,index,i);return `<article class="integrated-check" data-integrated-check="${index}-${i}"><p><strong>${esc(q.prompt)}</strong></p><div class="check-options">${displayed.map((item,j)=>`<label><input type="radio" name="integrated-check-${index}-${i}" value="${item.original}"><span>${String.fromCharCode(65+j)}. ${esc(item.text)}</span></label>`).join('')}</div><button class="button outline-green integrated-mcq-submit" data-lesson="${index}" data-check="${i}" type="button">Check answer</button><p class="check-feedback" role="status"></p></article>`;}
+      return `<article class="integrated-check"><p><strong>${esc(q.prompt)}</strong></p><textarea rows="4" maxlength="2000" placeholder="Work this out before opening the answer."></textarea><details class="answer-reveal"><summary>Compare with the model answer</summary><p>${esc(q.answer_text||q.explanation||'')}</p></details></article>`;
+    }).join('')}</section>`;
+  }
+
+  function renderIntegratedSemanticTasks(lessonItem){
+    const items=lessonItem.integrated?.semanticTasks||[];
+    if(!items.length)return '';
+    const l=learningState().l;
+    return `<section class="semantic-evidence" aria-label="Required competency evidence"><div class="integrated-section-head"><span>Required competency evidence</span><h3>Demonstrate the technical content in your own words or artifact</h3><p>These tasks assess subject-specific knowledge already taught above. They are not teaching substitutes. Generic process language does not pass.</p></div>${items.map(item=>{const saved=l.semanticTasks?.[item.taskId]||{};const checked=new Set(saved.checked||[]);return `<article class="semantic-topic compact-semantic" data-sem-task="${esc(item.taskId)}"><div class="semantic-topic-head"><div><span>${esc((item.codes||[]).join(', '))}</span><h3>${esc(item.title)}</h3></div><b>${saved.complete?'✓ Complete':esc(item.taskId)}</b></div><div class="semantic-check"><p><strong>Prompt:</strong> ${esc(item.prompt)}</p><label class="semantic-response-label" for="sem-response-${esc(item.taskId)}"><strong>Your technical response or exact artifact pointer</strong><small>Address the actual facts, relationships, calculations, device behavior, or evidence named in the rubric.</small></label><textarea id="sem-response-${esc(item.taskId)}" data-sem-response="${esc(item.taskId)}" rows="5" maxlength="6000">${esc(saved.response||'')}</textarea><p><strong>A passing response must include:</strong></p><ul class="semantic-required">${(item.required||[]).map((x,j)=>`<li><label><input type="checkbox" data-sem-required="${esc(item.taskId)}" value="${j}"${checked.has(j)?' checked':''}><span>${esc(x)}</span></label></li>`).join('')}</ul><button class="button ${saved.complete?'outline-green':'green'} semantic-complete" data-sem-complete="${esc(item.taskId)}" type="button">${saved.complete?'✓ Competency evidence saved':'Save competency evidence'}</button><p class="semantic-rule" id="sem-status-${esc(item.taskId)}">${saved.complete?'Response and required elements recorded.':'A substantive response plus every required technical element is required.'}</p></div></article>`}).join('')}</section>`;
+  }
+
+  function renderIntegratedLesson(lessonItem,index){
+    const d=lessonItem.integrated;
+    if(!d)return '<p>Integrated v16.3 lesson data is unavailable.</p>';
+    const visual=d.visualId?`<figure class="lesson-visual"><img src="${esc(d.visualId)}.svg" alt="Instructional diagram for ${esc(lessonItem.title)}"><figcaption>Use the diagram to explain the relationship or sequence before moving to practice.</figcaption></figure>`:'';
+    return `<section class="integrated-lesson" data-v="16.3">
+      <section class="integrated-purpose"><div><span>v16.3 integrated lesson · ${esc(lessonItem.track)}</span><h3>Purpose and prerequisite</h3></div><p>${esc(d.purpose)}</p><aside><strong>Bring this forward:</strong><p>${esc(d.prereq)}</p></aside></section>
+      ${visual}
+      <div class="integrated-section-head"><span>Alfred teaches the subject</span><h3>Technical instruction</h3><p>The sections below are the lesson itself. External resources come later as reinforcement.</p></div>
+      <div class="integrated-teaching">${(d.teaching||[]).map((section,i)=>`<section class="integrated-teaching-block${section.critical?' critical-teaching':''}"><span class="concept-number">${i+1}</span><div><h3>${esc(section.title)}</h3>${paragraphs(section.text)}${section.remember?`<aside><strong>Hold onto this</strong><p>${esc(section.remember)}</p></aside>`:''}${section.critical?'<div class="critical-flag">Safety-critical: understand this boundary before related physical work.</div>':''}</div></section>`).join('')}</div>
+      <div class="integrated-section-head"><span>Worked reasoning</span><h3>See the model used, then use it yourself</h3></div>
+      <div class="integrated-worked-grid">${(d.workedExamples||[]).map((x,i)=>renderWorkedExample(x,i===0?'Worked example 1':'Worked example 2')).join('')}</div>
+      <section class="integrated-misconceptions"><div class="integrated-section-head"><span>Common misconceptions</span><h3>Why the tempting shortcut fails</h3></div><div>${(d.misconceptions||[]).map(x=>`<article><strong>${esc(x.mistake)}</strong><p><b>Why it is tempting:</b> ${esc(x.why)}</p><p><b>Repair the model:</b> ${esc(x.repair)}</p></article>`).join('')}</div></section>
+      <section class="integrated-practice"><div><span>Guided practice</span><h3>Work concrete problems with support</h3><ol>${(d.guidedPractice||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ol></div><div><span>Independent practice</span><h3>Changed scenario — no copying</h3><p>${esc(d.independentScenario)}</p></div></section>
+      <section class="integrated-connection"><div><span>Technician / embedded connection</span><h3>Where this shows up in real work</h3><p>${esc(d.connection)}</p></div><div><span>Specific teach-back</span><h3>Explain the mechanism, not the wording</h3><p>${esc(d.teachBack)}</p></div></section>
+      ${renderIntegratedChecks(lessonItem,index)}
+      ${renderIntegratedSemanticTasks(lessonItem)}
+    </section>`;
   }
 
   function renderLesson(index){
     const lessonItem = moduleData.lessons[index];
-    const stageId = index === 0 ? 'ceta-lesson' : 'career-lesson';
     const saved = learningState().l.checks?.[`lesson-${index}`] || {};
     const checkItem = lessonItem.knowledgeCheck;
     return `<div class="classroom-stage-head">
-      <div><span class="stage-count">Stage ${index + 2} of ${STAGES.length} · Required · about ${lessonItem.minutes} minutes</span><h2>${esc(lessonItem.title)}</h2><p>Alfred’s lesson is complete instruction. The resource stage adds other teachers and references afterward.</p></div>${trackBadge(lessonItem.track)}
+      <div><span class="stage-count">Stage ${index + 2} of ${STAGES.length} · Required · about ${lessonItem.minutes} minutes</span><h2>${esc(lessonItem.title)}</h2><p>This is the primary instruction. Videos, articles, and documentation in the next stage reinforce what Alfred teaches here.</p></div>${trackBadge(lessonItem.track)}
     </div>
     <section class="lesson-objectives"><h3>By the end, you can</h3><ul>${lessonItem.objectives.map(x => `<li>${esc(x)}</li>`).join('')}</ul></section>
-    ${index === 0 ? renderConceptMap() : ''}
-    <div class="teaching-sections">${lessonItem.sections.map((section,i) => `<section class="teaching-block${section.critical ? ' critical-teaching' : ''}"><span class="concept-number">${i + 1}</span><div><h3>${esc(section.title)}</h3><p>${esc(section.teach)}</p><aside><strong>Hold onto this</strong><p>${esc(section.remember)}</p></aside>${section.critical ? '<div class="critical-flag">Safety-critical: do not continue to related hands-on work until this rule is correct.</div>' : ''}</div></section>`).join('')}</div>
-    ${renderDepth(lessonItem)}
-    <section class="worked-example"><div class="worked-label">Worked example · follow the reasoning</div><h3>${esc(lessonItem.worked.problem)}</h3><ol>${lessonItem.worked.steps.map(x => `<li>${esc(x)}</li>`).join('')}</ol><div class="worked-answer"><strong>Answer</strong><p>${esc(lessonItem.worked.answer)}</p></div><p><strong>Transfer:</strong> ${esc(lessonItem.worked.transfer)}</p></section>
+    ${renderIntegratedLesson(lessonItem,index)}
     <section class="required-check${checkItem.critical ? ' critical-check' : ''}" data-lesson-check="${index}">
-      <div class="required-check-head"><div><span>${checkItem.critical ? 'Safety-critical check · 100% required' : 'Required knowledge check · correct answer required'}</span><h3>${esc(checkItem.prompt)}</h3></div>${saved.correct ? '<b class="check-passed">✓ Passed</b>' : ''}</div>
+      <div class="required-check-head"><div><span>${checkItem.critical ? 'Safety-critical gate · 100% required' : 'Required lesson gate · correct answer required'}</span><h3>${esc(checkItem.prompt)}</h3></div>${saved.correct ? '<b class="check-passed">✓ Passed</b>' : ''}</div>
       <div class="check-options">${checkItem.choices.map((choice,i) => `<label><input type="radio" name="lesson-check-${index}" value="${i}"${saved.correct ? ' disabled' : ''}><span>${String.fromCharCode(65+i)}. ${esc(choice)}</span></label>`).join('')}</div>
       <button class="button ${saved.correct ? 'outline-green' : 'green'} submit-lesson-check" data-check-index="${index}" type="button"${saved.correct ? ' disabled' : ''}>${saved.correct ? 'Correct · stage complete' : 'Check my answer'}</button>
       <div class="check-feedback ${saved.correct ? 'correct' : ''}" role="status">${saved.correct ? esc(checkItem.correct) : ''}</div>
     </section>
-    ${saved.correct ? `<div class="stage-complete-confirmation">✓ ${esc(STAGES[index + 1].label)} complete. Continue when you are ready.</div>` : ''}`;
+    ${saved.correct && semanticTasksComplete(index) ? `<div class="stage-complete-confirmation">✓ ${esc(STAGES[index + 1].label)} complete. Continue when you are ready.</div>` : ''}`;
   }
 
   function renderMedia(){
@@ -269,7 +309,35 @@
   }
 
   function bindStage(){
+    $$('.integrated-mcq-submit').forEach(button=>button.addEventListener('click',()=>{
+      const li=Number(button.dataset.lesson), qi=Number(button.dataset.check);
+      const q=moduleData.lessons[li]?.integrated?.checks?.[qi];
+      const card=button.closest('.integrated-check');
+      const selected=card?.querySelector(`input[name="integrated-check-${li}-${qi}"]:checked`);
+      const feedback=card?.querySelector('.check-feedback');
+      if(!selected){if(feedback){feedback.textContent='Choose an answer first.';feedback.className='check-feedback error';}return;}
+      const ok=Number(selected.value)===Number(q.answer);
+      if(feedback){feedback.textContent=ok?`Correct. ${q.explanation||''}`:`Not yet. ${q.explanation||'Return to the lesson and try the reasoning again.'}`;feedback.className=`check-feedback ${ok?'correct':'error'}`;}
+    }));
     $$('[data-complete]').forEach(button => button.addEventListener('click',() => {markComplete(button.dataset.complete);renderStage();setMessage('Saved. Continue when ready.','success');}));
+    const semTimers=new Map();
+    $$('[data-sem-response]').forEach(area=>area.addEventListener('input',()=>{
+      const id=area.dataset.semResponse; clearTimeout(semTimers.get(id));
+      semTimers.set(id,setTimeout(()=>saveLearning(l=>{const prior=l.semanticTasks[id]||{};l.semanticTasks[id]={...prior,response:area.value,updatedAt:new Date().toISOString()};},{sync:false,notify:false}),350));
+    }));
+    $$('.semantic-complete').forEach(button=>button.addEventListener('click',()=>{
+      const id=button.dataset.semComplete;
+      const card=button.closest('[data-sem-task]');
+      const area=card?.querySelector(`[data-sem-response="${id}"]`);
+      const boxes=[...(card?.querySelectorAll(`[data-sem-required="${id}"]`)||[])];
+      const response=area?.value.trim()||'';
+      const checked=boxes.filter(x=>x.checked).map(x=>Number(x.value));
+      const status=card?.querySelector(`#sem-status-${id}`);
+      if(response.length<80){if(status)status.textContent='Add a real technical response (at least 80 characters) before saving.';area?.focus();setMessage('The semantic check needs a substantive technical response.','error');return;}
+      if(checked.length!==boxes.length){if(status)status.textContent='Review the response against every required element and check each one only when it is actually addressed.';setMessage('Every required technical element must be addressed before this semantic check is complete.','error');return;}
+      saveLearning(l=>{l.semanticTasks[id]={response,checked,complete:true,updatedAt:new Date().toISOString()};});
+      renderStage();updateChrome();setMessage('Subject-specific semantic check saved.','success');
+    }));
     $$('.submit-lesson-check').forEach(button => button.addEventListener('click',() => {
       const index = Number(button.dataset.checkIndex);
       const lessonItem = moduleData.lessons[index];

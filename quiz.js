@@ -1,7 +1,8 @@
 (()=>{
 const D=window.ALFRED_ASSESSMENT||{}, $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const EVIDENCE_REVISION='16.1';
+// Evidence revision intentionally remains 16.2: the reviewed bank did not change in the v16.3 lesson-depth release.
+const EVIDENCE_REVISION='16.2';
 const KEY='alfred-u-progress-v2', SYNC_KEY='alfred-u-sync-config-v1';
 const params=new URLSearchParams(location.search), type=params.get('type')||'lesson', id=params.get('id')||'1';
 let REQUIRED=params.get('required')==='1'||type==='week';
@@ -18,7 +19,7 @@ const prior=priorAssessment();
 const attemptNo=Math.max(Number(prior.attemptCount||0),...(prior.attempts||[]).map(x=>Number(x.form||0)),(prior.attempts||[]).length)+1;
 function evidenceQuestion(q){return q?.masteryEvidence!==false&&q?.difficulty!=='Orientation'}
 let questions=[];
-try{questions=window.AlfredAssessmentEngine.select(D,A,attemptNo)}catch(error){document.querySelector('main').innerHTML='<section class="section shell"><h1>Practice could not load</h1><p>The release files may be incomplete. Refresh after uploading the complete v16.1 release.</p><a href="assessments.html">Return to assessments</a></section>';return}
+try{questions=window.AlfredAssessmentEngine.select(D,A,attemptNo)}catch(error){document.querySelector('main').innerHTML='<section class="section shell"><h1>Practice could not load</h1><p>The release files may be incomplete. Refresh after uploading the complete v16.3 release.</p><a href="assessments.html">Return to assessments</a></section>';return}
 const answers={};let started=Date.now(),submitted=false;
 const actualMix={CETa:questions.filter(q=>q.track==='CETa').length,Career:questions.filter(q=>q.track==='Career').length};
 const shortForm=questions.length<A.count;

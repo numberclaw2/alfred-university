@@ -1,42 +1,35 @@
-ALFRED UNIVERSITY v16.1 — INSTRUCTIONAL COMPLETION — FLAT UPLOAD
+ALFRED UNIVERSITY v16.3 — FINAL INSTRUCTIONAL DEPTH — FLAT UPLOAD
 
-The complete website contains 78 files directly at the ZIP root.
-No nested folders. No frontend build. No Worker or D1 migration.
+This is a complete flat GitHub Pages release.
+No nested project folder. No frontend build. No Worker or D1 migration.
 
-1. Open Progress on the existing site and choose Export Backup.
-   Save your Recovery / Student Sync Key separately; it is not in the export.
-2. Extract Alfred-University-v16.1-INSTRUCTIONAL-COMPLETION-FINAL-FLAT.zip on your computer.
-3. Open the existing numberclaw2/alfred-university repository at the root,
-   where index.html already lives.
-4. Choose Add file > Upload files and select ALL 78 extracted files together.
-   Do not upload the ZIP, a wrapper folder, or duplicates ending in (1).
-5. Commit replacements. Keep the existing GitHub Pages branch/root setting.
-6. After Pages deployment finishes, close old Alfred tabs and reopen the site.
-   Release Notes should show v16.1 at the top: “Instructional Completion — Every Requirement Gets a Teaching Path.”
+1. On the existing Alfred site, open Progress and choose Export Backup.
+   Save the Recovery / Student Sync Key separately; it is not included in the export.
+2. Extract Alfred-University-v16.3-FINAL-INSTRUCTIONAL-DEPTH-FLAT.zip on your computer.
+3. Open the existing numberclaw2/alfred-university repository at the root where index.html already lives.
+4. Choose Add file > Upload files and select ALL extracted files together.
+   Do not upload the ZIP itself and do not create a wrapper directory.
+5. Commit the replacements. Keep the existing GitHub Pages branch/root setting and site address.
+6. After Pages finishes deploying, close old Alfred tabs and reopen the normal site URL.
+   Release Notes should show v16.3 at the top: “Final Instructional Depth — The Lesson Becomes the Professor.”
 
 QUICK CHECK AFTER UPLOAD
-- At 100% zoom, click More. Every destination, including Release Notes, must
-  be reachable. The menu scrolls internally when the screen is short.
-- Open Study and start/resume. Confirm your existing Progress records remain.
-  Do not mark real work complete just to test the website.
-- Open Learn / Classroom. Choose a week and confirm the seven-stage path, the in-house
-  CETa and Career lessons, required knowledge checks, and the weekly mastery gate.
-- Open Calendar, switch Month / Week / Agenda, and open an event.
-- Open Documents and confirm the v16.1 Curriculum & Instruction Plan opens as a Word file.
-- Open the Academic System Guide and confirm the live workflow is still present.
-- If using Cloud Sync, check its status on your normal device.
+- At 100% zoom, open More and verify every destination remains reachable.
+- Open Learn / Classroom. A lesson should render as one integrated lesson: subject-specific instruction, an instructional visual when useful, worked examples, guided practice, a concrete independent scenario, misconceptions/repairs, knowledge checks, and any required semantic evidence task—without the old stacked instructional-completion layer.
+- Open Assessments. The page should report 223 active reviewed bank items; the 186 v16.1 generic fill questions are historical only and must not appear in selected mastery forms.
+- Open Standards. Current rows should show a v16.3 subject-specific teaching route and semantic task ID.
+- Open Calendar, switch Month / Week / Agenda, and open an event. Event dates/identity remain unchanged; malformed corrupted AST/practice wording should be absent.
+- Open Documents and confirm the v16.3 Curriculum & Instruction Plan, Lesson-Depth Audit, Semantic Coverage Matrix, and Final Lesson Acceptance Report open correctly.
+- Open Progress and confirm existing completion/history is still present.
+- If you use Cloud Sync, verify its status on your normal device.
 
 DO NOT CLEAR BROWSER SITE DATA AS A NORMAL UPDATE STEP.
-That can erase local progress and the stored key. The service worker updates
-its own cache without requiring a learner-data reset. Do not erase the cloud
-record as a troubleshooting step.
+That can erase local progress and the locally stored recovery key. The v16.3 service worker advances the application cache without requiring a learner-data reset.
 
-Historical quiz scores remain. Some mastery rows may say Revalidation Needed
-because earlier aggregates mixed in later-retired questions. Current Classroom
-checks and assessments build current evidence; completed coursework is not reset.
+Cloud Sync remains on protocol 2 and the existing D1 record model. The production Worker URL is unchanged:
+https://alfred-university-sync.totallywill13.workers.dev
 
-The private CETa booklet, Recovery Key, exported backups and QA files must not
-be uploaded to GitHub. The separate audit report is for you and need not be
-uploaded. Old unused mirror scripts and hotfix notes can remain in the repo;
-the current app does not load them. Keep the same site address to retain the
-browser's access to its local data.
+IMPORTANT ASSESSMENT NOTE
+v16.3 preserves the 186 v16.1 generated coverage-fill question IDs for saved-history compatibility but retires them from current mastery evidence. The active auto-graded bank contains the pre-existing substantive reviewed items. Complete row-level coverage is supplied by required topic-specific constructed-response/performance tasks integrated into Classroom; those responses are learner-audited against explicit technical rubrics rather than falsely auto-graded by generic text matching.
+
+The private ETA study guide, Recovery / Student Sync Key, and personal exported backups are not part of this package and must not be committed to the public repository.

@@ -1,6 +1,7 @@
-/* AU-ESET 301 v16.1 — current-row assessment completion.
-   Adds one reviewed scenario path for each official/current row that did not
-   already have an active substantive item. Original Alfred practice only. */
+/* AU-ESET 301 v16.3 — historical v16.1 assessment-ID compatibility.
+   Reconstructs the 186 legacy v16.1 filler IDs so saved histories continue to
+   resolve, but creates them RETIRED from the start. They are never current
+   mastery evidence and never satisfy semantic assessment coverage. */
 (() => {
   const D = window.ALFRED_ASSESSMENT;
   if (!D || !Array.isArray(D.questions)) return;
@@ -78,9 +79,9 @@
       prompt:promptFrames[hash(`${row.code}-prompt`) % promptFrames.length](row,rowText),
       choices,answer,
       explanation:`Choice ${String.fromCharCode(65 + answer)} is correct because it performs the action required by ${row.code} and preserves inspectable reasoning or evidence. ${specific} The other choices omit performance evidence, hide uncontrolled trial-and-error, or substitute somebody else’s explanation for the learner’s own demonstrated understanding.`,
-      difficulty:difficulty(row.category),kind:'MCQ',skill:skill(row.category),questionClass:'substantive',masteryEvidence:true,evidenceWeight:0.7,
+      difficulty:difficulty(row.category),kind:'MCQ',skill:skill(row.category),questionClass:'retired-v161-semantic-filler',masteryEvidence:false,retired:true,evidenceWeight:0,retirementReason:'v16.3: generic v16.1 coverage-fill item preserved only for historical ID compatibility; never current mastery evidence.',
       sourceRef:`${row.id} · ${row.sourceChapter || row.categoryTitle}`,
-      audit:{status:'editorially-reviewed',date:'2026-09-15',reviewer:'AI-assisted curriculum-alignment and key review; not external psychometric validation',note:'Original Alfred evidence-discrimination scenario with deterministic answer-position balancing. The keyed response is the only choice that performs the requirement through controlled reasoning, evidence, and verification; no official ETA question is reproduced. This item supports retrieval and coverage but cannot establish mastery by itself.',sources:[{title:row.track==='CETa'?'ETA Associate CET competency requirements':'Alfred career evidence framework',url:row.track==='CETa'?'https://www.etai.org/comps/CETa_comps.pdf':'https://www.onetonline.org/link/summary/17-3023.00',locator:row.code}]},
+      audit:{status:'retired-history',date:'2026-09-15',reviewer:'Historical compatibility record',note:'Legacy v16.1 generic coverage-fill item. Retained only so saved question IDs remain resolvable. It is excluded from graded selection, mastery evidence, and semantic coverage.',sources:[{title:row.track==='CETa'?'ETA Associate CET competency requirements':'Alfred career evidence framework',url:row.track==='CETa'?'https://www.etai.org/comps/CETa_comps.pdf':'https://www.onetonline.org/link/summary/17-3023.00',locator:row.code}]},
       minWeek:home[row.category] || 1,family:`v161-${row.category}-${row.code}`
     });
     covered.add(row.code);
@@ -98,12 +99,12 @@
   D.majorAssessments.forEach(m => {
     if (m.id === 'ceta-mock') Object.assign(m,{requiredRuns:2,qualifyingTarget:85,readinessRule:'Two separate current full-length Alfred CETa practice runs at 85% or higher. This is an internal readiness rule, not ETA’s official passing standard or a guarantee.'});
   });
-  D.meta = {...D.meta,version:'16.1',updated:'2026-09-15',questionCount:D.questions.length,cetaQuestionCount:D.questions.filter(q=>q.track==='CETa').length,careerQuestionCount:D.questions.filter(q=>q.track==='Career').length,gradedQuestionCount:current.length,completionAudit:{generatedCurrentItems:generated.length,cetaRowsWithCurrentAssessment:D.cetaStandards.filter(s=>currentSet.has(s.code)).length,careerRowsWithCurrentAssessment:D.careerStandards.filter(s=>currentSet.has(s.code)).length,cetaRowsTotal:D.cetaStandards.length,careerRowsTotal:D.careerStandards.length,incorrectKnownKeys:0,policy:'Every row has a current reviewed retrieval/application question path. Calculation, safety, measurement, troubleshooting and physical standards also require lesson practice, teach-back, later retention, and/or practical evidence; one MCQ alone is not mastery.'},audit:{...(D.meta.audit||{}),date:'2026-09-15',status:'v16.1-current-row-complete',structurallyScreened:D.questions.length,editoriallyReviewed:current.length,remainingGradedReview:0,note:'All current rows have an original reviewed Alfred assessment path. Items are not official ETA questions and are not psychometrically validated.'}};
+  D.meta = {...D.meta,version:'16.3',updated:'2026-09-15',questionCount:D.questions.length,cetaQuestionCount:D.questions.filter(q=>q.track==='CETa').length,careerQuestionCount:D.questions.filter(q=>q.track==='Career').length,gradedQuestionCount:current.length,completionAudit:{generatedHistoricalItems:generated.length,generatedCurrentItems:0,cetaRowsWithDirectReviewedBankQuestion:D.cetaStandards.filter(s=>currentSet.has(s.code)).length,careerRowsWithDirectReviewedBankQuestion:D.careerStandards.filter(s=>currentSet.has(s.code)).length,cetaRowsTotal:D.cetaStandards.length,careerRowsTotal:D.careerStandards.length,incorrectKnownKeys:0,policy:'The 186 legacy v16.1 filler IDs are reconstructed only for saved-history compatibility and are retired at creation. Current row-level assessment coverage comes from reviewed bank questions plus v16.3 subject-specific semantic/performance tasks.'},audit:{...(D.meta.audit||{}),date:'2026-09-15',status:'v16.3-historical-id-compatibility',structurallyScreened:D.questions.length,editoriallyReviewed:current.length,retiredV161GenericQuestions:generated.length,remainingGradedReview:0,note:'Legacy filler IDs remain resolvable but are never active mastery evidence. No official ETA questions or private booklet pages are republished.'}};
   (D.meta.coverage||[]).forEach(c => {
     const rows=D.cetaStandards.filter(s=>s.category===String(c.id));
     c.practiceItems=current.filter(q=>q.track==='CETa'&&(q.standards||[]).some(id=>rows.some(s=>s.id===id))).length;
     c.directlySampled=rows.filter(s=>currentSet.has(s.code)).length;
     c.notDirectlySampled=rows.filter(s=>!currentSet.has(s.code)).map(s=>s.code);
   });
-  window.ALFRED_ASSESSMENT_COMPLETION = {version:'16.1',generated,activeCount:current.length};
+  window.ALFRED_ASSESSMENT_COMPLETION = {version:'16.3',generated,retiredLegacyCount:generated.length,activeCount:current.length};
 })();

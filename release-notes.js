@@ -1,5 +1,38 @@
 window.ALFRED_RELEASES = [
   {
+    "version": "v16.3",
+    "date": "September 15, 2026",
+    "title": "Final Instructional Depth — The Lesson Becomes the Professor",
+    "type": "Final Academic Depth Rebuild",
+    "request": "Replace the remaining stacked/generic lesson architecture with 62 coherent, individually taught asynchronous lessons while preserving v16.2 semantic coverage and all healthy course infrastructure.",
+    "changes": [
+      "Removed the old instructional-completion.js learner layer and consolidated each CETa/Career stage into one v16.3 integrated lesson instead of stacking a short lesson, generic expansion, semantic repair, and competency clinic.",
+      "Re-authored all 62 lessons with subject-specific prerequisite recall, technical instruction, a second worked example, concrete guided practice, an explicit changed independent scenario, topic-specific misconceptions/corrections, technician/embedded connection, checks, and a specific teach-back.",
+      "Integrated the strongest v16.2 semantic teaching directly into the applicable lessons while retaining the 87 semantic tasks as evidence rather than teaching substitutes; 262/262 CETa and 78/78 Career standards remain mapped.",
+      "Added 62 lesson-specific instructional SVGs for circuits, waveforms, digital/embedded interfaces, instrument workflows, troubleshooting, RF, and project/test/career reasoning; visuals are responsive and include text alternatives.",
+      "Added one additional auto-graded MCQ and one model-answer short-response check inside every integrated lesson while keeping the reviewed 223-question bank, required lesson gates, weekly mastery, semantic tasks, and practical evidence distinct.",
+      "Preserved all 24 labs, the Week 18 cumulative STM32/SWD/UART/I2C-or-SPI/logic-analysis fault gate, two-run CETa readiness rule, Week 30 career green-light, 2,790/2,790 weighting, 125 calendar identities, protocol-2 Cloud Sync, D1 compatibility, saved progress, and no-login static architecture.",
+      "Updated the Word curriculum, 62-row lesson-depth audit, 340-row semantic matrix, final acceptance report, service worker, document center, README, and release metadata for v16.3."
+    ]
+  },
+  {
+    "version": "v16.2",
+    "date": "September 15, 2026",
+    "title": "Semantic Instruction Repair — Technical Meaning Before Coverage Counts",
+    "type": "Targeted Academic Repair & Semantic QA",
+    "request": "Repair v16.1 without rebuilding healthy architecture: replace generic competency coverage with subject-specific technical teaching and assessments, retire generic fill questions, clean calendar wording, and preserve all working course, sync, lab, schedule, and embedded-career systems.",
+    "changes": [
+      "Added 74 CETa topic-specific semantic teaching sections that collectively cover all 262 current CETa rows and 13 career sections that cover all 78 career standards. These sections teach the actual device, concept, procedure, distinction, calculation, or behavior instead of treating a competency label as instruction.",
+      "Added 87 required constructed-response/performance semantic tasks. A learner must save a substantive response or artifact pointer and confirm every topic-specific required element before the associated lesson stage can complete.",
+      "Preserved the 186 v16.1 automatically generated coverage-fill question IDs for history compatibility but retired those items from current mastery evidence because their generic wording could be answered without demonstrating the assigned technical competency.",
+      "Repaired the previously demonstrated false-pass examples including First Aid recognition and escalation, logic probes and logic pulsers, RF feedline types, duty cycle/pulse width, PLLs, piezoelectric devices, solder/rework/BGA/pad repair, isolation transformers/Variacs, SMPS, amplifier analysis, computer/software topics, optical/display/photo devices, and other current ETA rows.",
+      "Kept v16.1 healthy instruction, 31-week sequencing, 62 primary lessons, 24 labs, Week 18 cumulative STM32/SWD/UART/I2C-or-SPI/logic-analysis fault gate, 2,790/2,790 weighted track balance, event IDs/dates/UIDs, saved progress identifiers, protocol 2 Cloud Sync, and the static no-login architecture.",
+      "Corrected malformed AST/Practice wording package-wide without changing the 125-event schedule or event identities.",
+      "Updated Classroom completion so semantic tasks are instructional gates rather than decorative mappings; Search and Standards index and expose the subject-specific repair layer.",
+      "Advanced the evidence revision and offline cache to v16.2, added the semantic layer and current semantic audit artifacts to the deployable package, and preserved old v16.1 QA files as historical records rather than current semantic acceptance authority."
+    ]
+  },
+  {
     "version": "v16.1",
     "date": "September 15, 2026",
     "title": "Instructional Completion — Every Requirement Gets a Teaching Path",
