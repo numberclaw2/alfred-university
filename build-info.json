@@ -3,7 +3,7 @@
   "runtimePatch": "16.3.2",
   "evidenceRevision": "16.2",
   "cloudSyncProtocol": 2,
-  "build": "v16.3.2-calendar-shift-20260916",
+  "build": "v16.3.2-calendar-shift-20260916-verified",
   "presentationPatch": "mobile-visual-readability-final",
   "scheduleRevision": "2026-09-16-week1-reset"
 }

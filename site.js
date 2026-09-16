@@ -434,10 +434,10 @@
 
     let activeView='month';
     const today=new Date();
-    let focusDate=new Date(today.getFullYear(),today.getMonth(),1);
+    let focusDate=new Date(today);
     const firstEvent=EVENTS[0]?new Date(EVENTS[0].start):today;
     const lastEvent=EVENTS.length?new Date(EVENTS[EVENTS.length-1].start):today;
-    if(today<firstEvent||today>lastEvent) focusDate=new Date(firstEvent.getFullYear(),firstEvent.getMonth(),1);
+    if(today<firstEvent||today>lastEvent) focusDate=new Date(firstEvent);
 
     function filteredEvents(){
       const query=q.value.trim().toLowerCase(), week=wf.value, type=tf.value;

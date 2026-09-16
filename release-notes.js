@@ -10,6 +10,7 @@ window.ALFRED_RELEASES = [
       "Shifted all 31 instructional week boundaries seven days later. Week 1 is now September 15-19, 2026 and Week 31 is April 13-17, 2027, so shared Current Week logic resolves September 16, 2026 to Week 1.",
       "Regenerated the standalone Apple/Google iCalendar schedule with the same 125 UIDs and America/New_York wall-clock times, including correct daylight-saving behavior.",
       "Repaired date-sensitive holiday wording created by the shift while preserving the same three-session workload pattern in Weeks 12, 16, and 17.",
+      "Verified the interactive Calendar views against the shifted schedule and corrected Week view initialization so switching from Month to Week opens the actual current week instead of the first week of the month.",
       "Updated the current Syllabus & Student Handbook academic date ranges to September 15, 2026-April 17, 2027 and the shifted Term I, Winter Embedded Intensive, and Term II ranges.",
       "Bumped the offline cache and deployment build marker so browsers receive the shifted course-data and iCalendar assets without clearing site data.",
       "Preserved the v16.3 curriculum, v16.3.2 runtime behavior, objective evidence revision 16.2, Cloud Sync protocol 2, Student Sync Key, saved progress, assessment history, 62 lessons, 24 labs, and 125 event identities."

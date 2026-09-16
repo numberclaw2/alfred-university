@@ -6,9 +6,9 @@ Runtime patch: 16.3.2
 Objective assessment evidence revision: 16.2
 Cloud Sync protocol: 2
 Schedule revision: 2026-09-16-week1-reset
-Build: v16.3.2-calendar-shift-20260916
+Build: v16.3.2-calendar-shift-20260916-verified
 Presentation patch: mobile-visual-readability-final
-Service-worker cache: alfred-u-v16-3-2-calendar-shift-20260916
+Service-worker cache: alfred-u-v16-3-2-calendar-shift-20260916-verified
 
 SCHEDULE RESULT
 Week 1: September 15-19, 2026
@@ -33,12 +33,12 @@ VERIFY AFTER GITHUB PAGES FINISHES
    runtimePatch = 16.3.2
    evidenceRevision = 16.2
    cloudSyncProtocol = 2
-   build = v16.3.2-calendar-shift-20260916
+   build = v16.3.2-calendar-shift-20260916-verified
    scheduleRevision = 2026-09-16-week1-reset
    presentationPatch = mobile-visual-readability-final
 
 2. Open raw/public service-worker.js and confirm:
-   alfred-u-v16-3-2-calendar-shift-20260916
+   alfred-u-v16-3-2-calendar-shift-20260916-verified
 
 3. Open Calendar and confirm Week 1 is September 15-19, 2026 and Week 31 is April 13-17, 2027.
 
