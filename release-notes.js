@@ -1,5 +1,21 @@
 window.ALFRED_RELEASES = [
   {
+    "version": "v16.3.2-S1",
+    "date": "September 16, 2026",
+    "title": "Calendar Shift — Week 1 Reset",
+    "type": "Schedule Revision",
+    "request": "Move the complete AU-ESET 301 calendar seven local calendar days later so the week of September 15-19, 2026 is Week 1, without reopening the frozen v16.3 curriculum or breaking progress, Cloud Sync, event identities, or the accepted mobile presentation layer.",
+    "changes": [
+      "Shifted all 125 calendar event start/end dates exactly seven local calendar days later while preserving event IDs, week numbers, titles, durations, learning outcomes, resources, assignments, labs, milestones, and completion identities.",
+      "Shifted all 31 instructional week boundaries seven days later. Week 1 is now September 15-19, 2026 and Week 31 is April 13-17, 2027, so shared Current Week logic resolves September 16, 2026 to Week 1.",
+      "Regenerated the standalone Apple/Google iCalendar schedule with the same 125 UIDs and America/New_York wall-clock times, including correct daylight-saving behavior.",
+      "Repaired date-sensitive holiday wording created by the shift while preserving the same three-session workload pattern in Weeks 12, 16, and 17.",
+      "Updated the current Syllabus & Student Handbook academic date ranges to September 15, 2026-April 17, 2027 and the shifted Term I, Winter Embedded Intensive, and Term II ranges.",
+      "Bumped the offline cache and deployment build marker so browsers receive the shifted course-data and iCalendar assets without clearing site data.",
+      "Preserved the v16.3 curriculum, v16.3.2 runtime behavior, objective evidence revision 16.2, Cloud Sync protocol 2, Student Sync Key, saved progress, assessment history, 62 lessons, 24 labs, and 125 event identities."
+    ]
+  },
+  {
     "version": "v16.3.2",
     "date": "September 15, 2026",
     "title": "Runtime Assessment Integrity & Deployment Verification",

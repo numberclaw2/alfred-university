@@ -8,13 +8,20 @@ AU-ESET 301 is a fictional, university-style independent-study environment built
 It is not an accredited university, an ETA-endorsed course, an official exam, or a guarantee of certification or employment. The learner-facing Classroom is the instructional product.
 
 
+## Current schedule revision - September 16, 2026
+
+The accepted v16.3 curriculum / v16.3.2 runtime remains the instructional and runtime baseline. This schedule-only revision moves the entire 31-week calendar **seven local calendar days later** so **Week 1 is September 15-19, 2026** and **Week 31 is April 13-17, 2027**. All 125 event IDs and iCalendar UIDs are preserved. The 62 lessons, 24 labs, assessments, mastery evidence, saved progress, Student Sync Key, and Cloud Sync protocol 2 are unchanged.
+
+The current deployment marker is build **`v16.3.2-calendar-shift-20260916`** with schedule revision **`2026-09-16-week1-reset`**. The current service-worker cache is **`alfred-u-v16-3-2-calendar-shift-20260916`**. Do not clear browser site data for this update.
+
+
 ## Runtime hotfix v16.3.2
 
 The v16.3.2 runtime patch is a surgical assessment/deployment/documentation repair on top of the accepted v16.3 curriculum and v16.3.1 mastery-evidence hotfix. It does **not** alter lesson content, labs, standards mapping, calendar identities, Cloud Sync protocol, progress keys, or the reviewed objective-bank evidence revision.
 
 - Reviewed-bank answer choices now use a deterministic **constrained-random learner-facing layout** rather than the earlier LCG choice shuffle. The runtime rejects conspicuously concentrated position sequences and long same-letter runs without imposing an exploitable “exactly N of each letter” quota. Question IDs, wording, distractors, explanations, standard tags, canonical bank answers, question selection, and question order remain unchanged.
-- `build-info.json` provides the public deployment marker: course release **16.3**, runtime patch **16.3.2**, objective evidence revision **16.2**, Cloud Sync protocol **2**, build **`v16.3.2-final-mobile-visual-20260915`**, and presentation patch **`mobile-visual-readability-final`**. The service worker intentionally does not cache this marker.
-- The final service-worker cache is **`alfred-u-v16-3-2-mobile-visual-final`**. Activation deletes only older Alfred Cache Storage entries; it does not clear localStorage, IndexedDB, progress, notes, assessment history, or sync credentials.
+- `build-info.json` provides the public deployment marker: course release **16.3**, runtime patch **16.3.2**, objective evidence revision **16.2**, Cloud Sync protocol **2**, build **`v16.3.2-calendar-shift-20260916`**, schedule revision **`2026-09-16-week1-reset`**, and presentation patch **`mobile-visual-readability-final`**. The service worker intentionally does not cache this marker.
+- The current service-worker cache is **`alfred-u-v16-3-2-calendar-shift-20260916`**. Activation deletes only older Alfred Cache Storage entries; it does not clear localStorage, IndexedDB, progress, notes, assessment history, or sync credentials.
 - The v15.8 Academic System Guide remains available for provenance but is explicitly labeled historical/superseded in Documents and Search so its old operational wording cannot masquerade as current workflow.
 - Final mobile visual acceptance repair: on phone widths, dense 1000 px lesson SVGs are presented inside a horizontally scrollable 900 px inspection viewport instead of being shrunk until labels are unreadable. A visible swipe instruction and **Open full-size diagram** link provide redundant access. Desktop/tablet presentation remains fit-to-card.
 
@@ -76,7 +83,7 @@ The reviewed objective assessment bank itself was not rewritten for v16.3. Its e
 - `assessment-policy.js` — current Classroom assessment policy plus explicit release/evidence-revision metadata.
 - `assessment-engine.js` — deterministic reviewed-question selection and choice shuffling for graded forms.
 - `academic-content.js` / `practical-completion.js` — labs and practical gates.
-- `course-data.js` — preserved 125-event calendar identity.
+- `course-data.js` — preserved 125-event calendar identity with the current seven-day-shifted schedule.
 - `learn.html` / `learn.js` — authoritative Classroom rendering and completion path.
 - `AU-ESET-301-v16.3-Curriculum-and-Instruction-Plan.docx` — reviewable integrated curriculum and instruction plan.
 - `AU-ESET-301-v16.3-Lesson-Depth-Audit.csv` — one row for each of the 62 primary lessons.
@@ -88,11 +95,11 @@ The semantic matrix's guided/independent-practice columns identify the integrate
 
 ## Upload / update
 
-The current production target is the accepted **v16.3 Final Instructional Depth** curriculum with **runtime patch v16.3.2**, **objective evidence revision 16.2**, **Cloud Sync protocol 2**, and the final mobile visual presentation repair.
+The current production target is the accepted **v16.3 Final Instructional Depth** curriculum with **runtime patch v16.3.2**, **objective evidence revision 16.2**, **Cloud Sync protocol 2**, the final mobile visual presentation repair, and schedule revision **2026-09-16-week1-reset**.
 
-For an existing v16.3.2 deployment, apply the final mobile visual repair files at the repository root, replacing matching filenames. Do not upload a ZIP itself or create a wrapper directory.
+For an existing deployment, apply **`Alfred-University-v16.3.2-CALENDAR-SHIFT-20260916-PATCH.zip`** at the repository root, replacing matching filenames. Do not upload the ZIP itself or create a wrapper directory.
 
-For a clean install, use the latest complete final project package that already includes the final mobile visual repair. Do not restore older runtime-only files over the final presentation layer.
+For a clean install, use **`Alfred-University-v16.3.2-CALENDAR-SHIFT-20260916-FULL-FLAT.zip`**. Do not restore older runtime-only or pre-shift calendar files over it.
 
 After GitHub Pages deploys, verify the actual public files:
 
@@ -101,20 +108,24 @@ After GitHub Pages deploys, verify the actual public files:
   - `runtimePatch = 16.3.2`
   - `evidenceRevision = 16.2`
   - `cloudSyncProtocol = 2`
-  - `build = v16.3.2-final-mobile-visual-20260915`
+  - `build = v16.3.2-calendar-shift-20260916`
+  - `scheduleRevision = 2026-09-16-week1-reset`
   - `presentationPatch = mobile-visual-readability-final`
-- `service-worker.js` must contain **`alfred-u-v16-3-2-mobile-visual-final`**.
+- `service-worker.js` must contain **`alfred-u-v16-3-2-calendar-shift-20260916`**.
+- Calendar/Study/Learn current-week behavior must resolve September 16, 2026 to Week 1.
+- The website schedule must show Week 1 as September 15-19, 2026 and Week 31 as April 13-17, 2027.
+- The downloadable `.ics` must contain the same 125 UIDs with the shifted dates.
 - On a phone, a dense Classroom visual such as Week 18 must remain at readable inspection scale inside a horizontally scrollable viewport, show the phone swipe instruction, and provide **Open full-size diagram**.
 - Desktop and tablet lesson visuals must remain fit-to-card.
 
-No frontend build, package installation, Worker redeployment, D1 migration, progress reset, or browser-site-data clearing is required for this final presentation repair.
+No frontend build, package installation, Worker redeployment, D1 migration, progress reset, or browser-site-data clearing is required for this schedule revision.
 
 Production Cloud Sync endpoint:
 
 `https://alfred-university-sync.totallywill13.workers.dev`
 
-Protocol 2 and the existing D1 record structure are unchanged. Export Progress before replacing site files, preserve the Recovery / Student Sync Key separately, wait for GitHub Pages to finish, close old tabs, then reopen the same site URL so the **`alfred-u-v16-3-2-mobile-visual-final`** service worker can install the current cache. Do not clear browser site data as a routine update step.
+Protocol 2 and the existing D1 record structure are unchanged. Export Progress before replacing site files, preserve the Recovery / Student Sync Key separately, wait for GitHub Pages to finish, close old tabs, then reopen the same site URL so the **`alfred-u-v16-3-2-calendar-shift-20260916`** service worker can install the current cache. Do not clear browser site data as a routine update step.
 
 ## Release integrity
 
-The accepted release gate preserves 24 production JavaScript files with 0 syntax failures, 25 HTML pages, 0 missing local references, 0 broken anchors, 125 calendar events / 125 unique UIDs, `.nojekyll`, the 62-lesson v16.3 instructional system, 24 labs, 262 CETa objectives, 78 Career objectives, and the 2,790 / 2,790 CETa/Career balance. The final mobile repair changes presentation/deployment files only and does not alter those protected instructional identities.
+The accepted release gate preserves 24 production JavaScript files, 25 HTML pages, 125 calendar events / 125 unique UIDs, `.nojekyll`, the 62-lesson v16.3 instructional system, 24 labs, 262 CETa objectives, 78 Career objectives, and the 2,790 / 2,790 CETa/Career balance. The September 16 schedule revision changes dates, date-sensitive schedule prose, the current syllabus date ranges, and deployment/cache markers while preserving those protected instructional and progress identities.
