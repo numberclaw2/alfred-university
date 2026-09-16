@@ -2,6 +2,7 @@
   const C = window.ALFRED_CURRICULUM || {};
   const A = window.ALFRED_ACADEMIC || {};
   const W = window.ALFRED_WEEKS || [];
+  const E = window.ALFRED_EVENTS || [];
   const MODULES = C.modules || [];
   const $ = (selector, root=document) => root.querySelector(selector);
   const $$ = (selector, root=document) => [...root.querySelectorAll(selector)];
@@ -165,6 +166,37 @@
     if (focus) $('#classroom-card')?.scrollIntoView({behavior:'smooth',block:'start'});
   }
   function source(sourceId){ return C.sources?.[sourceId] || {title:sourceId,org:'',kind:'Reference',url:''}; }
+  function studyGuideAssignment(weekNumber=week){
+    const marker='OFFICIAL STUDY GUIDE — V6 BOOK ASSIGNMENT';
+    const event=E.find(item => Number(item.week) === Number(weekNumber) && String(item.description || '').includes(marker));
+    if (!event) return null;
+    const lines=String(event.description || '').split(/\r?\n/).map(line => line.trim()).filter(Boolean);
+    const value=label => {
+      const line=lines.find(entry => entry.startsWith(label));
+      return line ? line.slice(label.length).trim() : '';
+    };
+    const assignment={
+      read:value('READ / USE:'),
+      review:value('QUIZ / REVIEW:'),
+      why:value('WHY:'),
+      sourceRule:value('SOURCE RULE:')
+    };
+    return assignment.read || assignment.review || assignment.why ? assignment : null;
+  }
+  function renderStudyGuideAssignment(){
+    const book=studyGuideAssignment();
+    if (!book) return '';
+    return `<section class="study-guide-assignment" aria-label="Week ${week} Associate CET Study Guide assignment">
+      <div class="study-guide-assignment-head"><div><span class="study-guide-kicker">Required study guide assignment</span><h3>Associate CET Study Guide · Sixth Edition</h3><p>Use the <strong>printed page numbers in the study guide</strong>, not the PDF viewer page counter.</p></div><span class="study-guide-week">Week ${String(week).padStart(2,'0')}</span></div>
+      <div class="study-guide-assignment-grid">
+        <div><span>READ / USE</span><p>${esc(book.read || 'No new book reading assigned this week.')}</p></div>
+        <div><span>QUIZ / REVIEW</span><p>${esc(book.review || 'No separate study-guide quiz assigned this week.')}</p></div>
+      </div>
+      ${book.why ? `<div class="study-guide-why"><strong>Why this belongs this week</strong><p>${esc(book.why)}</p></div>` : ''}
+      ${book.sourceRule ? `<div class="study-guide-source-rule"><strong>Current-source rule:</strong> ${esc(book.sourceRule)}</div>` : ''}
+      <div class="study-guide-private-note">Use your private/scanned course copy of the study guide. Alfred does not republish the copyrighted book.</div>
+    </section>`;
+  }
   function currentAssessment(){ return learningState().w.assessments?.[`week:${week}`] || {}; }
 
   function renderOrientation(){
@@ -260,6 +292,7 @@
     const requiredCount = items.filter(x => /^Required/.test(x.role)).length;
     return `<div class="classroom-stage-head"><div><span class="stage-count">Stage 4 of ${STAGES.length} · Required media or accessible text path</span><h2>Learn it from another voice—then connect it</h2><p>The links add demonstrations, diagrams, and expert perspective. Alfred’s two lessons remain sufficient if a video is unavailable or text is the more accessible route.</p></div>${trackBadge('CETa + Career')}</div>
     <div class="media-policy"><strong>Required does not mean video-only.</strong><p>For each required item, either review the linked section or use the complete Alfred lesson above as its text alternative. Do not let a broken link or unavailable caption block the course.</p></div>
+    ${renderStudyGuideAssignment()}
     <div class="teaching-media-list">${items.map((item,i) => {const s=source(item.source);return `<article><div class="media-card-top"><span>${esc(item.role)}</span><span>${esc(s.kind)}</span></div><h3>${esc(s.title)}</h3><p class="media-org">${esc(s.org)}</p><p><strong>Use it for:</strong> ${esc(item.use)}</p><p><strong>Watch/read for:</strong> ${esc(item.watchFor)}</p><p><strong>What Alfred still supplies:</strong> ${esc(item.gap)}</p><div>${s.url ? `<a class="button outline-green" href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">Open source ↗</a>` : '<span class="private-source">Use your private course copy; it is not republished here.</span>'}</div></article>`}).join('')}</div>
     <section class="media-reflection"><label for="media-connection"><strong>One-sentence connection</strong><span>What became clearer, or which Alfred explanation will you use instead?</span></label><textarea id="media-connection" rows="3" maxlength="1200" placeholder="Example: The scope demonstration made trigger level clearer; I can now explain why it stabilizes a repeating waveform.">${esc(learningState().l.responses?.media || '')}</textarea><button class="button green" id="complete-media" type="button">${stageComplete('media') ? '✓ Media / text path complete' : `Confirm media or text path complete${requiredCount ? ` (${requiredCount} required source${requiredCount === 1 ? '' : 's'})` : ''}`}</button></section>`;
   }

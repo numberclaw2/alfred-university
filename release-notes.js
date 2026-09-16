@@ -1,5 +1,20 @@
 window.ALFRED_RELEASES = [
   {
+    "version": "v16.3.2-M1",
+    "date": "September 16, 2026",
+    "title": "Teaching Media — Study Guide Page Assignments Restored",
+    "type": "Classroom Presentation Revision",
+    "request": "Restore the Associate CET Study Guide page assignments inside the Teaching Media stage of every weekly Classroom module without changing the frozen v16.3 instructional sequence, mastery gates, calendar, progress identities, or Cloud Sync behavior.",
+    "changes": [
+      "Added a Required Study Guide Assignment card to Teaching Media for every Week 1-31 Classroom module.",
+      "The Classroom now reuses the authoritative OFFICIAL STUDY GUIDE — V6 BOOK ASSIGNMENT already stored in course-data.js instead of maintaining a second independent page-number map.",
+      "Each weekly card displays READ / USE, QUIZ / REVIEW, WHY THIS BELONGS THIS WEEK, the current-source rule, and a reminder to use the study guide's printed page numbers rather than the PDF viewer page counter.",
+      "Weeks intentionally assigned no new book reading still display their targeted review/reference guidance rather than inventing new reading.",
+      "Preserved all 62 lessons, 24 labs, 125 calendar events and UIDs, assessment identities, weekly mastery rules, saved progress, Cloud Sync protocol 2, and the September 15, 2026 Week 1 schedule.",
+      "Bumped the offline cache and build marker so existing browsers receive the updated Classroom renderer and styling without clearing student data."
+    ]
+  },
+  {
     "version": "v16.3.2-S1",
     "date": "September 16, 2026",
     "title": "Calendar Shift — Week 1 Reset",
