@@ -1,6 +1,27 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.16",
+      "date": "September 18, 2026",
+      "title": "Student Services Retirement — Support Moves to Point of Use",
+      "type": "Information Architecture / Support Consolidation",
+      "request": "Execute Step 6 of the locked one-tab-at-a-time cleanup plan: determine whether Student Services still has a unique job, preserve useful support guidance, move each support function to the system that owns the moment of need, and retire the catch-all page without starting the final global navigation cleanup early.",
+      "changes": [
+        "Retired Student Services as an independent catch-all destination because study help, career guidance, and lab safety now have stronger point-of-use owners.",
+        "Moved the five-part Office Hours protocol into Study's I’m Stuck modal so deeper-help preparation appears at the exact moment a learner is blocked. The protocol still asks for week/assignment, expected behavior, actual evidence, attempted fixes, and a request for diagnosis or teaching rather than only a final answer.",
+        "Moved the standing laboratory-safety rules into Lab Center: low-voltage/current-limited bench work, polarity/supply/current checks before power-up, correct DMM current-mode use, earth-referenced oscilloscope-ground awareness, ESD precautions, and de-energized continuity/resistance checks unless a procedure explicitly requires otherwise.",
+        "Moved the useful Career Services role-fit filter into Progress career readiness. The guidance preserves the rule that job content matters more than title and prioritizes schematics, PCBAs, instruments, firmware interaction, Python/test automation, troubleshooting, and proximity to engineers.",
+        "Preserved the broader bridge-role examples in Progress: R&D Electronics / Engineering Lab Technician, Hardware Test / Validation Technician, Hardware Integration / Test Technician, Electronics / PCBA Test Technician, and Embedded Test / HIL Technician when actual requirements fit.",
+        "Converted student-services.html into a compatibility route with anchored cards for legacy #office-hours, #career, and #lab-safety links, routing each function to Study, Progress, Lab Center, or Projects without maintaining a second copy of the support content.",
+        "Did not relocate the old 'Study is your daily command center' banner because the rebuilt Study tab already owns that function directly.",
+        "Intentionally deferred removal of Student Services and its legacy footer links from global navigation until Step 9 (Home + Navigation final cleanup), matching the locked roadmap.",
+        "No Study session/mastery logic, Practice logic, Week Overview compatibility behavior, Engineering compatibility behavior, Knowledge Base compatibility behavior, Calendar data, lab definitions, project requirements, assessment bank, mastery formulas, Progress data schema, Cloud Sync protocol, lesson content, or Teaching Media is changed in this release."
+      ],
+      "filesAdded": [],
+      "filesModified": ["student-services.html", "study.html", "labs.html", "progress.html", "release-notes-current.js", "build-info.json", "service-worker.js", "POST-UPDATE-QA.md", "UPLOAD_README.txt", "SHA256SUMS.txt"],
+      "filesRemoved": []
+    },
+    {
       "version": "v16.3.15",
       "date": "September 18, 2026",
       "title": "Knowledge Base Retirement — Concept Reference Moves Into Search",
@@ -230,7 +251,7 @@
       ]
     }
   ];
-  const currentOrder = ['v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
+  const currentOrder = ['v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
   entries.sort((a,b)=>currentOrder.indexOf(a.version)-currentOrder.indexOf(b.version));
   const historical = Array.isArray(window.ALFRED_RELEASES) ? window.ALFRED_RELEASES : [];
   const currentVersions = new Set(entries.map(entry=>entry.version));
