@@ -1,6 +1,21 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.9",
+      "date": "September 18, 2026",
+      "title": "Week 1 Beginner-Teacher YouTube Clarity Layer",
+      "type": "Teaching Media / Week 1 Learning-Support Update",
+      "request": "Add Week 1 videos from instructors who are especially effective at making introductory electricity concepts click for struggling beginners, while preserving the verified Teaching Media coverage already accepted for the course.",
+      "changes": [
+        "Added week1-beginner-teaching-media.js after teaching-media-content-completion.js. The new layer is additive and Week-1-only: it prepends a beginner-clarity path without deleting, replacing, or weakening any previously verified Teaching Media card.",
+        "Added seven public YouTube resources: Math and Science/Jason Gibson for the first-pass voltage-current-resistance mental model; Afrotechmods for current/amps, voltage, resistance/Ohm's law, power/watts, and multimeter use; and The Organic Chemistry Tutor for worked basic-circuit, Ohm's-law, charge, and power problems.",
+        "Ordered the additions by learning job rather than authority alone: START HERE concept bridge -> current -> voltage -> resistance/Ohm's law -> power -> worked practice -> bench/multimeter bridge.",
+        "Kept the accepted All About Circuits, Fluke, OSHA, Keysight, NASA/ESD, simulation, and other Week 1 resources in place behind the new beginner layer so technical rigor, safety, and audit coverage remain available.",
+        "Rechecked source identity and mapped instructional content on September 18, 2026 using public YouTube metadata and creator/source pages where available. The Afrotechmods multimeter card explicitly notes that the exact meter shown is discontinued; the course uses it for measurement concepts, not current purchasing guidance.",
+        "Updated resource-verification notes, build metadata, load order, and service-worker cache for v16.3.9. No Week 2-31 media, written curriculum, labs, projects, assessments, calendar identities, progress keys, Cloud Sync protocol, or Week 1 Subject 2 lesson data are changed."
+      ]
+    },
+    {
       "version": "v16.3.8",
       "date": "September 18, 2026",
       "title": "Week 1 From-Zero Teaching + Source-Backed Visuals",

@@ -79,3 +79,21 @@ Still required where assigned:
 ## Final verdict
 
 **YES.** The Teaching Media pathway can be used as the primary standalone instructional preparation across all 31 weeks without needing Alfred's written content to teach missing technical subjects.
+
+## v16.3.9 Week 1 beginner-teacher video addendum — September 18, 2026
+
+Runtime v16.3.9 adds one **Week-1-only, additive clarity layer** after the accepted v16.3.6 Teaching Media chain. It does not remove or replace any source that contributed to the 31/31 acceptance above.
+
+Added source IDs:
+
+- `mathScienceVoltageCurrentResistance` — Math and Science / Jason Gibson, beginner voltage-current-resistance circuit lesson.
+- `afrotechmodsWhatIsAmp` — Afrotechmods, current and amperes.
+- `afrotechmodsWhatIsVoltage` — Afrotechmods, voltage/volts/coulombs/joules.
+- `afrotechmodsResistanceOhmsLaw` — Afrotechmods, resistance, resistors, Ohm's law, practical LED/resistor example.
+- `afrotechmodsPowerWatts` — Afrotechmods, electrical power/watts, practical measurement and resistor sizing.
+- `organicChemTutorBasicCircuits` — The Organic Chemistry Tutor, worked current/voltage/resistance/Ohm's-law/charge/power problems.
+- `afrotechmodsMultimeter` — Afrotechmods, DMM voltage/current/resistance/continuity demonstration. The exact meter model is discontinued; this card is retained for concepts, while current measurement safety remains controlled by the existing Alfred/Fluke material.
+
+Verification for the seven additions was refreshed on September 18, 2026 using public YouTube metadata plus creator/source pages where available. The detailed per-source record is `AU-ESET-301-v16.3.9-Week1-Beginner-Video-Sources.md`.
+
+**Boundary:** the historical 31/31 standalone Teaching Media acceptance documented in this file was established on the v16.3.6 composition. v16.3.9 is a non-destructive Week 1 addition layered on top of that accepted composition; it does not claim a new whole-system re-audit.

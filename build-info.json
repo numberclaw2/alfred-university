@@ -1,17 +1,19 @@
 {
   "courseRelease": "16.3",
-  "runtimePatch": "16.3.8",
+  "runtimePatch": "16.3.9",
   "evidenceRevision": "16.2",
   "cloudSyncProtocol": 2,
-  "build": "v16.3.8-week1-from-zero-visual-teaching-20260918",
-  "releaseStatus": "week1-instructional-depth-update",
+  "build": "v16.3.9-week1-beginner-teacher-media-20260918",
+  "releaseStatus": "week1-teaching-media-clarity-update",
   "presentationPatch": "mobile-visual-readability-final",
   "scheduleRevision": "2026-09-16-week1-reset",
   "modulePresentationRevision": "2026-09-18-week1-from-zero-visual-teaching",
-  "teachingMediaRevision": "2026-09-18-final-pots-31-week-standalone-accepted",
-  "resourceVerificationRevision": "2026-09-18-v16.3.6-final-pots-accepted",
+  "teachingMediaRevision": "2026-09-18-week1-beginner-teacher-youtube-layer",
+  "resourceVerificationRevision": "2026-09-18-v16.3.9-week1-beginner-video-verified",
   "assessmentRevision": "2026-09-18-dual-source-ceta-readiness",
   "masteryRevision": "2026-09-18-bank-breadth-truthful-progression",
   "portfolioRevision": "2026-09-18-project2-hil-aligned",
-  "week1InstructionRevision": "2026-09-18-from-zero-visual-teaching"
+  "week1InstructionRevision": "2026-09-18-from-zero-visual-teaching",
+  "week1TeachingMediaRevision": "2026-09-18-beginner-teacher-youtube-layer",
+  "teachingMediaBaseRevision": "2026-09-18-final-pots-31-week-standalone-accepted"
 }

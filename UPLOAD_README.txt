@@ -1,29 +1,38 @@
-AU-ESET 301 v16.3.8 — WEEK 1 FROM-ZERO TEACHING + SOURCE VISUALS
+AU-ESET 301 v16.3.9 — WEEK 1 BEGINNER-TEACHER VIDEO LAYER
 
 UPLOAD EVERY FILE IN THIS ZIP DIRECTLY TO THE GITHUB REPOSITORY ROOT.
 Replace matching files when prompted. Do not create a wrapper folder.
 
-SCOPE — WEEK 1 ONLY
-- Subject 1 rebuilt from zero: charge -> current -> voltage -> circuit path -> resistance -> SI prefixes/conversions -> Ohm's law -> proportional reasoning -> power -> predict-before-measure.
-- Week 1 Subject 2 is preserved exactly; it is intentionally deferred until the learner reaches and evaluates it.
-- Week 1 Practice now surfaces the new guided concept practice before application rehearsal.
-- Existing Week 1 safety blocks, required checks, semantic competency tasks, and safety-critical gate are preserved.
-- The homemade Subject 1 Week 1 lesson SVG and old shared Week 1 concept-map graphic are no longer used in the updated Subject 1 learning path.
-- Credited OpenStax/UCF figures and a NIST/OpenStax-sourced SI-prefix table are integrated into Week 1 Subject 1.
+WHAT THIS UPDATE DOES
+- Adds 7 Week 1 public YouTube Teaching Media cards selected for beginner clarity and explanation quality.
+- New order at the front of Week 1 Teaching Media:
+  1) Math and Science/Jason Gibson — voltage/current/resistance concept bridge
+  2) Afrotechmods — current/amps
+  3) Afrotechmods — voltage
+  4) Afrotechmods — resistance + Ohm's law
+  5) Afrotechmods — power + watts
+  6) The Organic Chemistry Tutor — worked basic-circuit problems
+  7) Afrotechmods — multimeter bridge
+- Preserves every existing verified Week 1 media card behind the new clarity layer.
+- Updates Release Notes, Resource Verification, build metadata, and service-worker cache.
 
 NOT CHANGED
+- Week 1 written lesson/instructional-depth content from v16.3.8
 - Week 1 Subject 2 lesson data
-- Weeks 2-31 lesson data
-- Assessment bank / mastery thresholds
-- Calendar dates / event IDs / UIDs
-- Progress identities / local records / Cloud Sync protocol
-- Labs and project records
-- Teaching Media assignments
-- v16.3 curriculum release and v16.2 evidence revision
+- Weeks 2-31 Teaching Media or lesson data
+- Assessments / mastery thresholds
+- Labs / projects
+- Calendar dates / IDs / UIDs
+- Progress identities / local records / Cloud Sync protocol 2
+- v16.3 curriculum release / v16.2 evidence revision
 
 EXPECTED RUNTIME
-runtimePatch: 16.3.8
-build: v16.3.8-week1-from-zero-visual-teaching-20260918
-cache: alfred-u-v16-3-8-week1-from-zero-visual-teaching-20260918
+runtimePatch: 16.3.9
+build: v16.3.9-week1-beginner-teacher-media-20260918
+cache: alfred-u-v16-3-9-week1-beginner-teacher-media-20260918
 
-The source images are remote-linked to their credited OpenStax/UCF Pressbooks originals; no new Alfred-created instructional diagrams were added.
+NEW FILE
+- week1-beginner-teaching-media.js
+
+IMPORTANT
+The Afrotechmods multimeter video uses an older/discontinued meter model. It is included for measurement concepts and beginner explanation, not purchasing advice. Existing Alfred/Fluke safety material remains controlling for actual measurement procedure.

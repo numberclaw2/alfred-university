@@ -1,45 +1,37 @@
-# AU-ESET 301 v16.3.8 — Week 1 Instructional Update QA
+# AU-ESET 301 v16.3.9 — Week 1 Beginner-Teacher Video QA
 
 **Date:** September 18, 2026  
-**Scope:** Week 1 Subject 1 teaching depth and visuals only
+**Scope:** Week 1 Teaching Media only
 
-## Required boundaries
+## Integration
 
-- PASS — Weeks 2–31 module data are byte-equivalent before and after the Week 1 overlay.
-- PASS — Week 1 Subject 1 knowledge-check object is unchanged.
-- PASS — the complete Week 1 Subject 2 lesson object is byte-equivalent before and after the overlay.
-- PASS — Week 1 integrated check objects are unchanged.
-- PASS — Week 1 semantic competency tasks are unchanged.
-- PASS — all five existing Subject 1 safety teaching blocks are preserved exactly.
-- PASS — assessment, calendar, progress, Cloud Sync, lab, and project data files are not part of this package.
+- PASS — `learn.html` loads `week1-beginner-teaching-media.js` after `teaching-media-content-completion.js` and before assessment/state/render scripts.
+- PASS — the overlay targets only module `week === 1`.
+- PASS — all seven new source IDs are unique.
+- PASS — composed Week 1 media count is 25 in the integration harness: 18 preserved existing cards + 7 new beginner-teacher cards.
+- PASS — executing the new overlay twice leaves the same 25-card Week 1 result (idempotent).
+- PASS — new cards are prepended in the intended learning order and existing Week 1 cards are retained behind them.
+- PASS — Weeks 2–31 are not addressed or rewritten by the overlay.
+- PASS — the overlay contains no assessment, calendar, progress, Cloud Sync, lab, project, or lesson-body mutation.
 
-## Instructional depth
+## Source/content checks
 
-- PASS — Subject 1 prerequisite now assumes only basic arithmetic, not prior metric-prefix/scientific-notation knowledge.
-- PASS — technical sequence is dependency ordered: charge → current → voltage → path → resistance → prefixes → conversion → Ohm's law → proportional reasoning → power → prediction/measurement.
-- PASS — 16 Subject 1 teaching sections after overlay: 11 new technical sections + 5 preserved safety sections.
-- PASS — approximately 2,900 words of Subject 1 teaching text before worked examples/checks, compared with the prior surface-level treatment.
-- PASS — four progressive worked examples: prefix conversion, current from V/R, resistance from V/I, and resistor power/rating.
-- PASS — five guided technical practice prompts plus the existing Week 1 application rehearsal in the Practice stage.
-- PASS — visible “Builds on” callouts name the prerequisite concept for each new technical layer.
-
-## Visual instruction
-
-- PASS — the homemade Subject 1 Week 1 Classroom SVG is disabled by the overlay, and the old shared Week 1 concept-map graphic is suppressed by the renderer.
-- PASS — four source figures/reference visuals are integrated in Subject 1. Subject 2 is not modified in this update.
-- PASS — OpenStax/UCF source figures include alt text, caption, source link, and CC BY 4.0 license link.
-- PASS — SI-prefix reference table cites NIST plus OpenStax source data and does not redistribute a NIST image.
-- PASS — external figure URLs use HTTPS.
+- PASS — Math and Science/Jason Gibson public source identity and voltage/current/resistance topic rechecked.
+- PASS — Afrotechmods current/amp source rechecked via YouTube metadata and creator page.
+- PASS — Afrotechmods voltage source rechecked via YouTube metadata and creator page.
+- PASS — Afrotechmods resistance/Ohm's-law source rechecked via creator page and indexed video metadata.
+- PASS — Afrotechmods power/watts source rechecked via YouTube metadata and creator materials.
+- PASS — The Organic Chemistry Tutor source rechecked via public YouTube metadata; mapped topics include current, voltage, resistance, Ohm's law, charge, power, units, and worked problems.
+- PASS — Afrotechmods multimeter source rechecked; card explicitly discloses that the exact meter model is discontinued.
 
 ## Runtime/package
 
-- PASS — `learn.js`, `week1-instructional-depth.js`, and `release-notes-current.js` pass JavaScript syntax checks.
-- PASS — `build-info.json` parses as valid JSON.
-- PASS — `learn.html` loads `week1-instructional-depth.js` after `semantic-repair.js` and before state/render scripts.
-- PASS — service-worker cache namespace and build metadata identify v16.3.8.
-- PASS — the service worker caches the new Week 1 overlay itself. Remote source images remain network-delivered and are not silently republished into the repository.
+- PASS — new overlay, `service-worker.js`, and `release-notes-current.js` pass JavaScript syntax checks.
+- PASS — `build-info.json` parses as valid JSON and reports runtime patch 16.3.9.
+- PASS — service-worker cache namespace is bumped to v16.3.9 and includes the new overlay.
+- PASS — source/reference documentation is updated in both the dedicated v16.3.9 source record and the master v16.3 resource-verification record.
+- PASS — package checksums regenerated after all edits.
 
-## Verification boundary
+## Acceptance boundary
 
-- PASS — the three remote OpenStax/UCF figure URLs resolved successfully during packaging, and the NIST source page was rechecked for the SI-prefix factors used by the lesson.
-- ENVIRONMENT LIMIT — a full screenshot/render smoke test of the local package could not be completed because this execution environment blocks Chromium navigation to localhost. This is not a detected site defect. After upload, verify the deployed Week 1 Classroom visually on the normal GitHub Pages origin before closing the update.
+The v16.3.6 31/31 Teaching Media acceptance remains the historical whole-system acceptance baseline. This v16.3.9 patch is a non-destructive Week 1 instructional-media addition; it has been integration-checked here but is **not labeled as a new 31-week acceptance audit**. Live GitHub Pages verification must occur after upload.
