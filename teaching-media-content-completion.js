@@ -2087,8 +2087,35 @@
   });
 
 
+
+  // ---------------------------------------------------------------------------
+  // FINAL POST-REPAIR SEMANTIC CORRECTION — WEEK 20 POTS LOOP FUNDAMENTALS
+  // The DSL splitter resource teaches voice/data frequency separation, but the
+  // v16.3 semantic row also requires tip/ring loop-start behavior, off-hook loop
+  // current, and ringing. Assign Cisco's dedicated voice-signaling explanation.
+  // ---------------------------------------------------------------------------
+  Object.assign(C.sources, {
+    "ciscoPotsLoopSignaling": {
+      "title": "Voice Network Signaling and Control — Loop-Start Tip/Ring, Off-Hook Current, and Ringing",
+      "org": "Cisco",
+      "kind": "Telecommunications technical tutorial",
+      "url": "https://www.cisco.com/c/en/us/support/docs/voice/digital-cas/14007-net-signal-control.html"
+    }
+  });
+
+  appendMedia(20, [
+    {
+      "source": "ciscoPotsLoopSignaling",
+      "role": "Required · POTS loop-start signaling instruction",
+      "use": "Learn the actual analog subscriber-loop behavior behind POTS: tip/ring conductors, loop-start signaling, off-hook loop closure/current flow, dial-tone response, and incoming ringing superimposed on the DC line state.",
+      "watchFor": "Distinguish the DC loop-current state from the AC ringing signal and keep this analog signaling layer separate from the DSL frequency-splitting concept taught by the companion POTS splitter resource.",
+      "gap": "This is technician-level signaling theory; central-office design, regulatory line-interface design, and live telephone-line servicing remain outside the hands-on course scope.",
+      "verifiedEvidence": "Cisco's voice signaling tutorial explicitly explains tip/ring loop-start operation, closed-loop current flow when the telephone goes off-hook, dial-tone response, and the ringing signal applied for an incoming call."
+    }
+  ]);
+
   C.meta = C.meta || {};
-  C.meta.mediaRevision = "2026-09-18-teaching-media-content-completion-v16.3.6-post-audit-corrective-candidate";
-  C.meta.mediaPolicy = "Teaching Media v16.3.6 post-audit corrective candidate: the first post-repair audit found and repaired residual ESD, Week 7 sequencing, Week 12 Git metadata, Week 27 test-workflow resource, and Week 28 productivity/project-planning defects. Final 31-week standalone acceptance remains pending re-audit against the uploaded corrective runtime. Labs, projects, measurements, soldering, coding, debugging, troubleshooting demonstrations, assessments and physical evidence remain required.";
+  C.meta.mediaRevision = "2026-09-18-teaching-media-content-completion-v16.3.6-final-pots-corrective-candidate";
+  C.meta.mediaPolicy = "Teaching Media v16.3.6 final POTS-corrective candidate: the second post-repair semantic pass found one remaining Week 20 POTS loop-signaling gap and assigns direct tip/ring, off-hook current, and ringing instruction. Final 31-week standalone acceptance remains pending re-audit against the uploaded corrected runtime. Labs, projects, measurements, soldering, coding, debugging, troubleshooting demonstrations, assessments and physical evidence remain required.";
 
 })();

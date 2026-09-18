@@ -3,11 +3,11 @@
   "runtimePatch": "16.3.6",
   "evidenceRevision": "16.2",
   "cloudSyncProtocol": 2,
-  "build": "v16.3.6-teaching-media-post-audit-corrective-20260918",
-  "releaseStatus": "post-audit-corrective-candidate-final-reaudit-pending",
+  "build": "v16.3.6-teaching-media-final-pots-corrective-20260918",
+  "releaseStatus": "final-pots-corrective-candidate-final-reaudit-pending",
   "presentationPatch": "mobile-visual-readability-final",
   "scheduleRevision": "2026-09-16-week1-reset",
-  "modulePresentationRevision": "2026-09-18-teaching-media-post-audit-corrective",
-  "teachingMediaRevision": "2026-09-18-post-audit-corrective-candidate",
-  "resourceVerificationRevision": "2026-09-18-v16.3.6-post-audit-corrective-pending"
+  "modulePresentationRevision": "2026-09-18-teaching-media-final-pots-corrective",
+  "teachingMediaRevision": "2026-09-18-final-pots-corrective-candidate",
+  "resourceVerificationRevision": "2026-09-18-v16.3.6-final-pots-corrective-pending"
 }

@@ -15,7 +15,7 @@
     {
       "version": "v16.3.6",
       "date": "September 18, 2026",
-      "title": "Teaching Media Content Completion — Post-Audit Corrective Candidate",
+      "title": "Teaching Media Content Completion — Final POTS Corrective Candidate",
       "type": "Teaching Media / Academic Resource Repair",
       "request": "Repair every verified Teaching Media gap found by the adversarial v16.3.5 audit so the external media pathway can be tested against the complete v16.3 semantic/standards map as a standalone explanation path, while preserving the accepted curriculum and all protected runtime identities.",
       "changes": [
@@ -26,7 +26,9 @@
         "Preserved the v16.3 curriculum, 62 lessons, 24 labs, assessments/mastery, calendar dates and UIDs, progress identities/history, Study Guide assignments, Cloud Sync protocol 2, module sequencing, visual design, and CETa/Career 50/50 architecture.",
         "The first post-repair acceptance audit executed the actual GitHub production composition and found residual defects rather than rubber-stamping the candidate: Week 1 lacked direct ESD-control teaching; Week 7 taught several of its mapped semiconductor families one week late; Week 12 still overclaimed GitHub Skills; the Week 27 NI card linked to a free-trial page instead of the claimed workflow tutorial; and Week 28 still lacked explicit productivity calculation and project-planning instruction.",
         "The corrective candidate adds NASA ESD instruction to Week 1; assigns the verified semiconductor-family resources directly to Week 7; narrows the Week 12 GitHub Skills card; replaces the Week 27 NI link with the actual Setup/Main/Cleanup stimulus-profile tutorial; and adds explicit field-service utilization plus NASA technical-planning/project-management instruction to Week 28.",
-        "This entry describes the v16.3.6 post-audit corrective candidate. The release must not be described as 31/31 standalone PASS until the corrected GitHub runtime is uploaded and the complete post-repair acceptance audit is rerun successfully."
+        "A second full semantic re-audit found one remaining Week 20 material defect: the assigned Cisco POTS/DSL splitter resource correctly taught voice/data frequency separation but did not teach the semantic row's required tip/ring loop-start behavior, off-hook loop current, and ringing.",
+        "The final corrective candidate adds Cisco Voice Network Signaling and Control directly to Week 20 for loop-start tip/ring, loop closure/current flow, dial-tone response, and ringing, while retaining the splitter resource for DSL/voice frequency separation.",
+        "This entry describes the v16.3.6 final POTS-corrective candidate. The release must not be described as 31/31 standalone PASS until the corrected GitHub runtime is uploaded and the complete final acceptance audit is rerun successfully."
       ]
     }
   ];
