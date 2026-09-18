@@ -1,8 +1,8 @@
-const CACHE='alfred-u-v16-3-7-whole-system-audit-repair-20260918';
+const CACHE='alfred-u-v16-3-8-week1-from-zero-visual-teaching-20260918';
 const CORE=[
   './','index.html','engineering.html','course.html','calendar.html','progress.html','resources.html','projects.html','documents.html','student-services.html','about.html','deployment.html','404.html','offline.html',
   'study.html','learn.html','search.html','week.html','practice.html','labs.html','assessments.html','quiz.html','standards.html','analytics.html','knowledge.html','patch-notes.html','academic-state.js',
-  'styles.css','site.js','progress.js','study.js','learn.js','curriculum-data.js','teaching-media-overrides.js','teaching-media-self-reliance.js','teaching-media-content-completion.js','course-data.js','academic-content.js','practical-completion.js','academic.js','assessment-data.js','assessment-completion.js','semantic-repair.js','assessment-policy.js','assessment-engine.js','readiness.js','assessment.js','quiz.js','standards.js','analytics.js','search.js','release-notes.js','release-notes-current.js','patch-notes.js','manifest.webmanifest',
+  'styles.css','site.js','progress.js','study.js','learn.js','curriculum-data.js','teaching-media-overrides.js','teaching-media-self-reliance.js','teaching-media-content-completion.js','course-data.js','academic-content.js','practical-completion.js','academic.js','assessment-data.js','assessment-completion.js','semantic-repair.js','week1-instructional-depth.js','assessment-policy.js','assessment-engine.js','readiness.js','assessment.js','quiz.js','standards.js','analytics.js','search.js','release-notes.js','release-notes-current.js','patch-notes.js','manifest.webmanifest',
   'crest.webp','seal.webp','icon-180.png','icon-192.png','icon-512.png',
   'syllabus-cover.png','resource-manual-cover.png','assignment-lab-cover.png','binder-index-cover.png','certificate-cover.png',
   'Alfred University - AU-ESET 301 - Syllabus and Student Handbook.pdf',

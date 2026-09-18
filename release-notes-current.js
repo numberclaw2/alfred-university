@@ -1,6 +1,23 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.8",
+      "date": "September 18, 2026",
+      "title": "Week 1 From-Zero Teaching + Source-Backed Visuals",
+      "type": "Week 1 Instructional Depth Update",
+      "request": "Improve Week 1 as the learner actually experiences it: teach technical concepts from zero, make prerequisite connections explicit, explain SI prefixes/conversions before using them, and integrate credible source visuals. Keep the change strictly scoped to Week 1 and avoid reopening Weeks 2–31.",
+      "changes": [
+        "Added a Week-1 Subject-1-only instructional overlay loaded after the preserved semantic-repair layer; Week 1 Subject 2, Weeks 2–31 lesson data, assessments, calendar identities, progress keys, Cloud Sync, and Teaching Media assignments are not rewritten by this update.",
+        "Rebuilt Subject 1 in dependency order: charge → current → voltage → closed circuit path → resistance → SI prefixes/powers of ten → unit conversion → Ohm’s law → proportional reasoning → power → predict-before-measure workflow.",
+        "Removed the assumption that the learner already understands metric prefixes or scientific notation. The lesson now explains kilo, mega, milli, micro, nano, pico, powers of ten, decimal movement as a consequence of multiplication/division, symbol capitalization, and conversion reasonableness checks.",
+        "Expanded worked reasoning from two examples to four progressive examples covering prefix conversion, forward Ohm’s-law calculation, reverse solving for resistance, and power-rating evaluation.",
+        "Removed the homemade Subject 1 Week 1 lesson diagram from the Classroom presentation and suppresses the old shared Week 1 concept-map graphic. Added textbook-style credited source figures from OpenStax/UCF Pressbooks for charge transfer, meter placement/Ohm’s-law measurement, and the voltage-current graph, plus a source-derived SI-prefix reference table grounded in NIST and OpenStax data.",
+        "Added visible Builds on callouts so each new concept names the prerequisite idea it extends instead of repeatedly restarting the explanation.",
+        "Kept the existing Week 1 safety teaching, safety-critical gates, semantic competency tasks, knowledge checks, and the complete Subject 2 lesson data intact. Subject 2 is deliberately deferred until the learner reaches and evaluates it.",
+        "Updated the Classroom renderer only to support source figures/tables and Week 1 concept-dependency callouts; other weeks receive no new figure data or lesson rewrite."
+      ]
+    },
+    {
       "version": "v16.3.7",
       "date": "September 18, 2026",
       "title": "Whole-System Acceptance Audit Repair — Readiness, Mastery & Portfolio Coherence",

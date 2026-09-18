@@ -64,6 +64,7 @@
   };
 
   function renderConceptMap(){
+    if (week === 1) return '';
     const visual = CONCEPT_MAPS[week];
     if (!visual) return '';
     return `<figure class="concept-map" aria-labelledby="concept-map-title-${week}"><div class="concept-map-label">Visual mental model · ${trackBadge('CETa + Career','How the ideas connect')}</div><h3 id="concept-map-title-${week}">${esc(visual.title)}</h3><ol>${visual.steps.map((step,i) => `<li><span>${i + 1}</span><strong>${esc(step)}</strong></li>`).join('')}</ol><figcaption>${esc(visual.caption)}</figcaption></figure>`;
@@ -217,6 +218,23 @@
     return String(value||'').split(/\n\n+/).filter(Boolean).map(x=>`<p>${esc(x)}</p>`).join('');
   }
 
+  function renderSourceFigure(figure){
+    if(!figure)return '';
+    const sourceLinks=[];
+    if(figure.sourceUrl)sourceLinks.push(`<a href="${esc(figure.sourceUrl)}" target="_blank" rel="noopener noreferrer">Open source ↗</a>`);
+    if(figure.secondaryUrl)sourceLinks.push(`<a href="${esc(figure.secondaryUrl)}" target="_blank" rel="noopener noreferrer">Second source ↗</a>`);
+    if(figure.licenseUrl)sourceLinks.push(`<a href="${esc(figure.licenseUrl)}" target="_blank" rel="noopener noreferrer">License ↗</a>`);
+    let body='';
+    if(figure.type==='table'){
+      const cols=figure.columns||[];
+      const rows=figure.rows||[];
+      body=`<div class="source-figure-table-wrap" tabindex="0" role="region" aria-label="${esc(figure.title||'Source-derived reference table')}"><table class="source-figure-table"><thead><tr>${cols.map(x=>`<th scope="col">${esc(x)}</th>`).join('')}</tr></thead><tbody>${rows.map(row=>`<tr>${row.map((x,i)=>i===0?`<th scope="row">${esc(x)}</th>`:`<td>${esc(x)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+    }else if(figure.src){
+      body=`<a class="source-figure-image-link" href="${esc(figure.src)}" target="_blank" rel="noopener noreferrer" aria-label="Open ${esc(figure.number||'figure')} full size"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="${esc(figure.src)}" alt="${esc(figure.alt||figure.title||'Instructional source figure')}"></a>`;
+    }
+    return `<figure class="source-figure"><div class="source-figure-heading"><span>${esc(figure.number||'Source figure')}</span><strong>${esc(figure.title||'Instructional visual')}</strong></div>${body}<figcaption><p>${esc(figure.caption||'')}</p><p class="source-figure-credit"><strong>Source:</strong> ${esc(figure.source||'Credited instructional source')}${figure.license?` · ${esc(figure.license)}`:''}</p>${sourceLinks.length?`<div class="source-figure-links">${sourceLinks.join('')}</div>`:''}</figcaption></figure>`;
+  }
+
   function renderWorkedExample(example,label='Worked example'){
     if(!example || !Object.keys(example).length)return '';
     const steps=example.steps||[];
@@ -257,10 +275,10 @@
     return `<section class="integrated-lesson" data-v="16.3">
       <section class="integrated-purpose"><div><span>v16.3 integrated lesson · ${esc(lessonItem.track)}</span><h3>Purpose and prerequisite</h3></div><p>${esc(d.purpose)}</p><aside><strong>Bring this forward:</strong><p>${esc(d.prereq)}</p></aside></section>
       ${visual}
-      <div class="integrated-section-head"><span>Alfred teaches the subject</span><h3>Technical instruction</h3><p>The sections below are the lesson itself. External resources come later as reinforcement.</p></div>
-      <div class="integrated-teaching">${(d.teaching||[]).map((section,i)=>`<section class="integrated-teaching-block${section.critical?' critical-teaching':''}"><span class="concept-number">${i+1}</span><div><h3>${esc(section.title)}</h3>${paragraphs(section.text)}${section.remember?`<aside><strong>Hold onto this</strong><p>${esc(section.remember)}</p></aside>`:''}${section.critical?'<div class="critical-flag">Safety-critical: understand this boundary before related physical work.</div>':''}</div></section>`).join('')}</div>
+      <div class="integrated-section-head"><span>Alfred teaches the subject</span><h3>Technical instruction</h3><p>${week===1?'The sections below are the lesson itself. Credited source figures are placed beside the concepts they clarify; videos and longer outside resources still come later as reinforcement.':'The sections below are the lesson itself. External resources come later as reinforcement.'}</p></div>
+      <div class="integrated-teaching">${(d.teaching||[]).map((section,i)=>`<section class="integrated-teaching-block${section.critical?' critical-teaching':''}"><span class="concept-number">${i+1}</span><div><h3>${esc(section.title)}</h3>${section.buildOn?`<div class="concept-builds-on"><strong>Builds on:</strong> ${esc(section.buildOn)}</div>`:''}${paragraphs(section.text)}${renderSourceFigure(section.figure)}${section.remember?`<aside><strong>Hold onto this</strong><p>${esc(section.remember)}</p></aside>`:''}${section.critical?'<div class="critical-flag">Safety-critical: understand this boundary before related physical work.</div>':''}</div></section>`).join('')}</div>
       <div class="integrated-section-head"><span>Worked reasoning</span><h3>See the model used, then use it yourself</h3></div>
-      <div class="integrated-worked-grid">${(d.workedExamples||[]).map((x,i)=>renderWorkedExample(x,i===0?'Worked example 1':'Worked example 2')).join('')}</div>
+      <div class="integrated-worked-grid">${(d.workedExamples||[]).map((x,i)=>renderWorkedExample(x,week===1?`Worked example ${i+1}`:(i===0?'Worked example 1':'Worked example 2'))).join('')}</div>
       <section class="integrated-misconceptions"><div class="integrated-section-head"><span>Common misconceptions</span><h3>Why the tempting shortcut fails</h3></div><div>${(d.misconceptions||[]).map(x=>`<article><strong>${esc(x.mistake)}</strong><p><b>Why it is tempting:</b> ${esc(x.why)}</p><p><b>Repair the model:</b> ${esc(x.repair)}</p></article>`).join('')}</div></section>
       <section class="integrated-practice"><div><span>Guided practice</span><h3>Work concrete problems with support</h3><ol>${(d.guidedPractice||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ol></div><div><span>Independent practice</span><h3>Changed scenario — no copying</h3><p>${esc(d.independentScenario)}</p></div></section>
       <section class="integrated-connection"><div><span>Technician / embedded connection</span><h3>Where this shows up in real work</h3><p>${esc(d.connection)}</p></div><div><span>Specific teach-back</span><h3>Explain the mechanism, not the wording</h3><p>${esc(d.teachBack)}</p></div></section>
@@ -299,8 +317,9 @@
 
   function renderPractice(){
     const response = learningState().l.responses?.practice || '';
+    const weekOneConceptPractice=week===1?(moduleData.lessons?.[0]?.integrated?.guidedPractice||[]):[];
     return `<div class="classroom-stage-head"><div><span class="stage-count">Stage 5 of ${STAGES.length} · Required</span><h2>Worked → guided → independent</h2><p>Now remove support gradually. Write a real attempt before revealing the checkpoint.</p></div>${trackBadge('CETa + Career')}</div>
-    <section class="practice-sequence"><div><span>1</span><h3>Review the worked examples</h3><p>Return to either lesson only for the exact step you cannot explain. Say why each step is legal instead of copying it.</p></div><div><span>2</span><h3>Guided practice</h3><ol>${moduleData.integration.guided.map(x => `<li>${esc(x)}</li>`).join('')}</ol></div><div><span>3</span><h3>Independent transfer</h3><p>${esc(moduleData.integration.independent)}</p></div></section>
+    <section class="practice-sequence"><div><span>1</span><h3>Review the worked examples</h3><p>Return to either lesson only for the exact step you cannot explain. Say why each step is legal instead of copying it.</p></div>${week===1?`<div><span>2</span><h3>Guided concept practice</h3><ol>${weekOneConceptPractice.map(x=>`<li>${esc(x)}</li>`).join('')}</ol></div><div><span>3</span><h3>Application rehearsal</h3><ol>${moduleData.integration.guided.map(x=>`<li>${esc(x)}</li>`).join('')}</ol></div><div><span>4</span><h3>Independent transfer</h3><p>${esc(moduleData.integration.independent)}</p></div>`:`<div><span>2</span><h3>Guided practice</h3><ol>${moduleData.integration.guided.map(x => `<li>${esc(x)}</li>`).join('')}</ol></div><div><span>3</span><h3>Independent transfer</h3><p>${esc(moduleData.integration.independent)}</p></div>`}</section>
     <section class="practice-response"><label for="practice-response"><strong>Write your attempt or reasoning</strong><span>At least a few complete sentences, calculations, or a precise pointer to your saved artifact.</span></label><textarea id="practice-response" rows="8" maxlength="6000" placeholder="Show your reasoning, units, expected result, and evidence—not only the final answer.">${esc(response)}</textarea><div class="practice-response-actions"><button class="button outline-green" id="reveal-practice" type="button">Reveal oral checkpoint</button><span id="practice-save-status">Saved as you type.</span></div><div class="practice-checkpoint hidden" id="practice-checkpoint"><strong>Checkpoint</strong><p>${esc(moduleData.integration.practiceCheck)}</p><p>Answer this aloud or add it above. If the explanation is shaky, return to the smallest relevant section before marking complete.</p></div><button class="button green" id="complete-practice" type="button">${stageComplete('practice') ? '✓ Guided practice complete' : 'Mark practice complete'}</button></section>`;
   }
 

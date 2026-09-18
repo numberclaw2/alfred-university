@@ -1,22 +1,29 @@
-AU-ESET 301 v16.3.7 — WHOLE-SYSTEM AUDIT REPAIR
+AU-ESET 301 v16.3.8 — WEEK 1 FROM-ZERO TEACHING + SOURCE VISUALS
 
-UPLOAD METHOD
-1. Open the GitHub repository root for numberclaw2/alfred-university.
-2. Upload EVERY file from this ZIP directly into the repository root.
-3. Replace/overwrite matching files when GitHub prompts.
-4. Do not create a wrapper folder.
-5. Commit the upload.
+UPLOAD EVERY FILE IN THIS ZIP DIRECTLY TO THE GITHUB REPOSITORY ROOT.
+Replace matching files when prompted. Do not create a wrapper folder.
 
-WHY THIS PACKAGE EXISTS
-The GitHub connection available during this repair was read-only for repository-content writes (403), so the changes were built and QA'd as a flat upload package instead of being committed automatically.
+SCOPE — WEEK 1 ONLY
+- Subject 1 rebuilt from zero: charge -> current -> voltage -> circuit path -> resistance -> SI prefixes/conversions -> Ohm's law -> proportional reasoning -> power -> predict-before-measure.
+- Week 1 Subject 2 is preserved exactly; it is intentionally deferred until the learner reaches and evaluates it.
+- Week 1 Practice now surfaces the new guided concept practice before application rehearsal.
+- Existing Week 1 safety blocks, required checks, semantic competency tasks, and safety-critical gate are preserved.
+- The homemade Subject 1 Week 1 lesson SVG and old shared Week 1 concept-map graphic are no longer used in the updated Subject 1 learning path.
+- Credited OpenStax/UCF figures and a NIST/OpenStax-sourced SI-prefix table are integrated into Week 1 Subject 1.
 
-SCOPE
-- CETa readiness: one Alfred 100-question run >=85% + one independent external CETa practice assessment >=85%.
-- Mastery: remove impossible higher-difficulty prerequisite; require truthful repeated evidence + bank breadth, with Evidence Limited when the bank is too thin.
-- Portfolio: Project 2 = Automated Hardware Validation / HIL; Project 3 = Custom PCB; control-system concept becomes optional long-term extension.
-- Release/build/cache/documentation synchronized to v16.3.7.
+NOT CHANGED
+- Week 1 Subject 2 lesson data
+- Weeks 2-31 lesson data
+- Assessment bank / mastery thresholds
+- Calendar dates / event IDs / UIDs
+- Progress identities / local records / Cloud Sync protocol
+- Labs and project records
+- Teaching Media assignments
+- v16.3 curriculum release and v16.2 evidence revision
 
-NO CHANGE
-Curriculum 16.3, Teaching Media 31/31 acceptance, 62 lessons, 24 labs, calendar identities/dates, evidence revision 16.2, Study Guide assignments, progress identities, Cloud Sync protocol 2, and Worker/D1 contract are preserved.
+EXPECTED RUNTIME
+runtimePatch: 16.3.8
+build: v16.3.8-week1-from-zero-visual-teaching-20260918
+cache: alfred-u-v16-3-8-week1-from-zero-visual-teaching-20260918
 
-After upload, a post-deployment verification should confirm GitHub main, GitHub Pages, service-worker/cache state, and build-info.json independently.
+The source images are remote-linked to their credited OpenStax/UCF Pressbooks originals; no new Alfred-created instructional diagrams were added.
