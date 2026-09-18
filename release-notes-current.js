@@ -1,6 +1,26 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.13",
+      "date": "September 18, 2026",
+      "title": "Week Overview Retirement — Merge Into Classroom & Owner Systems",
+      "type": "Information Architecture / Redundancy Cleanup",
+      "request": "Execute Step 3 of the locked one-tab-at-a-time cleanup plan: determine whether Week Overview still has a unique purpose, preserve any useful information, merge it into the correct owner, and retire the redundant standalone section without starting the final navigation cleanup early.",
+      "changes": [
+        "Retired Week Overview as an independent weekly-content destination because its outcomes, standards, planned time, schedule, lab/application, mastery, and resource summaries are now better owned by Classroom, Calendar, Lab Center, Assessment Center, Practice, and Engineering Library.",
+        "Preserved old week.html bookmarks and calendar-note links by converting week.html into a compatibility route instead of deleting it. The bridge carries a requested ?week= value into Classroom and Practice and explains where each former Week Overview job now lives.",
+        "Identified the week-specific Career Translation block as the one meaningful Week Overview element not already surfaced as well elsewhere. Moved that content into Classroom Stage 1 (Start Here), including the weekly capability unlock, roles this builds toward, and interview prompt.",
+        "Removed the dedicated Week Overview shortcut from the Classroom control panel so the active learning path no longer sends the learner back into a duplicate summary page.",
+        "Updated Course Overview copy and its academic-sequence callout so it no longer describes Week Overview as the schedule/source map or promotes it as a destination; the callout now routes to Classroom, Calendar, and Practice.",
+        "Confirmed the two-finish-line CETa / technician-readiness guidance is already preserved on Course Overview through readiness.js, so retiring Week Overview does not remove that guidance.",
+        "Intentionally deferred the site-wide removal of Week Overview links from global More menus and legacy footers until Step 9 (Home + Navigation final cleanup), as required by the locked roadmap. Until then, those links land on the compatibility bridge rather than duplicated weekly content.",
+        "No Study, Practice logic, Calendar data, labs, assessments, mastery formulas, projects, Knowledge Base, Engineering, Student Services, progress schema, Cloud Sync protocol, lesson content, or Teaching Media is changed in this release."
+      ],
+      "filesAdded": [],
+      "filesModified": ["week.html", "learn.html", "learn.js", "course.html", "release-notes-current.js", "build-info.json", "service-worker.js", "POST-UPDATE-QA.md", "UPLOAD_README.txt", "SHA256SUMS.txt"],
+      "filesRemoved": []
+    },
+    {
       "version": "v16.3.12",
       "date": "September 18, 2026",
       "title": "Practice Tab Rebuild — Priority Hub for Deliberate Practice",
@@ -169,7 +189,7 @@
       ]
     }
   ];
-  const currentOrder = ['v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
+  const currentOrder = ['v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
   entries.sort((a,b)=>currentOrder.indexOf(a.version)-currentOrder.indexOf(b.version));
   const historical = Array.isArray(window.ALFRED_RELEASES) ? window.ALFRED_RELEASES : [];
   const currentVersions = new Set(entries.map(entry=>entry.version));

@@ -1,21 +1,23 @@
-AU-ESET 301 v16.3.12 — PRACTICE PRIORITY HUB
+AU-ESET 301 v16.3.13 — WEEK OVERVIEW RETIREMENT / MERGE
 
 UPLOAD EVERY FILE IN THIS ZIP DIRECTLY TO THE GITHUB REPOSITORY ROOT.
 Replace matching files when prompted. Do not create a wrapper folder.
 
 PURPOSE
-- Keep Practice as a top-level tab only because it now has a unique job: tell the learner what to practice right now.
-- Replace the old two-link portal with a live current-week priority hub.
-- Route prerequisite teaching to Classroom, guided practice to Classroom Practice, application to Labs, required proof to Assessments, and weak-concept repair to Study.
-- Surface existing due reviews and below-target assessment evidence without creating new mastery/completion records.
-- Keep optional extra practice clearly separate from required work.
+- Retire Week Overview as a duplicate weekly-content page.
+- Preserve old week.html URLs as a compatibility bridge.
+- Move the one unique useful Week Overview element — weekly Career Translation — into Classroom Stage 1.
+- Keep schedule in Calendar, labs in Lab Center/Application, mastery in Assessment/Classroom, and deep resources in Engineering Library.
+- Do NOT perform the final global navigation cleanup yet; that remains Step 9.
 
 FILES ADDED
-- practice.js
-- practice-v2.css
+- None
 
 FILES MODIFIED
-- practice.html
+- week.html
+- learn.html
+- learn.js
+- course.html
 - release-notes-current.js
 - build-info.json
 - service-worker.js
@@ -27,18 +29,19 @@ FILES REMOVED
 - None
 
 NOT CHANGED
-- Study tab
-- Week Overview
-- Engineering page
+- Study
+- Practice logic
+- Engineering
 - Knowledge Base
 - Student Services
-- Classroom lesson content / Teaching Media
-- Calendar data
+- Home/global navigation cleanup
+- Calendar data/identities
 - Lab definitions / projects
 - Assessment bank / mastery formulas
 - Progress schema / Cloud Sync protocol
+- Classroom lesson content / Teaching Media
 
 EXPECTED RUNTIME
-runtimePatch: 16.3.12
-build: v16.3.12-practice-priority-hub-20260918
-cache: alfred-u-v16-3-12-practice-priority-hub-20260918
+runtimePatch: 16.3.13
+build: v16.3.13-week-overview-retirement-20260918
+cache: alfred-u-v16-3-13-week-overview-retirement-20260918

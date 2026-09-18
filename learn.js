@@ -202,6 +202,7 @@
 
   function renderOrientation(){
     const weekRecord = W.find(w => w.week === week) || {};
+    const career = A.careerMap?.[String(week)] || null;
     return `<div class="classroom-stage-head">
       <div><span class="stage-count">Stage 1 of ${STAGES.length} · Required</span><h2>Start with the destination</h2><p>${esc(moduleData.promise)}</p></div>${trackBadge('CETa + Career','Equal purpose this week')}
     </div>
@@ -211,6 +212,7 @@
     </div>
     <section class="standards-snapshot"><h3>Standards being taught</h3><div><strong>CETa</strong>${moduleData.standards.ceta.map(x => `<span>${esc(x)}</span>`).join('')}</div><div><strong>Career</strong>${moduleData.standards.career.map(x => `<span>${esc(x.replace(/^C/,''))}</span>`).join('')}</div><p>These are curriculum mappings, not claims about ETA’s unpublished exam weighting.</p></section>
     <section class="time-map"><h3>Planned learning time</h3><div><span><b>${moduleData.time.ceta}</b> min CETa lesson</span><span><b>${moduleData.time.career}</b> min career lesson</span><span><b>${moduleData.time.combined}</b> min combined practice/application</span></div><p>Combined work contributes half to each track, preserving equal program weight.</p></section>
+    ${career ? `<section class="career-translation"><div><div class="eyebrow">Career Translation</div><h3>${esc(career.unlock)}</h3><p><strong>Roles this builds toward:</strong> ${(career.roles||[]).map(esc).join(' · ')}</p></div><div><span>Interview prompt</span><p>${esc(career.interview||'Explain how this week’s work changes the way you would measure, troubleshoot, build, test, or document a real system.')}</p></div></section>` : ''}
     <button class="button green classroom-complete" data-complete="orientation" type="button">${stageComplete('orientation') ? '✓ Orientation complete' : 'I understand the week’s destination'}</button>`;
   }
 
@@ -438,7 +440,6 @@
     $('#classroom-promise').textContent = moduleData.promise;
     $('#classroom-phase').textContent = moduleData.phase;
     $('#classroom-week-label').textContent = `Week ${String(week).padStart(2,'0')}`;
-    $('#week-overview-link').href = `week.html?week=${week}`;
     $('#week-stage-progress').textContent = `${count} of ${STAGES.length} stages complete`;
     const best = Number(currentAssessment().bestPct || 0);
     $('#week-mastery-summary').textContent = best ? `Weekly mastery best: ${best}% · target ${moduleData.mastery.target}%` : `Weekly mastery required: ${moduleData.mastery.target}%`;
