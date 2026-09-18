@@ -1,10 +1,10 @@
 {
   "courseRelease": "16.3",
-  "runtimePatch": "16.3.14",
+  "runtimePatch": "16.3.15",
   "evidenceRevision": "16.2",
   "cloudSyncProtocol": 2,
-  "build": "v16.3.14-engineering-retirement-20260918",
-  "releaseStatus": "engineering-retired-merged-into-course-labs-projects",
+  "build": "v16.3.15-knowledge-base-retirement-20260918",
+  "releaseStatus": "knowledge-base-retired-search-owns-concept-reference",
   "presentationPatch": "mobile-visual-readability-final",
   "scheduleRevision": "2026-09-16-week1-reset",
   "modulePresentationRevision": "2026-09-18-week1-from-zero-visual-teaching",
@@ -16,10 +16,11 @@
   "week1InstructionRevision": "2026-09-18-from-zero-visual-teaching",
   "week1TeachingMediaRevision": "2026-09-18-beginner-teacher-youtube-layer",
   "teachingMediaBaseRevision": "2026-09-18-final-pots-31-week-standalone-accepted",
-  "releaseNotesRevision": "2026-09-18-v16.3.14-engineering-retirement-recorded",
+  "releaseNotesRevision": "2026-09-18-v16.3.15-knowledge-base-retirement-recorded",
   "repositoryLedgerBaseline": "2026-09-18-v16.3.9-63-commits",
   "studyRevision": "2026-09-18-retrieve-diagnose-repair-practice-teachback",
   "practiceRevision": "2026-09-18-priority-ladder-repair-router",
   "weekOverviewRevision": "2026-09-18-retired-compatibility-route",
-  "engineeringPageRevision": "2026-09-18-retired-compatibility-route"
+  "engineeringPageRevision": "2026-09-18-retired-compatibility-route",
+  "knowledgeBaseRevision": "2026-09-18-retired-search-concept-reference-owner"
 }

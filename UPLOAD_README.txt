@@ -1,22 +1,22 @@
-AU-ESET 301 v16.3.14 — ENGINEERING PAGE RETIREMENT / MERGE
+AU-ESET 301 v16.3.15 — KNOWLEDGE BASE RETIREMENT / SEARCH CONSOLIDATION
 
 UPLOAD EVERY FILE IN THIS ZIP DIRECTLY TO THE GITHUB REPOSITORY ROOT.
 Replace matching files when prompted. Do not create a wrapper folder.
 
 PURPOSE
-- Retire Engineering as a duplicate program/marketing page.
-- Preserve engineering.html as a compatibility route until Step 9 navigation cleanup.
-- Move the useful bridge-role -> Embedded Systems Engineering pathway into Course Overview.
-- Preserve the engineering philosophy in Course Overview mastery copy.
-- Leave lab procedures, project evidence, readiness tracking, and mastery with their existing owner systems.
+- Retire Knowledge Base as a duplicate standalone search page.
+- Preserve all existing concept-reference data in academic-content.js unchanged.
+- Make Search Everything the owner of the quick-reference concept-card experience.
+- Preserve old knowledge.html q/domain bookmarks through a compatibility route.
 - Do NOT perform final global navigation cleanup yet; that remains Step 9.
 
 FILES ADDED
 - None
 
 FILES MODIFIED
-- engineering.html
-- course.html
+- knowledge.html
+- search.html
+- search.js
 - release-notes-current.js
 - build-info.json
 - service-worker.js
@@ -28,10 +28,11 @@ FILES REMOVED
 - None
 
 NOT CHANGED
+- academic-content.js concept data
 - Study
 - Practice
 - Week Overview compatibility behavior
-- Knowledge Base
+- Engineering compatibility behavior
 - Student Services
 - Home/global navigation cleanup
 - Calendar data/identities
@@ -41,6 +42,6 @@ NOT CHANGED
 - Classroom lesson content / Teaching Media
 
 EXPECTED RUNTIME
-runtimePatch: 16.3.14
-build: v16.3.14-engineering-retirement-20260918
-cache: alfred-u-v16-3-14-engineering-retirement-20260918
+runtimePatch: 16.3.15
+build: v16.3.15-knowledge-base-retirement-20260918
+cache: alfred-u-v16-3-15-knowledge-base-retirement-20260918

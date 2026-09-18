@@ -1,4 +1,4 @@
-const CACHE='alfred-u-v16-3-14-engineering-retirement-20260918';
+const CACHE='alfred-u-v16-3-15-knowledge-base-retirement-20260918';
 const CORE=[
   './','index.html','engineering.html','course.html','calendar.html','progress.html','resources.html','projects.html','documents.html','student-services.html','about.html','deployment.html','404.html','offline.html',
   'study.html','learn.html','search.html','week.html','practice.html','labs.html','assessments.html','quiz.html','standards.html','analytics.html','knowledge.html','patch-notes.html','academic-state.js',

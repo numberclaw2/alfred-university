@@ -1,6 +1,27 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.15",
+      "date": "September 18, 2026",
+      "title": "Knowledge Base Retirement — Concept Reference Moves Into Search",
+      "type": "Information Architecture / Search Consolidation",
+      "request": "Execute Step 5 of the locked one-tab-at-a-time cleanup plan: determine whether the standalone Knowledge Base page still has a unique job, preserve all useful concept-reference data, move that quick-reference experience into the correct owner, and retire the duplicate page without starting the final global navigation cleanup early.",
+      "changes": [
+        "Retired Knowledge Base as an independent search destination because Classroom now owns teaching and Search Everything already owns cross-program retrieval. The underlying concept-reference data remains useful and is preserved unchanged in academic-content.js.",
+        "Moved the former Knowledge Base quick-reference experience into Search Everything. Concept Reference results now show the concise definition, formula when one exists, deeper technician note, CETa domain, and mapped weeks directly in the search result instead of sending the learner to a second search page.",
+        "Preserved all 61 current concept records without deleting, renaming, or rewriting their academic-content.js source data.",
+        "Changed the Search Everything type filter from the legacy 'Knowledge base' label to 'Concept references' and changed indexed concept-result type from Knowledge to Concept Reference.",
+        "Added URL support for Search Everything type and CETa-domain filters so an old Knowledge Base bookmark can carry its q and domain values into the consolidated search owner.",
+        "Converted knowledge.html into a compatibility route. It explains the new ownership model and preserves legacy ?q= and ?domain= values when opening Search Everything's Concept Reference filter.",
+        "Kept Classroom as the teaching owner, Standards & Retention as the competency/evidence owner, and Engineering Library as the deeper-source owner; the concept-reference merge does not duplicate those systems.",
+        "Intentionally deferred removal of Knowledge Base from global More menus and legacy footers until Step 9 (Home + Navigation final cleanup), matching the locked roadmap.",
+        "No Study, Practice, Week Overview compatibility behavior, Engineering compatibility behavior, Student Services, Calendar data, labs, projects, assessments, mastery formulas, progress schema, Cloud Sync protocol, lesson content, Teaching Media, or academic-content.js concept data is changed in this release."
+      ],
+      "filesAdded": [],
+      "filesModified": ["knowledge.html", "search.html", "search.js", "release-notes-current.js", "build-info.json", "service-worker.js", "POST-UPDATE-QA.md", "UPLOAD_README.txt", "SHA256SUMS.txt"],
+      "filesRemoved": []
+    },
+    {
       "version": "v16.3.14",
       "date": "September 18, 2026",
       "title": "Engineering Page Retirement — Merge Into Course, Labs & Projects",
@@ -209,7 +230,7 @@
       ]
     }
   ];
-  const currentOrder = ['v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
+  const currentOrder = ['v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
   entries.sort((a,b)=>currentOrder.indexOf(a.version)-currentOrder.indexOf(b.version));
   const historical = Array.isArray(window.ALFRED_RELEASES) ? window.ALFRED_RELEASES : [];
   const currentVersions = new Set(entries.map(entry=>entry.version));
