@@ -1,11 +1,11 @@
-/* AU-ESET 301 Teaching Media Content-Completion Repair — v16.3.6 WORKING DRAFT
-   Cumulative Chunks 1–5: all previously identified Teaching Media content defects targeted.
+/* AU-ESET 301 Teaching Media Content-Completion Repair — v16.3.6 FINAL ACCEPTED
+   Cumulative Chunks 1–5 plus the final post-repair corrections are integrated.
    Prior-PASS Weeks 5–6, 16, 24, 26, 29, and 31 remain untouched by the content-completion additions.
-   Generated 2026-09-18 against verified v16.3.5 runtime baseline.
+   Final acceptance synchronized 2026-09-18 against the verified v16.3.6 production composition.
 
-   IMPORTANT: DO NOT DEPLOY THIS CHUNK AS THE FINAL v16.3.6 RELEASE.
-   It is the completed content-repair working overlay, but it is NOT YET the audited final release.
-   Runtime integration, full 31-week acceptance, link verification, regression QA, and version/reference synchronization still must pass.
+   ACCEPTANCE: 31/31 weeks PASS; 0 BLOCKER; 0 MATERIAL DEFECT.
+   The final Week 20 POTS correction closes the last semantic gap.
+   Release/reference metadata, runtime integration, and post-repair regression status are synchronized with the accepted v16.3.6 release.
 
    Scope: Teaching Media/resource data only.
    Load after curriculum-data.js, teaching-media-overrides.js, and teaching-media-self-reliance.js.

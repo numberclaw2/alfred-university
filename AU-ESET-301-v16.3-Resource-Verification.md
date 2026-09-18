@@ -43,6 +43,10 @@ The final correction assigns Cisco **Voice Network Signaling and Control** to We
 
 The POTS splitter resource remains assigned separately for DSL/voice coexistence.
 
+### Final acceptance-sync cleanup
+
+The production `teaching-media-content-completion.js` source header has been synchronized with the accepted state. The stale working-draft / do-not-deploy warning from the repair-build phase is removed. This is documentation/source-metadata cleanup only; it does not change the accepted media assignments, runtime behavior, curriculum, assessments, calendar, progress identities, Study Guide assignments, or Cloud Sync protocol.
+
 ## Final 31-week acceptance
 
 **Weeks 1–31: PASS**
