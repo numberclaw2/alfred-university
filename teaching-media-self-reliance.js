@@ -1,8 +1,10 @@
-/* AU-ESET 301 Teaching Media Self-Reliance Upgrade
-   Generated 2026-09-17 against main commit 5fea9d5cc4637d5310776d4d2959dfbc5efc2caa.
+/* AU-ESET 301 Teaching Media Self-Reliance Upgrade — v16.3.5
+   Production overlay for the v16.3 curriculum.
    Scope: Teaching Media/resource data only.
-   This file is a DATA OVERLAY for review. Preferred final integration: merge its Object.assign
-   and updateMedia calls into the existing teaching-media-overrides.js before the final C.meta block.
+   Load after curriculum-data.js and teaching-media-overrides.js.
+   This overlay makes the external Teaching Media pathway independently instructional
+   while preserving Alfred labs, projects, measurements, coding, troubleshooting,
+   assessments, calendar identities, progress identities, and Cloud Sync behavior.
 */
 (() => {
   const C = window.ALFRED_CURRICULUM;

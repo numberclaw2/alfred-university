@@ -1,12 +1,16 @@
-UPLOAD THESE THREE FILES TO THE ROOT OF THE GITHUB REPOSITORY
+AU-ESET 301 v16.3.5 — REFERENCE / VERSION SYNC
 
-1. teaching-media-self-reliance.js  (NEW FILE)
-2. learn.html                       (REPLACE existing file)
-3. service-worker.js                (REPLACE existing file)
+Upload EVERY file in this ZIP to the ROOT of the GitHub repository.
+Replace matching files and add release-notes-current.js.
 
-Keep teaching-media-overrides.js exactly as it is.
-Do not rename any of these files; GitHub Pages paths are case-sensitive.
+This corrects the documentation/version-sync omission from the initial
+v16.3.5 Teaching Media upload.
 
-This package changes only the Classroom Teaching Media/resource pathway and the
-service-worker cache needed to load it. It does not change lessons, labs,
-assessments, calendar dates/UIDs, progress identities, or Cloud Sync.
+IMPORTANT:
+- Keep teaching-media-overrides.js. Do not delete it.
+- Keep learn.html from the prior v16.3.5 upload; it already loads
+  teaching-media-self-reliance.js after teaching-media-overrides.js.
+- Do not upload the ZIP itself.
+- Do not create a wrapper folder.
+- No Cloudflare Worker or D1 changes are required.
+- No progress reset or calendar re-import is required.
