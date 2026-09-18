@@ -189,14 +189,12 @@
     learn:['Course Overview','course.html'],
     week:['Classroom','learn.html'],
     engineering:['Course Overview','course.html'],
-    projects:['Engineering','engineering.html'],
-    resources:['Engineering Library','resources.html'],
-    search:['Engineering Library','resources.html'],
-    knowledge:['Engineering Library','resources.html'],
+    projects:['Course Overview','course.html'],
+    resources:['Course Overview','course.html'],
+    knowledge:['Search Everything','search.html'],
     labs:['Practice','practice.html'],
     assessments:['Practice','practice.html'],
     standards:['Mastery','analytics.html'],
-    analytics:['Mastery','analytics.html'],
     documents:['Course Overview','course.html'],
     deployment:['About','about.html'],
     'patch-notes':['About','about.html'],
@@ -241,9 +239,9 @@
     const menu=$('.nav-more-menu');
     if(!menu||menu.dataset.grouped==='true') return;
     const groups=[
-      {label:'Course & Library',links:['week.html','course.html','engineering.html','resources.html','projects.html','search.html','knowledge.html']},
+      {label:'Course & Reference',links:['course.html','resources.html','projects.html','search.html']},
       {label:'Practice & Mastery',links:['labs.html','assessments.html','standards.html']},
-      {label:'Documents & Support',links:['documents.html','student-services.html','about.html','patch-notes.html']}
+      {label:'Administration',links:['documents.html','about.html','deployment.html','patch-notes.html']}
     ];
     const links=$$('a',menu);
     menu.replaceChildren();menu.id='more-navigation-menu';

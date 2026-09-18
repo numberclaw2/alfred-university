@@ -1,6 +1,28 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.19",
+      "date": "September 18, 2026",
+      "title": "Home + Navigation Final Cleanup — Owner-Based Information Architecture",
+      "type": "Information Architecture / Final Navigation Cleanup",
+      "request": "Execute Step 9, the final item in the locked one-tab-at-a-time cleanup roadmap: keep Home as the orientation/dashboard, remove retired destinations from normal navigation, align Search and breadcrumbs with current owner systems, and finish the site-wide information architecture without deleting compatibility URLs.",
+      "changes": [
+        "Kept the seven-item primary learner navigation unchanged and canonical: Home, Study, Learn, Calendar, Practice, Progress, and Mastery.",
+        "Removed Week Overview, Engineering, Knowledge Base, and Student Services from every global More menu and every full global footer. Their HTML compatibility routes remain deployed for old bookmarks, historical links, and preserved calendar-note URLs.",
+        "Rebuilt the More menu around current owners only: Course & Reference contains Course Overview, Engineering Library, Projects, and Search Everything; Practice & Mastery contains Lab Center, Assessment Center, and Standards & Retention; Administration contains Documents, About, Deployment, and Release Notes.",
+        "Added Deployment to normal administrative navigation so the permanent operations page is directly discoverable after its Step 8 upgrade.",
+        "Standardized full-site footers into Learning & Practice plus Course & Administration groups and removed all legacy Week Overview, Knowledge Base, Career Services, Laboratory Safety, and Student Services footer routes.",
+        "Corrected context-trail ownership in site.js: Projects and Engineering Library now sit under Course Overview; the retired Knowledge Base compatibility page points back to Search Everything; Search and Mastery no longer receive self-parent breadcrumb entries; direct Week Overview and Engineering compatibility pages still identify their current owner context.",
+        "Updated Search Everything so week-level results are Classroom Week results that open the Classroom orientation stage directly instead of routing through the retired Week Overview compatibility page. The visible filter now says Classroom weeks.",
+        "Updated the dormant legacy week renderer's CETa-domain chips to open Concept Reference results in Search Everything rather than the retired Knowledge Base page, preventing future reuse from reintroducing the old owner route.",
+        "Updated Home's Practice card to describe the current priority ladder—guided work, labs, required checks, mastery, and repair—rather than the old labs-then-assessment portal behavior.",
+        "Compatibility URLs, service-worker caching of those compatibility pages, historical release records, calendar identities/content, progress identities, Cloud Sync protocol, lesson content, assessments, labs, projects, mastery formulas, and Teaching Media remain intact."
+      ],
+      "filesAdded": [],
+      "filesModified": ["POST-UPDATE-QA.md", "SHA256SUMS.txt", "UPLOAD_README.txt", "about.html", "academic.js", "analytics.html", "assessments.html", "build-info.json", "calendar.html", "course.html", "deployment.html", "documents.html", "engineering.html", "index.html", "knowledge.html", "labs.html", "learn.html", "patch-notes.html", "practice.html", "progress.html", "projects.html", "quiz.html", "release-notes-current.js", "resources.html", "search.html", "search.js", "service-worker.js", "site.js", "standards.html", "student-services.html", "study.html", "week.html"],
+      "filesRemoved": []
+    },
+    {
           "version": "v16.3.18",
           "date": "September 18, 2026",
           "title": "Deployment Page Durability Upgrade — Live Build Verification & Recovery Operations",
@@ -301,7 +323,7 @@
       ]
     }
   ];
-  const currentOrder = ['v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
+  const currentOrder = ['v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
   entries.sort((a,b)=>currentOrder.indexOf(a.version)-currentOrder.indexOf(b.version));
   const historical = Array.isArray(window.ALFRED_RELEASES) ? window.ALFRED_RELEASES : [];
   const currentVersions = new Set(entries.map(entry=>entry.version));
