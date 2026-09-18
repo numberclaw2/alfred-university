@@ -1,6 +1,42 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.11",
+      "date": "September 18, 2026",
+      "title": "Study Tab Rebuild — Active Retrieval, Diagnosis & Targeted Repair",
+      "type": "Study / Learning Workflow Upgrade",
+      "request": "Re-evaluate whether the Study tab still earns its place after the Classroom evolved, keep the useful executive-function infrastructure, and replace the generic Study Session with an educationally useful active-learning workflow before changing any other tab.",
+      "changes": [
+        "Kept the Study tab because its next-action logic, review queue, resume support, focus/quiet modes, curiosity parking lot, weekly orientation, stuck recovery, and spaced-retrieval scheduling still perform useful jobs that the Classroom does not own.",
+        "Replaced the former timer-oriented Recall → Learn → Apply → Prove wrapper with a six-stage active-study loop: Retrieve → Diagnose → Repair → Practice → Teach Back → Next Move.",
+        "Study now retrieves individual concepts instead of asking only a broad weekly outcome. Week 1 receives a purpose-built concept set for voltage, current, resistance/Ohm’s law, SI prefixes/conversion, power, and open/closed/short paths; later weeks fall back to the existing Academic Knowledge data until they are refined through actual student use.",
+        "Added evidence-based self-rating at retrieval and fresh-practice stages so Partial/Missed concepts become repair targets while cleanly recalled concepts stay out of the way.",
+        "Added targeted repair cards that give only the minimum corrective explanation, formula/rule where useful, and direct links back to the current Classroom or verified search layer when a short repair is insufficient.",
+        "Added fresh transfer practice after repair, including a model-answer reveal only after an attempt, followed by Correct/Partial/Missed evidence rating.",
+        "Added a required teach-back stage. Week 1 explicitly asks the learner to connect charge, current, voltage, resistance, Ohm’s law, power, SI prefixes, and real measurement/application rather than merely rate confidence.",
+        "Added a final Next Move decision that distinguishes 'ready to continue the saved Classroom stage' from 'one more repair pass' without claiming course mastery or certification readiness.",
+        "Removed the Study Session's 'Mark Scheduled Work Complete' behavior. Study no longer writes course-completion status merely because a study wrapper was finished; Classroom, Lab Center, assessments, and Progress remain the completion/evidence authorities.",
+        "Preserved and integrated the existing spaced-review queue. Concept ratings now schedule concept-level retrieval reviews; Mastery-requested standard reviews and historical event-level Study reviews remain supported. Ratings schedule review only and do not inflate assessment/mastery evidence.",
+        "Preserved Cloud Sync behavior for existing Progress week/event records. Study diagnostics themselves remain local session state; only the already-supported week reviewQueue records are synchronized.",
+        "Added study-v2.css as a Study-specific presentation layer loaded by study.js so the active-learning cards, diagnosis view, repair cards, practice ladder, and teach-back remain isolated from the rest of the site styling.",
+        "Reworded the Study hero and session-mode copy at runtime so modes describe retrieval workload rather than treating time spent as the educational objective.",
+        "No Practice, Week Overview, Engineering, Knowledge Base, Student Services, Classroom lesson content, calendar data, assessment bank, project data, mastery rules, or other cleanup-roadmap tab is changed in this release."
+      ],
+      "filesAdded": [
+        "study-v2.css"
+      ],
+      "filesModified": [
+        "study.js",
+        "release-notes-current.js",
+        "build-info.json",
+        "service-worker.js",
+        "POST-UPDATE-QA.md",
+        "UPLOAD_README.txt",
+        "SHA256SUMS.txt"
+      ],
+      "filesRemoved": []
+    },
+    {
       "version": "v16.3.10.1",
       "date": "September 18, 2026",
       "title": "Release Notes Manifest Classification Correction",
@@ -136,7 +172,7 @@
       ]
     }
   ];
-  const currentOrder = ['v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
+  const currentOrder = ['v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
   entries.sort((a,b)=>currentOrder.indexOf(a.version)-currentOrder.indexOf(b.version));
   const historical = Array.isArray(window.ALFRED_RELEASES) ? window.ALFRED_RELEASES : [];
   const currentVersions = new Set(entries.map(entry=>entry.version));

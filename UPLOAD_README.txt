@@ -1,36 +1,43 @@
-AU-ESET 301 v16.3.10 — RELEASE NOTES COMPLETENESS UPDATE
+AU-ESET 301 v16.3.11 — STUDY TAB ACTIVE-LEARNING REBUILD
 
 UPLOAD EVERY FILE IN THIS ZIP DIRECTLY TO THE GITHUB REPOSITORY ROOT.
 Replace matching files when prompted. Do not create a wrapper folder.
 
 PURPOSE
-- Make Release Notes mandatory for every website change going forward.
-- Preserve the 42 existing human-readable releases from v1.x through v16.3.9.
-- Add a historical repository ledger covering all 63 Git commits through the v16.3.9 baseline.
-- Add explicit Added / Modified / Removed file lists to new release entries.
-- Keep exact GitHub commit links for historical file-by-file verification.
+- Keep Study as a unique active-learning/retrieval tool.
+- Replace the generic timer/session wrapper with Retrieve -> Diagnose -> Repair -> Practice -> Teach Back -> Next Move.
+- Make Week 1 Study educationally useful now, while later weeks use the existing Knowledge data until they are refined through actual student use.
+- Preserve review queue, focus/quiet modes, resume support, parking lot, stuck recovery, and Cloud Sync-compatible reviewQueue records.
+- Remove Study's ability to mark scheduled course work complete merely because a Study session ended.
 
 FILES ADDED
-- release-change-ledger.js
-- AU-ESET-301-Release-Notes-Policy.md
+- study-v2.css
+
+FILES MODIFIED
+- study.js
+- release-notes-current.js
+- build-info.json
+- service-worker.js
 - POST-UPDATE-QA.md
 - UPLOAD_README.txt
 - SHA256SUMS.txt
 
-FILES MODIFIED
-- patch-notes.html
-- patch-notes.js
-- release-notes-current.js
-- build-info.json
-- service-worker.js
-
 FILES REMOVED
 - None
 
-NO COURSE CONTENT CHANGES
-This package does not modify curriculum, Week 1 instruction, Teaching Media, assessments, labs, projects, calendar data, progress, mastery, Cloud Sync, or course-learning content.
+NOT CHANGED
+- Practice tab
+- Week Overview
+- Engineering page
+- Knowledge Base
+- Student Services
+- Classroom lesson content / Teaching Media
+- Calendar data
+- Labs / projects
+- Assessment bank / mastery formulas
+- Progress schema / Cloud Sync protocol
 
 EXPECTED RUNTIME
-runtimePatch: 16.3.10
-build: v16.3.10-release-notes-complete-ledger-20260918
-cache: alfred-u-v16-3-10-release-notes-complete-ledger-20260918
+runtimePatch: 16.3.11
+build: v16.3.11-study-active-retrieval-rebuild-20260918
+cache: alfred-u-v16-3-11-study-active-retrieval-rebuild-20260918

@@ -1,0 +1,34 @@
+/* AU-ESET 301 v16.3.11 — Study active-retrieval session layer */
+.study-stage-intro{margin:0 0 1rem;padding:.85rem 1rem;border-left:4px solid var(--gold);background:rgba(201,168,87,.10);border-radius:0 12px 12px 0;color:#42544d}
+.retrieval-grid,.repair-stack,.practice-ladder{display:grid;gap:1rem}
+.retrieval-card,.repair-card,.practice-card,.teachback-card,.diagnosis-card,.diagnosis-explain,.next-move-result,.study-pass-card{
+  border:1px solid var(--line);border-radius:16px;background:#fff;padding:1rem;box-shadow:0 8px 24px rgba(15,36,28,.05)
+}
+.retrieval-card>span,.repair-card-head>span,.practice-card>span,.teachback-card>span,.next-move-result>span,.diagnosis-card>span{
+  display:block;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-weight:850;color:#7b672b;margin-bottom:.3rem
+}
+.retrieval-card h4,.repair-card h4,.practice-card h4,.teachback-card h4,.next-move-result h4{margin:.15rem 0 .7rem;color:var(--green);font-size:1.05rem}
+.retrieval-card textarea,.practice-card textarea,.teachback-card textarea{width:100%;resize:vertical;border:1px solid var(--line-2);border-radius:12px;padding:.75rem;background:#fffefb;color:var(--ink);font:inherit;line-height:1.5}
+.evidence-rating{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.7rem}
+.evidence-rating button{border:1px solid var(--line-2);background:#fff;border-radius:999px;padding:.48rem .75rem;font-weight:800;color:#42544d;cursor:pointer}
+.evidence-rating button:hover,.evidence-rating button:focus-visible{border-color:var(--green);outline:none}
+.evidence-rating button.active[data-retrieval-rate="green"],.evidence-rating button.active[data-practice-rate="green"]{background:#e7f5ee;border-color:#2d7b61;color:#155542}
+.evidence-rating button.active[data-retrieval-rate="yellow"],.evidence-rating button.active[data-practice-rate="yellow"]{background:#fff5d8;border-color:#c9a857;color:#6e5b22}
+.evidence-rating button.active[data-retrieval-rate="red"],.evidence-rating button.active[data-practice-rate="red"]{background:#fae7e5;border-color:#a94a43;color:#7c2d28}
+.diagnosis-summary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-bottom:1rem}
+.diagnosis-card strong{display:block;font-size:2rem;color:var(--green);line-height:1}
+.diagnosis-card p{margin:.55rem 0 0;color:var(--muted)}
+.diagnosis-card.weak{border-color:#d7b7a8;background:#fffaf7}.diagnosis-card.strong{border-color:#bdd8cb;background:#f8fcfa}
+.diagnosis-explain h4{margin:.1rem 0 .35rem;color:var(--green)}
+.repair-card{border-left:5px solid var(--gold)}
+.repair-formula{display:inline-block;margin:.35rem 0 .75rem;padding:.55rem .7rem;border-radius:10px;background:#f1ecdd;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:800;color:#233a31}
+.repair-actions{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;margin:.65rem 0}.repair-actions .text-link{font-weight:800;color:var(--green);text-decoration:underline;text-underline-offset:3px}
+.repair-check,.teachback-aloud,.teachback-checks label{display:flex;gap:.65rem;align-items:flex-start;margin-top:.7rem;padding:.65rem;border-radius:10px;background:#faf7ee}.repair-check input,.teachback-aloud input,.teachback-checks input{margin-top:.25rem}
+.practice-model{margin-top:.65rem;border:1px solid var(--line);border-radius:12px;padding:.65rem .75rem;background:#fbf8ef}.practice-model summary{cursor:pointer;font-weight:800;color:var(--green)}
+.teachback-checks{display:grid;gap:.45rem;margin-top:.7rem}
+.next-move-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-bottom:1rem}.next-move-result.ready{border-top:5px solid #2d7b61}.next-move-result.repair{border-top:5px solid #c9a857}
+.study-pass-card{background:#f8fcfa;border-color:#bdd8cb}.study-pass-card strong{color:var(--green)}
+.review-item .repair-now{background:#f3ead2;border-color:#c9a857;color:#5c4a17}
+.session-step-tabs{overflow-x:auto;scrollbar-width:thin}.session-step-tabs button{min-width:max-content}
+.session-step-content{min-height:280px}
+@media(max-width:760px){.diagnosis-summary,.next-move-grid{grid-template-columns:1fr}.retrieval-card,.repair-card,.practice-card,.teachback-card{padding:.85rem}.evidence-rating button{flex:1 1 30%}.repair-actions{align-items:stretch}.repair-actions .button{width:100%}}
