@@ -1,6 +1,27 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.17",
+      "date": "September 18, 2026",
+      "title": "About Page Durability Upgrade — Dynamic Runtime Metadata & Clear Disclosure",
+      "type": "Information Architecture / Administrative Accuracy",
+      "request": "Execute Step 7 of the locked one-tab-at-a-time cleanup plan: keep About because it has a unique disclosure/project-explanation job, remove stale release-specific claims, and make current runtime information authoritative without starting Deployment or final navigation cleanup early.",
+      "changes": [
+        "Kept About as a permanent administrative page because it uniquely explains the purpose of the Alfred University environment, the fictional-institution framing, and the distinction between the site identity and the real learning work performed inside it.",
+        "Removed the stale hard-coded statement that the current runtime was v16.3.7 and removed the long release-specific Teaching Media / whole-system audit paragraph from the permanent About narrative.",
+        "Rewrote the About purpose section as durable project documentation: Alfred University is a fictional personal learning environment used to organize AU-ESET 301 lessons, labs, assessments, projects, schedules, progress, and study support into one coherent system.",
+        "Added an explicit Fictional vs. Real explanation. The institution, branding, mascot, history, and university-style documents are fictional framing; the electronics learning, practice, linked third-party resources, assessments, projects, evidence-building, and career-transition work are real learning activities.",
+        "Added a Current Platform Status block that reads courseRelease, runtimePatch, cloudSyncProtocol, and build directly from build-info.json at page load with cache disabled, rather than embedding release numbers in About copy.",
+        "Added a graceful metadata fallback that sends the learner to Release Notes when build-info.json cannot be loaded, preventing a failed metadata request from producing a misleading fixed runtime claim.",
+        "Clarified administrative ownership: Release Notes own change history; Deployment Notes own hosting, Cloud Sync, service-worker, recovery, and maintenance guidance. Deployment content itself is deliberately unchanged until Step 8.",
+        "Preserved the institutional disclosure that Alfred University is fictional, non-accredited, grants no degrees or academic credit, and does not issue official academic credentials.",
+        "No learner workflow, Study, Practice, Classroom, Calendar, Progress, Mastery, Labs, Assessments, Projects, Search, Course Overview, compatibility routes, Cloud Sync protocol, lesson content, Teaching Media, Deployment page content, or global navigation is changed in this release."
+      ],
+      "filesAdded": [],
+      "filesModified": ["about.html", "release-notes-current.js", "build-info.json", "service-worker.js", "POST-UPDATE-QA.md", "UPLOAD_README.txt", "SHA256SUMS.txt"],
+      "filesRemoved": []
+    },
+    {
       "version": "v16.3.16",
       "date": "September 18, 2026",
       "title": "Student Services Retirement — Support Moves to Point of Use",
@@ -251,7 +272,7 @@
       ]
     }
   ];
-  const currentOrder = ['v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
+  const currentOrder = ['v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
   entries.sort((a,b)=>currentOrder.indexOf(a.version)-currentOrder.indexOf(b.version));
   const historical = Array.isArray(window.ALFRED_RELEASES) ? window.ALFRED_RELEASES : [];
   const currentVersions = new Set(entries.map(entry=>entry.version));

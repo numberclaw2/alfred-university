@@ -1,44 +1,34 @@
-# AU-ESET 301 v16.3.16 — Student Services Retirement QA
+# AU-ESET 301 v16.3.17 — About Page Durability Upgrade QA
 
 **Date:** September 18, 2026  
-**Scope:** Step 6 — Student Services only, plus the minimum Study, Lab Center, and Progress edits required to preserve useful support guidance at the point of use.
+**Scope:** Step 7 — About only, plus release/build/cache bookkeeping required by the permanent Release Notes policy.
 
 ## Purpose decision
 
-- PASS — Student Services no longer has a unique enough job to justify an independent catch-all support page.
-- PASS — Study already owns next-action support and blocked-learner recovery.
-- PASS — Lab Center is the correct permanent owner for standing bench-safety guidance.
-- PASS — Progress career readiness is the correct owner for job-fit screening and bridge-role guidance.
-- PASS — Project Center already owns employer-facing evidence; no duplicate project/career evidence block was created.
+- PASS — About still has a unique job and remains a permanent administrative page.
+- PASS — it explains the fictional institutional framing, the real learning purpose, and the non-accredited/no-credit disclosure without duplicating learner workflow pages.
+- PASS — release-specific audit history is no longer embedded in permanent About prose.
 
-## Merge / retirement behavior
+## Accuracy / durability behavior
 
-- PASS — the complete five-part Office Hours protocol is preserved inside Study's I’m Stuck modal.
-- PASS — the Office Hours protocol still requests week/assignment, expected behavior, actual evidence, attempted fixes, and diagnosis/teaching rather than only an answer.
-- PASS — the Lab Manual office-hours link remains available from the moved Study guidance.
-- PASS — Lab Center now contains the six standing safety rules previously isolated on Student Services.
-- PASS — Lab Center explicitly defers to manufacturer/device-specific safety instructions when those are more specific.
-- PASS — Progress now contains the role-fit filter and the five useful bridge-role families from Student Services.
-- PASS — role-fit guidance continues to emphasize actual technical duties over job title.
-- PASS — `student-services.html` is now a compatibility route rather than a miscellaneous support portal.
-- PASS — compatibility cards retain `#office-hours`, `#career`, and `#lab-safety` anchors for old links and route to the new owner systems.
-
-## Intentional deferral
-
-- PASS — site-wide More-menu/footer references to Student Services and its legacy anchor links are intentionally not removed in this release. Step 9 owns final Home + Navigation cleanup.
-- PASS — until Step 9, those links land on the compatibility route rather than duplicated support content.
+- PASS — the stale hard-coded `v16.3.7` runtime claim is removed from About.
+- PASS — About no longer hard-codes a current runtime number anywhere in its permanent narrative.
+- PASS — Current Platform Status reads `courseRelease`, `runtimePatch`, `cloudSyncProtocol`, and `build` from `build-info.json` using `cache: 'no-store'`.
+- PASS — metadata-load failure produces a Release Notes fallback rather than a fabricated or stale version.
+- PASS — the page explicitly distinguishes fictional institution/branding/documents from real electronics learning, practice, linked resources, assessments, projects, evidence-building, and career-transition work.
+- PASS — Release Notes and Deployment Notes are identified as the owners of change history and technical maintenance guidance respectively.
+- PASS — the institutional disclosure remains explicit: fictional, non-accredited, no degrees, no academic credit, no official credentials.
 
 ## Static / runtime checks
 
-- PASS — `release-notes-current.js` and `service-worker.js` pass JavaScript syntax validation.
-- PASS — `build-info.json` parses and reports runtime **v16.3.16**.
-- PASS — service-worker cache advances to `alfred-u-v16-3-16-student-services-retirement-20260918`.
-- PASS — no new progress key, assessment identity, lab identity, project identity, or Cloud Sync record type is introduced.
-- PASS — Study's active-learning session logic and Progress's existing readiness checkbox identities are unchanged.
-- PASS — Release Notes records every moved/retired behavior and the exact file manifest.
+- PASS — inline About metadata script, `release-notes-current.js`, and `service-worker.js` pass JavaScript syntax validation.
+- PASS — `build-info.json` parses and reports runtime **v16.3.17**.
+- PASS — service-worker cache advances to `alfred-u-v16-3-17-about-dynamic-runtime-disclosure-20260918`.
+- PASS — Release Notes includes v16.3.17 first and records the exact file manifest.
+- PASS — no new storage key, progress identity, assessment/lab/project identity, or Cloud Sync record type is introduced.
 
 ## Scope boundary
 
-This release does **not** redesign Study, Practice, Week Overview, Engineering, Knowledge Base, Home/navigation globally, Calendar behavior/data, lab definitions, projects, assessments, mastery formulas, Progress storage/sync logic, Classroom lesson content, or Teaching Media.
+This release does **not** modify Deployment page content, global Home/navigation cleanup, Study, Practice, Classroom, Calendar, Progress, Mastery, Labs, Assessments, Projects, Search, Course Overview, compatibility-route behavior, curriculum, Teaching Media, or Cloud Sync protocol.
 
-Step 7 (About) must not begin until this release is uploaded, deployed, and accepted.
+Step 8 (Deployment) must not begin until this release is uploaded, deployed, and accepted.
