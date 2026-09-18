@@ -1,6 +1,26 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.14",
+      "date": "September 18, 2026",
+      "title": "Engineering Page Retirement — Merge Into Course, Labs & Projects",
+      "type": "Information Architecture / Redundancy Cleanup",
+      "request": "Execute Step 4 of the locked one-tab-at-a-time cleanup plan: determine whether the standalone Engineering page still has a unique job, preserve its useful concepts, move them to the correct owners, and retire the redundant page without starting the final global navigation cleanup early.",
+      "changes": [
+        "Retired Engineering as an independent program destination because its technical pillars, lab philosophy, career-pathway summary, and course promotion are now better owned by Course Overview, Classroom/Lab Center, Projects, Progress, and Mastery.",
+        "Preserved engineering.html as a compatibility route so existing bookmarks and still-visible pre-Step-9 navigation links do not break. The page now explains where program architecture, lab work, employer-facing project evidence, and readiness tracking live.",
+        "Moved the useful career-transition ladder into Course Overview: R&D Engineering Lab, Hardware Test / Validation, and Hardware Integration / Test remain bridge-role families, while Embedded Systems Engineering remains the long-term destination supported by the BSEE path and practical engineering evidence.",
+        "Preserved the concise engineering philosophy 'understand it, measure or build it, debug it, and explain the evidence' by integrating it into the Course Overview mastery section instead of maintaining a duplicate philosophy page.",
+        "Did not duplicate the old Engineering page's electronics/embedded/lab/test pillar cards because the same technical progression is already represented more concretely by the six AU-ESET 301 academic phases, Classroom lessons, Lab Center, and Project Center.",
+        "Did not relocate the old lab-promotion block because Lab Center and Classroom Application already own instrumentation, troubleshooting procedure, evidence routes, and practical completion.",
+        "Intentionally deferred removal of Engineering from global More menus and legacy footers until Step 9 (Home + Navigation final cleanup), matching the locked roadmap.",
+        "No Study, Practice, Week Overview compatibility behavior, Knowledge Base, Student Services, Calendar data, lab definitions, project requirements, assessment bank, mastery formulas, progress schema, Cloud Sync protocol, lesson content, or Teaching Media is changed in this release."
+      ],
+      "filesAdded": [],
+      "filesModified": ["engineering.html", "course.html", "release-notes-current.js", "build-info.json", "service-worker.js", "POST-UPDATE-QA.md", "UPLOAD_README.txt", "SHA256SUMS.txt"],
+      "filesRemoved": []
+    },
+    {
       "version": "v16.3.13",
       "date": "September 18, 2026",
       "title": "Week Overview Retirement — Merge Into Classroom & Owner Systems",
@@ -189,7 +209,7 @@
       ]
     }
   ];
-  const currentOrder = ['v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
+  const currentOrder = ['v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
   entries.sort((a,b)=>currentOrder.indexOf(a.version)-currentOrder.indexOf(b.version));
   const historical = Array.isArray(window.ALFRED_RELEASES) ? window.ALFRED_RELEASES : [];
   const currentVersions = new Set(entries.map(entry=>entry.version));
