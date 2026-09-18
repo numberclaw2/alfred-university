@@ -1,10 +1,10 @@
 {
   "courseRelease": "16.3",
-  "runtimePatch": "16.3.11",
+  "runtimePatch": "16.3.12",
   "evidenceRevision": "16.2",
   "cloudSyncProtocol": 2,
-  "build": "v16.3.11-study-active-retrieval-rebuild-20260918",
-  "releaseStatus": "study-active-retrieval-rebuild",
+  "build": "v16.3.12-practice-priority-hub-20260918",
+  "releaseStatus": "practice-priority-hub",
   "presentationPatch": "mobile-visual-readability-final",
   "scheduleRevision": "2026-09-16-week1-reset",
   "modulePresentationRevision": "2026-09-18-week1-from-zero-visual-teaching",
@@ -16,7 +16,8 @@
   "week1InstructionRevision": "2026-09-18-from-zero-visual-teaching",
   "week1TeachingMediaRevision": "2026-09-18-beginner-teacher-youtube-layer",
   "teachingMediaBaseRevision": "2026-09-18-final-pots-31-week-standalone-accepted",
-  "releaseNotesRevision": "2026-09-18-v16.3.11-study-tab-rebuild-recorded",
+  "releaseNotesRevision": "2026-09-18-v16.3.12-practice-hub-recorded",
   "repositoryLedgerBaseline": "2026-09-18-v16.3.9-63-commits",
-  "studyRevision": "2026-09-18-retrieve-diagnose-repair-practice-teachback"
+  "studyRevision": "2026-09-18-retrieve-diagnose-repair-practice-teachback",
+  "practiceRevision": "2026-09-18-priority-ladder-repair-router"
 }

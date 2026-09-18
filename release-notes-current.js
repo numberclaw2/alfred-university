@@ -1,6 +1,30 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.12",
+      "date": "September 18, 2026",
+      "title": "Practice Tab Rebuild — Priority Hub for Deliberate Practice",
+      "type": "Practice / Learning Workflow Upgrade",
+      "request": "Evaluate whether the Practice tab still earns a top-level place after the Classroom and Study systems evolved, and either upgrade it into a uniquely useful practice router or retire it before changing the next cleanup-roadmap tab.",
+      "changes": [
+        "Kept the Practice tab because it now has a distinct job: answer 'what should I practice right now?' by reading the current week and existing progress, then routing the learner to the system that owns the required practice or evidence.",
+        "Replaced the former two-link Lab Center / Assessment Center portal with a dynamic current-week Practice Hub.",
+        "Added a highest-value-practice recommendation engine. If prerequisite teaching is incomplete, Practice sends the learner back to the exact Classroom stage rather than encouraging premature testing.",
+        "Added sequencing for the real practice path: guided Classroom practice -> lab/application evidence -> required lab check when applicable -> weekly mastery -> targeted repair when evidence is weak.",
+        "Added a four-card Practice Ladder that reports live status for Guided Practice, Lab/Application, Weekly Mastery, and Targeted Repair as Done, Ready now, Not ready yet, or Repair needed.",
+        "Added a Repair Queue that reads existing week reviewQueue records and below-target assessment evidence. Due Study concepts route back to Study; below-target lab or weekly assessment evidence routes to the appropriate repair/retest path.",
+        "Added a current-week selector so Practice can inspect another week without changing the authoritative Classroom sequence or progress schema.",
+        "Added job-based routing for guided problem solving, build/measure/troubleshoot work, closed-note assessment, and targeted concept repair. Practice itself remains a router and does not duplicate lab procedures, quiz execution, or Study remediation.",
+        "Separated optional supplemental practice from required work. Extra assessment-bank repetitions are presented only after the required path and are explicitly labeled optional.",
+        "Practice is read-only with respect to course completion: it does not write lesson, lab, assessment, mastery, calendar, or progress completion records. Existing Classroom, Lab Center, Assessment Center, Progress, Study, and Mastery systems remain authoritative.",
+        "Added practice.js for live priority/status logic and practice-v2.css for Practice-specific presentation. Rebuilt practice.html around the new hub while preserving the existing global navigation/footer structure.",
+        "No Study, Week Overview, Engineering, Knowledge Base, Student Services, Classroom lesson content, Teaching Media, calendar data, assessment bank, lab definitions, mastery formulas, projects, or Cloud Sync protocol is changed in this release."
+      ],
+      "filesAdded": ["practice.js", "practice-v2.css"],
+      "filesModified": ["practice.html", "release-notes-current.js", "build-info.json", "service-worker.js", "POST-UPDATE-QA.md", "UPLOAD_README.txt", "SHA256SUMS.txt"],
+      "filesRemoved": []
+    },
+    {
       "version": "v16.3.11",
       "date": "September 18, 2026",
       "title": "Study Tab Rebuild — Active Retrieval, Diagnosis & Targeted Repair",
@@ -22,18 +46,8 @@
         "Reworded the Study hero and session-mode copy at runtime so modes describe retrieval workload rather than treating time spent as the educational objective.",
         "No Practice, Week Overview, Engineering, Knowledge Base, Student Services, Classroom lesson content, calendar data, assessment bank, project data, mastery rules, or other cleanup-roadmap tab is changed in this release."
       ],
-      "filesAdded": [
-        "study-v2.css"
-      ],
-      "filesModified": [
-        "study.js",
-        "release-notes-current.js",
-        "build-info.json",
-        "service-worker.js",
-        "POST-UPDATE-QA.md",
-        "UPLOAD_README.txt",
-        "SHA256SUMS.txt"
-      ],
+      "filesAdded": ["study-v2.css"],
+      "filesModified": ["study.js", "release-notes-current.js", "build-info.json", "service-worker.js", "POST-UPDATE-QA.md", "UPLOAD_README.txt", "SHA256SUMS.txt"],
       "filesRemoved": []
     },
     {
@@ -51,12 +65,7 @@
         "No curriculum, Week 1 instruction, Teaching Media, assessments, labs, projects, calendar, progress, mastery, Cloud Sync, or other course-learning behavior is changed by this correction."
       ],
       "filesAdded": [],
-      "filesModified": [
-        "release-notes-current.js",
-        "build-info.json",
-        "service-worker.js",
-        "POST-UPDATE-QA.md"
-      ],
+      "filesModified": ["release-notes-current.js", "build-info.json", "service-worker.js", "POST-UPDATE-QA.md"],
       "filesRemoved": []
     },
     {
@@ -76,20 +85,8 @@
         "Added a permanent AU-ESET-301-Release-Notes-Policy.md record describing the logging contract and the self-reference rule: the historical commit ledger is backfilled through v16.3.9, while v16.3.10 and later releases record exact changed files directly in their release entry so a release never requires an endless follow-up commit merely to record its own SHA.",
         "No curriculum, Week 1 instruction, Teaching Media, assessments, labs, projects, calendar identities, progress data, mastery rules, Cloud Sync protocol, or course-learning behavior is changed by this release."
       ],
-      "filesAdded": [
-        "release-change-ledger.js",
-        "AU-ESET-301-Release-Notes-Policy.md"
-      ],
-      "filesModified": [
-        "POST-UPDATE-QA.md",
-        "SHA256SUMS.txt",
-        "UPLOAD_README.txt",
-        "build-info.json",
-        "patch-notes.html",
-        "patch-notes.js",
-        "release-notes-current.js",
-        "service-worker.js"
-      ],
+      "filesAdded": ["release-change-ledger.js", "AU-ESET-301-Release-Notes-Policy.md"],
+      "filesModified": ["POST-UPDATE-QA.md", "SHA256SUMS.txt", "UPLOAD_README.txt", "build-info.json", "patch-notes.html", "patch-notes.js", "release-notes-current.js", "service-worker.js"],
       "filesRemoved": []
     },
     {
@@ -172,7 +169,7 @@
       ]
     }
   ];
-  const currentOrder = ['v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
+  const currentOrder = ['v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
   entries.sort((a,b)=>currentOrder.indexOf(a.version)-currentOrder.indexOf(b.version));
   const historical = Array.isArray(window.ALFRED_RELEASES) ? window.ALFRED_RELEASES : [];
   const currentVersions = new Set(entries.map(entry=>entry.version));

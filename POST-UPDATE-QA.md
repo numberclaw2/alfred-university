@@ -1,71 +1,69 @@
-# AU-ESET 301 v16.3.11 — Study Tab Rebuild QA
+# AU-ESET 301 v16.3.12 — Practice Tab Rebuild QA
 
 **Date:** September 18, 2026  
-**Scope:** Study tab only
+**Scope:** Practice tab only
 
 ## Purpose decision
 
-- PASS — Study still has a unique job and is retained.
-- PASS — next-action routing, unfinished-session recovery, quiet/focus modes, review queue, curiosity parking lot, weekly orientation, stuck recovery, and spaced retrieval remain part of Study.
-- PASS — the obsolete part was the generic timer/session wrapper, not the entire tab.
+- PASS — the old Practice page was too thin to justify a top-level navigation slot; it was only a two-link portal to Labs and Assessments.
+- PASS — Practice still has a distinct job worth keeping: answer **“what should I practice right now?”** without duplicating the systems that actually teach, run labs, execute assessments, or record mastery.
+- PASS — Practice is rebuilt as a read-only priority/router layer rather than a new completion system.
 
-## New Study Session model
+## New Practice Hub
 
-The active session is now:
+- PASS — reads the selected/current week from existing course state.
+- PASS — reads existing Classroom stage completion, lab route evidence, lab-check score, weekly mastery score, Study reviewQueue records, and below-target assessment evidence.
+- PASS — does not create a new progress schema or write completion records.
+- PASS — current-week selector allows inspection of another week without altering authoritative progress.
 
-1. **Retrieve** — answer selected concepts without notes and rate the retrieval as Got it / Partial / Missed.
-2. **Diagnose** — separate concepts that held from concepts requiring repair.
-3. **Repair** — show only the weak concepts, with a concise corrective explanation and a route back to Classroom/search if needed.
-4. **Practice** — solve fresh transfer problems; missed concepts are prioritized first.
-5. **Teach Back** — explain the concepts as a connected model rather than rating vague confidence.
-6. **Next Move** — decide whether evidence supports continuing the saved Classroom stage or another focused repair pass.
+## Priority logic
 
-## Week 1 implementation
+The highest-value recommendation follows the existing learning sequence:
 
-- PASS — Week 1 has six purpose-built study concepts: voltage, current, resistance/Ohm's law, SI prefixes/unit conversion, electrical power, and open/closed/short circuit paths.
-- PASS — Standard mode selects five retrieval concepts and two fresh practice items.
-- PASS — Quick mode uses three retrieval concepts and one practice item.
-- PASS — Deep mode can use the full six-concept Week 1 set and up to three practice items.
-- PASS — later weeks use the existing Academic Knowledge entries as a safe fallback until their Study experience is refined through actual use.
+1. If prerequisite teaching is incomplete, return to the exact Classroom stage.
+2. If Guided Practice is incomplete, open Classroom Practice.
+3. If application is next and a lab route is incomplete, open the current Lab Center route.
+4. If lab evidence exists but its required check is below 80% or unattempted, route to the required lab check.
+5. If weekly mastery is ready, route to the required weekly assessment.
+6. If weekly mastery has a below-target score, route to Study repair before another retest.
+7. If the required week is complete but spaced retrieval is due, route to Study review.
+8. If nothing required is due, label supplemental practice as optional instead of creating busywork.
 
-## Interaction tests
+## Practice Ladder
 
-Browser interaction harness using Chromium:
+- PASS — Guided Practice, Lab/Application, Weekly Mastery, and Targeted Repair each show a live status.
+- PASS — statuses distinguish Done, Ready now, Not ready yet, and Repair needed.
+- PASS — locked downstream items route to the current prerequisite rather than encouraging the learner to skip ahead.
+- PASS — required lab/application and weekly mastery routes preserve the existing Lab Center / Assessment Center authority.
 
-- PASS — all-green Standard flow renders five retrieval cards.
-- PASS — all-green retrieval produces zero repair targets and skips unnecessary repair content.
-- PASS — Standard flow renders two fresh practice items.
-- PASS — completed practice + teach-back reaches **READY TO CONTINUE**.
-- PASS — one missed concept becomes exactly one targeted repair card.
-- PASS — the missed concept is prioritized first in the subsequent practice ladder.
-- PASS — a repaired concept can reach **READY TO CONTINUE** after fresh successful practice and teach-back.
-- PASS — no page errors occurred in either tested interaction path.
+## Repair Queue
 
-## Completion / mastery boundary
+- PASS — due Study concept/standard reviews are surfaced from the existing week `reviewQueue`.
+- PASS — below-target lab and weekly assessment records are surfaced as repair signals.
+- PASS — Study remains the owner of concept diagnosis/repair; Practice only routes to it.
+- PASS — Assessment Center remains the owner of required retests.
 
-- PASS — the old Study-session **Mark Scheduled Work Complete** behavior is removed.
-- PASS — `study.js` contains no code that sets an event status to `complete` as a consequence of finishing a Study session.
-- PASS — Study ratings schedule retrieval only. They do not create assessment scores or mastery evidence.
-- PASS — Classroom, Lab Center, Assessment Center, Progress, and Mastery remain the authorities for learning completion/evidence.
+## Logic tests
 
-## Review and persistence
+A Node VM harness executed the actual `practice.js` against four representative progress states:
 
-- PASS — existing event-level Study review records are still read from Progress.
-- PASS — existing Mastery/standard reviewQueue records remain supported.
-- PASS — new concept-level Study reviews use the already-supported week `reviewQueue` record and therefore use the existing Progress/Cloud Sync mechanism.
-- PASS — historical v15 Study sessions without the new concept structure are safely discarded rather than resumed through an incompatible renderer.
-- PASS — curiosity parking-lot data remains on the existing Study storage key.
+- PASS — incomplete teaching -> **Finish Subject 1 first** / return to Classroom.
+- PASS — lab route complete but lab check incomplete -> **required lab check** becomes the priority.
+- PASS — weekly mastery at 65% -> **repair in Study before retest** becomes the priority.
+- PASS — completed required week with a due Voltage retrieval -> due review becomes the priority and Voltage appears in the repair queue.
 
-## Runtime / package
+## Runtime / static QA
 
-- PASS — `study.js`, `release-notes-current.js`, and `service-worker.js` pass JavaScript syntax validation.
-- PASS — `build-info.json` parses as valid JSON and identifies runtime **v16.3.11**.
-- PASS — service-worker cache namespace advances to `alfred-u-v16-3-11-study-active-retrieval-rebuild-20260918`.
-- PASS — `study-v2.css` is included in the service-worker core cache list.
-- PASS — Release Notes records the Study rebuild, every behavioral addition/subtraction, exact files added/modified/removed, and the scope boundary.
+- PASS — `practice.js`, `release-notes-current.js`, and `service-worker.js` pass `node --check`.
+- PASS — `build-info.json` parses as valid JSON and identifies runtime **v16.3.12**.
+- PASS — `practice.html` loads `practice-v2.css` and `practice.js` after the existing course/state dependencies.
+- PASS — service-worker cache namespace advances to `alfred-u-v16-3-12-practice-priority-hub-20260918`.
+- PASS — `practice.js` and `practice-v2.css` are included in the service-worker core cache list.
+- PASS — `practice.js` contains no progress write, completion write, assessment-score write, or Cloud Sync write path.
+- PASS — Release Notes preserve current release history and add v16.3.12 at the top with exact Added / Modified / Removed file manifests.
 
 ## Scope boundary
 
-This release does **not** modify Practice, Week Overview, Engineering, Knowledge Base, Student Services, Classroom lesson content, Teaching Media, calendar data, labs, assessment bank, mastery formulas, projects, or any other cleanup-roadmap tab.
+This release does **not** modify Study, Week Overview, Engineering, Knowledge Base, Student Services, Classroom lesson content, Teaching Media, calendar data, lab definitions, assessment bank, mastery formulas, projects, Progress schema, or Cloud Sync protocol.
 
-Step 1 is intentionally isolated. Step 2 (Practice) must not begin until this Study release is uploaded, deployed, and accepted.
+Step 2 is isolated. Step 3 (Week Overview) must not begin until this Practice release is uploaded, deployed, and accepted.
