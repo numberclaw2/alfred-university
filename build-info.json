@@ -1,13 +1,16 @@
 {
   "courseRelease": "16.3",
-  "runtimePatch": "16.3.6",
+  "runtimePatch": "16.3.7",
   "evidenceRevision": "16.2",
   "cloudSyncProtocol": 2,
-  "build": "v16.3.6-teaching-media-final-pots-accepted-20260918",
-  "releaseStatus": "accepted-31-of-31-standalone-pass",
+  "build": "v16.3.7-whole-system-audit-repair-20260918",
+  "releaseStatus": "accepted-whole-system-audit-repair",
   "presentationPatch": "mobile-visual-readability-final",
   "scheduleRevision": "2026-09-16-week1-reset",
   "modulePresentationRevision": "2026-09-18-teaching-media-final-pots-accepted",
   "teachingMediaRevision": "2026-09-18-final-pots-31-week-standalone-accepted",
-  "resourceVerificationRevision": "2026-09-18-v16.3.6-final-pots-accepted"
+  "resourceVerificationRevision": "2026-09-18-v16.3.6-final-pots-accepted",
+  "assessmentRevision": "2026-09-18-dual-source-ceta-readiness",
+  "masteryRevision": "2026-09-18-bank-breadth-truthful-progression",
+  "portfolioRevision": "2026-09-18-project2-hil-aligned"
 }

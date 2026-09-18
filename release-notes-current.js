@@ -1,6 +1,21 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.7",
+      "date": "September 18, 2026",
+      "title": "Whole-System Acceptance Audit Repair — Readiness, Mastery & Portfolio Coherence",
+      "type": "Assessment / Mastery / Portfolio Coherence Repair",
+      "request": "Resolve the three material defects identified by the completed Parts 1–8 whole-system acceptance audit without reopening curriculum, Teaching Media, calendar, labs, Cloud Sync, or other systems that already passed.",
+      "changes": [
+        "Replaced the misleading two-Alfred-mock independence claim with a dual-source CETa readiness gate: one current full-length 100-question Alfred run at 85% or higher plus one separate current independent CETa practice assessment at 85% or higher from outside the Alfred question bank. Repeat Alfred mocks remain useful retrieval practice but no longer count as independent evidence.",
+        "Repaired automatic mastery progression without fabricating difficulty: Foundation questions are not relabeled as Intermediate/Advanced. Automatic status now uses validated accuracy, repeated sessions, retention streak, recency, and distinct reviewed-bank breadth. Standards with fewer than two distinct current reviewed items surface as Evidence Limited and cannot automatically claim Mastered until the bank expands.",
+        "Synchronized the Competency Dashboard with the Standards page so both use the same evidence model and no longer demand nonexistent intermediate/advanced CETa bank evidence.",
+        "Made the Career Readiness definition canonical in the Project Center: Project 2 is Automated Hardware Validation / HIL, Project 3 is the Custom PCB strong differentiator, and the former Embedded Control System concept is preserved as an optional long-term extension rather than conflicting with Project 2.",
+        "Preserved course release v16.3, evidence revision v16.2, the accepted 31/31 Teaching Media pathway, all 62 lessons, 24 labs, calendar dates/event IDs/UIDs, Study Guide assignments, progress identities/history, Cloud Sync protocol 2, and the CETa/Career architecture.",
+        "Post-repair static/runtime QA passed for JavaScript syntax, JSON validity, old-defect string removal, cross-page policy consistency, project-identity consistency, and service-worker/version synchronization."
+      ]
+    },
+    {
       "version": "v16.3.5",
       "date": "September 17, 2026",
       "title": "Teaching Media Self-Reliance — Independent Instructional Pathway",

@@ -1,30 +1,22 @@
-AU-ESET 301 v16.3.6 — FINAL POTS ACCEPTANCE / REFERENCE SYNC
+AU-ESET 301 v16.3.7 — WHOLE-SYSTEM AUDIT REPAIR
 
-UPLOAD EVERY FILE IN THIS ZIP DIRECTLY TO THE ROOT OF:
-numberclaw2/alfred-university
+UPLOAD METHOD
+1. Open the GitHub repository root for numberclaw2/alfred-university.
+2. Upload EVERY file from this ZIP directly into the repository root.
+3. Replace/overwrite matching files when GitHub prompts.
+4. Do not create a wrapper folder.
+5. Commit the upload.
 
-Replace matching files. Do not create a wrapper folder. Do not upload the ZIP itself.
+WHY THIS PACKAGE EXISTS
+The GitHub connection available during this repair was read-only for repository-content writes (403), so the changes were built and QA'd as a flat upload package instead of being committed automatically.
 
-FINAL ACCEPTANCE:
-- 31/31 weeks PASS
-- 0 BLOCKER
-- 0 MATERIAL DEFECT
-- CETa preparation: YES
-- Electronics theory: YES
-- Technician/troubleshooting conceptual preparation: YES
-- Hardware-oriented embedded preparation: YES
+SCOPE
+- CETa readiness: one Alfred 100-question run >=85% + one independent external CETa practice assessment >=85%.
+- Mastery: remove impossible higher-difficulty prerequisite; require truthful repeated evidence + bank breadth, with Evidence Limited when the bank is too thin.
+- Portfolio: Project 2 = Automated Hardware Validation / HIL; Project 3 = Custom PCB; control-system concept becomes optional long-term extension.
+- Release/build/cache/documentation synchronized to v16.3.7.
 
-The final Week 20 POTS correction is included:
-- tip/ring loop-start behavior
-- off-hook loop current
-- dial-tone response
-- incoming ringing
-- DSL/voice coexistence remains covered by the existing splitter resource
+NO CHANGE
+Curriculum 16.3, Teaching Media 31/31 acceptance, 62 lessons, 24 labs, calendar identities/dates, evidence revision 16.2, Study Guide assignments, progress identities, Cloud Sync protocol 2, and Worker/D1 contract are preserved.
 
-No curriculum, lab, assessment, calendar, progress-ID, Study Guide assignment,
-Cloud Sync protocol, Worker, or D1 migration is required.
-
-After upload, build-info.json should report:
-- runtimePatch: 16.3.6
-- build: v16.3.6-teaching-media-final-pots-accepted-20260918
-- releaseStatus: accepted-31-of-31-standalone-pass
+After upload, a post-deployment verification should confirm GitHub main, GitHub Pages, service-worker/cache state, and build-info.json independently.
