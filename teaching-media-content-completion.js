@@ -2115,7 +2115,7 @@
   ]);
 
   C.meta = C.meta || {};
-  C.meta.mediaRevision = "2026-09-18-teaching-media-content-completion-v16.3.6-final-pots-corrective-candidate";
-  C.meta.mediaPolicy = "Teaching Media v16.3.6 final POTS-corrective candidate: the second post-repair semantic pass found one remaining Week 20 POTS loop-signaling gap and assigns direct tip/ring, off-hook current, and ringing instruction. Final 31-week standalone acceptance remains pending re-audit against the uploaded corrected runtime. Labs, projects, measurements, soldering, coding, debugging, troubleshooting demonstrations, assessments and physical evidence remain required.";
+  C.meta.mediaRevision = "2026-09-18-teaching-media-content-completion-v16.3.6-final-pots-accepted";
+  C.meta.mediaPolicy = "Teaching Media v16.3.6 accepted standalone explanation pathway: the final POTS correction closes the last Week 20 semantic gap, and the complete re-audit found 31/31 weeks PASS with zero BLOCKER and zero MATERIAL DEFECT results across CETa preparation, electronics theory, technician/troubleshooting preparation, and hardware-oriented embedded preparation. Labs, projects, measurements, soldering, coding, debugging, troubleshooting demonstrations, assessments and physical evidence remain required hands-on/mastery work.";
 
 })();

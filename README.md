@@ -7,42 +7,42 @@ AU-ESET 301 is a fictional, university-style independent-study environment built
 
 It is not an accredited university, an ETA-endorsed course, an official exam, or a guarantee of certification or employment.
 
-## v16.3.6 final POTS corrective candidate
+## Current production state — v16.3.6 accepted
 
-The accepted instructional curriculum remains **v16.3**. Runtime candidate **v16.3.6** adds the targeted Teaching Media content-completion layer discovered necessary by the adversarial audit of v16.3.5.
+The accepted instructional curriculum remains **v16.3**. Runtime patch **v16.3.6** is the accepted Teaching Media content-completion release following the adversarial v16.3.5 audit, corrective repair, and full 31-week post-repair re-audit.
 
-**Acceptance status:** the first corrective re-audit closed the prior residual defects, and a second semantic pass found one remaining Week 20 POTS loop-signaling gap. That gap is repaired in this final corrective candidate. Final 31-week standalone-media acceptance is still pending one last audit against the uploaded runtime. Do not describe v16.3.6 as accepted or 31/31 PASS until that audit and final regression are complete.
+**Acceptance status:** **31/31 PASS** — zero BLOCKER and zero MATERIAL DEFECT results in the final standalone Teaching Media re-audit.
 
-Current candidate markers:
+Current production markers:
 
 - Course release: `16.3`
 - Runtime patch: `16.3.6`
 - Objective evidence revision: `16.2`
 - Cloud Sync protocol: `2`
-- Build: `v16.3.6-teaching-media-final-pots-corrective-20260918`
+- Build: `v16.3.6-teaching-media-final-pots-accepted-20260918`
 - Schedule revision: `2026-09-16-week1-reset`
-- Teaching Media revision: `2026-09-18-final-pots-corrective-candidate`
-- Resource verification revision: `2026-09-18-v16.3.6-final-pots-corrective-pending`
-- Service-worker cache: `alfred-u-v16-3-6-teaching-media-final-pots-corrective-20260918`
+- Teaching Media revision: `2026-09-18-final-pots-31-week-standalone-accepted`
+- Resource verification revision: `2026-09-18-v16.3.6-final-pots-accepted`
+- Service-worker cache: `alfred-u-v16-3-6-teaching-media-final-pots-accepted-20260918`
 
 The 31-week schedule is unchanged: **Week 1 is September 15–19, 2026** and **Week 31 is April 13–17, 2027**. Calendar identities and iCalendar UIDs remain preserved.
 
 ## Teaching Media architecture
 
-The current candidate load order is:
+The accepted load order is:
 
 1. `curriculum-data.js` — accepted v16.3 curriculum/source registry.
 2. `teaching-media-overrides.js` — earlier targeted Teaching Media layer.
 3. `teaching-media-self-reliance.js` — v16.3.5 independent-path attempt retained for provenance and existing assignments.
-4. `teaching-media-content-completion.js` — v16.3.6 targeted content-completion and metadata-correction layer.
+4. `teaching-media-content-completion.js` — v16.3.6 accepted content-completion and metadata-correction layer.
 
-The v16.3.6 overlay uses append/de-duplicate behavior for missing instruction and only patches specific existing media-card claims when an audit proves they are inaccurate. The first post-repair audit triggered a narrow corrective pass for Week 1 ESD, Week 7 semiconductor sequencing, Week 12 Git metadata, Week 27 test-workflow sourcing, and Week 28 productivity/project planning. A second semantic pass then added the missing Week 20 POTS loop-start/tip-ring/current/ringing instruction. It does not rewrite the accepted Alfred lessons.
+The v16.3.6 overlay uses append/de-duplicate behavior for missing instruction and narrowly patches inaccurate media-card claims. The first post-repair audit triggered a corrective pass for Week 1 ESD, Week 7 semiconductor sequencing, Week 12 Git metadata, Week 27 test-workflow sourcing, and Week 28 productivity/project planning; the final re-audit accepted all 31 weeks. It does not rewrite the accepted Alfred lessons.
 
 Teaching Media is intended to provide the explanatory preparation layer. It does **not** replace required labs, projects, measurements, soldering/rework practice, coding, debugging, controlled troubleshooting/fault work, assessments, mastery gates, or physical evidence.
 
 ## What v16.3.6 does not change
 
-This candidate does not change:
+This release does not change:
 
 - the 62 primary Alfred lessons;
 - the 24 labs or practical evidence rules;
@@ -56,22 +56,26 @@ This candidate does not change:
 - module sequencing;
 - lesson SVGs or the accepted mobile visual system.
 
-## Files of record for the v16.3.6 candidate
+## Files of record for v16.3.6
 
 - `curriculum-data.js` — accepted v16.3 curriculum/source.
 - `teaching-media-overrides.js` — earlier targeted media overlay.
 - `teaching-media-self-reliance.js` — v16.3.5 media layer retained.
-- `teaching-media-content-completion.js` — v16.3.6 content-completion candidate.
+- `teaching-media-content-completion.js` — accepted v16.3.6 content-completion layer.
 - `learn.html` — Classroom load order.
-- `AU-ESET-301-v16.3-Resource-Verification.md` — candidate/final Teaching Media verification record.
+- `AU-ESET-301-v16.3-Resource-Verification.md` — final v16.3.6 Teaching Media acceptance record.
 - `release-notes.js` + `release-notes-current.js` — historical/current release record.
 - `build-info.json` — deployment marker.
 - `service-worker.js` — offline/cache behavior.
 
-## Pre-audit deployment rule
+## Deployment rule
 
-**Upload this corrective candidate to the repository root for re-audit, but do not treat it as an accepted 31/31 production release yet.** The final acceptance audit must rerun against the exact uploaded runtime composition. After a genuine 31/31 PASS, finalize the Resource Verification/acceptance wording and run final regression.
+Upload every file in the final v16.3.6 acceptance-sync package to the repository root, replacing matching files. No Worker/D1 migration, progress reset, calendar re-import, or Cloud Sync change is required.
 
 Production Cloud Sync endpoint remains unchanged:
 
 `https://alfred-university-sync.totallywill13.workers.dev`
+
+
+### Final Week 20 closure
+The final semantic re-audit added direct POTS loop-start instruction for tip/ring, off-hook current, dial tone, and ringing. v16.3.6 is accepted at 31/31 PASS after that correction.

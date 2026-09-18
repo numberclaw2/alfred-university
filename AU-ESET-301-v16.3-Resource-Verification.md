@@ -1,62 +1,77 @@
 # AU-ESET 301 v16.3 — Teaching Media Resource Verification
-## Runtime candidate: v16.3.6 final POTS corrective
+## Runtime: v16.3.6 final POTS accepted
 
 **Course release:** v16.3  
-**Runtime candidate:** v16.3.6  
+**Runtime patch:** v16.3.6  
 **Evidence revision:** 16.2  
-**Status:** **FINAL ACCEPTANCE AUDIT PENDING — DO NOT CLAIM 31/31 PASS YET**
+**Status:** **ACCEPTED — 31/31 PASS**
 
-## Structural/runtime state proven before this correction
+## Final runtime result
 
-The corrected GitHub runtime executed successfully in production load order with:
+The final audit executed the actual GitHub production composition in load order:
 
-- 31 modules
-- 320 effective Teaching Media cards
-- 273 registered sources
-- zero unresolved effective source IDs
-- zero duplicate cards
-- complete required media-card metadata
-- idempotent v16.3.6 overlay execution
-- protected prior-PASS weeks unchanged
+1. `curriculum-data.js`
+2. `teaching-media-overrides.js`
+3. `teaching-media-self-reliance.js`
+4. `teaching-media-content-completion.js`
 
-## First post-repair corrective findings already closed
+Final effective runtime:
 
-The first post-repair acceptance audit found and repaired:
+- **31 modules**
+- **321 effective Teaching Media cards**
+- **274 registered sources**
+- **247 unique effective sources**
+- **0 unresolved effective source IDs**
+- **0 duplicate media cards**
+- **0 missing required card fields**
+- **Idempotent v16.3.6 overlay execution**
+- Protected prior-PASS weeks remained unchanged by the repair overlay.
 
-- Week 1 direct ESD-control instruction
-- Week 7 semiconductor-family sequencing/coverage
-- Week 12 GitHub Skills metadata overclaim
-- Week 27 NI hardware-test workflow resource mismatch
-- Week 28 explicit productivity calculation and project-management instruction
+## Audit history
 
-Those repairs were present and verified in the uploaded GitHub runtime.
+The first post-repair audit found and corrected residual issues in Week 1 ESD, Week 7 semiconductor-family sequencing, Week 12 GitHub metadata, Week 27 test-workflow sourcing, and Week 28 productivity/project planning.
 
-## Final residual finding
+A second semantic pass found one final **Week 20 MATERIAL DEFECT**: the POTS/DSL splitter resource covered voice/data frequency separation but not the full mapped analog subscriber-loop behavior.
 
-A second semantic pass found one remaining **Week 20 MATERIAL DEFECT**.
+The final correction assigns Cisco **Voice Network Signaling and Control** to Week 20. The live Cisco document explicitly teaches:
 
-The existing Cisco POTS splitter/microfilter resource correctly teaches how low-frequency voice and higher-frequency DSL data share a twisted pair, but it does not itself teach all of the v16.3 POTS semantic row:
+- tip and ring lines,
+- loop-start signaling,
+- off-hook loop closure/current flow,
+- dial-tone response,
+- incoming ringing behavior.
 
-- tip/ring loop-start concept
-- off-hook loop closure/current flow
-- dial-tone response
-- incoming ringing behavior
+The POTS splitter resource remains assigned separately for DSL/voice coexistence.
 
-## Final corrective repair
+## Final 31-week acceptance
 
-Week 20 now also assigns:
+**Weeks 1–31: PASS**
 
-**Cisco — Voice Network Signaling and Control**
+**BLOCKER:** 0  
+**MATERIAL DEFECT:** 0
 
-The assigned portion explicitly teaches loop-start tip/ring behavior, the current flow created by an off-hook closed loop, dial-tone response, and the ringing signal applied for an incoming call. The original POTS splitter resource remains assigned for voice/data frequency separation.
+### Subject-level acceptance
 
-This makes the two POTS resources complementary rather than overclaiming either one.
+- **CETa preparation from Teaching Media alone:** YES
+- **Electronics theory from Teaching Media alone:** YES
+- **Technician/troubleshooting conceptual preparation from Teaching Media alone:** YES
+- **Hardware-oriented embedded preparation from Teaching Media alone:** YES
 
-## Acceptance rule
+## Meaning of standalone acceptance
 
-The entire 31-week standalone Teaching Media audit must now be rerun against this exact uploaded candidate. No final PASS, no subject-level YES, and no "self-reliance complete" claim is authorized until that audit finds:
+Teaching Media is accepted as the **primary standalone explanation/instruction pathway**. It does not replace required hands-on/mastery work.
 
-- **0 BLOCKER**
-- **0 MATERIAL DEFECT**
+Still required where assigned:
 
-Hands-on labs, projects, measurements, soldering/rework, coding, debugging, fault injection, assessments and physical evidence remain required and are not replaced by Teaching Media.
+- labs and projects,
+- physical measurements,
+- soldering/rework,
+- coding and firmware implementation,
+- debugging and troubleshooting demonstrations,
+- controlled fault injection,
+- assessments and mastery gates,
+- physical evidence/deliverables.
+
+## Final verdict
+
+**YES.** The Teaching Media pathway can be used as the primary standalone instructional preparation across all 31 weeks without needing Alfred's written content to teach missing technical subjects.
