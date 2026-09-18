@@ -1,12 +1,13 @@
 {
   "courseRelease": "16.3",
-  "runtimePatch": "16.3.5",
+  "runtimePatch": "16.3.6",
   "evidenceRevision": "16.2",
   "cloudSyncProtocol": 2,
-  "build": "v16.3.5-teaching-media-self-reliance-20260917-reference-sync",
+  "build": "v16.3.6-teaching-media-content-completion-20260918",
+  "releaseStatus": "candidate-final-audit-pending",
   "presentationPatch": "mobile-visual-readability-final",
   "scheduleRevision": "2026-09-16-week1-reset",
-  "modulePresentationRevision": "2026-09-17-teaching-media-self-reliance",
-  "teachingMediaRevision": "2026-09-17-31-week-self-reliance",
-  "resourceVerificationRevision": "2026-09-17-v16.3.5-self-reliance"
+  "modulePresentationRevision": "2026-09-18-teaching-media-content-completion",
+  "teachingMediaRevision": "2026-09-18-content-completion-candidate",
+  "resourceVerificationRevision": "2026-09-18-v16.3.6-final-audit-pending"
 }
