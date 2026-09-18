@@ -1,6 +1,39 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.10",
+      "date": "September 18, 2026",
+      "title": "Release Notes Completeness — Permanent Change Ledger",
+      "type": "Documentation / Maintenance / Change-Control Update",
+      "request": "Make Release Notes mandatory for every website change going forward and backfill the site so small edits, additions, removals, and repository uploads are no longer lost inside major-version summaries.",
+      "changes": [
+        "Established a permanent release-logging rule: every future website update, no matter how small, must include a Release Notes entry before the upload package is delivered.",
+        "Future entries must record the request/reason, every meaningful behavior/content/design change, every addition and subtraction, and the exact files added, modified, or removed.",
+        "Audited the existing human-readable history and retained all 42 unique release records spanning v1.x through v16.3.9; no prior narrative release entry was deleted or rewritten out of history.",
+        "Added release-change-ledger.js with a historical ledger of all 63 GitHub commits from the original September 11 repository build through the v16.3.9 baseline, including 10 upload commits whose repository tree did not change.",
+        "The Release Notes page now searches both narrative releases and the repository ledger, displays line additions/deletions for historical commits, and links each ledger row to the exact GitHub commit diff for file-by-file verification.",
+        "Added optional Added / Modified / Removed file sections to the Release Notes renderer. v16.3.10 is the first release required to use this exact-file format; future releases will continue it.",
+        "Corrected current-release ordering so v16.3.10, v16.3.9, v16.3.8, v16.3.7, v16.3.6, and v16.3.5 display in true newest-to-oldest order before the historical release file.",
+        "Added a permanent AU-ESET-301-Release-Notes-Policy.md record describing the logging contract and the self-reference rule: the historical commit ledger is backfilled through v16.3.9, while v16.3.10 and later releases record exact changed files directly in their release entry so a release never requires an endless follow-up commit merely to record its own SHA.",
+        "No curriculum, Week 1 instruction, Teaching Media, assessments, labs, projects, calendar identities, progress data, mastery rules, Cloud Sync protocol, or course-learning behavior is changed by this release."
+      ],
+      "filesAdded": [
+        "release-change-ledger.js",
+        "AU-ESET-301-Release-Notes-Policy.md",
+        "POST-UPDATE-QA.md",
+        "UPLOAD_README.txt",
+        "SHA256SUMS.txt"
+      ],
+      "filesModified": [
+        "patch-notes.html",
+        "patch-notes.js",
+        "release-notes-current.js",
+        "build-info.json",
+        "service-worker.js"
+      ],
+      "filesRemoved": []
+    },
+    {
       "version": "v16.3.9",
       "date": "September 18, 2026",
       "title": "Week 1 Beginner-Teacher YouTube Clarity Layer",
@@ -80,8 +113,9 @@
       ]
     }
   ];
-  const releases = window.ALFRED_RELEASES = Array.isArray(window.ALFRED_RELEASES) ? window.ALFRED_RELEASES : [];
-  entries.forEach(entry => {
-    if (!releases.some(item => item && item.version === entry.version)) releases.unshift(entry);
-  });
+  const currentOrder = ['v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
+  entries.sort((a,b)=>currentOrder.indexOf(a.version)-currentOrder.indexOf(b.version));
+  const historical = Array.isArray(window.ALFRED_RELEASES) ? window.ALFRED_RELEASES : [];
+  const currentVersions = new Set(entries.map(entry=>entry.version));
+  window.ALFRED_RELEASES = [...entries, ...historical.filter(item=>item && !currentVersions.has(item.version))];
 })();

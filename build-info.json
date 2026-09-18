@@ -1,10 +1,10 @@
 {
   "courseRelease": "16.3",
-  "runtimePatch": "16.3.9",
+  "runtimePatch": "16.3.10",
   "evidenceRevision": "16.2",
   "cloudSyncProtocol": 2,
-  "build": "v16.3.9-week1-beginner-teacher-media-20260918",
-  "releaseStatus": "week1-teaching-media-clarity-update",
+  "build": "v16.3.10-release-notes-complete-ledger-20260918",
+  "releaseStatus": "release-notes-completeness-ledger",
   "presentationPatch": "mobile-visual-readability-final",
   "scheduleRevision": "2026-09-16-week1-reset",
   "modulePresentationRevision": "2026-09-18-week1-from-zero-visual-teaching",
@@ -15,5 +15,7 @@
   "portfolioRevision": "2026-09-18-project2-hil-aligned",
   "week1InstructionRevision": "2026-09-18-from-zero-visual-teaching",
   "week1TeachingMediaRevision": "2026-09-18-beginner-teacher-youtube-layer",
-  "teachingMediaBaseRevision": "2026-09-18-final-pots-31-week-standalone-accepted"
+  "teachingMediaBaseRevision": "2026-09-18-final-pots-31-week-standalone-accepted",
+  "releaseNotesRevision": "2026-09-18-complete-history-and-permanent-file-change-policy",
+  "repositoryLedgerBaseline": "2026-09-18-v16.3.9-63-commits"
 }
