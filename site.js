@@ -232,7 +232,13 @@
     const divider=document.createElement('span'); divider.setAttribute('aria-hidden','true'); divider.textContent='/';
     const current=document.createElement('span'); current.setAttribute('aria-current','page'); current.textContent=label;
     trail.append(divider,current);
-    hero.insertBefore(trail,hero.firstElementChild);
+    const heroContentHost=hero.matches('.about-grid')
+      ? hero.querySelector(':scope > div:last-child')
+      : hero.matches('.progress-hero-grid,.engineering-hero-grid,.project-page-grid,.study-hero-grid')
+        ? hero.querySelector(':scope > div:first-child')
+        : null;
+    const trailHost=heroContentHost||hero;
+    trailHost.insertBefore(trail,trailHost.firstElementChild);
   }
 
   function groupMoreMenu(){

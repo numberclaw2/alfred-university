@@ -1,6 +1,26 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.20",
+      "date": "September 18, 2026",
+      "title": "Final Acceptance Repair — Hero Layout, Deep Links & Durable Runtime Labels",
+      "type": "Runtime / Navigation / Documentation Repair",
+      "request": "Repair the bounded defects found by the final whole-site acceptance audit and the user-provided About, Progress, and Projects screenshots without reopening curriculum, learner workflow, assessment scoring, calendar, Cloud Sync protocol, or Teaching Media.",
+      "changes": [
+        "Fixed the shared context-trail insertion logic so breadcrumbs are placed inside the primary content column of grid-based heroes instead of becoming an extra CSS Grid item. This restores the intended two-column About, Progress, Projects, Engineering compatibility, and Study hero layouts and prevents breadcrumbs from displacing headings, seals, and progress cards.",
+        "Repaired the retired Knowledge Base compatibility page's More menu by restoring the nav-more-button class and aria-haspopup attribute expected by site.js, eliminating the page-specific JavaScript exception while preserving the compatibility route.",
+        "Added id=cloud-sync to the existing Progress Cloud Sync section so Deployment's Progress / Cloud Sync deep links land on the actual sync controls instead of only opening the top of Progress.",
+        "Added stable domain-N anchors to the existing CETa coverage-map details rendered by readiness.js so Search Everything CETa Domain results such as assessments.html#domain-1 resolve to the intended domain section.",
+        "Replaced the Assessment Center's stale v16.3.7 runtime label with durable wording that describes the current assessment and mastery evidence model without pretending an older patch is the site runtime.",
+        "Relabeled the v16.3.7 Whole-System Audit Repair document as an audit repair record and clarified that build-info.json and Release Notes control the current runtime; the historical repair remains valid evidence incorporated into later releases.",
+        "Updated the Week Overview, Engineering, Knowledge Base, and Student Services compatibility notes to reflect that Step 9 navigation retirement is already complete rather than describing it as future work.",
+        "Preserved all curriculum content, lesson/media data, calendar identities and dates, assessment questions/scoring, mastery formulas, labs, projects, progress identities, Cloud Sync protocol 2, Worker/D1 behavior, compatibility URLs, and the v16.3.19 owner-based information architecture."
+      ],
+      "filesAdded": [],
+      "filesModified": ["POST-UPDATE-QA.md", "SHA256SUMS.txt", "UPLOAD_README.txt", "assessments.html", "build-info.json", "documents.html", "engineering.html", "knowledge.html", "progress.html", "readiness.js", "release-notes-current.js", "service-worker.js", "site.js", "student-services.html", "week.html"],
+      "filesRemoved": []
+    },
+    {
       "version": "v16.3.19",
       "date": "September 18, 2026",
       "title": "Home + Navigation Final Cleanup — Owner-Based Information Architecture",
@@ -323,7 +343,7 @@
       ]
     }
   ];
-  const currentOrder = ['v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
+  const currentOrder = ['v16.3.20','v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
   entries.sort((a,b)=>currentOrder.indexOf(a.version)-currentOrder.indexOf(b.version));
   const historical = Array.isArray(window.ALFRED_RELEASES) ? window.ALFRED_RELEASES : [];
   const currentVersions = new Set(entries.map(entry=>entry.version));

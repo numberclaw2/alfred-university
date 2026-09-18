@@ -1,48 +1,45 @@
-# AU-ESET 301 v16.3.19 — Home + Navigation Final Cleanup QA
+# AU-ESET 301 v16.3.20 — Final Acceptance Repair QA
 
 **Date:** September 18, 2026  
-**Scope:** Step 9 — Home + Navigation final cleanup, plus the minimum Search/context-trail owner-route corrections and release/build/cache bookkeeping required to complete the locked information-architecture roadmap.
+**Scope:** Bounded repair of the defects found by the final whole-site acceptance audit plus the user-provided About, Progress, and Projects screenshots. This release does not reopen curriculum or learner-system architecture.
 
-## Final information architecture
+## Screenshot / hero-layout repair
 
-- PASS — primary learner navigation is exactly **Home · Study · Learn · Calendar · Practice · Progress · Mastery** on every page that carries the full navigation shell.
-- PASS — global More menus contain only current destinations: Course Overview, Engineering Library, Projects, Search Everything, Lab Center, Assessment Center, Standards & Retention, Documents, About, Deployment, and Release Notes.
-- PASS — Week Overview, Engineering, Knowledge Base, and Student Services do not appear in any global More menu or full global footer.
-- PASS — compatibility files `week.html`, `engineering.html`, `knowledge.html`, and `student-services.html` remain deployed and cached for old bookmarks/historical links.
-- PASS — full footers now use **Learning & Practice** and **Course & Administration** owner groups rather than the retired Student Services structure.
+- PASS — root cause identified in `site.js`: the injected context trail had been inserted as a direct child of grid-based hero shells, creating a third CSS Grid item and displacing the intended two-column hero children.
+- PASS — `site.js` now places the context trail inside the primary text/content column for `.about-grid`, `.progress-hero-grid`, `.engineering-hero-grid`, `.project-page-grid`, and `.study-hero-grid` instead of inserting it as a sibling grid item.
+- PASS — structural DOM simulation confirms About, Progress, and Projects retain exactly two direct grid children after breadcrumb insertion, so the heading/seal/progress-card columns are no longer reflowed by the breadcrumb.
+- PASS — no hero CSS, responsive breakpoints, or page-specific content was rewritten.
 
-## Home / owner routing
+## Final-audit functional repairs
 
-- PASS — Home remains an orientation/current-week dashboard and does not absorb teaching, practice, completion, or mastery ownership.
-- PASS — Home's Practice card now describes the v16.3.12 priority ladder: guided work, labs, required checks, mastery, or repair.
-- PASS — Search week-level results are now **Classroom Week** results and route directly to `learn.html?week=N&stage=orientation`.
-- PASS — Search's type filter says **Classroom weeks**; it no longer offers Week overviews as a normal destination.
-- PASS — the dormant legacy week renderer's CETa-domain chips route to Search Concept References rather than the retired Knowledge Base page.
+- PASS — `knowledge.html` restores the `nav-more-button` class and `aria-haspopup="true"`, matching every other full navigation shell and the selector expected by `site.js`.
+- PASS — `progress.html` gives the existing Cloud Sync section `id="cloud-sync"`, so both Deployment deep links now land on the actual Cloud Sync controls.
+- PASS — `readiness.js` gives every rendered CETa coverage-map row a stable `domain-N` anchor. A runtime VM harness confirmed `domain-1` and `domain-2` are emitted from representative coverage data.
+- PASS — Search still generates `assessments.html#domain-N` CETa-domain routes, and the Assessment Center now provides matching anchors.
 
-## Context trails
+## Durable wording cleanup
 
-- PASS — Projects -> Course Overview.
-- PASS — Engineering Library -> Course Overview.
-- PASS — Knowledge Base compatibility -> Search Everything.
-- PASS — Lab Center / Assessment Center -> Practice.
-- PASS — Standards & Retention -> Mastery.
-- PASS — Deployment / Release Notes -> About.
-- PASS — Search and Mastery no longer receive self-parent breadcrumb entries.
-- PASS — direct Week Overview and Engineering compatibility pages retain useful owner context without being promoted in navigation.
+- PASS — Assessment Center no longer labels v16.3.7 as the current site/assessment runtime. The hero now describes the current assessment and mastery evidence model without a stale patch number.
+- PASS — Documents relabels the v16.3.7 file as a Whole-System Audit Repair Record instead of a current runtime repair.
+- PASS — Documents now states that the v16.3.7 repairs remain incorporated into later runtimes while `build-info.json` and Release Notes control the current runtime.
+- PASS — Week Overview, Engineering, Knowledge Base, and Student Services compatibility notes now state that normal-navigation retirement is already complete instead of describing Step 9 as future work.
 
-## Regression / scope checks
+## Whole-package regression checks
 
-- PASS — all 23 HTML pages with the full primary navigation shell were checked after source-level replacement.
-- PASS — all 22 HTML pages with a full footer were checked after footer consolidation.
-- PASS — no retired-page `href` remains anywhere in those HTML source files.
-- PASS — for every HTML page except the intentional Home Practice copy and Search filter update, `<main>` content is byte-for-byte unchanged from v16.3.18.
-- PASS — `course-data.js` and the `.ics` calendar were not changed; preserved historical Week Overview links continue to land on the compatibility route.
-- PASS — no progress key, event/calendar identity, assessment identity, lab/project identity, mastery formula, curriculum data, Cloud Sync record type/protocol, or Teaching Media assignment is changed.
-- PASS — `site.js`, `search.js`, `academic.js`, `release-notes-current.js`, and `service-worker.js` pass JavaScript syntax validation.
-- PASS — `build-info.json` parses and reports runtime **v16.3.19**.
-- PASS — service-worker cache advances to `alfred-u-v16-3-19-home-navigation-final-cleanup-20260918` while retaining compatibility pages in CORE.
-- PASS — Release Notes records the exact final file manifest.
+- PASS — all JavaScript files in the deployed site tree pass `node --check`.
+- PASS — all JSON files parse successfully.
+- PASS — 25 HTML pages scanned with zero duplicate IDs.
+- PASS — zero missing local `href` / `src` targets across the HTML pages.
+- PASS — all 150 `service-worker.js` CORE entries resolve to deployed files.
+- PASS — compatibility files `week.html`, `engineering.html`, `knowledge.html`, and `student-services.html` remain present and cached.
+- PASS — `build-info.json` reports runtime `16.3.20`, build `v16.3.20-final-acceptance-repair-20260918`, and release status `final-acceptance-repair-ready`.
+- PASS — service-worker cache advances to `alfred-u-v16-3-20-final-acceptance-repair-20260918` with no fetch-strategy change.
+- PASS — Release Notes lists v16.3.20 first and its 15-file manifest exactly matches the repair package.
 
-## Roadmap closure
+## Browser-rendering note
 
-Steps 1–9 are now implemented in source. Step 9 is not considered fully closed until the package is uploaded, the exact GitHub commit is verified, and GitHub Pages successfully deploys that commit.
+A managed Chromium policy in the container blocks both localhost and `file://` page rendering, so an independent repaired-page screenshot could not be captured inside this environment. The layout defect itself is nevertheless verified at the DOM/CSS-structure level: the breadcrumb no longer becomes a direct grid child on the three user-reported pages, which removes the mechanism that produced the supplied screenshots.
+
+## Protected systems unchanged
+
+This repair does **not** change curriculum/lesson content, Teaching Media, calendar dates or IDs, assessment questions or scoring, mastery formulas, labs, projects, progress record identities, Cloud Sync protocol 2, Worker/D1 behavior, Study/Practice workflow, or the v16.3.19 owner-based information architecture.
