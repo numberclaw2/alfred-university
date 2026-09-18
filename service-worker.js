@@ -1,4 +1,4 @@
-const CACHE='alfred-u-v16-3-3-teaching-media-20260917-verified';
+const CACHE='alfred-u-v16-3-4-teaching-media-final-audit-20260917-verified';
 const CORE=[
   './','index.html','engineering.html','course.html','calendar.html','progress.html','resources.html','projects.html','documents.html','student-services.html','about.html','deployment.html','404.html','offline.html',
   'study.html','learn.html','search.html','week.html','practice.html','labs.html','assessments.html','quiz.html','standards.html','analytics.html','knowledge.html','patch-notes.html','academic-state.js',

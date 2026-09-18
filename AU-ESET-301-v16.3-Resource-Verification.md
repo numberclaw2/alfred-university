@@ -1,84 +1,173 @@
-# AU-ESET 301 v16.3 — Resource Verification / Carried-Forward Provenance
+# AU-ESET 301 v16.3.4 — Teaching Media Resource Verification
 
-**Verification date:** September 15, 2026
+**Verification date:** September 17, 2026  
+**Instructional baseline:** v16.3  
+**Runtime patch:** v16.3.4  
+**Teaching Media revision:** `2026-09-17-31-week-final-audit-repair`
 
-**Provenance note:** This resource/link audit was performed during the v16.1 verification and is carried forward because v16.3 did not redesign the external-resource layer. The v16.3 final lesson-depth rebuild rechecked the current ETA competency authority separately, but it did not falsely claim a new full public-link sweep. Core Alfred instruction remains source-independent.
+## Acceptance decision
 
-## Result
+**PASS — the original 31-week Teaching Media objective is complete after the v16.3.4 final-audit repair.**
 
-The v16.3 course retains the verified source-rich but source-independent resource architecture from v16.1. The complete Alfred-authored lesson appears before supporting media. A video, PDF, simulator, or publisher page can deepen or re-explain a topic, but a broken external link cannot remove the in-house teaching path.
+The audit standard is teaching value and objective coverage, not resource count. External media must actually support the week's stated learning objective, use exact instructional pages when they exist instead of generic landing pages, preserve the CETa + hardware-oriented embedded balance, and remain supplemental to Alfred's complete primary instruction.
 
-- 51 named sources are present in the v16 Classroom source registry.
-- 50 have public URLs; 1 is the learner-provided private ETA study-guide copy and is intentionally not republished.
-- All source IDs referenced by the 31 modules resolve to a registry entry: **PASS**.
-- The official ETA exam-information page, competency PDF, formula sheet, errata sheet, and practice page returned HTTP 200 during the final verification.
-- O*NET and BLS technician evidence, NASA workmanship material, OpenStax, MIT OpenCourseWare, NPTEL, manufacturer training, Python/C documentation, simulators, and the required video/playlist set were request-checked during the audit. Bot-protected pages that returned 403 remain optional deep references and are not required for course completion.
-- One 404 employer-career URL occurs only inside archived local-document search text; it is not a current lesson, required resource, or application target. Employer examples are time-sensitive and should be searched fresh at application time.
+Effective post-overlay validation:
 
-## Official controls checked
+- 31/31 modules have Teaching Media.
+- 107 effective media cards.
+- 72 effective source objects in the current registry.
+- 0 unresolved media source IDs.
+- 0 media cards missing `source`, `role`, `use`, `watchFor`, or `gap`.
+- The content repair is isolated to Stage 4 Teaching Media metadata; lesson text, labs, assessments, calendar identities, progress, and Cloud Sync are unchanged.
 
-1. [ETA Associate CET information](https://www.etai.org/electronics.html) — identifies CETa scope and publishes the current 100-question, 75%, two-hour exam facts.
-2. [ETA CETa competencies](https://www.etai.org/comps/CETa_comps.pdf) — controls the 262-row course scope.
-3. [ETA Common Formulas](https://www.etai.org/Common_Formulas.pdf) — official formula reference linked in the course.
-4. [ETA sixth-edition errata](https://www.etai.org/6thEdASTErrataSheet.pdf) — correction reference for the learner’s edition.
-5. [ETA practice exam](https://www.etai.org/practice_exams/ceta.htm) — independent official practice; no questions are copied into Alfred.
+## Final-audit repairs
 
-## Source registry and use
+### Week 6 — transformer ratio gap closed
 
-| ID | Source | Organization | Role | Module/media references | Link policy |
-| --- | --- | --- | --- | ---: | --- |
-| etaCompetencies | ETA Associate CET (CETa) Competency Requirements | ETA International | Official standard | 36 | [Open](https://www.etai.org/comps/CETa_comps.pdf) |
-| etaExam | Associate CET Certification and Exam Information | ETA International | Official exam information | 9 | [Open](https://www.etai.org/electronics.html) |
-| etaFormula | Common Formulas | ETA International | Official reference | 8 | [Open](https://www.etai.org/Common_Formulas.pdf) |
-| etaErrata | Associate CET Study Guide Errata | ETA International | Official errata | 4 | [Open](https://www.etai.org/6thEdASTErrataSheet.pdf) |
-| privateGuide | Associate CET Study Guide, Sixth Edition | ETA International | Student-provided private study guide | 32 | Private learner copy; intentionally no public URL |
-| mitCircuits | 6.002 Circuits and Electronics | MIT OpenCourseWare | University course with videos, notes, labs, and exams | 4 | [Open](https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/) |
-| mitVideos | 6.002 Video Lectures | MIT OpenCourseWare | University video series | 6 | [Open](https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/video_galleries/video-lectures/) |
-| mitLabs | 6.002 Laboratory Materials | MIT OpenCourseWare | University lab collection | 5 | [Open](https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/pages/labs/) |
-| nptelDC | Basic Electrical Circuits | NPTEL / IIT Madras | University video course | 2 | [Open](https://nptel.ac.in/courses/117106108) |
-| nptelAnalog | Analog Circuits | NPTEL | University video course | 6 | [Open](https://nptel.ac.in/courses/117101106) |
-| nptelDigital | Digital Circuits | NPTEL | University video course | 6 | [Open](https://nptel.ac.in/courses/108105113) |
-| nptelComms | Principles of Communication Systems I | NPTEL | University video course | 2 | [Open](https://nptel.ac.in/courses/108104091) |
-| openstaxOhm | Ohm's Law | OpenStax, Rice University | Open university textbook | 2 | [Open](https://openstax.org/books/university-physics-volume-2/pages/9-4-ohms-law) |
-| openstaxNetworks | Resistors in Series and Parallel | OpenStax, Rice University | Open university textbook | 2 | [Open](https://openstax.org/books/university-physics-volume-2/pages/10-2-resistors-in-series-and-parallel) |
-| phetDC | Circuit Construction Kit: DC — Virtual Lab | PhET, University of Colorado Boulder | University simulation | 4 | [Open](https://phet.colorado.edu/en/simulations/circuit-construction-kit-dc-virtual-lab) |
-| oshaElectrical | Electrical Safety Publications | U.S. Occupational Safety and Health Administration | Government safety reference | 1 | [Open](https://www.osha.gov/publications/bytopic/electrical) |
-| nistSI | Guide for the Use of the International System of Units | U.S. National Institute of Standards and Technology | Government measurement reference | 1 | [Open](https://www.nist.gov/pml/special-publication-811) |
-| flukeSafety | Electrical Measurement Safety | Fluke | Manufacturer training | 3 | [Open](https://www.fluke.com/en-us/learn/online-courses/electrical-measurement-safety) |
-| flukeDMM | Digital Multimeter Basics | Fluke | Manufacturer training | 8 | [Open](https://www.fluke.com/en-us/learn/online-courses/digital-multimeter-basics-online-course) |
-| keysightDMM | Simple DC Power Measurements with a DMM | Keysight | Manufacturer application note | 5 | [Open](https://www.keysight.com/in/en/assets/7018-04822/application-notes/5992-0749.pdf) |
-| tekScope | The XYZs of Oscilloscopes | Tektronix | Manufacturer primer | 8 | [Open](https://www.tek.com/en/documents/primer/xyzs-oscilloscopes-primer) |
-| keysightScope | Oscilloscope Basics | Keysight | Manufacturer training | 2 | [Open](https://www.keysight.com/us/content/lib/resources/training-materials/oscilloscope-basics-1454080.html) |
-| tiPrecision | TI Precision Labs | Texas Instruments | Manufacturer video library | 3 | [Open](https://www.ti.com/video/series/precision-labs.html) |
-| tiOpAmp | TI Precision Labs — Op Amps | Texas Instruments | Manufacturer video series | 2 | [Open](https://www.ti.com/video/series/precision-labs/ti-precision-labs-op-amps.html) |
-| tiADC | TI Precision Labs — ADCs | Texas Instruments | Manufacturer video series | 5 | [Open](https://www.ti.com/video/series/precision-labs/ti-precision-labs-analog-to-digital-converters-adcs.html) |
-| adiLinear | Basic Linear Design | Analog Devices | Manufacturer handbook | 5 | [Open](https://www.analog.com/media/en/training-seminars/design-handbooks/Basic-Linear-Design/LinearDesign_Cover.pdf) |
-| adiLtspice | LTspice Getting Started | Analog Devices | Manufacturer video series | 8 | [Open](https://www.analog.com/en/resources/media-center/videos/series/ltspice-getting-started-tutorial.html) |
-| adiOpAmp | Learn the Fundamentals of Op Amps | Analog Devices | Manufacturer video | 2 | [Open](https://www.analog.com/en/resources/media-center/videos/6313213708112.html) |
-| nasaESD | NASA-HDBK-8739.21 — ESD Control | NASA | Government workmanship handbook | 8 | [Open](https://standards.nasa.gov/standard/NASA/NASA-HDBK-873921) |
-| nasaHarness | NASA-STD-8739.4 — Crimping, Cables, Harnesses, and Wiring | NASA | Government workmanship standard | 6 | [Open](https://standards.nasa.gov/standard/NASA/NASA-STD-87394) |
-| nasaSystems | NASA Systems Engineering Handbook | NASA | Government engineering handbook | 10 | [Open](https://www.nasa.gov/reference/systems-engineering-handbook/) |
-| githubSkills | Introduction to GitHub | GitHub Skills | Interactive training | 5 | [Open](https://github.com/skills/introduction-to-github) |
-| cs50C | CS50x Week 4 — Memory and Pointers | Harvard University | University course notes and video | 2 | [Open](https://cs50.harvard.edu/x/notes/4/) |
-| beejC | Beej's Guide to C Programming | Brian Hall / open textbook | Open C textbook | 4 | [Open](https://beej.us/guide/bgc/) |
-| armEmbedded | Embedded C Programming with Arm Cortex-M | Arm | Vendor-validated video course | 6 | [Open](https://developer.arm.com/community/arm-community-blogs/b/embedded-and-microcontrollers-blog/posts/embedded-c-programming-with-arm-cortex-m-video-course) |
-| armKit | Efficient Embedded Systems Education Kit | Arm University Program | University teaching kit | 2 | [Open](https://www.arm.com/resources/education/education-kits/efficient-embedded-systems) |
-| stMooc | STM32CubeMX and STM32Cube HAL Basics | STMicroelectronics | Manufacturer MOOC | 7 | [Open](https://www.st.com/content/st_com/en/support/learning/stm32-moocs/stm32cubemx-and-cubeHhal-basics.html) |
-| stTraining | STM32 Online Training | STMicroelectronics | Manufacturer training | 4 | [Open](https://www.st.com/content/st_com/en/support/learning/stm32-online-training.html) |
-| sparkfunSerial | Serial Communication | SparkFun | Industry tutorial | 2 | [Open](https://learn.sparkfun.com/tutorials/serial-communication/all) |
-| sparkfunI2C | I2C | SparkFun | Industry tutorial | 4 | [Open](https://learn.sparkfun.com/tutorials/i2c/all) |
-| sparkfunSPI | Serial Peripheral Interface (SPI) | SparkFun | Industry tutorial | 4 | [Open](https://learn.sparkfun.com/tutorials/serial-peripheral-interface-spi/all) |
-| saleae | Logic Analyzer Learning and Support | Saleae | Manufacturer documentation | 9 | [Open](https://support.saleae.com/) |
-| pythonDocs | Python 3 Documentation | Python Software Foundation | Official documentation | 4 | [Open](https://docs.python.org/3/) |
-| pyserial | pySerial Documentation | pySerial project | Official project documentation | 4 | [Open](https://pyserial.readthedocs.io/) |
-| pytest | pytest Documentation | pytest project | Official project documentation | 4 | [Open](https://docs.pytest.org/) |
-| matplotlib | Matplotlib Quick Start | Matplotlib project | Official project documentation | 2 | [Open](https://matplotlib.org/stable/users/explain/quick_start.html) |
-| foa | Fiber Optics Reference Guide | The Fiber Optic Association | Professional reference and videos | 2 | [Open](https://www.thefoa.org/tech/ref/) |
-| fccRF | OET Bulletin 65 — RF Exposure | U.S. Federal Communications Commission | Government safety reference | 3 | [Open](https://transition.fcc.gov/bureaus/oet/info/documents/bulletins/oet65/oet65.pdf) |
-| tekSpectrum | Fundamentals of Real-Time Spectrum Analysis | Tektronix | Manufacturer primer | 2 | [Open](https://www.tek.com/en/documents/primer/fundamentals-real-time-spectrum-analysis) |
-| onetTech | Electrical and Electronic Engineering Technologists and Technicians | O*NET OnLine / U.S. Department of Labor | Government occupational evidence | 14 | [Open](https://www.onetonline.org/link/summary/17-3023.00) |
-| blsTech | Electrical and Electronic Engineering Technologists and Technicians | U.S. Bureau of Labor Statistics | Government occupational profile | 5 | [Open](https://www.bls.gov/ooh/architecture-and-engineering/electrical-and-electronics-engineering-technicians.htm) |
+Week 6 explicitly requires the learner to explain and calculate transformer ratios. The previous media concentrated on impedance, phasors, filters, simulation, and passive references. v16.3.4 adds **Transformers (Part 1)** from North Seattle Community College / All About Circuits, which explicitly teaches turns ratio (`Np/Ns`) and the corresponding primary/secondary voltage relationship. This is distinct from Week 7's newer TI transformer lecture, which carries the deeper real-transformer/magnetics model.
 
-## Maintenance rule
+- Source: https://www.allaboutcircuits.com/video-lectures/transformers-part-1/
 
-External availability and currentness can change after this release. Before scheduling the official exam, recheck ETA’s exam page, competency document, errata, formula permission, administrator requirements, and accommodation process. Before applying, use current role postings rather than treating an archived employer link as an opening. No external source is a substitute for the required Alfred explanation, independent transfer, or practical evidence.
+### Week 12 — soldering/rework instruction gap closed
+
+Week 12 requires actual soldering, defect recognition, safe rework, and ESD practice. The previous media contained strong ESD and harness standards but did not directly teach solder-joint technique. v16.3.4 adds:
+
+- DigiKey, **How To Solder — Electronics with Becky Stern**: direct demonstration of heating the joint, solder flow, wetting, and cooling. https://www.digikey.com/en/videos/d/digi-key-electronics/how-to-solder-electronics-with-becky-stern-digi-key-electronics
+- Adafruit Learning System, **Common Soldering Problems**: visual defect/repair guidance for disturbed/cold/overheated joints, wetting problems, excess/insufficient solder, bridges, and lifted pads. https://learn.adafruit.com/adafruit-guide-excellent-soldering/common-problems
+- NASA ESD remains required for ESD control; NASA-STD-8739.4 is now explicitly path-specific for harness/wire/terminal evidence instead of being treated as soldering instruction.
+
+NASA's current workmanship program continues to identify soldered electronic assemblies and cable/harness workmanship as separate standards/training domains, supporting this separation of roles.
+- NASA Workmanship program: https://sma.nasa.gov/sma-disciplines/workmanship
+
+### Week 25 — generic Saleae landing page replaced
+
+Week 25 requires a controlled sensor/peripheral vertical slice with firmware, physical interface, protocol evidence, conversion, and fault handling. The generic Saleae support page no longer carries a Required role. The effective path now uses exact manufacturer tutorials:
+
+- I²C path: Saleae **STM32 Nucleo Board — Analyzing I2C**. https://www.saleae.com/support/tutorials-learning/example-projects/how-to-analyze-i2c
+- SPI path: Saleae **STM32 Nucleo Board — Analyzing SPI**. https://www.saleae.com/support/tutorials-learning/example-projects/how-to-analyze-spi
+- Analog path: TI Precision Labs — ADCs. https://www.ti.com/video/series/precision-labs/ti-precision-labs-analog-to-digital-converters-adcs.html
+- SparkFun I²C/SPI pages remain optional diagram/reference help rather than primary Required instruction.
+
+### Week 29 — instrumentation/rework retention gap closed
+
+Week 29 explicitly requires retained competence in solder/rework, cable acceptance, DMM/scope/analyzer selection, ESD, and employer-facing evidence. v16.3.4 adds tool-specific refreshers rather than relying only on harness/ESD/career references:
+
+- Fluke, **How to Use a Multimeter — Comprehensive Guide**: functions, jacks, voltage/resistance/continuity/diode measurement, and safety framing. https://www.fluke.com/en/learn/blog/maintenance-monitoring/how-to-use-a-multimeter-guide
+- Tektronix, **How to Use an Oscilloscope and Probe — Step-by-Step Tutorial**: grounding, probe connection/compensation, vertical/horizontal controls, triggering, and basic measurements. https://www.tek.com/en/documents/primer/setting-and-using-oscilloscope
+- Saleae, **STM32 Nucleo Board — Digital Signals**: concrete logic-analyzer setup/capture on an STM32 signal. https://www.saleae.com/support/tutorials-learning/example-projects/how-to-measure-digital-logic
+- Adafruit solder-defect/rework guide: retained workmanship refresher.
+- NASA harness and ESD material: retained only for the matching physical evidence paths.
+- O*NET technician profile: retained as occupational relevance evidence, not technical instruction.
+
+## 31-week effective Teaching Media map
+
+| Week | Module | Effective cards | Audit |
+|---:|---|---:|---|
+| 1 | Electricity, Safety, Ohm’s Law, and Power | 4 | PASS |
+| 2 | DC Networks, Kirchhoff’s Laws, and Voltage Dividers | 3 | PASS |
+| 3 | DMM, Bench Supply, and Oscilloscope | 3 | PASS |
+| 4 | AC Waveforms, Capacitors, Inductors, and Time Response | 3 | PASS |
+| 5 | Foundation Mastery and Practical Fault Isolation | 3 | PASS |
+| 6 | Reactance, Impedance, Resonance, Filters, and Transformers | 4 | PASS |
+| 7 | Components, Magnetism, Relays, Motors, and Generators | 3 | PASS |
+| 8 | Diodes, BJTs, MOSFETs, and Controlled Switching | 3 | PASS |
+| 9 | Rectifiers, Filters, Regulators, and Power-Supply Faults | 3 | PASS |
+| 10 | Amplifiers, Op-Amps, Gain, Decibels, and Loading | 3 | PASS |
+| 11 | Number Systems, Boolean Logic, and Digital Circuits | 3 | PASS |
+| 12 | Soldering, ESD, Rework, and Version-Controlled Repair | 5 | PASS |
+| 13 | Schematics, Datasheets, Signal Flow, and Root Cause | 3 | PASS |
+| 14 | C Fundamentals and Computer Architecture | 3 | PASS |
+| 15 | Embedded C, Bit Operations, State Machines, and Timing | 3 | PASS |
+| 16 | STM32 Project Setup, GPIO, Clocks, and SWD Debug | 3 | PASS |
+| 17 | UART Communication and Python Serial Control | 3 | PASS |
+| 18 | I²C, SPI, Logic Analysis, Sensors, and Actuators | 4 | PASS |
+| 19 | Cabling, Audio/Video Signal Paths, and Optical Systems | 3 | PASS |
+| 20 | RF, Telecommunications, Spectrum, and Technician Procedures | 4 | PASS |
+| 21 | CETa Integration I and Mixed Technician Decisions | 3 | PASS |
+| 22 | CETa Repair II and Project Requirements | 3 | PASS |
+| 23 | CETa Readiness Gate and Reproducible Project Setup | 3 | PASS |
+| 24 | Safe Hardware Bring-Up and CETa Power/Measurement Retention | 3 | PASS |
+| 25 | Sensor/Interface Integration and CETa Interface Retention | 6 | PASS |
+| 26 | Firmware Architecture, Diagnostics, and CETa Digital Retention | 3 | PASS |
+| 27 | Python Hardware Test, Logging, and CETa Computer-Application Retention | 4 | PASS |
+| 28 | Fault Injection, Root Cause, and Technical Test Reporting | 3 | PASS |
+| 29 | Instrumentation, Rework, Harnesses, and Role-Proof Integration | 7 | PASS |
+| 30 | Portfolio, Resume, Interview Defense, and CETa Retention | 3 | PASS |
+| 31 | Application Sprint, Interview Feedback, and Continuing Mastery | 3 | PASS |
+
+## Effective source-role checks for repaired weeks
+
+### Week 6 — Reactance, Impedance, Resonance, Filters, and Transformers
+
+- **6.002 Video Lectures** — Required. Use the impedance and frequency-response lecture material as a second explanation for reactive circuits.  
+  URL: https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/video_galleries/video-lectures/
+- **Transformers (Part 1)** — Required. Use this transformer lecture for the turns-ratio portion that the impedance/filter material does not cover.  
+  URL: https://www.allaboutcircuits.com/video-lectures/transformers-part-1/
+- **LTspice Getting Started** — Required for virtual route. Use AC analysis to compare calculated and simulated response.  
+  URL: https://www.analog.com/en/resources/media-center/videos/series/ltspice-getting-started-tutorial.html
+- **Basic Linear Design** — Reference. Use relevant passive/filter chapters only when you need deeper reference on a topology or nonideal effect.  
+  URL: https://www.analog.com/media/en/training-seminars/design-handbooks/Basic-Linear-Design/LinearDesign_Cover.pdf
+
+### Week 12 — Soldering, ESD, Rework, and Version-Controlled Repair
+
+- **NASA-HDBK-8739.21 — ESD Control** — Required. Read the course-mapped ESD control sections before any physical electronics work.  
+  URL: https://standards.nasa.gov/standard/NASA/NASA-HDBK-873921
+- **How To Solder — Electronics with Becky Stern** — Required. Use the soldering demonstration to see the heat-both-surfaces, flow, wetting, and cooling sequence before the workmanship task.  
+  URL: https://www.digikey.com/en/videos/d/digi-key-electronics/how-to-solder-electronics-with-becky-stern-digi-key-electronics
+- **Adafruit Guide to Excellent Soldering — Common Soldering Problems** — Required. Use the defect gallery to practice accept/rework/escalate decisions and to connect visible symptoms to likely process causes.  
+  URL: https://learn.adafruit.com/adafruit-guide-excellent-soldering/common-problems
+- **NASA-STD-8739.4 — Crimping, Cables, Harnesses, and Wiring** — Path-specific reference. Use the workmanship standard only when the Week 12 inspection scenario includes wire, terminal, crimp, cable, or harness evidence.  
+  URL: https://standards.nasa.gov/standard/NASA/NASA-STD-87394
+- **Introduction to GitHub** — Required. Complete the repository/commit portion if Git is new.  
+  URL: https://github.com/skills/introduction-to-github
+
+### Week 25 — Sensor/Interface Integration and CETa Interface Retention
+
+- **STM32CubeMX and STM32Cube HAL Basics** — Required reference. Use the exact MCU peripheral/HAL section for the selected interface and confirm generated configuration against the device documentation.  
+  URL: https://www.st.com/content/st_com/en/support/learning/stm32-moocs/stm32cubemx-and-cubeHhal-basics.html
+- **STM32 Nucleo Board — Analyzing I2C** — Required for I²C path. Use this complete STM32 sensor example if your vertical slice uses I²C.  
+  URL: https://www.saleae.com/support/tutorials-learning/example-projects/how-to-analyze-i2c
+- **STM32 Nucleo Board — Analyzing SPI** — Required for SPI path. Use this complete STM32 peripheral example if your vertical slice uses SPI.  
+  URL: https://www.saleae.com/support/tutorials-learning/example-projects/how-to-analyze-spi
+- **TI Precision Labs — ADCs** — Required for analog path. Use the TI ADC series when your vertical slice is analog rather than I²C/SPI.  
+  URL: https://www.ti.com/video/series/precision-labs/ti-precision-labs-analog-to-digital-converters-adcs.html
+- **I2C** — I²C help. Use only as a quick electrical/transaction diagram reference when an I²C concept remains unclear after the Saleae example.  
+  URL: https://learn.sparkfun.com/tutorials/i2c/all
+- **Serial Peripheral Interface (SPI)** — SPI help. Use only as a quick signal/mode diagram reference when an SPI concept remains unclear after the Saleae example.  
+  URL: https://learn.sparkfun.com/tutorials/serial-peripheral-interface-spi/all
+
+### Week 29 — Instrumentation, Rework, Harnesses, and Role-Proof Integration
+
+- **Adafruit Guide to Excellent Soldering — Common Soldering Problems** — Required workmanship refresher. Use the defect/rework gallery as a fast workmanship-retention check before you claim solder or rework evidence in the dossier.  
+  URL: https://learn.adafruit.com/adafruit-guide-excellent-soldering/common-problems
+- **NASA-STD-8739.4 — Crimping, Cables, Harnesses, and Wiring** — Required for harness route. Use the NASA workmanship criteria when your role-proof task includes crimping, cable, terminal, harness, or wiring evidence.  
+  URL: https://standards.nasa.gov/standard/NASA/NASA-STD-87394
+- **NASA-HDBK-8739.21 — ESD Control** — Required for physical route. Reapply ESD work-area and handling controls for any physical electronics route.  
+  URL: https://standards.nasa.gov/standard/NASA/NASA-HDBK-873921
+- **How to Use a Multimeter — Comprehensive Guide** — Required for DMM evidence. Use this refresher when the dossier uses DMM evidence.  
+  URL: https://www.fluke.com/en/learn/blog/maintenance-monitoring/how-to-use-a-multimeter-guide
+- **How to Use an Oscilloscope and Probe — Step-by-Step Tutorial** — Required for oscilloscope evidence. Use this refresher when the dossier uses oscilloscope evidence.  
+  URL: https://www.tek.com/en/documents/primer/setting-and-using-oscilloscope
+- **STM32 Nucleo Board — Digital Signals** — Required for logic-analyzer evidence. Use this STM32 logic-analyzer example when the dossier uses digital timing or logic-analyzer evidence.  
+  URL: https://www.saleae.com/support/tutorials-learning/example-projects/how-to-measure-digital-logic
+- **Electrical and Electronic Engineering Technologists and Technicians** — Required reference. Map the finished dossier artifacts to current technician duties.  
+  URL: https://www.onetonline.org/link/summary/17-3023.00
+
+## Scope protection
+
+The v16.3.4 repair does not alter the 62 primary lessons, labs, assessment bank, mastery policy, standards mapping, study-guide assignments, calendar dates/UIDs, module sequence, saved-progress identities, Cloud Sync protocol 2, or the 50/50 CETa/Career weighting. It changes only the external Teaching Media/source overlay, release metadata, release notes, cache marker, README, and this verification record.
+
+## Source-quality policy retained
+
+- Alfred is the primary instructor.
+- University, manufacturer, government, and established electronics education resources are preferred.
+- Titles/thumbnails alone are insufficient; the content must map to the stated objective.
+- Generic landing pages do not carry a Required teaching role when an exact instructional page is available.
+- Multiple resources are used only when they cover different objective components or different learner paths.
+- Embedded material remains hardware/electronics oriented; software-only drift is not used to fill media slots.
+- Review/readiness weeks may legitimately use standards or occupational references when the role is explicitly reference/relevance rather than instruction.
+
+## Final acceptance
+
+With the Week 6, 12, 25, and 29 repairs applied, the previously identified residual gaps are closed. The effective 31-week Teaching Media layer now meets the requested objective and can be treated as accepted once the v16.3.4 files are deployed and the public GitHub Pages build is verified.
+

@@ -1,5 +1,38 @@
 window.ALFRED_RELEASES = [
   {
+    "version": "v16.3.4",
+    "date": "September 17, 2026",
+    "title": "Teaching Media Final Audit Repair — 31-Week Objective Closure",
+    "type": "Teaching Media / Academic Resource Repair",
+    "request": "Audit the deployed 31-week Teaching Media system against the original content-level objective and fix any remaining weeks where external media did not fully teach the stated objective, while preserving Alfred as the primary instructor and avoiding filler, software-only drift, or unrelated curriculum changes.",
+    "changes": [
+      "Closed the four remaining Teaching Media gaps identified by the post-deployment audit: Weeks 6, 12, 25, and 29.",
+      "Week 6 now includes a dedicated transformer turns-ratio lecture so transformer calculations are taught directly instead of being implied by impedance/filter material.",
+      "Week 12 now includes an actual soldering demonstration plus a workmanship defect/rework tutorial, while NASA ESD and harness material are correctly scoped to ESD and harness-specific evidence rather than carrying solder instruction they do not teach.",
+      "Week 25 replaces the generic Saleae support landing page with exact STM32 I2C and SPI capture tutorials and adds an explicit TI ADC path for analog-sensor integrations.",
+      "Week 29 now provides separate, tool-specific refreshers for DMM, oscilloscope, and logic-analyzer evidence plus solder/rework, harness, ESD, and occupational-relevance references.",
+      "Revalidated all 31 effective Teaching Media modules after the overlay: 31/31 weeks have objective-mapped media, 107 media cards resolve to valid source objects, and every card contains source, role, use, watch-for, and Alfred-gap metadata.",
+      "Updated the formal AU-ESET-301-v16.3-Resource-Verification.md artifact to reflect the v16.3.4 31-week final audit rather than the earlier pre-v16.3.3 source snapshot.",
+      "Preserved all 62 primary lessons, 24 labs, assessments, mastery thresholds, study-guide assignments, calendar dates and UIDs, progress identities, Cloud Sync protocol 2, module sequencing, CETa/Career balance, and the hardware-oriented embedded emphasis."
+    ]
+  },
+  {
+    "version": "v16.3.3",
+    "date": "September 17, 2026",
+    "title": "Teaching Media — Objective-Mapped Content Verification",
+    "type": "Teaching Media / Academic Resource Revision",
+    "request": "Audit Teaching Media across all 31 weeks at the content level, verify that resources actually teach the assigned objectives instead of trusting titles or generic landing pages, strengthen weak weeks with university/manufacturer/industry instruction, preserve the CETa plus hardware-oriented embedded balance, and avoid adding videos merely to increase quantity.",
+    "changes": [
+      "Audited Teaching Media across all 31 modules using teaching value and objective coverage rather than video count.",
+      "Applied targeted resource upgrades to Weeks 7, 8, 13, 14, 16, 17, and 18 where the prior resource path was too broad, incomplete, or weaker than available instructional material.",
+      "Added Texas Instruments / University of Texas transformer and MOSFET lectures, DigiKey schematic instruction, North Seattle Community College troubleshooting instruction, Harvard CS50x Week 1 C, STMicroelectronics STM32CubeIDE training, and exact Saleae UART/I2C/SPI capture tutorials.",
+      "Kept strong existing weeks unchanged when extra media would only create redundancy or filler.",
+      "Maintained Alfred-authored lessons as the complete primary instruction; external media remains reinforcement, demonstration, alternate explanation, and manufacturer/reference depth.",
+      "Preserved the 50/50 CETa and career-preparation architecture and avoided embedded-software-only drift by prioritizing electronics, measurement, microcontrollers, interfaces, logic analysis, troubleshooting, and hardware evidence.",
+      "Introduced teaching-media-overrides.js as a surgical runtime layer and wired it into Classroom loading and offline caching without changing lesson, lab, assessment, calendar, progress, or Cloud Sync identities."
+    ]
+  },
+  {
     "version": "v16.3.2-M1",
     "date": "September 16, 2026",
     "title": "Teaching Media — Study Guide Page Assignments Restored",

@@ -93,6 +93,42 @@
       org: "Saleae",
       kind: "Manufacturer protocol-analyzer guide",
       url: "https://www.saleae.com/support/protocol-analyzers/analyzer-user-guides/using-spi"
+    },
+    aacTransformerPart1: {
+      title: "Transformers (Part 1)",
+      org: "North Seattle Community College / All About Circuits",
+      kind: "College video lecture",
+      url: "https://www.allaboutcircuits.com/video-lectures/transformers-part-1/"
+    },
+    digiKeySoldering: {
+      title: "How To Solder — Electronics with Becky Stern",
+      org: "DigiKey Electronics",
+      kind: "Industry instructional video",
+      url: "https://www.digikey.com/en/videos/d/digi-key-electronics/how-to-solder-electronics-with-becky-stern-digi-key-electronics"
+    },
+    adafruitSolderProblems: {
+      title: "Adafruit Guide to Excellent Soldering — Common Soldering Problems",
+      org: "Adafruit Learning System",
+      kind: "Industry workmanship tutorial",
+      url: "https://learn.adafruit.com/adafruit-guide-excellent-soldering/common-problems"
+    },
+    flukeMultimeterGuide: {
+      title: "How to Use a Multimeter — Comprehensive Guide",
+      org: "Fluke",
+      kind: "Manufacturer measurement guide",
+      url: "https://www.fluke.com/en/learn/blog/maintenance-monitoring/how-to-use-a-multimeter-guide"
+    },
+    tekScopeSetup: {
+      title: "How to Use an Oscilloscope and Probe — Step-by-Step Tutorial",
+      org: "Tektronix",
+      kind: "Manufacturer oscilloscope primer",
+      url: "https://www.tek.com/en/documents/primer/setting-and-using-oscilloscope"
+    },
+    saleaeDigitalSignals: {
+      title: "STM32 Nucleo Board — Digital Signals",
+      org: "Saleae",
+      kind: "Manufacturer hands-on logic-analyzer tutorial",
+      url: "https://www.saleae.com/support/tutorials-learning/example-projects/how-to-measure-digital-logic"
     }
   });
 
@@ -102,6 +138,37 @@
     module.integration.media = media;
     module.sourceIds = [...new Set([...(module.sourceIds || []), ...media.map(item => item.source)])];
   };
+
+  updateMedia(6, [
+    {
+      source: "mitVideos",
+      use: "Use the impedance and frequency-response lecture material as a second explanation for reactive circuits.",
+      role: "Required",
+      watchFor: "Follow phasor relationships, frequency dependence, impedance, and how reactive elements alter magnitude and phase.",
+      gap: "Alfred limits the required math to the course outcomes and adds technician-level prediction and bench interpretation."
+    },
+    {
+      source: "aacTransformerPart1",
+      use: "Use this transformer lecture for the turns-ratio portion that the impedance/filter material does not cover.",
+      role: "Required",
+      watchFor: "Connect primary-to-secondary turns ratio to voltage ratio, current direction, step-up/step-down behavior, and the meaning of Np/Ns.",
+      gap: "Alfred supplies the exact Week 6 calculations, safe low-voltage application, and the later Week 7 real-transformer/magnetics depth."
+    },
+    {
+      source: "adiLtspice",
+      use: "Use AC analysis to compare calculated and simulated response.",
+      role: "Required for virtual route",
+      watchFor: "Set source amplitude and sweep range deliberately, then compare the plot to the written prediction.",
+      gap: "The written prediction and diagnostic interpretation remain required."
+    },
+    {
+      source: "adiLinear",
+      use: "Use relevant passive/filter chapters only when you need deeper reference on a topology or nonideal effect.",
+      role: "Reference",
+      watchFor: "Look up the specific filter, resonance, loading, or passive-network point you are investigating.",
+      gap: "This handbook is not the primary novice lesson."
+    }
+  ]);
 
   updateMedia(7, [
     {
@@ -148,6 +215,44 @@
       role: "Alternate / reinforcement",
       watchFor: "Compare gate, drain, load current, and flyback behavior rather than watching only the animation.",
       gap: "Simulation does not replace physical ESD handling, pinout verification, or safe measurement."
+    }
+  ]);
+
+  updateMedia(12, [
+    {
+      source: "nasaESD",
+      use: "Read the course-mapped ESD control sections before any physical electronics work.",
+      role: "Required",
+      watchFor: "Distinguish protected work area, packaging, grounding, personnel controls, and ESD protection from personal electrical safety.",
+      gap: "Alfred supplies the beginner sequence, stop conditions, and the lab-specific checklist."
+    },
+    {
+      source: "digiKeySoldering",
+      use: "Use the soldering demonstration to see the heat-both-surfaces, flow, wetting, and cooling sequence before the workmanship task.",
+      role: "Required",
+      watchFor: "Watch where heat is applied, when solder is fed, what proper wetting looks like, and why a joint should cool without movement.",
+      gap: "Alfred defines the approved low-risk practice route, ventilation/PPE limits, and required verification."
+    },
+    {
+      source: "adafruitSolderProblems",
+      use: "Use the defect gallery to practice accept/rework/escalate decisions and to connect visible symptoms to likely process causes.",
+      role: "Required",
+      watchFor: "Identify disturbed/cold/overheated joints, insufficient wetting, excess or insufficient solder, bridges, lifted pads, and appropriate repair or stop decisions.",
+      gap: "This is practical instructional reinforcement, not a substitute for employer, IPC, or NASA certification criteria."
+    },
+    {
+      source: "nasaHarness",
+      use: "Use the workmanship standard only when the Week 12 inspection scenario includes wire, terminal, crimp, cable, or harness evidence.",
+      role: "Path-specific reference",
+      watchFor: "Use objective acceptance observations rather than appearance-only judgments.",
+      gap: "It does not teach solder-joint technique; the soldering resources and Alfred lesson cover that skill."
+    },
+    {
+      source: "githubSkills",
+      use: "Complete the repository/commit portion if Git is new.",
+      role: "Required",
+      watchFor: "Practice status, add, commit, and history without placing credentials or secrets in the repository.",
+      gap: "Alfred connects the version-control workflow to before/after physical evidence and verification."
     }
   ]);
 
@@ -278,7 +383,104 @@
     }
   ]);
 
+  updateMedia(25, [
+    {
+      source: "stMooc",
+      use: "Use the exact MCU peripheral/HAL section for the selected interface and confirm generated configuration against the device documentation.",
+      role: "Required reference",
+      watchFor: "Understand peripheral initialization, generated configuration, return/error behavior, and where application code belongs.",
+      gap: "Alfred supplies the complete requirement-to-wire-to-code-to-evidence integration lesson."
+    },
+    {
+      source: "saleaeStm32I2c",
+      use: "Use this complete STM32 sensor example if your vertical slice uses I²C.",
+      role: "Required for I²C path",
+      watchFor: "Trace wiring, SDA/SCL open-drain behavior, pull-ups, address, register access, ACK/NACK, capture setup, raw bytes, and the changing sensor value.",
+      gap: "Alfred still requires datasheet citations, requirement traceability, independent scaling checks, timeout handling, and controlled-fault evidence."
+    },
+    {
+      source: "saleaeStm32Spi",
+      use: "Use this complete STM32 peripheral example if your vertical slice uses SPI.",
+      role: "Required for SPI path",
+      watchFor: "Trace SCLK, MOSI, MISO, chip-select, analyzer configuration, transfer framing, and how captured bytes relate to the application result.",
+      gap: "Alfred still requires datasheet timing/mode confirmation, requirement traceability, independent calculations, and recovery testing."
+    },
+    {
+      source: "tiADC",
+      use: "Use the TI ADC series when your vertical slice is analog rather than I²C/SPI.",
+      role: "Required for analog path",
+      watchFor: "Connect sampling, reference voltage, conversion code, resolution, error/noise, and front-end assumptions to the raw-to-engineering-unit calculation.",
+      gap: "Alfred supplies the selected sensor's exact wiring, firmware path, calibration/independent comparison, and fault-handling evidence."
+    },
+    {
+      source: "sparkfunI2C",
+      use: "Use only as a quick electrical/transaction diagram reference when an I²C concept remains unclear after the Saleae example.",
+      role: "I²C help",
+      watchFor: "Verify open-drain behavior, pull-ups, address, START/STOP, and ACK.",
+      gap: "The selected device datasheet remains authoritative."
+    },
+    {
+      source: "sparkfunSPI",
+      use: "Use only as a quick signal/mode diagram reference when an SPI concept remains unclear after the Saleae example.",
+      role: "SPI help",
+      watchFor: "Verify chip-select, clock, data direction, bit order, CPOL, and CPHA.",
+      gap: "The selected device datasheet remains authoritative."
+    }
+  ]);
+
+  updateMedia(29, [
+    {
+      source: "adafruitSolderProblems",
+      use: "Use the defect/rework gallery as a fast workmanship-retention check before you claim solder or rework evidence in the dossier.",
+      role: "Required workmanship refresher",
+      watchFor: "Identify cold/disturbed/overheated joints, wetting problems, bridges, excess/insufficient solder, lifted pads, and when continued rework risks board damage.",
+      gap: "Portfolio evidence must still use Alfred's explicit acceptance criteria, before/after record, electrical retest, and truthful limitations."
+    },
+    {
+      source: "nasaHarness",
+      use: "Use the NASA workmanship criteria when your role-proof task includes crimping, cable, terminal, harness, or wiring evidence.",
+      role: "Required for harness route",
+      watchFor: "Name the exact observed accept/rework/escalate condition and preserve inspection evidence.",
+      gap: "The course does not confer NASA or IPC certification."
+    },
+    {
+      source: "nasaESD",
+      use: "Reapply ESD work-area and handling controls for any physical electronics route.",
+      role: "Required for physical route",
+      watchFor: "Distinguish ESD device protection from shock/energy safety and document the controls actually used.",
+      gap: "The physical checklist and project-specific risk limits remain authoritative for this course."
+    },
+    {
+      source: "flukeMultimeterGuide",
+      use: "Use this refresher when the dossier uses DMM evidence.",
+      role: "Required for DMM evidence",
+      watchFor: "Select the correct function and jacks, distinguish energized from de-energized measurements, and connect voltage/resistance/continuity/diode results to the troubleshooting claim.",
+      gap: "Alfred restricts the project to approved low-voltage work and requires configuration, units, expected value, measured value, and decision."
+    },
+    {
+      source: "tekScopeSetup",
+      use: "Use this refresher when the dossier uses oscilloscope evidence.",
+      role: "Required for oscilloscope evidence",
+      watchFor: "Check grounding, probe connection/compensation, volts/div, time/div, trigger source/level, and whether the displayed waveform supports the stated measurement.",
+      gap: "Alfred requires the expected waveform, setup rationale, measured result, uncertainty/artifact check, and engineering decision."
+    },
+    {
+      source: "saleaeDigitalSignals",
+      use: "Use this STM32 logic-analyzer example when the dossier uses digital timing or logic-analyzer evidence.",
+      role: "Required for logic-analyzer evidence",
+      watchFor: "Verify channel mapping, threshold/signal levels, sample rate, trigger/capture setup, and the relationship between raw transitions and the interpreted event.",
+      gap: "A decode or screenshot is not sufficient by itself; Alfred requires correlation to the requirement, firmware action, raw evidence, and conclusion."
+    },
+    {
+      source: "onetTech",
+      use: "Map the finished dossier artifacts to current technician duties.",
+      role: "Required reference",
+      watchFor: "Use occupational tasks as relevance evidence, not as a hiring guarantee or as a substitute for technical proof.",
+      gap: "Alfred defines the demonstrable project artifacts and technical-defense standard."
+    }
+  ]);
+
   C.meta = C.meta || {};
-  C.meta.mediaRevision = "2026-09-17-teaching-media-v16.3.3";
-  C.meta.mediaPolicy = "Objective-mapped, content-verified external reinforcement; Alfred remains the complete primary instruction.";
+  C.meta.mediaRevision = "2026-09-17-teaching-media-v16.3.4-final-audit";
+  C.meta.mediaPolicy = "31-week objective-mapped, content-verified external reinforcement; exact teaching resources replace generic landing pages where a specific instructional source exists; Alfred remains the complete primary instruction.";
 })();
