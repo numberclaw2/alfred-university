@@ -1,4 +1,12 @@
-ALFRED UNIVERSITY v15.5
-Extract this ZIP and copy its website files over the existing repository. This is a cumulative replacement package, including prior v15 updates. Keep other existing files. Refresh online after upload to receive cache v15.5.
+UPLOAD THESE THREE FILES TO THE ROOT OF THE GITHUB REPOSITORY
 
-QA_REPORT.md describes changes and validation limits. No deployment has been performed.
+1. teaching-media-self-reliance.js  (NEW FILE)
+2. learn.html                       (REPLACE existing file)
+3. service-worker.js                (REPLACE existing file)
+
+Keep teaching-media-overrides.js exactly as it is.
+Do not rename any of these files; GitHub Pages paths are case-sensitive.
+
+This package changes only the Classroom Teaching Media/resource pathway and the
+service-worker cache needed to load it. It does not change lessons, labs,
+assessments, calendar dates/UIDs, progress identities, or Cloud Sync.
