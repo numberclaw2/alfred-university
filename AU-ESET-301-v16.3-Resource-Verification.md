@@ -1,45 +1,44 @@
 # AU-ESET 301 v16.3 — Teaching Media Resource Verification
+## Runtime candidate: v16.3.6 post-audit corrective
 
+**Course release:** v16.3  
 **Runtime candidate:** v16.3.6  
-**Curriculum:** v16.3  
 **Evidence revision:** 16.2  
-**Teaching Media revision:** 2026-09-18-content-completion-candidate  
-**Verification status:** **FINAL POST-REPAIR ACCEPTANCE AUDIT PENDING**
+**Status:** **FINAL RE-AUDIT PENDING — DO NOT CLAIM 31/31 PASS YET**
 
-## Why this record is temporarily non-final
+## What the first post-repair audit proved
 
-The prior v16.3.5 record stated or implied that the 31-week Teaching Media pathway had achieved standalone/self-reliant explanatory coverage. A subsequent adversarial audit against the full v16.3 semantic coverage matrix disproved that acceptance claim: 31/31 structural media presence did not mean every technical subject was independently taught.
+The first post-repair audit executed the actual GitHub runtime composition in production load order:
 
-The v16.3.6 candidate therefore supersedes the old acceptance claim while preserving the prior release as history. The new `teaching-media-content-completion.js` layer targets every BLOCKER and MATERIAL DEFECT identified by that audit and corrects specific metadata overclaims.
+1. `curriculum-data.js`
+2. `teaching-media-overrides.js`
+3. `teaching-media-self-reliance.js`
+4. `teaching-media-content-completion.js`
 
-## Candidate acceptance rule
+The uploaded candidate structurally produced 31 modules, 306 effective Teaching Media cards, 271 registered sources, zero unresolved effective source IDs, zero duplicate source cards, complete required card metadata, and idempotent execution. Protected prior-PASS weeks remained unchanged by the content-completion overlay.
 
-Do **not** mark this release accepted merely because:
+## Residual defects found by that audit
 
-- the JavaScript parses;
-- all 31 weeks render;
-- every media source ID resolves;
-- links respond;
-- the card count is high; or
-- the repair overlay contains a resource for every identified gap.
+The audit did **not** rubber-stamp the candidate. It found five residual issues:
 
-Final acceptance requires the post-repair audit to establish all of the following:
+- **Week 1 — MATERIAL DEFECT:** the v16.3 semantic matrix explicitly requires ESD-control instruction, while Week 1 had electrical/PPE safety but no direct ESD-control resource.
+- **Week 7 — MATERIAL DEFECT:** the semantic matrix places JFET/MOSFET/CMOS/IGBT/Darlington and SCR/DIAC/TRIAC/diode-family recognition in Week 7, while the strongest focused instruction was assigned only in Week 8.
+- **Week 12 — MATERIAL DEFECT (metadata):** the Week 12 GitHub Skills card still implied command-line `status`/history capability beyond what the introductory GitHub Skills pathway actually teaches.
+- **Week 27 — MATERIAL DEFECT (resource mismatch):** the NI card claimed a coherent VeriStand validation workflow but linked to a free-trial page instead of the instructional workflow.
+- **Week 28 — MATERIAL DEFECT:** service-work additions covered work orders, estimates, parts, support flow and service literature, but explicit productivity calculation and project-management/technical-planning instruction were still insufficient.
 
-1. 31/31 weeks are **PASS — standalone media sufficient**.
-2. No subject-level BLOCKER or MATERIAL DEFECT remains.
-3. Teaching Media alone supplies the explanatory preparation needed for CETa scope represented in the course.
-4. Electronics theory represented by v16.3 is independently taught by the assigned media.
-5. Technician instrumentation, troubleshooting, repair and work-procedure concepts represented by the course are independently taught.
-6. Hardware-oriented embedded preparation is independently supported, including electronics, STM32, embedded C, interfaces, debugging, robust firmware architecture and hardware-test automation.
-7. Resource metadata accurately describes what assigned sources actually teach.
-8. Full runtime/load-order/cache/regression and version/reference synchronization pass.
+## Corrective repair applied
 
-## Candidate repair state
+This candidate repairs those specific findings:
 
-The cumulative v16.3.6 overlay targets the previously identified defect weeks while leaving prior substantive-PASS weeks untouched by content-completion additions. It also explicitly prevents the private CETa Study Guide, unassigned registry entries, broad landing pages, or Alfred-authored explanation from being counted as proof that Teaching Media itself is sufficient.
+- Week 1 now assigns NASA-HDBK-8739.21 ESD-control instruction.
+- Week 7 now directly assigns the verified focused semiconductor-family resources required by its own mapped semantic rows, while Week 8 keeps its application/troubleshooting progression.
+- Week 12's GitHub Skills card is narrowed to repository/branch/commit/pull-request/merge workflow; command-line Git remains explicitly taught in Weeks 22–23.
+- Week 27 now uses NI's actual **Creating Real-Time Stimulus Profiles in NI VeriStand** tutorial, which explicitly teaches Setup/Main/Cleanup, hardware I/O, data logging, pass/fail analysis and automated test sequencing.
+- Week 28 now explicitly teaches a defined service-resource utilization calculation and NASA technical planning: scope, work breakdown, schedule/dependencies, resources, responsibilities, risk/contingency, status/reporting and replanning. The field-service card also explicitly compares field constraints with a controlled shop/bench route.
 
-Hands-on labs, projects, measurements, soldering/rework practice, coding, debugging, controlled fault injection/troubleshooting, assessments and physical evidence remain required. They are not part of the explanatory-media sufficiency test.
+## Acceptance rule
 
-## Final section reserved for acceptance audit
+The corrective candidate must now be uploaded and the **entire** 31-week standalone Teaching Media audit rerun against the exact GitHub runtime. No final `PASS`, no subject-level YES, and no "self-reliance complete" claim is authorized until that rerun finds **zero BLOCKER and zero MATERIAL DEFECT** results.
 
-This file must be replaced/expanded with the completed 31-week acceptance matrix, subject-level coverage matrix, source/link verification, runtime regression evidence, version synchronization results and final YES/NO standalone verdict after the audit is executed against the exact v16.3.6 candidate.
+Hands-on labs, projects, measurements, soldering/rework, coding, debugging, fault injection, assessments and physical evidence remain required and are not replaced by Teaching Media.

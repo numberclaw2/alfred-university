@@ -1902,8 +1902,193 @@
   ]);
 
 
+
+  // ---------------------------------------------------------------------------
+  // POST-AUDIT CORRECTIVE PASS — remaining defects found by the first v16.3.6
+  // post-repair acceptance audit. This pass stays inside Teaching Media/resource
+  // metadata and does not alter the accepted curriculum or protected runtime IDs.
+  // ---------------------------------------------------------------------------
+
+  Object.assign(C.sources, {
+    "niVeriStandWorkflow": {
+      "title": "Creating Real-Time Stimulus Profiles in NI VeriStand",
+      "org": "National Instruments",
+      "kind": "Test-and-measurement manufacturer test-sequence tutorial",
+      "url": "https://www.ni.com/en/shop/data-acquisition-and-control/application-software-for-data-acquisition-and-control-category/what-is-veristand/creating-real-time-stimulus-profiles-in-ni-veristand.html"
+    },
+    "salesforceResourceUtilization": {
+      "title": "Scheduling Console — Service Resource Utilization",
+      "org": "Salesforce",
+      "kind": "Current field-service productivity/utilization documentation",
+      "url": "https://help.salesforce.com/s/articleView?id=service.fs_scheduling_console_features.htm&language=en_US&type=5"
+    },
+    "nasaTechnicalPlanning": {
+      "title": "NASA Systems Engineering Handbook — 6.1 Technical Planning",
+      "org": "NASA",
+      "kind": "Government systems-engineering project-planning guidance",
+      "url": "https://www.nasa.gov/reference/6-1-technical-planning/"
+    }
+  });
+
+  // Week 1: the semantic matrix explicitly requires ESD controls, not merely PPE
+  // and general electrical safety. Reuse the already-registered NASA authority.
+  appendMedia(1, [
+    {
+      "source": "nasaESD",
+      "role": "Required · ESD protected-work-area instruction",
+      "use": "Learn the ESD-control system used around sensitive electronics: protected work area, personnel grounding/wrist straps, grounded work surfaces, packaging/handling controls, and verification of grounding devices.",
+      "watchFor": "Keep ESD control distinct from shock protection. Use approved grounding devices/procedures and do not improvise a direct body-to-ground connection around energized hazards.",
+      "gap": "This teaches ESD damage prevention and control; employer procedures and equipment-specific energized-work rules still govern actual work.",
+      "verifiedEvidence": "NASA-HDBK-8739.21 defines ESD protected areas and requires controlled personal-grounding devices, workstation/grounding controls, packaging/handling practices, and periodic integrity testing of personal grounding devices."
+    }
+  ]);
+
+  // Week 7: the semantic matrix places broad semiconductor-family recognition in
+  // Week 7. v16.3.6 initially taught several of those families only in Week 8.
+  // Reuse the verified focused sources here so Week 7 teaches its own mapped scope.
+  appendMedia(7, [
+    {
+      "source": "neetsSolidStateDevices",
+      "role": "Required · Semiconductor-family map",
+      "use": "Build the technician-level family map for diodes, transistor types, SCR/TRIAC control devices and photo/opto devices before Week 8 applies them in switching/troubleshooting work.",
+      "watchFor": "Identify device role, terminals/control mechanism, polarity/directionality and the evidence needed before substitution.",
+      "gap": "Legacy examples are used only for durable device principles; current datasheets control modern ratings and selection.",
+      "verifiedEvidence": "NEETS Module 7 contains the broad solid-state device family and power-supply foundation needed for CETa component recognition."
+    },
+    {
+      "source": "aacBjtIntro",
+      "role": "Required · BJT family instruction",
+      "use": "Learn NPN/PNP terminals, carrier/current-control behavior and the basic operating-region vocabulary needed to recognize BJT roles.",
+      "watchFor": "Keep device polarity and terminal identification explicit; do not treat a BJT as interchangeable with a MOSFET.",
+      "gap": "Bias/amplifier depth is taught later; Week 7 requires component-family recognition and operating concept.",
+      "verifiedEvidence": "The college lecture teaches bipolar-transistor structure, terminals and NPN/PNP operating concepts."
+    },
+    {
+      "source": "aacMosfetLecture",
+      "role": "Required · MOSFET/CMOS family instruction",
+      "use": "Learn MOSFET gate/source/drain roles, enhancement/depletion and N/P-channel distinctions as the basis for MOS and CMOS device recognition.",
+      "watchFor": "Do not confuse VGS(th) with a guaranteed fully enhanced low RDS(on) operating point.",
+      "gap": "Switch-drive design and thermal selection deepen in Week 8 and the relevant datasheet.",
+      "verifiedEvidence": "The college lecture teaches MOSFET device families and operating behavior."
+    },
+    {
+      "source": "aacCmosGateCircuitry",
+      "role": "Required · CMOS device-family instruction",
+      "use": "Connect complementary MOSFET behavior to CMOS logic construction and understand why MOS inputs require defined voltage states.",
+      "watchFor": "Recognize floating-input behavior and family-specific logic-voltage limits rather than assuming ideal 0/5 V logic.",
+      "gap": "Digital-system application deepens in Week 11.",
+      "verifiedEvidence": "The current CMOS tutorial explains complementary MOS device operation and input behavior."
+    },
+    {
+      "source": "aacJfet",
+      "role": "Required · JFET family instruction",
+      "use": "Learn JFET gate/source/drain structure, channel control and the device's role as a field-effect transistor.",
+      "watchFor": "Contrast JFET junction-gate control with insulated-gate MOSFET behavior.",
+      "gap": "Amplifier configurations are revisited in Week 10.",
+      "verifiedEvidence": "The college JFET lecture teaches construction, terminals, channel control and applications."
+    },
+    {
+      "source": "aacIgbt",
+      "role": "Required · IGBT family instruction",
+      "use": "Learn why an IGBT combines insulated-gate drive characteristics with bipolar conduction and where it fits in higher-power switching.",
+      "watchFor": "Classify it separately from a MOSFET or BJT and use current datasheets for switching/thermal limits.",
+      "gap": "Gate-drive and high-power design are beyond this module.",
+      "verifiedEvidence": "The engineering tutorial explicitly teaches IGBT structure and operating role."
+    },
+    {
+      "source": "aacDarlington",
+      "role": "Required · Darlington family instruction",
+      "use": "Learn the compound-BJT connection, multiplied current gain and the corresponding voltage/headroom tradeoffs.",
+      "watchFor": "Recognize that higher compound gain does not remove saturation-voltage, speed or power limits.",
+      "gap": "Exact integrated-Darlington limits remain datasheet-specific.",
+      "verifiedEvidence": "The engineering tutorial teaches the Darlington compound-transistor connection and gain behavior."
+    },
+    {
+      "source": "aacZener",
+      "role": "Required · Zener diode instruction",
+      "use": "Learn reverse-breakdown operation, Zener voltage/power ratings and the need for current limiting in regulation/clamping applications.",
+      "watchFor": "Keep ordinary forward conduction distinct from controlled reverse-breakdown use.",
+      "gap": "Tolerance/dynamic impedance come from the selected device datasheet.",
+      "verifiedEvidence": "The college lecture explicitly teaches Zener reverse-breakdown operation and ratings."
+    },
+    {
+      "source": "aacSpecialPurposeDiodes",
+      "role": "Required · Special-diode family instruction",
+      "use": "Differentiate Schottky and other special-purpose diode types by construction/behavior and technician application.",
+      "watchFor": "Compare forward drop, switching/recovery and application rather than memorizing names only.",
+      "gap": "Exact ratings and photo/LED characteristics remain device-specific.",
+      "verifiedEvidence": "The engineering tutorial teaches special-purpose diode families including Schottky behavior."
+    },
+    {
+      "source": "aacDiac",
+      "role": "Required · DIAC instruction",
+      "use": "Learn bidirectional breakover behavior and how a DIAC can provide a repeatable trigger event in AC control circuitry.",
+      "watchFor": "Distinguish the DIAC trigger role from the TRIAC power-control role.",
+      "gap": "Line-voltage construction remains outside the hands-on safety boundary.",
+      "verifiedEvidence": "The engineering tutorial explicitly teaches DIAC operation and triggering use."
+    },
+    {
+      "source": "aacTriac",
+      "role": "Required · TRIAC/SCR-family instruction",
+      "use": "Learn bidirectional AC switching, gate triggering and the relationship between TRIAC behavior and thyristor/SCR concepts.",
+      "watchFor": "Recognize latching/holding behavior and why AC control differs from a simple transistor switch.",
+      "gap": "Mains phase-control construction is conceptual only in this course.",
+      "verifiedEvidence": "The engineering tutorial explicitly teaches TRIAC bidirectional switching and gate-triggered AC control."
+    }
+  ]);
+
+  // Week 12: GitHub Skills was still described as though it taught command-line
+  // status/add/history. Narrow the claim; those commands are explicitly taught later.
+  patchMediaCard(12, "githubSkills", {
+    "role": "Required · Intro GitHub collaboration workflow",
+    "use": "Use GitHub Skills only for repository, branch, commit, pull-request and merge workflow so the physical/documentation change trail has a basic version-control home.",
+    "watchFor": "Do not infer command-line git status/diff/log or configuration-management depth from this introduction; those are taught explicitly in Weeks 22–23.",
+    "gap": "This card supports traceability around the Week 12 workmanship record; it is not the course's complete Git/configuration-control instruction.",
+    "verifiedEvidence": "GitHub Skills Introduction to GitHub teaches repository, branch, commit, pull-request and merge workflow."
+  });
+
+  // Week 27: replace the mismatched free-trial landing page with NI's actual
+  // instructional test-sequence tutorial and align the assigned card to its content.
+  patchMediaCard(27, "niVeriStandWorkflow", {
+    "role": "Required · Coherent test-sequence architecture tutorial",
+    "use": "Use NI's real-time stimulus-profile tutorial to learn a complete automated-test structure: Setup establishes initial conditions, Main applies stimulus/runs tests, Cleanup restores a known state; the profile can bind hardware I/O, log data and perform pass/fail analysis.",
+    "watchFor": "Translate the architecture into the Python project as setup/initialize → stimulus → acquire/measure → evaluate → cleanup/reset → log/report, while keeping framework-specific VeriStand details separate from the transferable test pattern.",
+    "gap": "VeriStand is the teaching example, not a required dependency; the course implementation still uses the available Python/serial/instrument stack.",
+    "verifiedEvidence": "NI's current tutorial explicitly teaches Setup/Main/Cleanup sections, stimulus profiles, real-time sequences, hardware I/O, data logging, pass/fail analysis, deployment and test automation."
+  });
+
+  // Week 28: explicitly teach the productivity calculation and project-management
+  // planning rows that the first post-repair audit still found thin.
+  appendMedia(28, [
+    {
+      "source": "salesforceResourceUtilization",
+      "role": "Required · Technician productivity/utilization calculation",
+      "use": "Learn to calculate and interpret field-service utilization as a defined numerator/denominator metric rather than using vague 'busy/productive' language.",
+      "watchFor": "State exactly what counts as scheduled work/travel and what counts as available working time; report the date range and assumptions before comparing technicians or periods.",
+      "gap": "Utilization is one operational metric, not a measure of technical quality, first-time-fix quality or customer outcome by itself.",
+      "verifiedEvidence": "Current Salesforce Field Service documentation defines resource utilization as scheduled work plus travel divided by available working hours after absence and explains how the percentage changes with scheduled work."
+    },
+    {
+      "source": "nasaTechnicalPlanning",
+      "role": "Required · Project-management/technical-planning instruction",
+      "use": "Learn small-project planning from a systems-engineering authority: define scope/objectives and deliverables, break down technical work, identify dependencies/resources, build a schedule/workflow, assign responsibilities, plan risk/contingency, define status/reporting, and replan when evidence changes.",
+      "watchFor": "Scale the method to technician/electronics work. For field service, include authorization/access, safety, tools/spares, outage window, backup/rollback and communication; compare that with the more controlled shop/bench environment.",
+      "gap": "The course needs project-management literacy, not NASA-scale bureaucracy; use only the planning controls that make work safe, traceable and reproducible.",
+      "verifiedEvidence": "NASA's current Technical Planning guidance explicitly covers scope, technical work breakdown, schedules/workflows, resource constraints, roles, cost/schedule/risk constraints, status reporting, contingency/replanning and synchronization with the project plan."
+    }
+  ]);
+
+  patchMediaCard(28, "salesforceFieldServiceBasics", {
+    "role": "Required · Field-service versus shop-work workflow",
+    "use": "Learn the records and constraints surrounding field work—work orders, service appointments, time, parts, inventory movement and service reports—then compare those site/customer constraints with a controlled shop/bench route where instruments, spares and environment are easier to standardize.",
+    "watchFor": "Before choosing field versus shop work, identify authorization/access, safety, available tools/spares, downtime window, evidence that can be collected on site and the escalation/handoff trigger.",
+    "gap": "Salesforce is the field-service workflow example; employers may use different FSM/ERP systems and different rules for deciding when equipment must return to a shop.",
+    "verifiedEvidence": "Salesforce Field Service training explicitly structures on-site work around work orders, appointments, time, parts/inventory and service reporting; the course compares those constraints with its established controlled bench workflow."
+  });
+
+
   C.meta = C.meta || {};
-  C.meta.mediaRevision = "2026-09-18-teaching-media-content-completion-v16.3.6-candidate";
-  C.meta.mediaPolicy = "Teaching Media v16.3.6 content-completion candidate: the assigned external media/resource pathway has been repaired to independently teach the mapped explanation objectives, but final 31-week standalone acceptance remains pending the post-repair audit. Labs, projects, measurements, soldering, coding, debugging, troubleshooting demonstrations, assessments and physical evidence remain required.";
+  C.meta.mediaRevision = "2026-09-18-teaching-media-content-completion-v16.3.6-post-audit-corrective-candidate";
+  C.meta.mediaPolicy = "Teaching Media v16.3.6 post-audit corrective candidate: the first post-repair audit found and repaired residual ESD, Week 7 sequencing, Week 12 Git metadata, Week 27 test-workflow resource, and Week 28 productivity/project-planning defects. Final 31-week standalone acceptance remains pending re-audit against the uploaded corrective runtime. Labs, projects, measurements, soldering, coding, debugging, troubleshooting demonstrations, assessments and physical evidence remain required.";
 
 })();

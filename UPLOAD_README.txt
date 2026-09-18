@@ -1,18 +1,25 @@
-AU-ESET 301 v16.3.6 — FINAL-AUDIT RELEASE CANDIDATE
+AU-ESET 301 v16.3.6 — POST-AUDIT CORRECTIVE CANDIDATE
 
-THIS PACKAGE IS FOR FINAL ACCEPTANCE QA. DO NOT TREAT IT AS THE ACCEPTED PRODUCTION RELEASE YET.
+UPLOAD EVERY FILE IN THIS PACKAGE DIRECTLY TO THE ROOT OF:
+numberclaw2/alfred-university
 
-Candidate integration rules:
-- Keep curriculum-data.js unchanged as the accepted v16.3 curriculum.
-- Keep teaching-media-overrides.js.
-- Keep teaching-media-self-reliance.js.
-- Add teaching-media-content-completion.js after teaching-media-self-reliance.js.
-- Use the supplied learn.html so the Classroom loads the new overlay in that exact order.
-- Use the supplied service-worker.js so the new overlay is cached and the old Alfred caches are retired normally.
-- build-info.json identifies runtime candidate 16.3.6 while course release remains 16.3 and evidence revision remains 16.2.
-- No Cloudflare Worker or D1 changes are required.
-- No progress reset is required.
-- No calendar re-import is required.
-- Do not clear browser site data as a normal deployment step.
+Replace matching files. Do not create a wrapper folder. Do not upload the ZIP itself.
 
-Final production upload instructions will be issued only after the 31-week standalone-media audit and final regression pass.
+This package is the narrow corrective pass produced by the first post-repair
+acceptance audit. It repairs:
+- Week 1 direct ESD-control instruction
+- Week 7 semiconductor-family sequencing/coverage
+- Week 12 GitHub Skills metadata overclaim
+- Week 27 NI hardware-test workflow resource mismatch
+- Week 28 explicit productivity calculation and project-management instruction
+
+IMPORTANT:
+- This is still a candidate until the corrected GitHub runtime is re-audited.
+- Do not describe v16.3.6 as 31/31 PASS yet.
+- No curriculum, lab, assessment, calendar, progress-ID, Study Guide assignment,
+  Cloud Sync protocol, Worker, or D1 change is required.
+- Keep teaching-media-overrides.js and teaching-media-self-reliance.js in the repo.
+- The new teaching-media-content-completion.js remains loaded after both.
+
+After upload, tell ChatGPT: uploaded
+Then rerun the complete final post-repair acceptance audit against GitHub main.
