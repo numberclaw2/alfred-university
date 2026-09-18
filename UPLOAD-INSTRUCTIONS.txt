@@ -1,59 +1,23 @@
-ALFRED UNIVERSITY AU-ESET 301 — CALENDAR SHIFT DEPLOYMENT INSTRUCTIONS
+AU-ESET 301 v16.3.3 — FULL REPLACEMENT FILES
 
-CURRENT RELEASE STATE
-Course / instructional release: 16.3 Final Instructional Depth
-Runtime patch: 16.3.2
-Objective assessment evidence revision: 16.2
-Cloud Sync protocol: 2
-Schedule revision: 2026-09-16-week1-reset
-Build: v16.3.2-calendar-shift-20260916-verified
-Presentation patch: mobile-visual-readability-final
-Service-worker cache: alfred-u-v16-3-2-calendar-shift-20260916-verified
+Upload the FIVE files in this folder directly to the ROOT of the GitHub repository:
 
-SCHEDULE RESULT
-Week 1: September 15-19, 2026
-Week 31: April 13-17, 2027
-All 125 event IDs and all 125 iCalendar UIDs are preserved.
+1. README.md
+2. build-info.json
+3. learn.html
+4. service-worker.js
+5. teaching-media-overrides.js
 
-BEFORE UPDATING
-1. Open Progress and choose Export Backup.
-2. Keep the Recovery / Student Sync Key separately. It is not included in the export.
-3. Do NOT clear browser site data as a routine update step.
+Replace existing files when GitHub asks.
 
-UPLOAD
-Existing site: extract Alfred-University-v16.3.2-CALENDAR-SHIFT-20260916-PATCH.zip and upload its files at the repository root, replacing matching filenames.
-Clean install: extract Alfred-University-v16.3.2-CALENDAR-SHIFT-20260916-FULL-FLAT.zip and upload the flat contents at the repository root.
-Do not upload the ZIP archive itself and do not create a wrapper folder.
-Keep the existing GitHub Pages branch/root setting and site address.
-No Worker redeployment or D1 migration is required.
+IMPORTANT:
+- These are COMPLETE files, not .patch files.
+- Do not upload this folder as a wrapper directory.
+- After uploading, delete these obsolete repository files if they are still present:
+  * build-info.json.patch
+  * learn.html.patch
+  * service-worker.js.patch
 
-VERIFY AFTER GITHUB PAGES FINISHES
-1. Open public build-info.json and confirm:
-   courseRelease = 16.3
-   runtimePatch = 16.3.2
-   evidenceRevision = 16.2
-   cloudSyncProtocol = 2
-   build = v16.3.2-calendar-shift-20260916-verified
-   scheduleRevision = 2026-09-16-week1-reset
-   presentationPatch = mobile-visual-readability-final
+Do not delete teaching-media-overrides.js.
 
-2. Open raw/public service-worker.js and confirm:
-   alfred-u-v16-3-2-calendar-shift-20260916-verified
-
-3. Open Calendar and confirm Week 1 is September 15-19, 2026 and Week 31 is April 13-17, 2027.
-
-4. On September 16, 2026, Study / Learn / Week Overview should resolve to Week 1 by default.
-
-5. Download the Alfred iCalendar file and confirm its events use the shifted dates. Remove the old imported Alfred calendar before importing the new file if you want to avoid duplicate old/new events in Apple Calendar.
-
-6. Open Progress and confirm existing completion/history remains present.
-
-7. If Cloud Sync is used, verify normal sync status on the usual device.
-
-8. On a phone, confirm the accepted mobile lesson-visual behavior is unchanged: dense visuals remain readable in a horizontal inspection viewport and still provide the full-size diagram link.
-
-IMPORTANT
-The service worker may replace older Alfred Cache Storage entries during activation. It does NOT clear localStorage, IndexedDB, saved progress, assessment history, notes, the Recovery / Student Sync Key, or Cloud Sync data.
-
-Production Cloud Sync Worker:
-https://alfred-university-sync.totallywill13.workers.dev
+After upload, ask ChatGPT to audit main and the deployed GitHub Pages site.
