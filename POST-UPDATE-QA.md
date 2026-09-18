@@ -1,35 +1,40 @@
-# AU-ESET 301 v16.3.10 — Release Notes Completeness QA
+# AU-ESET 301 v16.3.10.1 — Release Notes Manifest Correction QA
 
 **Date:** September 18, 2026  
-**Scope:** release history, repository-change ledger, and permanent change-control policy only
+**Scope:** release-note file classification only
 
-## Historical reconciliation
+## Why this correction exists
 
-- PASS — existing human-readable history contains 42 unique pre-v16.3.10 release records spanning v1.x through v16.3.9.
-- PASS — `release-change-ledger.js` contains 63 GitHub commits from original commit `320b9bf26609c5bd806f27ffbe760ac507fa15bc` through v16.3.9 baseline commit `7694e4477d07a05f5e72bb654fe5b582fa7d9165`.
-- PASS — 10 historical upload commits with no repository tree change are retained and labeled rather than omitted.
-- PASS — ledger line statistics reconcile to 90,815 additions and 42,486 deletions across the 63 historical commits. Binary-file replacements may report zero textual lines in GitHub and are still represented by their commit link.
-- PASS — every historical ledger row links to the exact GitHub commit page, which remains the authoritative file-by-file diff for that commit.
+Post-deployment verification of v16.3.10 against GitHub commit `2f9b63814939577bb5accf6f902f626b5fe29db1` found one bookkeeping defect: the release entry marked `POST-UPDATE-QA.md`, `UPLOAD_README.txt`, and `SHA256SUMS.txt` as Added even though those filenames already existed and GitHub correctly reported them as Modified.
 
-## Release Notes behavior
+## Verified v16.3.10 commit classification
 
-- PASS — v16.3.10 adds a permanent rule requiring Release Notes for every future website update, regardless of size.
-- PASS — new release entries support explicit `filesAdded`, `filesModified`, and `filesRemoved` fields.
-- PASS — empty file categories render as `None` instead of disappearing, so removals/subtractions are explicit.
-- PASS — Release Notes search now covers both human-readable release entries and the historical commit ledger.
-- PASS — current releases are normalized to newest-to-oldest order: v16.3.10, v16.3.9, v16.3.8, v16.3.7, v16.3.6, v16.3.5, then historical v16.3.4 and earlier entries.
-- PASS — the page explains the self-reference rule: v16.3.10 and later releases record their exact changed-file manifest directly in the release entry rather than requiring an endless follow-up commit merely to record the prior commit SHA.
+**Added**
+- `AU-ESET-301-Release-Notes-Policy.md`
+- `release-change-ledger.js`
 
-## Runtime integrity
+**Modified**
+- `POST-UPDATE-QA.md`
+- `SHA256SUMS.txt`
+- `UPLOAD_README.txt`
+- `build-info.json`
+- `patch-notes.html`
+- `patch-notes.js`
+- `release-notes-current.js`
+- `service-worker.js`
 
-- PASS — `release-notes-current.js`, `release-change-ledger.js`, and `patch-notes.js` pass JavaScript syntax validation.
-- PASS — `build-info.json` parses as valid JSON and identifies runtime v16.3.10.
-- PASS — service-worker cache namespace advances to `alfred-u-v16-3-10-release-notes-complete-ledger-20260918`.
-- PASS — service worker includes `release-change-ledger.js` and `AU-ESET-301-Release-Notes-Policy.md` in the cached file set.
-- PASS — `patch-notes.html` loads `release-change-ledger.js` before `patch-notes.js`.
+**Removed**
+- None
+
+## Historical integrity
+
+- PASS — v16.3.10 deployment itself succeeded.
+- PASS — GitHub Pages build/deploy/status jobs all completed successfully for commit `2f9b63814939577bb5accf6f902f626b5fe29db1`.
+- PASS — historical ledger remains 63 commits from the original repository build through the v16.3.9 baseline.
+- PASS — 10 no-tree-change upload commits remain preserved.
+- PASS — historical line statistics remain 90,815 additions and 42,486 deletions.
+- PASS — 43 narrative release records existed after v16.3.10; v16.3.10.1 becomes the 44th.
 
 ## Scope boundary
 
-No curriculum, Week 1 instruction, Teaching Media, assessment, lab, project, calendar, progress, mastery, Cloud Sync, or course-learning file is included in this upload package.
-
-This is a documentation/change-control release only.
+This correction changes only Release Notes bookkeeping, build metadata, the service-worker cache namespace, and this QA record. It changes no instructional or course-learning system.

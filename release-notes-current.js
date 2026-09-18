@@ -1,6 +1,29 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.10.1",
+      "date": "September 18, 2026",
+      "title": "Release Notes Manifest Classification Correction",
+      "type": "Documentation / Change-Control Correction",
+      "request": "Correct the v16.3.10 Added/Modified file classification after post-deployment verification against the actual GitHub commit.",
+      "changes": [
+        "Post-deployment verification confirmed that v16.3.10 was successfully committed and deployed, but its release entry incorrectly labeled three pre-existing bookkeeping files as newly added.",
+        "Corrected v16.3.10 so only AU-ESET-301-Release-Notes-Policy.md and release-change-ledger.js are classified as Added, matching GitHub commit 2f9b63814939577bb5accf6f902f626b5fe29db1.",
+        "Reclassified POST-UPDATE-QA.md, SHA256SUMS.txt, and UPLOAD_README.txt as Modified because those filenames already existed before v16.3.10.",
+        "Kept patch-notes.html, patch-notes.js, release-notes-current.js, build-info.json, and service-worker.js classified as Modified; no files were removed by v16.3.10.",
+        "Verified the historical ledger still contains 63 commits through the v16.3.9 baseline, including 10 no-tree-change commits and 90,815 additions / 42,486 deletions as reported by GitHub.",
+        "No curriculum, Week 1 instruction, Teaching Media, assessments, labs, projects, calendar, progress, mastery, Cloud Sync, or other course-learning behavior is changed by this correction."
+      ],
+      "filesAdded": [],
+      "filesModified": [
+        "release-notes-current.js",
+        "build-info.json",
+        "service-worker.js",
+        "POST-UPDATE-QA.md"
+      ],
+      "filesRemoved": []
+    },
+    {
       "version": "v16.3.10",
       "date": "September 18, 2026",
       "title": "Release Notes Completeness — Permanent Change Ledger",
@@ -19,16 +42,16 @@
       ],
       "filesAdded": [
         "release-change-ledger.js",
-        "AU-ESET-301-Release-Notes-Policy.md",
-        "POST-UPDATE-QA.md",
-        "UPLOAD_README.txt",
-        "SHA256SUMS.txt"
+        "AU-ESET-301-Release-Notes-Policy.md"
       ],
       "filesModified": [
+        "POST-UPDATE-QA.md",
+        "SHA256SUMS.txt",
+        "UPLOAD_README.txt",
+        "build-info.json",
         "patch-notes.html",
         "patch-notes.js",
         "release-notes-current.js",
-        "build-info.json",
         "service-worker.js"
       ],
       "filesRemoved": []
@@ -113,7 +136,7 @@
       ]
     }
   ];
-  const currentOrder = ['v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
+  const currentOrder = ['v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
   entries.sort((a,b)=>currentOrder.indexOf(a.version)-currentOrder.indexOf(b.version));
   const historical = Array.isArray(window.ALFRED_RELEASES) ? window.ALFRED_RELEASES : [];
   const currentVersions = new Set(entries.map(entry=>entry.version));
