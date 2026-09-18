@@ -1,0 +1,13 @@
+--- a/build-info.json
++++ b/build-info.json
+@@
+-  "runtimePatch": "16.3.2",
++  "runtimePatch": "16.3.3",
+@@
+-  "build": "v16.3.2-study-guide-media-20260916-verified",
++  "build": "v16.3.3-teaching-media-20260917-verified",
+@@
+-  "modulePresentationRevision": "2026-09-16-study-guide-media"
++  "modulePresentationRevision": "2026-09-17-teaching-media",
++  "teachingMediaRevision": "2026-09-17-objective-mapped-content-verified"
+ }

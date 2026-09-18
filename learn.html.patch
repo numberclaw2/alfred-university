@@ -1,0 +1,10 @@
+--- a/learn.html
++++ b/learn.html
+@@
+ <script src="course-data.js"></script>
+ <script src="academic-content.js"></script>
+ <script src="curriculum-data.js"></script>
++<script src="teaching-media-overrides.js"></script>
+ <script src="assessment-data.js"></script>
+ <script src="assessment-completion.js"></script>
+ <script src="semantic-repair.js"></script>

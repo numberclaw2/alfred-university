@@ -1,0 +1,8 @@
+--- a/service-worker.js
++++ b/service-worker.js
+@@
+-const CACHE='alfred-u-v16-3-2-study-guide-media-20260916-verified';
++const CACHE='alfred-u-v16-3-3-teaching-media-20260917-verified';
+@@
+-  'styles.css','site.js','progress.js','study.js','learn.js','curriculum-data.js','course-data.js','academic-content.js','practical-completion.js','academic.js','assessment-data.js','assessment-completion.js','semantic-repair.js','assessment-policy.js','assessment-engine.js','readiness.js','assessment.js','quiz.js','standards.js','analytics.js','search.js','release-notes.js','patch-notes.js','manifest.webmanifest',
++  'styles.css','site.js','progress.js','study.js','learn.js','curriculum-data.js','teaching-media-overrides.js','course-data.js','academic-content.js','practical-completion.js','academic.js','assessment-data.js','assessment-completion.js','semantic-repair.js','assessment-policy.js','assessment-engine.js','readiness.js','assessment.js','quiz.js','standards.js','analytics.js','search.js','release-notes.js','patch-notes.js','manifest.webmanifest',

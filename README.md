@@ -1,131 +1,34 @@
-# Alfred University — v16.3 Final Instructional Depth
+# AU-ESET 301 v16.3.3 — Teaching Media Patch
 
-AU-ESET 301 is a fictional, university-style independent-study environment built around two equal goals:
+Baseline verified before staging:
+`3f8a69d8c842f9689afc11405b60c204ae5e9be3`
 
-1. Prepare for the current ETA Associate Certified Electronics Technician (CETa) competency scope.
-2. Build demonstrable electronics, hardware-test, and embedded-systems skill for a career transition while continuing school.
+## Scope
+This patch changes only the Stage 4 Teaching Media layer. It does not alter:
+- lesson text or instructional objectives
+- labs, assessments, mastery thresholds, standards mappings, or study-guide assignments
+- calendar dates/UIDs
+- progress storage or Cloud Sync
+- module sequencing or visual lesson diagrams
 
-It is not an accredited university, an ETA-endorsed course, an official exam, or a guarantee of certification or employment. The learner-facing Classroom is the instructional product.
+## Files
+1. `teaching-media-overrides.js` — new runtime media/source overlay.
+2. `learn.html.patch` — loads the overlay immediately after `curriculum-data.js`.
+3. `service-worker.js.patch` — caches the new overlay and bumps the cache key.
+4. `build-info.json.patch` — marks the release as runtime patch v16.3.3.
 
+## Weeks intentionally changed
+7, 8, 13, 14, 16, 17, 18.
 
-## Current schedule revision - September 16, 2026
+Other weeks were audited but left unchanged when the existing source was already appropriately instructional/reference-oriented or when adding a video would only pad the course.
 
-The accepted v16.3 curriculum / v16.3.2 runtime remains the instructional and runtime baseline. This schedule-only revision moves the entire 31-week calendar **seven local calendar days later** so **Week 1 is September 15-19, 2026** and **Week 31 is April 13-17, 2027**. All 125 event IDs and iCalendar UIDs are preserved. The 62 lessons, 24 labs, assessments, mastery evidence, saved progress, Student Sync Key, and Cloud Sync protocol 2 are unchanged.
+## Validation completed
+- JavaScript syntax check: PASS.
+- Runtime mock test: PASS.
+- Changed-week isolation: PASS.
+- Every new media item resolves to a source object: PASS.
+- Every new media item includes `use`, `role`, `watchFor`, and `gap`: PASS.
+- Sampled unaffected weeks remain untouched: PASS.
 
-The current deployment marker is build **`v16.3.2-calendar-shift-20260916-verified`** with schedule revision **`2026-09-16-week1-reset`**. The current service-worker cache is **`alfred-u-v16-3-2-calendar-shift-20260916-verified`**. Do not clear browser site data for this update.
-
-
-## Runtime hotfix v16.3.2
-
-The v16.3.2 runtime patch is a surgical assessment/deployment/documentation repair on top of the accepted v16.3 curriculum and v16.3.1 mastery-evidence hotfix. It does **not** alter lesson content, labs, standards mapping, calendar identities, Cloud Sync protocol, progress keys, or the reviewed objective-bank evidence revision.
-
-- Reviewed-bank answer choices now use a deterministic **constrained-random learner-facing layout** rather than the earlier LCG choice shuffle. The runtime rejects conspicuously concentrated position sequences and long same-letter runs without imposing an exploitable “exactly N of each letter” quota. Question IDs, wording, distractors, explanations, standard tags, canonical bank answers, question selection, and question order remain unchanged.
-- `build-info.json` provides the public deployment marker: course release **16.3**, runtime patch **16.3.2**, objective evidence revision **16.2**, Cloud Sync protocol **2**, build **`v16.3.2-calendar-shift-20260916-verified`**, schedule revision **`2026-09-16-week1-reset`**, and presentation patch **`mobile-visual-readability-final`**. The service worker intentionally does not cache this marker.
-- The current service-worker cache is **`alfred-u-v16-3-2-calendar-shift-20260916-verified`**. Activation deletes only older Alfred Cache Storage entries; it does not clear localStorage, IndexedDB, progress, notes, assessment history, or sync credentials.
-- The v15.8 Academic System Guide remains available for provenance but is explicitly labeled historical/superseded in Documents and Search so its old operational wording cannot masquerade as current workflow.
-- Final mobile visual acceptance repair: on phone widths, dense 1000 px lesson SVGs are presented inside a horizontally scrollable 900 px inspection viewport instead of being shrunk until labels are unreadable. A visible swipe instruction and **Open full-size diagram** link provide redundant access. Desktop/tablet presentation remains fit-to-card.
-
-## Runtime hotfix v16.3.1
-
-A post-upload GitHub/runtime audit found that Standards, Analytics, and the Progress assessment-intelligence summary still hard-coded the historical `15.8` bank revision even though the current reviewed objective evidence revision is intentionally `16.2`. The v16.3.1 runtime hotfix makes those consumers derive the revision from assessment metadata, preserves older evidence as revalidation history, and prevents uncompleted self-reviewed semantic-task mappings from satisfying the automatic objective-bank breadth guard for `Mastered`. The 62 integrated lessons, calendar, labs, Cloud Sync protocol, event identities, and objective bank itself are unchanged.
-
-## What v16.3 changes
-
-v16.3 is the final lesson-depth rebuild of the accepted v16.2 semantic baseline. It preserves the 31-week schedule, 125 calendar events and UIDs, 24 labs, Week 18 cumulative embedded gate, saved-progress identities, Cloud Sync protocol 2, and the equal 2,790 / 2,790 CETa/Career weighting.
-
-The critical change is instructional architecture: the old `instructional-completion.js` learner layer is removed. The actual 62 primary lesson objects now contain the teaching. Each lesson consolidates the strongest original material, v16.2 subject-specific semantic teaching, worked examples, new technical explanation, guided practice, an actual changed independent scenario, topic-specific misconception repair, a technician/embedded connection, checks, teach-back, and a lesson-specific instructional visual.
-
-Release audit results:
-
-- 31 weeks / 62 primary lessons; 62/62 lesson-depth PASS.
-- Topic-specific substantive lesson bodies range from 1,016 to 2,668 words; no lesson is below the 1,000-word manual-review warning.
-- 62 lesson-specific SVG instructional visuals are stored at the release root and rendered inside Classroom.
-- 262/262 current CETa rows and 78/78 Alfred Career standards retain subject-specific teaching/evidence routes.
-- 87 required semantic constructed-response / performance tasks remain as competency evidence; they are not substitutes for instruction.
-- 223 substantive reviewed bank questions remain active. The 186 generic v16.1 coverage-fill IDs remain historical only and are retired from mastery from reconstruction time.
-- 24 labs remain, including the cumulative Week 18 STM32 → SWD → UART → I2C/SPI → logic-analysis → fault → diagnosis → correction → retest → documentation gate.
-- The two current 100-question Alfred CETa readiness runs at ≥85% remain the internal readiness rule.
-
-External videos, university material, manufacturer documentation, official standards, and the private ETA study guide remain supplemental. They may reinforce or verify Alfred's instruction, but they do not carry the missing core explanation.
-
-## Start here
-
-Open **Learn / Classroom** and work through the current week. Every week retains one CETa lesson and one Career lesson plus combined application, lab/project work where assigned, and a weekly mastery gate.
-
-The intended learner path is:
-
-1. Start Here
-2. CETa Lesson
-3. Career Lesson
-4. Teaching Media / accessible text path
-5. Guided and independent practice
-6. Lab or application
-7. Weekly Mastery
-
-Quick, Standard, and Deep Work remain 20-, 60-, and 120-minute plans rather than forced deadlines. Quiet Mode, Focus Mode, pause/resume behavior, Resume Session, and the current-week flow are preserved.
-
-## Assessment and evidence
-
-Evidence types are intentionally separated:
-
-- **Auto-graded:** 223 reviewed bank questions, required primary gates, and one additional integrated MCQ in every primary lesson. Assessment-engine forms use deterministic constrained-random answer placement so canonical source order does not create a learner-facing answer-letter cue or a fixed per-form letter quota; v16.3 Classroom also deterministically shuffles the integrated lesson MCQ display while preserving the correct answer mapping.
-- **Rubric/self-reviewed:** 87 subject-specific semantic tasks covering all 262 CETa and 78 Career standards.
-- **Practical/physical:** 24 labs and project gates. Simulation may establish conceptual or analytical performance but does not establish tactile workmanship, actual probe handling, solder quality, crimp quality, harness workmanship, or real-board debugging.
-
-The reviewed objective assessment bank itself was not rewritten for v16.3. Its evidence revision intentionally remains **16.2** so existing qualifying full-length runs and saved analytics remain comparable; the course release version is **16.3**. This is a compatibility choice, not stale release labeling.
-
-## Files and sources of truth
-
-- `curriculum-data.js` — v16.3 integrated 62-lesson instructional source, lesson visuals, practice, checks, and semantic-task placement.
-- `semantic-repair.js` — preserved semantic-evidence/standards authority and historical v16.1 filler retirement compatibility.
-- `assessment-data.js` — stable standards and reviewed assessment-bank identities.
-- `assessment-completion.js` — compatibility reconstruction of historical generated IDs; those generic v16.1 filler items are retired from current mastery.
-- `assessment-policy.js` — current Classroom assessment policy plus explicit release/evidence-revision metadata.
-- `assessment-engine.js` — deterministic reviewed-question selection and choice shuffling for graded forms.
-- `academic-content.js` / `practical-completion.js` — labs and practical gates.
-- `course-data.js` — preserved 125-event calendar identity with the current seven-day-shifted schedule.
-- `learn.html` / `learn.js` — authoritative Classroom rendering and completion path.
-- `AU-ESET-301-v16.3-Curriculum-and-Instruction-Plan.docx` — reviewable integrated curriculum and instruction plan.
-- `AU-ESET-301-v16.3-Lesson-Depth-Audit.csv` — one row for each of the 62 primary lessons.
-- `AU-ESET-301-v16.3-Semantic-Coverage-Matrix.csv` / `.json` — 340-row standards traceability.
-- `AU-ESET-301-v16.3-Final-Lesson-Acceptance-Report.md` — final instructional and technical release audit.
-- `AU-ESET-301-v16.3-Resource-Verification.md` — source/provenance record.
-
-The semantic matrix's guided/independent-practice columns identify the integrated lesson practice associated with a row; they should not be read as 340 separate unique practice exercises. The row's named semantic task is the competency-specific active demonstration/evidence route.
-
-## Upload / update
-
-The current production target is the accepted **v16.3 Final Instructional Depth** curriculum with **runtime patch v16.3.2**, **objective evidence revision 16.2**, **Cloud Sync protocol 2**, the final mobile visual presentation repair, and schedule revision **2026-09-16-week1-reset**.
-
-For an existing deployment, apply **`Alfred-University-v16.3.2-CALENDAR-SHIFT-20260916-PATCH.zip`** at the repository root, replacing matching filenames. Do not upload the ZIP itself or create a wrapper directory.
-
-For a clean install, use **`Alfred-University-v16.3.2-CALENDAR-SHIFT-20260916-FULL-FLAT.zip`**. Do not restore older runtime-only or pre-shift calendar files over it.
-
-After GitHub Pages deploys, verify the actual public files:
-
-- `build-info.json` must report:
-  - `courseRelease = 16.3`
-  - `runtimePatch = 16.3.2`
-  - `evidenceRevision = 16.2`
-  - `cloudSyncProtocol = 2`
-  - `build = v16.3.2-calendar-shift-20260916-verified`
-  - `scheduleRevision = 2026-09-16-week1-reset`
-  - `presentationPatch = mobile-visual-readability-final`
-- `service-worker.js` must contain **`alfred-u-v16-3-2-calendar-shift-20260916-verified`**.
-- Calendar/Study/Learn current-week behavior must resolve September 16, 2026 to Week 1.
-- The website schedule must show Week 1 as September 15-19, 2026 and Week 31 as April 13-17, 2027.
-- The downloadable `.ics` must contain the same 125 UIDs with the shifted dates.
-- On a phone, a dense Classroom visual such as Week 18 must remain at readable inspection scale inside a horizontally scrollable viewport, show the phone swipe instruction, and provide **Open full-size diagram**.
-- Desktop and tablet lesson visuals must remain fit-to-card.
-
-No frontend build, package installation, Worker redeployment, D1 migration, progress reset, or browser-site-data clearing is required for this schedule revision.
-
-Production Cloud Sync endpoint:
-
-`https://alfred-university-sync.totallywill13.workers.dev`
-
-Protocol 2 and the existing D1 record structure are unchanged. Export Progress before replacing site files, preserve the Recovery / Student Sync Key separately, wait for GitHub Pages to finish, close old tabs, then reopen the same site URL so the **`alfred-u-v16-3-2-calendar-shift-20260916-verified`** service worker can install the current cache. Do not clear browser site data as a routine update step.
-
-## Release integrity
-
-The accepted release gate preserves 24 production JavaScript files, 25 HTML pages, 125 calendar events / 125 unique UIDs, `.nojekyll`, the 62-lesson v16.3 instructional system, 24 labs, 262 CETa objectives, 78 Career objectives, and the 2,790 / 2,790 CETa/Career balance. The September 16 schedule revision changes dates, date-sensitive schedule prose, the current syllabus date ranges, and deployment/cache markers while preserving those protected instructional and progress identities.
+## Deployment note
+The connected GitHub integration has read access but returned HTTP 403 for branch creation and file creation, so these changes were staged without mutating `main`.
