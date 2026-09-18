@@ -1,6 +1,35 @@
 (() => {
   const entries = [
     {
+          "version": "v16.3.18",
+          "date": "September 18, 2026",
+          "title": "Deployment Page Durability Upgrade — Live Build Verification & Recovery Operations",
+          "type": "Information Architecture / Deployment & Maintenance Documentation",
+          "request": "Execute Step 8 of the locked one-tab-at-a-time cleanup plan: keep Deployment because it has a unique maintenance job, remove stale release-specific v16.3.7 instructions, make build-info.json authoritative for the live runtime, and preserve durable hosting, Cloud Sync, offline, recovery, and maintenance guidance without starting the final Home/navigation cleanup early.",
+          "changes": [
+                "Kept Deployment as a permanent administrative page because the site owner still needs one durable place for hosting architecture, live-build verification, Cloud Sync operations, offline/service-worker behavior, and safe recovery/maintenance rules.",
+                "Removed the stale v16.3.7 hero, v16.3.7 integration instructions, old fixed build marker, and release-specific v16.3.6/v16.3.7 acceptance narrative. Release-specific history remains in Release Notes instead of permanent Deployment prose.",
+                "Added a Deployed Build status block that reads courseRelease, runtimePatch, evidenceRevision, cloudSyncProtocol, releaseStatus, and build directly from build-info.json with cache disabled.",
+                "Documented the four durable architecture layers separately: GitHub repository source, GitHub Pages static deployment, browser/local progress state, and optional Cloud Sync through the configured Cloudflare Worker and D1 database.",
+                "Documented current Cloud Sync operating behavior without changing it: Progress owns setup and status; the browser stores the Worker URL, Student Sync/Recovery Key, device identity, and last-sync time; sync health checks Worker reachability, D1 binding/schema, and protocol compatibility before merging timestamped progress records.",
+                "Documented service-worker behavior from the current runtime: navigation and HTML/CSS/JS/webmanifest are network-first with cache fallback, each runtime uses a versioned Alfred cache namespace, older Alfred namespaces are removed on activation, and build-info.json is always network-fetched rather than trusted from the offline cache.",
+                "Added a safe maintenance/recovery sequence: export Progress and preserve the Recovery Key before major maintenance, verify the exact Pages commit and build-info marker after updates, troubleshoot Cloud Sync in Progress, preserve the existing origin when practical, and never clear browser site data as a routine refresh step.",
+                "Clarified change-control ownership: Deployment documents durable operating procedure; Release Notes own file-by-file release history and exceptional migration instructions.",
+                "No hosting provider, Worker endpoint, D1 schema, Cloud Sync protocol, service-worker fetch strategy, progress storage schema, curriculum, learner workflow, About page, or global navigation is changed by this documentation upgrade."
+          ],
+          "filesAdded": [],
+          "filesModified": [
+                "deployment.html",
+                "release-notes-current.js",
+                "build-info.json",
+                "service-worker.js",
+                "POST-UPDATE-QA.md",
+                "UPLOAD_README.txt",
+                "SHA256SUMS.txt"
+          ],
+          "filesRemoved": []
+    },
+    {
       "version": "v16.3.17",
       "date": "September 18, 2026",
       "title": "About Page Durability Upgrade — Dynamic Runtime Metadata & Clear Disclosure",
@@ -272,7 +301,7 @@
       ]
     }
   ];
-  const currentOrder = ['v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
+  const currentOrder = ['v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
   entries.sort((a,b)=>currentOrder.indexOf(a.version)-currentOrder.indexOf(b.version));
   const historical = Array.isArray(window.ALFRED_RELEASES) ? window.ALFRED_RELEASES : [];
   const currentVersions = new Set(entries.map(entry=>entry.version));

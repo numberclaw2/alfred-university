@@ -1,34 +1,38 @@
-# AU-ESET 301 v16.3.17 — About Page Durability Upgrade QA
+# AU-ESET 301 v16.3.18 — Deployment Page Durability Upgrade QA
 
 **Date:** September 18, 2026  
-**Scope:** Step 7 — About only, plus release/build/cache bookkeeping required by the permanent Release Notes policy.
+**Scope:** Step 8 — Deployment only, plus release/build/cache bookkeeping required by the permanent Release Notes policy.
 
 ## Purpose decision
 
-- PASS — About still has a unique job and remains a permanent administrative page.
-- PASS — it explains the fictional institutional framing, the real learning purpose, and the non-accredited/no-credit disclosure without duplicating learner workflow pages.
-- PASS — release-specific audit history is no longer embedded in permanent About prose.
+- PASS — Deployment still has a unique administrative/maintenance job and remains a permanent page.
+- PASS — release-specific v16.3.7 integration prose has been removed from permanent deployment guidance.
+- PASS — Release Notes remain the owner of release history and exceptional migration instructions.
 
-## Accuracy / durability behavior
+## Live build verification
 
-- PASS — the stale hard-coded `v16.3.7` runtime claim is removed from About.
-- PASS — About no longer hard-codes a current runtime number anywhere in its permanent narrative.
-- PASS — Current Platform Status reads `courseRelease`, `runtimePatch`, `cloudSyncProtocol`, and `build` from `build-info.json` using `cache: 'no-store'`.
-- PASS — metadata-load failure produces a Release Notes fallback rather than a fabricated or stale version.
-- PASS — the page explicitly distinguishes fictional institution/branding/documents from real electronics learning, practice, linked resources, assessments, projects, evidence-building, and career-transition work.
-- PASS — Release Notes and Deployment Notes are identified as the owners of change history and technical maintenance guidance respectively.
-- PASS — the institutional disclosure remains explicit: fictional, non-accredited, no degrees, no academic credit, no official credentials.
+- PASS — Deployment no longer hard-codes a current runtime/build/status value in its permanent prose.
+- PASS — the live status block reads `courseRelease`, `runtimePatch`, `evidenceRevision`, `cloudSyncProtocol`, `releaseStatus`, and `build` from `build-info.json` using `cache: 'no-store'`.
+- PASS — metadata-load failure instructs the maintainer to verify the Pages deployment and open `build-info.json` directly rather than assuming a version.
+- PASS — Deployment explicitly explains that `build-info.json` is network-fetched by the service worker and is not trusted from the offline cache.
+
+## Durable operations guidance
+
+- PASS — repository source, GitHub Pages deployment, browser/local state, and optional Worker/D1 Cloud Sync are documented as separate layers.
+- PASS — Cloud Sync documentation matches current `progress.js`: local progress first, configured HTTPS Worker root, Student Sync/Recovery Key, device identity, `/health` checks, D1 binding/schema checks, protocol compatibility, and timestamped-record merging.
+- PASS — service-worker documentation matches current `service-worker.js`: network-first navigation/application code, offline cache fallback, versioned Alfred cache namespace, old-cache cleanup on activation, and direct network fetch for `build-info.json`.
+- PASS — maintenance guidance preserves Progress export, Recovery Key protection, exact Pages/build-marker verification, origin awareness, and the existing rule not to clear site data as a routine refresh step.
+- PASS — no Worker endpoint, D1 schema, Cloud Sync protocol, service-worker fetch strategy, or progress storage behavior was changed.
 
 ## Static / runtime checks
 
-- PASS — inline About metadata script, `release-notes-current.js`, and `service-worker.js` pass JavaScript syntax validation.
-- PASS — `build-info.json` parses and reports runtime **v16.3.17**.
-- PASS — service-worker cache advances to `alfred-u-v16-3-17-about-dynamic-runtime-disclosure-20260918`.
-- PASS — Release Notes includes v16.3.17 first and records the exact file manifest.
-- PASS — no new storage key, progress identity, assessment/lab/project identity, or Cloud Sync record type is introduced.
+- PASS — inline Deployment metadata script, `release-notes-current.js`, and `service-worker.js` pass JavaScript syntax validation.
+- PASS — `build-info.json` parses and reports runtime **v16.3.18**.
+- PASS — service-worker cache advances to `alfred-u-v16-3-18-deployment-durable-operations-20260918`.
+- PASS — Release Notes includes v16.3.18 first and records the exact file manifest.
 
 ## Scope boundary
 
-This release does **not** modify Deployment page content, global Home/navigation cleanup, Study, Practice, Classroom, Calendar, Progress, Mastery, Labs, Assessments, Projects, Search, Course Overview, compatibility-route behavior, curriculum, Teaching Media, or Cloud Sync protocol.
+This release does **not** modify Home/global navigation, About, Study, Practice, Classroom, Calendar, Progress behavior, Mastery, Labs, Assessments, Projects, Search, Course Overview, compatibility routes, curriculum, Teaching Media, Worker/D1 infrastructure, or Cloud Sync protocol.
 
-Step 8 (Deployment) must not begin until this release is uploaded, deployed, and accepted.
+Step 9 (Home + Navigation final cleanup) must not begin until this release is uploaded, deployed, and accepted.

@@ -1,21 +1,21 @@
-AU-ESET 301 v16.3.17 — ABOUT PAGE DURABILITY / DYNAMIC RUNTIME METADATA
+AU-ESET 301 v16.3.18 — DEPLOYMENT PAGE DURABILITY / OPERATIONS DOCUMENTATION
 
 UPLOAD EVERY FILE IN THIS ZIP DIRECTLY TO THE GITHUB REPOSITORY ROOT.
 Replace matching files when prompted. Do not create a wrapper folder.
 
 PURPOSE
-- Keep About as the permanent explanation/disclosure page.
-- Remove stale hard-coded runtime and release-specific audit prose.
-- Clearly distinguish fictional institutional framing from real learning work.
-- Read current runtime metadata from build-info.json instead of duplicating version numbers in About.
-- Leave Deployment page content for Step 8.
+- Keep Deployment as the permanent operations/maintenance page.
+- Remove stale v16.3.7-specific deployment and acceptance prose.
+- Read current runtime/build/status metadata from build-info.json.
+- Document the durable repository -> GitHub Pages -> browser/local state -> optional Worker/D1 Cloud Sync architecture.
+- Preserve safe offline, recovery, and maintenance guidance.
 - Leave final Home/global navigation cleanup for Step 9.
 
 FILES ADDED
 - None
 
 FILES MODIFIED
-- about.html
+- deployment.html
 - release-notes-current.js
 - build-info.json
 - service-worker.js
@@ -27,16 +27,19 @@ FILES REMOVED
 - None
 
 NOT CHANGED
-- Deployment page content
+- GitHub Pages hosting configuration
+- Cloudflare Worker endpoint/code
+- D1 database/schema
+- Cloud Sync protocol or Progress storage/sync behavior
+- Service-worker fetch strategy (cache namespace only advances)
+- About page
 - Home/global navigation cleanup
 - Study / Practice / Classroom
-- Calendar / Progress / Mastery
+- Calendar / Progress behavior / Mastery
 - Labs / Assessments / Projects / Search
-- Course Overview / compatibility routes
 - Curriculum / Teaching Media
-- Progress schema / Cloud Sync protocol
 
 EXPECTED RUNTIME
-runtimePatch: 16.3.17
-build: v16.3.17-about-dynamic-runtime-disclosure-20260918
-cache: alfred-u-v16-3-17-about-dynamic-runtime-disclosure-20260918
+runtimePatch: 16.3.18
+build: v16.3.18-deployment-durable-operations-20260918
+cache: alfred-u-v16-3-18-deployment-durable-operations-20260918
