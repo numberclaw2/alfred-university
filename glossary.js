@@ -5,14 +5,43 @@
   const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const slug=s=>String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
   const bySlug=new Map(entries.map(e=>[e.slug,e]));
+  // Build matching variants from canonical terms + curated aliases. Add conservative
+  // plural forms so textbook prose such as "electrons", "terminals", or
+  // "voltage sources" still resolves to the same glossary concept without storing
+  // every grammatical inflection as a separate glossary entry.
+  function pluralVariant(value){
+    const text=String(value||'').trim();
+    const m=text.match(/^(.*?)([A-Za-z]+)$/);if(!m)return '';
+    const stem=m[1],word=m[2];
+    if(word.length<3||/s$/i.test(word)||/^[A-Z]{2,}$/.test(word))return '';
+    let plural='';
+    if(/[^aeiou]y$/i.test(word))plural=word.slice(0,-1)+'ies';
+    else if(/(?:x|z|ch|sh)$/i.test(word))plural=word+'es';
+    else plural=word+'s';
+    return stem+plural;
+  }
   const variants=[];
   entries.forEach(e=>{
     if(e.auto===false)return;
-    [e.term,...(e.aliases||[])].forEach((v,i)=>{if(v&&String(v).trim().length>1)variants.push({text:String(v),entry:e,canonical:i===0});});
+    [e.term,...(e.aliases||[])].forEach((v,i)=>{
+      if(!v||String(v).trim().length<=1)return;
+      const text=String(v);variants.push({text,entry:e,canonical:i===0});
+      const plural=i===0?pluralVariant(text):'';if(plural&&plural.toLocaleLowerCase()!==text.toLocaleLowerCase())variants.push({text:plural,entry:e,canonical:false});
+    });
   });
   variants.sort((a,b)=>b.text.length-a.text.length);
   const variantInfoMap=new Map();
   variants.forEach(v=>{const k=v.text.toLocaleLowerCase();if(!variantInfoMap.has(k))variantInfoMap.set(k,v);});
+  const multiwordVariantsBySlug=new Map();
+  variants.forEach(v=>{
+    const text=String(v.text||'').trim();if(!/\s|-/.test(text))return;
+    const key=v.entry.slug;if(!multiwordVariantsBySlug.has(key))multiwordVariantsBySlug.set(key,[]);
+    const list=multiwordVariantsBySlug.get(key),lower=text.toLocaleLowerCase();if(!list.includes(lower))list.push(lower);
+  });
+  function acronymRequiresExactCase(text){
+    const t=String(text||'').trim();
+    return /^[A-Z]{2,}(?:[0-9²]*)$/.test(t)||/^[A-Z][0-9]+[A-Z]$/.test(t)||t==='I²C';
+  }
   const variantMap=new Map([...variantInfoMap].map(([k,v])=>[k,v.entry]));
   const regex=new RegExp('(^|[^A-Za-z0-9])('+[...variantMap.keys()].map(v=>v.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|')+')(?![A-Za-z0-9])','gi');
 
@@ -53,16 +82,20 @@
   window.addEventListener('resize',()=>{if(tip&&!tip.hidden&&activeAnchor)positionTip(activeAnchor,tip);});
 
   // ---- Deliberate in-lesson vocabulary placement ----
-  // One glossary concept gets one highlighted occurrence in the currently rendered
-  // Classroom lesson/stage. We evaluate the whole lesson before inserting links so
-  // a clearer technical phrase can win over an earlier but weaker everyday use.
+  // Vocabulary resets at the instructional-section level, not the entire lesson stage.
+  // Each technical concept may receive one deliberate highlight inside each teaching
+  // section. This preserves useful repetition when a later section reuses the concept,
+  // while preventing the same word from becoming visually noisy inside one section.
   const AMBIGUOUS=new Set([
     'charge','current','power','ground','branch','mesh','bus','clock','carrier','collector','controller',
     'counter','cutoff','drain','emitter','energy','fault','feedback','flux','gain','gate','period','phase',
-    'probe','register','requirement','reset','resolution','sampling','saturation','trace','validation','verification'
+    'probe','register','requirement','reset','resolution','sampling','saturation','trace','validation','verification',
+    'load','source','terminal','wire','signal','filter','noise','trigger','frame','address','buffer','channel',
+    'component','components','switch','cell','core','risk','hazard','stack','heap','cache','thread','protocol',
+    'range','instrument','limit','margin','task','priority','library','instruction','loop','network','driver','specification','substitution'
   ]);
-  const TECH_CONTEXT=/\b(?:electric|electrical|electron|proton|coulomb|ampere|amps?|volts?|voltage|current|resistan|ohm|watt|power|energy|circuit|node|branch|conductor|ground|GND|signal|waveform|frequency|component|device|terminal|transistor|MOSFET|BJT|diode|resistor|capacitor|inductor|PCB|board|pin|GPIO|MCU|microcontroller|protocol|UART|I2C|I²C|SPI|data|firmware|measurement|meter|multimeter|oscilloscope|test|load|supply|positive|negative|physical\s+property)\b/i;
-  const DEFINE_CUE=/\b(?:is|are|means|refers\s+to|defined\s+as|describes|measures|represents|called|known\s+as|consists\s+of|provides|controls|stores|opposes|allows)\b/i;
+  const TECH_CONTEXT=/\b(?:electric|electrical|electron|proton|neutron|coulomb|ampere|amps?|volts?|voltage|current|resistan|ohm|watt|power|energy|charge|circuit|node|branch|conductor|insulator|ground|GND|signal|waveform|frequency|component|device|terminal|transistor|MOSFET|BJT|diode|resistor|capacitor|inductor|PCB|board|pin|GPIO|MCU|microcontroller|processor|protocol|UART|I2C|I²C|SPI|CAN|USB|data|firmware|measurement|meter|multimeter|oscilloscope|test|load|supply|positive|negative|semiconductor|logic|clock|digital|analog|RF|antenna|solder|physical\s+property)\b/i;
+  const DEFINE_CUE=/\b(?:is|are|means|refers\s+to|defined\s+as|describes|measures|represents|called|known\s+as|consists\s+of|provides|controls|stores|opposes|allows)/i;
   const DIRECT_DEFINE_AFTER=/^\s*(?:is|are|means|refers\s+to|is\s+defined\s+as|describes|measures|represents|consists\s+of)\b/i;
   const INCIDENTAL_CUE=/\b(?:not\s+the\s+same\s+thing\s+as|unrelated\s+to|rather\s+than|instead\s+of|for\s+example|such\s+as)\b/i;
   const LOW_VALUE_CONTAINER=/\b(?:question|quiz|assessment|choice|knowledge-check|check-question|practice-question|prompt|answer)\b/i;
@@ -75,12 +108,12 @@
   function technicalContextOkay(info,context){
     const key=info.text.toLocaleLowerCase();
     if(!AMBIGUOUS.has(key))return true;
-    // Expanded phrases such as "electric current" or "electrical power" are
-    // already self-disambiguating; the context gate is only for bare words.
+    // Expanded phrases such as "electric current" or "electrical component" are
+    // self-disambiguating; context gating is mainly for bare everyday-looking words.
     if(/\s|-/.test(key))return true;
     return TECH_CONTEXT.test(withoutMatchedVariant(context,info.text));
   }
-  function candidateScore(node,raw,info,context,start,order,contextAt){
+  function candidateScore(node,raw,info,context,start,order,contextAt,fullerVariantAvailable){
     const p=node.parentElement,tag=p?.tagName||'',key=raw.toLocaleLowerCase(),contextMinusRaw=withoutMatchedVariant(context,raw);
     const after=context.slice(Math.min(context.length,contextAt+raw.length));
     let score=0;
@@ -93,13 +126,17 @@
     if(start<180)score+=1;
     if(INCIDENTAL_CUE.test(contextMinusRaw))score-=4;
     if(/\?\s*$/.test(context.trim()))score-=8;
+    if(p?.closest('aside'))score-=3; // prefer the teaching paragraph over recap text when both exist
     let ancestor=p,surface='';for(let i=0;i<5&&ancestor;i++,ancestor=ancestor.parentElement)surface+=` ${String(ancestor.className||'')}`;
     if(LOW_VALUE_CONTAINER.test(surface))score-=12;
     const canonical=String(info.entry.term||'').toLocaleLowerCase();
     const rawWords=key.split(/\s+/).length,canonicalWords=canonical.split(/\s+/).length;
     if(key===canonical)score+=canonicalWords>1?8:3;
     if(rawWords>1)score+=5;
-    if(canonicalWords>1&&rawWords===1)score-=7;
+    // Prefer a fuller technical phrase when that phrase actually exists in this
+    // section. If it does not, allow a technically valid short alias (e.g. "charge")
+    // to serve as the one section-level glossary anchor.
+    if(canonicalWords>1&&rawWords===1)score+=fullerVariantAvailable?-7:-1;
     if(canonicalWords===1&&rawWords>1)score+=4;
     return score-order/100000;
   }
@@ -119,11 +156,11 @@
     if(!a?.parentNode)return;
     a.replaceWith(document.createTextNode(a.textContent||''));
   }
-  function enforceSingleGlossaryAnchor(root){
-    // Final DOM-level guardrail: even if another render/mutation path creates duplicates,
-    // only one live anchor for a canonical glossary concept may remain in this lesson stage.
+  function enforceSingleGlossaryAnchor(scope){
+    // Final DOM guardrail is section-scoped: one anchor per canonical concept inside
+    // this teaching block, while a later teaching block may intentionally reuse it.
     const groups=new Map();
-    root.querySelectorAll('a.glossary-term[data-glossary]').forEach(a=>{
+    scope.querySelectorAll('a.glossary-term[data-glossary]').forEach(a=>{
       const key=String(a.dataset.glossary||'').trim();if(!key)return;
       const score=Number(a.dataset.glossaryScore||-9999);
       const prior=groups.get(key);
@@ -131,12 +168,11 @@
       if(score>prior.score){unwrapGlossaryAnchor(prior.a);groups.set(key,{a,score});}
       else unwrapGlossaryAnchor(a);
     });
-    root.normalize();
+    scope.normalize();
   }
-  function decorateLesson(root){
-    if(!root||!regex.source||decoratingLesson)return;
-    decoratingLesson=true;lessonObserver?.disconnect();hideTip(true);stripLessonGlossary(root);
-    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode(node){
+  function decorateScope(scope){
+    const scopeText=String(scope.textContent||'').toLocaleLowerCase();
+    const walker=document.createTreeWalker(scope,NodeFilter.SHOW_TEXT,{acceptNode(node){
       const p=node.parentElement;if(!p||!node.nodeValue.trim())return NodeFilter.FILTER_REJECT;
       if(p.closest('a,button,input,textarea,select,option,code,pre,kbd,samp,script,style,h1,h2,h3,h4,h5,h6,summary,.eyebrow,.glossary-term,.glossary-tip,[data-no-glossary],[hidden],.hidden,[aria-hidden="true"]'))return NodeFilter.FILTER_REJECT;
       return NodeFilter.FILTER_ACCEPT;
@@ -150,7 +186,11 @@
         const contextStart=Math.max(0,at-180);
         const context=text.slice(contextStart,Math.min(text.length,at+raw.length+220));
         if(!technicalContextOkay(info,context))continue;
-        const score=candidateScore(node,raw,info,context,at,nodeOrder,at-contextStart);
+        // Uppercase protocol/device acronyms must match their written case exactly;
+        // this prevents ordinary words such as "can" or "am" from becoming CAN/AM glossary links.
+        if(acronymRequiresExactCase(info.text)&&raw!==info.text)continue;
+        const fullerAvailable=(multiwordVariantsBySlug.get(info.entry.slug)||[]).some(v=>scopeText.includes(v));
+        const score=candidateScore(node,raw,info,context,at,nodeOrder,at-contextStart,fullerAvailable);
         if(score<10)continue; // no highlight is better than a weak or awkward placement
         const prior=best.get(info.entry.slug);
         if(!prior||score>prior.score)best.set(info.entry.slug,{node,start:at,end:at+raw.length,raw,entry:info.entry,score});
@@ -160,11 +200,26 @@
     best.forEach(c=>{if(!byNode.has(c.node))byNode.set(c.node,[]);byNode.get(c.node).push(c);});
     byNode.forEach((items,textNode)=>{
       if(!textNode.isConnected)return;
-      items.sort((a,b)=>a.start-b.start);const text=textNode.nodeValue,frag=document.createDocumentFragment();let last=0;
+      // Longest match wins when two concepts begin at the same location; this keeps
+      // "conventional current" or "electric potential" from collapsing to a shorter
+      // overlapping word.
+      items.sort((a,b)=>a.start-b.start||(b.end-b.start)-(a.end-a.start)||b.score-a.score);
+      const text=textNode.nodeValue,frag=document.createDocumentFragment();let last=0;
       items.forEach(c=>{if(c.start<last)return;if(c.start>last)frag.appendChild(document.createTextNode(text.slice(last,c.start)));frag.appendChild(makeTermAnchor(c.raw,c.entry,c.score));last=c.end;});
       if(last<text.length)frag.appendChild(document.createTextNode(text.slice(last)));textNode.replaceWith(frag);
     });
-    enforceSingleGlossaryAnchor(root);
+    enforceSingleGlossaryAnchor(scope);
+  }
+  function lessonScopes(root){
+    // The Classroom renderer uses one integrated-teaching-block for each numbered
+    // instructional section. Reset glossary repetition at exactly that boundary.
+    const sections=[...root.querySelectorAll('.integrated-teaching-block')].filter(x=>!x.closest('[hidden],.hidden,[aria-hidden="true"]'));
+    return sections.length?sections:[root];
+  }
+  function decorateLesson(root){
+    if(!root||!regex.source||decoratingLesson)return;
+    decoratingLesson=true;lessonObserver?.disconnect();hideTip(true);stripLessonGlossary(root);
+    lessonScopes(root).forEach(decorateScope);
     decoratingLesson=false;
     lessonObserver?.observe(root,{childList:true,subtree:true,characterData:true});
   }
@@ -174,7 +229,7 @@
 
   const lesson=document.querySelector('#classroom-content');
   if(lesson){
-    const help=document.createElement('div');help.className='glossary-inline-help';help.setAttribute('data-no-glossary','true');help.innerHTML='<span aria-hidden="true">📖</span><span><strong>Key Glossary terms are highlighted once.</strong> Alfred chooses one clear instructional use per concept; hover or keyboard-focus for a quick definition, or click for the full entry.</span>';
+    const help=document.createElement('div');help.className='glossary-inline-help';help.setAttribute('data-no-glossary','true');help.innerHTML='<span aria-hidden="true">📖</span><span><strong>Key Glossary terms are highlighted once per lesson section.</strong> Alfred chooses one clear instructional use per concept in each section; hover or keyboard-focus for a quick definition, or click for the full entry.</span>';
     const card=document.querySelector('#classroom-card');if(card)card.insertBefore(help,card.firstChild);
     lessonObserver=new MutationObserver(()=>{if(!decoratingLesson)scheduleLessonDecoration(lesson);});
     decorateLesson(lesson);

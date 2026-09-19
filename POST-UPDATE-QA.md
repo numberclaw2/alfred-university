@@ -1,44 +1,69 @@
-# POST-UPDATE QA — v16.3.28 Native UX Audit Round 2 Repair
+# POST-UPDATE QA — v16.3.29 Glossary Expansion + Section-Scoped Highlighting
 
 ## Baseline
-- Base artifact: exact GitHub Pages artifact deployed for v16.3.27 / commit `204e2ff1be4a609b7a7ca95656947807a33d7fe7`.
-- Change scope: UX presentation/runtime only.
+- Base: exact deployed v16.3.28 GitHub Pages artifact / production state.
+- Scope: glossary coverage, Classroom vocabulary-link placement, and cache/version integration only.
 
-## Static verification
-- `build-info.json` parses and reports runtimePatch `16.3.28`.
-- `site.js` loads `ux-system.css?v=16.3.28` and `ux-system.js?v=16.3.28` with v16.3.28 loader guards.
-- `ux-system.js` internal runtime guard is v16.3.28.
-- Release Notes contains the v16.3.28 exact-file manifest.
-- Service worker namespace is `alfred-u-v16-3-28-native-ux-round2-20260918`.
-- Service worker includes cache-busted v16.3.28 UX CSS/JS requests and this verification report.
-- JavaScript syntax passed for `site.js`, `ux-system.js`, `service-worker.js`, and `release-notes-current.js`.
+## Glossary data integrity
+- Previous entries: 282.
+- v16.3.29 entries: **599**.
+- New canonical entries: **317**.
+- Categories: **15**.
+- Duplicate canonical slugs: **0**.
+- Alias collisions: **0**.
+- Missing plain definitions: **0**.
+- Missing technical definitions: **0**.
+- Missing pronunciations: **0**.
+- Missing source provenance: **0**.
+- Missing course-week mappings: **0**.
 
-## Native Chromium regression
-- 20 user-facing pages × 6 viewport widths = 120 native render combinations.
-- Viewports: 1440×1000, 1024×900, 768×900, 430×900, 390×844, 360×800.
-- Fatal renders: 0.
-- No targeted v16.3.28 regression flags remained.
+## Classroom placement behavior
+- Highlight dedupe boundary is each `.integrated-teaching-block` / numbered teaching section.
+- Maximum one anchor per canonical concept inside each section.
+- Same concept may be highlighted once again in the next numbered section.
+- Full-section candidate scoring is retained; the runtime does not blindly decorate the first string match.
+- Fuller technical phrases are preferred when available.
+- Low-value headings, controls, links, code, hidden content, quiz/prompt surfaces, and existing glossary UI are excluded/deprioritized.
+- Minimum candidate quality threshold is enforced.
+- Canonical noun plural matching is supported.
+- Alias plural generation is not used.
+- Uppercase acronym/protocol tokens require expected case.
+- Ambiguous ordinary-looking terms require technical context.
+- Bare generic `receive`/`transmit` RX/TX aliases were removed; technical signal phrases remain available.
 
-### Previously failing findings now passing
-- Release Notes mobile release-list/card min-content clipping: PASS at 430/390/360.
-- Release Notes generic 63-section `On this page` control: absent as intended.
-- Home 360px course-packet statistic overflow: PASS.
-- Home Back-to-top overlap risk: control suppressed on Home.
-- Home 360px ALFRED UNIVERSITY wordmark: full name remains visible; optional subtitle is hidden first.
-- Calendar previous/next period controls: 44px wide at phone widths.
+## Native Chromium verification
+### Actual Week 1 Classroom
+- Numbered instructional blocks rendered: **16**.
+- JavaScript errors: **0**.
+- Duplicate canonical glossary slugs inside any block: **0**.
+- Section-to-section rehighlighting confirmed for charge/current/circuit concepts.
+- Ordinary `can` → CAN false match: **not present**.
+- Ordinary `receive/receives` → RX false match: **not present**.
 
-## Mobile interaction regression
-Representative pages: Home, Study, Learn, Calendar, Course, Release Notes.
-Viewport widths: 430, 390, 360.
-- Menu open + Escape close: 18/18 PASS.
-- Search open + input focus + Escape close: 18/18 PASS.
-- Total interaction checks: 36/36 PASS.
+### Representative later weeks
+- Week 8: 6 blocks, 0 JS errors, 0 duplicate block slugs.
+- Week 11: 10 blocks, 0 JS errors, 0 duplicate block slugs.
+- Week 18: 8 blocks, 0 JS errors, 0 duplicate block slugs.
+- Week 20: 13 blocks, 0 JS errors, 0 duplicate block slugs.
+- Week 27: 6 blocks, 0 JS errors, 0 duplicate block slugs.
 
-## Visual spot checks
-- Home 360px native screenshot inspected.
-- Release Notes 390px top and release-card screenshots inspected.
-- Calendar 390px native screenshot inspected.
-- No new visual regression identified in these repaired surfaces.
+### Full Glossary page
+- Cards rendered: **599**.
+- Summary count: 599 / 599.
+- JavaScript errors: **0**.
+- Search, Acronyms, Symbols, and Sources views remained functional.
+
+### Study and Search
+- Vocabulary Study All Course scope sees **599 available terms**.
+- Search Everything returns new Glossary Term results from the expanded dataset.
+
+## Version/cache checks
+- `build-info.json` parses and reports runtimePatch `16.3.29`.
+- Classroom, Glossary, Study, and Search use cache-busted v16.3.29 glossary assets where applicable.
+- Service-worker namespace is `alfred-u-v16-3-29-glossary-expansion-section-highlighting-20260919`.
+- Service worker includes v16.3.29 glossary assets and verification report.
+- Release Notes includes the v16.3.29 exact-file manifest.
+- JavaScript syntax checks pass for `glossary.js`, `release-notes-current.js`, and `service-worker.js`.
 
 ## Protected systems
-No curriculum, lesson wording, Study sequencing, Classroom stages, glossary data, vocabulary scheduling, Teaching Media, calendar dates/identities, assessment scoring, mastery formulas, labs, projects, Progress records, Cloud Sync protocol, or branding artwork changed.
+No curriculum wording, lesson sequence, Teaching Media, assessment bank/scoring, mastery formulas, labs, projects, calendar identities, Progress history, Cloud Sync protocol, whole-site UX architecture, or branding artwork changed.

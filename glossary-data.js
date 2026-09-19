@@ -1,4 +1,4 @@
-// AU-ESET 301 Course Dictionary — v16.3.22
+// AU-ESET 301 Course Glossary — v16.3.29 expanded technical vocabulary
 // Definitions are concise course paraphrases grounded in the linked authoritative source; source terminology controls when context differs.
 window.ALFRED_GLOSSARY = [
   {
@@ -27,6 +27,28 @@ window.ALFRED_GLOSSARY = [
       "note": "Vendor-authoritative STM32 microcontroller and peripheral documentation."
     },
     "slug": "absolute-maximum-rating"
+  },
+  {
+    "term": "AC coupling",
+    "category": "Instruments & Measurement",
+    "definition": "An input mode that blocks the signal’s DC component and displays changing components.",
+    "technical": "AC coupling inserts a high-pass path, typically a series capacitor, so the instrument suppresses DC offset below its coupling cutoff.",
+    "aliases": [],
+    "weeks": [
+      3,
+      9
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/AC coupling/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "ac-coupling"
   },
   {
     "term": "accuracy",
@@ -73,6 +95,27 @@ window.ALFRED_GLOSSARY = [
       "note": "Original I²C bus specification maintained by NXP."
     },
     "slug": "ack"
+  },
+  {
+    "term": "active region",
+    "category": "Semiconductors",
+    "definition": "A transistor operating region used for approximately linear amplification.",
+    "technical": "For a BJT, forward-active operation has the base-emitter junction forward biased and base-collector junction reverse biased, producing collector current controlled by base drive.",
+    "aliases": [],
+    "weeks": [
+      8
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/æktɪv ɹidʒʌn/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "active-region"
   },
   {
     "term": "actuator",
@@ -220,6 +263,27 @@ window.ALFRED_GLOSSARY = [
     "slug": "am"
   },
   {
+    "term": "ammeter",
+    "category": "Instruments & Measurement",
+    "definition": "An instrument used to measure electric current through a path.",
+    "technical": "An ammeter is inserted in series with the current path and ideally has very low internal resistance; practical meters have burden voltage and current limits.",
+    "aliases": [],
+    "weeks": [
+      1
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/æmitɝ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "ammeter"
+  },
+  {
     "term": "ampere",
     "category": "Foundations & Units",
     "definition": "The SI unit used to measure electric current.",
@@ -290,6 +354,28 @@ window.ALFRED_GLOSSARY = [
     "slug": "and-gate"
   },
   {
+    "term": "angular frequency",
+    "category": "AC & Signals",
+    "definition": "Frequency expressed as angular motion in radians per second.",
+    "technical": "Angular frequency is ω = 2πf, where f is frequency in hertz.",
+    "aliases": [],
+    "weeks": [
+      6,
+      4
+    ],
+    "source": "iec",
+    "notation": "ω = 2πf",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/æŋɡjʌlɝ fɹikwʌnsi/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "angular-frequency"
+  },
+  {
     "term": "antenna",
     "category": "RF & Communications",
     "definition": "A structure that converts guided electrical signals to radiated electromagnetic waves, or the reverse.",
@@ -309,6 +395,98 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "antenna"
+  },
+  {
+    "term": "antenna gain",
+    "category": "RF & Communications",
+    "definition": "A measure of how strongly an antenna radiates or receives in a direction compared with a reference antenna.",
+    "technical": "Antenna gain combines directivity and efficiency and is commonly expressed in dBi or dBd.",
+    "aliases": [],
+    "weeks": [
+      1,
+      20
+    ],
+    "source": "fcc",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/æntɛnʌ ɡeɪn/",
+    "sourceDetail": {
+      "name": "FCC — Radio Spectrum and RF Terminology",
+      "url": "https://www.fcc.gov/engineering-technology/policy-and-rules-division/general/radio-spectrum-allocation",
+      "note": "U.S. communications regulator reference for radio spectrum terminology."
+    },
+    "slug": "antenna-gain"
+  },
+  {
+    "term": "antistatic",
+    "category": "Safety & Workmanship",
+    "definition": "Designed to reduce the generation, accumulation, or rapid discharge of static electricity.",
+    "technical": "Antistatic materials and controls reduce triboelectric charging or promote controlled dissipation as part of ESD risk reduction.",
+    "aliases": [],
+    "weeks": [
+      1,
+      12
+    ],
+    "source": "osha",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/antistatic/",
+    "sourceDetail": {
+      "name": "OSHA — Electrical Glossary and Electrical Safety Definitions",
+      "url": "https://www.osha.gov/etools/electric-power/glossary-terms",
+      "note": "U.S. occupational electrical-safety terminology."
+    },
+    "slug": "antistatic"
+  },
+  {
+    "term": "API",
+    "category": "Software & Automation",
+    "definition": "A defined software interface that specifies how code can request functions or services from another software component.",
+    "technical": "An application programming interface consists of callable functions, types, constants, data structures, and behavioral contracts exposed to client code.",
+    "aliases": [
+      "application programming interface"
+    ],
+    "weeks": [
+      17,
+      18,
+      26,
+      27
+    ],
+    "source": "python",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/API/",
+    "sourceDetail": {
+      "name": "Python 3 Documentation",
+      "url": "https://docs.python.org/3/",
+      "note": "Language-authoritative Python terminology."
+    },
+    "slug": "api"
+  },
+  {
+    "term": "arc flash",
+    "category": "Safety & Workmanship",
+    "definition": "A dangerous release of energy caused by an electrical arc through air.",
+    "technical": "An arc-flash event can produce intense heat, light, pressure, molten material, and blast effects and requires hazard assessment and appropriate controls.",
+    "aliases": [],
+    "weeks": [
+      1,
+      12
+    ],
+    "source": "osha",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɑɹk flæʃ/",
+    "sourceDetail": {
+      "name": "OSHA — Electrical Glossary and Electrical Safety Definitions",
+      "url": "https://www.osha.gov/etools/electric-power/glossary-terms",
+      "note": "U.S. occupational electrical-safety terminology."
+    },
+    "slug": "arc-flash"
   },
   {
     "term": "ARM Cortex-M",
@@ -336,6 +514,101 @@ window.ALFRED_GLOSSARY = [
       "note": "Processor architecture, register, exception, debug, and embedded-system terminology."
     },
     "slug": "arm-cortex-m"
+  },
+  {
+    "term": "ASK",
+    "category": "RF & Communications",
+    "definition": "Digital modulation where data changes a carrier’s amplitude between defined states.",
+    "technical": "Amplitude-shift keying maps symbols to different carrier amplitudes, including on-off keying as a special case.",
+    "aliases": [
+      "amplitude-shift keying"
+    ],
+    "weeks": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      14,
+      15,
+      22
+    ],
+    "source": "fcc",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ASK/",
+    "sourceDetail": {
+      "name": "FCC — Radio Spectrum and RF Terminology",
+      "url": "https://www.fcc.gov/engineering-technology/policy-and-rules-division/general/radio-spectrum-allocation",
+      "note": "U.S. communications regulator reference for radio spectrum terminology."
+    },
+    "slug": "ask"
+  },
+  {
+    "term": "assembly language",
+    "category": "Embedded Systems",
+    "definition": "A low-level programming language that represents machine instructions with mnemonic names.",
+    "technical": "Assembly language maps symbolic mnemonics, registers, labels, and operands to architecture-specific machine instructions.",
+    "aliases": [],
+    "weeks": [
+      16,
+      15
+    ],
+    "source": "arm",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ʌsɛmbli læŋɡwʌdʒ/",
+    "sourceDetail": {
+      "name": "Arm Developer Documentation",
+      "url": "https://developer.arm.com/documentation",
+      "note": "Processor architecture, register, exception, debug, and embedded-system terminology."
+    },
+    "slug": "assembly-language"
+  },
+  {
+    "term": "asynchronous communication",
+    "category": "Interfaces & Protocols",
+    "definition": "Communication that does not share a continuously transmitted clock between sender and receiver.",
+    "technical": "Asynchronous serial links recover timing from agreed baud rate and framing conventions such as start and stop bits.",
+    "aliases": [],
+    "weeks": [
+      18,
+      17
+    ],
+    "source": "st",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/eɪsɪŋkɹʌnʌs kʌmjunʌkeɪʃʌn/",
+    "sourceDetail": {
+      "name": "STMicroelectronics — STM32 MCU Developer Zone",
+      "url": "https://www.st.com/content/st_com/en/stm32-mcu-developer-zone.html",
+      "note": "Vendor-authoritative STM32 microcontroller and peripheral documentation."
+    },
+    "slug": "asynchronous-communication"
+  },
+  {
+    "term": "atom",
+    "category": "Foundations & Units",
+    "definition": "The smallest unit of an element that retains that element’s chemical identity.",
+    "technical": "An atom consists of a positively charged nucleus surrounded by electrons; electrical behavior depends strongly on how its electrons are bound or transferred.",
+    "aliases": [],
+    "weeks": [
+      2
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ætʌm/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "atom"
   },
   {
     "term": "attenuation",
@@ -386,6 +659,30 @@ window.ALFRED_GLOSSARY = [
     "slug": "band-pass-filter"
   },
   {
+    "term": "band-stop filter",
+    "category": "AC & Signals",
+    "definition": "A filter that attenuates a band of frequencies while passing frequencies below and above that band.",
+    "technical": "A band-stop response has a stopband between lower and upper transition regions; a narrow band-stop filter is often called a notch filter.",
+    "aliases": [
+      "notch filter"
+    ],
+    "weeks": [
+      6,
+      4
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/bænd stɑp fɪltɝ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "band-stop-filter"
+  },
+  {
     "term": "bandwidth",
     "category": "Instruments & Measurement",
     "definition": "The range of frequencies over which a system or instrument performs within a defined limit.",
@@ -432,6 +729,73 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "base"
+  },
+  {
+    "term": "base current",
+    "category": "Semiconductors",
+    "definition": "The current flowing into or out of the base terminal of a BJT.",
+    "technical": "Base current participates in controlling collector current in a bipolar junction transistor and is commonly denoted IB.",
+    "aliases": [],
+    "weeks": [
+      7,
+      8
+    ],
+    "source": "iec",
+    "notation": "I_B",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/beɪs kɝʌnt/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "base-current"
+  },
+  {
+    "term": "baseband",
+    "category": "RF & Communications",
+    "definition": "The original low-frequency information signal before translation to a higher carrier frequency.",
+    "technical": "Baseband occupies a frequency range near zero or its original information bandwidth before modulation/upconversion.",
+    "aliases": [],
+    "weeks": [
+      20
+    ],
+    "source": "fcc",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/baseband/",
+    "sourceDetail": {
+      "name": "FCC — Radio Spectrum and RF Terminology",
+      "url": "https://www.fcc.gov/engineering-technology/policy-and-rules-division/general/radio-spectrum-allocation",
+      "note": "U.S. communications regulator reference for radio spectrum terminology."
+    },
+    "slug": "baseband"
+  },
+  {
+    "term": "battery",
+    "category": "Components",
+    "definition": "A source that converts stored chemical energy into electrical energy.",
+    "technical": "A battery consists of one or more electrochemical cells that establish an electromotive force and can deliver current to an external circuit.",
+    "aliases": [],
+    "weeks": [
+      1,
+      2,
+      3,
+      9
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/bætɝi/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "battery"
   },
   {
     "term": "baud rate",
@@ -534,6 +898,83 @@ window.ALFRED_GLOSSARY = [
     "slug": "bias"
   },
   {
+    "term": "binary",
+    "category": "Digital Logic",
+    "definition": "A number or logic system based on two states, normally represented as 0 and 1.",
+    "technical": "Binary representation uses radix 2; digital hardware maps binary symbols to defined logic-level ranges rather than perfect mathematical voltages.",
+    "aliases": [],
+    "weeks": [
+      4,
+      11,
+      12,
+      14,
+      15,
+      17,
+      26
+    ],
+    "source": "nist_csrc",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/baɪnɝi/",
+    "sourceDetail": {
+      "name": "NIST CSRC Glossary",
+      "url": "https://csrc.nist.gov/glossary",
+      "note": "NIST technical terminology for computing, firmware, hardware, and related systems."
+    },
+    "slug": "binary"
+  },
+  {
+    "term": "bit",
+    "category": "Digital Logic",
+    "definition": "A single binary digit that can represent one of two states.",
+    "technical": "A bit is the basic unit of binary information and is conventionally represented by 0 or 1.",
+    "aliases": [],
+    "weeks": [
+      3,
+      11,
+      14,
+      15,
+      16,
+      17,
+      18,
+      26
+    ],
+    "source": "nist_csrc",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/bɪt/",
+    "sourceDetail": {
+      "name": "NIST CSRC Glossary",
+      "url": "https://csrc.nist.gov/glossary",
+      "note": "NIST technical terminology for computing, firmware, hardware, and related systems."
+    },
+    "slug": "bit"
+  },
+  {
+    "term": "bit rate",
+    "category": "RF & Communications",
+    "definition": "The number of information bits transmitted per second.",
+    "technical": "Bit rate is measured in bit/s and is distinct from symbol rate when one transmitted symbol can represent more than one bit.",
+    "aliases": [],
+    "weeks": [
+      20,
+      19
+    ],
+    "source": "fcc",
+    "notation": "bit/s",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/bɪt ɹeɪt/",
+    "sourceDetail": {
+      "name": "FCC — Radio Spectrum and RF Terminology",
+      "url": "https://www.fcc.gov/engineering-technology/policy-and-rules-division/general/radio-spectrum-allocation",
+      "note": "U.S. communications regulator reference for radio spectrum terminology."
+    },
+    "slug": "bit-rate"
+  },
+  {
     "term": "BJT",
     "category": "Semiconductors",
     "definition": "A transistor controlled primarily by current into its base-emitter junction.",
@@ -607,6 +1048,54 @@ window.ALFRED_GLOSSARY = [
       "note": "Industry standards for PCB, soldering, rework, and cable/harness workmanship."
     },
     "slug": "bom"
+  },
+  {
+    "term": "bonding",
+    "category": "Safety & Workmanship",
+    "definition": "Intentionally connecting conductive parts together to maintain electrical continuity and limit voltage differences.",
+    "technical": "Electrical bonding establishes a low-impedance conductive connection between parts for fault-current, equipotential, shielding, or grounding purposes.",
+    "aliases": [],
+    "weeks": [
+      13,
+      17,
+      19
+    ],
+    "source": "osha",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/bɑndɪŋ/",
+    "sourceDetail": {
+      "name": "OSHA — Electrical Glossary and Electrical Safety Definitions",
+      "url": "https://www.osha.gov/etools/electric-power/glossary-terms",
+      "note": "U.S. occupational electrical-safety terminology."
+    },
+    "slug": "bonding"
+  },
+  {
+    "term": "Boolean expression",
+    "category": "Digital Logic",
+    "definition": "A symbolic expression that describes a logic function using Boolean variables and operators.",
+    "technical": "Boolean expressions evaluate binary-valued variables with operations such as AND, OR, and NOT and can be implemented with logic gates.",
+    "aliases": [],
+    "weeks": [
+      3,
+      4,
+      11,
+      14,
+      15
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/buliʌn ɪkspɹɛʃʌn/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "boolean-expression"
   },
   {
     "term": "Boolean logic",
@@ -722,6 +1211,27 @@ window.ALFRED_GLOSSARY = [
     "slug": "breakpoint"
   },
   {
+    "term": "bridge rectifier",
+    "category": "Power Electronics",
+    "definition": "A four-diode arrangement that produces full-wave rectification from an AC input.",
+    "technical": "A bridge rectifier steers both input polarities so load current retains the same output polarity, with two diode drops typically in the conduction path.",
+    "aliases": [],
+    "weeks": [
+      9
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/bɹɪdʒ ɹɛktʌfaɪɝ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "bridge-rectifier"
+  },
+  {
     "term": "bring-up",
     "category": "Embedded Systems",
     "definition": "The controlled process of powering and proving a new board or subsystem for the first time.",
@@ -774,6 +1284,29 @@ window.ALFRED_GLOSSARY = [
     "slug": "buck-converter"
   },
   {
+    "term": "buffer",
+    "category": "Interfaces & Protocols",
+    "definition": "Temporary storage used to hold data while it moves between producers and consumers operating at different times or rates.",
+    "technical": "Communication buffers decouple software or hardware timing and can be implemented as arrays, FIFOs, queues, or dedicated peripheral memory.",
+    "aliases": [],
+    "weeks": [
+      10,
+      17,
+      25
+    ],
+    "source": "st",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/bʌfɝ/",
+    "sourceDetail": {
+      "name": "STMicroelectronics — STM32 MCU Developer Zone",
+      "url": "https://www.st.com/content/st_com/en/stm32-mcu-developer-zone.html",
+      "note": "Vendor-authoritative STM32 microcontroller and peripheral documentation."
+    },
+    "slug": "buffer"
+  },
+  {
     "term": "bus",
     "category": "Interfaces & Protocols",
     "definition": "A shared set of conductors and rules used to transfer data, addresses, control, or power among components.",
@@ -799,6 +1332,100 @@ window.ALFRED_GLOSSARY = [
     "slug": "bus"
   },
   {
+    "term": "bus arbitration",
+    "category": "Interfaces & Protocols",
+    "definition": "A method for deciding which device may control a shared communication bus when multiple devices request access.",
+    "technical": "Bus arbitration resolves simultaneous access without corrupting communication; the mechanism depends on the protocol, such as dominant/recessive bit arbitration in CAN.",
+    "aliases": [
+      "arbitration"
+    ],
+    "weeks": [
+      18,
+      17
+    ],
+    "source": "st",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/bʌs ɑɹbɪtɹeɪʃʌn/",
+    "sourceDetail": {
+      "name": "STMicroelectronics — STM32 MCU Developer Zone",
+      "url": "https://www.st.com/content/st_com/en/stm32-mcu-developer-zone.html",
+      "note": "Vendor-authoritative STM32 microcontroller and peripheral documentation."
+    },
+    "slug": "bus-arbitration"
+  },
+  {
+    "term": "buzzer",
+    "category": "Components",
+    "definition": "A sound-producing component driven electrically to create an audible alert.",
+    "technical": "A buzzer is an electroacoustic signaling device that may contain its own oscillator or require an external drive waveform.",
+    "aliases": [],
+    "weeks": [
+      7,
+      4
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/bʌzɝ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "buzzer"
+  },
+  {
+    "term": "byte",
+    "category": "Digital Logic",
+    "definition": "A group of eight bits.",
+    "technical": "In modern computing and embedded systems, a byte is an addressable unit containing 8 bits.",
+    "aliases": [],
+    "weeks": [
+      11,
+      14,
+      15,
+      17,
+      18,
+      25,
+      26
+    ],
+    "source": "nist_csrc",
+    "notation": "8 bits",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/baɪt/",
+    "sourceDetail": {
+      "name": "NIST CSRC Glossary",
+      "url": "https://csrc.nist.gov/glossary",
+      "note": "NIST technical terminology for computing, firmware, hardware, and related systems."
+    },
+    "slug": "byte"
+  },
+  {
+    "term": "cache",
+    "category": "Embedded Systems",
+    "definition": "A small fast memory that stores recently or frequently used data or instructions.",
+    "technical": "A processor cache reduces average memory access time by keeping copies of selected main-memory contents close to the CPU.",
+    "aliases": [],
+    "weeks": [
+      14
+    ],
+    "source": "arm",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/kæʃ/",
+    "sourceDetail": {
+      "name": "Arm Developer Documentation",
+      "url": "https://developer.arm.com/documentation",
+      "note": "Processor architecture, register, exception, debug, and embedded-system terminology."
+    },
+    "slug": "cache"
+  },
+  {
     "term": "calibration",
     "category": "Instruments & Measurement",
     "definition": "A documented comparison that relates an instrument’s indication to reference standards or known values.",
@@ -820,6 +1447,59 @@ window.ALFRED_GLOSSARY = [
       "note": "NIST guidance for measurement accuracy, repeatability, reproducibility, calibration, and uncertainty."
     },
     "slug": "calibration"
+  },
+  {
+    "term": "callback",
+    "category": "Embedded Systems",
+    "definition": "A function supplied to be called later when a particular event or operation occurs.",
+    "technical": "A callback is a function reference registered with a library, driver, or framework and invoked when the associated condition is met.",
+    "aliases": [],
+    "weeks": [
+      16,
+      15
+    ],
+    "source": "arm",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/kɔlbæk/",
+    "sourceDetail": {
+      "name": "Arm Developer Documentation",
+      "url": "https://developer.arm.com/documentation",
+      "note": "Processor architecture, register, exception, debug, and embedded-system terminology."
+    },
+    "slug": "callback"
+  },
+  {
+    "term": "CAN bus",
+    "category": "Interfaces & Protocols",
+    "definition": "A robust shared serial network widely used for distributed embedded control.",
+    "technical": "Controller Area Network uses differential signaling, message identifiers, arbitration, error detection, and retransmission on a multi-node bus.",
+    "aliases": [
+      "CAN",
+      "Controller Area Network"
+    ],
+    "weeks": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "source": "st",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/CAN bus/",
+    "sourceDetail": {
+      "name": "STMicroelectronics — STM32 MCU Developer Zone",
+      "url": "https://www.st.com/content/st_com/en/stm32-mcu-developer-zone.html",
+      "note": "Vendor-authoritative STM32 microcontroller and peripheral documentation."
+    },
+    "slug": "can-bus"
   },
   {
     "term": "capacitance",
@@ -892,6 +1572,76 @@ window.ALFRED_GLOSSARY = [
     "slug": "carrier"
   },
   {
+    "term": "characteristic impedance",
+    "category": "RF & Communications",
+    "definition": "The voltage-to-current ratio of a single traveling wave on a transmission line.",
+    "technical": "Characteristic impedance Z0 is determined by the line’s distributed parameters and governs reflections when the load impedance differs from Z0.",
+    "aliases": [],
+    "weeks": [
+      19,
+      20,
+      30
+    ],
+    "source": "fcc",
+    "notation": "Z₀",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/kɛɹʌktɝɪstɪk ɪmpidʌns/",
+    "sourceDetail": {
+      "name": "FCC — Radio Spectrum and RF Terminology",
+      "url": "https://www.fcc.gov/engineering-technology/policy-and-rules-division/general/radio-spectrum-allocation",
+      "note": "U.S. communications regulator reference for radio spectrum terminology."
+    },
+    "slug": "characteristic-impedance"
+  },
+  {
+    "term": "charge carrier",
+    "category": "Foundations & Units",
+    "definition": "A mobile particle or quasiparticle that transports electric charge through a material.",
+    "technical": "Charge carriers can be electrons, holes, ions, or other charged species depending on the material and conduction mechanism.",
+    "aliases": [
+      "charge carriers"
+    ],
+    "weeks": [
+      1,
+      2,
+      19
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/tʃɑɹdʒ kæɹiɝ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "charge-carrier"
+  },
+  {
+    "term": "charge flow",
+    "category": "Foundations & Units",
+    "definition": "Movement of electric charge through a path.",
+    "technical": "Electric current is the time rate of charge flow through a surface or circuit cross-section.",
+    "aliases": [],
+    "weeks": [
+      1,
+      2
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/tʃɑɹdʒ floʊ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "charge-flow"
+  },
+  {
     "term": "chassis ground",
     "category": "Safety & Workmanship",
     "definition": "A connection to the conductive frame or enclosure of equipment.",
@@ -961,6 +1711,180 @@ window.ALFRED_GLOSSARY = [
     "slug": "circuit"
   },
   {
+    "term": "circuit board",
+    "category": "PCB & Assembly",
+    "definition": "A board that mechanically supports and electrically connects electronic components.",
+    "technical": "A printed circuit board uses patterned conductive layers, dielectric substrate, pads, vias, and other features to implement interconnections.",
+    "aliases": [],
+    "weeks": [
+      12
+    ],
+    "source": "ipc",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/sɝkʌt bɔɹd/",
+    "sourceDetail": {
+      "name": "IPC Standards — Electronic Assembly and Printed Board Standards",
+      "url": "https://www.ipc.org/meet-your-standards",
+      "note": "Industry standards for PCB, soldering, rework, and cable/harness workmanship."
+    },
+    "slug": "circuit-board"
+  },
+  {
+    "term": "circuit breaker",
+    "category": "Components",
+    "definition": "A resettable protective switch that opens a circuit when specified fault conditions occur.",
+    "technical": "A circuit breaker automatically interrupts overcurrent and may provide additional protection depending on its trip mechanism.",
+    "aliases": [],
+    "weeks": [
+      1,
+      9
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/sɝkʌt bɹeɪkɝ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "circuit-breaker"
+  },
+  {
+    "term": "circuit common",
+    "category": "Foundations & Units",
+    "definition": "A shared electrical reference or return connection used by multiple parts of a circuit.",
+    "technical": "Circuit common is a node intentionally shared as a signal or power reference; it is not necessarily connected to earth ground.",
+    "aliases": [],
+    "weeks": [
+      1
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/sɝkʌt kɑmʌn/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "circuit-common"
+  },
+  {
+    "term": "circuit loop",
+    "category": "Circuit Analysis",
+    "definition": "A closed path through a circuit that returns to its starting node.",
+    "technical": "A circuit loop is a closed traversal of branches and is the path over which Kirchhoff’s Voltage Law can be applied.",
+    "aliases": [
+      "loop"
+    ],
+    "weeks": [
+      1,
+      2,
+      5,
+      7,
+      9,
+      10,
+      13,
+      14
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/sɝkʌt lup/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "circuit-loop"
+  },
+  {
+    "term": "circuit network",
+    "category": "Circuit Analysis",
+    "definition": "An interconnected set of electrical components and branches.",
+    "technical": "A circuit network is a graph of elements connected at nodes and analyzed using element relationships and network laws.",
+    "aliases": [
+      "network"
+    ],
+    "weeks": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      8,
+      10,
+      14
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/sɝkʌt nɛtwɝk/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "circuit-network"
+  },
+  {
+    "term": "CLI",
+    "category": "Software & Automation",
+    "definition": "A text-based interface where a user enters commands and receives textual output.",
+    "technical": "A command-line interface exposes program functions through command names, options, arguments, and standard input/output streams.",
+    "aliases": [
+      "command-line interface"
+    ],
+    "weeks": [
+      27,
+      17
+    ],
+    "source": "python",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/CLI/",
+    "sourceDetail": {
+      "name": "Python 3 Documentation",
+      "url": "https://docs.python.org/3/",
+      "note": "Language-authoritative Python terminology."
+    },
+    "slug": "cli"
+  },
+  {
+    "term": "clipping",
+    "category": "AC & Signals",
+    "definition": "Waveform distortion that occurs when a circuit cannot reproduce signal peaks beyond an available limit.",
+    "technical": "Clipping limits the output waveform at a rail, current limit, device saturation boundary, or other transfer limit and creates additional harmonic content.",
+    "aliases": [],
+    "weeks": [
+      2,
+      3,
+      6,
+      10,
+      18,
+      19
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/klɪpɪŋ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "clipping"
+  },
+  {
     "term": "clock",
     "category": "Embedded Systems",
     "definition": "A repeating timing signal used to coordinate digital operations.",
@@ -986,6 +1910,134 @@ window.ALFRED_GLOSSARY = [
       "note": "Processor architecture, register, exception, debug, and embedded-system terminology."
     },
     "slug": "clock"
+  },
+  {
+    "term": "clock edge",
+    "category": "Digital Logic",
+    "definition": "A transition of a clock signal used to time digital events.",
+    "technical": "Synchronous logic often samples or changes state on a specified rising or falling clock edge.",
+    "aliases": [],
+    "weeks": [
+      11
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/klɑk ɛdʒ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "clock-edge"
+  },
+  {
+    "term": "clock frequency",
+    "category": "Digital Logic",
+    "definition": "The repetition rate of a clock signal.",
+    "technical": "Clock frequency is the reciprocal of clock period and sets the nominal rate of synchronous timing events.",
+    "aliases": [],
+    "weeks": [
+      11
+    ],
+    "source": "iec",
+    "notation": "f_CLK",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/klɑk fɹikwʌnsi/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "clock-frequency"
+  },
+  {
+    "term": "clock source",
+    "category": "Embedded Systems",
+    "definition": "The oscillator or timing reference used to generate a digital system clock.",
+    "technical": "Clock sources can be internal RC oscillators, external crystals, resonators, or externally supplied clocks feeding clock-generation circuitry.",
+    "aliases": [],
+    "weeks": [
+      16,
+      23
+    ],
+    "source": "arm",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/klɑk sɔɹs/",
+    "sourceDetail": {
+      "name": "Arm Developer Documentation",
+      "url": "https://developer.arm.com/documentation",
+      "note": "Processor architecture, register, exception, debug, and embedded-system terminology."
+    },
+    "slug": "clock-source"
+  },
+  {
+    "term": "clock stretching",
+    "category": "Interfaces & Protocols",
+    "definition": "An I²C behavior where a target holds the clock line low to delay the controller.",
+    "technical": "In I²C, a device may extend the low period of SCL when permitted by the bus specification, allowing additional time before communication continues.",
+    "aliases": [],
+    "weeks": [
+      18
+    ],
+    "source": "nxp_i2c",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/klɑk stɹɛtʃɪŋ/",
+    "sourceDetail": {
+      "name": "NXP — UM10204 I²C-bus Specification and User Manual",
+      "url": "https://www.nxp.com/docs/en/user-guide/UM10204.pdf",
+      "note": "Original I²C bus specification maintained by NXP."
+    },
+    "slug": "clock-stretching"
+  },
+  {
+    "term": "clock tree",
+    "category": "Embedded Systems",
+    "definition": "The network that distributes and derives clocks throughout a digital system.",
+    "technical": "A microcontroller clock tree routes oscillator sources through selectors, PLLs, prescalers, and gates to processor and peripheral clock domains.",
+    "aliases": [],
+    "weeks": [
+      16,
+      15
+    ],
+    "source": "arm",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/klɑk tɹi/",
+    "sourceDetail": {
+      "name": "Arm Developer Documentation",
+      "url": "https://developer.arm.com/documentation",
+      "note": "Processor architecture, register, exception, debug, and embedded-system terminology."
+    },
+    "slug": "clock-tree"
+  },
+  {
+    "term": "closed circuit",
+    "category": "Circuit Analysis",
+    "definition": "A circuit with a complete conductive path that can support current.",
+    "technical": "A closed circuit has continuity around the required path; current then depends on the applied sources and circuit impedance.",
+    "aliases": [],
+    "weeks": [
+      1
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/kloʊzd sɝkʌt/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "closed-circuit"
   },
   {
     "term": "CMOS",
@@ -1059,6 +2111,91 @@ window.ALFRED_GLOSSARY = [
     "slug": "collector"
   },
   {
+    "term": "collector current",
+    "category": "Semiconductors",
+    "definition": "The current flowing through the collector terminal of a BJT.",
+    "technical": "Collector current IC is the principal controlled current of a BJT and depends on operating region, base drive, and device conditions.",
+    "aliases": [],
+    "weeks": [
+      7,
+      8
+    ],
+    "source": "iec",
+    "notation": "I_C",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/kʌlɛktɝ kɝʌnt/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "collector-current"
+  },
+  {
+    "term": "collector-emitter voltage",
+    "category": "Semiconductors",
+    "definition": "The voltage between a BJT collector and emitter.",
+    "technical": "Collector-emitter voltage VCE helps determine BJT operating region and available voltage headroom.",
+    "aliases": [],
+    "weeks": [
+      8
+    ],
+    "source": "iec",
+    "notation": "V_CE",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/kʌlɛktɝ ɪmɪtɝ voʊltʌdʒ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "collector-emitter-voltage"
+  },
+  {
+    "term": "combinational logic",
+    "category": "Digital Logic",
+    "definition": "Digital logic whose outputs depend on the current input values.",
+    "technical": "A combinational circuit has no required stored state; its outputs are Boolean functions of present inputs after propagation delay.",
+    "aliases": [],
+    "weeks": [
+      11
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/combinational lɑdʒɪk/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "combinational-logic"
+  },
+  {
+    "term": "common gate",
+    "category": "Semiconductors",
+    "definition": "A FET amplifier configuration in which the gate is the signal-common terminal.",
+    "technical": "In a common-gate stage, the input is applied at the source, output is taken at the drain, and the gate is held at a fixed AC reference.",
+    "aliases": [],
+    "weeks": [
+      11
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/kɑmʌn ɡeɪt/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "common-gate"
+  },
+  {
     "term": "comparator",
     "category": "Semiconductors",
     "definition": "A circuit that indicates which of two input voltages is higher.",
@@ -1081,6 +2218,28 @@ window.ALFRED_GLOSSARY = [
     "slug": "comparator"
   },
   {
+    "term": "compiler",
+    "category": "Embedded Systems",
+    "definition": "A tool that translates source code into lower-level code for a target processor or runtime.",
+    "technical": "An embedded compiler transforms source into object code while applying target-specific instruction selection, optimization, and calling conventions.",
+    "aliases": [],
+    "weeks": [
+      14,
+      15
+    ],
+    "source": "arm",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/kʌmpaɪlɝ/",
+    "sourceDetail": {
+      "name": "Arm Developer Documentation",
+      "url": "https://developer.arm.com/documentation",
+      "note": "Processor architecture, register, exception, debug, and embedded-system terminology."
+    },
+    "slug": "compiler"
+  },
+  {
     "term": "conductance",
     "category": "Foundations & Units",
     "definition": "How easily electric current can flow through something.",
@@ -1101,6 +2260,34 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "conductance"
+  },
+  {
+    "term": "conductor",
+    "category": "Foundations & Units",
+    "definition": "A material that allows electric charge to move relatively easily.",
+    "technical": "A conductor has mobile charge carriers and therefore comparatively low electrical resistivity under the stated conditions.",
+    "aliases": [],
+    "weeks": [
+      1,
+      2,
+      3,
+      7,
+      12,
+      19,
+      20,
+      21
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/kʌndʌktɝ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "conductor"
   },
   {
     "term": "connector",
@@ -1150,6 +2337,49 @@ window.ALFRED_GLOSSARY = [
     "slug": "continuity"
   },
   {
+    "term": "continuity test",
+    "category": "Instruments & Measurement",
+    "definition": "A meter test used to check whether a low-resistance conductive path exists.",
+    "technical": "Continuity mode applies a small test stimulus and indicates when measured resistance is below an instrument-dependent threshold.",
+    "aliases": [],
+    "weeks": [
+      19
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/kɑntʌnuʌti tɛst/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "continuity-test"
+  },
+  {
+    "term": "controlled impedance",
+    "category": "PCB & Assembly",
+    "definition": "A PCB interconnect designed to have a specified characteristic impedance.",
+    "technical": "Controlled-impedance traces are dimensioned with the board stackup and reference planes so transmission-line impedance remains within tolerance.",
+    "aliases": [],
+    "weeks": [
+      12,
+      29
+    ],
+    "source": "ipc",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/kʌntɹoʊld ɪmpidʌns/",
+    "sourceDetail": {
+      "name": "IPC Standards — Electronic Assembly and Printed Board Standards",
+      "url": "https://www.ipc.org/meet-your-standards",
+      "note": "Industry standards for PCB, soldering, rework, and cable/harness workmanship."
+    },
+    "slug": "controlled-impedance"
+  },
+  {
     "term": "controller",
     "category": "Interfaces & Protocols",
     "definition": "The device that initiates or manages transactions on a bus or subsystem.",
@@ -1171,6 +2401,50 @@ window.ALFRED_GLOSSARY = [
       "note": "Original I²C bus specification maintained by NXP."
     },
     "slug": "controller"
+  },
+  {
+    "term": "conventional current",
+    "category": "Foundations & Units",
+    "definition": "The standard current direction defined as the direction positive charge would move.",
+    "technical": "Conventional current flows from higher electric potential toward lower potential in an external passive path, opposite electron drift in metallic conductors.",
+    "aliases": [],
+    "weeks": [
+      1
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/kʌnvɛnʃʌnʌl kɝʌnt/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "conventional-current"
+  },
+  {
+    "term": "coulomb",
+    "category": "Foundations & Units",
+    "definition": "The SI unit used to measure electric charge.",
+    "technical": "One coulomb is the amount of charge transported by a current of one ampere in one second: 1 C = 1 A·s.",
+    "aliases": [],
+    "weeks": [
+      1,
+      2,
+      7
+    ],
+    "source": "nist_si",
+    "notation": "C",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/coulomb/",
+    "sourceDetail": {
+      "name": "NIST — SI Units: Electric Current and Electrical Derived Units",
+      "url": "https://www.nist.gov/pml/owm/si-units-electric-current",
+      "note": "U.S. national metrology reference for SI electrical quantities and units."
+    },
+    "slug": "coulomb"
   },
   {
     "term": "counter",
@@ -1264,6 +2538,74 @@ window.ALFRED_GLOSSARY = [
     "slug": "crc"
   },
   {
+    "term": "creepage distance",
+    "category": "PCB & Assembly",
+    "definition": "The shortest distance along an insulating surface between conductive parts.",
+    "technical": "Creepage is chosen to control surface leakage and tracking based on working voltage, material group, pollution degree, and applicable safety requirements.",
+    "aliases": [
+      "creepage"
+    ],
+    "weeks": [
+      7,
+      19,
+      25
+    ],
+    "source": "ipc",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/creepage dɪstʌns/",
+    "sourceDetail": {
+      "name": "IPC Standards — Electronic Assembly and Printed Board Standards",
+      "url": "https://www.ipc.org/meet-your-standards",
+      "note": "Industry standards for PCB, soldering, rework, and cable/harness workmanship."
+    },
+    "slug": "creepage-distance"
+  },
+  {
+    "term": "crystal",
+    "category": "Components",
+    "definition": "A piezoelectric resonator used to provide a stable frequency reference.",
+    "technical": "A quartz crystal exhibits a high-Q electromechanical resonance that can control oscillator frequency.",
+    "aliases": [],
+    "weeks": [
+      2,
+      19
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/kɹɪstʌl/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "crystal"
+  },
+  {
+    "term": "crystal oscillator",
+    "category": "Components",
+    "definition": "An oscillator that uses a crystal resonator to set a precise frequency.",
+    "technical": "A crystal oscillator sustains oscillation around a crystal’s resonant frequency to generate a stable clock or reference signal.",
+    "aliases": [],
+    "weeks": [
+      2
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/kɹɪstʌl ɑsʌleɪtɝ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "crystal-oscillator"
+  },
+  {
     "term": "CSV",
     "category": "Software & Automation",
     "definition": "A simple text format that stores tabular data as rows with separated fields.",
@@ -1306,6 +2648,81 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "current-divider"
+  },
+  {
+    "term": "current limit",
+    "category": "Power Electronics",
+    "definition": "A control or protection function that prevents current from exceeding a chosen level.",
+    "technical": "Current limiting modifies regulator or driver behavior when sensed current reaches a threshold, protecting devices, wiring, or loads.",
+    "aliases": [],
+    "weeks": [
+      1,
+      3,
+      4,
+      8,
+      9,
+      10,
+      13,
+      23
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/kɝʌnt lɪmʌt/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "current-limit"
+  },
+  {
+    "term": "current path",
+    "category": "Circuit Analysis",
+    "definition": "The route through which current flows in a circuit.",
+    "technical": "A current path is the connected sequence of conductive elements and nodes supporting a branch or loop current.",
+    "aliases": [],
+    "weeks": [
+      1,
+      2,
+      7,
+      8,
+      13
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/kɝʌnt pæθ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "current-path"
+  },
+  {
+    "term": "current source",
+    "category": "Foundations & Units",
+    "definition": "A source intended to deliver a specified current through a circuit branch.",
+    "technical": "An ideal current source maintains its specified current independent of terminal voltage within its compliance range.",
+    "aliases": [],
+    "weeks": [
+      9,
+      23
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/kɝʌnt sɔɹs/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "current-source"
   },
   {
     "term": "cutoff",
@@ -1381,6 +2798,51 @@ window.ALFRED_GLOSSARY = [
     "slug": "dac"
   },
   {
+    "term": "damping",
+    "category": "AC & Signals",
+    "definition": "The loss mechanism that causes oscillations or transients to decrease with time.",
+    "technical": "Damping dissipates stored energy and determines whether a second-order response is underdamped, critically damped, or overdamped.",
+    "aliases": [],
+    "weeks": [
+      6
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/dæmpɪŋ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "damping"
+  },
+  {
+    "term": "data acquisition",
+    "category": "Software & Automation",
+    "definition": "Collecting measurement data from sensors, instruments, or hardware into a system for analysis or control.",
+    "technical": "Data acquisition combines transducers, signal conditioning, sampling/conversion, timing, interfaces, and software to capture physical measurements.",
+    "aliases": [
+      "DAQ"
+    ],
+    "weeks": [
+      27,
+      17
+    ],
+    "source": "python",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/deɪtʌ ækwʌzɪʃʌn/",
+    "sourceDetail": {
+      "name": "Python 3 Documentation",
+      "url": "https://docs.python.org/3/",
+      "note": "Language-authoritative Python terminology."
+    },
+    "slug": "data-acquisition"
+  },
+  {
     "term": "datasheet",
     "category": "Test & Troubleshooting",
     "definition": "A manufacturer document that specifies a component’s electrical characteristics, limits, pin functions, timing, package, and application information.",
@@ -1433,6 +2895,73 @@ window.ALFRED_GLOSSARY = [
       "note": "Vendor-authoritative STM32 microcontroller and peripheral documentation."
     },
     "slug": "datasheet-pin-function"
+  },
+  {
+    "term": "dBm",
+    "category": "RF & Communications",
+    "definition": "A logarithmic unit expressing power relative to one milliwatt.",
+    "technical": "Power in dBm is 10 log10(P/1 mW); 0 dBm equals 1 mW.",
+    "aliases": [],
+    "weeks": [
+      4,
+      19,
+      20
+    ],
+    "source": "fcc",
+    "notation": "dBm",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/dbm/",
+    "sourceDetail": {
+      "name": "FCC — Radio Spectrum and RF Terminology",
+      "url": "https://www.fcc.gov/engineering-technology/policy-and-rules-division/general/radio-spectrum-allocation",
+      "note": "U.S. communications regulator reference for radio spectrum terminology."
+    },
+    "slug": "dbm"
+  },
+  {
+    "term": "DC coupling",
+    "category": "Instruments & Measurement",
+    "definition": "An input mode that passes both DC level and changing signal components.",
+    "technical": "DC coupling connects the input path without intentional DC blocking, allowing the instrument to display the full signal including offset.",
+    "aliases": [],
+    "weeks": [
+      3,
+      9
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/DC coupling/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "dc-coupling"
+  },
+  {
+    "term": "DC offset",
+    "category": "AC & Signals",
+    "definition": "A constant DC level added to a varying waveform.",
+    "technical": "DC offset is the mean or zero-frequency component that shifts a waveform above or below the chosen reference.",
+    "aliases": [],
+    "weeks": [
+      3,
+      4
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/DC offset/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "dc-offset"
   },
   {
     "term": "de-energized",
@@ -1505,6 +3034,34 @@ window.ALFRED_GLOSSARY = [
     "slug": "debugger"
   },
   {
+    "term": "debugging",
+    "category": "Test & Troubleshooting",
+    "definition": "The systematic process of finding and correcting defects in hardware, software, or their interaction.",
+    "technical": "Debugging forms hypotheses, gathers evidence, isolates the fault domain, applies controlled changes, and verifies that the observed failure is resolved without creating regressions.",
+    "aliases": [],
+    "weeks": [
+      1,
+      3,
+      13,
+      14,
+      15,
+      16,
+      18,
+      19
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/dibʌɡɪŋ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "debugging"
+  },
+  {
     "term": "decibel",
     "category": "AC & Signals",
     "definition": "A logarithmic unit used to express ratios such as gain, loss, or signal level.",
@@ -1530,6 +3087,28 @@ window.ALFRED_GLOSSARY = [
     "slug": "decibel"
   },
   {
+    "term": "demodulation",
+    "category": "RF & Communications",
+    "definition": "Recovering information from a modulated carrier or waveform.",
+    "technical": "Demodulation estimates the original message/baseband signal from changes imposed on carrier amplitude, frequency, phase, or another parameter.",
+    "aliases": [],
+    "weeks": [
+      2,
+      20
+    ],
+    "source": "fcc",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/dimɑdʒʌleɪʃʌn/",
+    "sourceDetail": {
+      "name": "FCC — Radio Spectrum and RF Terminology",
+      "url": "https://www.fcc.gov/engineering-technology/policy-and-rules-division/general/radio-spectrum-allocation",
+      "note": "U.S. communications regulator reference for radio spectrum terminology."
+    },
+    "slug": "demodulation"
+  },
+  {
     "term": "demultiplexer",
     "category": "Digital Logic",
     "definition": "A circuit that routes one input to one of several outputs according to select controls.",
@@ -1551,6 +3130,154 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "demultiplexer"
+  },
+  {
+    "term": "depletion region",
+    "category": "Semiconductors",
+    "definition": "The region around a PN junction where mobile charge carriers are largely depleted.",
+    "technical": "The depletion region contains fixed ionized dopants and supports the junction electric field and built-in potential.",
+    "aliases": [
+      "depletion layer"
+    ],
+    "weeks": [
+      8
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/dɪpliʃʌn ɹidʒʌn/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "depletion-region"
+  },
+  {
+    "term": "derating",
+    "category": "Power Electronics",
+    "definition": "Operating a component below a stated maximum rating to improve margin, reliability, or temperature capability.",
+    "technical": "Derating reduces electrical, thermal, or mechanical stress relative to absolute limits according to device data and design requirements.",
+    "aliases": [],
+    "weeks": [
+      7
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/derating/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "derating"
+  },
+  {
+    "term": "design rule check",
+    "category": "PCB & Assembly",
+    "definition": "An automated PCB-layout check for geometric and manufacturing constraints.",
+    "technical": "A DRC checks features such as spacing, widths, drills, annular rings, overlaps, and other layout rules against configured limits.",
+    "aliases": [
+      "DRC"
+    ],
+    "weeks": [
+      12,
+      29
+    ],
+    "source": "ipc",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/dɪzaɪn ɹul tʃɛk/",
+    "sourceDetail": {
+      "name": "IPC Standards — Electronic Assembly and Printed Board Standards",
+      "url": "https://www.ipc.org/meet-your-standards",
+      "note": "Industry standards for PCB, soldering, rework, and cable/harness workmanship."
+    },
+    "slug": "design-rule-check"
+  },
+  {
+    "term": "device address",
+    "category": "Interfaces & Protocols",
+    "definition": "A value that identifies a device or endpoint on a shared communication system.",
+    "technical": "A device address is encoded according to the protocol so transfers can be directed to the intended participant.",
+    "aliases": [],
+    "weeks": [
+      18,
+      17
+    ],
+    "source": "st",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/dɪvaɪs ædɹɛs/",
+    "sourceDetail": {
+      "name": "STMicroelectronics — STM32 MCU Developer Zone",
+      "url": "https://www.st.com/content/st_com/en/stm32-mcu-developer-zone.html",
+      "note": "Vendor-authoritative STM32 microcontroller and peripheral documentation."
+    },
+    "slug": "device-address"
+  },
+  {
+    "term": "device driver",
+    "category": "Embedded Systems",
+    "definition": "Software that controls a hardware peripheral or device through a defined interface.",
+    "technical": "A device driver translates higher-level operations into register accesses, transactions, interrupts, timing, and error handling required by the hardware.",
+    "aliases": [
+      "driver"
+    ],
+    "weeks": [
+      1,
+      7,
+      8,
+      10,
+      11,
+      13,
+      14,
+      16
+    ],
+    "source": "arm",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/dɪvaɪs dɹaɪvɝ/",
+    "sourceDetail": {
+      "name": "Arm Developer Documentation",
+      "url": "https://developer.arm.com/documentation",
+      "note": "Processor architecture, register, exception, debug, and embedded-system terminology."
+    },
+    "slug": "device-driver"
+  },
+  {
+    "term": "diagnostic",
+    "category": "Test & Troubleshooting",
+    "definition": "A test or observation used to identify the condition or cause of a fault.",
+    "technical": "Diagnostic information is selected to distinguish among competing fault hypotheses and localize a failing function or component.",
+    "aliases": [],
+    "weeks": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      9,
+      12,
+      13
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/daɪʌɡnɑstɪk/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "diagnostic"
   },
   {
     "term": "diode",
@@ -1601,6 +3328,50 @@ window.ALFRED_GLOSSARY = [
     "slug": "direct-current"
   },
   {
+    "term": "distortion",
+    "category": "AC & Signals",
+    "definition": "Any unwanted change in a signal’s waveform or spectral content relative to the intended response.",
+    "technical": "Distortion includes nonlinear harmonic/intermodulation products, clipping, phase/amplitude errors, and other departures from an ideal transferred signal.",
+    "aliases": [],
+    "weeks": [
+      10,
+      19
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/dɪstɔɹʃʌn/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "distortion"
+  },
+  {
+    "term": "divide and conquer",
+    "category": "Test & Troubleshooting",
+    "definition": "A troubleshooting method that tests near the middle of a signal or functional path to eliminate large portions of the system.",
+    "technical": "Divide-and-conquer fault isolation repeatedly partitions the possible fault region using discriminating measurements.",
+    "aliases": [],
+    "weeks": [
+      27,
+      29
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/dɪvaɪd ʌnd kɑŋkɝ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "divide-and-conquer"
+  },
+  {
     "term": "DMA",
     "category": "Embedded Systems",
     "definition": "Hardware that moves data between memory and peripherals with little or no CPU instruction-by-instruction involvement.",
@@ -1626,6 +3397,54 @@ window.ALFRED_GLOSSARY = [
     "slug": "dma"
   },
   {
+    "term": "DMM counts",
+    "category": "Foundations & Units",
+    "definition": "The number of discrete display values a digital multimeter can represent on a range.",
+    "technical": "DMM count specification indicates display resolution; for example, a 6000-count meter can display values from 0 through roughly 5999 before changing range.",
+    "aliases": [
+      "counts"
+    ],
+    "weeks": [
+      21,
+      22,
+      26,
+      27
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/DMM counts/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "dmm-counts"
+  },
+  {
+    "term": "doping",
+    "category": "Semiconductors",
+    "definition": "Adding controlled impurity atoms to a semiconductor to change its electrical behavior.",
+    "technical": "Doping sets carrier concentration and creates p-type or n-type semiconductor regions by introducing acceptor or donor impurities.",
+    "aliases": [],
+    "weeks": [
+      8,
+      10
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/doping/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "doping"
+  },
+  {
     "term": "drain",
     "category": "Semiconductors",
     "definition": "One of the main current-carrying terminals of a field-effect transistor.",
@@ -1647,6 +3466,29 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "drain"
+  },
+  {
+    "term": "drain current",
+    "category": "Semiconductors",
+    "definition": "The current flowing through the drain terminal of a field-effect transistor.",
+    "technical": "Drain current ID is controlled by gate-source voltage, drain-source voltage, device geometry, and operating region.",
+    "aliases": [],
+    "weeks": [
+      7,
+      10,
+      30
+    ],
+    "source": "iec",
+    "notation": "I_D",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/dɹeɪn kɝʌnt/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "drain-current"
   },
   {
     "term": "DUT",
@@ -1723,12 +3565,37 @@ window.ALFRED_GLOSSARY = [
     "slug": "earth-ground"
   },
   {
+    "term": "efficiency",
+    "category": "Power Electronics",
+    "definition": "The fraction of input power converted into useful output power.",
+    "technical": "Efficiency η is output power divided by input power, usually expressed as a percentage; the difference represents losses.",
+    "aliases": [],
+    "weeks": [
+      9,
+      10,
+      15,
+      24
+    ],
+    "source": "iec",
+    "notation": "η = Pout/Pin",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɪfɪʃʌnsi/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "efficiency"
+  },
+  {
     "term": "electric charge",
     "category": "Foundations & Units",
     "definition": "A physical property that can be positive or negative and is carried by particles such as electrons.",
     "technical": "Charge is the electrical quantity whose flow constitutes electric current; its SI unit is the coulomb (C).",
     "aliases": [
-      "charge"
+      "charge",
+      "charges"
     ],
     "weeks": [
       1
@@ -1752,7 +3619,9 @@ window.ALFRED_GLOSSARY = [
     "technical": "Current is charge flow per unit time; the SI unit is the ampere (A).",
     "aliases": [
       "current",
-      "amperage"
+      "amperage",
+      "electrical current",
+      "currents"
     ],
     "weeks": [
       1,
@@ -1770,6 +3639,230 @@ window.ALFRED_GLOSSARY = [
       "note": "U.S. national metrology reference for SI electrical quantities and units."
     },
     "slug": "electric-current"
+  },
+  {
+    "term": "electric field",
+    "category": "Foundations & Units",
+    "definition": "A field that describes the electric force a charge would experience at each location.",
+    "technical": "Electric field strength is force per unit positive test charge and is expressed in volts per metre or newtons per coulomb.",
+    "aliases": [],
+    "weeks": [
+      2,
+      4,
+      7,
+      8,
+      19,
+      20
+    ],
+    "source": "iec",
+    "notation": "E",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɪlɛktɹɪk fild/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "electric-field"
+  },
+  {
+    "term": "electric potential",
+    "category": "Foundations & Units",
+    "definition": "Electric potential describes electric potential energy per unit charge at a location.",
+    "technical": "Electric potential is a scalar field quantity measured in volts; potential difference between two points is the voltage between them.",
+    "aliases": [],
+    "weeks": [
+      1
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɪlɛktɹɪk pʌtɛnʃʌl/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "electric-potential"
+  },
+  {
+    "term": "electrical clearance",
+    "category": "PCB & Assembly",
+    "definition": "The shortest distance through air between conductive parts.",
+    "technical": "Electrical clearance is selected to prevent arcing or breakdown across air for the expected working voltage, transients, altitude, pollution, and safety standard.",
+    "aliases": [
+      "clearance"
+    ],
+    "weeks": [
+      12,
+      19,
+      25,
+      29
+    ],
+    "source": "ipc",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɪlɛktɹɪkʌl klɪɹʌns/",
+    "sourceDetail": {
+      "name": "IPC Standards — Electronic Assembly and Printed Board Standards",
+      "url": "https://www.ipc.org/meet-your-standards",
+      "note": "Industry standards for PCB, soldering, rework, and cable/harness workmanship."
+    },
+    "slug": "electrical-clearance"
+  },
+  {
+    "term": "electrical component",
+    "category": "Components",
+    "definition": "A physical part used to perform an electrical or electronic function in a circuit.",
+    "technical": "An electrical/electronic component is a discrete or integrated device characterized by terminals, electrical behavior, ratings, and intended function.",
+    "aliases": [
+      "component",
+      "components"
+    ],
+    "weeks": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɪlɛktɹɪkʌl kʌmpoʊnʌnt/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "electrical-component"
+  },
+  {
+    "term": "electrical load",
+    "category": "Components",
+    "definition": "A device or circuit that receives electrical energy or signal drive from a source.",
+    "technical": "An electrical load presents an impedance to the source and draws current according to the source/load operating conditions.",
+    "aliases": [
+      "load"
+    ],
+    "weeks": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɪlɛktɹɪkʌl loʊd/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "electrical-load"
+  },
+  {
+    "term": "electrical rule check",
+    "category": "PCB & Assembly",
+    "definition": "An automated schematic check for likely electrical connectivity or pin-type problems.",
+    "technical": "An ERC evaluates schematic connectivity and electrical pin rules to flag conditions such as conflicting outputs, missing drivers, or unconnected required pins.",
+    "aliases": [
+      "ERC"
+    ],
+    "weeks": [
+      12,
+      29
+    ],
+    "source": "ipc",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɪlɛktɹɪkʌl ɹul tʃɛk/",
+    "sourceDetail": {
+      "name": "IPC Standards — Electronic Assembly and Printed Board Standards",
+      "url": "https://www.ipc.org/meet-your-standards",
+      "note": "Industry standards for PCB, soldering, rework, and cable/harness workmanship."
+    },
+    "slug": "electrical-rule-check"
+  },
+  {
+    "term": "electrical shock",
+    "category": "Safety & Workmanship",
+    "definition": "Harm caused when electric current passes through the body.",
+    "technical": "Electrical shock severity depends on current path, magnitude, duration, frequency, skin/contact conditions, and other factors; safe work practices aim to prevent body current.",
+    "aliases": [],
+    "weeks": [
+      1
+    ],
+    "source": "osha",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɪlɛktɹɪkʌl ʃɑk/",
+    "sourceDetail": {
+      "name": "OSHA — Electrical Glossary and Electrical Safety Definitions",
+      "url": "https://www.osha.gov/etools/electric-power/glossary-terms",
+      "note": "U.S. occupational electrical-safety terminology."
+    },
+    "slug": "electrical-shock"
+  },
+  {
+    "term": "electrochemical cell",
+    "category": "Components",
+    "definition": "A device that converts chemical energy and electrical energy through oxidation-reduction reactions.",
+    "technical": "An electrochemical cell establishes an electromotive force between two electrodes through electrochemical reactions; one or more cells form a battery.",
+    "aliases": [
+      "cell"
+    ],
+    "weeks": [
+      9,
+      19
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ʌlɛktɹoʊkɛmɪkʌl sɛl/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "electrochemical-cell"
+  },
+  {
+    "term": "electrolytic capacitor",
+    "category": "Components",
+    "definition": "A polarized capacitor that provides relatively high capacitance in a compact package.",
+    "technical": "An electrolytic capacitor uses an electrolyte and thin dielectric oxide layer and normally requires correct polarity during operation.",
+    "aliases": [],
+    "weeks": [
+      1
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɪlɛktɹʌlɪtɪk kʌpæsʌtɝ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "electrolytic-capacitor"
   },
   {
     "term": "electromagnet",
@@ -1793,6 +3886,52 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "electromagnet"
+  },
+  {
+    "term": "electron",
+    "category": "Foundations & Units",
+    "definition": "A negatively charged subatomic particle that carries electric charge in many electrical systems.",
+    "technical": "An electron has elementary charge −e; electron motion or redistribution is responsible for conduction and electrostatic charging in many materials.",
+    "aliases": [],
+    "weeks": [
+      1,
+      2
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɪlɛktɹɑn/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "electron"
+  },
+  {
+    "term": "electron drift",
+    "category": "Foundations & Units",
+    "definition": "The slow average directed motion of electrons through a conductor when an electric field is applied.",
+    "technical": "Electron drift velocity is the average carrier velocity superimposed on random thermal motion; in metals it is opposite conventional current direction.",
+    "aliases": [
+      "drift velocity",
+      "electron motion"
+    ],
+    "weeks": [
+      1
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɪlɛktɹɑn dɹɪft/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "electron-drift"
   },
   {
     "term": "embedded system",
@@ -1847,6 +3986,30 @@ window.ALFRED_GLOSSARY = [
     "slug": "emf"
   },
   {
+    "term": "EMI",
+    "category": "RF & Communications",
+    "definition": "Unwanted electromagnetic energy that disrupts the operation of electronic equipment or communication.",
+    "technical": "Electromagnetic interference includes conducted and radiated coupling mechanisms and is controlled through layout, filtering, grounding, shielding, and system design.",
+    "aliases": [
+      "electromagnetic interference"
+    ],
+    "weeks": [
+      4,
+      9
+    ],
+    "source": "fcc",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/EMI/",
+    "sourceDetail": {
+      "name": "FCC — Radio Spectrum and RF Terminology",
+      "url": "https://www.fcc.gov/engineering-technology/policy-and-rules-division/general/radio-spectrum-allocation",
+      "note": "U.S. communications regulator reference for radio spectrum terminology."
+    },
+    "slug": "emi"
+  },
+  {
     "term": "emitter",
     "category": "Semiconductors",
     "definition": "One of the main current terminals of a bipolar junction transistor.",
@@ -1869,6 +4032,27 @@ window.ALFRED_GLOSSARY = [
     "slug": "emitter"
   },
   {
+    "term": "emitter current",
+    "category": "Semiconductors",
+    "definition": "The current flowing through the emitter terminal of a BJT.",
+    "technical": "For a BJT, emitter current is the algebraic sum of collector and base currents under the chosen sign convention.",
+    "aliases": [],
+    "weeks": [
+      7
+    ],
+    "source": "iec",
+    "notation": "I_E",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɪmɪtɝ kɝʌnt/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "emitter-current"
+  },
+  {
     "term": "energy",
     "category": "Foundations & Units",
     "definition": "The capacity to do work or cause change.",
@@ -1889,6 +4073,52 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "energy"
+  },
+  {
+    "term": "equivalent resistance",
+    "category": "Circuit Analysis",
+    "definition": "A single resistance that has the same terminal current-voltage behavior as a resistor network.",
+    "technical": "Equivalent resistance is the resistance seen between specified terminals after reducing the network while preserving its terminal V–I relationship.",
+    "aliases": [],
+    "weeks": [
+      2
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɪkwɪvʌlʌnt ɹɪzɪstʌns/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "equivalent-resistance"
+  },
+  {
+    "term": "error handling",
+    "category": "Software & Automation",
+    "definition": "The strategy a program uses to detect, report, recover from, or safely stop after errors.",
+    "technical": "Robust error handling defines expected failure classes, validation, timeouts, retries, logging, cleanup, and safe-state behavior.",
+    "aliases": [],
+    "weeks": [
+      14,
+      15,
+      17,
+      26,
+      27
+    ],
+    "source": "python",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɛɹɝ hændlɪŋ/",
+    "sourceDetail": {
+      "name": "Python 3 Documentation",
+      "url": "https://docs.python.org/3/",
+      "note": "Language-authoritative Python terminology."
+    },
+    "slug": "error-handling"
   },
   {
     "term": "ESD",
@@ -1916,6 +4146,229 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "esd"
+  },
+  {
+    "term": "ESD mat",
+    "category": "Safety & Workmanship",
+    "definition": "A dissipative work-surface mat used as part of an electrostatic-discharge control system.",
+    "technical": "An ESD mat provides a controlled resistance path to a common grounding point so accumulated charge dissipates without a rapid damaging discharge.",
+    "aliases": [],
+    "weeks": [
+      1
+    ],
+    "source": "osha",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ESD mat/",
+    "sourceDetail": {
+      "name": "OSHA — Electrical Glossary and Electrical Safety Definitions",
+      "url": "https://www.osha.gov/etools/electric-power/glossary-terms",
+      "note": "U.S. occupational electrical-safety terminology."
+    },
+    "slug": "esd-mat"
+  },
+  {
+    "term": "ESD-safe",
+    "category": "Safety & Workmanship",
+    "definition": "Designed or controlled to reduce the chance of electrostatic discharge damage.",
+    "technical": "An ESD-safe workstation or tool uses grounding, dissipative materials, handling procedures, and environmental controls consistent with the required ESD control program.",
+    "aliases": [],
+    "weeks": [
+      1,
+      12
+    ],
+    "source": "osha",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/esd seɪf/",
+    "sourceDetail": {
+      "name": "OSHA — Electrical Glossary and Electrical Safety Definitions",
+      "url": "https://www.osha.gov/etools/electric-power/glossary-terms",
+      "note": "U.S. occupational electrical-safety terminology."
+    },
+    "slug": "esd-safe"
+  },
+  {
+    "term": "Ethernet",
+    "category": "Interfaces & Protocols",
+    "definition": "A family of wired networking standards for local-area data communication.",
+    "technical": "Ethernet defines physical/link-layer signaling and MAC framing standardized in IEEE 802.3.",
+    "aliases": [],
+    "weeks": [
+      14,
+      20
+    ],
+    "source": "nist_csrc",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/iθɝnɛt/",
+    "sourceDetail": {
+      "name": "NIST CSRC Glossary",
+      "url": "https://csrc.nist.gov/glossary",
+      "note": "NIST technical terminology for computing, firmware, hardware, and related systems."
+    },
+    "slug": "ethernet"
+  },
+  {
+    "term": "even parity",
+    "category": "Interfaces & Protocols",
+    "definition": "A parity convention that makes the total number of one bits even.",
+    "technical": "The parity bit is selected so the protected data plus parity contains an even count of logic-1 bits.",
+    "aliases": [],
+    "weeks": [
+      11
+    ],
+    "source": "st",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ivɪn pɛɹʌti/",
+    "sourceDetail": {
+      "name": "STMicroelectronics — STM32 MCU Developer Zone",
+      "url": "https://www.st.com/content/st_com/en/stm32-mcu-developer-zone.html",
+      "note": "Vendor-authoritative STM32 microcontroller and peripheral documentation."
+    },
+    "slug": "even-parity"
+  },
+  {
+    "term": "exception handling",
+    "category": "Software & Automation",
+    "definition": "Program logic for detecting and responding to exceptional or error conditions.",
+    "technical": "In Python and similar languages, exceptions transfer control to handlers that can recover, report, clean up, or intentionally propagate an error.",
+    "aliases": [],
+    "weeks": [
+      27,
+      17
+    ],
+    "source": "python",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɪksɛpʃʌn hændlɪŋ/",
+    "sourceDetail": {
+      "name": "Python 3 Documentation",
+      "url": "https://docs.python.org/3/",
+      "note": "Language-authoritative Python terminology."
+    },
+    "slug": "exception-handling"
+  },
+  {
+    "term": "eye protection",
+    "category": "Safety & Workmanship",
+    "definition": "Protective eyewear used to reduce injury from particles, splashes, fragments, or process hazards.",
+    "technical": "Safety glasses or other rated eye protection are selected according to the identified task hazard and applicable workplace requirements.",
+    "aliases": [],
+    "weeks": [
+      1,
+      12
+    ],
+    "source": "osha",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/aɪ pɹʌtɛkʃʌn/",
+    "sourceDetail": {
+      "name": "OSHA — Electrical Glossary and Electrical Safety Definitions",
+      "url": "https://www.osha.gov/etools/electric-power/glossary-terms",
+      "note": "U.S. occupational electrical-safety terminology."
+    },
+    "slug": "eye-protection"
+  },
+  {
+    "term": "failure mechanism",
+    "category": "Test & Troubleshooting",
+    "definition": "The physical, electrical, chemical, or software process that produces a failure.",
+    "technical": "Failure mechanism explains how degradation or defect progression creates a failure mode, such as electromigration, overstress, corrosion, or fatigue.",
+    "aliases": [],
+    "weeks": [
+      10,
+      22,
+      29
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/feɪljɝ mɛkʌnɪzʌm/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "failure-mechanism"
+  },
+  {
+    "term": "failure mode",
+    "category": "Test & Troubleshooting",
+    "definition": "A particular way in which a component or system can fail.",
+    "technical": "A failure mode describes the observable manner of failure, distinct from the underlying failure mechanism or root cause.",
+    "aliases": [],
+    "weeks": [
+      10,
+      11,
+      13,
+      19,
+      26,
+      29
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/feɪljɝ moʊd/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "failure-mode"
+  },
+  {
+    "term": "fall time",
+    "category": "AC & Signals",
+    "definition": "The time a signal takes to transition from a defined high level to a defined low level.",
+    "technical": "Fall time is measured between specified percentages of the falling transition amplitude.",
+    "aliases": [],
+    "weeks": [
+      4,
+      11
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/fɔl taɪm/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "fall-time"
+  },
+  {
+    "term": "fan-out",
+    "category": "Digital Logic",
+    "definition": "The number of logic inputs that one output can drive while meeting electrical specifications.",
+    "technical": "Fan-out is limited by output drive capability, input current/capacitance, timing, and logic-level noise margins.",
+    "aliases": [],
+    "weeks": [
+      11,
+      15
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/fæn aʊt/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "fan-out"
   },
   {
     "term": "farad",
@@ -2014,6 +4467,28 @@ window.ALFRED_GLOSSARY = [
     "slug": "fault-isolation"
   },
   {
+    "term": "fault tree",
+    "category": "Test & Troubleshooting",
+    "definition": "A logic diagram that works backward from an undesired event to combinations of possible causes.",
+    "technical": "Fault-tree analysis models top-event causes using logical relationships such as AND/OR gates to support systematic fault reasoning.",
+    "aliases": [],
+    "weeks": [
+      5,
+      24
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/fɔlt tɹi/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "fault-tree"
+  },
+  {
     "term": "feedback",
     "category": "Semiconductors",
     "definition": "Returning part of a system’s output to its input.",
@@ -2034,6 +4509,79 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "feedback"
+  },
+  {
+    "term": "feedline",
+    "category": "RF & Communications",
+    "definition": "The transmission line connecting an RF source or receiver to an antenna or other RF load.",
+    "technical": "A feedline such as coax or balanced line carries RF energy and should be selected/matched for impedance, loss, power, frequency, and environment.",
+    "aliases": [],
+    "weeks": [
+      20
+    ],
+    "source": "fcc",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/feedline/",
+    "sourceDetail": {
+      "name": "FCC — Radio Spectrum and RF Terminology",
+      "url": "https://www.fcc.gov/engineering-technology/policy-and-rules-division/general/radio-spectrum-allocation",
+      "note": "U.S. communications regulator reference for radio spectrum terminology."
+    },
+    "slug": "feedline"
+  },
+  {
+    "term": "filter",
+    "category": "AC & Signals",
+    "definition": "A circuit or system that selectively passes some signal frequencies while reducing others.",
+    "technical": "A filter is characterized by its transfer function and frequency response, including passband, stopband, cutoff, and attenuation behavior.",
+    "aliases": [],
+    "weeks": [
+      1,
+      2,
+      4,
+      6,
+      9,
+      13,
+      20,
+      21
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/fɪltɝ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "filter"
+  },
+  {
+    "term": "filter capacitor",
+    "category": "Power Electronics",
+    "definition": "A capacitor used to reduce ripple by storing and releasing energy between rectifier peaks.",
+    "technical": "In a rectified supply, a reservoir/filter capacitor charges near waveform peaks and supplies load current between peaks, reducing output ripple.",
+    "aliases": [
+      "smoothing capacitor",
+      "reservoir capacitor"
+    ],
+    "weeks": [
+      9
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/fɪltɝ kʌpæsʌtɝ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "filter-capacitor"
   },
   {
     "term": "firmware",
@@ -2060,6 +4608,28 @@ window.ALFRED_GLOSSARY = [
       "note": "NIST technical terminology for computing, firmware, hardware, and related systems."
     },
     "slug": "firmware"
+  },
+  {
+    "term": "fixed resistor",
+    "category": "Components",
+    "definition": "A resistor manufactured to have a nominal resistance that is not intended to be adjusted.",
+    "technical": "A fixed resistor is specified by resistance, tolerance, power rating, temperature coefficient, and other construction-dependent limits.",
+    "aliases": [],
+    "weeks": [
+      7,
+      4
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/fɪkst ɹɪzɪstɝ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "fixed-resistor"
   },
   {
     "term": "flash memory",
@@ -2153,6 +4723,28 @@ window.ALFRED_GLOSSARY = [
     "slug": "fm"
   },
   {
+    "term": "FM modulation",
+    "category": "RF & Communications",
+    "definition": "Frequency modulation, where information changes the instantaneous frequency of a carrier.",
+    "technical": "In FM, carrier amplitude ideally remains constant while instantaneous frequency deviation follows the modulating signal.",
+    "aliases": [],
+    "weeks": [
+      20,
+      19
+    ],
+    "source": "fcc",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/FM modulation/",
+    "sourceDetail": {
+      "name": "FCC — Radio Spectrum and RF Terminology",
+      "url": "https://www.fcc.gov/engineering-technology/policy-and-rules-division/general/radio-spectrum-allocation",
+      "note": "U.S. communications regulator reference for radio spectrum terminology."
+    },
+    "slug": "fm-modulation"
+  },
+  {
     "term": "footprint",
     "category": "PCB & Assembly",
     "definition": "The PCB land pattern and mechanical arrangement used to mount a component.",
@@ -2196,6 +4788,51 @@ window.ALFRED_GLOSSARY = [
     "slug": "forward-bias"
   },
   {
+    "term": "forward voltage",
+    "category": "Semiconductors",
+    "definition": "The voltage across a forward-biased semiconductor junction while it is conducting.",
+    "technical": "Forward voltage is the device terminal voltage at a stated forward current and temperature; it depends on material, current, and junction temperature.",
+    "aliases": [],
+    "weeks": [
+      1,
+      3,
+      8
+    ],
+    "source": "iec",
+    "notation": "V_F",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/fɔɹwɝd voʊltʌdʒ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "forward-voltage"
+  },
+  {
+    "term": "frame",
+    "category": "Interfaces & Protocols",
+    "definition": "A structured group of transmitted bits or bytes treated as one communication unit.",
+    "technical": "A protocol frame contains defined fields such as addressing, control, payload, and error-check information according to that protocol.",
+    "aliases": [],
+    "weeks": [
+      17,
+      28
+    ],
+    "source": "st",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/fɹeɪm/",
+    "sourceDetail": {
+      "name": "STMicroelectronics — STM32 MCU Developer Zone",
+      "url": "https://www.st.com/content/st_com/en/stm32-mcu-developer-zone.html",
+      "note": "Vendor-authoritative STM32 microcontroller and peripheral documentation."
+    },
+    "slug": "frame"
+  },
+  {
     "term": "frequency",
     "category": "Foundations & Units",
     "definition": "How many times a repeating event occurs each second.",
@@ -2220,6 +4857,91 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "frequency"
+  },
+  {
+    "term": "frequency domain",
+    "category": "AC & Signals",
+    "definition": "A way of viewing a signal by the frequencies that make it up.",
+    "technical": "Frequency-domain representation expresses spectral magnitude and phase versus frequency, often obtained through Fourier analysis.",
+    "aliases": [],
+    "weeks": [
+      3
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/fɹikwʌnsi doʊmeɪn/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "frequency-domain"
+  },
+  {
+    "term": "frequency response",
+    "category": "AC & Signals",
+    "definition": "How a circuit’s gain and phase change with signal frequency.",
+    "technical": "Frequency response describes the magnitude and phase of a system transfer function over frequency.",
+    "aliases": [],
+    "weeks": [
+      4,
+      10
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/fɹikwʌnsi ɹɪspɑns/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "frequency-response"
+  },
+  {
+    "term": "full-wave rectifier",
+    "category": "Power Electronics",
+    "definition": "A rectifier that uses both halves of an AC waveform to produce unidirectional output current.",
+    "technical": "Full-wave rectification converts positive and negative input half-cycles into output pulses of the same polarity, doubling ripple frequency relative to half-wave rectification.",
+    "aliases": [],
+    "weeks": [
+      9
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/fʊl weɪv ɹɛktʌfaɪɝ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "full-wave-rectifier"
+  },
+  {
+    "term": "fume extraction",
+    "category": "Safety & Workmanship",
+    "definition": "Removal of airborne fumes near their source during soldering or other processes.",
+    "technical": "Local fume extraction captures contaminants before they disperse into the breathing zone and is part of exposure-control practice.",
+    "aliases": [],
+    "weeks": [
+      12
+    ],
+    "source": "osha",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/fjum ɛkstɹækʃʌn/",
+    "sourceDetail": {
+      "name": "OSHA — Electrical Glossary and Electrical Safety Definitions",
+      "url": "https://www.osha.gov/etools/electric-power/glossary-terms",
+      "note": "U.S. occupational electrical-safety terminology."
+    },
+    "slug": "fume-extraction"
   },
   {
     "term": "function generator",
@@ -2248,6 +4970,34 @@ window.ALFRED_GLOSSARY = [
     "slug": "function-generator"
   },
   {
+    "term": "fuse",
+    "category": "Components",
+    "definition": "A protective device designed to open a circuit when excessive current heats and melts its element.",
+    "technical": "A fuse is an overcurrent protective device with a calibrated current-time characteristic and must be replaced after operation.",
+    "aliases": [],
+    "weeks": [
+      1,
+      3,
+      5,
+      9,
+      10,
+      13,
+      20,
+      21
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/fjuz/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "fuse"
+  },
+  {
     "term": "gain",
     "category": "AC & Signals",
     "definition": "How much a circuit increases or decreases a signal quantity.",
@@ -2268,6 +5018,27 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "gain"
+  },
+  {
+    "term": "gain error",
+    "category": "Instruments & Measurement",
+    "definition": "A proportional measurement or conversion error that changes the slope of the input-output relationship.",
+    "technical": "Gain error is the deviation of actual transfer-function slope from the ideal slope after offset is accounted for.",
+    "aliases": [],
+    "weeks": [
+      10
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɡeɪn ɛɹɝ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "gain-error"
   },
   {
     "term": "galvanic isolation",
@@ -2316,6 +5087,48 @@ window.ALFRED_GLOSSARY = [
     "slug": "gate"
   },
   {
+    "term": "gate current",
+    "category": "Semiconductors",
+    "definition": "Current flowing into or out of a transistor gate terminal.",
+    "technical": "For an ideal insulated-gate MOSFET steady-state gate current is essentially zero, while transient gate current charges or discharges gate capacitance.",
+    "aliases": [],
+    "weeks": [
+      8
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɡeɪt kɝʌnt/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "gate-current"
+  },
+  {
+    "term": "gate-source voltage",
+    "category": "Semiconductors",
+    "definition": "The voltage between a FET gate and source.",
+    "technical": "Gate-source voltage VGS controls channel formation and conduction in MOSFETs and other field-effect devices.",
+    "aliases": [],
+    "weeks": [
+      10
+    ],
+    "source": "iec",
+    "notation": "V_GS",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɡeɪt sɔɹs voʊltʌdʒ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "gate-source-voltage"
+  },
+  {
     "term": "GFCI",
     "category": "Safety & Workmanship",
     "definition": "A protective device that shuts off power when it detects current leaking to ground.",
@@ -2338,6 +5151,28 @@ window.ALFRED_GLOSSARY = [
       "note": "U.S. occupational electrical-safety terminology."
     },
     "slug": "gfci"
+  },
+  {
+    "term": "glitch",
+    "category": "Digital Logic",
+    "definition": "A brief unintended pulse or transition in a signal.",
+    "technical": "A digital glitch can result from unequal propagation delays, asynchronous transitions, noise, or timing hazards.",
+    "aliases": [],
+    "weeks": [
+      3,
+      19
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɡlɪtʃ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "glitch"
   },
   {
     "term": "GPIO",
@@ -2393,6 +5228,27 @@ window.ALFRED_GLOSSARY = [
     "slug": "ground"
   },
   {
+    "term": "ground clip",
+    "category": "Instruments & Measurement",
+    "definition": "The reference connection on many oscilloscope probes.",
+    "technical": "A conventional bench oscilloscope probe ground clip is commonly connected to protective earth through the oscilloscope chassis, so incorrect placement can short a circuit node to earth.",
+    "aliases": [],
+    "weeks": [
+      3
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɡɹaʊnd klɪp/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "ground-clip"
+  },
+  {
     "term": "ground fault",
     "category": "Safety & Workmanship",
     "definition": "An unintended current path from an energized conductor to ground.",
@@ -2440,6 +5296,119 @@ window.ALFRED_GLOSSARY = [
     "slug": "hal"
   },
   {
+    "term": "hard fault",
+    "category": "Test & Troubleshooting",
+    "definition": "A persistent fault that remains present under normal repeated tests.",
+    "technical": "A hard fault generally produces repeatable incorrect behavior such as an open, short, damaged device, or permanently incorrect state.",
+    "aliases": [],
+    "weeks": [
+      16
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/hɑɹd fɔlt/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "hard-fault"
+  },
+  {
+    "term": "hardware handshake",
+    "category": "Interfaces & Protocols",
+    "definition": "Dedicated control signaling used by communicating devices to coordinate data transfer.",
+    "technical": "Hardware handshaking uses separate control lines such as RTS/CTS to regulate transmission readiness and flow independently of payload data.",
+    "aliases": [
+      "handshake"
+    ],
+    "weeks": [
+      18,
+      17
+    ],
+    "source": "st",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/hɑɹdwɛɹ hændʃeɪk/",
+    "sourceDetail": {
+      "name": "STMicroelectronics — STM32 MCU Developer Zone",
+      "url": "https://www.st.com/content/st_com/en/stm32-mcu-developer-zone.html",
+      "note": "Vendor-authoritative STM32 microcontroller and peripheral documentation."
+    },
+    "slug": "hardware-handshake"
+  },
+  {
+    "term": "harmonic",
+    "category": "AC & Signals",
+    "definition": "A sinusoidal frequency component at an integer multiple of a fundamental frequency.",
+    "technical": "For a periodic waveform, the nth harmonic has frequency n times the fundamental and contributes to the waveform’s spectral shape.",
+    "aliases": [],
+    "weeks": [
+      4,
+      20
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/hɑɹmɑnɪk/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "harmonic"
+  },
+  {
+    "term": "hazard",
+    "category": "Safety & Workmanship",
+    "definition": "A source or condition with the potential to cause harm.",
+    "technical": "In safety practice, a hazard is distinguished from risk, which considers both likelihood and consequence of harm.",
+    "aliases": [],
+    "weeks": [
+      1,
+      12,
+      19,
+      21,
+      28
+    ],
+    "source": "osha",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/hæzɝd/",
+    "sourceDetail": {
+      "name": "OSHA — Electrical Glossary and Electrical Safety Definitions",
+      "url": "https://www.osha.gov/etools/electric-power/glossary-terms",
+      "note": "U.S. occupational electrical-safety terminology."
+    },
+    "slug": "hazard"
+  },
+  {
+    "term": "heap",
+    "category": "Embedded Systems",
+    "definition": "A memory region used for dynamic allocation during program execution.",
+    "technical": "Heap memory is managed by allocation/free operations; fragmentation and nondeterministic allocation behavior can matter in embedded systems.",
+    "aliases": [],
+    "weeks": [
+      14
+    ],
+    "source": "arm",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/hip/",
+    "sourceDetail": {
+      "name": "Arm Developer Documentation",
+      "url": "https://developer.arm.com/documentation",
+      "note": "Processor architecture, register, exception, debug, and embedded-system terminology."
+    },
+    "slug": "heap"
+  },
+  {
     "term": "henry",
     "category": "Components",
     "definition": "The SI unit of inductance.",
@@ -2463,6 +5432,33 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "henry"
+  },
+  {
+    "term": "hexadecimal",
+    "category": "Digital Logic",
+    "definition": "A base-16 number system commonly used to write binary values compactly.",
+    "technical": "Hexadecimal uses digits 0–9 and A–F; each hexadecimal digit corresponds exactly to four binary bits.",
+    "aliases": [
+      "hex"
+    ],
+    "weeks": [
+      4,
+      11,
+      14,
+      15,
+      26
+    ],
+    "source": "nist_csrc",
+    "notation": "base 16",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/hexadecimal/",
+    "sourceDetail": {
+      "name": "NIST CSRC Glossary",
+      "url": "https://csrc.nist.gov/glossary",
+      "note": "NIST technical terminology for computing, firmware, hardware, and related systems."
+    },
+    "slug": "hexadecimal"
   },
   {
     "term": "high-pass filter",
@@ -2515,6 +5511,27 @@ window.ALFRED_GLOSSARY = [
     "slug": "hil"
   },
   {
+    "term": "hole",
+    "category": "Semiconductors",
+    "definition": "The absence of an electron in a semiconductor energy state, treated as a mobile positive charge carrier.",
+    "technical": "In semiconductor band theory, a hole represents an unoccupied valence-band state and behaves as a quasiparticle with positive charge.",
+    "aliases": [],
+    "weeks": [
+      12
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/hoʊl/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "hole"
+  },
+  {
     "term": "hypothesis",
     "category": "Test & Troubleshooting",
     "definition": "A testable proposed explanation for an observed symptom or measurement.",
@@ -2559,6 +5576,30 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "hysteresis"
+  },
+  {
+    "term": "I2C address",
+    "category": "Interfaces & Protocols",
+    "definition": "The address used to select a device on an I²C bus.",
+    "technical": "I²C transactions begin with an address field, normally 7 bits in common use, followed by a read/write direction bit.",
+    "aliases": [
+      "I²C address"
+    ],
+    "weeks": [
+      18,
+      28
+    ],
+    "source": "nxp_i2c",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/I2C address/",
+    "sourceDetail": {
+      "name": "NXP — UM10204 I²C-bus Specification and User Manual",
+      "url": "https://www.nxp.com/docs/en/user-guide/UM10204.pdf",
+      "note": "Original I²C bus specification maintained by NXP."
+    },
+    "slug": "i2c-address"
   },
   {
     "term": "IDE",
@@ -2680,6 +5721,52 @@ window.ALFRED_GLOSSARY = [
     "slug": "inductor"
   },
   {
+    "term": "inductor current",
+    "category": "Power Electronics",
+    "definition": "The current flowing through an inductor.",
+    "technical": "Inductor current cannot change instantaneously in an ideal inductor; its rate of change is related to applied voltage by v = L·di/dt.",
+    "aliases": [],
+    "weeks": [
+      2,
+      4
+    ],
+    "source": "iec",
+    "notation": "i_L",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɪndʌktɝ kɝʌnt/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "inductor-current"
+  },
+  {
+    "term": "input impedance",
+    "category": "Instruments & Measurement",
+    "definition": "The impedance a circuit or instrument presents to the source driving its input.",
+    "technical": "Input impedance determines loading of the measured or connected source and may include both resistance and capacitance.",
+    "aliases": [],
+    "weeks": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɪnpʊt ɪmpidʌns/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "input-impedance"
+  },
+  {
     "term": "inrush current",
     "category": "Power Electronics",
     "definition": "A short burst of high current that can occur when equipment is first energized.",
@@ -2700,6 +5787,121 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "inrush-current"
+  },
+  {
+    "term": "insertion loss",
+    "category": "RF & Communications",
+    "definition": "The reduction in signal power caused by inserting a component or network into a path.",
+    "technical": "Insertion loss is the logarithmic ratio comparing delivered power before and after the device/network is inserted, normally expressed in dB.",
+    "aliases": [],
+    "weeks": [
+      19
+    ],
+    "source": "fcc",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɪnsɝʃʌn lɔs/",
+    "sourceDetail": {
+      "name": "FCC — Radio Spectrum and RF Terminology",
+      "url": "https://www.fcc.gov/engineering-technology/policy-and-rules-division/general/radio-spectrum-allocation",
+      "note": "U.S. communications regulator reference for radio spectrum terminology."
+    },
+    "slug": "insertion-loss"
+  },
+  {
+    "term": "instrument",
+    "category": "Test & Troubleshooting",
+    "definition": "A device used to measure, generate, observe, or analyze physical or electrical quantities.",
+    "technical": "A test/measurement instrument has defined functions, ranges, accuracy, bandwidth, input/output characteristics, calibration state, and safety ratings.",
+    "aliases": [],
+    "weeks": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      9
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɪnstɹʌmʌnt/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "instrument"
+  },
+  {
+    "term": "insulator",
+    "category": "Foundations & Units",
+    "definition": "A material that strongly resists the movement of electric charge.",
+    "technical": "An electrical insulator has very low conductivity and is used to inhibit current between conductive parts.",
+    "aliases": [],
+    "weeks": [
+      1
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɪnsʌleɪtɝ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "insulator"
+  },
+  {
+    "term": "interference",
+    "category": "RF & Communications",
+    "definition": "Unwanted energy or signals that disturb desired communication or measurement.",
+    "technical": "Electromagnetic interference can be conducted or radiated and can degrade signal integrity, sensitivity, or regulatory compliance.",
+    "aliases": [],
+    "weeks": [
+      18,
+      19,
+      20
+    ],
+    "source": "fcc",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɪntɝfɪɹʌns/",
+    "sourceDetail": {
+      "name": "FCC — Radio Spectrum and RF Terminology",
+      "url": "https://www.fcc.gov/engineering-technology/policy-and-rules-division/general/radio-spectrum-allocation",
+      "note": "U.S. communications regulator reference for radio spectrum terminology."
+    },
+    "slug": "interference"
+  },
+  {
+    "term": "intermittent fault",
+    "category": "Test & Troubleshooting",
+    "definition": "A fault that appears and disappears rather than remaining continuously present.",
+    "technical": "Intermittent faults can depend on temperature, vibration, timing, contact condition, noise, or marginal operating conditions and require evidence captured near the event.",
+    "aliases": [],
+    "weeks": [
+      21,
+      27
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɪntɝmɪtʌnt fɔlt/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "intermittent-fault"
   },
   {
     "term": "interrupt",
@@ -2778,6 +5980,50 @@ window.ALFRED_GLOSSARY = [
     "slug": "i-c"
   },
   {
+    "term": "JFET",
+    "category": "Semiconductors",
+    "definition": "A junction field-effect transistor controlled by a reverse-biased gate junction.",
+    "technical": "A JFET uses an electric field from a PN-junction gate to vary channel conductivity and normally draws very little gate current.",
+    "aliases": [
+      "junction field-effect transistor"
+    ],
+    "weeks": [
+      7
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/JFET/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "jfet"
+  },
+  {
+    "term": "joule",
+    "category": "Foundations & Units",
+    "definition": "The SI unit used to measure energy or work.",
+    "technical": "One joule is one newton-metre; electrically, one volt across one coulomb corresponds to one joule of energy transfer.",
+    "aliases": [],
+    "weeks": [
+      1
+    ],
+    "source": "nist_si",
+    "notation": "J",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/dʒul/",
+    "sourceDetail": {
+      "name": "NIST — SI Units: Electric Current and Electrical Derived Units",
+      "url": "https://www.nist.gov/pml/owm/si-units-electric-current",
+      "note": "U.S. national metrology reference for SI electrical quantities and units."
+    },
+    "slug": "joule"
+  },
+  {
     "term": "JSON",
     "category": "Software & Automation",
     "definition": "A structured text format for representing objects, arrays, numbers, strings, booleans, and null values.",
@@ -2826,6 +6072,52 @@ window.ALFRED_GLOSSARY = [
     "slug": "jtag"
   },
   {
+    "term": "junction",
+    "category": "Circuit Analysis",
+    "definition": "A point where conductors, device regions, or circuit paths meet.",
+    "technical": "In circuit work a junction is a connection point between multiple conductive paths; in semiconductor work it can mean the interface between differently doped regions.",
+    "aliases": [],
+    "weeks": [
+      2,
+      7,
+      8,
+      13,
+      19
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/dʒʌŋkʃʌn/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "junction"
+  },
+  {
+    "term": "junction temperature",
+    "category": "Power Electronics",
+    "definition": "The temperature of the active semiconductor junction inside a device.",
+    "technical": "Junction temperature Tj is estimated from ambient or case temperature, dissipated power, and the applicable thermal resistance/impedance network.",
+    "aliases": [],
+    "weeks": [
+      8
+    ],
+    "source": "iec",
+    "notation": "T_J",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/dʒʌŋkʃʌn tɛmpɹʌtʃɝ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "junction-temperature"
+  },
+  {
     "term": "KCL",
     "category": "Circuit Analysis",
     "definition": "The rule that current flowing into a node must balance current flowing out.",
@@ -2849,6 +6141,79 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "kcl"
+  },
+  {
+    "term": "kilo",
+    "category": "Foundations & Units",
+    "definition": "The SI prefix meaning one thousand times the base unit.",
+    "technical": "kilo, symbol k, represents a factor of 10³.",
+    "aliases": [],
+    "weeks": [
+      1
+    ],
+    "source": "nist_si",
+    "notation": "k = 10³",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/kɪloʊ/",
+    "sourceDetail": {
+      "name": "NIST — SI Units: Electric Current and Electrical Derived Units",
+      "url": "https://www.nist.gov/pml/owm/si-units-electric-current",
+      "note": "U.S. national metrology reference for SI electrical quantities and units."
+    },
+    "slug": "kilo"
+  },
+  {
+    "term": "Kirchhoff’s laws",
+    "category": "Circuit Analysis",
+    "definition": "Two basic circuit laws relating currents at nodes and voltages around loops.",
+    "technical": "Kirchhoff’s Current Law follows charge conservation at a node, while Kirchhoff’s Voltage Law follows conservation of energy around a closed loop.",
+    "aliases": [
+      "Kirchhoff laws",
+      "Kirchhoffs laws"
+    ],
+    "weeks": [
+      2
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/kɝkhɔf ɛs lɔz/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "kirchhoffs-laws"
+  },
+  {
+    "term": "known-good",
+    "category": "Test & Troubleshooting",
+    "definition": "A component, signal, configuration, or unit already verified to operate correctly.",
+    "technical": "A known-good reference is used for substitution or comparison to separate DUT behavior from setup, tool, or configuration problems.",
+    "aliases": [],
+    "weeks": [
+      5,
+      9,
+      12,
+      13,
+      14,
+      16,
+      18,
+      19
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/noʊn ɡʊd/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "known-good"
   },
   {
     "term": "KVL",
@@ -2944,6 +6309,29 @@ window.ALFRED_GLOSSARY = [
     "slug": "ldo"
   },
   {
+    "term": "LDR",
+    "category": "Components",
+    "definition": "A light-dependent resistor whose resistance changes with illumination.",
+    "technical": "An LDR, or photoresistor, is a photoconductive device whose resistance generally decreases as incident light increases.",
+    "aliases": [
+      "light-dependent resistor"
+    ],
+    "weeks": [
+      19
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/LDR/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "ldr"
+  },
+  {
     "term": "LED",
     "category": "Semiconductors",
     "definition": "A diode that emits light when current flows in the forward direction.",
@@ -2970,6 +6358,73 @@ window.ALFRED_GLOSSARY = [
     "slug": "led"
   },
   {
+    "term": "LIN bus",
+    "category": "Foundations & Units",
+    "definition": "A low-cost single-wire serial network used for simple distributed embedded nodes, especially in vehicles.",
+    "technical": "Local Interconnect Network is a master-scheduled serial bus with defined frame timing, identifiers, checksums, and a single-wire physical layer.",
+    "aliases": [
+      "LIN",
+      "Local Interconnect Network"
+    ],
+    "weeks": [
+      1,
+      3
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/LIN bus/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "lin-bus"
+  },
+  {
+    "term": "line regulation",
+    "category": "Power Electronics",
+    "definition": "How much a regulated output changes when input voltage changes.",
+    "technical": "Line regulation specifies output-voltage variation versus input-voltage variation under stated load and temperature conditions.",
+    "aliases": [],
+    "weeks": [
+      9
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/laɪn ɹɛɡjʌleɪʃʌn/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "line-regulation"
+  },
+  {
+    "term": "linear region",
+    "category": "Semiconductors",
+    "definition": "An operating region where a device behaves approximately linearly for the intended use.",
+    "technical": "For MOSFET terminology, linear or triode operation occurs when the channel behaves resistively; datasheet wording should be checked because “linear region” can also describe analog operation more broadly.",
+    "aliases": [],
+    "weeks": [
+      8
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/lɪniɝ ɹidʒʌn/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "linear-region"
+  },
+  {
     "term": "linear regulator",
     "category": "Power Electronics",
     "definition": "A regulator that controls output voltage by operating a pass device in its linear region.",
@@ -2991,6 +6446,70 @@ window.ALFRED_GLOSSARY = [
     "slug": "linear-regulator"
   },
   {
+    "term": "linker",
+    "category": "Embedded Systems",
+    "definition": "A build tool that combines compiled code and data into an executable image.",
+    "technical": "The linker resolves symbols, places sections according to a linker script or memory map, and emits the final program image.",
+    "aliases": [],
+    "weeks": [
+      14
+    ],
+    "source": "arm",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/lɪŋkɝ/",
+    "sourceDetail": {
+      "name": "Arm Developer Documentation",
+      "url": "https://developer.arm.com/documentation",
+      "note": "Processor architecture, register, exception, debug, and embedded-system terminology."
+    },
+    "slug": "linker"
+  },
+  {
+    "term": "load regulation",
+    "category": "Power Electronics",
+    "definition": "How much a regulated output changes as load current changes.",
+    "technical": "Load regulation specifies output-voltage variation between stated load conditions with other conditions held within the specification.",
+    "aliases": [],
+    "weeks": [
+      9
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/loʊd ɹɛɡjʌleɪʃʌn/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "load-regulation"
+  },
+  {
+    "term": "load resistance",
+    "category": "Circuit Analysis",
+    "definition": "The effective resistance presented by the circuit or device receiving power or signal energy.",
+    "technical": "Load resistance is the resistive component of the impedance connected to a source or driving network.",
+    "aliases": [],
+    "weeks": [
+      4,
+      6
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/loʊd ɹɪzɪstʌns/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "load-resistance"
+  },
+  {
     "term": "loading effect",
     "category": "Instruments & Measurement",
     "definition": "A change in the circuit being measured caused by the measuring instrument itself.",
@@ -3010,6 +6529,80 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "loading-effect"
+  },
+  {
+    "term": "logging",
+    "category": "Software & Automation",
+    "definition": "Recording events, measurements, status, or diagnostic information during program execution or testing.",
+    "technical": "Technical logging captures timestamped, structured evidence that supports debugging, traceability, trend analysis, and test reproducibility.",
+    "aliases": [],
+    "weeks": [
+      1,
+      3,
+      13,
+      14,
+      17,
+      25,
+      26,
+      27
+    ],
+    "source": "python",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/lɔɡɪŋ/",
+    "sourceDetail": {
+      "name": "Python 3 Documentation",
+      "url": "https://docs.python.org/3/",
+      "note": "Language-authoritative Python terminology."
+    },
+    "slug": "logging"
+  },
+  {
+    "term": "logic 0",
+    "category": "Digital Logic",
+    "definition": "The binary LOW state represented by a voltage within the device’s valid low-level range.",
+    "technical": "Logic 0 is a symbolic state; the acceptable electrical voltage range is defined by input/output low-level specifications such as VIL and VOL.",
+    "aliases": [
+      "LOW state"
+    ],
+    "weeks": [
+      11
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/lɑdʒɪk 0/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "logic-0"
+  },
+  {
+    "term": "logic 1",
+    "category": "Digital Logic",
+    "definition": "The binary HIGH state represented by a voltage within the device’s valid high-level range.",
+    "technical": "Logic 1 is a symbolic state; the acceptable electrical voltage range is defined by specifications such as VIH and VOH.",
+    "aliases": [
+      "HIGH state"
+    ],
+    "weeks": [
+      11
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/lɑdʒɪk 1/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "logic-1"
   },
   {
     "term": "logic analyzer",
@@ -3036,6 +6629,28 @@ window.ALFRED_GLOSSARY = [
     "slug": "logic-analyzer"
   },
   {
+    "term": "logic family",
+    "category": "Digital Logic",
+    "definition": "A group of digital devices built with compatible circuit technology and electrical conventions.",
+    "technical": "Logic families such as CMOS or TTL define supply ranges, thresholds, drive characteristics, speed, and power behavior.",
+    "aliases": [],
+    "weeks": [
+      3,
+      11
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/lɑdʒɪk fæmʌli/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "logic-family"
+  },
+  {
     "term": "logic gate",
     "category": "Digital Logic",
     "definition": "A circuit that performs a basic Boolean operation on one or more binary inputs.",
@@ -3055,6 +6670,36 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "logic-gate"
+  },
+  {
+    "term": "logic HIGH",
+    "category": "Foundations & Units",
+    "definition": "The digital HIGH state represented by a voltage within a device’s valid high-level range.",
+    "technical": "Logic HIGH corresponds to a valid logic-1 electrical level defined by output-high and input-high specifications, not necessarily exactly the supply voltage.",
+    "aliases": [
+      "HIGH"
+    ],
+    "weeks": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/lɑdʒɪk haɪ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "logic-high"
   },
   {
     "term": "logic level",
@@ -3078,6 +6723,36 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "logic-level"
+  },
+  {
+    "term": "logic LOW",
+    "category": "Foundations & Units",
+    "definition": "The digital LOW state represented by a voltage within a device’s valid low-level range.",
+    "technical": "Logic LOW corresponds to a valid logic-0 electrical level defined by output-low and input-low specifications, not necessarily exactly 0 V.",
+    "aliases": [
+      "LOW"
+    ],
+    "weeks": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/lɑdʒɪk loʊ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "logic-low"
   },
   {
     "term": "logic threshold",
@@ -3155,6 +6830,161 @@ window.ALFRED_GLOSSARY = [
     "slug": "low-pass-filter"
   },
   {
+    "term": "machine code",
+    "category": "Embedded Systems",
+    "definition": "Binary instruction data that a processor executes directly.",
+    "technical": "Machine code encodes instructions, operands, and addressing information according to a processor instruction-set architecture.",
+    "aliases": [],
+    "weeks": [
+      16,
+      15
+    ],
+    "source": "arm",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/mʌʃin koʊd/",
+    "sourceDetail": {
+      "name": "Arm Developer Documentation",
+      "url": "https://developer.arm.com/documentation",
+      "note": "Processor architecture, register, exception, debug, and embedded-system terminology."
+    },
+    "slug": "machine-code"
+  },
+  {
+    "term": "magnetic core",
+    "category": "Components",
+    "definition": "A magnetic material used to concentrate and guide magnetic flux in inductors and transformers.",
+    "technical": "A magnetic core provides a high-permeability flux path and is characterized by permeability, saturation, loss, geometry, and frequency behavior.",
+    "aliases": [
+      "core"
+    ],
+    "weeks": [
+      2,
+      4,
+      7,
+      8,
+      9,
+      11,
+      14,
+      15
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/mæɡnɛtɪk kɔɹ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "magnetic-core"
+  },
+  {
+    "term": "magnetic field",
+    "category": "Foundations & Units",
+    "definition": "A field associated with magnets, moving charge, and electric current.",
+    "technical": "Magnetic flux density describes magnetic field effects on moving charge and current-carrying conductors and is measured in teslas.",
+    "aliases": [],
+    "weeks": [
+      2,
+      4,
+      7,
+      19
+    ],
+    "source": "iec",
+    "notation": "B",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/mæɡnɛtɪk fild/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "magnetic-field"
+  },
+  {
+    "term": "Matplotlib",
+    "category": "Software & Automation",
+    "definition": "A Python plotting library commonly used to visualize measurement and test data.",
+    "technical": "Matplotlib provides Python APIs for creating plots, figures, axes, labels, annotations, and exported graphics from numerical or tabular data.",
+    "aliases": [],
+    "weeks": [
+      27
+    ],
+    "source": "python",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/matplotlib/",
+    "sourceDetail": {
+      "name": "Python 3 Documentation",
+      "url": "https://docs.python.org/3/",
+      "note": "Language-authoritative Python terminology."
+    },
+    "slug": "matplotlib"
+  },
+  {
+    "term": "measurement",
+    "category": "Instruments & Measurement",
+    "definition": "The process of experimentally obtaining one or more quantity values that can reasonably be attributed to a quantity.",
+    "technical": "Measurement compares an unknown quantity with a reference through a defined method, instrument chain, conditions, and uncertainty contribution.",
+    "aliases": [],
+    "weeks": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/mɛʒɝmʌnt/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "measurement"
+  },
+  {
+    "term": "measurement range",
+    "category": "Instruments & Measurement",
+    "definition": "The interval of input values over which an instrument is intended to measure within stated specifications.",
+    "technical": "A measurement range defines lower/upper limits and associated resolution, accuracy, overload, and autoranging behavior for a selected function.",
+    "aliases": [
+      "range"
+    ],
+    "weeks": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      9,
+      10
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/mɛʒɝmʌnt ɹeɪndʒ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "measurement-range"
+  },
+  {
     "term": "measurement uncertainty",
     "category": "Instruments & Measurement",
     "definition": "A quantified statement of doubt or spread associated with a measurement result.",
@@ -3180,6 +7010,74 @@ window.ALFRED_GLOSSARY = [
     "slug": "measurement-uncertainty"
   },
   {
+    "term": "mega",
+    "category": "Foundations & Units",
+    "definition": "The SI prefix meaning one million times the base unit.",
+    "technical": "mega, symbol M, represents a factor of 10⁶.",
+    "aliases": [],
+    "weeks": [
+      1,
+      4
+    ],
+    "source": "nist_si",
+    "notation": "M = 10⁶",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/mɛɡʌ/",
+    "sourceDetail": {
+      "name": "NIST — SI Units: Electric Current and Electrical Derived Units",
+      "url": "https://www.nist.gov/pml/owm/si-units-electric-current",
+      "note": "U.S. national metrology reference for SI electrical quantities and units."
+    },
+    "slug": "mega"
+  },
+  {
+    "term": "memory map",
+    "category": "Embedded Systems",
+    "definition": "A layout showing which address ranges correspond to memory and hardware resources.",
+    "technical": "A memory map assigns address ranges to flash, RAM, peripherals, system control blocks, and other resources in a processor address space.",
+    "aliases": [],
+    "weeks": [
+      16,
+      26
+    ],
+    "source": "arm",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/mɛmɝi mæp/",
+    "sourceDetail": {
+      "name": "Arm Developer Documentation",
+      "url": "https://developer.arm.com/documentation",
+      "note": "Processor architecture, register, exception, debug, and embedded-system terminology."
+    },
+    "slug": "memory-map"
+  },
+  {
+    "term": "memory-mapped I/O",
+    "category": "Embedded Systems",
+    "definition": "A method where peripheral registers are accessed using normal memory addresses.",
+    "technical": "Memory-mapped I/O places device registers in the processor address space so load/store instructions can read or write hardware.",
+    "aliases": [
+      "MMIO"
+    ],
+    "weeks": [
+      16,
+      15
+    ],
+    "source": "arm",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/mɛmɝi mæpt aɪ oʊ/",
+    "sourceDetail": {
+      "name": "Arm Developer Documentation",
+      "url": "https://developer.arm.com/documentation",
+      "note": "Processor architecture, register, exception, debug, and embedded-system terminology."
+    },
+    "slug": "memory-mapped-i-o"
+  },
+  {
     "term": "mesh",
     "category": "Circuit Analysis",
     "definition": "A loop in a planar circuit that contains no smaller loop inside it.",
@@ -3199,6 +7097,28 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "mesh"
+  },
+  {
+    "term": "micro",
+    "category": "Foundations & Units",
+    "definition": "The SI prefix meaning one millionth of the base unit.",
+    "technical": "micro, symbol µ, represents a factor of 10⁻⁶.",
+    "aliases": [],
+    "weeks": [
+      1,
+      4
+    ],
+    "source": "nist_si",
+    "notation": "µ = 10⁻⁶",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/maɪkɹoʊ/",
+    "sourceDetail": {
+      "name": "NIST — SI Units: Electric Current and Electrical Derived Units",
+      "url": "https://www.nist.gov/pml/owm/si-units-electric-current",
+      "note": "U.S. national metrology reference for SI electrical quantities and units."
+    },
+    "slug": "micro"
   },
   {
     "term": "microcontroller",
@@ -3228,6 +7148,72 @@ window.ALFRED_GLOSSARY = [
       "note": "Vendor-authoritative STM32 microcontroller and peripheral documentation."
     },
     "slug": "microcontroller"
+  },
+  {
+    "term": "microphone",
+    "category": "Components",
+    "definition": "A transducer that converts sound pressure into an electrical signal.",
+    "technical": "A microphone converts acoustic energy into an electrical representation using a transduction method such as dynamic, condenser, or MEMS sensing.",
+    "aliases": [],
+    "weeks": [
+      10,
+      19
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/maɪkɹʌfoʊn/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "microphone"
+  },
+  {
+    "term": "microprocessor",
+    "category": "Embedded Systems",
+    "definition": "A programmable processor that executes instructions and typically relies on external memory and peripherals.",
+    "technical": "A microprocessor integrates a CPU datapath and control logic; unlike a typical microcontroller, many supporting memories and peripherals may reside off-chip.",
+    "aliases": [],
+    "weeks": [
+      14,
+      15
+    ],
+    "source": "arm",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/maɪkɹoʊpɹɑsɛsɝ/",
+    "sourceDetail": {
+      "name": "Arm Developer Documentation",
+      "url": "https://developer.arm.com/documentation",
+      "note": "Processor architecture, register, exception, debug, and embedded-system terminology."
+    },
+    "slug": "microprocessor"
+  },
+  {
+    "term": "milli",
+    "category": "Foundations & Units",
+    "definition": "The SI prefix meaning one thousandth of the base unit.",
+    "technical": "milli, symbol m, represents a factor of 10⁻³.",
+    "aliases": [],
+    "weeks": [
+      1,
+      4
+    ],
+    "source": "nist_si",
+    "notation": "m = 10⁻³",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/mɪli/",
+    "sourceDetail": {
+      "name": "NIST — SI Units: Electric Current and Electrical Derived Units",
+      "url": "https://www.nist.gov/pml/owm/si-units-electric-current",
+      "note": "U.S. national metrology reference for SI electrical quantities and units."
+    },
+    "slug": "milli"
   },
   {
     "term": "MISO",
@@ -3444,6 +7430,49 @@ window.ALFRED_GLOSSARY = [
     "slug": "nand-gate"
   },
   {
+    "term": "nano",
+    "category": "Foundations & Units",
+    "definition": "The SI prefix meaning one billionth of the base unit.",
+    "technical": "nano, symbol n, represents a factor of 10⁻⁹.",
+    "aliases": [],
+    "weeks": [
+      1,
+      4
+    ],
+    "source": "nist_si",
+    "notation": "n = 10⁻⁹",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/nɑnoʊ/",
+    "sourceDetail": {
+      "name": "NIST — SI Units: Electric Current and Electrical Derived Units",
+      "url": "https://www.nist.gov/pml/owm/si-units-electric-current",
+      "note": "U.S. national metrology reference for SI electrical quantities and units."
+    },
+    "slug": "nano"
+  },
+  {
+    "term": "negative charge",
+    "category": "Foundations & Units",
+    "definition": "Electric charge having the negative sign convention.",
+    "technical": "Negative charge has the same sign as the electron’s charge −e.",
+    "aliases": [],
+    "weeks": [
+      1
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/nɛɡʌtɪv tʃɑɹdʒ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "negative-charge"
+  },
+  {
     "term": "netlist",
     "category": "PCB & Assembly",
     "definition": "A machine-readable description of which component pins are electrically connected together.",
@@ -3464,6 +7493,51 @@ window.ALFRED_GLOSSARY = [
       "note": "Industry standards for PCB, soldering, rework, and cable/harness workmanship."
     },
     "slug": "netlist"
+  },
+  {
+    "term": "neutron",
+    "category": "Foundations & Units",
+    "definition": "An electrically neutral particle found in an atomic nucleus.",
+    "technical": "A neutron has approximately the mass of a proton but carries no net electric charge; it contributes to atomic mass and nuclear structure.",
+    "aliases": [
+      "neutrons"
+    ],
+    "weeks": [
+      1,
+      2
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/nutɹɑn/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "neutron"
+  },
+  {
+    "term": "nibble",
+    "category": "Digital Logic",
+    "definition": "A group of four bits.",
+    "technical": "A nibble is a 4-bit binary quantity and maps exactly to one hexadecimal digit.",
+    "aliases": [],
+    "weeks": [
+      4
+    ],
+    "source": "iec",
+    "notation": "4 bits",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/nɪbʌl/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "nibble"
   },
   {
     "term": "node",
@@ -3487,6 +7561,55 @@ window.ALFRED_GLOSSARY = [
     "slug": "node"
   },
   {
+    "term": "noise",
+    "category": "AC & Signals",
+    "definition": "Unwanted variation that interferes with a desired signal or measurement.",
+    "technical": "Electrical noise is an undesired random or deterministic disturbance superimposed on a signal or measurement.",
+    "aliases": [],
+    "weeks": [
+      2,
+      3,
+      4,
+      5,
+      7,
+      8,
+      9,
+      10
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/nɔɪz/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "noise"
+  },
+  {
+    "term": "noise floor",
+    "category": "RF & Communications",
+    "definition": "The background signal level produced by noise in a measurement or communication system.",
+    "technical": "Noise floor is the baseline spectral or integrated noise level against which weak signals must be distinguished.",
+    "aliases": [],
+    "weeks": [
+      20
+    ],
+    "source": "fcc",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/nɔɪz flɔɹ/",
+    "sourceDetail": {
+      "name": "FCC — Radio Spectrum and RF Terminology",
+      "url": "https://www.fcc.gov/engineering-technology/policy-and-rules-division/general/radio-spectrum-allocation",
+      "note": "U.S. communications regulator reference for radio spectrum terminology."
+    },
+    "slug": "noise-floor"
+  },
+  {
     "term": "noise margin",
     "category": "Digital Logic",
     "definition": "The voltage cushion between guaranteed output levels and required input thresholds.",
@@ -3508,6 +7631,28 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "noise-margin"
+  },
+  {
+    "term": "nonvolatile memory",
+    "category": "Embedded Systems",
+    "definition": "Memory that retains stored data when power is removed.",
+    "technical": "Nonvolatile memory technologies such as flash or EEPROM preserve information without continuous power.",
+    "aliases": [],
+    "weeks": [
+      14,
+      15
+    ],
+    "source": "arm",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/nɑnvɑlʌtʌl mɛmɝi/",
+    "sourceDetail": {
+      "name": "Arm Developer Documentation",
+      "url": "https://developer.arm.com/documentation",
+      "note": "Processor architecture, register, exception, debug, and embedded-system terminology."
+    },
+    "slug": "nonvolatile-memory"
   },
   {
     "term": "NOR gate",
@@ -3601,6 +7746,27 @@ window.ALFRED_GLOSSARY = [
     "slug": "ohm"
   },
   {
+    "term": "ohmmeter",
+    "category": "Instruments & Measurement",
+    "definition": "An instrument or meter function used to measure resistance.",
+    "technical": "An ohmmeter applies an internal test stimulus and infers resistance from the resulting voltage/current response; the circuit should normally be de-energized.",
+    "aliases": [],
+    "weeks": [
+      24
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ohmmeter/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "ohmmeter"
+  },
+  {
     "term": "Ohm’s law",
     "category": "Circuit Analysis",
     "definition": "The relationship between voltage, current, and resistance in an ohmic circuit.",
@@ -3672,6 +7838,102 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "open-circuit"
+  },
+  {
+    "term": "open-circuit voltage",
+    "category": "Circuit Analysis",
+    "definition": "The voltage measured across terminals when no external load current is drawn.",
+    "technical": "Open-circuit voltage is the terminal potential difference under the condition of essentially zero externally delivered current.",
+    "aliases": [],
+    "weeks": [
+      2,
+      6
+    ],
+    "source": "iec",
+    "notation": "V_OC",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/oʊpʌn sɝkʌt voʊltʌdʒ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "open-circuit-voltage"
+  },
+  {
+    "term": "open-collector",
+    "category": "Digital Logic",
+    "definition": "A bipolar output structure that can pull a line low but requires a pull-up for a high level.",
+    "technical": "An open-collector output exposes a transistor collector so the line is driven low when conducting and otherwise floats toward the pull-up voltage.",
+    "aliases": [
+      "open collector"
+    ],
+    "weeks": [
+      11,
+      18
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/oʊpʌn kʌlɛktɝ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "open-collector"
+  },
+  {
+    "term": "open-drain",
+    "category": "Digital Logic",
+    "definition": "An output structure that can actively pull a line low but relies on an external or internal pull-up to go high.",
+    "technical": "An open-drain MOS output disconnects its pull-down transistor in the released state, allowing multiple devices to share a wired line.",
+    "aliases": [
+      "open drain"
+    ],
+    "weeks": [
+      11,
+      13,
+      16,
+      18,
+      21,
+      25,
+      30
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/oʊpʌn dɹeɪn/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "open-drain"
+  },
+  {
+    "term": "open-drain output",
+    "category": "Interfaces & Protocols",
+    "definition": "An output that actively pulls a line low and otherwise releases it.",
+    "technical": "Open-drain outputs require a pull-up for the high state and allow multiple devices to share a line without driving opposing logic levels.",
+    "aliases": [],
+    "weeks": [
+      13
+    ],
+    "source": "nxp_i2c",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/oʊpʌn dɹeɪn aʊtpʊt/",
+    "sourceDetail": {
+      "name": "NXP — UM10204 I²C-bus Specification and User Manual",
+      "url": "https://www.nxp.com/docs/en/user-guide/UM10204.pdf",
+      "note": "Original I²C bus specification maintained by NXP."
+    },
+    "slug": "open-drain-output"
   },
   {
     "term": "optocoupler",
@@ -3772,6 +8034,72 @@ window.ALFRED_GLOSSARY = [
     "slug": "oscilloscope"
   },
   {
+    "term": "oscilloscope probe",
+    "category": "Instruments & Measurement",
+    "definition": "A probe designed to couple a circuit signal into an oscilloscope input.",
+    "technical": "An oscilloscope probe has defined attenuation, bandwidth, input resistance, and input capacitance that affect measurement loading and signal fidelity.",
+    "aliases": [],
+    "weeks": [
+      3
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɔsɪlʌskoʊp pɹoʊb/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "oscilloscope-probe"
+  },
+  {
+    "term": "overcurrent protection",
+    "category": "Power Electronics",
+    "definition": "Protection that interrupts or limits current when it exceeds an allowed value.",
+    "technical": "Overcurrent protection uses devices or control circuits such as fuses, breakers, current-limiters, or electronic shutdown to reduce damage from overloads and faults.",
+    "aliases": [],
+    "weeks": [
+      1,
+      9
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/overcurrent pɹʌtɛkʃʌn/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "overcurrent-protection"
+  },
+  {
+    "term": "packet",
+    "category": "Interfaces & Protocols",
+    "definition": "A formatted unit of data transferred through a communication system.",
+    "technical": "A packet encapsulates payload with protocol headers and sometimes trailers so it can be routed, checked, or interpreted by communicating devices.",
+    "aliases": [],
+    "weeks": [
+      18,
+      20,
+      29
+    ],
+    "source": "st",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/pækʌt/",
+    "sourceDetail": {
+      "name": "STMicroelectronics — STM32 MCU Developer Zone",
+      "url": "https://www.st.com/content/st_com/en/stm32-mcu-developer-zone.html",
+      "note": "Vendor-authoritative STM32 microcontroller and peripheral documentation."
+    },
+    "slug": "packet"
+  },
+  {
     "term": "pad",
     "category": "PCB & Assembly",
     "definition": "A conductive land on a PCB used to connect a component lead, terminal, or via.",
@@ -3815,6 +8143,29 @@ window.ALFRED_GLOSSARY = [
     "slug": "parallel-circuit"
   },
   {
+    "term": "parity",
+    "category": "Interfaces & Protocols",
+    "definition": "A simple error-detection bit derived from the number of one bits in transmitted data.",
+    "technical": "Parity can be configured so the total count of one bits is even or odd; it detects some single-bit errors but is not a robust integrity code.",
+    "aliases": [],
+    "weeks": [
+      11,
+      17,
+      18
+    ],
+    "source": "st",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/pɛɹʌti/",
+    "sourceDetail": {
+      "name": "STMicroelectronics — STM32 MCU Developer Zone",
+      "url": "https://www.st.com/content/st_com/en/stm32-mcu-developer-zone.html",
+      "note": "Vendor-authoritative STM32 microcontroller and peripheral documentation."
+    },
+    "slug": "parity"
+  },
+  {
     "term": "parity bit",
     "category": "Interfaces & Protocols",
     "definition": "An optional serial-data bit used for simple error detection.",
@@ -3834,6 +8185,30 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "parity-bit"
+  },
+  {
+    "term": "parser",
+    "category": "Software & Automation",
+    "definition": "Software that interprets structured text or data according to expected rules.",
+    "technical": "A parser converts an input byte/string representation into validated fields, tokens, values, or syntax structures for further processing.",
+    "aliases": [],
+    "weeks": [
+      13,
+      17,
+      21,
+      24
+    ],
+    "source": "python",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/pɑɹsɝ/",
+    "sourceDetail": {
+      "name": "Python 3 Documentation",
+      "url": "https://docs.python.org/3/",
+      "note": "Language-authoritative Python terminology."
+    },
+    "slug": "parser"
   },
   {
     "term": "pass/fail criterion",
@@ -3916,6 +8291,53 @@ window.ALFRED_GLOSSARY = [
     "slug": "pcba"
   },
   {
+    "term": "peak current",
+    "category": "AC & Signals",
+    "definition": "The maximum instantaneous magnitude reached by a current waveform.",
+    "technical": "Peak current is the greatest absolute instantaneous current value within the specified interval or waveform cycle.",
+    "aliases": [],
+    "weeks": [
+      6
+    ],
+    "source": "iec",
+    "notation": "I_pk",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/pik kɝʌnt/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "peak-current"
+  },
+  {
+    "term": "peak-to-peak",
+    "category": "AC & Signals",
+    "definition": "The difference between a waveform’s maximum positive and minimum negative values.",
+    "technical": "Peak-to-peak value equals maximum minus minimum instantaneous value and is commonly used for voltage or current waveforms.",
+    "aliases": [
+      "peak-to-peak value"
+    ],
+    "weeks": [
+      2,
+      3,
+      4,
+      9
+    ],
+    "source": "iec",
+    "notation": "Vpp / Ipp",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/pik tu pik/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "peak-to-peak"
+  },
+  {
     "term": "period",
     "category": "Foundations & Units",
     "definition": "The time required for one complete cycle of a repeating waveform.",
@@ -3937,6 +8359,27 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "period"
+  },
+  {
+    "term": "periodic signal",
+    "category": "AC & Signals",
+    "definition": "A signal that repeats the same pattern after a fixed time interval.",
+    "technical": "A periodic signal x(t) satisfies x(t+T)=x(t) for period T and has a fundamental frequency f=1/T.",
+    "aliases": [],
+    "weeks": [
+      2
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/pɪɹiɑdɪk sɪɡnʌl/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "periodic-signal"
   },
   {
     "term": "peripheral",
@@ -3988,6 +8431,50 @@ window.ALFRED_GLOSSARY = [
     "slug": "phase"
   },
   {
+    "term": "phase angle",
+    "category": "AC & Signals",
+    "definition": "An angular measure describing a sinusoid’s phase relative to a reference.",
+    "technical": "Phase angle is the argument of a sinusoidal quantity or phasor and expresses relative time displacement at a given frequency.",
+    "aliases": [],
+    "weeks": [
+      2,
+      6
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/feɪz æŋɡʌl/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "phase-angle"
+  },
+  {
+    "term": "phase shift",
+    "category": "AC & Signals",
+    "definition": "A change in the relative timing or phase between signals of the same frequency.",
+    "technical": "Phase shift is the angular displacement between corresponding points of periodic signals and is measured in degrees or radians.",
+    "aliases": [],
+    "weeks": [
+      4,
+      6
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/feɪz ʃɪft/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "phase-shift"
+  },
+  {
     "term": "phasor",
     "category": "AC & Signals",
     "definition": "A complex-number representation that makes sinusoidal steady-state AC calculations easier.",
@@ -4007,6 +8494,117 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "phasor"
+  },
+  {
+    "term": "photodiode",
+    "category": "Semiconductors",
+    "definition": "A diode designed to convert incident light into electrical current.",
+    "technical": "A photodiode generates photocurrent proportional to incident optical power and is commonly operated in reverse bias or photovoltaic mode.",
+    "aliases": [],
+    "weeks": [
+      7,
+      19
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/photodiode/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "photodiode"
+  },
+  {
+    "term": "photoresistor",
+    "category": "Components",
+    "definition": "A resistive light sensor whose resistance varies with illumination.",
+    "technical": "A photoresistor uses photoconductivity so incident photons change carrier concentration and therefore device resistance.",
+    "aliases": [
+      "photocell"
+    ],
+    "weeks": [
+      19
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/photoresistor/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "photoresistor"
+  },
+  {
+    "term": "phototransistor",
+    "category": "Semiconductors",
+    "definition": "A transistor whose conduction is controlled by incident light.",
+    "technical": "A phototransistor uses photo-generated base drive or equivalent optical control to provide current gain compared with a photodiode.",
+    "aliases": [],
+    "weeks": [
+      19,
+      25
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/phototransistor/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "phototransistor"
+  },
+  {
+    "term": "photovoltaic cell",
+    "category": "Semiconductors",
+    "definition": "A semiconductor device that converts light directly into electrical power.",
+    "technical": "A photovoltaic cell operates a photoactive junction so incident photons generate current and terminal voltage without an external bias source.",
+    "aliases": [
+      "solar cell"
+    ],
+    "weeks": [
+      19
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/foʊtʌvoʊlteɪɪk sɛl/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "photovoltaic-cell"
+  },
+  {
+    "term": "pico",
+    "category": "Foundations & Units",
+    "definition": "The SI prefix meaning one trillionth of the base unit.",
+    "technical": "pico, symbol p, represents a factor of 10⁻¹².",
+    "aliases": [],
+    "weeks": [
+      1
+    ],
+    "source": "nist_si",
+    "notation": "p = 10⁻¹²",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/pikoʊ/",
+    "sourceDetail": {
+      "name": "NIST — SI Units: Electric Current and Electrical Derived Units",
+      "url": "https://www.nist.gov/pml/owm/si-units-electric-current",
+      "note": "U.S. national metrology reference for SI electrical quantities and units."
+    },
+    "slug": "pico"
   },
   {
     "term": "pinout",
@@ -4033,6 +8631,145 @@ window.ALFRED_GLOSSARY = [
     "slug": "pinout"
   },
   {
+    "term": "PN junction",
+    "category": "Semiconductors",
+    "definition": "The boundary formed where p-type and n-type semiconductor regions meet.",
+    "technical": "A PN junction develops a depletion region and built-in electric field; its current-voltage behavior changes strongly with applied forward or reverse bias.",
+    "aliases": [
+      "P-N junction"
+    ],
+    "weeks": [
+      8
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/PN junction/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "pn-junction"
+  },
+  {
+    "term": "polarity",
+    "category": "Foundations & Units",
+    "definition": "The identification of opposite electrical directions or terminals, such as positive and negative.",
+    "technical": "Polarity specifies the reference orientation of a voltage, current, component, or connection and determines the sign of measured electrical quantities.",
+    "aliases": [],
+    "weeks": [
+      1,
+      2,
+      3,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/poʊlɛɹʌti/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "polarity"
+  },
+  {
+    "term": "polarization",
+    "category": "RF & Communications",
+    "definition": "The orientation and time behavior of an electromagnetic wave’s electric-field vector.",
+    "technical": "RF polarization can be linear, circular, or elliptical and affects coupling between transmitting and receiving antennas.",
+    "aliases": [],
+    "weeks": [
+      19,
+      20
+    ],
+    "source": "fcc",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/poʊlɝʌzeɪʃʌn/",
+    "sourceDetail": {
+      "name": "FCC — Radio Spectrum and RF Terminology",
+      "url": "https://www.fcc.gov/engineering-technology/policy-and-rules-division/general/radio-spectrum-allocation",
+      "note": "U.S. communications regulator reference for radio spectrum terminology."
+    },
+    "slug": "polarization"
+  },
+  {
+    "term": "polling",
+    "category": "Embedded Systems",
+    "definition": "Repeatedly checking a status condition in software instead of waiting for an interrupt.",
+    "technical": "Polling consumes processor execution time to read a flag, register, or device state until an event is detected.",
+    "aliases": [],
+    "weeks": [
+      15
+    ],
+    "source": "arm",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/poʊlɪŋ/",
+    "sourceDetail": {
+      "name": "Arm Developer Documentation",
+      "url": "https://developer.arm.com/documentation",
+      "note": "Processor architecture, register, exception, debug, and embedded-system terminology."
+    },
+    "slug": "polling"
+  },
+  {
+    "term": "positive charge",
+    "category": "Foundations & Units",
+    "definition": "Electric charge having the positive sign convention.",
+    "technical": "Positive charge has the same sign as the proton’s elementary charge +e.",
+    "aliases": [],
+    "weeks": [
+      1
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/pɑzʌtɪv tʃɑɹdʒ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "positive-charge"
+  },
+  {
+    "term": "potentiometer",
+    "category": "Components",
+    "definition": "A three-terminal variable resistor commonly used as an adjustable voltage divider.",
+    "technical": "A potentiometer has a resistive element and movable wiper that selects a fraction of the voltage applied across the element.",
+    "aliases": [
+      "pot"
+    ],
+    "weeks": [
+      3,
+      7
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/potentiometer/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "potentiometer"
+  },
+  {
     "term": "power",
     "category": "Foundations & Units",
     "definition": "The rate at which electrical energy is transferred or converted.",
@@ -4056,6 +8793,28 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "power"
+  },
+  {
+    "term": "power dissipation",
+    "category": "Power Electronics",
+    "definition": "The rate at which electrical energy is converted to heat in a component or system.",
+    "technical": "Power dissipation is the real power absorbed and converted primarily to heat, often calculated from terminal voltage/current or equivalent loss mechanisms.",
+    "aliases": [],
+    "weeks": [
+      9,
+      24
+    ],
+    "source": "iec",
+    "notation": "P_D",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/paʊɝ dɪsɪpeɪʃʌn/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "power-dissipation"
   },
   {
     "term": "power supply",
@@ -4102,6 +8861,29 @@ window.ALFRED_GLOSSARY = [
       "note": "Vendor-authoritative STM32 microcontroller and peripheral documentation."
     },
     "slug": "power-tree"
+  },
+  {
+    "term": "power-on reset",
+    "category": "Embedded Systems",
+    "definition": "The reset condition generated when a system powers up.",
+    "technical": "Power-on reset holds or resets digital logic until supply conditions are suitable for defined startup behavior.",
+    "aliases": [
+      "POR"
+    ],
+    "weeks": [
+      16
+    ],
+    "source": "arm",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/paʊɝ ɑn ɹisɛt/",
+    "sourceDetail": {
+      "name": "Arm Developer Documentation",
+      "url": "https://developer.arm.com/documentation",
+      "note": "Processor architecture, register, exception, debug, and embedded-system terminology."
+    },
+    "slug": "power-on-reset"
   },
   {
     "term": "PPE",
@@ -4152,6 +8934,27 @@ window.ALFRED_GLOSSARY = [
     "slug": "precision"
   },
   {
+    "term": "prescaler",
+    "category": "Embedded Systems",
+    "definition": "A divider that reduces an input clock frequency before it reaches another block.",
+    "technical": "A prescaler divides a source clock by a programmable or fixed factor and is commonly used with timers, ADCs, and communication peripherals.",
+    "aliases": [],
+    "weeks": [
+      16
+    ],
+    "source": "arm",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/prescaler/",
+    "sourceDetail": {
+      "name": "Arm Developer Documentation",
+      "url": "https://developer.arm.com/documentation",
+      "note": "Processor architecture, register, exception, debug, and embedded-system terminology."
+    },
+    "slug": "prescaler"
+  },
+  {
     "term": "probe",
     "category": "Instruments & Measurement",
     "definition": "The sensing connection used to bring a signal from the circuit to a test instrument.",
@@ -4174,6 +8977,28 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "probe"
+  },
+  {
+    "term": "probe compensation",
+    "category": "Instruments & Measurement",
+    "definition": "Adjustment that matches a passive oscilloscope probe’s capacitance to the oscilloscope input.",
+    "technical": "Probe compensation is set so the probe-input RC divider has flat frequency response, usually checked with a calibration square wave.",
+    "aliases": [],
+    "weeks": [
+      3,
+      27
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/pɹoʊb kɑmpʌnseɪʃʌn/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "probe-compensation"
   },
   {
     "term": "processor",
@@ -4199,6 +9024,125 @@ window.ALFRED_GLOSSARY = [
       "note": "Processor architecture, register, exception, debug, and embedded-system terminology."
     },
     "slug": "processor"
+  },
+  {
+    "term": "propagation delay",
+    "category": "Digital Logic",
+    "definition": "The time between a change at a circuit input and the corresponding valid change at its output.",
+    "technical": "Propagation delay is specified between defined input/output threshold crossings and commonly differs for low-to-high and high-to-low transitions.",
+    "aliases": [],
+    "weeks": [
+      11,
+      20,
+      25
+    ],
+    "source": "iec",
+    "notation": "t_pd",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/pɹɑpʌɡeɪʃʌn dɪleɪ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "propagation-delay"
+  },
+  {
+    "term": "protective earth",
+    "category": "Safety & Workmanship",
+    "definition": "A safety connection to earth intended to keep exposed conductive parts from reaching dangerous touch voltage.",
+    "technical": "Protective earth provides a low-impedance fault-current path so protective devices can operate and exposed accessible metal remains near earth potential.",
+    "aliases": [
+      "PE"
+    ],
+    "weeks": [
+      3,
+      18
+    ],
+    "source": "osha",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/pɹʌtɛktɪv ɝθ/",
+    "sourceDetail": {
+      "name": "OSHA — Electrical Glossary and Electrical Safety Definitions",
+      "url": "https://www.osha.gov/etools/electric-power/glossary-terms",
+      "note": "U.S. occupational electrical-safety terminology."
+    },
+    "slug": "protective-earth"
+  },
+  {
+    "term": "protocol",
+    "category": "Interfaces & Protocols",
+    "definition": "An agreed set of rules for how communicating devices exchange information.",
+    "technical": "A communication protocol defines message/frame format, timing, sequencing, addressing, error handling, and state behavior for interoperable endpoints.",
+    "aliases": [],
+    "weeks": [
+      3,
+      13,
+      14,
+      17,
+      18,
+      19,
+      21,
+      22
+    ],
+    "source": "st",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/pɹoʊtʌkɑl/",
+    "sourceDetail": {
+      "name": "STMicroelectronics — STM32 MCU Developer Zone",
+      "url": "https://www.st.com/content/st_com/en/stm32-mcu-developer-zone.html",
+      "note": "Vendor-authoritative STM32 microcontroller and peripheral documentation."
+    },
+    "slug": "protocol"
+  },
+  {
+    "term": "proton",
+    "category": "Foundations & Units",
+    "definition": "A positively charged particle found in an atomic nucleus.",
+    "technical": "A proton carries charge +e, equal in magnitude and opposite in sign to the electron’s charge.",
+    "aliases": [],
+    "weeks": [
+      2
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/pɹoʊtɑn/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "proton"
+  },
+  {
+    "term": "PSK",
+    "category": "RF & Communications",
+    "definition": "Digital modulation where data changes the phase of a carrier among defined states.",
+    "technical": "Phase-shift keying maps symbols to discrete carrier phases; BPSK and QPSK are common forms.",
+    "aliases": [
+      "phase-shift keying"
+    ],
+    "weeks": [
+      20
+    ],
+    "source": "fcc",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/PSK/",
+    "sourceDetail": {
+      "name": "FCC — Radio Spectrum and RF Terminology",
+      "url": "https://www.fcc.gov/engineering-technology/policy-and-rules-division/general/radio-spectrum-allocation",
+      "note": "U.S. communications regulator reference for radio spectrum terminology."
+    },
+    "slug": "psk"
   },
   {
     "term": "PTH",
@@ -4277,6 +9221,54 @@ window.ALFRED_GLOSSARY = [
     "slug": "pull-up-resistor"
   },
   {
+    "term": "pulse",
+    "category": "AC & Signals",
+    "definition": "A signal excursion of limited duration from one level to another and back.",
+    "technical": "A pulse is characterized by amplitude, width, rise time, fall time, repetition rate, and sometimes duty cycle.",
+    "aliases": [],
+    "weeks": [
+      2,
+      3,
+      4,
+      7,
+      8,
+      9,
+      11
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/pʌls/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "pulse"
+  },
+  {
+    "term": "pushbutton",
+    "category": "Components",
+    "definition": "A manually operated momentary switch activated by pressing a button.",
+    "technical": "A pushbutton changes contact state while actuated and commonly requires debounce handling in digital interfaces.",
+    "aliases": [],
+    "weeks": [
+      11
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/pushbutton/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "pushbutton"
+  },
+  {
     "term": "PWM",
     "category": "Embedded Systems",
     "definition": "A digital pulse technique that controls average power or encodes an analog-like level by changing duty cycle.",
@@ -4350,6 +9342,29 @@ window.ALFRED_GLOSSARY = [
     "slug": "python"
   },
   {
+    "term": "QAM",
+    "category": "RF & Communications",
+    "definition": "Digital modulation that changes both amplitude and phase to represent symbols.",
+    "technical": "Quadrature amplitude modulation maps bit groups to complex I/Q constellation points with defined amplitude and phase.",
+    "aliases": [
+      "quadrature amplitude modulation"
+    ],
+    "weeks": [
+      20
+    ],
+    "source": "fcc",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/QAM/",
+    "sourceDetail": {
+      "name": "FCC — Radio Spectrum and RF Terminology",
+      "url": "https://www.fcc.gov/engineering-technology/policy-and-rules-division/general/radio-spectrum-allocation",
+      "note": "U.S. communications regulator reference for radio spectrum terminology."
+    },
+    "slug": "qam"
+  },
+  {
     "term": "quantization",
     "category": "Embedded Systems",
     "definition": "Mapping a continuously variable or high-resolution value into one of a limited number of discrete levels.",
@@ -4370,6 +9385,28 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "quantization"
+  },
+  {
+    "term": "race condition",
+    "category": "Embedded Systems",
+    "definition": "A condition where system behavior depends on the relative timing or ordering of events.",
+    "technical": "In digital or concurrent systems, a race occurs when multiple state changes or accesses can reach different outcomes depending on timing.",
+    "aliases": [],
+    "weeks": [
+      16,
+      15
+    ],
+    "source": "arm",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɹeɪs kʌndɪʃʌn/",
+    "sourceDetail": {
+      "name": "Arm Developer Documentation",
+      "url": "https://developer.arm.com/documentation",
+      "note": "Processor architecture, register, exception, debug, and embedded-system terminology."
+    },
+    "slug": "race-condition"
   },
   {
     "term": "RAM",
@@ -4396,6 +9433,27 @@ window.ALFRED_GLOSSARY = [
       "note": "NIST technical terminology for computing, firmware, hardware, and related systems."
     },
     "slug": "ram"
+  },
+  {
+    "term": "RC circuit",
+    "category": "AC & Signals",
+    "definition": "A circuit containing resistance and capacitance.",
+    "technical": "An RC network has a first-order time constant τ = RC for its basic charging or discharging response.",
+    "aliases": [],
+    "weeks": [
+      4
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/RC circuit/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "rc-circuit"
   },
   {
     "term": "reactance",
@@ -4493,6 +9551,71 @@ window.ALFRED_GLOSSARY = [
     "slug": "rectifier"
   },
   {
+    "term": "reference ground",
+    "category": "Circuit Analysis",
+    "definition": "The node designated as the voltage reference for circuit analysis or measurement.",
+    "technical": "Reference ground establishes the 0 V potential used for node-voltage definitions and need not be physically connected to earth.",
+    "aliases": [],
+    "weeks": [
+      3
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɹɛfɝʌns ɡɹaʊnd/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "reference-ground"
+  },
+  {
+    "term": "reference node",
+    "category": "Foundations & Units",
+    "definition": "The circuit node chosen as the zero-voltage reference for other voltage measurements.",
+    "technical": "Circuit analysis assigns a reference node an electric potential of 0 V so all node voltages can be expressed relative to it.",
+    "aliases": [],
+    "weeks": [
+      1,
+      2
+    ],
+    "source": "iec",
+    "notation": "0 V",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɹɛfɝʌns noʊd/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "reference-node"
+  },
+  {
+    "term": "reference voltage",
+    "category": "Instruments & Measurement",
+    "definition": "A stable known voltage used as a comparison or conversion reference.",
+    "technical": "A reference voltage provides a defined potential used by converters, regulators, comparators, or measurement systems to establish scale or threshold.",
+    "aliases": [],
+    "weeks": [
+      3,
+      27
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɹɛfɝʌns voʊltʌdʒ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "reference-voltage"
+  },
+  {
     "term": "reflection",
     "category": "RF & Communications",
     "definition": "Signal energy that travels back toward the source because of an impedance discontinuity.",
@@ -4512,6 +9635,27 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "reflection"
+  },
+  {
+    "term": "reflection coefficient",
+    "category": "RF & Communications",
+    "definition": "A measure of how much of a traveling wave is reflected by an impedance discontinuity.",
+    "technical": "Reflection coefficient Γ is the complex ratio of reflected to incident wave amplitude and is related to load and characteristic impedance.",
+    "aliases": [],
+    "weeks": [
+      20
+    ],
+    "source": "fcc",
+    "notation": "Γ",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɹɪflɛkʃʌn koʊʌfɪʃʌnt/",
+    "sourceDetail": {
+      "name": "FCC — Radio Spectrum and RF Terminology",
+      "url": "https://www.fcc.gov/engineering-technology/policy-and-rules-division/general/radio-spectrum-allocation",
+      "note": "U.S. communications regulator reference for radio spectrum terminology."
+    },
+    "slug": "reflection-coefficient"
   },
   {
     "term": "reflow",
@@ -4562,6 +9706,27 @@ window.ALFRED_GLOSSARY = [
     "slug": "register"
   },
   {
+    "term": "regression test",
+    "category": "Test & Troubleshooting",
+    "definition": "A repeated test used to check that a change did not break behavior that previously worked.",
+    "technical": "Regression testing re-executes selected established tests after modifications to detect unintended side effects.",
+    "aliases": [],
+    "weeks": [
+      5
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɹʌɡɹɛʃʌn tɛst/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "regression-test"
+  },
+  {
     "term": "relay",
     "category": "Components",
     "definition": "An electrically controlled switch.",
@@ -4605,6 +9770,30 @@ window.ALFRED_GLOSSARY = [
       "note": "NIST guidance for measurement accuracy, repeatability, reproducibility, calibration, and uncertainty."
     },
     "slug": "repeatability"
+  },
+  {
+    "term": "repeated start",
+    "category": "Interfaces & Protocols",
+    "definition": "An I²C START condition issued without first releasing the bus with a STOP.",
+    "technical": "A repeated START keeps bus control while beginning another address or transfer phase, commonly used for combined write/read transactions.",
+    "aliases": [
+      "repeated START"
+    ],
+    "weeks": [
+      18,
+      17
+    ],
+    "source": "nxp_i2c",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɹɪpitɪd stɑɹt/",
+    "sourceDetail": {
+      "name": "NXP — UM10204 I²C-bus Specification and User Manual",
+      "url": "https://www.nxp.com/docs/en/user-guide/UM10204.pdf",
+      "note": "Original I²C bus specification maintained by NXP."
+    },
+    "slug": "repeated-start"
   },
   {
     "term": "reproducibility",
@@ -4774,6 +9963,50 @@ window.ALFRED_GLOSSARY = [
     "slug": "resonance"
   },
   {
+    "term": "retry",
+    "category": "Software & Automation",
+    "definition": "A controlled repeat attempt after a failed or incomplete operation.",
+    "technical": "Retry logic re-attempts an operation according to a defined policy, often with a limit, delay/backoff, and preservation of the original failure evidence.",
+    "aliases": [],
+    "weeks": [
+      17,
+      26,
+      27
+    ],
+    "source": "python",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɹitɹaɪ/",
+    "sourceDetail": {
+      "name": "Python 3 Documentation",
+      "url": "https://docs.python.org/3/",
+      "note": "Language-authoritative Python terminology."
+    },
+    "slug": "retry"
+  },
+  {
+    "term": "return path",
+    "category": "Circuit Analysis",
+    "definition": "The conductive route that completes a circuit back toward the source or reference.",
+    "technical": "A return path carries the corresponding current needed to satisfy circuit continuity; at high frequency its physical geometry strongly affects impedance and EMI.",
+    "aliases": [],
+    "weeks": [
+      1
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɹɪtɝn pæθ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "return-path"
+  },
+  {
     "term": "reverse bias",
     "category": "Semiconductors",
     "definition": "Applying voltage polarity that discourages normal junction conduction.",
@@ -4793,6 +10026,28 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "reverse-bias"
+  },
+  {
+    "term": "reverse breakdown",
+    "category": "Semiconductors",
+    "definition": "A reverse-bias condition where junction current increases sharply beyond a characteristic voltage.",
+    "technical": "Reverse breakdown occurs when electric field strength causes Zener tunneling or avalanche multiplication, depending on junction structure and voltage.",
+    "aliases": [],
+    "weeks": [
+      7,
+      8
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɹɪvɝs bɹeɪkdaʊn/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "reverse-breakdown"
   },
   {
     "term": "rework",
@@ -4841,6 +10096,82 @@ window.ALFRED_GLOSSARY = [
     "slug": "rf"
   },
   {
+    "term": "RF channel",
+    "category": "Foundations & Units",
+    "definition": "An assigned or selected frequency range used for one communication path.",
+    "technical": "An RF channel occupies a defined portion of spectrum with specified center frequency, bandwidth, spacing, modulation, and regulatory constraints.",
+    "aliases": [
+      "channel"
+    ],
+    "weeks": [
+      3,
+      5,
+      6,
+      7,
+      8,
+      18,
+      19,
+      20
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/RF channel/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "rf-channel"
+  },
+  {
+    "term": "rheostat",
+    "category": "Components",
+    "definition": "A variable resistor normally used with two terminals to control current.",
+    "technical": "A rheostat uses a resistive element and movable contact as an adjustable series resistance.",
+    "aliases": [],
+    "weeks": [
+      3,
+      7
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/rheostat/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "rheostat"
+  },
+  {
+    "term": "ring buffer",
+    "category": "Interfaces & Protocols",
+    "definition": "A fixed-size buffer that wraps around from the end back to the beginning.",
+    "technical": "A ring/circular buffer uses read and write indices modulo the buffer size to support streaming producer-consumer data efficiently.",
+    "aliases": [
+      "circular buffer"
+    ],
+    "weeks": [
+      18,
+      17
+    ],
+    "source": "st",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɹɪŋ bʌfɝ/",
+    "sourceDetail": {
+      "name": "STMicroelectronics — STM32 MCU Developer Zone",
+      "url": "https://www.st.com/content/st_com/en/stm32-mcu-developer-zone.html",
+      "note": "Vendor-authoritative STM32 microcontroller and peripheral documentation."
+    },
+    "slug": "ring-buffer"
+  },
+  {
     "term": "ripple",
     "category": "Power Electronics",
     "definition": "Residual periodic variation that remains on a DC supply after conversion or filtering.",
@@ -4860,6 +10191,125 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "ripple"
+  },
+  {
+    "term": "rise time",
+    "category": "AC & Signals",
+    "definition": "The time a signal takes to transition from a defined low level to a defined high level.",
+    "technical": "Rise time is measured between specified percentages of the transition amplitude, commonly 10% and 90%, unless another convention is stated.",
+    "aliases": [],
+    "weeks": [
+      4,
+      11,
+      18,
+      20,
+      25,
+      30
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɹaɪz taɪm/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "rise-time"
+  },
+  {
+    "term": "rising edge",
+    "category": "Digital Logic",
+    "definition": "A signal transition from a low level to a high level.",
+    "technical": "A rising edge is defined between specified voltage thresholds and has finite rise time in physical hardware.",
+    "aliases": [],
+    "weeks": [
+      11,
+      18
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɹaɪzɪŋ ɛdʒ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "rising-edge"
+  },
+  {
+    "term": "risk",
+    "category": "Safety & Workmanship",
+    "definition": "The combination of the likelihood of harm and the severity of its consequences.",
+    "technical": "Risk assessment evaluates hazards, exposure, probability, and consequence to select appropriate controls.",
+    "aliases": [],
+    "weeks": [
+      1,
+      5,
+      7,
+      9,
+      10,
+      12,
+      13,
+      14
+    ],
+    "source": "osha",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɹɪsk/",
+    "sourceDetail": {
+      "name": "OSHA — Electrical Glossary and Electrical Safety Definitions",
+      "url": "https://www.osha.gov/etools/electric-power/glossary-terms",
+      "note": "U.S. occupational electrical-safety terminology."
+    },
+    "slug": "risk"
+  },
+  {
+    "term": "RL circuit",
+    "category": "AC & Signals",
+    "definition": "A circuit containing resistance and inductance.",
+    "technical": "An RL network has a first-order time constant τ = L/R for its basic current transient.",
+    "aliases": [],
+    "weeks": [
+      4
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/RL circuit/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "rl-circuit"
+  },
+  {
+    "term": "RLC circuit",
+    "category": "AC & Signals",
+    "definition": "A circuit containing resistance, inductance, and capacitance.",
+    "technical": "An RLC network can exhibit second-order transient behavior and resonance determined by its R, L, and C values.",
+    "aliases": [],
+    "weeks": [
+      2,
+      6
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/RLC circuit/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "rlc-circuit"
   },
   {
     "term": "RMS",
@@ -4886,6 +10336,27 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "rms"
+  },
+  {
+    "term": "roll-off",
+    "category": "AC & Signals",
+    "definition": "The rate at which a filter’s response decreases beyond a transition or cutoff region.",
+    "technical": "Filter roll-off is commonly expressed as decibels per decade or decibels per octave.",
+    "aliases": [],
+    "weeks": [
+      10
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɹoʊl ɔf/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "roll-off"
   },
   {
     "term": "ROM",
@@ -4938,6 +10409,30 @@ window.ALFRED_GLOSSARY = [
     "slug": "root-cause"
   },
   {
+    "term": "root-cause analysis",
+    "category": "Test & Troubleshooting",
+    "definition": "A structured process for identifying the underlying cause that produced a problem rather than only correcting its symptom.",
+    "technical": "Root-cause analysis uses evidence and causal reasoning to identify the initiating mechanism or process failure whose correction prevents recurrence.",
+    "aliases": [
+      "RCA"
+    ],
+    "weeks": [
+      27,
+      29
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɹut kɑz ʌnælʌsʌs/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "root-cause-analysis"
+  },
+  {
     "term": "RTC",
     "category": "Embedded Systems",
     "definition": "A low-power hardware clock used to keep calendar/time information across normal processor sleep or reset states.",
@@ -4963,12 +10458,37 @@ window.ALFRED_GLOSSARY = [
     "slug": "rtc"
   },
   {
+    "term": "RTOS",
+    "category": "Embedded Systems",
+    "definition": "Software that schedules tasks with timing behavior suitable for real-time embedded systems.",
+    "technical": "A real-time operating system provides task scheduling, synchronization, timing, and inter-task communication with bounded or predictable timing behavior.",
+    "aliases": [
+      "real-time operating system"
+    ],
+    "weeks": [
+      16,
+      15
+    ],
+    "source": "arm",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/RTOS/",
+    "sourceDetail": {
+      "name": "Arm Developer Documentation",
+      "url": "https://developer.arm.com/documentation",
+      "note": "Processor architecture, register, exception, debug, and embedded-system terminology."
+    },
+    "slug": "rtos"
+  },
+  {
     "term": "RX",
     "category": "Interfaces & Protocols",
     "definition": "The receive signal or data direction of a communication interface.",
     "technical": "RX identifies the node input used to receive serial data or another incoming signal.",
     "aliases": [
-      "receive"
+      "receive signal",
+      "RX line"
     ],
     "weeks": [
       17,
@@ -5058,11 +10578,36 @@ window.ALFRED_GLOSSARY = [
     "slug": "saturation"
   },
   {
+    "term": "scheduler",
+    "category": "Embedded Systems",
+    "definition": "Software that decides which task or thread runs and when.",
+    "technical": "A scheduler selects runnable execution contexts according to a policy such as priority, round-robin, deadlines, or time slicing.",
+    "aliases": [],
+    "weeks": [
+      15
+    ],
+    "source": "arm",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/skɛdʒʊlɝ/",
+    "sourceDetail": {
+      "name": "Arm Developer Documentation",
+      "url": "https://developer.arm.com/documentation",
+      "note": "Processor architecture, register, exception, debug, and embedded-system terminology."
+    },
+    "slug": "scheduler"
+  },
+  {
     "term": "schematic",
     "category": "PCB & Assembly",
     "definition": "A diagram that shows electrical connections and circuit function using standardized symbols.",
     "technical": "A schematic represents logical/electrical connectivity and component relationships without necessarily showing physical placement.",
-    "aliases": [],
+    "aliases": [
+      "schematics",
+      "circuit diagram",
+      "circuit diagrams"
+    ],
     "weeks": [
       2,
       8,
@@ -5082,6 +10627,27 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "schematic"
+  },
+  {
+    "term": "Schottky diode",
+    "category": "Semiconductors",
+    "definition": "A diode formed with a metal-semiconductor junction, known for low forward voltage and fast switching.",
+    "technical": "A Schottky barrier diode uses majority-carrier conduction, typically giving lower forward drop and negligible reverse-recovery storage compared with a PN diode.",
+    "aliases": [],
+    "weeks": [
+      7
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/schottky daɪoʊd/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "schottky-diode"
   },
   {
     "term": "SCL",
@@ -5154,6 +10720,30 @@ window.ALFRED_GLOSSARY = [
     "slug": "scpi"
   },
   {
+    "term": "SCR",
+    "category": "Semiconductors",
+    "definition": "A four-layer thyristor that latches on after being triggered and remains conducting until current falls below its holding level.",
+    "technical": "A silicon-controlled rectifier is a PNPN device with anode, cathode, and gate; a gate pulse initiates regenerative conduction.",
+    "aliases": [
+      "silicon-controlled rectifier"
+    ],
+    "weeks": [
+      7,
+      8
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/SCR/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "scr"
+  },
+  {
     "term": "SDA",
     "category": "Interfaces & Protocols",
     "definition": "The bidirectional serial data line used by I²C.",
@@ -5201,6 +10791,30 @@ window.ALFRED_GLOSSARY = [
     "slug": "sdr"
   },
   {
+    "term": "seconds per division",
+    "category": "Instruments & Measurement",
+    "definition": "The oscilloscope horizontal time represented by one grid division.",
+    "technical": "Seconds/div sets the displayed time scale per horizontal graticule division.",
+    "aliases": [
+      "time per division",
+      "seconds/div"
+    ],
+    "weeks": [
+      3
+    ],
+    "source": "iec",
+    "notation": "s/div",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/sɛkʌndz pɝ dɪvɪʒʌn/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "seconds-per-division"
+  },
+  {
     "term": "semiconductor",
     "category": "Semiconductors",
     "definition": "A material whose electrical conductivity can be controlled between conductor-like and insulator-like behavior.",
@@ -5245,6 +10859,29 @@ window.ALFRED_GLOSSARY = [
     "slug": "sensor"
   },
   {
+    "term": "sequential logic",
+    "category": "Digital Logic",
+    "definition": "Digital logic whose outputs depend on stored state as well as current inputs.",
+    "technical": "Sequential circuits contain memory elements such as latches or flip-flops and evolve according to input conditions and state transitions.",
+    "aliases": [],
+    "weeks": [
+      11,
+      15,
+      26
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/sʌkwɛnʃʌl lɑdʒɪk/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "sequential-logic"
+  },
+  {
     "term": "serial communication",
     "category": "Interfaces & Protocols",
     "definition": "Sending data sequentially over one or a small number of signal lines.",
@@ -5270,6 +10907,49 @@ window.ALFRED_GLOSSARY = [
     "slug": "serial-communication"
   },
   {
+    "term": "serial console",
+    "category": "Software & Automation",
+    "definition": "A text interface used to communicate with an embedded target over a serial connection.",
+    "technical": "A serial console sends and receives character data through a serial port, often for logs, commands, boot messages, and diagnostics.",
+    "aliases": [],
+    "weeks": [
+      27,
+      17
+    ],
+    "source": "python",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/sɪɹiʌl kɑnsoʊl/",
+    "sourceDetail": {
+      "name": "Python 3 Documentation",
+      "url": "https://docs.python.org/3/",
+      "note": "Language-authoritative Python terminology."
+    },
+    "slug": "serial-console"
+  },
+  {
+    "term": "serial port",
+    "category": "Interfaces & Protocols",
+    "definition": "A hardware or logical interface that transfers data serially.",
+    "technical": "A serial port sends information as a timed sequence of bits using an interface/protocol such as UART or USB serial emulation.",
+    "aliases": [],
+    "weeks": [
+      27
+    ],
+    "source": "st",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/sɪɹiʌl pɔɹt/",
+    "sourceDetail": {
+      "name": "STMicroelectronics — STM32 MCU Developer Zone",
+      "url": "https://www.st.com/content/st_com/en/stm32-mcu-developer-zone.html",
+      "note": "Vendor-authoritative STM32 microcontroller and peripheral documentation."
+    },
+    "slug": "serial-port"
+  },
+  {
     "term": "series circuit",
     "category": "Circuit Analysis",
     "definition": "A connection in which the same current must pass through components one after another.",
@@ -5289,6 +10969,50 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "series-circuit"
+  },
+  {
+    "term": "series resistance",
+    "category": "Circuit Analysis",
+    "definition": "Resistance contributed by elements connected in the same current path.",
+    "technical": "For ideal resistors in series, equivalent resistance is the arithmetic sum of the individual resistances.",
+    "aliases": [],
+    "weeks": [
+      3,
+      6
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/sɪɹiz ɹɪzɪstʌns/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "series-resistance"
+  },
+  {
+    "term": "shielding",
+    "category": "RF & Communications",
+    "definition": "Using conductive or magnetic barriers to reduce unwanted electromagnetic coupling.",
+    "technical": "Electromagnetic shielding reflects, absorbs, or redirects fields and currents to reduce emissions or susceptibility.",
+    "aliases": [],
+    "weeks": [
+      18,
+      19
+    ],
+    "source": "fcc",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ʃildɪŋ/",
+    "sourceDetail": {
+      "name": "FCC — Radio Spectrum and RF Terminology",
+      "url": "https://www.fcc.gov/engineering-technology/policy-and-rules-division/general/radio-spectrum-allocation",
+      "note": "U.S. communications regulator reference for radio spectrum terminology."
+    },
+    "slug": "shielding"
   },
   {
     "term": "shift register",
@@ -5337,6 +11061,125 @@ window.ALFRED_GLOSSARY = [
     "slug": "short-circuit"
   },
   {
+    "term": "short fault",
+    "category": "Test & Troubleshooting",
+    "definition": "A fault that creates an unintended low-resistance connection.",
+    "technical": "A short fault connects nodes that should be electrically separate and can alter voltages, currents, logic states, or protection behavior.",
+    "aliases": [],
+    "weeks": [
+      27,
+      29
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ʃɔɹt fɔlt/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "short-fault"
+  },
+  {
+    "term": "short-circuit current",
+    "category": "Circuit Analysis",
+    "definition": "The current that flows when two points are connected by a very low-resistance path.",
+    "technical": "Short-circuit current is limited by source impedance, conductor impedance, protective devices, and other non-ideal circuit impedances.",
+    "aliases": [],
+    "weeks": [
+      1
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ʃɔɹt sɝkʌt kɝʌnt/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "short-circuit-current"
+  },
+  {
+    "term": "SI prefix",
+    "category": "Foundations & Units",
+    "definition": "A prefix that scales an SI unit by a power of ten.",
+    "technical": "SI prefixes such as kilo, milli, micro, and nano denote standardized decimal factors applied to units.",
+    "aliases": [
+      "metric prefix"
+    ],
+    "weeks": [
+      1,
+      4
+    ],
+    "source": "nist_si",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/SI prefix/",
+    "sourceDetail": {
+      "name": "NIST — SI Units: Electric Current and Electrical Derived Units",
+      "url": "https://www.nist.gov/pml/owm/si-units-electric-current",
+      "note": "U.S. national metrology reference for SI electrical quantities and units."
+    },
+    "slug": "si-prefix"
+  },
+  {
+    "term": "SI unit",
+    "category": "Foundations & Units",
+    "definition": "A measurement unit defined by the International System of Units.",
+    "technical": "SI units provide the internationally standardized base and derived units used to express physical quantities such as amperes, volts, ohms, and watts.",
+    "aliases": [
+      "International System of Units"
+    ],
+    "weeks": [
+      1,
+      4
+    ],
+    "source": "nist_si",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/SI unit/",
+    "sourceDetail": {
+      "name": "NIST — SI Units: Electric Current and Electrical Derived Units",
+      "url": "https://www.nist.gov/pml/owm/si-units-electric-current",
+      "note": "U.S. national metrology reference for SI electrical quantities and units."
+    },
+    "slug": "si-unit"
+  },
+  {
+    "term": "signal",
+    "category": "AC & Signals",
+    "definition": "A varying physical or electrical quantity that carries information or represents system behavior.",
+    "technical": "An electrical signal is a voltage, current, or other measurable quantity whose variation conveys information or represents a stimulus/response.",
+    "aliases": [],
+    "weeks": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/sɪɡnʌl/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "signal"
+  },
+  {
     "term": "signal flow",
     "category": "Test & Troubleshooting",
     "definition": "The path a signal takes through functional stages of a system.",
@@ -5383,6 +11226,29 @@ window.ALFRED_GLOSSARY = [
     "slug": "signal-ground"
   },
   {
+    "term": "signal tracing",
+    "category": "Test & Troubleshooting",
+    "definition": "Following a signal through successive circuit stages to find where behavior first becomes incorrect.",
+    "technical": "Signal tracing compares expected and measured waveforms/levels at ordered test points to localize the stage containing a fault.",
+    "aliases": [],
+    "weeks": [
+      11,
+      13,
+      20
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/sɪɡnʌl tɹeɪsɪŋ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "signal-tracing"
+  },
+  {
     "term": "sine wave",
     "category": "AC & Signals",
     "definition": "A smooth periodic waveform described by a sine function.",
@@ -5404,6 +11270,27 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "sine-wave"
+  },
+  {
+    "term": "slew rate",
+    "category": "AC & Signals",
+    "definition": "The maximum rate at which a circuit output can change.",
+    "technical": "Slew rate is the maximum time derivative of output voltage, commonly specified in volts per microsecond for amplifiers.",
+    "aliases": [],
+    "weeks": [
+      10
+    ],
+    "source": "iec",
+    "notation": "V/µs",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/slu ɹeɪt/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "slew-rate"
   },
   {
     "term": "SMD",
@@ -5480,6 +11367,29 @@ window.ALFRED_GLOSSARY = [
     "slug": "smt"
   },
   {
+    "term": "software exception",
+    "category": "Embedded Systems",
+    "definition": "An event that interrupts normal program flow and transfers control to exception-handling logic.",
+    "technical": "A software exception may represent an error, fault, trap, interrupt-like condition, or language/runtime event depending on the architecture and environment.",
+    "aliases": [
+      "exception"
+    ],
+    "weeks": [
+      27
+    ],
+    "source": "arm",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/sɔftwɛɹ ɪksɛpʃʌn/",
+    "sourceDetail": {
+      "name": "Arm Developer Documentation",
+      "url": "https://developer.arm.com/documentation",
+      "note": "Processor architecture, register, exception, debug, and embedded-system terminology."
+    },
+    "slug": "software-exception"
+  },
+  {
     "term": "SOIC",
     "category": "PCB & Assembly",
     "definition": "A common small-outline surface-mount integrated-circuit package.",
@@ -5523,6 +11433,52 @@ window.ALFRED_GLOSSARY = [
       "note": "Industry standards for PCB, soldering, rework, and cable/harness workmanship."
     },
     "slug": "solder"
+  },
+  {
+    "term": "solder bridge",
+    "category": "PCB & Assembly",
+    "definition": "An unintended solder connection between conductors that should remain separate.",
+    "technical": "A solder bridge is an assembly defect that can create an electrical short between adjacent pads, leads, or traces.",
+    "aliases": [],
+    "weeks": [
+      1,
+      2,
+      12
+    ],
+    "source": "ipc",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/sɑdɝ bɹɪdʒ/",
+    "sourceDetail": {
+      "name": "IPC Standards — Electronic Assembly and Printed Board Standards",
+      "url": "https://www.ipc.org/meet-your-standards",
+      "note": "Industry standards for PCB, soldering, rework, and cable/harness workmanship."
+    },
+    "slug": "solder-bridge"
+  },
+  {
+    "term": "solder joint",
+    "category": "PCB & Assembly",
+    "definition": "The metallurgical connection formed by solder between conductive surfaces.",
+    "technical": "A solder joint provides electrical and mechanical connection and is evaluated for wetting, geometry, defects, and workmanship criteria.",
+    "aliases": [],
+    "weeks": [
+      12,
+      21,
+      29
+    ],
+    "source": "ipc",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/sɑdɝ dʒɔɪnt/",
+    "sourceDetail": {
+      "name": "IPC Standards — Electronic Assembly and Printed Board Standards",
+      "url": "https://www.ipc.org/meet-your-standards",
+      "note": "Industry standards for PCB, soldering, rework, and cable/harness workmanship."
+    },
+    "slug": "solder-joint"
   },
   {
     "term": "solenoid",
@@ -5570,6 +11526,27 @@ window.ALFRED_GLOSSARY = [
     "slug": "source"
   },
   {
+    "term": "source current",
+    "category": "Semiconductors",
+    "definition": "The current flowing through the source terminal of a field-effect transistor.",
+    "technical": "In a three-terminal FET, source current balances drain and gate currents according to current continuity and the selected sign convention.",
+    "aliases": [],
+    "weeks": [
+      1
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/sɔɹs kɝʌnt/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "source-current"
+  },
+  {
     "term": "source impedance",
     "category": "Circuit Analysis",
     "definition": "The effective impedance inside a source that causes its output voltage to change with load.",
@@ -5591,6 +11568,77 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "source-impedance"
+  },
+  {
+    "term": "source resistance",
+    "category": "Circuit Analysis",
+    "definition": "The resistance associated with the source as seen from its output terminals.",
+    "technical": "Source resistance models the resistive part of a real source’s output impedance and causes terminal voltage to change with load current.",
+    "aliases": [],
+    "weeks": [
+      2,
+      4,
+      6
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/sɔɹs ɹɪzɪstʌns/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "source-resistance"
+  },
+  {
+    "term": "speaker",
+    "category": "Components",
+    "definition": "An electroacoustic transducer that converts an electrical signal into sound.",
+    "technical": "A loudspeaker converts electrical input power into mechanical diaphragm motion and acoustic pressure.",
+    "aliases": [],
+    "weeks": [
+      3,
+      10,
+      19
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/spikɝ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "speaker"
+  },
+  {
+    "term": "specification",
+    "category": "Test & Troubleshooting",
+    "definition": "A documented requirement or stated characteristic that defines expected limits or behavior.",
+    "technical": "An engineering specification provides quantitative or qualitative criteria against which design, component, or test results can be evaluated.",
+    "aliases": [],
+    "weeks": [
+      3,
+      7,
+      8,
+      10,
+      13
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/spɛsɪfɪkeɪʃʌn/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "specification"
   },
   {
     "term": "spectrum",
@@ -5640,6 +11688,49 @@ window.ALFRED_GLOSSARY = [
     "slug": "spi"
   },
   {
+    "term": "SPI mode",
+    "category": "Interfaces & Protocols",
+    "definition": "One of the clock-polarity and clock-phase combinations used by SPI.",
+    "technical": "SPI mode is defined by CPOL and CPHA and determines idle clock level and which clock edges capture or change data.",
+    "aliases": [],
+    "weeks": [
+      18
+    ],
+    "source": "st",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/SPI mode/",
+    "sourceDetail": {
+      "name": "STMicroelectronics — STM32 MCU Developer Zone",
+      "url": "https://www.st.com/content/st_com/en/stm32-mcu-developer-zone.html",
+      "note": "Vendor-authoritative STM32 microcontroller and peripheral documentation."
+    },
+    "slug": "spi-mode"
+  },
+  {
+    "term": "square wave",
+    "category": "AC & Signals",
+    "definition": "A periodic waveform that alternates rapidly between two approximately constant levels.",
+    "technical": "An ideal square wave has instantaneous transitions and a 50% duty cycle; real square waves have finite rise/fall time and harmonic content.",
+    "aliases": [],
+    "weeks": [
+      3,
+      4
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/skwɛɹ weɪv/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "square-wave"
+  },
+  {
     "term": "SRAM",
     "category": "Embedded Systems",
     "definition": "Fast volatile static memory commonly used for microcontroller runtime data.",
@@ -5666,6 +11757,51 @@ window.ALFRED_GLOSSARY = [
     "slug": "sram"
   },
   {
+    "term": "stack",
+    "category": "Embedded Systems",
+    "definition": "A last-in, first-out memory structure used for temporary program state.",
+    "technical": "On embedded processors the stack commonly stores return addresses, saved registers, local variables, and interrupt context using a stack pointer.",
+    "aliases": [],
+    "weeks": [
+      14,
+      18,
+      26,
+      30
+    ],
+    "source": "arm",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/stæk/",
+    "sourceDetail": {
+      "name": "Arm Developer Documentation",
+      "url": "https://developer.arm.com/documentation",
+      "note": "Processor architecture, register, exception, debug, and embedded-system terminology."
+    },
+    "slug": "stack"
+  },
+  {
+    "term": "standing wave",
+    "category": "RF & Communications",
+    "definition": "A stationary pattern of voltage/current maxima and minima produced by interfering forward and reflected waves.",
+    "technical": "Standing waves occur on a transmission line when reflected energy combines with incident energy due to an impedance mismatch.",
+    "aliases": [],
+    "weeks": [
+      20
+    ],
+    "source": "fcc",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/stændɪŋ weɪv/",
+    "sourceDetail": {
+      "name": "FCC — Radio Spectrum and RF Terminology",
+      "url": "https://www.fcc.gov/engineering-technology/policy-and-rules-division/general/radio-spectrum-allocation",
+      "note": "U.S. communications regulator reference for radio spectrum terminology."
+    },
+    "slug": "standing-wave"
+  },
+  {
     "term": "start bit",
     "category": "Interfaces & Protocols",
     "definition": "A framing bit that marks the beginning of an asynchronous serial character.",
@@ -5685,6 +11821,48 @@ window.ALFRED_GLOSSARY = [
       "note": "Vendor-authoritative STM32 microcontroller and peripheral documentation."
     },
     "slug": "start-bit"
+  },
+  {
+    "term": "start condition",
+    "category": "Interfaces & Protocols",
+    "definition": "A bus event that marks the beginning of a transaction.",
+    "technical": "On I²C, START occurs when SDA transitions from high to low while SCL is high.",
+    "aliases": [],
+    "weeks": [
+      18
+    ],
+    "source": "nxp_i2c",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/stɑɹt kʌndɪʃʌn/",
+    "sourceDetail": {
+      "name": "NXP — UM10204 I²C-bus Specification and User Manual",
+      "url": "https://www.nxp.com/docs/en/user-guide/UM10204.pdf",
+      "note": "Original I²C bus specification maintained by NXP."
+    },
+    "slug": "start-condition"
+  },
+  {
+    "term": "startup code",
+    "category": "Embedded Systems",
+    "definition": "Code that runs before the main application to prepare the processor and runtime environment.",
+    "technical": "Startup code normally initializes the stack, memory sections, vector table, clocks or runtime support before calling the application entry point.",
+    "aliases": [],
+    "weeks": [
+      14
+    ],
+    "source": "arm",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/stɑɹtʌp koʊd/",
+    "sourceDetail": {
+      "name": "Arm Developer Documentation",
+      "url": "https://developer.arm.com/documentation",
+      "note": "Processor architecture, register, exception, debug, and embedded-system terminology."
+    },
+    "slug": "startup-code"
   },
   {
     "term": "state machine",
@@ -5785,6 +11963,109 @@ window.ALFRED_GLOSSARY = [
     "slug": "stop-bit"
   },
   {
+    "term": "stop condition",
+    "category": "Interfaces & Protocols",
+    "definition": "A bus event that marks the end of a transaction.",
+    "technical": "On I²C, STOP occurs when SDA transitions from low to high while SCL is high.",
+    "aliases": [],
+    "weeks": [
+      1,
+      3,
+      9,
+      23,
+      24,
+      31
+    ],
+    "source": "nxp_i2c",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/stɑp kʌndɪʃʌn/",
+    "sourceDetail": {
+      "name": "NXP — UM10204 I²C-bus Specification and User Manual",
+      "url": "https://www.nxp.com/docs/en/user-guide/UM10204.pdf",
+      "note": "Original I²C bus specification maintained by NXP."
+    },
+    "slug": "stop-condition"
+  },
+  {
+    "term": "substitution test",
+    "category": "Test & Troubleshooting",
+    "definition": "A troubleshooting test that replaces a suspect part, signal, cable, or subsystem with a known-good equivalent.",
+    "technical": "Controlled substitution helps isolate faults by changing one variable while preserving the rest of the setup and verifying whether the symptom follows the substituted item.",
+    "aliases": [
+      "substitution"
+    ],
+    "weeks": [
+      3,
+      4,
+      7,
+      8,
+      13,
+      19,
+      28,
+      29
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/sʌbstɪtuʃʌn tɛst/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "substitution-test"
+  },
+  {
+    "term": "superloop",
+    "category": "Embedded Systems",
+    "definition": "A simple embedded-software structure that repeatedly executes a main loop without an operating-system scheduler.",
+    "technical": "A superloop cyclically calls application tasks or state-machine handlers and depends on nonblocking timing to remain responsive.",
+    "aliases": [
+      "main loop"
+    ],
+    "weeks": [
+      15,
+      26
+    ],
+    "source": "arm",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/superloop/",
+    "sourceDetail": {
+      "name": "Arm Developer Documentation",
+      "url": "https://developer.arm.com/documentation",
+      "note": "Processor architecture, register, exception, debug, and embedded-system terminology."
+    },
+    "slug": "superloop"
+  },
+  {
+    "term": "surface mount",
+    "category": "PCB & Assembly",
+    "definition": "A PCB assembly method where components are mounted directly onto surface pads.",
+    "technical": "Surface-mount technology attaches SMD packages to PCB lands using solder paste/reflow or other approved assembly processes.",
+    "aliases": [
+      "surface-mount"
+    ],
+    "weeks": [
+      12
+    ],
+    "source": "ipc",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/sɝfʌs maʊnt/",
+    "sourceDetail": {
+      "name": "IPC Standards — Electronic Assembly and Printed Board Standards",
+      "url": "https://www.ipc.org/meet-your-standards",
+      "note": "Industry standards for PCB, soldering, rework, and cable/harness workmanship."
+    },
+    "slug": "surface-mount"
+  },
+  {
     "term": "SWD",
     "category": "Embedded Systems",
     "definition": "Arm’s two-wire serial debug interface commonly used on Cortex-M microcontrollers.",
@@ -5807,6 +12088,125 @@ window.ALFRED_GLOSSARY = [
       "note": "Processor architecture, register, exception, debug, and embedded-system terminology."
     },
     "slug": "swd"
+  },
+  {
+    "term": "switch",
+    "category": "Components",
+    "definition": "A device that intentionally opens, closes, or changes an electrical connection.",
+    "technical": "A switch changes circuit topology by establishing or interrupting conductive paths between its terminals.",
+    "aliases": [],
+    "weeks": [
+      3,
+      7,
+      8,
+      9,
+      11,
+      19,
+      20
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/swɪtʃ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "switch"
+  },
+  {
+    "term": "switching frequency",
+    "category": "Power Electronics",
+    "definition": "The rate at which a switching converter or digital power stage repeats its switching cycle.",
+    "technical": "Switching frequency sets the energy-transfer cycle rate and influences component size, ripple, switching loss, and electromagnetic interference.",
+    "aliases": [],
+    "weeks": [
+      7,
+      9
+    ],
+    "source": "iec",
+    "notation": "f_SW",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/swɪtʃɪŋ fɹikwʌnsi/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "switching-frequency"
+  },
+  {
+    "term": "switching regulator",
+    "category": "Power Electronics",
+    "definition": "A regulator that controls power by rapidly switching energy-storage elements rather than continuously dissipating excess voltage.",
+    "technical": "Switching regulators use controlled duty cycle, inductors/capacitors, and feedback to convert voltage efficiently at a defined switching frequency.",
+    "aliases": [],
+    "weeks": [
+      9
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/swɪtʃɪŋ ɹɛɡjʌleɪtɝ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "switching-regulator"
+  },
+  {
+    "term": "symptom",
+    "category": "Test & Troubleshooting",
+    "definition": "An observable indication that a system is not behaving as expected.",
+    "technical": "A troubleshooting symptom is measured or observed evidence used to localize a fault; it is not automatically the root cause.",
+    "aliases": [],
+    "weeks": [
+      2,
+      3,
+      5,
+      7,
+      9,
+      10,
+      12,
+      13
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/sɪmptʌm/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "symptom"
+  },
+  {
+    "term": "system clock",
+    "category": "Embedded Systems",
+    "definition": "The primary timing clock used by a processor or microcontroller system.",
+    "technical": "The system clock is selected and divided/multiplied through the clock tree to time the CPU and peripheral domains.",
+    "aliases": [],
+    "weeks": [
+      16
+    ],
+    "source": "arm",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/sɪstʌm klɑk/",
+    "sourceDetail": {
+      "name": "Arm Developer Documentation",
+      "url": "https://developer.arm.com/documentation",
+      "note": "Processor architecture, register, exception, debug, and embedded-system terminology."
+    },
+    "slug": "system-clock"
   },
   {
     "term": "target device",
@@ -5833,6 +12233,57 @@ window.ALFRED_GLOSSARY = [
     "slug": "target-device"
   },
   {
+    "term": "TCP",
+    "category": "Interfaces & Protocols",
+    "definition": "A connection-oriented transport protocol that provides reliable ordered byte delivery over IP networks.",
+    "technical": "Transmission Control Protocol uses sequencing, acknowledgements, retransmission, flow control, and congestion control to provide a reliable stream.",
+    "aliases": [
+      "Transmission Control Protocol"
+    ],
+    "weeks": [
+      17
+    ],
+    "source": "nist_csrc",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/TCP/",
+    "sourceDetail": {
+      "name": "NIST CSRC Glossary",
+      "url": "https://csrc.nist.gov/glossary",
+      "note": "NIST technical terminology for computing, firmware, hardware, and related systems."
+    },
+    "slug": "tcp"
+  },
+  {
+    "term": "terminal",
+    "category": "Foundations & Units",
+    "definition": "A defined connection point where a component, source, or circuit connects to something else.",
+    "technical": "A terminal is a conductive connection point through which electrical quantities such as voltage or current are applied, measured, or transferred.",
+    "aliases": [],
+    "weeks": [
+      3,
+      7,
+      8,
+      10,
+      12,
+      13,
+      14,
+      17
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/tɝmʌnʌl/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "terminal"
+  },
+  {
     "term": "test automation",
     "category": "Test & Troubleshooting",
     "definition": "Using software to control instruments, apply stimuli, collect measurements, evaluate limits, and save results.",
@@ -5855,6 +12306,53 @@ window.ALFRED_GLOSSARY = [
       "note": "Language-authoritative Python terminology."
     },
     "slug": "test-automation"
+  },
+  {
+    "term": "test case",
+    "category": "Test & Troubleshooting",
+    "definition": "A specific test scenario with defined inputs, conditions, steps, and expected results.",
+    "technical": "A test case is traceable to one or more requirements and includes objective pass/fail criteria.",
+    "aliases": [],
+    "weeks": [
+      23,
+      24,
+      27,
+      28
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/tɛst keɪs/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "test-case"
+  },
+  {
+    "term": "test equipment",
+    "category": "Test & Troubleshooting",
+    "definition": "Instruments and fixtures used to stimulate, measure, observe, or evaluate a device under test.",
+    "technical": "Test equipment includes measurement instruments, sources, loads, analyzers, fixtures, adapters, and support tools with appropriate accuracy and ratings.",
+    "aliases": [],
+    "weeks": [
+      3,
+      18,
+      28
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/tɛst ɪkwɪpmʌnt/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "test-equipment"
   },
   {
     "term": "test fixture",
@@ -5880,6 +12378,52 @@ window.ALFRED_GLOSSARY = [
     "slug": "test-fixture"
   },
   {
+    "term": "test lead",
+    "category": "Instruments & Measurement",
+    "definition": "An insulated wire and probe assembly used to connect a measuring instrument to a circuit.",
+    "technical": "Test leads carry the measurement stimulus or sensed quantity between an instrument and test points and must meet the required voltage/current safety rating.",
+    "aliases": [],
+    "weeks": [
+      3,
+      27
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/tɛst lɛd/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "test-lead"
+  },
+  {
+    "term": "test plan",
+    "category": "Test & Troubleshooting",
+    "definition": "A document describing what will be tested, why, how, and with what acceptance criteria.",
+    "technical": "A test plan defines scope, requirements coverage, resources, methods, environments, responsibilities, and reporting strategy.",
+    "aliases": [],
+    "weeks": [
+      19,
+      22,
+      23,
+      28
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/tɛst plæn/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "test-plan"
+  },
+  {
     "term": "test point",
     "category": "Test & Troubleshooting",
     "definition": "A designated accessible node intended for measurement or diagnostic connection.",
@@ -5902,6 +12446,74 @@ window.ALFRED_GLOSSARY = [
       "note": "Industry standards for PCB, soldering, rework, and cable/harness workmanship."
     },
     "slug": "test-point"
+  },
+  {
+    "term": "test procedure",
+    "category": "Test & Troubleshooting",
+    "definition": "A documented sequence of steps for performing a test.",
+    "technical": "A test procedure defines setup, equipment, stimuli, measurement steps, limits, data recording, safety constraints, and disposition.",
+    "aliases": [],
+    "weeks": [
+      17,
+      27,
+      28
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/tɛst pɹʌsidʒɝ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "test-procedure"
+  },
+  {
+    "term": "test setup",
+    "category": "Test & Troubleshooting",
+    "definition": "The complete arrangement used to perform a test.",
+    "technical": "A test setup includes the DUT, instruments, cabling, fixtures, configuration, environment, software, connections, and reference conditions required for repeatable results.",
+    "aliases": [],
+    "weeks": [
+      6,
+      20,
+      22,
+      23
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/tɛst sɛtʌp/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "test-setup"
+  },
+  {
+    "term": "thermistor",
+    "category": "Components",
+    "definition": "A resistor whose resistance changes strongly with temperature.",
+    "technical": "A thermistor is a temperature-sensitive resistive device, commonly classified as NTC or PTC according to the sign of its temperature coefficient.",
+    "aliases": [],
+    "weeks": [
+      7
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/thermistor/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "thermistor"
   },
   {
     "term": "Thevenin equivalent",
@@ -5929,6 +12541,93 @@ window.ALFRED_GLOSSARY = [
     "slug": "thevenin-equivalent"
   },
   {
+    "term": "thread",
+    "category": "Embedded Systems",
+    "definition": "An independently scheduled sequence of program execution within a process or embedded runtime.",
+    "technical": "A thread has its own execution context and stack while sharing address-space resources with other threads in the same system.",
+    "aliases": [],
+    "weeks": [
+      15
+    ],
+    "source": "arm",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/θɹɛd/",
+    "sourceDetail": {
+      "name": "Arm Developer Documentation",
+      "url": "https://developer.arm.com/documentation",
+      "note": "Processor architecture, register, exception, debug, and embedded-system terminology."
+    },
+    "slug": "thread"
+  },
+  {
+    "term": "threshold voltage",
+    "category": "Semiconductors",
+    "definition": "A voltage level at which a device begins a specified change of state or conduction behavior.",
+    "technical": "For a MOSFET, threshold voltage VGS(th) is the gate-source voltage at which a specified small drain current is reached; it is not the recommended fully-on gate voltage.",
+    "aliases": [],
+    "weeks": [
+      7,
+      8,
+      30
+    ],
+    "source": "iec",
+    "notation": "V_TH",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/θɹɛʃoʊld voʊltʌdʒ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "threshold-voltage"
+  },
+  {
+    "term": "through-hole",
+    "category": "PCB & Assembly",
+    "definition": "A component or connection style that passes a lead or pin through a hole in the PCB.",
+    "technical": "Through-hole technology uses plated or non-plated holes for component leads, connectors, or mechanical/electrical attachment.",
+    "aliases": [],
+    "weeks": [
+      12
+    ],
+    "source": "ipc",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/θɹu hoʊl/",
+    "sourceDetail": {
+      "name": "IPC Standards — Electronic Assembly and Printed Board Standards",
+      "url": "https://www.ipc.org/meet-your-standards",
+      "note": "Industry standards for PCB, soldering, rework, and cable/harness workmanship."
+    },
+    "slug": "through-hole"
+  },
+  {
+    "term": "thyristor",
+    "category": "Semiconductors",
+    "definition": "A latching semiconductor switch built from multiple PN junctions.",
+    "technical": "A thyristor is a four-layer regenerative semiconductor device that transitions to a conducting state when triggered and remains on until current falls below its holding condition.",
+    "aliases": [],
+    "weeks": [
+      8,
+      10
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/thyristor/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "thyristor"
+  },
+  {
     "term": "time constant",
     "category": "AC & Signals",
     "definition": "A characteristic time that describes how quickly a first-order circuit responds to a change.",
@@ -5950,6 +12649,77 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "time-constant"
+  },
+  {
+    "term": "time domain",
+    "category": "AC & Signals",
+    "definition": "A way of viewing a signal as it changes over time.",
+    "technical": "Time-domain representation expresses a signal or system response as a function of time.",
+    "aliases": [],
+    "weeks": [
+      3,
+      4
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/taɪm doʊmeɪn/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "time-domain"
+  },
+  {
+    "term": "timebase",
+    "category": "Instruments & Measurement",
+    "definition": "The timing system or horizontal time scale of an oscilloscope.",
+    "technical": "The oscilloscope timebase controls acquisition timing and horizontal scaling, determining the time represented across the display.",
+    "aliases": [],
+    "weeks": [
+      3
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/timebase/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "timebase"
+  },
+  {
+    "term": "timeout",
+    "category": "Software & Automation",
+    "definition": "A maximum waiting interval after which software treats an expected event as missing or failed.",
+    "technical": "Timeout logic bounds blocking/waiting behavior so communication or hardware failures cannot stall a test or embedded task indefinitely.",
+    "aliases": [],
+    "weeks": [
+      13,
+      15,
+      17,
+      21,
+      22,
+      25,
+      26,
+      27
+    ],
+    "source": "python",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/taɪmaʊt/",
+    "sourceDetail": {
+      "name": "Python 3 Documentation",
+      "url": "https://docs.python.org/3/",
+      "note": "Language-authoritative Python terminology."
+    },
+    "slug": "timeout"
   },
   {
     "term": "timer",
@@ -6000,6 +12770,50 @@ window.ALFRED_GLOSSARY = [
     "slug": "tolerance"
   },
   {
+    "term": "toolchain",
+    "category": "Embedded Systems",
+    "definition": "The set of software tools used to build and debug a program for a target system.",
+    "technical": "An embedded toolchain commonly includes compiler, assembler, linker, libraries, debugger, binary utilities, and build tools.",
+    "aliases": [],
+    "weeks": [
+      16,
+      23
+    ],
+    "source": "arm",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/toolchain/",
+    "sourceDetail": {
+      "name": "Arm Developer Documentation",
+      "url": "https://developer.arm.com/documentation",
+      "note": "Processor architecture, register, exception, debug, and embedded-system terminology."
+    },
+    "slug": "toolchain"
+  },
+  {
+    "term": "total resistance",
+    "category": "Circuit Analysis",
+    "definition": "The combined resistance presented by a complete path or network.",
+    "technical": "Total resistance is the equivalent resistance calculated between the relevant circuit terminals.",
+    "aliases": [],
+    "weeks": [
+      2,
+      1
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/toʊtʌl ɹɪzɪstʌns/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "total-resistance"
+  },
+  {
     "term": "trace",
     "category": "PCB & Assembly",
     "definition": "A conductive path on a printed circuit board.",
@@ -6045,6 +12859,48 @@ window.ALFRED_GLOSSARY = [
       "note": "NIST technical terminology for computing, firmware, hardware, and related systems."
     },
     "slug": "traceability"
+  },
+  {
+    "term": "transconductance",
+    "category": "Semiconductors",
+    "definition": "A measure of how strongly an input voltage controls an output current.",
+    "technical": "Transconductance gm is the small-signal derivative of output current with respect to controlling input voltage at an operating point.",
+    "aliases": [],
+    "weeks": [
+      10
+    ],
+    "source": "iec",
+    "notation": "gₘ = ∂I/∂V",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/transconductance/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "transconductance"
+  },
+  {
+    "term": "transfer function",
+    "category": "AC & Signals",
+    "definition": "A mathematical description of how a system transforms an input into an output.",
+    "technical": "For a linear time-invariant system, the transfer function is the output-to-input ratio in the complex-frequency domain with stated initial conditions.",
+    "aliases": [],
+    "weeks": [
+      4
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/tɹænsfɝ fʌŋkʃʌn/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "transfer-function"
   },
   {
     "term": "transformer",
@@ -6114,6 +12970,122 @@ window.ALFRED_GLOSSARY = [
     "slug": "transistor"
   },
   {
+    "term": "transmission line",
+    "category": "RF & Communications",
+    "definition": "A conductor structure that carries high-frequency signals where distributed effects matter.",
+    "technical": "A transmission line is modeled with distributed inductance and capacitance and has a characteristic impedance, propagation delay, and reflection behavior.",
+    "aliases": [],
+    "weeks": [
+      20
+    ],
+    "source": "fcc",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/tɹænsmɪʃʌn laɪn/",
+    "sourceDetail": {
+      "name": "FCC — Radio Spectrum and RF Terminology",
+      "url": "https://www.fcc.gov/engineering-technology/policy-and-rules-division/general/radio-spectrum-allocation",
+      "note": "U.S. communications regulator reference for radio spectrum terminology."
+    },
+    "slug": "transmission-line"
+  },
+  {
+    "term": "tri-state",
+    "category": "Digital Logic",
+    "definition": "A digital output mode that can drive HIGH, drive LOW, or enter a high-impedance state.",
+    "technical": "A tri-state output includes an enable control; when disabled its output impedance becomes high enough to share a bus with other drivers.",
+    "aliases": [
+      "three-state"
+    ],
+    "weeks": [
+      11,
+      15
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/tɹaɪ steɪt/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "tri-state"
+  },
+  {
+    "term": "triac",
+    "category": "Semiconductors",
+    "definition": "A bidirectional thyristor used to control AC power.",
+    "technical": "A triac can conduct in either direction after triggering and is commonly used for phase control of AC loads.",
+    "aliases": [],
+    "weeks": [
+      7,
+      8
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/triac/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "triac"
+  },
+  {
+    "term": "trigger",
+    "category": "Instruments & Measurement",
+    "definition": "A condition that tells an oscilloscope or acquisition system when to start or align a capture.",
+    "technical": "A trigger compares a selected source against level, edge, pulse, protocol, or other conditions to establish a repeatable acquisition time reference.",
+    "aliases": [],
+    "weeks": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7,
+      8,
+      13
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/tɹɪɡɝ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "trigger"
+  },
+  {
+    "term": "trigger level",
+    "category": "Instruments & Measurement",
+    "definition": "The signal level at which an oscilloscope decides to start a triggered acquisition.",
+    "technical": "Trigger level is the threshold used with the selected trigger source, slope, and mode to establish repeatable waveform timing.",
+    "aliases": [],
+    "weeks": [
+      3
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/tɹɪɡɝ lɛvʌl/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "trigger-level"
+  },
+  {
     "term": "truth table",
     "category": "Digital Logic",
     "definition": "A table listing every input combination and the corresponding output of a logic function.",
@@ -6163,7 +13135,8 @@ window.ALFRED_GLOSSARY = [
     "definition": "The transmit signal or data direction of a communication interface.",
     "technical": "TX identifies the node output used to send serial data or another transmitted signal.",
     "aliases": [
-      "transmit"
+      "transmit signal",
+      "TX line"
     ],
     "weeks": [
       17,
@@ -6205,6 +13178,30 @@ window.ALFRED_GLOSSARY = [
       "note": "NIST technical terminology for computing, firmware, hardware, and related systems."
     },
     "slug": "uart"
+  },
+  {
+    "term": "UDP",
+    "category": "Interfaces & Protocols",
+    "definition": "A connectionless transport protocol that sends independent datagrams without guaranteeing delivery or ordering.",
+    "technical": "User Datagram Protocol adds ports and checksum protection to IP datagrams with minimal transport-layer overhead.",
+    "aliases": [
+      "User Datagram Protocol"
+    ],
+    "weeks": [
+      18,
+      17
+    ],
+    "source": "nist_csrc",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/UDP/",
+    "sourceDetail": {
+      "name": "NIST CSRC Glossary",
+      "url": "https://csrc.nist.gov/glossary",
+      "note": "NIST technical terminology for computing, firmware, hardware, and related systems."
+    },
+    "slug": "udp"
   },
   {
     "term": "UHF",
@@ -6254,6 +13251,57 @@ window.ALFRED_GLOSSARY = [
     "slug": "usart"
   },
   {
+    "term": "USB",
+    "category": "Interfaces & Protocols",
+    "definition": "A standardized serial bus used to connect hosts, devices, and peripherals.",
+    "technical": "Universal Serial Bus defines electrical signaling, connectors, enumeration, transfer types, device classes, and protocol layers across several speed generations.",
+    "aliases": [
+      "Universal Serial Bus"
+    ],
+    "weeks": [
+      14,
+      17,
+      18,
+      20,
+      23,
+      30
+    ],
+    "source": "nist_csrc",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/USB/",
+    "sourceDetail": {
+      "name": "NIST CSRC Glossary",
+      "url": "https://csrc.nist.gov/glossary",
+      "note": "NIST technical terminology for computing, firmware, hardware, and related systems."
+    },
+    "slug": "usb"
+  },
+  {
+    "term": "UVLO",
+    "category": "Power Electronics",
+    "definition": "A protection function that prevents operation when supply voltage is too low for reliable behavior.",
+    "technical": "Undervoltage lockout disables or resets a circuit below a defined supply threshold and typically uses hysteresis to avoid chatter.",
+    "aliases": [
+      "undervoltage lockout"
+    ],
+    "weeks": [
+      9
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/UVLO/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "uvlo"
+  },
+  {
     "term": "validation",
     "category": "Test & Troubleshooting",
     "definition": "Checking that the completed solution is suitable for its intended use or need.",
@@ -6278,6 +13326,27 @@ window.ALFRED_GLOSSARY = [
       "note": "NIST technical terminology for computing, firmware, hardware, and related systems."
     },
     "slug": "validation"
+  },
+  {
+    "term": "variable resistor",
+    "category": "Components",
+    "definition": "A resistor whose resistance can be adjusted.",
+    "technical": "A variable resistor provides a mechanically or electronically adjustable resistance for biasing, calibration, level setting, or current control.",
+    "aliases": [],
+    "weeks": [
+      3
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/vɛɹiʌbʌl ɹɪzɪstɝ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "variable-resistor"
   },
   {
     "term": "verification",
@@ -6305,6 +13374,28 @@ window.ALFRED_GLOSSARY = [
       "note": "NIST technical terminology for computing, firmware, hardware, and related systems."
     },
     "slug": "verification"
+  },
+  {
+    "term": "verification test",
+    "category": "Test & Troubleshooting",
+    "definition": "A test used to show that an implementation satisfies specified requirements.",
+    "technical": "Verification asks whether the system was built according to requirements and design specifications using objective test evidence.",
+    "aliases": [],
+    "weeks": [
+      12,
+      28
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/vɛɹʌfʌkeɪʃʌn tɛst/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "verification-test"
   },
   {
     "term": "VHF",
@@ -6375,6 +13466,27 @@ window.ALFRED_GLOSSARY = [
     "slug": "visa"
   },
   {
+    "term": "volatile memory",
+    "category": "Embedded Systems",
+    "definition": "Memory that loses stored information when power is removed.",
+    "technical": "Volatile memory such as SRAM requires power to retain state and is commonly used for runtime variables and stacks.",
+    "aliases": [],
+    "weeks": [
+      14
+    ],
+    "source": "arm",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/vɑlʌtʌl mɛmɝi/",
+    "sourceDetail": {
+      "name": "Arm Developer Documentation",
+      "url": "https://developer.arm.com/documentation",
+      "note": "Processor architecture, register, exception, debug, and embedded-system terminology."
+    },
+    "slug": "volatile-memory"
+  },
+  {
     "term": "volt",
     "category": "Foundations & Units",
     "definition": "The SI unit used to measure electric potential difference.",
@@ -6406,7 +13518,8 @@ window.ALFRED_GLOSSARY = [
     "technical": "Voltage is electric potential difference between two points; the SI derived unit is the volt (V).",
     "aliases": [
       "potential difference",
-      "electric potential difference"
+      "electric potential difference",
+      "electrical potential difference"
     ],
     "weeks": [
       1,
@@ -6447,6 +13560,119 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "voltage-divider"
+  },
+  {
+    "term": "voltage drop",
+    "category": "Circuit Analysis",
+    "definition": "A decrease in electric potential across a component in the chosen direction.",
+    "technical": "A voltage drop is the signed potential difference across an element as traversed with the selected reference polarity.",
+    "aliases": [],
+    "weeks": [
+      2,
+      7,
+      8,
+      19
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/voʊltʌdʒ dɹɑp/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "voltage-drop"
+  },
+  {
+    "term": "voltage regulator",
+    "category": "Power Electronics",
+    "definition": "A circuit or device that keeps output voltage near a target value despite changes in input or load.",
+    "technical": "A voltage regulator uses feedback or controlled switching/pass elements to maintain output voltage within specified line, load, and temperature limits.",
+    "aliases": [],
+    "weeks": [
+      9,
+      24
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/voʊltʌdʒ ɹɛɡjʌleɪtɝ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "voltage-regulator"
+  },
+  {
+    "term": "voltage source",
+    "category": "Foundations & Units",
+    "definition": "A source intended to establish a specified voltage between its terminals.",
+    "technical": "An ideal voltage source maintains its specified terminal voltage independent of load current; real sources have finite internal impedance.",
+    "aliases": [],
+    "weeks": [
+      1,
+      3
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/voʊltʌdʒ sɔɹs/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "voltage-source"
+  },
+  {
+    "term": "voltmeter",
+    "category": "Instruments & Measurement",
+    "definition": "An instrument used to measure voltage between two points.",
+    "technical": "A voltmeter is connected across the measurement points and ideally has very high input impedance so it minimally loads the circuit.",
+    "aliases": [],
+    "weeks": [
+      1,
+      2
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/voltmeter/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "voltmeter"
+  },
+  {
+    "term": "volts per division",
+    "category": "Instruments & Measurement",
+    "definition": "The oscilloscope vertical scale represented by one grid division.",
+    "technical": "Volts/div specifies vertical sensitivity; with probe attenuation included, it determines the voltage represented by each vertical graticule division.",
+    "aliases": [
+      "volts/div"
+    ],
+    "weeks": [
+      3
+    ],
+    "source": "iec",
+    "notation": "V/div",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/voʊlts pɝ dɪvɪʒʌn/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "volts-per-division"
   },
   {
     "term": "VSWR",
@@ -6569,6 +13795,32 @@ window.ALFRED_GLOSSARY = [
     "slug": "waveform"
   },
   {
+    "term": "wavelength",
+    "category": "RF & Communications",
+    "definition": "The physical distance over which a periodic wave repeats one complete cycle.",
+    "technical": "Wavelength λ equals propagation velocity divided by frequency: λ = v/f.",
+    "aliases": [],
+    "weeks": [
+      1,
+      3,
+      4,
+      20,
+      22,
+      30
+    ],
+    "source": "fcc",
+    "notation": "λ",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/weɪvlɛŋθ/",
+    "sourceDetail": {
+      "name": "FCC — Radio Spectrum and RF Terminology",
+      "url": "https://www.fcc.gov/engineering-technology/policy-and-rules-division/general/radio-spectrum-allocation",
+      "note": "U.S. communications regulator reference for radio spectrum terminology."
+    },
+    "slug": "wavelength"
+  },
+  {
     "term": "wetting",
     "category": "PCB & Assembly",
     "definition": "The spreading and bonding of molten solder over a clean metal surface.",
@@ -6589,6 +13841,56 @@ window.ALFRED_GLOSSARY = [
       "note": "Industry standards for PCB, soldering, rework, and cable/harness workmanship."
     },
     "slug": "wetting"
+  },
+  {
+    "term": "winding",
+    "category": "Components",
+    "definition": "A coil of conductive wire arranged to produce or couple magnetic flux.",
+    "technical": "Windings are turns of conductor used in transformers, inductors, motors, relays, and other electromagnetic devices.",
+    "aliases": [],
+    "weeks": [
+      6,
+      7
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/waɪndɪŋ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "winding"
+  },
+  {
+    "term": "wire",
+    "category": "Foundations & Units",
+    "definition": "A conductive path used to carry current or connect circuit nodes.",
+    "technical": "Electrical wire is a conductor, commonly metal, with geometry and insulation selected for the required current, voltage, environment, and signal behavior.",
+    "aliases": [],
+    "weeks": [
+      1,
+      2,
+      7,
+      11,
+      12,
+      13,
+      16,
+      17
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/waɪɝ/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "wire"
   },
   {
     "term": "wire harness",
@@ -6638,6 +13940,28 @@ window.ALFRED_GLOSSARY = [
     "slug": "workmanship"
   },
   {
+    "term": "wrist strap",
+    "category": "Safety & Workmanship",
+    "definition": "A wearable grounding device used to keep a person at the workstation reference potential during ESD-sensitive work.",
+    "technical": "An ESD wrist strap connects the wearer through a safety resistor to the common point ground, continuously draining static charge when properly worn and tested.",
+    "aliases": [],
+    "weeks": [
+      1,
+      12
+    ],
+    "source": "osha",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/ɹɪst stɹæp/",
+    "sourceDetail": {
+      "name": "OSHA — Electrical Glossary and Electrical Safety Definitions",
+      "url": "https://www.osha.gov/etools/electric-power/glossary-terms",
+      "note": "U.S. occupational electrical-safety terminology."
+    },
+    "slug": "wrist-strap"
+  },
+  {
     "term": "XNOR gate",
     "category": "Digital Logic",
     "definition": "A logic gate that is true/high when inputs are equal for the two-input case.",
@@ -6678,6 +14002,28 @@ window.ALFRED_GLOSSARY = [
       "note": "International electrotechnical terminology maintained by the IEC."
     },
     "slug": "xor-gate"
+  },
+  {
+    "term": "Zener breakdown",
+    "category": "Semiconductors",
+    "definition": "Reverse-junction breakdown dominated by quantum tunneling in a strongly doped junction.",
+    "technical": "Zener breakdown produces a sharp increase in reverse current at a relatively low reverse voltage and is intentionally used in Zener diodes.",
+    "aliases": [],
+    "weeks": [
+      8,
+      10
+    ],
+    "source": "iec",
+    "notation": "",
+    "note": "",
+    "auto": true,
+    "pronunciation": "/zener bɹeɪkdaʊn/",
+    "sourceDetail": {
+      "name": "IEC Electropedia — International Electrotechnical Vocabulary (IEC 60050)",
+      "url": "https://www.electropedia.org/",
+      "note": "International electrotechnical terminology maintained by the IEC."
+    },
+    "slug": "zener-breakdown"
   },
   {
     "term": "Zener diode",

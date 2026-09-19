@@ -1,6 +1,45 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.29",
+      "date": "September 19, 2026",
+      "title": "Course Glossary Expansion — 599 Terms + Section-Scoped Rehighlighting",
+      "type": "Learning Support / Vocabulary Coverage / Classroom Glossary UX",
+      "request": "Expand the Glossary so substantially more electrical, electronics, physics, signals, measurement, embedded, protocol, RF, PCB, power, safety, and troubleshooting vocabulary has an in-house definition, while changing Classroom highlighting so a concept appears at most once inside each numbered teaching section but may be highlighted again when a new section begins.",
+      "changes": [
+        "Expanded the Course Glossary from 282 to 599 entries by scanning the actual AU-ESET 301 lesson/curriculum sources for field-specific terminology that was not yet represented and adding 317 new technical concepts while intentionally excluding remaining generic English/software words whose ordinary meaning would create visual noise.",
+        "Added foundational Week 1 vocabulary visible in the learner's actual lesson flow, including atom, proton, neutron, electron, coulomb, joule, conductor, insulator, charge carrier, electron drift, conventional current, electric potential, reference node, circuit common, terminal, wire, battery, electrical component, SI unit, SI prefixes, and related concepts.",
+        "Expanded later-course terminology across circuit analysis, components, AC/signals, instruments, semiconductors, power electronics, digital logic, embedded systems, interfaces/protocols, PCB/assembly, RF/communications, test/troubleshooting, safety/workmanship, and supporting software/test-automation vocabulary.",
+        "Every new entry includes a plain-English definition, a more technical definition, pronunciation, category, source provenance, stable slug, and course-week references. Definitions remain concise teaching paraphrases grounded in the same authoritative IEC, NIST, OSHA, IPC, Arm, ST, NXP, FCC, Python, and NIST CSRC source families already used by the accepted Glossary architecture.",
+        "Changed the Classroom repetition boundary from one highlight per concept across the entire lesson stage to one highlight per concept inside each numbered integrated teaching section. A concept such as charge/current/circuit can therefore be defined again once when Section 2 or Section 3 introduces a new context, while repeated mentions inside that same section remain plain text.",
+        "Preserved placement discernment: Alfred still scores all candidate occurrences inside each section, prefers direct explanatory/definitional prose, prefers fuller technical phrases when available, avoids headings/questions/controls/hidden content, and leaves a term unhighlighted when no candidate meets the quality threshold.",
+        "Added conservative canonical plural matching so normal textbook inflections such as electrons, terminals, wires, or voltage sources can resolve to one glossary concept without creating separate entries. Plural generation is limited to canonical nouns rather than aliases to avoid verb-derived false matches.",
+        "Hardened acronym matching so uppercase interface/protocol acronyms require exact written case. Ordinary words such as can or am cannot accidentally become CAN or AM glossary links.",
+        "Expanded ambiguous-word context gating for ordinary-looking technical words such as load, terminal, signal, filter, trigger, frame, buffer, component, switch, loop, network, driver, range, instrument, specification, and substitution so they are highlighted only when nearby technical context supports the specialized meaning.",
+        "Updated Glossary, Study Vocabulary, Search Everything, and Classroom script references to cache-busted v16.3.29 glossary data/runtime URLs; the existing Vocabulary Study Lab and Search Everything automatically inherit the expanded 599-term dataset without a duplicate vocabulary source.",
+        "Advanced build metadata and the service-worker cache namespace to v16.3.29 and cached the expanded glossary assets plus the new verification record.",
+        "No curriculum wording, lesson sequencing, Teaching Media, assessment bank/scoring, mastery formulas, labs, projects, calendar identities, Progress records, Cloud Sync protocol, whole-site UX architecture, or branding artwork changed."
+      ],
+      "filesAdded": [
+        "AU-ESET-301-v16.3.29-Glossary-Coverage-and-Section-Highlighting-Verification.md"
+      ],
+      "filesModified": [
+        "POST-UPDATE-QA.md",
+        "SHA256SUMS.txt",
+        "UPLOAD_README.txt",
+        "build-info.json",
+        "glossary-data.js",
+        "glossary.html",
+        "glossary.js",
+        "learn.html",
+        "release-notes-current.js",
+        "search.html",
+        "service-worker.js",
+        "study.html"
+      ],
+      "filesRemoved": []
+    },
+    {
       "version": "v16.3.28",
       "date": "September 18, 2026",
       "title": "Native UX Audit Round 2 — Targeted Responsive & Navigation Repair",
@@ -546,7 +585,7 @@
       ]
     }
   ];
-  const currentOrder = ['v16.3.28','v16.3.27','v16.3.26','v16.3.25','v16.3.24','v16.3.23','v16.3.22','v16.3.21','v16.3.20','v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
+  const currentOrder = ['v16.3.29','v16.3.28','v16.3.27','v16.3.26','v16.3.25','v16.3.24','v16.3.23','v16.3.22','v16.3.21','v16.3.20','v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
   entries.sort((a,b)=>currentOrder.indexOf(a.version)-currentOrder.indexOf(b.version));
   const historical = Array.isArray(window.ALFRED_RELEASES) ? window.ALFRED_RELEASES : [];
   const currentVersions = new Set(entries.map(entry=>entry.version));
