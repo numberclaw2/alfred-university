@@ -1,6 +1,46 @@
 (() => {
   const entries = [
     {
+          "version": "v16.3.33",
+          "date": "September 19, 2026",
+          "title": "Career Beginner-First Instructional Depth — All 31 Career Lessons",
+          "type": "Career Curriculum / Dependency Repair / Teach-Before-Use",
+          "request": "Bring all 31 Career lessons up to the same beginner-first teaching standard as the CETa track: build on concepts Alfred already taught, but explicitly teach new Career-only tools, software, workflows, and professional vocabulary before asking the learner to use, explain, troubleshoot, program, document, compare, or answer questions about them.",
+          "changes": [
+                "Audited all 31 Career lessons against the rule that Alfred may assume only knowledge it has already thoroughly taught. Existing CETa teaching remains the prerequisite authority and is not redundantly retaught.",
+                "Added a dedicated career-instructional-depth layer that strengthens the existing Career teaching homes in place. Existing teaching-section counts and titles are preserved so saved lesson progress, section review state, and semantic evidence mappings do not shift.",
+                "Repaired Week 1 bench onboarding so bench supply, DMM, jacks/modes, rails/reference, continuity, current limiting, CV/CC operation, first power/bring-up, and stop conditions are introduced before the technician procedure expects them.",
+                "Added beginner-first Git/version-control foundations in Week 12: why version control exists, repository, working tree, tracked/untracked files, status, diff, commit, branch, tag, and known-good baseline before professional repository practice.",
+                "Added C foundations in Week 14 before advanced embedded-C use: programming language/source/compiler/build, statements, variables/types, assignment/expressions, control flow, functions/parameters/return values, arrays, pointers, address-of/dereference, bounds, and strings.",
+                "Strengthened Weeks 15–18 with explicit state-machine/time, interrupt/ISR/volatile/atomicity, STM32 project/toolchain/build/flash/SWD debugging, Python-from-zero serial tooling, and datasheet-to-I2C/SPI transaction/logic-analyzer mental models.",
+                "Strengthened Weeks 22–23 and 27 with beginner-first requirements/traceability, command-line/README, controlled baseline/repository/BOM/toolchain/dependency concepts, and automated hardware-test lifecycle/fixture/result/configuration/source-of-truth concepts.",
+                "Strengthened Weeks 29–31 with evidence-dossier, resume/application explanation-depth, role-filter, application-pipeline, and feedback-loop concepts before professional application tasks.",
+                "Added 32 internally authored instructional flow models across all 31 Career lessons. The visuals teach process/dependency mental models and use the existing accepted course source layer; no new external source family was introduced.",
+                "Generated direct Review Section teaching-home metadata for all 93 Career lesson question locations (62 integrated checks + 31 required lesson gates). Each target resolves to an existing strengthened Career teaching section.",
+                "Study automatically inherits the strengthened Career text/visuals only after the corresponding Career sections are reached, preserving the v16.3.32 reached-material boundary.",
+                "Preserved CETa lesson wording, Career competency goals, assessment scoring/mastery/safety thresholds, labs/projects, calendar identities, Progress/Cloud Sync protocol 2, glossary/vocabulary behavior, Student/Builder and Focus modes, section back/forward review, Back to question, and branding."
+          ],
+          "filesAdded": [
+                "career-instructional-depth.js",
+                "AU-ESET-301-v16.3.33-Career-Beginner-First-Instructional-Depth-Verification.md"
+          ],
+          "filesModified": [
+                "POST-UPDATE-QA.md",
+                "SHA256SUMS.txt",
+                "UPLOAD_README.txt",
+                "build-info.json",
+                "learn.html",
+                "learn.js",
+                "release-notes-current.js",
+                "search.html",
+                "service-worker.js",
+                "study.html",
+                "study.js",
+                "styles.css"
+          ],
+          "filesRemoved": []
+    },
+    {
       "version": "v16.3.32",
       "date": "September 19, 2026",
       "title": "Study Library + Week 1 Beginner-First Safety Scaffolding",

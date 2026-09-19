@@ -1987,3 +1987,12 @@ body.student-mode a[href="patch-notes.html"]{display:none!important}
   .question-review-tools{display:grid;margin:.65rem 0 1rem}
   .question-review-tools small{flex:auto}
 }
+
+
+/* v16.3.33 — career beginner-first instructional flow models */
+.source-figure-flow{display:flex;align-items:stretch;gap:.55rem;padding:1rem;background:linear-gradient(180deg,#fbfaf5,#f4f1e7);overflow-x:auto;-webkit-overflow-scrolling:touch}
+.source-flow-step{display:flex;gap:.65rem;align-items:flex-start;min-width:120px;flex:1 1 0;padding:.8rem;border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:0 1px 0 rgba(16,58,43,.04)}
+.source-flow-step>span{display:grid;place-items:center;flex:0 0 1.75rem;height:1.75rem;border-radius:999px;background:var(--green);color:#fff;font-weight:900;font-size:.78rem}
+.source-flow-step strong{display:block;color:var(--green);margin-bottom:.25rem}.source-flow-step p{margin:0;color:var(--muted);line-height:1.45;font-size:.9rem}
+.source-flow-arrow{align-self:center;color:var(--gold-dark,#8a6b17);font-size:1.35rem;font-weight:900;flex:0 0 auto}
+@media(max-width:720px){.source-figure-flow{display:grid;overflow:visible}.source-flow-step{min-width:0}.source-flow-arrow{transform:rotate(90deg);justify-self:center;margin:-.35rem 0}}

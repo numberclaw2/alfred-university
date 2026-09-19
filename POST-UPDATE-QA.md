@@ -1,3 +1,48 @@
+# AU-ESET 301 v16.3.33 — Post-Update QA
+
+**QA date:** September 19, 2026  
+**Baseline:** v16.3.32 `v16.3.32-study-library-week1-safety-scaffolding-20260919`  
+**Candidate:** v16.3.33 `v16.3.33-career-beginner-first-instructional-depth-20260919`  
+**Result:** **PASS FOR UPLOAD**
+
+## Targeted acceptance
+
+- PASS — all **31 Career lessons** received a dependency-aware instructional audit/repair.
+- PASS — all Career teaching-section counts remain unchanged from v16.3.32.
+- PASS — all Career teaching-section titles remain unchanged, preserving saved section indices and semantic teaching-title links.
+- PASS — every Career teaching section has an explicit `buildOn` chain identifying what prior Alfred instruction may be assumed.
+- PASS — every Career week has at least one instructional flow/mental-model visual; **32 flow visuals** exist across the 31 lessons.
+- PASS — Career teaching depth increased from **13,789** to **18,429** teaching words without expanding every week uniformly.
+- PASS — high-risk beginner foundations are present for Week 1 bench tools, Week 12 Git, Week 14 C, Week 15 state/interrupt/volatile, Week 16 STM32/SWD, Week 17 Python serial, Week 18 I²C/SPI integration, Weeks 22–23 engineering/project workflow, Week 27 automated hardware test, and Weeks 29–31 career evidence/application workflow.
+- PASS — **93/93 Career lesson question locations** (62 integrated checks + 31 required lesson gates) resolve to a valid strengthened teaching section.
+- PASS — **13/13 Career semantic competency tasks** still resolve to their exact teaching section because teaching titles were preserved.
+- PASS — the v16.3.32 Study Library inherits reached Career teaching text and flow visuals without exposing future Career sections.
+- PASS — no new external source family was introduced; the existing accepted course source/reference layer remains authoritative.
+
+## Native/browser checks
+
+Whole-track Chromium rendering passed for **31/31 Career lessons** at the section containing each lesson’s instructional flow: **31/31 flow visuals rendered and 0 page errors** occurred. High-risk content spot checks also passed for Career Weeks **1, 12, 14, 15, 16, 17, 18, 22, 23, 27, 29, 30, and 31**.
+
+Representative mobile rendering at **390 × 844** passed for Weeks **1, 14, 17, and 27** with no page-level horizontal overflow.
+
+A Study integration render also passed: reached Week 1 Career material appeared in Review Material with the strengthened bench explanation and Career flow visual while unreached Career material remained outside the reached-material set.
+
+## Runtime / packaging checks
+
+- PASS — JavaScript syntax: `career-instructional-depth.js`, `learn.js`, `study.js`, `release-notes-current.js`, `service-worker.js`.
+- PASS — build metadata: runtime `16.3.33`, course release `16.3`, evidence revision `16.2`, Cloud Sync protocol `2`.
+- PASS — service-worker CORE contains **176 references**, zero missing, and includes the Career depth runtime plus this release verification record.
+- PASS — Career depth runtime is loaded after the accepted curriculum overlays on Classroom and Study, and is also loaded by Search so strengthened Career teaching is indexed.
+- PASS — protected CETa, assessment, mastery, labs/projects, calendar identities, Progress/Cloud Sync, glossary/vocabulary, Student/Builder, Focus Mode, lesson review navigation, Back to question, and branding systems remain outside the Career content patch.
+
+## Acceptance
+
+**PASS FOR UPLOAD.** See `AU-ESET-301-v16.3.33-Career-Beginner-First-Instructional-Depth-Verification.md` for the 31-week audit and high-risk transition evidence.
+
+---
+
+## Previous QA record
+
 # AU-ESET 301 v16.3.32 — Post-Update QA
 
 **QA date:** September 19, 2026  
