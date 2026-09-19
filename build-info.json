@@ -1,10 +1,10 @@
 {
   "courseRelease": "16.3",
-  "runtimePatch": "16.3.26",
+  "runtimePatch": "16.3.27",
   "evidenceRevision": "16.2",
   "cloudSyncProtocol": 2,
-  "build": "v16.3.26-whole-site-ux-system-20260918",
-  "releaseStatus": "whole-site-ux-system",
+  "build": "v16.3.27-native-visual-qa-mobile-layout-repair-20260918",
+  "releaseStatus": "native-visual-qa-mobile-layout-repair",
   "presentationPatch": "mobile-visual-readability-final",
   "scheduleRevision": "2026-09-16-week1-reset",
   "modulePresentationRevision": "2026-09-18-week1-from-zero-visual-teaching",
@@ -16,7 +16,7 @@
   "week1InstructionRevision": "2026-09-18-from-zero-visual-teaching",
   "week1TeachingMediaRevision": "2026-09-18-beginner-teacher-youtube-layer",
   "teachingMediaBaseRevision": "2026-09-18-final-pots-31-week-standalone-accepted",
-  "releaseNotesRevision": "2026-09-18-v16.3.26-whole-site-ux-recorded",
+  "releaseNotesRevision": "2026-09-18-v16.3.27-native-visual-qa-recorded",
   "repositoryLedgerBaseline": "2026-09-18-v16.3.9-63-commits",
   "studyRevision": "2026-09-18-vocabulary-study-lab",
   "practiceRevision": "2026-09-18-priority-ladder-repair-router",
@@ -32,5 +32,5 @@
   "glossaryRevision": "2026-09-18-complete-academic-glossary",
   "glossaryUxRevision": "2026-09-18-dom-enforced-single-anchor-cache-bust",
   "vocabularyStudyRevision": "2026-09-18-active-recall-spaced-vocabulary-lab",
-  "uxRevision": "2026-09-18-research-grounded-task-oriented-design-system"
+  "uxRevision": "2026-09-18-native-render-mobile-overflow-progressive-disclosure-repair"
 }

@@ -1,4 +1,4 @@
-/* AU-ESET 301 v16.3.26 — Whole-site UX system */
+/* AU-ESET 301 v16.3.27 — Whole-site UX system · native visual QA repair */
 :root{
   --ux-focus:#765600;
   --ux-surface:#fffdf8;
@@ -65,6 +65,12 @@ body.ux-search-open{overflow:hidden}
 /* Long-page table of contents. */
 .ux-page-toc{margin-top:24px;margin-bottom:0;padding:18px 20px;border:1px solid #ded8ca;border-left:4px solid var(--gold);border-radius:14px;background:rgba(255,253,248,.97);box-shadow:var(--ux-soft-shadow)}
 .ux-page-toc-label{margin-bottom:9px;color:var(--green);font-weight:900;font-size:.78rem;text-transform:uppercase;letter-spacing:.11em}
+
+.ux-page-toc-details>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;list-style:none;color:var(--green);cursor:pointer}
+.ux-page-toc-details>summary::-webkit-details-marker{display:none}
+.ux-page-toc-details>summary .ux-page-toc-label{margin:0}
+.ux-page-toc-details[open]>summary{margin-bottom:9px}
+.ux-page-toc-count{display:none;color:#6a716c;font-size:.76rem;font-weight:800;letter-spacing:.02em;text-transform:none}
 .ux-page-toc-links{display:flex;flex-wrap:wrap;gap:6px 18px}
 .ux-page-toc-links a{display:inline-flex;gap:6px;align-items:baseline;padding:5px 0;color:#145743;font-weight:760;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
 .ux-page-toc-links a span{color:#9b7616;font-weight:900;text-decoration:none}
@@ -124,4 +130,14 @@ main :where(button,[role="button"]):not(.glossary-term){touch-action:manipulatio
 @media(prefers-reduced-motion:reduce){
   .ux-back-top,a.portal-card,.ux-action-card,.ux-header-continue{transition:none!important}
   html{scroll-behavior:auto!important}
+}
+
+@media(max-width:700px){
+  .ux-page-toc{padding:0;overflow:hidden}
+  .ux-page-toc-details>summary{min-height:50px;padding:13px 16px}
+  .ux-page-toc-details>summary::after{content:"+";margin-left:auto;color:#8c6b17;font-size:1.15rem;font-weight:900;line-height:1}
+  .ux-page-toc-details[open]>summary::after{content:"−"}
+  .ux-page-toc-details[open]>summary{margin-bottom:0;border-bottom:1px solid #e4dfd3}
+  .ux-page-toc-count{display:inline;margin-left:6px}
+  .ux-page-toc-links{padding:10px 16px 14px}
 }

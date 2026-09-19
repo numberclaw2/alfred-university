@@ -1,10 +1,10 @@
-/* AU-ESET 301 v16.3.26 — Whole-site UX system
+/* AU-ESET 301 v16.3.27 — Whole-site UX system · native visual QA repair
    Purpose: improve task orientation, search discoverability, interaction hierarchy,
    long-page navigation, mobile affordance, and accessibility without changing course logic. */
 (() => {
   'use strict';
-  if (window.__ALFRED_UX_1626__) return;
-  window.__ALFRED_UX_1626__ = true;
+  if (window.__ALFRED_UX_1627__) return;
+  window.__ALFRED_UX_1627__ = true;
 
   const $=(s,r=document)=>r.querySelector(s);
   const $$=(s,r=document)=>[...r.querySelectorAll(s)];
@@ -113,10 +113,15 @@
     const used=new Set();
     headings.forEach((h,i)=>{if(!h.id){let id=makeSlug(h.textContent);let n=2;while(document.getElementById(id)||used.has(id))id=`${makeSlug(h.textContent)}-${n++}`;h.id=id;}used.add(h.id);});
     const nav=document.createElement('nav');nav.className='ux-page-toc shell';nav.setAttribute('aria-label','On this page');
-    nav.innerHTML=`<div class="ux-page-toc-label">On this page</div><div class="ux-page-toc-links">${headings.map(h=>`<a href="#${esc(h.id)}"><span aria-hidden="true">#</span>${esc(h.textContent.trim())}</a>`).join('')}</div>`;
+    const details=document.createElement('details');details.className='ux-page-toc-details';
+    const mobileQuery=matchMedia('(max-width:700px)');details.open=!mobileQuery.matches;
+    details.innerHTML=`<summary><span class="ux-page-toc-label">On this page</span><span class="ux-page-toc-count">${headings.length} sections</span></summary><div class="ux-page-toc-links">${headings.map(h=>`<a href="#${esc(h.id)}"><span aria-hidden="true">#</span>${esc(h.textContent.trim())}</a>`).join('')}</div>`;
+    nav.append(details);
+    const syncDisclosure=e=>{details.open=!e.matches;};
+    mobileQuery.addEventListener?.('change',syncDisclosure);
     const hero=main.querySelector(':scope > .study-hero,:scope > .academic-hero,:scope > .page-hero,:scope > .progress-hero,:scope > .engineering-hero,:scope > .project-page-hero,:scope > .quiz-hero');
     if(hero)hero.after(nav);else main.insertBefore(nav,main.firstChild);
-    nav.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;const target=document.getElementById(decodeURIComponent(a.hash.slice(1)));if(!target)return;e.preventDefault();target.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});history.pushState(null,'',a.hash);target.setAttribute('tabindex','-1');target.focus({preventScroll:true});});
+    nav.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;const target=document.getElementById(decodeURIComponent(a.hash.slice(1)));if(!target)return;e.preventDefault();target.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});history.pushState(null,'',a.hash);target.setAttribute('tabindex','-1');target.focus({preventScroll:true});if(mobileQuery.matches)details.open=false;});
   }
 
   function installStudyShortcuts(){

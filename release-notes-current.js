@@ -1,6 +1,27 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.27",
+      "date": "September 18, 2026",
+      "title": "Native Visual QA Repair — Mobile Vocabulary Width + Progressive Long-Page Navigation",
+      "type": "Visual QA / Responsive UX / Progressive Disclosure",
+      "request": "Run the deployed site code natively to inspect the actual rendered interface, then repair any visual UX defects found instead of relying only on source-level review.",
+      "changes": [
+        "Downloaded the exact GitHub Pages artifact produced from the accepted v16.3.26 deployment and rendered that deployed HTML/CSS/JavaScript composition in Chromium at desktop and 390px mobile widths for Home, Study, Classroom, Course, Projects, Progress, and representative reference surfaces.",
+        "Confirmed the v16.3.26 desktop hierarchy, Home primary action, persistent search/current-week tools, Classroom layout, Study task hierarchy, Progress layout, mobile header, and shared responsive shell are visually coherent and remain unchanged by this repair.",
+        "Found and repaired a real 390px Study Vocabulary Lab intrinsic-width defect. The one-column grid track was being expanded by child min-content width, causing the reference card, statistics, filter controls, selects, and Start Vocabulary Session button to extend beyond the visible Study content area even though the document itself did not report horizontal scrolling.",
+        "Hardened the Vocabulary Study grid with minmax(0,1fr), zero-min-width grid children, and explicit mobile max-width constraints so every vocabulary surface remains inside the 390px content shell while preserving the intended horizontal scroll only for the scope-pill row.",
+        "Found that the desktop On this page navigation was useful but visually over-dominant on mobile reference pages, where seven or more links could consume most of the first screen after the hero.",
+        "Converted long-page navigation to responsive progressive disclosure: it starts expanded on desktop, starts collapsed on screens up to 700px, exposes a clear On this page + section-count summary, can be opened by the learner, automatically collapses after a mobile in-page destination is chosen, and resynchronizes when crossing the desktop/mobile breakpoint.",
+        "Re-ran native Chromium rendering and DOM geometry checks after repair to verify the Vocabulary Study Lab no longer extends beyond the 390px viewport and the Course mobile On this page control is compact by default while retaining all anchors and keyboard semantics.",
+        "Advanced the shared UX loader marker and service-worker namespace to v16.3.27 so browsers reliably replace the v16.3.26 UX runtime and responsive CSS.",
+        "No curriculum, lesson wording, glossary data/definitions, Vocabulary Study scheduling logic, Teaching Media, calendar identities, assessments/scoring, mastery formulas, labs, projects, Progress identities, Cloud Sync protocol, or branding assets were changed."
+      ],
+      "filesAdded": ["AU-ESET-301-v16.3.27-Native-Visual-QA-Repair.md"],
+      "filesModified": ["POST-UPDATE-QA.md","SHA256SUMS.txt","UPLOAD_README.txt","build-info.json","release-notes-current.js","service-worker.js","site.js","ux-system.css","ux-system.js","vocabulary-study.css"],
+      "filesRemoved": []
+    },
+    {
       "version": "v16.3.26",
       "date": "September 18, 2026",
       "title": "Whole-Site UX System — Search, Task Continuity, Long-Page Navigation & Interaction Polish",
@@ -504,7 +525,7 @@
       ]
     }
   ];
-  const currentOrder = ['v16.3.26','v16.3.25','v16.3.24','v16.3.23','v16.3.22','v16.3.21','v16.3.20','v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
+  const currentOrder = ['v16.3.27','v16.3.26','v16.3.25','v16.3.24','v16.3.23','v16.3.22','v16.3.21','v16.3.20','v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
   entries.sort((a,b)=>currentOrder.indexOf(a.version)-currentOrder.indexOf(b.version));
   const historical = Array.isArray(window.ALFRED_RELEASES) ? window.ALFRED_RELEASES : [];
   const currentVersions = new Set(entries.map(entry=>entry.version));
