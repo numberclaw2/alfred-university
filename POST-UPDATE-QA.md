@@ -1,3 +1,62 @@
+# AU-ESET 301 v16.3.32 — Post-Update QA
+
+**QA date:** September 19, 2026  
+**Baseline:** v16.3.31  
+**Candidate:** v16.3.32 `v16.3.32-study-library-week1-safety-scaffolding-20260919`  
+**Result:** **PASS FOR UPLOAD**
+
+## Study Library acceptance
+
+- PASS — Study opens review-first instead of forcing retrieval questions.
+- PASS — Six study paths are present: Review Material, Concept Flashcards, Watch & Review, Reference, Work Weak Areas, Active Recall.
+- PASS — Study content is derived from reached Classroom `lessonSegments`; unreached teaching stays hidden.
+- PASS — No reached sections: Review explains what to do next and Active Recall is disabled.
+- PASS — Week 1 reached-state checks at 1, 2, 5, 10, and 16 teaching sections returned matching Study Library counts.
+- PASS — Week 1 media unlock rules prevent Ohm’s-law/power videos from appearing before those concepts are reached.
+- PASS — Concept Flashcard reveal/hide and previous/next navigation work without requiring a grade or confidence rating.
+- PASS — Reference view renders reached knowledge/formula notes, glossary terms, and matched assigned resources.
+- PASS — Weak Areas is review-first and does not require another cold question before showing the explanation.
+- PASS — Active Recall retains the existing Retrieve → Diagnose → Repair → Practice → Teach Back → Next Move engine.
+- PASS — With only the first five Week 1 teaching sections reached, Active Recall exposed only already-taught Voltage, Current, and circuit-path prompts.
+- PASS — Active Recall Focus Mode hides the Study Library and Active Recall setup surfaces while leaving the session workspace visible.
+- PASS — Native Chromium review of all six Study views at 390 × 844 produced no page-level horizontal overflow and no JavaScript runtime errors.
+- PASS — Native Chromium desktop review at 1440 × 1000 produced no page-level horizontal overflow and no JavaScript runtime errors.
+
+## Week 1 safety-scaffolding acceptance
+
+- PASS — All 16 Week 1 CETa teaching sections remain present.
+- PASS — All five safety sections retain their original titles and standards placement.
+- PASS — Shock/emergency teaching now defines energized/de-energized boundaries and beginner CPR/AED context.
+- PASS — NEC/overcurrent/LOTO teaching now defines interrupting rating, inrush, time-delay vs fast-acting protection, stored energy, and physical isolation.
+- PASS — ESD teaching now defines semiconductor/CMOS context, dissipative mats, wrist straps, meter category/rating, capacitor stored energy, PPE, and the distinction between protecting electronics and protecting people.
+- PASS — RF/fiber teaching now defines RF, antenna gain, duty cycle, MPE, interlocks, fiber-optic cable, termination, cleaving/splicing, invisible IR, and glass-shard controls.
+- PASS — Ladder/vehicle/fire teaching adds nonconductive-ladder, battery fault-current, fire-class, and incipient-fire context.
+- PASS — The five safety semantic prompts now define unfamiliar objects/context before asking for the safety decision.
+- PASS — All five safety competency-code arrays are unchanged.
+- PASS — Native Chromium mobile renders of ESD, RF/fiber, and competency-evidence sections at 390 × 844 showed no horizontal overflow or JavaScript runtime errors.
+
+## Question-review acceptance
+
+- PASS — Existing v16.3.31 Review Section / Back to question mapping remains intact for 124 integrated checks + 62 lesson gates = 186 locations.
+- PASS — All 87 semantic competency-evidence task titles exactly match a same-lesson teaching-section title.
+- PASS — Semantic evidence now exposes Review Section links for all 87 tasks, bringing direct question/evidence review coverage to 273 locations.
+- PASS — Browser test on Week 1 ESD evidence: Review Section opened the exact ESD teaching section; Back to question returned to the exact semantic-task anchor without changing official lesson progress.
+
+## Runtime / package integrity
+
+- PASS — `node --check` for `study.js`, `learn.js`, `week1-instructional-depth.js`, `release-notes-current.js`, and `service-worker.js`.
+- PASS — `study.html` has zero duplicate IDs and all required study workspaces.
+- PASS — build metadata reports runtime `16.3.32`, course release `16.3`, evidence revision `16.2`, Cloud Sync protocol `2`.
+- PASS — service-worker namespace advanced to v16.3.32.
+- PASS — service-worker CORE contains 174 references and all resolve in the candidate artifact.
+- PASS — Protected systems were not intentionally changed: assessment answers/scoring, mastery formulas, labs, projects, calendar IDs/dates/UIDs, Progress identity scheme, Cloud Sync protocol, glossary dataset, Teaching Media verification/source records, branding.
+
+**PASS FOR UPLOAD.**
+
+---
+
+## Previous QA record
+
 # AU-ESET 301 v16.3.31 — Post-Update QA
 
 **QA date:** September 19, 2026  

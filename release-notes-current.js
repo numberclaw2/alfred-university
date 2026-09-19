@@ -1,6 +1,45 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.32",
+      "date": "September 19, 2026",
+      "title": "Study Library + Week 1 Beginner-First Safety Scaffolding",
+      "type": "Study UX / Instructional Scaffolding / Retrieval Boundary Repair",
+      "request": "Make Study behave like real studying—rereading reached curriculum, reviewing visuals, using concept flashcards, verified videos, and reference material—while keeping active recall as an optional memory check; also repair Week 1 safety sections so unfamiliar future-course terms such as CMOS, fiber termination, MPE, interrupting rating, and stored-energy terminology are explained before safety questions use them.",
+      "changes": [
+        "Reframed Study as a review-first Study Library. The default path now opens reached Classroom material for rereading instead of immediately requiring diagnostic questions.",
+        "Added six Study paths: Review Material, Concept Flashcards, Watch & Review, Reference, Work Weak Areas, and Active Recall. Active Recall preserves the existing retrieval → diagnose → repair → practice → teach-back engine but is no longer the entry requirement for studying.",
+        "Study Library content is progression-aware: only teaching sections already reached in Classroom are exposed. Future lesson sections stay out of review, flashcards, media, reference, and Active Recall until the learner reaches them.",
+        "Added a reread-oriented study-sheet view with Quick re-read, full review text, existing lesson figures/tables, Hold onto this summaries, and previous/next navigation across reached concepts.",
+        "Added lightweight concept flashcards generated from reached teaching sections. Answers may be revealed immediately for memorization/repetition; the separate Vocabulary Study Lab remains available for glossary-focused spaced retrieval.",
+        "Added Watch & Review using the already-verified Teaching Media layer, filtered to unlocked/reached material. Week 1 media has explicit unlock points so videos do not expose later concepts before the corresponding teaching section is reached.",
+        "Added a Reference view that surfaces formulas/knowledge notes, glossary terms, and assigned course resources connected to reached material.",
+        "Added Work Weak Areas as a review-first path. Previous Partial/Missed/due concepts show the explanation first and link back to review/flashcards instead of requiring another question before study can begin.",
+        "Changed Study Active Recall so it no longer redirects the learner back to Classroom simply for opening Study. The global Home/Continue next-action system remains coursework-first, while an intentional Study visit can review already-reached material at any time.",
+        "Expanded all five preserved Week 1 safety sections with beginner-context definitions and explicit 'just enough for this safety rule' scaffolding. Safety standards are unchanged; unfamiliar equipment/terms are no longer assumed background knowledge.",
+        "Reworded the five Week 1 safety competency prompts so the object/context is understandable before the learner is asked to reason about the safety rule. The required technical elements, competency codes, mastery logic, and question-to-section backlinks remain unchanged.",
+        "Extended the existing Review Section / Back to question workflow to all 87 semantic competency-evidence prompts. Each semantic task title already matches its exact teaching section, so safety evidence questions now have a direct path back to the section that taught the terminology and rule.",
+        "Preserved v16.3.31 lesson back/forward review, Back to question, v16.3.30 vocabulary click/double-click behavior, 599-term glossary, Teaching Media verification, assessments/scoring, labs, calendar identities, Progress records, Cloud Sync protocol 2, Student/Builder Mode, and branding."
+      ],
+      "filesAdded": [
+        "AU-ESET-301-v16.3.32-Study-Library-and-Week1-Safety-Scaffolding-Verification.md"
+      ],
+      "filesModified": [
+        "POST-UPDATE-QA.md",
+        "SHA256SUMS.txt",
+        "UPLOAD_README.txt",
+        "build-info.json",
+        "learn.js",
+        "release-notes-current.js",
+        "service-worker.js",
+        "study-v2.css",
+        "study.html",
+        "study.js",
+        "week1-instructional-depth.js"
+      ],
+      "filesRemoved": []
+    },
+    {
       "version": "v16.3.31",
       "date": "September 19, 2026",
       "title": "Lesson Review Navigation — Back/Forward + Question Teaching Links",

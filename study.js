@@ -1,5 +1,5 @@
 (()=>{
-const E=window.ALFRED_EVENTS||[],W=window.ALFRED_WEEKS||[],A=window.ALFRED_ACADEMIC||{},D=window.ALFRED_ASSESSMENT||{};
+const E=window.ALFRED_EVENTS||[],W=window.ALFRED_WEEKS||[],A=window.ALFRED_ACADEMIC||{},D=window.ALFRED_ASSESSMENT||{},C=window.ALFRED_CURRICULUM||{},G=window.ALFRED_GLOSSARY||[],R=window.ALFRED_RESOURCES||[];
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const STUDY_KEY='alfred-u-study-v13', PROGRESS_KEY='alfred-u-progress-v2', QUIET_KEY='alfred-u-quiet-mode', SYNC_KEY='alfred-u-sync-config-v1';
@@ -10,11 +10,11 @@ const fmtDate=(v,o={weekday:'short',month:'short',day:'numeric'})=>new Intl.Date
 const cleanTitle=e=>String(e?.summary||'').replace(/^AU-ESET 301 \| /,'');
 const css=document.createElement('link');css.rel='stylesheet';css.href='study-v2.css';document.head.appendChild(css);
 
-function defaultState(){return {version:16,defaultMode:'standard',reviews:{},parking:[],history:[],sessionConfidence:{},session:null};}
-function load(){try{return {...defaultState(),...(JSON.parse(localStorage.getItem(STUDY_KEY)||'null')||{})};}catch{return defaultState();}}
+function defaultState(){return {version:17,defaultMode:'standard',reviews:{},parking:[],history:[],sessionConfidence:{},session:null,library:{view:'review',reviewIndex:0,flashIndex:0,flashRevealed:false}};}
+function load(){try{const raw=JSON.parse(localStorage.getItem(STUDY_KEY)||'null')||{};const base=defaultState();return {...base,...raw,library:{...base.library,...(raw.library||{})}};}catch{return defaultState();}}
 let state=load();
 if(state.session&&!Array.isArray(state.session.conceptIds))state.session=null;
-function save(){localStorage.setItem(STUDY_KEY,JSON.stringify({version:16,defaultMode:state.defaultMode,parking:state.parking||[],history:(state.history||[]).slice(0,100),session:state.session||null}));}
+function save(){localStorage.setItem(STUDY_KEY,JSON.stringify({version:17,defaultMode:state.defaultMode,parking:state.parking||[],history:(state.history||[]).slice(0,100),session:state.session||null,library:state.library||defaultState().library}));}
 function progress(){try{return JSON.parse(localStorage.getItem(PROGRESS_KEY)||'null')||{events:{},weeks:{},readiness:{},recordTimes:{}};}catch{return {events:{},weeks:{},readiness:{},recordTimes:{}};}}
 function currentWeek(){const requested=Number(new URLSearchParams(location.search).get('week')||0);if(requested&&W.some(w=>Number(w.week)===requested))return requested;return window.AlfredState?.currentWeek?.()||1;}
 function weekData(n){return W.find(w=>Number(w.week)===Number(n))||{};}
@@ -34,6 +34,102 @@ function classroomStage(week){
   const next=order.find(id=>!l.completed?.[id]);return next==='orientation'?'ceta-lesson':next||'mastery';
 }
 const stageLabels={orientation:'Start Here','ceta-lesson':'Subject 1 · CETa lesson','career-lesson':'Subject 2 · Career lesson',media:'Teaching Media',practice:'Guided Practice',application:'Lab / Application',mastery:'Weekly Mastery'};
+
+const stageOrder=['orientation','ceta-lesson','career-lesson','media','practice','application','mastery'];
+function moduleForWeek(week){return (C.modules||[]).find(m=>Number(m.week)===Number(week))||null;}
+function reachedTeachingCount(week,lessonIndex){
+  const module=moduleForWeek(week),lesson=module?.lessons?.[lessonIndex],sections=lesson?.integrated?.teaching||[];if(!sections.length)return 0;
+  const w=weekRecord(progress(),week),l=w.learning||{},stageId=lessonIndex===0?'ceta-lesson':'career-lesson',stagePos=stageOrder.indexOf(stageId),currentPos=stageOrder.indexOf(l.currentStage||'orientation');
+  if(l.completed?.[stageId]||currentPos>stagePos)return sections.length;
+  const rec=l.lessonSegments?.[`lesson-${lessonIndex}`];
+  if(rec){const furthest=Math.max(0,Number(rec.furthest??rec.current??0));return Math.min(sections.length,furthest);}
+  if(l.currentStage===stageId)return 0;
+  return 0;
+}
+function reachedStudySections(week=currentWeek()){
+  const module=moduleForWeek(week);if(!module)return [];
+  const out=[];(module.lessons||[]).forEach((lesson,lessonIndex)=>{
+    const sections=lesson?.integrated?.teaching||[],count=reachedTeachingCount(week,lessonIndex);
+    sections.slice(0,count).forEach((section,sectionIndex)=>out.push({week,lessonIndex,sectionIndex,lessonTitle:lesson.title||`Lesson ${lessonIndex+1}`,track:lesson.track||'',section}));
+  });return out;
+}
+function reachedCorpus(week=currentWeek()){
+  return reachedStudySections(week).map(x=>`${x.section.title||''} ${x.section.buildOn||''} ${x.section.text||''} ${x.section.remember||''}`).join(' ').toLowerCase();
+}
+function tokenize(text){const stop=new Set(['this','that','with','from','into','when','what','your','then','than','they','them','their','there','will','have','has','does','also','only','week','course','alfred','using','used','use','work','working','through','about','after','before','between','where','which','while','because','each','other','same','more','less','some','very','make','made','like','just','need','still']);return [...new Set(String(text||'').toLowerCase().replace(/[^a-z0-9µΩ]+/g,' ').split(/\s+/).filter(x=>x.length>3&&!stop.has(x)))];}
+function overlapScore(a,b){const bs=new Set(tokenize(b));return tokenize(a).reduce((n,t)=>n+(bs.has(t)?1:0),0);}
+function paragraphs(text){return String(text||'').split(/\n\s*\n/).filter(Boolean).map(x=>`<p>${esc(x.trim())}</p>`).join('');}
+function shortText(text,max=420){const clean=String(text||'').replace(/\s+/g,' ').trim();return clean.length<=max?clean:`${clean.slice(0,max).replace(/\s+\S*$/,'')}…`;}
+function renderStudyFigure(figure){
+  if(!figure)return '';
+  if(figure.type==='table')return `<figure class="study-review-figure"><figcaption><strong>${esc(figure.number||'Reference table')} · ${esc(figure.title||'')}</strong></figcaption><div class="study-reference-table"><table><thead><tr>${(figure.columns||[]).map(x=>`<th>${esc(x)}</th>`).join('')}</tr></thead><tbody>${(figure.rows||[]).map(row=>`<tr>${row.map(x=>`<td>${esc(x)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>${figure.caption?`<p>${esc(figure.caption)}</p>`:''}</figure>`;
+  if(figure.src)return `<figure class="study-review-figure"><img src="${esc(figure.src)}" alt="${esc(figure.alt||figure.title||'Course figure')}" loading="lazy"><figcaption><strong>${esc(figure.number||'Figure')} · ${esc(figure.title||'')}</strong>${figure.caption?`<span>${esc(figure.caption)}</span>`:''}${figure.sourceUrl?`<a href="${esc(figure.sourceUrl)}" target="_blank" rel="noopener">Source →</a>`:''}</figcaption></figure>`;
+  return '';
+}
+function studyFlashcards(week=currentWeek()){
+  return reachedStudySections(week).map((x,i)=>({id:`lesson-${x.lessonIndex}-section-${x.sectionIndex}`,title:x.section.title||`Concept ${i+1}`,track:x.track,lessonTitle:x.lessonTitle,front:`Explain this idea in your own words: ${x.section.title||`Concept ${i+1}`}`,back:x.section.remember||shortText(x.section.text,560),buildOn:x.section.buildOn||''}));
+}
+function reachedMedia(week=currentWeek()){
+  const module=moduleForWeek(week),sections=reachedStudySections(week),corpus=reachedCorpus(week);if(!module||!sections.length)return [];
+  const media=module.integration?.media||[];
+  if(Number(week)===1){
+    const unlock={mathScienceVoltageCurrentResistance:4,afrotechmodsWhatIsAmp:1,afrotechmodsWhatIsVoltage:2,afrotechmodsResistanceOhmsLaw:7,afrotechmodsPowerWatts:9,organicChemTutorBasicCircuits:9,afrotechmodsMultimeter:10,aacElectricalA:4,aacElectricalB:9,aacTechnicalNotation:6,aacCurrentPath:3,aacGroundReference:2,flukeSafety:10,phetDC:4,oshaLotoInteractive:12,medlineElectricalInjury:11,oshaFireExtinguisher:15,oshaLadderSafety:15,oshaDriverSafety:15,oshaRfSafety:14,oshaFiberLaserSafety:14,oshaElectricalStandardsTrainer:12,keysightBenchPowerCourse:10,flukeMultimeterGuide:10,nasaESD:13};
+    const reachedCeta=reachedTeachingCount(1,0);
+    return media.filter(m=>!(m.source in unlock)||reachedCeta>unlock[m.source]).map((m,i)=>({...m,sourceMeta:C.sources?.[m.source]||{},score:1,index:i}));
+  }
+  return media.map((m,i)=>{const source=C.sources?.[m.source]||{};const score=overlapScore(`${m.role||''} ${m.use||''} ${m.watchFor||''} ${source.title||''}`,corpus);return {...m,sourceMeta:source,score,index:i};}).filter(x=>x.score>=2).sort((a,b)=>b.score-a.score||a.index-b.index).slice(0,12);
+}
+function reachedGlossary(week=currentWeek()){
+  const corpus=` ${reachedCorpus(week).replace(/[^a-z0-9µΩ]+/g,' ')} `;return (G||[]).map(g=>{const term=String(g.term||'').toLowerCase();const normalized=` ${term.replace(/[^a-z0-9µΩ]+/g,' ')} `;const present=term.length>=3&&corpus.includes(normalized);return {...g,present};}).filter(x=>x.present).slice(0,36);
+}
+function reachedKnowledge(week=currentWeek()){
+  const corpus=reachedCorpus(week);return (A.knowledge||[]).filter(k=>(k.weeks||[]).map(Number).includes(Number(week))&&overlapScore(`${k.term||''} ${k.keywords||''}`,corpus)>0).slice(0,18);
+}
+function reachedResources(week=currentWeek()){
+  const corpus=reachedCorpus(week);return (R||[]).filter(r=>(r.weeks||[]).map(Number).includes(Number(week))).map(r=>({...r,score:overlapScore(`${r.title||''} ${(r.contexts||[]).join(' ')} ${r.category||''}`,corpus)})).filter(r=>r.score>0||/CETa \/ Official/i.test(r.category||'')).sort((a,b)=>b.score-a.score).slice(0,10);
+}
+function libraryView(){return state.library?.view||'review';}
+function setLibraryView(view){
+  state.library=state.library||defaultState().library;state.library.view=view;save();renderStudyLibrary();
+  try{const u=new URL(location.href);u.searchParams.set('view',view);history.replaceState(null,'',u);}catch{}
+}
+function renderReachedSummary(){
+  const out=$('#study-reached-summary');if(!out)return;const week=currentWeek(),sections=reachedStudySections(week),module=moduleForWeek(week),ceta=sections.filter(x=>x.lessonIndex===0).length,career=sections.filter(x=>x.lessonIndex===1).length;
+  out.innerHTML=sections.length?`<strong>Week ${String(week).padStart(2,'0')} · ${esc(module?.title||weekData(week).topic||'Current week')}</strong><span>${sections.length} teaching section${sections.length===1?'':'s'} available to study · ${ceta} CETa${career?` · ${career} Career`:''}</span>`:`<strong>Week ${String(week).padStart(2,'0')}</strong><span>Complete the first teaching section in Classroom, then it will appear here for study.</span>`;
+}
+function renderReviewMaterial(){
+  const sections=reachedStudySections(),out=$('#study-material-content');if(!out)return;if(!sections.length){out.innerHTML='<div class="study-library-empty"><strong>No teaching section has been reached yet.</strong><p>Open Classroom and complete the first teaching section. Study will automatically unlock that material here without exposing future content.</p><a class="button green" href="learn.html">Open Classroom →</a></div>';return;}
+  state.library=state.library||defaultState().library;let i=Math.max(0,Math.min(Number(state.library.reviewIndex)||0,sections.length-1));state.library.reviewIndex=i;const x=sections[i],sec=x.section;
+  out.innerHTML=`<article class="study-review-sheet"><header><div><span>${esc(x.track||`Lesson ${x.lessonIndex+1}`)} · Review ${i+1} of ${sections.length}</span><h3>${esc(sec.title)}</h3><p>${esc(x.lessonTitle)}</p></div><a class="text-link" href="learn.html?week=${x.week}">Open full Classroom →</a></header>${sec.buildOn?`<aside class="study-builds-on"><strong>Build this on</strong><p>${esc(sec.buildOn)}</p></aside>`:''}<section class="study-quick-read"><span>Quick re-read</span><p>${esc(sec.remember||shortText(sec.text,460))}</p></section><section class="study-full-read"><div class="study-subhead"><span>Full review text</span><small>Read it again as many times as you need. Nothing here is graded.</small></div>${paragraphs(sec.text)}</section>${renderStudyFigure(sec.figure)}${sec.remember?`<aside class="study-hold-on"><strong>Hold onto this</strong><p>${esc(sec.remember)}</p></aside>`:''}<div class="study-repetition-cue"><strong>One useful study pass</strong><ol><li>Read the Quick re-read once.</li><li>Read the full explanation slowly.</li><li>Look away and say the idea in plain language.</li><li>Read the Hold onto this box again and compare.</li></ol></div><nav class="study-library-nav"><button type="button" class="button outline-green" id="study-review-prev" ${i===0?'disabled':''}>← Previous review</button><span>${i+1} / ${sections.length}</span><button type="button" class="button green" id="study-review-next" ${i===sections.length-1?'disabled':''}>Next review →</button></nav></article>`;
+  $('#study-review-prev')?.addEventListener('click',()=>{state.library.reviewIndex=Math.max(0,i-1);save();renderStudyLibrary();$('#study-material-workspace')?.scrollIntoView({behavior:'smooth',block:'start'});});
+  $('#study-review-next')?.addEventListener('click',()=>{state.library.reviewIndex=Math.min(sections.length-1,i+1);save();renderStudyLibrary();$('#study-material-workspace')?.scrollIntoView({behavior:'smooth',block:'start'});});
+}
+function renderFlashcards(){
+  const cards=studyFlashcards(),out=$('#study-material-content');if(!out)return;if(!cards.length){out.innerHTML='<div class="study-library-empty"><strong>No concept cards yet.</strong><p>Reach a teaching section in Classroom first.</p></div>';return;}
+  state.library=state.library||defaultState().library;let i=Math.max(0,Math.min(Number(state.library.flashIndex)||0,cards.length-1));state.library.flashIndex=i;const c=cards[i],revealed=!!state.library.flashRevealed;
+  out.innerHTML=`<section class="study-flashcard-shell"><div class="study-view-intro"><span>Concept Flashcards · ${i+1} of ${cards.length}</span><h3>Use the answer side to study—not only to test.</h3><p>Read the front, try to say what you know if you can, then reveal the back immediately when you need it. Vocabulary-only cards remain available in the Vocabulary Study Lab below.</p></div><article class="study-concept-card ${revealed?'revealed':''}" id="study-concept-card"><span>${esc(c.track||'Course concept')}</span><h3>${esc(c.title)}</h3><p class="flash-front">${esc(c.front)}</p>${revealed?`<div class="flash-back"><strong>Study answer</strong><p>${esc(c.back)}</p>${c.buildOn?`<small>Connection: ${esc(c.buildOn)}</small>`:''}</div>`:'<div class="flash-covered"><span>Answer hidden</span></div>'}<button type="button" class="button ${revealed?'outline-green':'gold'}" id="study-flash-reveal">${revealed?'Hide answer':'Reveal study answer'}</button></article><nav class="study-library-nav"><button type="button" class="button outline-green" id="study-flash-prev" ${i===0?'disabled':''}>← Previous card</button><span>${i+1} / ${cards.length}</span><button type="button" class="button green" id="study-flash-next" ${i===cards.length-1?'disabled':''}>Next card →</button></nav></section>`;
+  $('#study-flash-reveal')?.addEventListener('click',()=>{state.library.flashRevealed=!state.library.flashRevealed;save();renderStudyLibrary();});
+  $('#study-flash-prev')?.addEventListener('click',()=>{state.library.flashIndex=Math.max(0,i-1);state.library.flashRevealed=false;save();renderStudyLibrary();});
+  $('#study-flash-next')?.addEventListener('click',()=>{state.library.flashIndex=Math.min(cards.length-1,i+1);state.library.flashRevealed=false;save();renderStudyLibrary();});
+}
+function renderMediaStudy(){
+  const out=$('#study-material-content'),items=reachedMedia();if(!out)return;if(!reachedStudySections().length){out.innerHTML='<div class="study-library-empty"><strong>No reached material yet.</strong><p>Teaching Media will appear here as you reach the concepts it supports.</p></div>';return;}
+  out.innerHTML=`<section class="study-media-library"><div class="study-view-intro"><span>Watch &amp; Review</span><h3>Verified teaching media for concepts you have already reached.</h3><p>These are not random recommendations. Alfred filters the course’s verified Teaching Media layer against the material currently available in your Study Library.</p></div>${items.length?`<div class="study-media-grid">${items.map(m=>`<article class="study-media-card"><span>${esc(m.role||'Teaching Media')}</span><h4>${esc(m.sourceMeta?.title||m.source||'Course media')}</h4><small>${esc(m.sourceMeta?.org||m.sourceMeta?.kind||'Verified course source')}</small>${m.use?`<p><strong>Use it for:</strong> ${esc(m.use)}</p>`:''}${m.watchFor?`<p><strong>Watch for:</strong> ${esc(m.watchFor)}</p>`:''}${m.sourceMeta?.url?`<a class="button outline-green" href="${esc(m.sourceMeta.url)}" target="_blank" rel="noopener">Open teaching source ↗</a>`:''}</article>`).join('')}</div>`:'<div class="study-library-empty"><strong>No media match has unlocked yet.</strong><p>Continue through Classroom; relevant videos will appear automatically as their concepts are reached.</p></div>'}</section>`;
+}
+function renderReferenceStudy(){
+  const out=$('#study-material-content');if(!out)return;const sections=reachedStudySections(),terms=reachedGlossary(),knowledge=reachedKnowledge(),resources=reachedResources();if(!sections.length){out.innerHTML='<div class="study-library-empty"><strong>No reached material yet.</strong><p>References will populate from concepts you encounter in Classroom.</p></div>';return;}
+  out.innerHTML=`<section class="study-reference-library"><div class="study-view-intro"><span>Reference</span><h3>Keep the useful facts close while you study.</h3><p>This view pulls key glossary terms, formulas/knowledge notes, and assigned resources connected to material you have already reached.</p></div>${knowledge.length?`<div class="study-reference-knowledge"><h4>Key ideas &amp; formulas</h4>${knowledge.map(k=>`<article><strong>${esc(k.term)}</strong><p>${esc(k.summary||'')}</p>${k.deeper?`<p>${esc(k.deeper)}</p>`:''}${k.formula?`<code>${esc(k.formula)}</code>`:''}</article>`).join('')}</div>`:''}<div class="study-reference-columns"><div><h4>Glossary terms you have encountered</h4>${terms.length?`<div class="study-term-list">${terms.map(g=>`<a href="glossary.html#${esc(g.slug||String(g.term||'').toLowerCase().replace(/[^a-z0-9]+/g,'-'))}"><strong>${esc(g.term)}</strong><span>${esc(shortText(g.definition||g.plain||g.summary||'',120))}</span></a>`).join('')}</div>`:'<p>No matched glossary terms in the reached text yet.</p>'}<a class="text-link" href="glossary.html?view=all">Open complete Course Glossary →</a></div><div><h4>Assigned resources</h4>${resources.length?`<div class="study-resource-list">${resources.map(r=>`<a href="${esc(r.url)}" target="_blank" rel="noopener"><strong>${esc(r.title||r.domain)}</strong><span>${esc(r.category||r.domain||'Course resource')}</span></a>`).join('')}</div>`:'<p>No additional assigned resource matches this reached material yet.</p>'}<a class="text-link" href="resources.html">Open Engineering Library →</a></div></div></section>`;
+}
+function renderWeakAreasStudy(){
+  const out=$('#study-material-content');if(!out)return;const week=currentWeek(),pool=conceptPool(week),latest=latestConceptRatings(week),due=new Set(dueConceptIds(week)),weak=pool.filter(c=>latest[c.id]==='red'||latest[c.id]==='yellow'||due.has(c.id));
+  out.innerHTML=`<section class="study-weak-library"><div class="study-view-intro"><span>Work Weak Areas</span><h3>Study the places that have already shown friction.</h3><p>This is review-first. Use the explanation and then jump to Review Material, Flashcards, or Active Recall when you want to check it again.</p></div>${weak.length?`<div class="study-weak-grid">${weak.map(c=>`<article><span>${due.has(c.id)?'Due for memory review':latest[c.id]==='red'?'Previously missed':'Previously partial'}</span><h4>${esc(c.name)}</h4><p>${esc(c.repair||c.answer||'')}</p>${c.formula?`<code>${esc(c.formula)}</code>`:''}<div><button type="button" class="text-link" data-weak-review="review">Open Review Material</button><button type="button" class="text-link" data-weak-review="flashcards">Open Flashcards</button></div></article>`).join('')}</div>`:'<div class="study-library-empty"><strong>No weak areas are recorded yet.</strong><p>That is fine. You do not need to fail a question before you are allowed to study. Start with Review Material, Flashcards, Watch &amp; Review, or Reference.</p></div>'}</section>`;
+  $$('[data-weak-review]').forEach(b=>b.addEventListener('click',()=>setLibraryView(b.dataset.weakReview)));
+}
+function renderStudyLibrary(){
+  renderReachedSummary();const view=libraryView();$$('[data-study-view]').forEach(b=>{const on=b.dataset.studyView===view;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on));});
+  const material=$('#study-material-workspace'),recall=$('#active-recall-section');if(view==='recall'){material?.classList.add('hidden');recall?.classList.remove('hidden');renderRecommendation();renderResumeSession();return;}material?.classList.remove('hidden');recall?.classList.add('hidden');
+  if(view==='flashcards')renderFlashcards();else if(view==='media')renderMediaStudy();else if(view==='reference')renderReferenceStudy();else if(view==='weak')renderWeakAreasStudy();else renderReviewMaterial();
+}
 
 const WEEK1=[
  {id:'voltage',name:'Voltage',prompt:'Without notes: what is voltage physically, and why is a voltage measurement always between two points?',repair:'Voltage is electric potential difference: an energy-per-charge difference between two locations. Voltage does not flow. A meter reports the difference between its two probes, so every voltage value has an explicit or implied reference node.',formula:'1 V = 1 J/C',practice:'A node is labeled 3.3 V. What information is missing if no reference node has been stated?',answer:'The reference point is missing. “3.3 V” means 3.3 volts relative to some other node, commonly circuit common/ground.',keywords:'voltage potential difference reference node'},
@@ -58,13 +154,16 @@ function genericConcepts(week){
     answer:k.deeper||k.summary||`Your answer should correctly define and apply ${k.term}.`,keywords:k.keywords||k.term
   }));
 }
+function conceptMatchesReached(c,week){const corpus=reachedStudySections(week).map(x=>`${x.section.title||''} ${x.section.remember||''}`).join(' ').toLowerCase();return !!corpus&&overlapScore(`${c.name||''} ${c.keywords||''}`,corpus)>0;}
+function sectionDerivedConcepts(week){return reachedStudySections(week).map((x,i)=>({id:`section-${x.lessonIndex}-${x.sectionIndex}`,name:x.section.title||`Reached concept ${i+1}`,prompt:`Without notes, explain the main idea from “${x.section.title||`this section`}.”`,repair:x.section.remember||shortText(x.section.text,520),formula:'',practice:`Give one concrete example, prediction, measurement, or safety decision that uses ${x.section.title||'this concept'}.`,answer:x.section.remember||shortText(x.section.text,520),keywords:`${x.section.title||''} ${x.section.text||''}`}));}
 function conceptPool(week){
   const requested=requestedStandardConcept();
-  const base=Number(week)===1?WEEK1:genericConcepts(week);
-  if(requested)return [requested,...base.filter(x=>x.id!==requested.id)];
-  if(base.length)return base;
-  const outcomes=weekData(week).outcomes||[];
-  return outcomes.map((x,i)=>({id:`outcome-${i}`,name:`Outcome ${i+1}`,prompt:`Without notes, explain: ${x}`,repair:x,formula:'',practice:`Give one concrete example showing you can use this outcome, not just repeat it.`,answer:`A strong response should accurately explain and apply: ${x}`,keywords:x}));
+  let filtered=[];
+  if(Number(week)===1){const unlock={current:1,voltage:2,path:3,resistance:7,prefixes:5,power:9},count=reachedTeachingCount(1,0);filtered=WEEK1.filter(c=>count>Number(unlock[c.id]??999));}
+  else filtered=genericConcepts(week).filter(c=>conceptMatchesReached(c,week));
+  if(requested)return [requested,...filtered.filter(x=>x.id!==requested.id)];
+  if(filtered.length)return filtered;
+  return sectionDerivedConcepts(week);
 }
 function latestConceptRatings(week){
   const out={};for(const h of state.history||[]){if(Number(h.week)!==Number(week)||!h.ratings)continue;for(const [id,r] of Object.entries(h.ratings))if(!(id in out))out[id]=r;}return out;
@@ -85,32 +184,18 @@ function conceptById(id,week=state.session?.week||currentWeek()){return conceptP
 
 function renderRecommendation(){
   const box=$('#recommended-session'),start=$('#start-study-session');if(!box)return;
-  const week=currentWeek(),stage=classroomStage(week),concepts=conceptPool(week);
-  const next=window.AlfredNextAction?.get?.()||null;
-  const due=Math.max(dueConceptIds(week).length,Number(next?.due||0));
-  const classroomFirst=next?.kind==='classroom'&&!due&&!state.session;
-  const reviewFirst=next?.reason==='due-review'&&!state.session;
-  const routeFirst=classroomFirst||reviewFirst;
+  const week=currentWeek(),concepts=conceptPool(week),sections=reachedStudySections(week),due=dueConceptIds(week).filter(id=>concepts.some(c=>c.id===id)).length;
   target=targetEvent();
-  const eventText=target?`Next scheduled item: ${cleanTitle(target)}`:'No incomplete scheduled event is driving this session.';
-  const fieldset=$('.study-start-controls fieldset'),note=$('.study-start-controls .small-note');
-  if(start){start.disabled=routeFirst?false:!concepts.length;start.dataset.routeHref=routeFirst?next.href:'';start.textContent=routeFirst?next.label:'Start Study Session';}
-  if(fieldset)fieldset.classList.toggle('hidden',routeFirst);
-  if(note)note.textContent=classroomFirst?'New required material comes before diagnostic retrieval. Alfred will bring you back to Study when review is due or a saved Study session needs to be resumed.':reviewFirst?'Clear the due retrievals first. Review is capped in small blocks; after that Alfred returns you to the required course path.':'Choose the amount of retrieval you can do well. The session is task-based, not timer-driven, and it never marks required course work complete.';
-  if(classroomFirst){
-    box.innerHTML=`<div class="recommended-label">Week ${String(week).padStart(2,'0')} · ${esc(stageLabels[stage]||'Required Classroom work')}</div><h2>Learn the next required section before retrieval.</h2><p>${esc(next.detail||'Classroom instruction is the next required action.')} Study will become the primary action when spaced review is due or a saved Study session needs attention.</p><div class="recommended-meta"><span>${esc(eventText)}</span><span>Classroom first · Study follows instruction</span></div>`;
-    return;
-  }
-  if(reviewFirst){
-    box.innerHTML=`<div class="recommended-label">Spaced Review · ${due} due</div><h2>${esc(next.label)}</h2><p>Clear a small due-review block before starting new diagnostic work. Weak answers return sooner; strong answers spread farther apart.</p><div class="recommended-meta"><span>${esc(eventText)}</span><span>Review first · then return to the required course path</span></div>`;
-    return;
-  }
-  box.innerHTML=`<div class="recommended-label">Week ${String(week).padStart(2,'0')} · ${esc(stageLabels[stage]||'Current learning')}</div><h2>${state.session?'Resume the diagnostic you already started':'Check what actually stuck before moving on'}</h2><p>Study will test a small set of concepts, identify weak spots, repair only those gaps, and finish with fresh practice and teach-back.</p><div class="recommended-meta"><span>${esc(eventText)}</span><span>${concepts.length} concept${concepts.length===1?'':'s'} available</span></div>`;
+  if(start){start.disabled=!concepts.length;start.dataset.routeHref='';start.textContent='Start Active Recall';}
+  const fieldset=$('.study-start-controls fieldset'),note=$('.study-start-controls .small-note');if(fieldset)fieldset.classList.remove('hidden');
+  if(note)note.textContent=concepts.length?'Study first if you need to. Active Recall only uses material you have already reached, and its ratings schedule review without changing course mastery.':'Reach at least one teaching section in Classroom first. Alfred will not test you on material that has not appeared in your learning path.';
+  if(!sections.length){box.innerHTML=`<div class="recommended-label">Week ${String(week).padStart(2,'0')} · No reached teaching sections yet</div><h2>Nothing to test yet—and that is okay.</h2><p>Active Recall is a memory check after learning. Complete the first Classroom teaching section, then return here when you want to test what stuck.</p>`;return;}
+  box.innerHTML=`<div class="recommended-label">Week ${String(week).padStart(2,'0')} · ${concepts.length} reached concept${concepts.length===1?'':'s'}${due?` · ${due} due`:''}</div><h2>Check your memory when you are ready.</h2><p>This is the existing retrieval → diagnose → repair → practice → teach-back workflow, now limited to concepts you have already encountered. You can leave and return to Review Material at any time.</p><div class="recommended-meta"><span>${sections.length} reached teaching section${sections.length===1?'':'s'}</span><span>${due?`${due} spaced review${due===1?'':'s'} due`:'No spaced review due right now'}</span></div>`;
 }
 function renderWeeklyPlan(){
   const out=$('#weekly-plan');if(!out)return;const week=currentWeek(),wd=weekData(week),list=E.filter(e=>Number(e.week)===Number(week)),mins=list.filter(e=>e.type!=='Equipment').reduce((a,e)=>{const s=new Date(e.start),en=new Date(e.end);return a+Math.max(0,Math.round((en-s)/60000));},0),lab=list.find(e=>e.type==='Lab'||e.type==='Project');
   const link=$('#open-week-module');if(link){link.href=`learn.html?week=${week}`;link.textContent='Open complete Classroom →';}
-  out.innerHTML=`<article class="weekly-plan-main"><div class="week-kicker">Week ${String(week).padStart(2,'0')}</div><h3>${esc(wd.topic||'Current Week')}</h3><p><strong>Scheduled course time:</strong> ${Math.round(mins/60*10)/10} hours</p><div class="three-priorities">${(wd.outcomes||[]).slice(0,3).map((x,i)=>`<div><span>${i+1}</span><p>${esc(x)}</p></div>`).join('')}</div></article><article class="weekly-plan-side"><h3>Study does not replace Classroom</h3><p>Use this tab to expose and repair weak recall. Use Classroom for the authoritative teaching sequence and completion gates.</p>${lab?`<div class="weekly-lab"><strong>Hands-on block</strong><span>${esc(cleanTitle(lab))}</span></div>`:''}<div class="mastery-readout"><strong>Need evidence?</strong> <a href="analytics.html">Open Mastery →</a></div></article>`;
+  out.innerHTML=`<article class="weekly-plan-main"><div class="week-kicker">Week ${String(week).padStart(2,'0')}</div><h3>${esc(wd.topic||'Current Week')}</h3><p><strong>Scheduled course time:</strong> ${Math.round(mins/60*10)/10} hours</p><div class="three-priorities">${(wd.outcomes||[]).slice(0,3).map((x,i)=>`<div><span>${i+1}</span><p>${esc(x)}</p></div>`).join('')}</div></article><article class="weekly-plan-side"><h3>Study supports Classroom</h3><p>Use Study to reread, review, watch, reference, and rehearse material you have already reached. Classroom remains the authoritative first-teaching sequence and completion path.</p>${lab?`<div class="weekly-lab"><strong>Hands-on block</strong><span>${esc(cleanTitle(lab))}</span></div>`:''}<div class="mastery-readout"><strong>Need evidence?</strong> <a href="analytics.html">Open Mastery →</a></div></article>`;
 }
 
 function sessionStageNames(){return ['Retrieve','Diagnose','Repair','Practice','Teach Back','Next Move'];}
@@ -146,7 +231,7 @@ function readinessSummary(){
 }
 function renderNextMove(){
   const s=state.session,r=readinessSummary(),stage=classroomStage(s.week),weak=[...r.red,...r.yellow];
-  return `<div class="next-move-grid"><article class="next-move-result ${r.continueReady?'ready':'repair'}"><span>${r.continueReady?'Ready to continue':'One more repair pass'}</span><h4>${r.continueReady?'The retrieval and transfer check support moving forward.':'The session still shows a specific gap.'}</h4><p>${r.red.length?`Missed: ${r.red.map(c=>esc(c.name)).join(', ')}. `:''}${r.yellow.length?`Partial: ${r.yellow.map(c=>esc(c.name)).join(', ')}. `:''}${!r.teachDone?'Teach-back is not complete yet.':''}</p></article><article class="next-move-result"><span>Important boundary</span><h4>Study does not mark course work complete.</h4><p>This session schedules review and guides your next move. Classroom, Lab Center, and assessments remain the evidence/completion authorities.</p></article></div><div class="session-close-actions"><a class="button green" href="learn.html?week=${s.week}">${stage==='mastery'?'Return to weekly mastery':'Continue the saved Classroom stage'}</a>${weak.length?'<button type="button" class="button outline-green" id="run-focused-repair">Run another focused repair</button>':''}<a class="button outline-green" href="analytics.html">Open Mastery evidence</a></div>`;
+  return `<div class="next-move-grid"><article class="next-move-result ${r.continueReady?'ready':'repair'}"><span>${r.continueReady?'Ready to continue':'One more repair pass'}</span><h4>${r.continueReady?'The retrieval and transfer check support moving forward.':'The session still shows a specific gap.'}</h4><p>${r.red.length?`Missed: ${r.red.map(c=>esc(c.name)).join(', ')}. `:''}${r.yellow.length?`Partial: ${r.yellow.map(c=>esc(c.name)).join(', ')}. `:''}${!r.teachDone?'Teach-back is not complete yet.':''}</p></article><article class="next-move-result"><span>Important boundary</span><h4>Active Recall does not mark course work complete.</h4><p>This memory-check session schedules review and guides your next move. Classroom, Lab Center, and assessments remain the evidence/completion authorities.</p></article></div><div class="session-close-actions"><a class="button green" href="learn.html?week=${s.week}">${stage==='mastery'?'Return to weekly mastery':'Continue the saved Classroom stage'}</a>${weak.length?'<button type="button" class="button outline-green" id="run-focused-repair">Run another focused repair</button>':''}<a class="button outline-green" href="analytics.html">Open Mastery evidence</a></div>`;
 }
 function renderStageBody(){return [renderRetrieve,renderDiagnose,renderRepair,renderPractice,renderTeachBack,renderNextMove][step]?.()||'';}
 
@@ -163,7 +248,7 @@ function validateStage(){
 }
 function renderSession(){
   const s=state.session;if(!s)return;const names=sessionStageNames();step=Math.max(0,Math.min(Number(s.step)||0,names.length-1));
-  $('#session-title').textContent=`Week ${String(s.week).padStart(2,'0')} · Active Study`;$('#session-kicker').textContent=`${s.mode==='quick'?'Quick check':s.mode==='deep'?'Deep diagnostic':'Standard diagnostic'} · ${stageLabels[classroomStage(s.week)]||'Current stage'}`;
+  $('#session-title').textContent=`Week ${String(s.week).padStart(2,'0')} · Active Recall`;$('#session-kicker').textContent=`${s.mode==='quick'?'Quick check':s.mode==='deep'?'Deep diagnostic':'Standard diagnostic'} · ${stageLabels[classroomStage(s.week)]||'Current stage'}`;
   $('#session-meta').textContent='Retrieve first. Repair only the misses. Practice with fresh problems. Finish by teaching it back.';
   $('#session-step-tabs').innerHTML=names.map((n,i)=>`<button type="button" class="${i===step?'active':''}" aria-current="${i===step?'step':'false'}" data-study-step="${i}"><span>${i+1}</span>${esc(n)}</button>`).join('');
   $('#session-progress-bar').style.width=`${((step+1)/names.length)*100}%`;$('#session-step-content').innerHTML=`<div class="step-number">Step ${step+1} of ${names.length}</div><h3>${esc(names[step])}</h3>${renderStageBody()}`;
@@ -189,7 +274,7 @@ function startSession({forcedIds=null,mode=null}={}){
 }
 function renderResumeSession(){
   const box=$('#resume-session-section'),s=state.session;if(!box)return;if(!s?.conceptIds?.length){box.classList.add('hidden');return;}
-  box.classList.remove('hidden');$('#resume-session-title').textContent=`Resume Week ${String(s.week).padStart(2,'0')} study`;$('#resume-session-copy').textContent=`You stopped at ${sessionStageNames()[Number(s.step)||0]}. Resume the diagnostic, or discard it and start a fresh concept set.`;
+  box.classList.remove('hidden');$('#resume-session-title').textContent=`Resume Week ${String(s.week).padStart(2,'0')} active recall`;$('#resume-session-copy').textContent=`You stopped at ${sessionStageNames()[Number(s.step)||0]}. Resume the memory check, or discard it and return to ordinary Study.`;
   $('#resume-session-button').onclick=()=>{$('#session-workspace').classList.remove('hidden');document.body.classList.add('focus-mode');$('#focus-mode-toggle').setAttribute('aria-pressed','true');step=Number(s.step)||0;renderSession();$('#session-workspace').scrollIntoView({behavior:'smooth',block:'start'});};
   $('#discard-session-button').onclick=()=>{state.session=null;save();renderResumeSession();renderRecommendation();};
 }
@@ -207,7 +292,7 @@ function scheduleSessionReviews(){
 }
 function finishSession(){
   if(!state.session)return;scheduleSessionReviews();const r=readinessSummary();state.history.unshift({week:state.session.week,eventId:state.session.eventId,mode:state.session.mode,ratings:Object.fromEntries(sessionConcepts().map(c=>[c.id,finalRating(c)])),teachBack:r.teachDone,finished:true,at:new Date().toISOString()});state.history=state.history.slice(0,100);state.session=null;save();
-  $('#session-workspace')?.classList.add('hidden');document.body.classList.remove('focus-mode');$('#focus-mode-toggle')?.setAttribute('aria-pressed','false');renderResumeSession();renderRecommendation();renderReviews();$('#start-session-section')?.scrollIntoView({behavior:'smooth'});
+  $('#session-workspace')?.classList.add('hidden');document.body.classList.remove('focus-mode');$('#focus-mode-toggle')?.setAttribute('aria-pressed','false');renderResumeSession();renderRecommendation();renderReviews();renderStudyLibrary();$('#active-recall-section')?.scrollIntoView({behavior:'smooth',block:'start'});
 }
 
 function hydrateReviewsFromProgress(){const p=progress();state.reviews={};state.sessionConfidence={};Object.entries(p.events||{}).forEach(([id,v])=>{if(v?.studyReview)state.reviews[id]={...v.studyReview,eventId:Number(id)};if(v?.studyConfidence)state.sessionConfidence[id]=v.studyConfidence;});}
@@ -243,22 +328,22 @@ function closeStuck(){const m=$('#stuck-modal');if(!m)return;m.inert=true;m.clas
 
 function stillConnected(cfg){try{const current=JSON.parse(localStorage.getItem(SYNC_KEY)||'{}');return current.connected&&current.apiUrl===cfg.apiUrl&&current.studentKey===cfg.studentKey;}catch{return false;}}
 async function pushProgressRecord(key,value,updatedAt){try{const cfg=JSON.parse(localStorage.getItem(SYNC_KEY)||'null')||{};if(!cfg.connected||!navigator.onLine||!cfg.apiUrl||!cfg.studentKey)return;let api=String(cfg.apiUrl).trim().replace(/\/+$/,'').replace(/\/(?:health|sync)$/i,'');const sk=String(cfg.studentKey).trim().toUpperCase();if(!/^https:\/\//i.test(api)||!/^AU-(?:[A-F0-9]{4}-){9}[A-F0-9]{4}$/.test(sk))return;await fetch(api+'/sync',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json','Authorization':'Bearer '+sk},body:JSON.stringify({protocol:2,deviceId:cfg.deviceId||'study-page',deviceName:cfg.deviceName||'Study Page',records:[{key,value,updatedAt,deviceId:cfg.deviceId||'study-page'}]})});}catch{}}
-async function syncProgressFromCloud(){try{const cfg=JSON.parse(localStorage.getItem(SYNC_KEY)||'null')||{};if(!cfg.connected||!navigator.onLine||!cfg.apiUrl||!cfg.studentKey)return;let api=String(cfg.apiUrl).trim().replace(/\/+$/,'').replace(/\/(?:health|sync)$/i,'');const sk=String(cfg.studentKey).trim().toUpperCase();if(!/^https:\/\//i.test(api)||!/^AU-(?:[A-F0-9]{4}-){9}[A-F0-9]{4}$/.test(sk))return;let p=progress(),records=[],did=cfg.deviceId||'study-page';const add=(key,value)=>{const updatedAt=Number(p.recordTimes?.[key]||0);if(updatedAt>0)records.push({key,value,updatedAt,deviceId:did});};Object.entries(p.events||{}).forEach(([id,v])=>add(`event:${id}`,v));Object.entries(p.weeks||{}).forEach(([w,v])=>add(`week:${w}`,v));const res=await fetch(api+'/sync',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json','Authorization':'Bearer '+sk},body:JSON.stringify({protocol:2,deviceId:did,deviceName:cfg.deviceName||'Study Page',records})});if(!res.ok)return;const data=await res.json();if(!stillConnected(cfg))return;p=progress();p.events=p.events||{};p.weeks=p.weeks||{};p.recordTimes=p.recordTimes||{};(data.records||[]).forEach(r=>{const lt=Number(p.recordTimes[r.key]||0),ct=Number(r.updatedAt||0);if(ct<lt)return;if(r.key.startsWith('event:'))p.events[r.key.slice(6)]=window.AlfredState?.normalizeEvent?.(r.value)||r.value||{};else if(r.key.startsWith('week:'))p.weeks[r.key.slice(5)]=r.value;else return;p.recordTimes[r.key]=ct;});p.updatedAt=new Date().toISOString();localStorage.setItem(PROGRESS_KEY,JSON.stringify(p));hydrateReviewsFromProgress();renderRecommendation();renderWeeklyPlan();renderReviews();}catch{}}
+async function syncProgressFromCloud(){try{const cfg=JSON.parse(localStorage.getItem(SYNC_KEY)||'null')||{};if(!cfg.connected||!navigator.onLine||!cfg.apiUrl||!cfg.studentKey)return;let api=String(cfg.apiUrl).trim().replace(/\/+$/,'').replace(/\/(?:health|sync)$/i,'');const sk=String(cfg.studentKey).trim().toUpperCase();if(!/^https:\/\//i.test(api)||!/^AU-(?:[A-F0-9]{4}-){9}[A-F0-9]{4}$/.test(sk))return;let p=progress(),records=[],did=cfg.deviceId||'study-page';const add=(key,value)=>{const updatedAt=Number(p.recordTimes?.[key]||0);if(updatedAt>0)records.push({key,value,updatedAt,deviceId:did});};Object.entries(p.events||{}).forEach(([id,v])=>add(`event:${id}`,v));Object.entries(p.weeks||{}).forEach(([w,v])=>add(`week:${w}`,v));const res=await fetch(api+'/sync',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json','Authorization':'Bearer '+sk},body:JSON.stringify({protocol:2,deviceId:did,deviceName:cfg.deviceName||'Study Page',records})});if(!res.ok)return;const data=await res.json();if(!stillConnected(cfg))return;p=progress();p.events=p.events||{};p.weeks=p.weeks||{};p.recordTimes=p.recordTimes||{};(data.records||[]).forEach(r=>{const lt=Number(p.recordTimes[r.key]||0),ct=Number(r.updatedAt||0);if(ct<lt)return;if(r.key.startsWith('event:'))p.events[r.key.slice(6)]=window.AlfredState?.normalizeEvent?.(r.value)||r.value||{};else if(r.key.startsWith('week:'))p.weeks[r.key.slice(5)]=r.value;else return;p.recordTimes[r.key]=ct;});p.updatedAt=new Date().toISOString();localStorage.setItem(PROGRESS_KEY,JSON.stringify(p));hydrateReviewsFromProgress();renderRecommendation();renderWeeklyPlan();renderReviews();renderStudyLibrary();}catch{}}
 
 function applyQuiet(){const on=localStorage.getItem(QUIET_KEY)==='1';document.body.classList.toggle('quiet-mode',on);$('#quiet-mode-toggle')?.setAttribute('aria-pressed',String(on));}
 function toggleQuiet(){const on=localStorage.getItem(QUIET_KEY)!=='1';localStorage.setItem(QUIET_KEY,on?'1':'0');applyQuiet();}
-function toggleFocus(){const on=!document.body.classList.contains('focus-mode');if(on&&$('#session-workspace')?.classList.contains('hidden')){const next=window.AlfredNextAction?.get?.();if(!state.session&&(next?.kind==='classroom'||next?.reason==='due-review')){location.href=next.href;return;}startSession();return;}document.body.classList.toggle('focus-mode',on);$('#focus-mode-toggle')?.setAttribute('aria-pressed',String(on));if(on)$('#session-workspace')?.scrollIntoView({behavior:'smooth'});}
+function toggleFocus(){const on=!document.body.classList.contains('focus-mode');if(on&&$('#session-workspace')?.classList.contains('hidden')){setLibraryView('recall');$('#active-recall-section')?.scrollIntoView({behavior:'smooth',block:'start'});return;}document.body.classList.toggle('focus-mode',on);$('#focus-mode-toggle')?.setAttribute('aria-pressed',String(on));if(on)$('#session-workspace')?.scrollIntoView({behavior:'smooth'});}
 function rewriteStaticCopy(){
-  const h=$('.study-hero h1'),p=$('.study-hero p');if(h)h.textContent='Find the gap. Repair it. Prove it.';if(p)p.textContent='Study is the active-recall layer of AU-ESET 301. It tests what actually stuck, targets weak concepts, gives fresh practice, and schedules retrieval without duplicating the Classroom.';
-  const legend=$('.study-start-controls legend');if(legend)legend.textContent='How much should this session test?';
-  const modes=$$('.session-mode');const copy=[['Quick','3 retrieval checks · one repair target'],['Standard','5 retrieval checks · targeted practice'],['Deep Work','full concept sweep · multiple transfer problems']];modes.forEach((m,i)=>{const strong=$('strong',m),small=$('small',m);if(strong)strong.textContent=copy[i][0];if(small)small.textContent=copy[i][1];});
-  const note=$('.study-start-controls .small-note');if(note)note.textContent='Choose the amount of retrieval you can do well. The session is task-based, not timer-driven, and it never marks required course work complete.';
-  const panel=$('#study-support-area .panel-intro');if(panel)panel.textContent='Review up to three due concepts. Weak answers return sooner; strong answers spread farther apart. Ratings schedule review only and never inflate Mastery.';
+  const panel=$('#study-support-area .panel-intro');if(panel)panel.textContent='These scheduled memory checks are available when you want them. They never block Review Material, Flashcards, Watch & Review, or Reference.';
 }
 
-hydrateReviewsFromProgress();rewriteStaticCopy();installSiteIssueParking();renderRecommendation();renderWeeklyPlan();renderReviews();renderParking();renderResumeSession();applyQuiet();syncProgressFromCloud();
-window.addEventListener('online',syncProgressFromCloud);window.addEventListener('storage',e=>{if(e.key===PROGRESS_KEY){hydrateReviewsFromProgress();renderRecommendation();renderReviews();}if(e.key===STUDY_KEY){state=load();renderResumeSession();renderParking();}});
+
+const initialView=new URLSearchParams(location.search).get('view');if(['review','flashcards','media','reference','weak','recall'].includes(initialView))state.library.view=initialView;
+hydrateReviewsFromProgress();rewriteStaticCopy();installSiteIssueParking();renderRecommendation();renderWeeklyPlan();renderReviews();renderParking();renderResumeSession();renderStudyLibrary();applyQuiet();syncProgressFromCloud();
+window.addEventListener('online',syncProgressFromCloud);window.addEventListener('storage',e=>{if(e.key===PROGRESS_KEY){hydrateReviewsFromProgress();renderRecommendation();renderReviews();renderStudyLibrary();}if(e.key===STUDY_KEY){state=load();renderResumeSession();renderParking();renderStudyLibrary();}});
 $$('input[name="session-mode"]').forEach(r=>{r.checked=r.value===activeMode});
+$$('[data-study-view]').forEach(b=>b.addEventListener('click',()=>setLibraryView(b.dataset.studyView)));
+$('#back-to-study-library')?.addEventListener('click',()=>{setLibraryView('review');$('#study-library-section')?.scrollIntoView({behavior:'smooth',block:'start'});});
 $('#start-study-session')?.addEventListener('click',e=>{const href=e.currentTarget?.dataset?.routeHref;if(href){location.href=href;return;}startSession();});$('#quiet-mode-toggle')?.addEventListener('click',toggleQuiet);$('#focus-mode-toggle')?.addEventListener('click',toggleFocus);$('#leave-focus')?.addEventListener('click',()=>{document.body.classList.remove('focus-mode');$('#focus-mode-toggle')?.setAttribute('aria-pressed','false');});
 $('#session-prev')?.addEventListener('click',()=>{if(step>0){step--;state.session.step=step;save();renderSession();}});$('#session-next')?.addEventListener('click',()=>{const names=sessionStageNames();if(step<names.length-1){if(!validateStage())return;step++;state.session.step=step;save();renderSession();}else finishSession();});
 $('#session-help')?.addEventListener('click',openStuck);$('#parking-form')?.addEventListener('submit',e=>{e.preventDefault();park($('#parking-input')?.value);if($('#parking-input'))$('#parking-input').value='';});

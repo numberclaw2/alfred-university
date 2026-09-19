@@ -22,6 +22,73 @@
   ]);
   const preservedSafety = (d.teaching || []).filter(section => safetyTitles.has(section.title));
 
+  // v16.3.32 — beginner-first safety scaffolding.
+  // Week 1 may introduce future-course equipment only when the learner is given enough
+  // context to understand the safety rule without already knowing the later subject.
+  const safetyScaffold = {
+    'Shock physiology, emergency response, and First Aid boundaries': {
+      buildOn: 'You already know that current requires a path. A human body can accidentally become part of that path, so the first safety skill is preventing a second person from becoming part of the circuit.',
+      text: `Just enough background for this safety rule: energized means electrical energy may still be present; de-energized means the hazardous source has been disconnected and the safe-work procedure has verified that condition. Electric shock happens when current passes through the body. The effect is not determined by voltage alone: current magnitude, the path through the body, contact time, frequency, skin/contact condition, and the person’s condition all matter. Effects can include pain, involuntary muscle contraction, burns, breathing problems, dangerous heart rhythms, and death. A person may be unable to let go of an energized conductor.
+
+If someone is still touching equipment that may be energized, do not grab the person. Touching them can place you into the same current path and create a second casualty. Call emergency services, keep others away, and have the source disconnected only by a safe method that fits your training and the site procedure. CPR means cardiopulmonary resuscitation. An AED is an automated external defibrillator. Use CPR, an AED, bleeding/burn care, or other First Aid only to the level you are trained and authorized to provide.
+
+Electrical injury can cause internal damage even when the skin injury looks small. Professional medical evaluation may therefore be necessary. For Week 1, you do not need to become a medical responder; you need to recognize the electrical hazard, avoid becoming part of it, summon help, remove energy only when that can be done safely, and follow trained/site instructions.`,
+      remember: 'Possible energized contact: do not touch the person first. Call for help, keep others clear, remove energy only by a safe trained method, and give First Aid/CPR/AED care only within your training.'
+    },
+    'NEC awareness, overcurrent protection, and lockout/tagout': {
+      buildOn: 'You already know that very low resistance can produce high current. Safety systems limit that current and control whether energy is truly isolated before work begins.',
+      text: `Just enough background for this safety rule: the National Electrical Code (NEC, NFPA 70) is primarily an installation code. It helps control hazards by setting requirements for how electrical systems and equipment are installed. It does not replace an employer’s safe-work procedure for the task you are performing.
+
+Overcurrent means more current is flowing than a conductor or device is intended to carry safely. A fuse is a one-time protective device that opens when its internal element melts. A circuit breaker is a resettable protective device that opens a circuit when specified fault/overload conditions occur. When replacing either one, match the required device type, voltage rating, current rating, and interrupting rating. Interrupting rating means the maximum fault current the protective device is designed to safely stop. A time-delay (slow-blow) fuse intentionally tolerates brief normal surges such as motor/startup inrush; a fast-acting fuse opens more quickly. Inrush is the short burst of current some equipment draws when first energized. Never install a larger rating merely to stop repeated opening—the opening may be warning you about a real fault.
+
+Lockout/tagout (LOTO) is the workplace process used to control hazardous energy before servicing. The basic logic is: identify every energy source, shut the equipment down, physically isolate the sources, apply the authorized lock/tag, control stored energy, and verify the de-energized or zero-energy condition before work. Stored energy means energy that can remain even after normal power is switched off—for example, a charged capacitor, spring, pressure system, or rotating mass. A software Stop button, an open control contact, or a dark display is only a command/indication; it is not proof that hazardous energy has been physically isolated. Only trained and authorized people perform the LOTO steps that the employer assigns to them.`,
+      remember: 'Protective devices must be correctly rated, and a control command is not isolation. For servicing, hazardous energy must be identified, isolated, locked/tagged as required, stored energy controlled, and the zero-energy condition verified.'
+    },
+    'ESD, technician tool hazards, and PPE': {
+      buildOn: 'You already learned that charge can be transferred between materials. That same static charge can suddenly discharge into an electronic device even when you do not feel a shock.',
+      text: `Just enough background for this safety rule: electrostatic discharge (ESD) is a rapid transfer of static electric charge caused by a voltage difference. The tiny spark you sometimes feel after walking across carpet is one obvious example, but damaging ESD can be much smaller than anything you can feel.
+
+A semiconductor is a material/device technology used to build electronic components such as diodes, transistors, and integrated circuits. CMOS (complementary metal-oxide-semiconductor) is a very common technology used inside digital chips. You will learn how semiconductor devices and CMOS circuits work later in the course. For Week 1, the important fact is simple: some CMOS inputs and other semiconductor structures can be weakened or destroyed by a static discharge that is far below the level a person can feel.
+
+At an approved de-energized ESD workstation, common controls include a dissipative mat (a work surface that lets static charge drain away in a controlled way), an approved wrist-strap/grounding system, grounded tools where specified, antistatic packaging, and handling the board by appropriate edges instead of touching contacts. De-energized means the hazardous electrical source has been removed/verified according to the safe-work procedure. An ESD wrist strap is not permission to connect your body to ground around hazardous energized equipment; site rules determine when it may be worn.
+
+ESD is only one bench hazard. A meter category/rating tells you what electrical environment and transient energy a meter/probe system is designed to withstand. Damaged insulation, cracked probes, metal jewelry, hot soldering tools, sharp component leads, batteries capable of very high fault current, rotating mechanisms, and stored energy in capacitors all require controls that are different from static control. A capacitor is a component that stores electrical energy and may remain charged after normal power is removed.
+
+PPE means personal protective equipment. Depending on the actual hazard assessment, that may include eye protection, gloves, arc-rated clothing, hearing protection, footwear, or other equipment. PPE is a final protective layer; it does not replace de-energization, guarding, isolation, correct tools, or safe distance.`,
+      remember: 'For Week 1, remember two separate ideas: ESD protects sensitive electronics from static discharge; electrical/physical PPE and safe-work controls protect people from the actual task hazards. Do not confuse one system with the other.'
+    },
+    'RF exposure and fiber-optic hazards': {
+      buildOn: 'Not every electrical/electronic hazard is visible. RF energy and fiber-optic light can be present even when your eyes give you no warning.',
+      text: `Just enough background for this safety rule: RF means radio frequency—electromagnetic energy used for wireless communication and many transmitter systems. A transmitter produces RF energy; an antenna launches or receives that energy. Antenna gain describes how strongly an antenna concentrates energy in particular directions. Duty cycle describes how much of the time a transmitter is actually on. Maximum Permissible Exposure (MPE) is a safety limit used to evaluate whether RF exposure is within the allowed range. The correct boundary depends on factors such as frequency, transmitter power, antenna gain, duty cycle, distance, exposure time, and whether the exposure is occupational/controlled or general/uncontrolled. You do not need to calculate an RF boundary in Week 1; you need to know that there is no single universal safe distance. Follow the organization’s RF-safety program, posted boundaries, lockout/interlock rules, and the applicable approved method. An interlock is a safety device/system intended to prevent operation or access under unsafe conditions; never defeat one.
+
+Fiber-optic cable carries information as light through very thin strands of glass or plastic. Fiber termination means preparing and finishing the end of a fiber so it can connect to equipment or another fiber. Cleaving means making a precise cut in the fiber; splicing means joining fiber ends. You will study optical/fiber systems later. For Week 1, two hazards matter: an active fiber can carry invisible infrared (IR) light that can injure the eye, and cutting/terminating fiber can create tiny glass shards that can penetrate skin or eyes.
+
+Never look into an unknown fiber or connector to see whether it is live. Use a properly rated optical test instrument and verify the source state. Wear appropriate eye protection, keep food/drink away from the work area, cap unused ends, collect fiber scraps in a dedicated sharps container, and clean the work area. RF and fiber are grouped here because both can present invisible hazards, but the mechanisms and controls are different.`,
+      remember: 'Invisible does not mean harmless. RF exposure follows calculated/site boundaries and interlocks; fiber work avoids looking into unknown ends and controls invisible IR plus tiny glass shards.'
+    },
+    'Ladders, service vehicles, and fire classes': {
+      buildOn: 'Technician safety also includes ordinary physical work: access equipment, transported tools/energy sources, and deciding when a small fire is or is not safe to fight.',
+      text: `A ladder is safety equipment, not just a way to reach something. Select the correct ladder for the task and inspect feet, rails, rungs, locks, and labels. Set it on a stable surface, maintain the required angle/securement for that ladder type, keep three-point control while climbing, and do not overreach. Around electrical hazards, follow the workplace rule for nonconductive ladders and the required approach boundaries. Nonconductive means the ladder material is selected to reduce electrical conduction risk; it does not make unsafe approach to energized equipment acceptable.
+
+Service vehicles add stored and moving hazards. Secure ladders, batteries, tools, and heavy equipment so sudden stops do not turn them into projectiles. Preserve the driver’s view and use approved racks/tie-downs. Batteries deserve extra respect because some can deliver very high fault current if a tool or conductor accidentally bridges their terminals.
+
+Fire classes identify the fuel/problem involved: Class A is ordinary combustibles, B is flammable liquids/gases, C is energized electrical equipment, D is combustible metals, and K is cooking oils/fats. Use an extinguisher approved for the fuel and the site plan. Removing electrical energy can remove the Class C electrical aspect, but it does not necessarily remove the underlying burning material. A technician should attempt firefighting only when trained, the fire is still small/incipient, an escape path is maintained, and site policy permits it. Incipient means the fire is still in its early, limited stage. If those boundaries are not met, evacuate/escalate instead of improvising.`,
+      remember: 'Inspect and secure access/vehicle equipment, know what fuel/hazard a fire class represents, and fight only a small permitted fire when trained and when you still have a safe escape path.'
+    }
+  };
+  preservedSafety.forEach(section => Object.assign(section, safetyScaffold[section.title] || {}));
+
+  const safetyPromptRepairs = {
+    'Shock physiology, emergency response, and First Aid boundaries': 'A coworker is motionless while still contacting equipment that may be energized (electrical energy may still be present). Explain the safe response sequence and why touching the person first can create a second casualty.',
+    'NEC awareness, overcurrent protection, and lockout/tagout': 'A fuse—an overcurrent protective device that opens the circuit—opens repeatedly after replacement. Describe what ratings/conditions you must verify before installing another fuse, and explain why selecting a larger current rating or relying on a software Stop command is unsafe.',
+    'ESD, technician tool hazards, and PPE': 'You are about to handle a circuit board that uses CMOS chips—common digital semiconductor devices that can be damaged by static electricity—at a de-energized low-voltage bench. Describe the ESD controls you would use, then name three other technician hazards that require controls different from ESD.',
+    'RF exposure and fiber-optic hazards': 'An RF transmitter sends radio-frequency energy through an antenna, while fiber-optic cable carries information as light through thin glass strands. Compare the safety controls for an active RF transmitter site and for fiber termination (preparing/finishing the fiber end for connection). Explain why “I cannot see anything dangerous” is not a valid safety conclusion in either case.',
+    'Ladders, service vehicles, and fire classes': 'You arrive at a site with a roof ladder, a box of batteries/tools, and an electrical cabinet fire reported inside. Give the ladder/vehicle checks and the fire-class decision boundaries before you act.'
+  };
+  (d.semanticTasks || []).forEach(task => {
+    if (safetyPromptRepairs[task.title]) task.prompt = safetyPromptRepairs[task.title];
+  });
+
   ceta.objectives = [
     'Build voltage, current, resistance, and power from the underlying ideas of charge, energy, and a closed circuit path.',
     'Read and convert common electronics prefixes—mega, kilo, milli, micro, nano, and pico—without guessing at decimal movement.',

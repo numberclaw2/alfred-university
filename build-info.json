@@ -1,10 +1,10 @@
 {
   "courseRelease": "16.3",
-  "runtimePatch": "16.3.31",
+  "runtimePatch": "16.3.32",
   "evidenceRevision": "16.2",
   "cloudSyncProtocol": 2,
-  "build": "v16.3.31-lesson-review-navigation-question-backlinks-20260919",
-  "releaseStatus": "lesson-review-navigation-question-backlinks",
+  "build": "v16.3.32-study-library-week1-safety-scaffolding-20260919",
+  "releaseStatus": "study-library-week1-safety-scaffolding",
   "presentationPatch": "mobile-visual-readability-final",
   "scheduleRevision": "2026-09-16-week1-reset",
   "modulePresentationRevision": "2026-09-18-week1-from-zero-visual-teaching",
@@ -13,12 +13,12 @@
   "assessmentRevision": "2026-09-18-dual-source-ceta-readiness",
   "masteryRevision": "2026-09-18-bank-breadth-truthful-progression",
   "portfolioRevision": "2026-09-18-project2-hil-aligned",
-  "week1InstructionRevision": "2026-09-18-from-zero-visual-teaching",
+  "week1InstructionRevision": "2026-09-19-beginner-first-safety-scaffolding",
   "week1TeachingMediaRevision": "2026-09-18-beginner-teacher-youtube-layer",
   "teachingMediaBaseRevision": "2026-09-18-final-pots-31-week-standalone-accepted",
-  "releaseNotesRevision": "2026-09-19-v16.3.31-lesson-review-navigation-question-backlinks-recorded",
+  "releaseNotesRevision": "2026-09-19-v16.3.32-study-library-safety-scaffolding-recorded",
   "repositoryLedgerBaseline": "2026-09-18-v16.3.9-63-commits",
-  "studyRevision": "2026-09-19-classroom-first-routing-focus-isolation-site-issue-parking",
+  "studyRevision": "2026-09-19-review-first-study-library-active-recall-optional",
   "practiceRevision": "2026-09-18-priority-ladder-repair-router",
   "weekOverviewRevision": "2026-09-18-retired-compatibility-route",
   "engineeringPageRevision": "2026-09-18-retired-compatibility-route",
@@ -37,5 +37,7 @@
   "nextActionRevision": "2026-09-19-shared-state-aware-routing",
   "studentModeRevision": "2026-09-19-student-builder-boundary",
   "executiveFunctionRevision": "2026-09-19-adhd-autism-minimum-effective-intervention",
-  "questionReviewRevision": "2026-09-19-question-to-teaching-section-backlink-and-return"
+  "questionReviewRevision": "2026-09-19-question-to-teaching-section-backlink-and-return",
+  "studyLibraryRevision": "2026-09-19-reached-material-review-flashcards-media-reference",
+  "safetyScaffoldingRevision": "2026-09-19-week1-future-concept-context-before-safety-questions"
 }
