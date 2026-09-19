@@ -619,3 +619,19 @@
       .catch(()=>{});
   }
 })();
+
+/* v16.3.26: research-grounded whole-site UX layer. */
+(() => {
+  if (window.__ALFRED_UX_LOADER_1626__) return;
+  window.__ALFRED_UX_LOADER_1626__ = true;
+  if (!document.querySelector('link[data-alfred-ux="16.3.26"]')) {
+    const css=document.createElement('link');
+    css.rel='stylesheet';css.href='ux-system.css';css.dataset.alfredUx='16.3.26';
+    document.head.append(css);
+  }
+  if (!document.querySelector('script[data-alfred-ux="16.3.26"]')) {
+    const script=document.createElement('script');
+    script.src='ux-system.js';script.dataset.alfredUx='16.3.26';script.async=true;
+    document.body.append(script);
+  }
+})();

@@ -1,0 +1,127 @@
+/* AU-ESET 301 v16.3.26 — Whole-site UX system */
+:root{
+  --ux-focus:#765600;
+  --ux-surface:#fffdf8;
+  --ux-surface-2:#f7f4eb;
+  --ux-shadow:0 16px 40px rgba(7,45,34,.13);
+  --ux-soft-shadow:0 8px 24px rgba(7,45,34,.09);
+}
+.ux-visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+:focus-visible{outline:3px solid #fff!important;outline-offset:2px!important;box-shadow:0 0 0 5px #0d3e31!important}
+.button,.nav-toggle,.nav-more-button,input[type="submit"],input[type="button"],select{min-height:44px}
+:where(input[type="search"],input[type="text"],input[type="email"],input[type="url"],input[type="number"],textarea,select){font-size:16px}
+main :where(h2,h3,h4,[id]){scroll-margin-top:9rem}
+.button{min-height:44px;gap:.48rem}
+.button svg,.ux-header-continue svg,.ux-header-search-trigger svg,.ux-quick-destinations svg,.ux-back-top svg{width:1.08rem;height:1.08rem;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.button svg path[d^="m9"]{fill:currentColor;stroke:none}
+.button:active{transform:translateY(0)!important;box-shadow:none!important}
+.button[data-ux-role="prominent"]{box-shadow:0 7px 18px rgba(109,81,11,.14)}
+.nav-links>a.active,.nav-more-button.has-current{background:rgba(13,62,49,.07);box-shadow:inset 0 -3px var(--green)}
+.nav-more-button.has-current{color:var(--green)}
+
+/* Header task utilities: global search + persistent return-to-work action. */
+.brand-row{gap:16px}
+.ux-header-tools{margin-left:auto;display:flex;align-items:center;gap:10px;min-width:0}
+.ux-header-search-form{position:relative;display:flex;align-items:center;width:min(28vw,330px);height:44px;border:1px solid #c9c6ba;border-radius:12px;background:#fff;box-shadow:0 3px 12px rgba(9,48,37,.05);overflow:hidden}
+.ux-header-search-form:focus-within{border-color:var(--green);box-shadow:0 0 0 3px rgba(177,139,32,.18)}
+.ux-header-search-form input{width:100%;height:100%;border:0;background:transparent;padding:0 84px 0 39px;color:var(--green);outline:0;font:inherit}
+.ux-header-search-form input::placeholder{color:#74766f}
+.ux-header-search-icon{position:absolute;left:12px;display:grid;place-items:center;color:var(--green);pointer-events:none}
+.ux-header-search-icon svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2}
+.ux-header-search-form button{position:absolute;right:0;height:44px;min-height:44px;border:0;border-radius:0 11px 11px 0;background:var(--green);color:#fff;padding:0 12px;font-weight:800;cursor:pointer}
+.ux-key-hint{position:absolute;right:67px;border:1px solid #d4d1c6;background:#f7f5ef;color:#666;padding:2px 5px;border-radius:5px;font-size:.66rem;line-height:1.2;pointer-events:none}
+.ux-header-continue{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:44px;padding:0 14px;border-radius:12px;background:linear-gradient(180deg,#d9bd72,#caa858);color:#123126;font-weight:850;white-space:nowrap;box-shadow:0 6px 16px rgba(90,68,16,.14)}
+.ux-header-continue:hover{transform:translateY(-1px);box-shadow:0 10px 22px rgba(90,68,16,.18)}
+.ux-header-search-trigger{display:none;align-items:center;gap:7px;min-width:44px;min-height:44px;border:1px solid rgba(13,62,49,.2);border-radius:11px;background:#fff;color:var(--green);padding:0 11px;font-weight:800;cursor:pointer}
+.ux-menu-label{font-size:.78rem;font-weight:850;letter-spacing:.02em}
+.nav-toggle{align-items:center;gap:7px}
+
+/* Mobile/global search sheet. */
+body.ux-search-open{overflow:hidden}
+.ux-search-sheet{position:fixed;inset:0;z-index:1000}
+.ux-search-sheet[hidden]{display:none}
+.ux-search-backdrop{position:absolute;inset:0;background:rgba(3,28,21,.58);backdrop-filter:blur(4px)}
+.ux-search-dialog{position:relative;width:min(calc(100% - 28px),760px);max-height:min(88vh,760px);overflow:auto;margin:8vh auto 0;background:var(--ux-surface);border:1px solid rgba(201,168,87,.6);border-top:4px solid var(--gold);border-radius:20px;padding:24px;box-shadow:0 28px 80px rgba(0,0,0,.28)}
+.ux-search-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}
+.ux-search-head h2{margin:.2rem 0 0;color:var(--green);font-size:clamp(1.8rem,4vw,2.4rem)}
+.ux-eyebrow{font-size:.72rem;text-transform:uppercase;letter-spacing:.13em;font-weight:900;color:#8b6c18}
+.ux-icon-button{display:grid;place-items:center;width:44px;height:44px;border:1px solid #d4d1c6;border-radius:12px;background:#fff;color:var(--green);cursor:pointer}
+.ux-icon-button svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2}
+.ux-search-form{margin-top:22px}
+.ux-search-form>label{display:block;margin-bottom:8px;font-weight:850;color:var(--green)}
+.ux-search-form>div{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;border:2px solid var(--green);border-radius:14px;background:#fff;overflow:hidden}
+.ux-search-form>div>span{display:grid;place-items:center;padding-left:14px;color:var(--green)}
+.ux-search-form svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2}
+.ux-search-form input{min-width:0;height:52px;border:0;outline:0;padding:0 12px;font:inherit}
+.ux-search-form button{height:44px;min-height:44px;margin-right:4px;border:0;border-radius:10px;background:var(--green);color:#fff;padding:0 18px;font-weight:850;cursor:pointer}
+.ux-quick-destinations{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:20px}
+.ux-quick-destinations a{display:flex;align-items:center;gap:11px;min-height:72px;padding:12px;border:1px solid #ddd7c9;border-radius:13px;background:#fff;color:var(--green);text-decoration:none}
+.ux-quick-destinations a:hover,.ux-quick-destinations a:focus-visible{border-color:var(--gold);box-shadow:var(--ux-soft-shadow)}
+.ux-quick-destinations svg{width:22px;height:22px}
+.ux-quick-destinations span{min-width:0}
+.ux-quick-destinations strong{display:block}
+.ux-quick-destinations small{display:block;margin-top:2px;color:#68706c;font-size:.75rem;line-height:1.25}
+
+/* Long-page table of contents. */
+.ux-page-toc{margin-top:24px;margin-bottom:0;padding:18px 20px;border:1px solid #ded8ca;border-left:4px solid var(--gold);border-radius:14px;background:rgba(255,253,248,.97);box-shadow:var(--ux-soft-shadow)}
+.ux-page-toc-label{margin-bottom:9px;color:var(--green);font-weight:900;font-size:.78rem;text-transform:uppercase;letter-spacing:.11em}
+.ux-page-toc-links{display:flex;flex-wrap:wrap;gap:6px 18px}
+.ux-page-toc-links a{display:inline-flex;gap:6px;align-items:baseline;padding:5px 0;color:#145743;font-weight:760;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.ux-page-toc-links a span{color:#9b7616;font-weight:900;text-decoration:none}
+.ux-page-toc-links a:hover{color:#082f24}
+
+/* Study is task-dense, so provide recognition-based section shortcuts. */
+.ux-study-shortcuts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:22px;margin-bottom:4px}
+.ux-study-shortcuts a{display:flex;flex-direction:column;min-height:68px;justify-content:center;padding:11px 14px;border:1px solid #d9d4c8;border-radius:12px;background:#fff;color:var(--green);text-decoration:none;box-shadow:0 4px 14px rgba(7,45,34,.05)}
+.ux-study-shortcuts a:hover,.ux-study-shortcuts a:focus-visible{border-color:var(--gold);box-shadow:var(--ux-soft-shadow)}
+.ux-study-shortcuts strong{font-size:.9rem}
+.ux-study-shortcuts small{margin-top:2px;color:#6b736f;font-size:.72rem}
+
+/* Clear click affordance without turning every surface into a floating card. */
+a.portal-card,.ux-action-card{transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease}
+a.portal-card:hover,.ux-action-card:hover{transform:translateY(-2px);box-shadow:var(--ux-shadow);border-color:rgba(177,139,32,.65)}
+.document-card:focus-within,.resource-card:focus-within,.plain-card:focus-within{box-shadow:0 0 0 2px rgba(177,139,32,.25),var(--ux-soft-shadow)}
+.ux-external-mark{display:inline-block;margin-left:.28em;font-size:.82em;text-decoration:none}
+
+/* Scroll recovery for long documents/reference pages. */
+.ux-back-top{position:fixed;right:22px;bottom:22px;z-index:90;display:flex;align-items:center;gap:6px;min-width:48px;height:48px;padding:0 13px;border:1px solid rgba(13,62,49,.22);border-radius:999px;background:rgba(255,253,248,.96);color:var(--green);font-weight:850;box-shadow:var(--ux-shadow);cursor:pointer;opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .16s ease,transform .16s ease}
+.ux-back-top.show{opacity:1;transform:none;pointer-events:auto}
+.ux-back-top svg{width:18px;height:18px}
+
+/* Home: one unmistakable primary next action. */
+body[data-page="home"] .hero-actions a[data-ux-primary="true"],body[data-page="index"] .hero-actions a[data-ux-primary="true"]{box-shadow:0 12px 26px rgba(202,168,88,.22)}
+body[data-page="home"] .hero-actions .button svg,body[data-page="index"] .hero-actions .button svg{width:1rem;height:1rem}
+
+/* Form and filter controls: comfortable targets and consistent visual language. */
+main :where(input[type="search"],input[type="text"],input[type="email"],input[type="url"],input[type="number"],select,textarea){border-radius:10px}
+main :where(input[type="search"],input[type="text"],input[type="email"],input[type="url"],input[type="number"],select){min-height:44px}
+main :where(button,[role="button"]):not(.glossary-term){touch-action:manipulation}
+
+@media(max-width:1050px){
+  .ux-header-search-form,.ux-header-continue{display:none}
+  .ux-header-search-trigger{display:inline-flex}
+  .ux-header-tools{margin-left:auto}
+  .nav-toggle{display:flex}
+}
+@media(max-width:760px){
+  .ux-header-search-trigger span{display:none}
+  .ux-header-search-trigger{width:44px;padding:0;justify-content:center}
+  .ux-menu-label{display:inline}
+  .ux-search-dialog{margin-top:3vh;max-height:94vh;padding:18px;border-radius:17px}
+  .ux-quick-destinations{grid-template-columns:1fr 1fr}
+  .ux-page-toc{margin-top:14px;padding:15px 16px}
+  .ux-page-toc-links{display:grid;grid-template-columns:1fr 1fr;gap:4px 14px}
+  .ux-study-shortcuts{grid-template-columns:1fr 1fr;margin-top:14px}
+  .ux-back-top{right:14px;bottom:14px}
+}
+@media(max-width:470px){
+  .ux-quick-destinations,.ux-page-toc-links,.ux-study-shortcuts{grid-template-columns:1fr}
+  .ux-search-form>div{grid-template-columns:auto minmax(0,1fr)}
+  .ux-search-form button{grid-column:1/-1;width:calc(100% - 8px);margin:0 4px 4px}
+  .ux-back-top span{display:none}
+  .ux-back-top{width:48px;padding:0;justify-content:center}
+}
+@media(prefers-reduced-motion:reduce){
+  .ux-back-top,a.portal-card,.ux-action-card,.ux-header-continue{transition:none!important}
+  html{scroll-behavior:auto!important}
+}

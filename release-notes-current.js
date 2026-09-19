@@ -1,6 +1,45 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.26",
+      "date": "September 18, 2026",
+      "title": "Whole-Site UX System — Search, Task Continuity, Long-Page Navigation & Interaction Polish",
+      "type": "Whole-Site UX / Accessibility / Information Architecture / Interaction Design",
+      "request": "Perform a complete UX-design audit of the entire AU-ESET 301 website, research how people scan, navigate, search, click, and stay oriented on websites, then use those findings to improve button placement, icons, hierarchy, discoverability, engagement, and ease of use without changing the accepted course logic.",
+      "changes": [
+        "Audited the 26-page site architecture, shared navigation/runtime, five CSS layers, high-use task surfaces, long reference pages, and interaction density before making changes; preserved strong existing systems including the task-oriented primary navigation, grouped More menu, runtime skip link, context trails, quiet/focus modes, responsive layouts, reduced-motion support, and existing progress/mastery ownership.",
+        "Added a dedicated ux-system.js / ux-system.css presentation layer loaded by the shared site runtime so UX improvements are consistent across normal site pages without rewriting curriculum or page-specific business logic.",
+        "Made whole-course search persistently discoverable in the header. Desktop receives a conventional visible search field in the upper-right utility area; compact layouts receive a labeled search control that opens an accessible search sheet. Ctrl/Cmd+K and / provide optional keyboard access while preserving the normal global navigation.",
+        "Added an accessible search sheet with focus management, Escape dismissal, descriptive quick destinations, and labeled familiar icons for Study, Classroom, Calendar, Practice, Progress, and Glossary. Icons reinforce text instead of replacing labels.",
+        "Added a persistent Continue Week action to the desktop header so learners can return to the current study workflow from reference, progress, calendar, and administrative surfaces without hunting through navigation.",
+        "Clarified Home's primary action hierarchy by promoting Start today's study to the first/distinctive hero action and demoting Open classroom to the secondary action, while keeping both destinations available.",
+        "Added research-informed On this page navigation to long static/reference surfaces with at least three meaningful H2 sections, using descriptive in-page links, stable generated anchors, browser-history-compatible hashes, smooth scrolling when motion is allowed, and no duplicate navigation on task screens that already have stronger local workflow controls.",
+        "Added a compact Study shortcut row for Today's plan, Reviews, Vocabulary, and Week plan so the long Study workspace supports recognition instead of requiring the learner to remember where each tool lives.",
+        "Improved mobile menu affordance by pairing the hamburger symbol with the visible word Menu and keeping global Search immediately available in the brand/header layer.",
+        "Strengthened interaction consistency: a higher-contrast focus ring, 44px targets for primary controls/form actions, 16px form text to avoid mobile zoom, consistent current-section treatment, clearer clickable-card hover/focus behavior, and external-link marks that reinforce destination behavior without replacing link text.",
+        "Added a conditional Back to top control only on genuinely long pages and only after meaningful scrolling, avoiding permanent floating chrome on short pages.",
+        "Added a current-section cue to the More button when the active page lives inside the More menu, improving orientation on lower-level pages.",
+        "Applied reduced-motion behavior to the new UX layer and kept all new search/navigation controls keyboard operable with visible focus.",
+        "Research basis documented in AU-ESET-301-v16.3.26-Whole-Site-UX-Audit.md, including Nielsen Norman Group scanning, progressive disclosure, icon, information-scent, search, consistency, and in-page-navigation research; W3C WCAG 2.2 focus/target guidance; USWDS header/button/card/typography guidance; and Apple navigation/layout guidance used as a secondary mobile/PWA convention reference.",
+        "No curriculum, lesson wording, glossary definitions, vocabulary data, Teaching Media, calendar identities, assessments/scoring, mastery formulas, labs, projects, Progress identities, Cloud Sync protocol, or branding assets were changed."
+      ],
+      "filesAdded": [
+        "AU-ESET-301-v16.3.26-Whole-Site-UX-Audit.md",
+        "ux-system.css",
+        "ux-system.js"
+      ],
+      "filesModified": [
+        "POST-UPDATE-QA.md",
+        "SHA256SUMS.txt",
+        "UPLOAD_README.txt",
+        "build-info.json",
+        "release-notes-current.js",
+        "service-worker.js",
+        "site.js"
+      ],
+      "filesRemoved": []
+    },
+    {
       "version": "v16.3.25",
       "date": "September 18, 2026",
       "title": "Glossary Highlight Deduplication — Render-Level Guardrail & Stronger Placement Judgment",
@@ -465,7 +504,7 @@
       ]
     }
   ];
-  const currentOrder = ['v16.3.25','v16.3.24','v16.3.23','v16.3.22','v16.3.21','v16.3.20','v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
+  const currentOrder = ['v16.3.26','v16.3.25','v16.3.24','v16.3.23','v16.3.22','v16.3.21','v16.3.20','v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
   entries.sort((a,b)=>currentOrder.indexOf(a.version)-currentOrder.indexOf(b.version));
   const historical = Array.isArray(window.ALFRED_RELEASES) ? window.ALFRED_RELEASES : [];
   const currentVersions = new Set(entries.map(entry=>entry.version));
