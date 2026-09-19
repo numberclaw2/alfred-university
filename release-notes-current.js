@@ -1,36 +1,42 @@
 (() => {
   const entries = [
     {
-      "version": "v16.3.30",
-      "date": "September 19, 2026",
-      "title": "Vocabulary Interaction \u2014 Click Definition, Double-Click Full Entry",
-      "type": "Learning Support / Classroom Glossary UX",
-      "request": "Change highlighted Classroom vocabulary so one click opens the definition popup, a second click on the same term opens its full Glossary entry, and hovering no longer opens or closes the definition popup.",
-      "changes": [
-        "Removed the highlighted-term mouseenter/mouseleave definition behavior, so simply hovering over a vocabulary word does not open or dismiss the definition card.",
-        "Changed a single activation of a highlighted vocabulary term to open its existing definition popup immediately while keeping the learner on the current lesson section.",
-        "Changed a second activation of the same highlighted term within the double-click window to navigate to that term's exact full Course Glossary entry.",
-        "Kept Escape and outside-click dismissal for the popup, plus existing scroll/resize positioning behavior.",
-        "Updated Classroom helper copy and popup hint text so the visible instructions match the new click / double-click interaction.",
-        "Changed the vocabulary cursor from help to pointer so the visual affordance matches a click-driven interaction.",
-        "Preserved all 599 glossary entries, section-scoped one-per-concept highlighting, contextual placement scoring, acronym safeguards, Study Vocabulary integration, Search integration, curriculum wording, Teaching Media, assessments, mastery, labs, projects, calendar, Progress, Cloud Sync, and branding."
-      ],
-      "filesAdded": [
-        "AU-ESET-301-v16.3.30-Vocabulary-Click-Interaction-Verification.md"
-      ],
-      "filesModified": [
-        "POST-UPDATE-QA.md",
-        "SHA256SUMS.txt",
-        "UPLOAD_README.txt",
-        "build-info.json",
-        "glossary.css",
-        "glossary.html",
-        "glossary.js",
-        "learn.html",
-        "release-notes-current.js",
-        "service-worker.js"
-      ],
-      "filesRemoved": []
+          "version": "v16.3.30",
+          "date": "September 19, 2026",
+          "title": "Executive-Function Study Flow \u2014 Resumable Lessons + State-Aware Next Action",
+          "type": "ADHD / Autism-Informed Study Flow / Classroom Segmentation / Student Mode",
+          "request": "Apply the full v16.3.29 executive-function audit without redesigning Alfred: keep all instructional depth, but reduce study-time overwhelm, route the learner to the correct next system, repair Focus Mode, save precise Classroom resume state, and separate coursework from site-building distractions.",
+          "changes": [
+                "Converted integrated CETa and Career lesson stages into resumable learning sections. Every original teaching section, figure, worked example, misconception, guided/independent practice item, check, semantic competency task, and final lesson gate remains in the course; Alfred now displays one manageable section at a time instead of the entire long lesson continuously.",
+                "Added exact per-lesson section state to the existing week learning record. Classroom now resumes at the saved section, shows section X/Y in the current-week status, and provides explicit Previous section / I answered \u00b7 continue boundaries.",
+                "Added a short Pause & retrieve prompt to each learning section so active recall/application happens throughout the lesson instead of only after a long passive reading run. Speaking aloud or paper work counts; no extra graded form was added.",
+                "Replaced the old fixed ~45-minute lesson-stage presentation with section counts and per-section estimates. This avoids implying that expanded long lessons are one uninterrupted 45-minute task while preserving the accepted curriculum and planned course structure.",
+                "Added one shared AlfredNextAction engine. Saved Study sessions and due reviews route to Study; otherwise incomplete required course stages route to Classroom. The Home hero, persistent header Continue control, and Study recommendation use the same state-aware action instead of competing recommendation logic.",
+                "Study now explicitly sends the learner to Classroom before retrieval when new required material has not yet been taught and no review is due. The capacity selector is hidden for that state so the learner does not have to decide between Study and Learn.",
+                "Repaired Focus Mode so the whole-site Study shortcut row and Vocabulary Study Lab are hidden while an active Study session is in focus, restoring the intended only-the-active-session-visible behavior.",
+                "Added Student Mode as the default navigation state. Deployment and Release Notes are hidden during normal coursework; a single Open Builder Mode control reveals them for maintenance, and Return to Student Mode restores the coursework-first view.",
+                "Added a one-field Park a site issue workflow inside the existing Curiosity Parking Lot. Site improvements are saved for Builder Mode and do not need to be fixed during the study block unless they are actual blockers.",
+                "Updated the current ADHD/autism executive-function audit record and added a v16.3.30 implementation/verification record.",
+                "Advanced build metadata, whole-site UX cache busting, and the service-worker cache namespace to v16.3.30. No curriculum wording, Teaching Media assignments, assessment bank/scoring, mastery formulas, labs, projects, calendar identities, Progress record identities, Cloud Sync protocol, glossary definitions, or branding artwork changed."
+          ],
+          "filesAdded": [
+                "AU-ESET-301-v16.3.30-Executive-Function-Study-Flow-Verification.md"
+          ],
+          "filesModified": [
+                "ADHD_AUTISM_AUDIT_REPORT.md",
+                "POST-UPDATE-QA.md",
+                "SHA256SUMS.txt",
+                "UPLOAD_README.txt",
+                "build-info.json",
+                "learn.js",
+                "release-notes-current.js",
+                "service-worker.js",
+                "site.js",
+                "study.js",
+                "styles.css",
+                "ux-system.js"
+          ],
+          "filesRemoved": []
     },
     {
       "version": "v16.3.29",
@@ -617,7 +623,7 @@
       ]
     }
   ];
-  const currentOrder = ['v16.3.29','v16.3.28','v16.3.27','v16.3.26','v16.3.25','v16.3.24','v16.3.23','v16.3.22','v16.3.21','v16.3.20','v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
+  const currentOrder = ['v16.3.30','v16.3.29','v16.3.28','v16.3.27','v16.3.26','v16.3.25','v16.3.24','v16.3.23','v16.3.22','v16.3.21','v16.3.20','v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
   entries.sort((a,b)=>currentOrder.indexOf(a.version)-currentOrder.indexOf(b.version));
   const historical = Array.isArray(window.ALFRED_RELEASES) ? window.ALFRED_RELEASES : [];
   const currentVersions = new Set(entries.map(entry=>entry.version));

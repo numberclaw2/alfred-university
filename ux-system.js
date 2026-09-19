@@ -1,10 +1,10 @@
-/* AU-ESET 301 v16.3.28 — Whole-site UX system · native UX audit round-2 repair
+/* AU-ESET 301 v16.3.30 — Whole-site UX system · executive-function study-flow repair
    Purpose: improve task orientation, search discoverability, interaction hierarchy,
    long-page navigation, mobile affordance, and accessibility without changing course logic. */
 (() => {
   'use strict';
-  if (window.__ALFRED_UX_1628__) return;
-  window.__ALFRED_UX_1628__ = true;
+  if (window.__ALFRED_UX_1630__) return;
+  window.__ALFRED_UX_1630__ = true;
 
   const $=(s,r=document)=>r.querySelector(s);
   const $$=(s,r=document)=>[...r.querySelectorAll(s)];
@@ -45,6 +45,7 @@
     const row=$('.brand-row');
     if(!row||$('.ux-header-tools',row)) return;
     const week=currentWeek();
+    const next=window.AlfredNextAction?.get?.()||{kind:'classroom',week,label:`Continue Week ${String(week).padStart(2,'0')}`,detail:'Required course path',href:`learn.html?week=${week}`};
     const tools=document.createElement('div');
     tools.className='ux-header-tools';
     const desktopSearch=document.createElement('form');
@@ -59,8 +60,9 @@
     mobileSearch.setAttribute('aria-label','Search the course');
     const continueLink=document.createElement('a');
     continueLink.className='ux-header-continue';
-    continueLink.href=`study.html?week=${week}`;
-    continueLink.innerHTML=`${svg('play')}<span>Continue Week ${String(week).padStart(2,'0')}</span>`;
+    continueLink.href=next.href;
+    continueLink.title=next.detail||'Continue the recommended course action';
+    continueLink.innerHTML=`${svg(next.kind==='study'?'target':'play')}<span>${esc(next.label)}</span>`;
     tools.append(desktopSearch,mobileSearch,continueLink);
     const toggle=$('.nav-toggle',row);
     row.insertBefore(tools,toggle||null);
@@ -136,8 +138,9 @@
     if(!['index','home'].includes(pageKey))return;
     const actions=$('.hero-actions');if(!actions)return;
     const study=actions.querySelector('a[href^="study.html"]'),learn=actions.querySelector('a[href^="learn.html"]');
-    if(study){study.classList.add('gold');study.classList.remove('outline-light');study.dataset.uxPrimary='true';study.innerHTML=`${svg('play')}<span>Start today’s study</span>`;const week=currentWeek();study.href=`study.html?week=${week}`;actions.insertBefore(study,actions.firstChild);}
-    if(learn){learn.classList.remove('gold');learn.classList.add('outline-light');learn.innerHTML=`${svg('book')}<span>Open classroom</span>`;}
+    const week=currentWeek(),next=window.AlfredNextAction?.get?.()||{kind:'classroom',label:`Continue Week ${String(week).padStart(2,'0')}`,detail:'Required course path',href:`learn.html?week=${week}`};
+    const primary=study||learn;if(primary){primary.classList.add('gold');primary.classList.remove('outline-light');primary.dataset.uxPrimary='true';primary.href=next.href;primary.title=next.detail||'';primary.innerHTML=`${svg(next.kind==='study'?'target':'play')}<span>${esc(next.label)}</span>`;actions.insertBefore(primary,actions.firstChild);}
+    const secondary=primary===study?learn:study;if(secondary){secondary.classList.remove('gold');secondary.classList.add('outline-light');if(next.kind==='classroom'){secondary.href=`study.html?week=${week}`;secondary.innerHTML=`${svg('target')}<span>Open Study</span>`;}else{secondary.href=`learn.html?week=${week}`;secondary.innerHTML=`${svg('book')}<span>Open Classroom</span>`;}}
   }
 
   function markNestedNavCurrent(){

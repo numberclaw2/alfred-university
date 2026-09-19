@@ -85,10 +85,27 @@ function conceptById(id,week=state.session?.week||currentWeek()){return conceptP
 
 function renderRecommendation(){
   const box=$('#recommended-session'),start=$('#start-study-session');if(!box)return;
-  const week=currentWeek(),stage=classroomStage(week),concepts=conceptPool(week),due=dueConceptIds(week).length;
-  target=targetEvent();if(start)start.disabled=!concepts.length;
+  const week=currentWeek(),stage=classroomStage(week),concepts=conceptPool(week);
+  const next=window.AlfredNextAction?.get?.()||null;
+  const due=Math.max(dueConceptIds(week).length,Number(next?.due||0));
+  const classroomFirst=next?.kind==='classroom'&&!due&&!state.session;
+  const reviewFirst=next?.reason==='due-review'&&!state.session;
+  const routeFirst=classroomFirst||reviewFirst;
+  target=targetEvent();
   const eventText=target?`Next scheduled item: ${cleanTitle(target)}`:'No incomplete scheduled event is driving this session.';
-  box.innerHTML=`<div class="recommended-label">Week ${String(week).padStart(2,'0')} · ${esc(stageLabels[stage]||'Current learning')}</div><h2>${due?`${due} concept${due===1?'':'s'} due for retrieval`:'Check what actually stuck before moving on'}</h2><p>Study will test a small set of concepts from the current week, identify weak spots, repair only those gaps, and finish with fresh practice and teach-back.</p><div class="recommended-meta"><span>${esc(eventText)}</span><span>${concepts.length} concept${concepts.length===1?'':'s'} available</span></div>`;
+  const fieldset=$('.study-start-controls fieldset'),note=$('.study-start-controls .small-note');
+  if(start){start.disabled=routeFirst?false:!concepts.length;start.dataset.routeHref=routeFirst?next.href:'';start.textContent=routeFirst?next.label:'Start Study Session';}
+  if(fieldset)fieldset.classList.toggle('hidden',routeFirst);
+  if(note)note.textContent=classroomFirst?'New required material comes before diagnostic retrieval. Alfred will bring you back to Study when review is due or a saved Study session needs to be resumed.':reviewFirst?'Clear the due retrievals first. Review is capped in small blocks; after that Alfred returns you to the required course path.':'Choose the amount of retrieval you can do well. The session is task-based, not timer-driven, and it never marks required course work complete.';
+  if(classroomFirst){
+    box.innerHTML=`<div class="recommended-label">Week ${String(week).padStart(2,'0')} · ${esc(stageLabels[stage]||'Required Classroom work')}</div><h2>Learn the next required section before retrieval.</h2><p>${esc(next.detail||'Classroom instruction is the next required action.')} Study will become the primary action when spaced review is due or a saved Study session needs attention.</p><div class="recommended-meta"><span>${esc(eventText)}</span><span>Classroom first · Study follows instruction</span></div>`;
+    return;
+  }
+  if(reviewFirst){
+    box.innerHTML=`<div class="recommended-label">Spaced Review · ${due} due</div><h2>${esc(next.label)}</h2><p>Clear a small due-review block before starting new diagnostic work. Weak answers return sooner; strong answers spread farther apart.</p><div class="recommended-meta"><span>${esc(eventText)}</span><span>Review first · then return to the required course path</span></div>`;
+    return;
+  }
+  box.innerHTML=`<div class="recommended-label">Week ${String(week).padStart(2,'0')} · ${esc(stageLabels[stage]||'Current learning')}</div><h2>${state.session?'Resume the diagnostic you already started':'Check what actually stuck before moving on'}</h2><p>Study will test a small set of concepts, identify weak spots, repair only those gaps, and finish with fresh practice and teach-back.</p><div class="recommended-meta"><span>${esc(eventText)}</span><span>${concepts.length} concept${concepts.length===1?'':'s'} available</span></div>`;
 }
 function renderWeeklyPlan(){
   const out=$('#weekly-plan');if(!out)return;const week=currentWeek(),wd=weekData(week),list=E.filter(e=>Number(e.week)===Number(week)),mins=list.filter(e=>e.type!=='Equipment').reduce((a,e)=>{const s=new Date(e.start),en=new Date(e.end);return a+Math.max(0,Math.round((en-s)/60000));},0),lab=list.find(e=>e.type==='Lab'||e.type==='Project');
@@ -208,8 +225,14 @@ function renderReviews(){
   $$('[data-event-review-rate]').forEach(b=>b.onclick=()=>{const card=b.closest('[data-event-review]'),key=card.dataset.eventReview,old=state.reviews[key];if(!old)return;old.interval=ratingInterval(b.dataset.eventReviewRate,Number(old.interval||0));old.lastRating=b.dataset.eventReviewRate;old.due=addDays(startOfDay(now()),old.interval).toISOString();old.updatedAt=new Date().toISOString();state.sessionConfidence[key]=b.dataset.eventReviewRate;saveEventStudyMeta(key,b.dataset.eventReviewRate,old);reviewedThisBlock++;renderReviews();});
 }
 
-function renderParking(){const out=$('#parking-list');if(!out)return;const list=state.parking||[];if(!list.length){out.innerHTML='<div class="review-empty"><strong>Parking lot is empty.</strong><span>Save side questions here instead of leaving the required learning path.</span></div>';return;}out.innerHTML=list.slice().reverse().map(x=>`<article class="parking-item" data-parking-id="${esc(x.id)}"><div><strong>${esc(x.text)}</strong><span>Saved ${esc(fmtDate(x.at))}${x.week?` · Week ${x.week}`:''}</span></div><div><a href="search.html?q=${encodeURIComponent(x.text)}">Explore later →</a><button type="button" data-remove-parking>Done</button></div></article>`).join('');$$('[data-remove-parking]').forEach(b=>b.onclick=()=>{const id=b.closest('[data-parking-id]').dataset.parkingId;state.parking=state.parking.filter(x=>x.id!==id);save();renderParking();});}
-function park(text){const t=String(text||'').trim();if(!t)return;state.parking.push({id:crypto.randomUUID?.()||String(Date.now())+Math.random(),text:t,week:currentWeek(),at:new Date().toISOString()});save();renderParking();}
+function renderParking(){const out=$('#parking-list');if(!out)return;const list=state.parking||[];if(!list.length){out.innerHTML='<div class="review-empty"><strong>Parking lot is empty.</strong><span>Save side questions or site-improvement ideas here instead of leaving the required learning path.</span></div>';return;}out.innerHTML=list.slice().reverse().map(x=>{const site=x.kind==='site';return `<article class="parking-item${site?' site-issue-item':''}" data-parking-id="${esc(x.id)}"><div><span class="parking-kind">${site?'Site issue · fix later':'Curiosity · explore later'}</span><strong>${esc(x.text)}</strong><span>Saved ${esc(fmtDate(x.at))}${x.week?` · Week ${x.week}`:''}</span></div><div>${site?'<span class="parked-builder-note">Parked for Builder Mode</span>':`<a href="search.html?q=${encodeURIComponent(x.text)}">Explore later →</a>`}<button type="button" data-remove-parking>Done</button></div></article>`}).join('');$$('[data-remove-parking]').forEach(b=>b.onclick=()=>{const id=b.closest('[data-parking-id]').dataset.parkingId;state.parking=state.parking.filter(x=>x.id!==id);save();renderParking();});}
+function park(text,kind='curiosity'){const t=String(text||'').trim();if(!t)return;state.parking.push({id:crypto.randomUUID?.()||String(Date.now())+Math.random(),text:t,kind,week:currentWeek(),at:new Date().toISOString()});save();renderParking();}
+function installSiteIssueParking(){
+  const form=$('#parking-form'),panel=form?.closest('.study-panel');if(!panel||$('#site-issue-form'))return;
+  const wrap=document.createElement('div');wrap.className='site-issue-parking';wrap.innerHTML='<div class="site-issue-parking-head"><strong>Park a site issue</strong><span>Improving Alfred is not today’s coursework unless the issue blocks learning.</span></div><form id="site-issue-form"><label for="site-issue-input">Website improvement or defect to handle later</label><div><input id="site-issue-input" type="text" maxlength="500" placeholder="Example: Week 3 figure feels too small"><button class="button outline-green" type="submit">Park for Builder Mode</button></div></form>';
+  panel.insertBefore(wrap,$('#parking-list'));
+  $('#site-issue-form')?.addEventListener('submit',e=>{e.preventDefault();const input=$('#site-issue-input');park(input?.value,'site');if(input)input.value='';});
+}
 let stuckReturnFocus=null;
 function openStuck(){
   stuckReturnFocus=document.activeElement;const week=state.session?.week||currentWeek(),weak=state.session?weakConcepts():[],topic=weak[0]?.name||weekData(week).topic||'current topic';$('#stuck-topic').textContent=`Current repair target: ${topic}`;
@@ -224,7 +247,7 @@ async function syncProgressFromCloud(){try{const cfg=JSON.parse(localStorage.get
 
 function applyQuiet(){const on=localStorage.getItem(QUIET_KEY)==='1';document.body.classList.toggle('quiet-mode',on);$('#quiet-mode-toggle')?.setAttribute('aria-pressed',String(on));}
 function toggleQuiet(){const on=localStorage.getItem(QUIET_KEY)!=='1';localStorage.setItem(QUIET_KEY,on?'1':'0');applyQuiet();}
-function toggleFocus(){const on=!document.body.classList.contains('focus-mode');if(on&&$('#session-workspace')?.classList.contains('hidden')){startSession();return;}document.body.classList.toggle('focus-mode',on);$('#focus-mode-toggle')?.setAttribute('aria-pressed',String(on));if(on)$('#session-workspace')?.scrollIntoView({behavior:'smooth'});}
+function toggleFocus(){const on=!document.body.classList.contains('focus-mode');if(on&&$('#session-workspace')?.classList.contains('hidden')){const next=window.AlfredNextAction?.get?.();if(!state.session&&(next?.kind==='classroom'||next?.reason==='due-review')){location.href=next.href;return;}startSession();return;}document.body.classList.toggle('focus-mode',on);$('#focus-mode-toggle')?.setAttribute('aria-pressed',String(on));if(on)$('#session-workspace')?.scrollIntoView({behavior:'smooth'});}
 function rewriteStaticCopy(){
   const h=$('.study-hero h1'),p=$('.study-hero p');if(h)h.textContent='Find the gap. Repair it. Prove it.';if(p)p.textContent='Study is the active-recall layer of AU-ESET 301. It tests what actually stuck, targets weak concepts, gives fresh practice, and schedules retrieval without duplicating the Classroom.';
   const legend=$('.study-start-controls legend');if(legend)legend.textContent='How much should this session test?';
@@ -233,10 +256,10 @@ function rewriteStaticCopy(){
   const panel=$('#study-support-area .panel-intro');if(panel)panel.textContent='Review up to three due concepts. Weak answers return sooner; strong answers spread farther apart. Ratings schedule review only and never inflate Mastery.';
 }
 
-hydrateReviewsFromProgress();rewriteStaticCopy();renderRecommendation();renderWeeklyPlan();renderReviews();renderParking();renderResumeSession();applyQuiet();syncProgressFromCloud();
+hydrateReviewsFromProgress();rewriteStaticCopy();installSiteIssueParking();renderRecommendation();renderWeeklyPlan();renderReviews();renderParking();renderResumeSession();applyQuiet();syncProgressFromCloud();
 window.addEventListener('online',syncProgressFromCloud);window.addEventListener('storage',e=>{if(e.key===PROGRESS_KEY){hydrateReviewsFromProgress();renderRecommendation();renderReviews();}if(e.key===STUDY_KEY){state=load();renderResumeSession();renderParking();}});
 $$('input[name="session-mode"]').forEach(r=>{r.checked=r.value===activeMode});
-$('#start-study-session')?.addEventListener('click',()=>startSession());$('#quiet-mode-toggle')?.addEventListener('click',toggleQuiet);$('#focus-mode-toggle')?.addEventListener('click',toggleFocus);$('#leave-focus')?.addEventListener('click',()=>{document.body.classList.remove('focus-mode');$('#focus-mode-toggle')?.setAttribute('aria-pressed','false');});
+$('#start-study-session')?.addEventListener('click',e=>{const href=e.currentTarget?.dataset?.routeHref;if(href){location.href=href;return;}startSession();});$('#quiet-mode-toggle')?.addEventListener('click',toggleQuiet);$('#focus-mode-toggle')?.addEventListener('click',toggleFocus);$('#leave-focus')?.addEventListener('click',()=>{document.body.classList.remove('focus-mode');$('#focus-mode-toggle')?.setAttribute('aria-pressed','false');});
 $('#session-prev')?.addEventListener('click',()=>{if(step>0){step--;state.session.step=step;save();renderSession();}});$('#session-next')?.addEventListener('click',()=>{const names=sessionStageNames();if(step<names.length-1){if(!validateStage())return;step++;state.session.step=step;save();renderSession();}else finishSession();});
 $('#session-help')?.addEventListener('click',openStuck);$('#parking-form')?.addEventListener('submit',e=>{e.preventDefault();park($('#parking-input')?.value);if($('#parking-input'))$('#parking-input').value='';});
 if($('#stuck-modal'))$('#stuck-modal').inert=true;$$('[data-close-stuck]').forEach(x=>x.onclick=closeStuck);document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#stuck-modal')?.classList.contains('open'))closeStuck();});

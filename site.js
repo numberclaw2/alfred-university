@@ -201,6 +201,63 @@
     quiz:['Practice','practice.html']
   };
 
+
+  // v16.3.30 — one shared "what should I do next?" engine.  The student
+  // should not have to remember whether new instruction belongs in Classroom
+  // or whether a due/saved retrieval session belongs in Study.
+  const PROGRESS_KEY='alfred-u-progress-v2';
+  const STUDY_KEY='alfred-u-study-v13';
+  const INTERFACE_MODE_KEY='alfred-u-interface-mode-v1';
+  const STUDY_STAGE_NAMES=['Retrieve','Diagnose','Repair','Practice','Teach Back','Next Move'];
+  const CLASSROOM_STAGE_LABELS={orientation:'Start Here','ceta-lesson':'CETa Lesson','career-lesson':'Career Lesson',media:'Teaching Media',practice:'Guided Practice',application:'Lab / Application',mastery:'Weekly Mastery'};
+  function readLocalJSON(key,fallback={}){try{return JSON.parse(localStorage.getItem(key)||'null')||fallback;}catch{return fallback;}}
+  function currentCourseWeek(){try{return Number(window.AlfredState?.currentWeek?.(EVENTS,new Date(),WEEKS))||1;}catch{return 1;}}
+  function weekProgressRecord(p,week){const raw=p?.weeks?.[week]??p?.weeks?.[String(week)];return typeof raw==='string'?{mastery:raw}:{...(raw||{})};}
+  function incompleteClassroomStage(week,p=readLocalJSON(PROGRESS_KEY,{})){
+    const w=weekProgressRecord(p,week),l=w.learning||{},order=['orientation','ceta-lesson','career-lesson','media','practice','application','mastery'];
+    if(l.currentStage&&order.includes(l.currentStage)&&!l.completed?.[l.currentStage])return l.currentStage;
+    return order.find(id=>!l.completed?.[id])||'mastery';
+  }
+  function dueReviewCount(p=readLocalJSON(PROGRESS_KEY,{})){
+    let count=0,now=Date.now();
+    Object.values(p.weeks||{}).forEach(w=>Object.values(w?.reviewQueue||{}).forEach(r=>{if(r?.due&&Date.parse(r.due)<=now)count++;}));
+    Object.values(p.events||{}).forEach(v=>{if(v?.studyReview?.due&&Date.parse(v.studyReview.due)<=now)count++;});
+    return count;
+  }
+  function lessonSegmentSummary(l,stage){
+    const index=stage==='ceta-lesson'?0:stage==='career-lesson'?1:null;if(index===null)return null;
+    const rec=l?.lessonSegments?.[`lesson-${index}`];if(!rec)return null;
+    const total=Number(rec.total||0),current=Math.max(0,Number(rec.current||0));
+    if(!total)return null;
+    return {current,total,label:`Section ${Math.min(current+1,total)} of ${total}`};
+  }
+  function nextAction(){
+    const p=readLocalJSON(PROGRESS_KEY,{}),study=readLocalJSON(STUDY_KEY,{}),week=currentCourseWeek();
+    const session=study?.session;
+    if(session?.conceptIds?.length){
+      const sw=Number(session.week)||week,step=STUDY_STAGE_NAMES[Math.max(0,Math.min(STUDY_STAGE_NAMES.length-1,Number(session.step)||0))];
+      return {kind:'study',week:sw,label:'Resume Study',detail:`${step} · saved session`,href:`study.html?week=${sw}#session-workspace`,reason:'saved-session'};
+    }
+    const due=dueReviewCount(p);
+    if(due>0)return {kind:'study',week,label:`Review ${due} due ${due===1?'item':'items'}`,detail:'Spaced retrieval is due now',href:`study.html?week=${week}#review-queue`,reason:'due-review',due};
+    const w=weekProgressRecord(p,week),l=w.learning||{},stage=incompleteClassroomStage(week,p),seg=lessonSegmentSummary(l,stage);
+    const stageLabel=CLASSROOM_STAGE_LABELS[stage]||'Classroom';
+    const detail=seg?`${stageLabel} · ${seg.label}`:`${stageLabel} · required course path`;
+    return {kind:'classroom',week,stage,label:`Continue Week ${String(week).padStart(2,'0')}`,detail,href:`learn.html?week=${week}&stage=${encodeURIComponent(stage)}`,reason:'required-instruction',segment:seg};
+  }
+  window.AlfredNextAction={get:nextAction,dueReviewCount,incompleteClassroomStage};
+
+  function interfaceMode(){try{return localStorage.getItem(INTERFACE_MODE_KEY)==='builder'?'builder':'student';}catch{return 'student';}}
+  function applyInterfaceMode(){
+    const mode=interfaceMode(),builder=mode==='builder';document.body.classList.toggle('builder-mode',builder);document.body.classList.toggle('student-mode',!builder);
+    $$('a[href="deployment.html"],a[href="patch-notes.html"]').forEach(a=>{a.hidden=!builder;});
+    const menu=$('.nav-more-menu');if(menu){
+      let wrap=$('.nav-menu-mode',menu);if(!wrap){wrap=document.createElement('div');wrap.className='nav-menu-mode';const b=document.createElement('button');b.type='button';b.className='builder-mode-toggle';wrap.append(b);menu.append(wrap);b.addEventListener('click',()=>{try{localStorage.setItem(INTERFACE_MODE_KEY,interfaceMode()==='builder'?'student':'builder');}catch{}applyInterfaceMode();});}
+      const b=$('.builder-mode-toggle',wrap);if(b){b.textContent=builder?'Return to Student Mode':'Open Builder Mode';b.setAttribute('aria-pressed',String(builder));b.title=builder?'Hide deployment and release-history tools during coursework.':'Show deployment and release-history tools for site maintenance.';}
+    }
+  }
+  window.AlfredInterfaceMode={get:interfaceMode,set(mode){try{localStorage.setItem(INTERFACE_MODE_KEY,mode==='builder'?'builder':'student');}catch{}applyInterfaceMode();}};
+
   function installSkipLink(){
     const main=$('main');
     if(!main||document.getElementById('main-content')) return;
@@ -292,6 +349,7 @@
   installGlossaryNavigation();
   addContextTrail();
   groupMoreMenu();
+  applyInterfaceMode();
 
   const toggle=$('.nav-toggle');
   const nav=$('.main-nav');
@@ -620,18 +678,18 @@
   }
 })();
 
-/* v16.3.28: whole-site UX layer + native audit round-2 repair. */
+/* v16.3.30: whole-site UX layer + executive-function study-flow repair. */
 (() => {
-  if (window.__ALFRED_UX_LOADER_1628__) return;
-  window.__ALFRED_UX_LOADER_1628__ = true;
-  if (!document.querySelector('link[data-alfred-ux="16.3.28"]')) {
+  if (window.__ALFRED_UX_LOADER_1630__) return;
+  window.__ALFRED_UX_LOADER_1630__ = true;
+  if (!document.querySelector('link[data-alfred-ux="16.3.30"]')) {
     const css=document.createElement('link');
-    css.rel='stylesheet';css.href='ux-system.css?v=16.3.28';css.dataset.alfredUx='16.3.28';
+    css.rel='stylesheet';css.href='ux-system.css?v=16.3.30';css.dataset.alfredUx='16.3.30';
     document.head.append(css);
   }
-  if (!document.querySelector('script[data-alfred-ux="16.3.28"]')) {
+  if (!document.querySelector('script[data-alfred-ux="16.3.30"]')) {
     const script=document.createElement('script');
-    script.src='ux-system.js?v=16.3.28';script.dataset.alfredUx='16.3.28';script.async=true;
+    script.src='ux-system.js?v=16.3.30';script.dataset.alfredUx='16.3.30';script.async=true;
     document.body.append(script);
   }
 })();
