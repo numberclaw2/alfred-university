@@ -1,17 +1,14 @@
-AU-ESET 301 v16.3.24 — VOCABULARY STUDY + SMART GLOSSARY HIGHLIGHTING
-=======================================================================
+AU-ESET 301 v16.3.25 — GLOSSARY RENDER DEDUPLICATION
+========================================================
 
-Baseline: verified deployed v16.3.23.
 Upload every file in this ZIP to the GitHub repository root, replacing same-named files when prompted.
 
 NEW
-- vocabulary-study.js
-- vocabulary-study.css
-- AU-ESET-301-v16.3.24-Vocabulary-Study-and-Glossary-Highlighting-Verification.md
+- AU-ESET-301-v16.3.25-Glossary-Deduplication-Verification.md
 
 REPLACE / UPDATE
-- study.html
 - glossary.js
+- learn.html
 - build-info.json
 - release-notes-current.js
 - service-worker.js
@@ -19,10 +16,10 @@ REPLACE / UPDATE
 - UPLOAD_README.txt
 - SHA256SUMS.txt
 
-WHAT CHANGES
-1. Study gains a Vocabulary Study Lab powered by the existing Course Glossary.
-2. Classroom glossary terms are highlighted at most once per concept per rendered lesson/stage.
-3. The highlighter chooses a stronger instructional occurrence instead of blindly decorating every matching word.
+WHAT THIS FIXES
+- Hard DOM-level guarantee: only one live glossary anchor per canonical concept in the currently rendered lesson/stage.
+- Stronger judgment about which occurrence is selected.
+- Weak or incidental placements may remain unhighlighted.
+- Classroom glossary script is cache-busted so an older highlighter is not silently reused after refresh.
 
-No glossary data file is replaced because the existing 282-entry v16.3.23 glossary remains the source of truth.
-No curriculum, assessment, mastery, calendar, lab, project, Teaching Media, Progress, Cloud Sync, or branding file is replaced.
+No glossary definitions, Vocabulary Study data, curriculum, assessments, mastery, calendar, labs, projects, Teaching Media, Progress, Cloud Sync, or branding are replaced.

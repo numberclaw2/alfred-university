@@ -1,6 +1,25 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.25",
+      "date": "September 18, 2026",
+      "title": "Glossary Highlight Deduplication — Render-Level Guardrail & Stronger Placement Judgment",
+      "type": "Classroom UX / Glossary Runtime Repair",
+      "request": "Repair the remaining repeated glossary highlights visible in the live Classroom after v16.3.24, keep each concept visually highlighted only once per rendered lesson/stage, and use stronger judgment about which occurrence should carry the definition link.",
+      "changes": [
+        "Added a final DOM-level deduplication guardrail that physically unwraps duplicate glossary anchors by canonical glossary slug after each Classroom decoration pass, so duplicate highlighting cannot survive even if another mutation/render path produces extra anchors.",
+        "Kept whole-lesson candidate selection, but strengthened placement scoring to heavily prefer direct introductory/definitional phrasing such as ‘Electric charge is…’ over incidental mentions, contrast-only mentions, quiz/question surfaces, or other weak placements.",
+        "Added a minimum candidate-quality threshold: when a concept has no sufficiently useful instructional occurrence in the current lesson/stage, Alfred leaves it unhighlighted rather than forcing a distracting or awkward definition link.",
+        "Preserved the canonical multiword preference so fuller phrases such as ‘electric charge’ outrank bare aliases such as ‘charge’ when both are available.",
+        "Updated the Classroom MutationObserver so any external DOM mutation first enforces one live glossary anchor per concept and then schedules the authoritative whole-lesson re-evaluation.",
+        "Cache-busted the Classroom glossary runtime with glossary.js?v=16.3.25 and advanced the service-worker namespace so an already-open or previously cached v16.3.23/v16.3.24 highlighter is not silently reused after refresh.",
+        "No glossary definitions, vocabulary Study data, curriculum, lesson wording, assessments/scoring, mastery, labs, projects, calendar, Teaching Media, Progress identities, Cloud Sync protocol, or branding were changed."
+      ],
+      "filesAdded": ["AU-ESET-301-v16.3.25-Glossary-Deduplication-Verification.md"],
+      "filesModified": ["POST-UPDATE-QA.md","SHA256SUMS.txt","UPLOAD_README.txt","build-info.json","glossary.js","learn.html","release-notes-current.js","service-worker.js"],
+      "filesRemoved": []
+    },
+    {
       "version": "v16.3.24",
       "date": "September 18, 2026",
       "title": "Vocabulary Study Lab + Context-Aware Single-Occurrence Glossary Highlighting",
@@ -446,7 +465,7 @@
       ]
     }
   ];
-  const currentOrder = ['v16.3.24','v16.3.23','v16.3.22','v16.3.21','v16.3.20','v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
+  const currentOrder = ['v16.3.25','v16.3.24','v16.3.23','v16.3.22','v16.3.21','v16.3.20','v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
   entries.sort((a,b)=>currentOrder.indexOf(a.version)-currentOrder.indexOf(b.version));
   const historical = Array.isArray(window.ALFRED_RELEASES) ? window.ALFRED_RELEASES : [];
   const currentVersions = new Set(entries.map(entry=>entry.version));
