@@ -1,6 +1,27 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.21",
+      "date": "September 18, 2026",
+      "title": "Transparent Branding Asset Sweep — Crest, Seal & App Icons",
+      "type": "Branding / Asset Delivery / Cache Refresh",
+      "request": "Audit the entire project for Alfred University crest, seal, logo, symbol, and app-icon usage; remove the visible white raster backgrounds while preserving the existing artwork and filenames; replace the actual runtime assets rather than only unused source PNGs; and make browsers reliably refresh the same-named files.",
+      "changes": [
+        "Completed a repository-wide branded-asset reference audit. The displayed site uses crest.webp throughout headers and hero branding, seal.webp throughout footers, hero decoration, About, Progress, Projects, and other institutional surfaces, plus icon-180.png, icon-192.png, and icon-512.png for browser/PWA icons. The root alfred-university-crest.png and alfred-university-seal.png files are source assets and are not direct current HTML/CSS runtime references.",
+        "Explained and corrected the prior replacement mismatch: replacing only alfred-university-crest.png and alfred-university-seal.png did not change the visible website because the live pages reference crest.webp and seal.webp instead.",
+        "Replaced crest.webp and seal.webp with transparent-background versions using the exact existing artwork. Only edge-connected near-white background pixels were made transparent; internal white/cream artwork such as lettering, books, mountain snow, and seal details remains opaque.",
+        "Replaced icon-180.png, icon-192.png, and icon-512.png with transparent-background versions at the same pixel dimensions and filenames, so browser, Apple touch, manifest, and shortcut references continue working without markup changes.",
+        "Normalized alfred-university-crest.png and alfred-university-seal.png as transparent source assets with the same filenames so future manual reuse does not reintroduce a white rectangular background.",
+        "Intentionally left syllabus-cover.png, resource-manual-cover.png, assignment-lab-cover.png, binder-index-cover.png, and certificate-cover.png unchanged. Their white or light areas are the document/page artwork itself, not an accidental background surrounding a crest or seal.",
+        "No HTML image paths or manifest icon paths changed. Existing references continue to use the same filenames, so uploading this package directly over the repository replaces the assets in place.",
+        "Updated service-worker registration to bypass cached service-worker scripts and request an immediate update check, and advanced the Alfred cache namespace to v16.3.21 so previously cached same-named logo/icon files are retired instead of persisting after upload.",
+        "No curriculum, lessons, Teaching Media, calendar, assessments, mastery logic, labs, projects, progress records, Cloud Sync protocol, navigation architecture, or page layout is changed by this branding-only release."
+      ],
+      "filesAdded": [],
+      "filesModified": ["POST-UPDATE-QA.md", "SHA256SUMS.txt", "UPLOAD_README.txt", "alfred-university-crest.png", "alfred-university-seal.png", "build-info.json", "crest.webp", "icon-180.png", "icon-192.png", "icon-512.png", "release-notes-current.js", "seal.webp", "service-worker.js", "site.js"],
+      "filesRemoved": []
+    },
+    {
       "version": "v16.3.20",
       "date": "September 18, 2026",
       "title": "Final Acceptance Repair — Hero Layout, Deep Links & Durable Runtime Labels",
@@ -343,7 +364,7 @@
       ]
     }
   ];
-  const currentOrder = ['v16.3.20','v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
+  const currentOrder = ['v16.3.21','v16.3.20','v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
   entries.sort((a,b)=>currentOrder.indexOf(a.version)-currentOrder.indexOf(b.version));
   const historical = Array.isArray(window.ALFRED_RELEASES) ? window.ALFRED_RELEASES : [];
   const currentVersions = new Set(entries.map(entry=>entry.version));

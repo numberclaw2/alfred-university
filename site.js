@@ -585,6 +585,9 @@
   }
 
   if('serviceWorker' in navigator && location.protocol.startsWith('http')){
-    navigator.serviceWorker.register('service-worker.js').catch(()=>{});
+    navigator.serviceWorker
+      .register('service-worker.js',{updateViaCache:'none'})
+      .then(registration=>registration.update())
+      .catch(()=>{});
   }
 })();

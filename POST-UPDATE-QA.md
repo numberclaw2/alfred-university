@@ -1,45 +1,53 @@
-# AU-ESET 301 v16.3.20 — Final Acceptance Repair QA
+# AU-ESET 301 v16.3.21 — Transparent Branding Asset Sweep QA
 
 **Date:** September 18, 2026  
-**Scope:** Bounded repair of the defects found by the final whole-site acceptance audit plus the user-provided About, Progress, and Projects screenshots. This release does not reopen curriculum or learner-system architecture.
+**Scope:** Full-project audit of Alfred University crest, seal, institutional symbol, and app-icon raster assets; same-filename transparent replacements; cache-refresh hardening. No curriculum or learner-system redesign.
 
-## Screenshot / hero-layout repair
+## Repository-wide asset audit
 
-- PASS — root cause identified in `site.js`: the injected context trail had been inserted as a direct child of grid-based hero shells, creating a third CSS Grid item and displacing the intended two-column hero children.
-- PASS — `site.js` now places the context trail inside the primary text/content column for `.about-grid`, `.progress-hero-grid`, `.engineering-hero-grid`, `.project-page-grid`, and `.study-hero-grid` instead of inserting it as a sibling grid item.
-- PASS — structural DOM simulation confirms About, Progress, and Projects retain exactly two direct grid children after breadcrumb insertion, so the heading/seal/progress-card columns are no longer reflowed by the breadcrumb.
-- PASS — no hero CSS, responsive breakpoints, or page-specific content was rewritten.
+- PASS — every top-level raster branding asset was inventoried.
+- PASS — `crest.webp` is the actual site-wide crest used by headers and About/branding surfaces.
+- PASS — `seal.webp` is the actual site-wide seal used by footers, hero decoration, About, Progress, Projects, and other institutional surfaces.
+- PASS — `icon-180.png`, `icon-192.png`, and `icon-512.png` are the browser/PWA icon family referenced by HTML, `manifest.webmanifest`, and the service worker.
+- PASS — `alfred-university-crest.png` and `alfred-university-seal.png` are source assets, not direct current HTML/CSS runtime references. This is why the prior two-PNG-only manual upload did not change visible page logos.
+- PASS — document cover thumbnails were reviewed separately. `syllabus-cover.png`, `resource-manual-cover.png`, `assignment-lab-cover.png`, `binder-index-cover.png`, and `certificate-cover.png` intentionally retain their paper/art backgrounds and are not part of the transparent-logo replacement set.
+- PASS — the week-specific SVG instructional figures are technical lesson graphics, not Alfred University logo/symbol assets, and remain untouched.
 
-## Final-audit functional repairs
+## Transparency conversion
 
-- PASS — `knowledge.html` restores the `nav-more-button` class and `aria-haspopup="true"`, matching every other full navigation shell and the selector expected by `site.js`.
-- PASS — `progress.html` gives the existing Cloud Sync section `id="cloud-sync"`, so both Deployment deep links now land on the actual Cloud Sync controls.
-- PASS — `readiness.js` gives every rendered CETa coverage-map row a stable `domain-N` anchor. A runtime VM harness confirmed `domain-1` and `domain-2` are emitted from representative coverage data.
-- PASS — Search still generates `assessments.html#domain-N` CETa-domain routes, and the Assessment Center now provides matching anchors.
+- PASS — 7 branding files now contain alpha transparency:
+  - `alfred-university-crest.png`
+  - `alfred-university-seal.png`
+  - `crest.webp`
+  - `seal.webp`
+  - `icon-180.png`
+  - `icon-192.png`
+  - `icon-512.png`
+- PASS — the white/background removal is edge-connected rather than a global white-key operation. Internal light artwork is preserved.
+- PASS — source RGB artwork is unchanged on retained pixels for the deployed crest/seal/icon originals; the operation changes background alpha rather than recoloring or redesigning the logos.
+- PASS — runtime WebP assets remain WebP and support alpha.
+- PASS — app-icon dimensions remain exactly 180×180, 192×192, and 512×512.
 
-## Durable wording cleanup
+## Runtime reference coverage
 
-- PASS — Assessment Center no longer labels v16.3.7 as the current site/assessment runtime. The hero now describes the current assessment and mastery evidence model without a stale patch number.
-- PASS — Documents relabels the v16.3.7 file as a Whole-System Audit Repair Record instead of a current runtime repair.
-- PASS — Documents now states that the v16.3.7 repairs remain incorporated into later runtimes while `build-info.json` and Release Notes control the current runtime.
-- PASS — Week Overview, Engineering, Knowledge Base, and Student Services compatibility notes now state that normal-navigation retirement is already complete instead of describing Step 9 as future work.
+- PASS — all existing HTML/CSS references continue to use the same filenames.
+- PASS — no page-by-page markup rewrite is required.
+- PASS — `manifest.webmanifest` continues to resolve the same icon filenames.
+- PASS — `service-worker.js` continues to cache all branding assets under the new v16.3.21 namespace.
 
-## Whole-package regression checks
+## Cache refresh / delivery
 
-- PASS — all JavaScript files in the deployed site tree pass `node --check`.
-- PASS — all JSON files parse successfully.
-- PASS — 25 HTML pages scanned with zero duplicate IDs.
-- PASS — zero missing local `href` / `src` targets across the HTML pages.
-- PASS — all 150 `service-worker.js` CORE entries resolve to deployed files.
-- PASS — compatibility files `week.html`, `engineering.html`, `knowledge.html`, and `student-services.html` remain present and cached.
-- PASS — `build-info.json` reports runtime `16.3.20`, build `v16.3.20-final-acceptance-repair-20260918`, and release status `final-acceptance-repair-ready`.
-- PASS — service-worker cache advances to `alfred-u-v16-3-20-final-acceptance-repair-20260918` with no fetch-strategy change.
-- PASS — Release Notes lists v16.3.20 first and its 15-file manifest exactly matches the repair package.
+- PASS — service-worker cache advances to `alfred-u-v16-3-21-transparent-branding-assets-20260918`.
+- PASS — `site.js` registers the service worker with `updateViaCache: 'none'` and requests `registration.update()` so the browser checks the new worker instead of relying on an older cached worker script.
+- PASS — no service-worker fetch strategy, offline behavior, or progress storage logic changed.
 
-## Browser-rendering note
+## Runtime metadata
 
-A managed Chromium policy in the container blocks both localhost and `file://` page rendering, so an independent repaired-page screenshot could not be captured inside this environment. The layout defect itself is nevertheless verified at the DOM/CSS-structure level: the breadcrumb no longer becomes a direct grid child on the three user-reported pages, which removes the mechanism that produced the supplied screenshots.
+- PASS — `build-info.json` reports runtime `16.3.21`.
+- PASS — build is `v16.3.21-transparent-branding-assets-20260918`.
+- PASS — release status is `transparent-branding-assets`.
+- PASS — Release Notes lists v16.3.21 first and records the exact package manifest.
 
 ## Protected systems unchanged
 
-This repair does **not** change curriculum/lesson content, Teaching Media, calendar dates or IDs, assessment questions or scoring, mastery formulas, labs, projects, progress record identities, Cloud Sync protocol 2, Worker/D1 behavior, Study/Practice workflow, or the v16.3.19 owner-based information architecture.
+This release does **not** modify curriculum/lesson content, Teaching Media, calendar dates or IDs, assessment content/scoring, mastery formulas, labs, projects, Progress record identities, Cloud Sync protocol 2, Worker/D1 behavior, Study/Practice workflow, page layout, or the owner-based navigation architecture.

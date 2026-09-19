@@ -1,10 +1,10 @@
 {
   "courseRelease": "16.3",
-  "runtimePatch": "16.3.20",
+  "runtimePatch": "16.3.21",
   "evidenceRevision": "16.2",
   "cloudSyncProtocol": 2,
-  "build": "v16.3.20-final-acceptance-repair-20260918",
-  "releaseStatus": "final-acceptance-repair-ready",
+  "build": "v16.3.21-transparent-branding-assets-20260918",
+  "releaseStatus": "transparent-branding-assets",
   "presentationPatch": "mobile-visual-readability-final",
   "scheduleRevision": "2026-09-16-week1-reset",
   "modulePresentationRevision": "2026-09-18-week1-from-zero-visual-teaching",
@@ -16,7 +16,7 @@
   "week1InstructionRevision": "2026-09-18-from-zero-visual-teaching",
   "week1TeachingMediaRevision": "2026-09-18-beginner-teacher-youtube-layer",
   "teachingMediaBaseRevision": "2026-09-18-final-pots-31-week-standalone-accepted",
-  "releaseNotesRevision": "2026-09-18-v16.3.20-final-acceptance-repair-recorded",
+  "releaseNotesRevision": "2026-09-18-v16.3.21-transparent-branding-assets-recorded",
   "repositoryLedgerBaseline": "2026-09-18-v16.3.9-63-commits",
   "studyRevision": "2026-09-18-retrieve-diagnose-repair-practice-teachback",
   "practiceRevision": "2026-09-18-priority-ladder-repair-router",
@@ -27,5 +27,6 @@
   "aboutPageRevision": "2026-09-18-dynamic-build-info-clear-disclosure",
   "deploymentPageRevision": "2026-09-18-dynamic-build-info-durable-operations",
   "homeNavigationRevision": "2026-09-18-owner-based-final-information-architecture",
-  "finalAcceptanceRepairRevision": "2026-09-18-hero-deeplink-runtime-label-repair"
+  "finalAcceptanceRepairRevision": "2026-09-18-hero-deeplink-runtime-label-repair",
+  "brandingAssetRevision": "2026-09-18-transparent-crest-seal-icons"
 }
