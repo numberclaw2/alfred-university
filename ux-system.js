@@ -1,10 +1,10 @@
-/* AU-ESET 301 v16.3.27 — Whole-site UX system · native visual QA repair
+/* AU-ESET 301 v16.3.28 — Whole-site UX system · native UX audit round-2 repair
    Purpose: improve task orientation, search discoverability, interaction hierarchy,
    long-page navigation, mobile affordance, and accessibility without changing course logic. */
 (() => {
   'use strict';
-  if (window.__ALFRED_UX_1627__) return;
-  window.__ALFRED_UX_1627__ = true;
+  if (window.__ALFRED_UX_1628__) return;
+  window.__ALFRED_UX_1628__ = true;
 
   const $=(s,r=document)=>r.querySelector(s);
   const $$=(s,r=document)=>[...r.querySelectorAll(s)];
@@ -105,7 +105,7 @@
 
   function makeSlug(text){return String(text||'section').toLowerCase().replace(/&/g,' and ').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,64)||'section';}
   function installPageTOC(){
-    const excluded=new Set(['index','home','study','learn','calendar','practice','progress','glossary','search','quiz','offline','404','knowledge','week','student-services','engineering']);
+    const excluded=new Set(['index','home','study','learn','calendar','practice','progress','glossary','search','quiz','offline','404','knowledge','week','student-services','engineering','patch-notes']);
     if(excluded.has(pageKey)||$('.ux-page-toc')) return;
     const main=ensureMainTarget();if(!main)return;
     const headings=$$('h2',main).filter(h=>h.offsetParent!==null&&!h.closest('.site-footer,.ux-page-toc')&&!/Learning & Practice|Course & Administration/i.test(h.textContent||''));
@@ -153,7 +153,7 @@
   }
 
   function installBackToTop(){
-    if(new Set(['study','learn','quiz','calendar','offline','404']).has(pageKey)||$('#ux-back-to-top'))return;
+    if(new Set(['index','home','study','learn','quiz','calendar','offline','404']).has(pageKey)||$('#ux-back-to-top'))return;
     const b=document.createElement('button');b.id='ux-back-to-top';b.className='ux-back-top';b.type='button';b.setAttribute('aria-label','Back to top');b.innerHTML=`${svg('up')}<span>Top</span>`;document.body.append(b);
     const update=()=>{const useful=document.documentElement.scrollHeight>innerHeight*1.7;b.classList.toggle('show',useful&&scrollY>Math.max(650,innerHeight*.75));};
     addEventListener('scroll',update,{passive:true});addEventListener('resize',update,{passive:true});update();

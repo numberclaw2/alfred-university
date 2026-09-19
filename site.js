@@ -620,18 +620,18 @@
   }
 })();
 
-/* v16.3.27: research-grounded whole-site UX layer + native visual QA repair. */
+/* v16.3.28: whole-site UX layer + native audit round-2 repair. */
 (() => {
-  if (window.__ALFRED_UX_LOADER_1627__) return;
-  window.__ALFRED_UX_LOADER_1627__ = true;
-  if (!document.querySelector('link[data-alfred-ux="16.3.27"]')) {
+  if (window.__ALFRED_UX_LOADER_1628__) return;
+  window.__ALFRED_UX_LOADER_1628__ = true;
+  if (!document.querySelector('link[data-alfred-ux="16.3.28"]')) {
     const css=document.createElement('link');
-    css.rel='stylesheet';css.href='ux-system.css';css.dataset.alfredUx='16.3.27';
+    css.rel='stylesheet';css.href='ux-system.css?v=16.3.28';css.dataset.alfredUx='16.3.28';
     document.head.append(css);
   }
-  if (!document.querySelector('script[data-alfred-ux="16.3.27"]')) {
+  if (!document.querySelector('script[data-alfred-ux="16.3.28"]')) {
     const script=document.createElement('script');
-    script.src='ux-system.js';script.dataset.alfredUx='16.3.27';script.async=true;
+    script.src='ux-system.js?v=16.3.28';script.dataset.alfredUx='16.3.28';script.async=true;
     document.body.append(script);
   }
 })();

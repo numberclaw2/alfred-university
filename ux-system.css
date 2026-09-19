@@ -141,3 +141,48 @@ main :where(button,[role="button"]):not(.glossary-term){touch-action:manipulatio
   .ux-page-toc-count{display:inline;margin-left:6px}
   .ux-page-toc-links{padding:10px 16px 14px}
 }
+
+
+/* ===== v16.3.28 native UX audit round-2 repairs ===== */
+/* Release Notes: allow long filenames and code tokens to shrink/wrap inside phone cards. */
+body[data-page="patch-notes"] .release-list,
+body[data-page="patch-notes"] .release-card,
+body[data-page="patch-notes"] .release-card>* ,
+body[data-page="patch-notes"] .release-file-grid,
+body[data-page="patch-notes"] .release-file-group{min-width:0;max-width:100%}
+body[data-page="patch-notes"] .release-file-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))}
+body[data-page="patch-notes"] .release-card code,
+body[data-page="patch-notes"] .release-file-group code,
+body[data-page="patch-notes"] .release-card li,
+body[data-page="patch-notes"] .release-request,
+body[data-page="patch-notes"] .release-request p{overflow-wrap:anywhere;word-break:break-word}
+
+/* Calendar period navigation: align previous/next arrows with Alfred's 44px control language. */
+#calendar-prev,#calendar-next{min-width:44px;width:44px}
+
+/* Home packet statistics: zero-min-width grid tracks prevent narrow-phone min-content expansion. */
+body[data-page="home"] .hero-facts,body[data-page="index"] .hero-facts{grid-template-columns:repeat(3,minmax(0,1fr))}
+body[data-page="home"] .hero-facts>div,body[data-page="index"] .hero-facts>div{min-width:0}
+body[data-page="home"] .hero-facts span,body[data-page="index"] .hero-facts span{overflow-wrap:anywhere}
+
+@media(max-width:470px){
+  body[data-page="patch-notes"] .release-card{padding:1rem}
+  body[data-page="patch-notes"] .release-card ul{padding-left:1.05rem}
+  body[data-page="patch-notes"] .release-file-grid{grid-template-columns:minmax(0,1fr)}
+}
+
+@media(max-width:375px){
+  /* Preserve the full university name before the optional Latin subtitle. */
+  .brand-row{gap:8px}
+  .brand{gap:8px;min-width:0}
+  .brand img{width:42px;height:auto;flex:0 0 42px}
+  .brand-name{font-size:.80rem;letter-spacing:.035em;overflow:visible;text-overflow:clip}
+  .brand-sub{display:none}
+  .ux-header-tools{gap:6px}
+  .ux-header-search-trigger{width:42px;min-width:42px;padding:0}
+  .nav-toggle{width:44px!important;min-width:44px;height:44px!important}
+  body[data-page="home"] .hero-facts,body[data-page="index"] .hero-facts{gap:7px}
+  body[data-page="home"] .hero-facts>div,body[data-page="index"] .hero-facts>div{padding:10px 6px}
+  body[data-page="home"] .hero-facts strong,body[data-page="index"] .hero-facts strong{font-size:1.05rem}
+  body[data-page="home"] .hero-facts span,body[data-page="index"] .hero-facts span{font-size:.66rem;letter-spacing:.045em;line-height:1.25}
+}

@@ -1,6 +1,27 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.28",
+      "date": "September 18, 2026",
+      "title": "Native UX Audit Round 2 — Targeted Responsive & Navigation Repair",
+      "type": "Native UX QA / Responsive Repair / Interaction Polish",
+      "request": "Run a second whole-site UX audit by rendering the exact deployed v16.3.27 GitHub Pages artifact natively across desktop, tablet, and phone widths, then repair the bounded issues found without reopening the accepted UX architecture.",
+      "changes": [
+        "Audited 20 user-facing pages at six viewport sizes (1440, 1024, 768, 430, 390, and 360 CSS pixels), totaling 120 native Chromium renders with zero fatal renders, while also checking mobile Menu/Search interaction, overflow, labels, IDs, heading structure, and link safety.",
+        "Repaired Release Notes mobile min-content clipping by allowing release-card descendants and file grids to shrink to the viewport, forcing long filenames/code tokens to wrap safely, reducing narrow-phone list indentation, and using a single zero-min-width column on phones.",
+        "Removed Release Notes from the generic On this page generator because its release-specific search/version controls provide stronger information scent than a 63-destination generic table of contents.",
+        "Repaired the 360px Home course-packet statistics row with zero-min-width grid tracks, safer label wrapping, and narrow-phone spacing/type adjustments so the Engineering Labs statistic remains fully visible.",
+        "Removed the floating Back to top control from Home, where native scrolling showed it could cover the lower-right course-packet statistic. The control remains available on genuinely long reference pages where it provides more value.",
+        "Preserved the full ALFRED UNIVERSITY mobile wordmark at 360px by hiding the optional Latin subtitle first, reducing brand spacing/crest size slightly, and tightening the wordmark letter spacing before allowing the university name to truncate.",
+        "Widened Calendar previous/next period controls to 44px while keeping the compact visual language and existing calendar behavior.",
+        "Cache-busted ux-system.css and ux-system.js at v16.3.28 and advanced the service-worker namespace so the responsive repair reliably replaces v16.3.27 cached UX assets.",
+        "No curriculum, lesson wording, Study sequencing, Classroom stages, glossary data, Vocabulary Study scheduling, Teaching Media, calendar data, assessment scoring, mastery formulas, labs, projects, Progress records, Cloud Sync protocol, or branding artwork changed."
+      ],
+      "filesAdded": ["AU-ESET-301-v16.3.28-Native-UX-Round2-Repair.md"],
+      "filesModified": ["POST-UPDATE-QA.md","SHA256SUMS.txt","UPLOAD_README.txt","build-info.json","release-notes-current.js","service-worker.js","site.js","ux-system.css","ux-system.js"],
+      "filesRemoved": []
+    },
+    {
       "version": "v16.3.27",
       "date": "September 18, 2026",
       "title": "Native Visual QA Repair — Mobile Vocabulary Width + Progressive Long-Page Navigation",
@@ -525,7 +546,7 @@
       ]
     }
   ];
-  const currentOrder = ['v16.3.27','v16.3.26','v16.3.25','v16.3.24','v16.3.23','v16.3.22','v16.3.21','v16.3.20','v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
+  const currentOrder = ['v16.3.28','v16.3.27','v16.3.26','v16.3.25','v16.3.24','v16.3.23','v16.3.22','v16.3.21','v16.3.20','v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
   entries.sort((a,b)=>currentOrder.indexOf(a.version)-currentOrder.indexOf(b.version));
   const historical = Array.isArray(window.ALFRED_RELEASES) ? window.ALFRED_RELEASES : [];
   const currentVersions = new Set(entries.map(entry=>entry.version));

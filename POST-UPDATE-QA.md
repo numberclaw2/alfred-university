@@ -1,51 +1,44 @@
-# POST-UPDATE QA — v16.3.27 Native Visual QA Repair
+# POST-UPDATE QA — v16.3.28 Native UX Audit Round 2 Repair
 
 ## Baseline
-- Based on the exact deployed v16.3.26 GitHub Pages artifact.
-- v16.3.26 artifact digest: `sha256:98534cea8775a6cac9db9ce2a5812ad0aa0f04551cbeb5fa97e6db1c550d67b6`.
-- Original v16.3.26 whole-site UX system was visually rendered before repair.
+- Base artifact: exact GitHub Pages artifact deployed for v16.3.27 / commit `204e2ff1be4a609b7a7ca95656947807a33d7fe7`.
+- Change scope: UX presentation/runtime only.
 
-## Native render checks
-- Home rendered at 1440px and 390px.
-- Study rendered at 1440px and 390px.
-- Week 1 Classroom rendered at desktop and 390px mobile.
-- Course and Projects rendered at desktop and 390px mobile.
-- Progress rendered at desktop and 390px mobile.
-- Shared reference surfaces inspected structurally for the same UX runtime behavior.
+## Static verification
+- `build-info.json` parses and reports runtimePatch `16.3.28`.
+- `site.js` loads `ux-system.css?v=16.3.28` and `ux-system.js?v=16.3.28` with v16.3.28 loader guards.
+- `ux-system.js` internal runtime guard is v16.3.28.
+- Release Notes contains the v16.3.28 exact-file manifest.
+- Service worker namespace is `alfred-u-v16-3-28-native-ux-round2-20260918`.
+- Service worker includes cache-busted v16.3.28 UX CSS/JS requests and this verification report.
+- JavaScript syntax passed for `site.js`, `ux-system.js`, `service-worker.js`, and `release-notes-current.js`.
 
-## Findings repaired
-### Vocabulary Study
-- Reproduced 390px child-width expansion to ~484px inside a 366px Study section shell.
-- Confirmed right-side clipping despite no document-level horizontal scrollbar.
-- Added `minmax(0,1fr)` and zero-min-width grid child hardening.
-- Post-repair section shell is 366px; Vocabulary Study child surfaces are <=366px.
-- Filter-grid/Start-button inner width is ~335px after control padding.
-- Scope pills retain intentional `overflow-x:auto` only.
+## Native Chromium regression
+- 20 user-facing pages × 6 viewport widths = 120 native render combinations.
+- Viewports: 1440×1000, 1024×900, 768×900, 430×900, 390×844, 360×800.
+- Fatal renders: 0.
+- No targeted v16.3.28 regression flags remained.
 
-### Long-page navigation
-- Reproduced oversized mobile Course `On this page` block with eight visible links.
-- Converted to a `details`-based progressive disclosure control.
-- Desktop starts expanded.
-- <=700px starts collapsed.
-- Section count is visible while collapsed.
-- Mobile destination selection collapses the control after navigation.
-- Breakpoint changes resynchronize desktop/mobile default state.
+### Previously failing findings now passing
+- Release Notes mobile release-list/card min-content clipping: PASS at 430/390/360.
+- Release Notes generic 63-section `On this page` control: absent as intended.
+- Home 360px course-packet statistic overflow: PASS.
+- Home Back-to-top overlap risk: control suppressed on Home.
+- Home 360px ALFRED UNIVERSITY wordmark: full name remains visible; optional subtitle is hidden first.
+- Calendar previous/next period controls: 44px wide at phone widths.
 
-## Static checks
-- JavaScript syntax must pass for `site.js`, `ux-system.js`, `release-notes-current.js`, and `service-worker.js`.
-- `build-info.json` must parse and report runtimePatch `16.3.27`.
-- Service worker cache namespace must be `alfred-u-v16-3-27-native-visual-qa-20260918`.
-- Release Notes must contain v16.3.27.
-- UX loader marker must be v16.3.27.
-- No protected course-data files are included in the upload package.
+## Mobile interaction regression
+Representative pages: Home, Study, Learn, Calendar, Course, Release Notes.
+Viewport widths: 430, 390, 360.
+- Menu open + Escape close: 18/18 PASS.
+- Search open + input focus + Escape close: 18/18 PASS.
+- Total interaction checks: 36/36 PASS.
 
-## Browser acceptance after upload
-1. On a phone-width browser, open Study and scroll to Vocabulary Study Lab. Verify no right-side clipping.
-2. Horizontally swipe the vocabulary scope pills; only that pill strip should scroll horizontally.
-3. Open Course Overview on mobile. Verify `On this page · N sections +` is collapsed by default.
-4. Expand it and select a section. Verify the page scrolls/focuses to the target and the mobile disclosure collapses.
-5. Open Course on desktop. Verify the On-this-page list starts expanded.
-6. Verify Home/Search/Menu/Continue Week and Classroom behavior remain as in v16.3.26.
+## Visual spot checks
+- Home 360px native screenshot inspected.
+- Release Notes 390px top and release-card screenshots inspected.
+- Calendar 390px native screenshot inspected.
+- No new visual regression identified in these repaired surfaces.
 
 ## Protected systems
-Curriculum, glossary data/definitions, Vocabulary Study scheduling, Teaching Media, calendar, assessments/scoring, mastery, labs, projects, Progress identities, Cloud Sync, and branding remain unchanged.
+No curriculum, lesson wording, Study sequencing, Classroom stages, glossary data, vocabulary scheduling, Teaching Media, calendar dates/identities, assessment scoring, mastery formulas, labs, projects, Progress records, Cloud Sync protocol, or branding artwork changed.
