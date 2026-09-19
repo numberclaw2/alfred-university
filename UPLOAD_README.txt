@@ -1,17 +1,21 @@
-AU-ESET 301 v16.3.22 — COURSE DICTIONARY UPLOAD
-=================================================
+AU-ESET 301 v16.3.23 — COURSE GLOSSARY UX / ACADEMIC REFERENCE UPLOAD
+=====================================================================
 
-Upload every file in this package to the GitHub repository root, replacing same-named files when prompted.
+This is a CUMULATIVE package. Upload every file in this ZIP to the GitHub repository root, replacing same-named files when prompted. You do not need to upload the earlier v16.3.22 ZIP first.
 
-ADDED
+NEW / INCLUDED
 - glossary.html
 - glossary.css
 - glossary-data.js
 - glossary.js
 - AU-ESET-301-v16.3.22-Glossary-Source-Verification.md
+- AU-ESET-301-v16.3.23-Glossary-UX-Verification.md
 
-REPLACE
+REPLACE / UPDATE
 - learn.html
+- search.html
+- search.js
+- site.js
 - build-info.json
 - release-notes-current.js
 - service-worker.js
@@ -19,6 +23,6 @@ REPLACE
 - UPLOAD_README.txt
 - SHA256SUMS.txt
 
-After GitHub Pages deploys, open the Classroom and refresh once. The service-worker cache namespace is new, so the Dictionary runtime should replace the prior cached JavaScript/CSS.
+The Glossary is now a primary navigation tab, Search Everything indexes glossary entries, and the definition popover follows researched mouse/keyboard/accessibility behavior.
 
-This package does not replace curriculum/assessment/media files.
+No curriculum, assessment, calendar, mastery, lab, project, Teaching Media, progress identity, Cloud Sync protocol, or branding file is replaced by this package.

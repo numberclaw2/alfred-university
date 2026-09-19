@@ -1,6 +1,31 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.23",
+      "date": "September 18, 2026",
+      "title": "Course Glossary — First-Class Tab, Academic Reference Views & UX/Accessibility Upgrade",
+      "type": "Learning Support / Information Architecture / Accessibility / Search",
+      "request": "Promote the dictionary into a permanent Glossary tab, add the features expected of a college course glossary, integrate it with Search Everything, and use researched glossary/tooltip UX practices to inform the design.",
+      "changes": [
+        "Promoted Glossary to a first-class primary navigation destination. The shared site runtime inserts a direct Glossary tab before More across existing pages and adds Course Glossary to the Learning & Practice footer without rewriting every page template.",
+        "Renamed the student-facing Course Dictionary surface to Course Glossary while preserving all 282 source-grounded vocabulary entries and the in-lesson vocabulary-linking behavior introduced in v16.3.22.",
+        "Expanded the Glossary into four academic reference views: All Terms, Acronyms & Abbreviations, Symbols & Notation, and Sources.",
+        "Added multi-path lookup using full-text search, A–Z browsing, 15 course categories, and Week 1–31 filtering. This deliberately combines alphabetical, category, and course-time organization for faster scanning and recall.",
+        "Added richer persistent entries with pronunciation, plain-English and technical definitions, aliases, symbols/notation, course notes where available, direct Classroom week links, related course terms, source provenance, and a copyable stable entry link.",
+        "Added a Sources view that groups authoritative terminology source families and shows how broadly each source supports the Glossary.",
+        "Integrated all Glossary terms into Search Everything as a dedicated Glossary Term result type; search covers canonical terms, definitions, aliases, notation, categories, notes, and source names.",
+        "Reworked hover/focus definition cards using NN/g, W3C, and Atlassian guidance: content is concise contextual microcontent rather than the entire entry; mouse and keyboard triggers are supported; Escape dismisses; pointer users can move into the popover without it disappearing; visible keyboard focus is preserved; and no essential definition exists only in a tooltip.",
+        "Removed the native title-tooltip duplication from decorated lesson terms and kept the term itself as the single interactive deep-link trigger, avoiding nested interactive controls inside the popover.",
+        "Added no-result recovery, Clear filters, URL-synchronized glossary filters/views, mobile-horizontal A–Z browsing, reduced-motion compatibility, and direct deep-link highlighting.",
+        "Added AU-ESET-301-v16.3.23-Glossary-UX-Verification.md documenting the UX/accessibility research sources and the design decisions derived from them.",
+        "Advanced build metadata and service-worker cache namespace to v16.3.23 so the Glossary navigation/search/runtime changes replace v16.3.22 or older cached assets reliably.",
+        "Curriculum, lesson source wording, assessments/scoring, mastery, labs, projects, calendar, progress identities, Cloud Sync protocol, Teaching Media, and branding remain unchanged."
+      ],
+      "filesAdded": ["AU-ESET-301-v16.3.23-Glossary-UX-Verification.md"],
+      "filesModified": ["POST-UPDATE-QA.md","SHA256SUMS.txt","UPLOAD_README.txt","build-info.json","glossary.css","glossary.html","glossary.js","learn.html","release-notes-current.js","search.html","search.js","service-worker.js","site.js"],
+      "filesRemoved": []
+    },
+    {
         "version": "v16.3.22",
         "date": "September 18, 2026",
         "title": "Course Dictionary — In-Lesson Vocabulary Hover + Click Reference",

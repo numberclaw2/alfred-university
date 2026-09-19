@@ -180,7 +180,7 @@
     index:'Home',home:'Home',study:'Study',learn:'Classroom',week:'Week Overview',calendar:'Academic Calendar',
     practice:'Practice',progress:'Student Progress',analytics:'Mastery',
     'au-eset-301':'Course Overview',course:'Course Overview',engineering:'Engineering',
-    resources:'Engineering Library',projects:'Projects',search:'Search Everything',
+    resources:'Engineering Library',projects:'Projects',search:'Search Everything',glossary:'Glossary',
     knowledge:'Knowledge Base',labs:'Lab Center',assessments:'Assessment Center',
     standards:'Standards & Retention',documents:'Documents','student-services':'Student Services',
     about:'About','patch-notes':'Release Notes',deployment:'Deployment Notes',quiz:'Assessment'
@@ -241,6 +241,33 @@
     trailHost.insertBefore(trail,trailHost.firstElementChild);
   }
 
+  function installGlossaryNavigation(){
+    const links=$('#primary-navigation .nav-links');
+    if(links){
+      // Remove any legacy/duplicate Glossary link from More before creating the first-class tab.
+      $$('.nav-more-menu a[href="glossary.html"]',links).forEach(a=>a.remove());
+      let glossary=$(':scope > a[href="glossary.html"]',links);
+      if(!glossary){
+        glossary=document.createElement('a');
+        glossary.href='glossary.html';
+        glossary.textContent='Glossary';
+        const more=$(':scope > .nav-more',links);
+        links.insertBefore(glossary,more||null);
+      }
+      if(pageKey==='glossary'){
+        $$(':scope > a',links).forEach(a=>{a.classList.remove('active');a.removeAttribute('aria-current');});
+        glossary.classList.add('active');glossary.setAttribute('aria-current','page');
+      }
+    }
+    // Keep the glossary discoverable in the global Learning & Practice footer too.
+    const learningHeading=$$('.site-footer h3').find(h=>/Learning\s*&\s*Practice/i.test(h.textContent||''));
+    const footerCol=learningHeading?.parentElement;
+    if(footerCol&&!$('a[href="glossary.html"]',footerCol)){
+      const a=document.createElement('a');a.href='glossary.html';a.textContent='Course Glossary';
+      const classroom=$('a[href="learn.html"]',footerCol);classroom?.after(a);
+    }
+  }
+
   function groupMoreMenu(){
     const menu=$('.nav-more-menu');
     if(!menu||menu.dataset.grouped==='true') return;
@@ -262,6 +289,7 @@
   }
 
   installSkipLink();
+  installGlossaryNavigation();
   addContextTrail();
   groupMoreMenu();
 

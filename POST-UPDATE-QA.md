@@ -1,26 +1,34 @@
-# POST-UPDATE QA — v16.3.22 Course Dictionary
+# POST-UPDATE QA — v16.3.23 Course Glossary UX
 
 ## Static verification
-- Dictionary entries present: **282**
-- Unique slugs: **282**
-- Entries with authoritative source links: **282 / 282**
-- Entries with pronunciations: **282 / 282**
-- Added runtime assets: glossary.html, glossary.css, glossary-data.js, glossary.js
-- Classroom loads glossary stylesheet/data/runtime and includes a Dictionary button.
-- Service worker namespace advanced to v16.3.22 and Dictionary assets are cached.
-- build-info.json reports runtimePatch 16.3.22.
-- Release Notes contain the v16.3.22 exact-file manifest.
-
-## Protected systems
-Curriculum, lesson source content, assessments/scoring, mastery, calendar, labs, projects, progress identities, Cloud Sync protocol, Teaching Media, and branding remain unchanged.
+- Glossary entries: **282**
+- Unique entry slugs: **282**
+- Course categories: **15**
+- Authoritative source families: **11**
+- Uppercase acronym-style canonical terms: **68**
+- Entries with symbol/notation/abbreviation metadata: **133**
+- Primary-navigation Glossary insertion present in site.js.
+- Course Glossary footer insertion present in site.js.
+- Search Everything loads glossary-data.js and indexes Glossary Term results.
+- Glossary supports All Terms, Acronyms & Abbreviations, Symbols & Notation, and Sources views.
+- Glossary supports search, category, week, and A–Z controls plus Clear filters.
+- Definition popover supports mouse hover, keyboard focus, Escape dismissal, hoverable/persistent pointer behavior, aria-describedby, and visible focus.
+- Full entries retain persistent definitions, source links, related terms, Classroom week links, and copyable deep links.
+- build-info.json reports runtimePatch 16.3.23.
+- Service worker namespace advanced to v16.3.23.
+- Release Notes contain v16.3.22 and v16.3.23 manifests so this cumulative package can be uploaded even if v16.3.22 was not separately deployed.
 
 ## Browser acceptance checks after upload
-1. Open `learn.html?week=1` and confirm technical vocabulary is bold/dotted without corrupting buttons, links, equations, or code.
-2. Hover **voltage** (desktop) and verify the definition card includes pronunciation, plain meaning, technical meaning, and source.
-3. Keyboard-tab to a Dictionary term and confirm the same definition card appears.
-4. Click a term and confirm the browser lands on the matching `glossary.html#...` entry.
-5. Search Dictionary for `MOSFET`, `UART`, `I2C`, `oscilloscope`, `measurement uncertainty`, and `HIL`.
-6. Change A–Z and category filters and confirm counts/results update.
-7. Change Classroom stages/weeks and confirm newly rendered content is decorated automatically.
-8. Verify mobile layout and direct Dictionary navigation.
-9. Reload once after deployment and confirm build-info.json shows v16.3.22 and stale v16.3.21 cache does not persist.
+1. Confirm **Glossary** appears as a direct primary-navigation tab on Home, Classroom, Search, Progress, and at least one More-menu page.
+2. Open Glossary and test All Terms, Acronyms & Abbreviations, Symbols & Notation, and Sources.
+3. Search `MOSFET`, filter Week 18, filter a category, and test A–Z; then Clear filters.
+4. Open Classroom Week 1 and hover/focus a marked term; verify concise definition, pronunciation, and technical meaning.
+5. Move the pointer from the term into the popover; it must remain open. Press Escape; it must dismiss without moving focus.
+6. Click/tap a term and verify its exact glossary fragment opens.
+7. Use Copy entry link and open the copied URL in a new tab.
+8. In Search Everything, search `UART`, select Glossary terms, and confirm a direct glossary result.
+9. Verify mobile navigation, horizontally scrollable A–Z controls, and tap-to-open lesson terms.
+10. Verify build-info.json reports v16.3.23 and stale v16.3.22/older cache does not persist.
+
+## Protected systems
+Curriculum, lesson source content, assessments/scoring, mastery, labs, projects, calendar, progress identities, Cloud Sync protocol, Teaching Media, and branding remain unchanged.
