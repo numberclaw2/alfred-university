@@ -1,6 +1,38 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.30",
+      "date": "September 19, 2026",
+      "title": "Vocabulary Interaction \u2014 Click Definition, Double-Click Full Entry",
+      "type": "Learning Support / Classroom Glossary UX",
+      "request": "Change highlighted Classroom vocabulary so one click opens the definition popup, a second click on the same term opens its full Glossary entry, and hovering no longer opens or closes the definition popup.",
+      "changes": [
+        "Removed the highlighted-term mouseenter/mouseleave definition behavior, so simply hovering over a vocabulary word does not open or dismiss the definition card.",
+        "Changed a single activation of a highlighted vocabulary term to open its existing definition popup immediately while keeping the learner on the current lesson section.",
+        "Changed a second activation of the same highlighted term within the double-click window to navigate to that term's exact full Course Glossary entry.",
+        "Kept Escape and outside-click dismissal for the popup, plus existing scroll/resize positioning behavior.",
+        "Updated Classroom helper copy and popup hint text so the visible instructions match the new click / double-click interaction.",
+        "Changed the vocabulary cursor from help to pointer so the visual affordance matches a click-driven interaction.",
+        "Preserved all 599 glossary entries, section-scoped one-per-concept highlighting, contextual placement scoring, acronym safeguards, Study Vocabulary integration, Search integration, curriculum wording, Teaching Media, assessments, mastery, labs, projects, calendar, Progress, Cloud Sync, and branding."
+      ],
+      "filesAdded": [
+        "AU-ESET-301-v16.3.30-Vocabulary-Click-Interaction-Verification.md"
+      ],
+      "filesModified": [
+        "POST-UPDATE-QA.md",
+        "SHA256SUMS.txt",
+        "UPLOAD_README.txt",
+        "build-info.json",
+        "glossary.css",
+        "glossary.html",
+        "glossary.js",
+        "learn.html",
+        "release-notes-current.js",
+        "service-worker.js"
+      ],
+      "filesRemoved": []
+    },
+    {
       "version": "v16.3.29",
       "date": "September 19, 2026",
       "title": "Course Glossary Expansion — 599 Terms + Section-Scoped Rehighlighting",
