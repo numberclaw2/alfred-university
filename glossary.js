@@ -46,14 +46,12 @@
   const regex=new RegExp('(^|[^A-Za-z0-9])('+[...variantMap.keys()].map(v=>v.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|')+')(?![A-Za-z0-9])','gi');
 
   // ---- Accessible, concise in-lesson definition popover ----
-  // Interaction contract: one click opens the definition; a second click on the
-  // same term within the double-click window opens the full Glossary entry.
-  // Hover never opens or closes the definition card.
-  let tip=null,activeAnchor=null,dismissedAnchor=null,lastClickAnchor=null,lastClickAt=0;
-  const DOUBLE_CLICK_MS=500;
+  let tip=null,activeAnchor=null,openTimer=null,closeTimer=null,tipHovered=false,dismissedAnchor=null;
   function ensureTip(){
     if(tip)return tip;
     tip=document.createElement('aside');tip.className='glossary-tip';tip.hidden=true;tip.setAttribute('role','tooltip');tip.id='alfred-glossary-tip';
+    tip.addEventListener('mouseenter',()=>{tipHovered=true;clearTimeout(closeTimer);});
+    tip.addEventListener('mouseleave',()=>{tipHovered=false;scheduleHide(activeAnchor);});
     document.body.appendChild(tip);return tip;
   }
   function positionTip(anchor,t){
@@ -66,24 +64,20 @@
   }
   function showTip(anchor,e){
     if(dismissedAnchor===anchor)return;
-    const t=ensureTip();
-    if(activeAnchor&&activeAnchor!==anchor)activeAnchor.removeAttribute('aria-describedby');
-    activeAnchor=anchor;
+    const t=ensureTip();clearTimeout(openTimer);clearTimeout(closeTimer);activeAnchor=anchor;
     const second=e.technical&&e.technical!==e.definition?`<p class="technical"><strong>Technical:</strong> ${esc(e.technical)}</p>`:'';
-    t.innerHTML=`<div class="glossary-cat">${esc(e.category)}</div><h3>${esc(e.term)}</h3>${e.pronunciation?`<div class="glossary-pron">${esc(e.pronunciation)}</div>`:''}<p><strong>Meaning:</strong> ${esc(e.definition)}</p>${second}<p class="hint">Double-click the highlighted term for the full Glossary entry.</p>`;
+    t.innerHTML=`<div class="glossary-cat">${esc(e.category)}</div><h3>${esc(e.term)}</h3>${e.pronunciation?`<div class="glossary-pron">${esc(e.pronunciation)}</div>`:''}<p><strong>Meaning:</strong> ${esc(e.definition)}</p>${second}<p class="hint">Click the term for the full Glossary entry.</p>`;
     t.hidden=false;anchor.setAttribute('aria-describedby',t.id);positionTip(anchor,t);
   }
-  function hideTip(){
+  function scheduleShow(anchor,e,delay=170){clearTimeout(openTimer);clearTimeout(closeTimer);openTimer=setTimeout(()=>showTip(anchor,e),delay);}
+  function hideTip(force=false){
+    clearTimeout(openTimer);clearTimeout(closeTimer);
     if(!tip)return;
-    if(activeAnchor)activeAnchor.removeAttribute('aria-describedby');
-    tip.hidden=true;activeAnchor=null;
+    if(!force&&(tipHovered||activeAnchor?.matches(':hover')||document.activeElement===activeAnchor))return;
+    if(activeAnchor)activeAnchor.removeAttribute('aria-describedby');tip.hidden=true;activeAnchor=null;
   }
-  document.addEventListener('keydown',ev=>{if(ev.key==='Escape'&&tip&&!tip.hidden){dismissedAnchor=activeAnchor;hideTip();}});
-  document.addEventListener('click',ev=>{
-    if(!tip||tip.hidden)return;
-    if(ev.target.closest?.('.glossary-term,.glossary-tip'))return;
-    dismissedAnchor=null;hideTip();
-  });
+  function scheduleHide(anchor){clearTimeout(closeTimer);closeTimer=setTimeout(()=>{if(anchor===activeAnchor)hideTip(false);},140);}
+  document.addEventListener('keydown',ev=>{if(ev.key==='Escape'&&tip&&!tip.hidden){dismissedAnchor=activeAnchor;hideTip(true);}});
   window.addEventListener('scroll',()=>{if(tip&&!tip.hidden&&activeAnchor)positionTip(activeAnchor,tip);},{passive:true});
   window.addEventListener('resize',()=>{if(tip&&!tip.hidden&&activeAnchor)positionTip(activeAnchor,tip);});
 
@@ -152,18 +146,10 @@
   }
   function makeTermAnchor(raw,e,score=0){
     const a=document.createElement('a');a.className='glossary-term';a.href=`glossary.html#${encodeURIComponent(e.slug)}`;a.dataset.glossary=e.slug;a.dataset.glossaryScore=String(score);a.textContent=raw;
-    a.addEventListener('click',ev=>{
-      ev.preventDefault();
-      const now=performance.now();
-      const isSecondClick=lastClickAnchor===a&&(now-lastClickAt)<=DOUBLE_CLICK_MS;
-      if(isSecondClick){
-        lastClickAnchor=null;lastClickAt=0;hideTip();window.location.assign(a.href);return;
-      }
-      lastClickAnchor=a;lastClickAt=now;dismissedAnchor=null;showTip(a,e);
-    });
-    a.addEventListener('dblclick',ev=>ev.preventDefault());
-    a.addEventListener('focus',()=>{dismissedAnchor=null;});
-    a.addEventListener('blur',()=>{dismissedAnchor=null;});
+    a.addEventListener('mouseenter',()=>{dismissedAnchor=null;scheduleShow(a,e);});
+    a.addEventListener('mouseleave',()=>scheduleHide(a));
+    a.addEventListener('focus',()=>{dismissedAnchor=null;scheduleShow(a,e,0);});
+    a.addEventListener('blur',()=>{dismissedAnchor=null;scheduleHide(a);});
     return a;
   }
   function unwrapGlossaryAnchor(a){
@@ -243,7 +229,7 @@
 
   const lesson=document.querySelector('#classroom-content');
   if(lesson){
-    const help=document.createElement('div');help.className='glossary-inline-help';help.setAttribute('data-no-glossary','true');help.innerHTML='<span aria-hidden="true">📖</span><span><strong>Key Glossary terms are highlighted once per lesson section.</strong> Click once for the definition popup. Double-click the same term to open its full Glossary entry.</span>';
+    const help=document.createElement('div');help.className='glossary-inline-help';help.setAttribute('data-no-glossary','true');help.innerHTML='<span aria-hidden="true">📖</span><span><strong>Key Glossary terms are highlighted once per lesson section.</strong> Alfred chooses one clear instructional use per concept in each section; hover or keyboard-focus for a quick definition, or click for the full entry.</span>';
     const card=document.querySelector('#classroom-card');if(card)card.insertBefore(help,card.firstChild);
     lessonObserver=new MutationObserver(()=>{if(!decoratingLesson)scheduleLessonDecoration(lesson);});
     decorateLesson(lesson);

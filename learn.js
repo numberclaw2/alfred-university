@@ -88,7 +88,7 @@
     const p = normalize(loadProgress());
     const w = weekObject(p.weeks[week]);
     const l = w.learning || {};
-    l.version = 1; l.completed = l.completed || {}; l.checks = l.checks || {}; l.responses = l.responses || {}; l.semanticTasks = l.semanticTasks || {};
+    l.version = 2; l.completed = l.completed || {}; l.checks = l.checks || {}; l.responses = l.responses || {}; l.semanticTasks = l.semanticTasks || {}; l.lessonSegments = l.lessonSegments || {};
     return {p,w,l};
   }
   function saveLearning(mutator,{sync=true,notify=true}={}){
@@ -200,6 +200,55 @@
   }
   function currentAssessment(){ return learningState().w.assessments?.[`week:${week}`] || {}; }
 
+
+  // v16.3.30 — Classroom lesson segments.  Course content is preserved; the
+  // learner sees one resumable concept-sized unit at a time instead of one
+  // extremely long continuous lesson stage.
+  function segmentMinutesForText(value,base=2,min=5,max=12){
+    const words=String(value||'').trim().split(/\s+/).filter(Boolean).length;
+    return Math.max(min,Math.min(max,Math.ceil(words/160)+base));
+  }
+  function lessonSegmentPlan(lessonItem,index){
+    const d=lessonItem?.integrated||{},segments=[];
+    segments.push({id:'purpose',type:'purpose',label:'Purpose & mental model',minutes:5});
+    (d.teaching||[]).forEach((section,i)=>segments.push({id:`concept-${i+1}`,type:'teaching',label:section.title||`Concept ${i+1}`,section,teachingIndex:i,minutes:segmentMinutesForText(`${section.text||''} ${section.remember||''}`)}));
+    if((d.workedExamples||[]).length)segments.push({id:'worked',type:'worked',label:'Worked reasoning',minutes:12});
+    if((d.misconceptions||[]).length||(d.guidedPractice||[]).length||d.independentScenario)segments.push({id:'practice',type:'practice',label:'Misconceptions & practice',minutes:12});
+    if(d.connection||d.teachBack||(d.checks||[]).length)segments.push({id:'checks',type:'checks',label:'Apply & check understanding',minutes:10});
+    if((d.semanticTasks||[]).length)segments.push({id:'evidence',type:'evidence',label:'Competency evidence',minutes:15});
+    return segments;
+  }
+  function lessonSegmentRecord(index,plan){
+    const l=learningState().l,key=`lesson-${index}`,raw=l.lessonSegments?.[key]||{},total=plan.length;
+    const current=Math.max(0,Math.min(total-1,Number(raw.current)||0));
+    return {key,total,current,completed:{...(raw.completed||{})}};
+  }
+  function saveLessonSegment(index,plan,current,{complete=false}={}){
+    const total=plan.length,next=Math.max(0,Math.min(total-1,current));
+    saveLearning(l=>{l.lessonSegments=l.lessonSegments||{};const key=`lesson-${index}`,prior=l.lessonSegments[key]||{},previous=Math.max(0,Math.min(total-1,Number(prior.current)||0)),completed={...(prior.completed||{})};if(complete)completed[String(previous)]=true;l.lessonSegments[key]={current:next,total,completed,updatedAt:new Date().toISOString()};l.currentStage=index===0?'ceta-lesson':'career-lesson';});
+  }
+  function segmentPrompt(seg){
+    if(seg.type==='purpose')return 'Before continuing, name one thing this lesson should let you explain, predict, measure, or do safely.';
+    if(seg.type==='teaching')return `Without looking back, explain “${seg.label}” in your own words. Then name one prediction, measurement, calculation, or safety decision this idea supports.`;
+    if(seg.type==='worked')return 'Cover the result of one worked example. Predict the direction or rough size first, then reconstruct the reasoning before checking it.';
+    if(seg.type==='practice')return 'Choose one tempting misconception or practice item and explain why the correct model gives a different result.';
+    if(seg.type==='checks')return 'Answer the checks before opening any model answer. A wrong answer is a repair signal, not a penalty.';
+    return 'Complete the competency evidence in your own words or artifact before the final lesson gate.';
+  }
+  function renderLessonSegment(lessonItem,index){
+    const d=lessonItem.integrated||{},plan=lessonSegmentPlan(lessonItem,index),state=lessonSegmentRecord(index,plan),seg=plan[state.current],visual=d.visualId?`<figure class="lesson-visual" aria-label="Instructional visual for ${esc(lessonItem.title)}"><div class="lesson-visual-scroll" tabindex="0" role="group" aria-label="Scrollable instructional diagram. On smaller screens, swipe horizontally to inspect the diagram at a readable scale."><img src="${esc(d.visualId)}.svg" alt="Instructional diagram for ${esc(lessonItem.title)}"></div><figcaption><span>Use the diagram to explain the relationship or sequence before moving to practice.</span><span class="lesson-visual-mobile-hint">On a phone, swipe the diagram left or right to inspect labels at a readable size.</span><a class="lesson-visual-fullsize" href="${esc(d.visualId)}.svg" target="_blank" rel="noopener">Open full-size diagram ↗</a></figcaption></figure>`:'';
+    let body='';
+    if(seg.type==='purpose')body=`<section class="integrated-purpose"><div><span>v16.3 integrated lesson · ${esc(lessonItem.track)}</span><h3>Purpose and prerequisite</h3></div><p>${esc(d.purpose)}</p><aside><strong>Bring this forward:</strong><p>${esc(d.prereq)}</p></aside></section>${visual}<div class="integrated-section-head compact"><span>Alfred teaches the subject</span><h3>Technical instruction comes next</h3><p>Move through one saved section at a time. Every original section, figure, worked example, practice item, check, and competency task is still here.</p></div>`;
+    else if(seg.type==='teaching'){const section=seg.section;body=`<section class="integrated-teaching-block lesson-segment-teaching${section.critical?' critical-teaching':''}"><span class="concept-number">${seg.teachingIndex+1}</span><div><h3>${esc(section.title)}</h3>${section.buildOn?`<div class="concept-builds-on"><strong>Builds on:</strong> ${esc(section.buildOn)}</div>`:''}${paragraphs(section.text)}${renderSourceFigure(section.figure)}${section.remember?`<aside><strong>Hold onto this</strong><p>${esc(section.remember)}</p></aside>`:''}${section.critical?'<div class="critical-flag">Safety-critical: understand this boundary before related physical work.</div>':''}</div></section>`;}
+    else if(seg.type==='worked')body=`<div class="integrated-section-head"><span>Worked reasoning</span><h3>See the model used, then use it yourself</h3></div><div class="integrated-worked-grid">${(d.workedExamples||[]).map((x,i)=>renderWorkedExample(x,week===1?`Worked example ${i+1}`:(i===0?'Worked example 1':'Worked example 2'))).join('')}</div>`;
+    else if(seg.type==='practice')body=`<section class="integrated-misconceptions"><div class="integrated-section-head"><span>Common misconceptions</span><h3>Why the tempting shortcut fails</h3></div><div>${(d.misconceptions||[]).map(x=>`<article><strong>${esc(x.mistake)}</strong><p><b>Why it is tempting:</b> ${esc(x.why)}</p><p><b>Repair the model:</b> ${esc(x.repair)}</p></article>`).join('')}</div></section><section class="integrated-practice"><div><span>Guided practice</span><h3>Work concrete problems with support</h3><ol>${(d.guidedPractice||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ol></div><div><span>Independent practice</span><h3>Changed scenario — no copying</h3><p>${esc(d.independentScenario)}</p></div></section>`;
+    else if(seg.type==='checks')body=`<section class="integrated-connection"><div><span>Technician / embedded connection</span><h3>Where this shows up in real work</h3><p>${esc(d.connection)}</p></div><div><span>Specific teach-back</span><h3>Explain the mechanism, not the wording</h3><p>${esc(d.teachBack)}</p></div></section>${renderIntegratedChecks(lessonItem,index)}`;
+    else body=renderIntegratedSemanticTasks(lessonItem);
+    const complete=!!state.completed[String(state.current)],isLast=state.current===state.total-1;
+    const progress=Math.round(((state.current+(complete?1:0))/state.total)*100);
+    return `<section class="lesson-segment-shell" data-lesson-index="${index}" data-segment-index="${state.current}" data-segment-total="${state.total}"><header class="lesson-segment-head"><div><span>Learning section ${state.current+1} of ${state.total}</span><h3>${esc(seg.label)}</h3><p>About ${seg.minutes} min · your exact place is saved on this browser and through the existing week record.</p></div><strong>${complete?'✓ Saved':`${progress}% through lesson`}</strong></header><div class="lesson-segment-progress" aria-hidden="true"><span style="width:${progress}%"></span></div><div class="lesson-segment-body">${body}</div><aside class="lesson-micro-check"><span>Pause & retrieve</span><p>${esc(segmentPrompt(seg))}</p><small>Say it aloud or work it on paper. No extra form is required.</small></aside><div class="lesson-segment-nav"><button class="button outline-green" type="button" data-lesson-segment-prev ${state.current===0?'disabled':''}>Previous section</button><div class="lesson-segment-status">${complete?'This section is saved.':''}</div>${isLast&&complete?'<span class="lesson-segment-finished">✓ All lesson sections visited. Finish the required evidence and gate below.</span>':`<button class="button green" type="button" data-lesson-segment-next>${isLast?'Save this section':'I answered · continue'}</button>`}</div></section>`;
+  }
+
   function renderOrientation(){
     const weekRecord = W.find(w => w.week === week) || {};
     const career = A.careerMap?.[String(week)] || null;
@@ -271,39 +320,26 @@
   }
 
   function renderIntegratedLesson(lessonItem,index){
-    const d=lessonItem.integrated;
-    if(!d)return '<p>Integrated v16.3 lesson data is unavailable.</p>';
-    const visual=d.visualId?`<figure class="lesson-visual" aria-label="Instructional visual for ${esc(lessonItem.title)}"><div class="lesson-visual-scroll" tabindex="0" role="group" aria-label="Scrollable instructional diagram. On smaller screens, swipe horizontally to inspect the diagram at a readable scale."><img src="${esc(d.visualId)}.svg" alt="Instructional diagram for ${esc(lessonItem.title)}"></div><figcaption><span>Use the diagram to explain the relationship or sequence before moving to practice.</span><span class="lesson-visual-mobile-hint">On a phone, swipe the diagram left or right to inspect labels at a readable size.</span><a class="lesson-visual-fullsize" href="${esc(d.visualId)}.svg" target="_blank" rel="noopener">Open full-size diagram ↗</a></figcaption></figure>`:'';
-    return `<section class="integrated-lesson" data-v="16.3">
-      <section class="integrated-purpose"><div><span>v16.3 integrated lesson · ${esc(lessonItem.track)}</span><h3>Purpose and prerequisite</h3></div><p>${esc(d.purpose)}</p><aside><strong>Bring this forward:</strong><p>${esc(d.prereq)}</p></aside></section>
-      ${visual}
-      <div class="integrated-section-head"><span>Alfred teaches the subject</span><h3>Technical instruction</h3><p>${week===1?'The sections below are the lesson itself. Credited source figures are placed beside the concepts they clarify; videos and longer outside resources still come later as reinforcement.':'The sections below are the lesson itself. External resources come later as reinforcement.'}</p></div>
-      <div class="integrated-teaching">${(d.teaching||[]).map((section,i)=>`<section class="integrated-teaching-block${section.critical?' critical-teaching':''}"><span class="concept-number">${i+1}</span><div><h3>${esc(section.title)}</h3>${section.buildOn?`<div class="concept-builds-on"><strong>Builds on:</strong> ${esc(section.buildOn)}</div>`:''}${paragraphs(section.text)}${renderSourceFigure(section.figure)}${section.remember?`<aside><strong>Hold onto this</strong><p>${esc(section.remember)}</p></aside>`:''}${section.critical?'<div class="critical-flag">Safety-critical: understand this boundary before related physical work.</div>':''}</div></section>`).join('')}</div>
-      <div class="integrated-section-head"><span>Worked reasoning</span><h3>See the model used, then use it yourself</h3></div>
-      <div class="integrated-worked-grid">${(d.workedExamples||[]).map((x,i)=>renderWorkedExample(x,week===1?`Worked example ${i+1}`:(i===0?'Worked example 1':'Worked example 2'))).join('')}</div>
-      <section class="integrated-misconceptions"><div class="integrated-section-head"><span>Common misconceptions</span><h3>Why the tempting shortcut fails</h3></div><div>${(d.misconceptions||[]).map(x=>`<article><strong>${esc(x.mistake)}</strong><p><b>Why it is tempting:</b> ${esc(x.why)}</p><p><b>Repair the model:</b> ${esc(x.repair)}</p></article>`).join('')}</div></section>
-      <section class="integrated-practice"><div><span>Guided practice</span><h3>Work concrete problems with support</h3><ol>${(d.guidedPractice||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ol></div><div><span>Independent practice</span><h3>Changed scenario — no copying</h3><p>${esc(d.independentScenario)}</p></div></section>
-      <section class="integrated-connection"><div><span>Technician / embedded connection</span><h3>Where this shows up in real work</h3><p>${esc(d.connection)}</p></div><div><span>Specific teach-back</span><h3>Explain the mechanism, not the wording</h3><p>${esc(d.teachBack)}</p></div></section>
-      ${renderIntegratedChecks(lessonItem,index)}
-      ${renderIntegratedSemanticTasks(lessonItem)}
-    </section>`;
+    if(!lessonItem.integrated)return '<p>Integrated v16.3 lesson data is unavailable.</p>';
+    return `<section class="integrated-lesson segmented-lesson" data-v="16.3.30">${renderLessonSegment(lessonItem,index)}</section>`;
   }
 
   function renderLesson(index){
     const lessonItem = moduleData.lessons[index];
     const saved = learningState().l.checks?.[`lesson-${index}`] || {};
     const checkItem = lessonItem.knowledgeCheck;
+    const plan=lessonSegmentPlan(lessonItem,index),segState=lessonSegmentRecord(index,plan),atFinal=segState.current===segState.total-1;
     return `<div class="classroom-stage-head">
-      <div><span class="stage-count">Stage ${index + 2} of ${STAGES.length} · Required · about ${lessonItem.minutes} minutes</span><h2>${esc(lessonItem.title)}</h2><p>This is the primary instruction. Videos, articles, and documentation in the next stage reinforce what Alfred teaches here.</p></div>${trackBadge(lessonItem.track)}
+      <div><span class="stage-count">Stage ${index + 2} of ${STAGES.length} · Required · ${segState.total} resumable learning sections</span><h2>${esc(lessonItem.title)}</h2><p>This is the primary instruction. Work one section at a time; Alfred saves the exact section so you can stop at a clean boundary and resume later.</p></div>${trackBadge(lessonItem.track)}
     </div>
     <section class="lesson-objectives"><h3>By the end, you can</h3><ul>${lessonItem.objectives.map(x => `<li>${esc(x)}</li>`).join('')}</ul></section>
     ${renderIntegratedLesson(lessonItem,index)}
-    <section class="required-check${checkItem.critical ? ' critical-check' : ''}" data-lesson-check="${index}">
+    ${atFinal?`<section class="required-check${checkItem.critical ? ' critical-check' : ''}" data-lesson-check="${index}">
       <div class="required-check-head"><div><span>${checkItem.critical ? 'Safety-critical gate · 100% required' : 'Required lesson gate · correct answer required'}</span><h3>${esc(checkItem.prompt)}</h3></div>${saved.correct ? '<b class="check-passed">✓ Passed</b>' : ''}</div>
       <div class="check-options">${checkItem.choices.map((choice,i) => `<label><input type="radio" name="lesson-check-${index}" value="${i}"${saved.correct ? ' disabled' : ''}><span>${String.fromCharCode(65+i)}. ${esc(choice)}</span></label>`).join('')}</div>
-      <button class="button ${saved.correct ? 'outline-green' : 'green'} submit-lesson-check" data-check-index="${index}" type="button"${saved.correct ? ' disabled' : ''}>${saved.correct ? 'Correct · stage complete' : 'Check my answer'}</button>
+      <button class="button ${saved.correct ? 'outline-green' : 'green'} submit-lesson-check" data-check-index="${index}" type="button"${saved.correct ? ' disabled' : ''}>${saved.correct ? (semanticTasksComplete(index)?'Correct · stage complete':'Correct · gate passed') : 'Check my answer'}</button>
       <div class="check-feedback ${saved.correct ? 'correct' : ''}" role="status">${saved.correct ? esc(checkItem.correct) : ''}</div>
-    </section>
+    </section>`:`<section class="lesson-gate-locked"><strong>Required lesson gate unlocks in the final learning section.</strong><span>Current position: section ${segState.current+1} of ${segState.total}. Your place is saved.</span></section>`}
     ${saved.correct && semanticTasksComplete(index) ? `<div class="stage-complete-confirmation">✓ ${esc(STAGES[index + 1].label)} complete. Continue when you are ready.</div>` : ''}`;
   }
 
@@ -363,6 +399,8 @@
   }
 
   function bindStage(){
+    $('[data-lesson-segment-prev]')?.addEventListener('click',()=>{const li=Number($('.lesson-segment-shell')?.dataset.lessonIndex),plan=lessonSegmentPlan(moduleData.lessons[li],li),rec=lessonSegmentRecord(li,plan);saveLessonSegment(li,plan,Math.max(0,rec.current-1));renderStage();$('#classroom-card')?.scrollIntoView({behavior:'smooth',block:'start'});});
+    $('[data-lesson-segment-next]')?.addEventListener('click',()=>{const shell=$('.lesson-segment-shell'),li=Number(shell?.dataset.lessonIndex),plan=lessonSegmentPlan(moduleData.lessons[li],li),rec=lessonSegmentRecord(li,plan),isLast=rec.current===rec.total-1;saveLessonSegment(li,plan,isLast?rec.current:rec.current+1,{complete:true});renderStage();updateChrome();setMessage(isLast?'Learning sections saved. Finish the required evidence and lesson gate.':'Section saved. Your exact resume point moved forward.','success');$('#classroom-card')?.scrollIntoView({behavior:'smooth',block:'start'});});
     $$('.integrated-mcq-submit').forEach(button=>button.addEventListener('click',()=>{
       const li=Number(button.dataset.lesson), qi=Number(button.dataset.check);
       const q=moduleData.lessons[li]?.integrated?.checks?.[qi];
@@ -406,7 +444,7 @@
       });
       feedback.textContent = correct ? lessonItem.knowledgeCheck.correct : lessonItem.knowledgeCheck.retry;
       feedback.className = `check-feedback ${correct ? 'correct' : 'error'}`;
-      if (correct) { renderStage(); setMessage('Correct. The lesson stage is saved as complete.','success'); }
+      if (correct) { const done=semanticTasksComplete(index);renderStage(); setMessage(done?'Correct. The lesson stage is complete.':'Correct. The lesson gate passed; finish the required competency evidence before this stage is complete.','success'); }
       else setMessage('Not yet. Read the targeted correction, then try again.','error');
       updateChrome();
     }));
@@ -444,7 +482,10 @@
     const best = Number(currentAssessment().bestPct || 0);
     $('#week-mastery-summary').textContent = best ? `Weekly mastery best: ${best}% · target ${moduleData.mastery.target}%` : `Weekly mastery required: ${moduleData.mastery.target}%`;
     const next = STAGES[nextIncompleteIndex()];
-    $('#next-action-label').textContent = count === STAGES.length ? 'Week complete' : next.label;
+    let nextLabel=count===STAGES.length?'Week complete':next.label;
+    const activeStage=STAGES[stageIndex]?.id;
+    if(!stageComplete(activeStage)&&(activeStage==='ceta-lesson'||activeStage==='career-lesson')){const li=activeStage==='ceta-lesson'?0:1,plan=lessonSegmentPlan(moduleData.lessons[li],li),rec=lessonSegmentRecord(li,plan);nextLabel=`${STAGES[stageIndex].label} · Section ${rec.current+1}/${rec.total}`;}
+    $('#next-action-label').textContent = nextLabel;
     $('#classroom-progress-bar').style.width = `${Math.round(count / STAGES.length * 100)}%`;
     $('#classroom-stages').innerHTML = STAGES.map((stage,i) => `<button type="button" data-stage-index="${i}" class="${i === stageIndex ? 'active ' : ''}${stageComplete(stage.id) ? 'complete' : ''}" aria-current="${i === stageIndex ? 'step' : 'false'}"><span>${stageComplete(stage.id) ? '✓' : i + 1}</span><div><strong>${esc(stage.label)}</strong><small>${esc(stage.track)}</small></div></button>`).join('');
     $$('[data-stage-index]').forEach(button => button.addEventListener('click',() => goTo(Number(button.dataset.stageIndex))));
