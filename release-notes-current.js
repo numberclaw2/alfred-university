@@ -1,6 +1,40 @@
 (() => {
   const entries = [
     {
+        "version": "v16.3.22",
+        "date": "September 18, 2026",
+        "title": "Course Dictionary — In-Lesson Vocabulary Hover + Click Reference",
+        "type": "Learning Support / Course Reference / Runtime Feature",
+        "request": "Add an in-house course dictionary so unfamiliar electronics and embedded-systems vocabulary can be understood without leaving the website: identify textbook-level vocabulary across the actual lesson sources, bold recognized terms in Classroom content, show pronunciation and layered definitions on hover/focus, and open the full Dictionary entry on click using authoritative technical sources.",
+        "changes": [
+            "Added a dedicated Course Dictionary covering the major technical vocabulary found across the live lesson/curriculum sources, including electrical foundations, circuit analysis, AC/signals, components, semiconductors, power electronics, digital logic, instruments/measurement, PCB/assembly, embedded systems, serial protocols, RF/communications, test/troubleshooting, software automation, and safety/workmanship.",
+            "Built every Dictionary entry with a plain-English teaching definition, a more technical definition, pronunciation, aliases/abbreviation expansion where applicable, notation, course-week references, and an authoritative-source link. Dictionary wording is a concise teaching paraphrase so the in-house explanation stays readable; the linked IEC/NIST/OSHA/NXP/Arm/ST/IPC/FCC/Python source controls specialized terminology.",
+            "Added automatic Classroom vocabulary markup driven by one glossary dataset. Recognized lesson terms are bold with a dotted underline, hover/mouse focus displays a full definition card, keyboard focus provides the same card, and clicking navigates to the exact full Dictionary entry.",
+            "Added an in-Classroom Dictionary button plus an explanatory cue so vocabulary support is discoverable without changing lesson sequencing, mastery requirements, or instructional content.",
+            "Added Dictionary search, category filtering, A–Z filtering, anchorable term entries, mobile-responsive layout, keyboard accessibility, and source links.",
+            "The glossary runtime intentionally avoids rewriting links, buttons, form controls, code/preformatted content, scripts/styles, and already-marked vocabulary. A MutationObserver decorates dynamically rendered lesson stages after learn.js updates the Classroom.",
+            "Advanced the service-worker cache namespace and cached the Dictionary page/data/runtime/style/source-verification assets for reliable deployment and offline reuse.",
+            "No curriculum sequence, lesson wording, Teaching Media, calendar dates/identities, assessments or scoring, mastery formulas, labs, projects, Cloud Sync protocol, progress identities, branding assets, or existing learner-completion logic was changed."
+        ],
+        "filesAdded": [
+            "AU-ESET-301-v16.3.22-Glossary-Source-Verification.md",
+            "glossary.css",
+            "glossary-data.js",
+            "glossary.html",
+            "glossary.js"
+        ],
+        "filesModified": [
+            "POST-UPDATE-QA.md",
+            "SHA256SUMS.txt",
+            "UPLOAD_README.txt",
+            "build-info.json",
+            "learn.html",
+            "release-notes-current.js",
+            "service-worker.js"
+        ],
+        "filesRemoved": []
+    },
+    {
       "version": "v16.3.21",
       "date": "September 18, 2026",
       "title": "Transparent Branding Asset Sweep — Crest, Seal & App Icons",
