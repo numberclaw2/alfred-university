@@ -201,7 +201,19 @@
   function currentAssessment(){ return learningState().w.assessments?.[`week:${week}`] || {}; }
 
 
-  // v16.3.30 — Classroom lesson segments.  Course content is preserved; the
+  // v16.3.31 — Review navigation keeps official progress separate from temporary review position.
+  const LESSON_REVIEW_RETURN_KEY='alfred-u-lesson-review-return-v1';
+  const lessonViewOverrides=new Map();
+  const QUESTION_REVIEW_MAP={"1:0:check:0":2,"1:0:check:1":9,"1:0:gate:0":2,"1:1:check:0":8,"1:1:check:1":2,"1:1:gate:0":2,"2:0:check:0":9,"2:0:check:1":16,"2:0:gate:0":14,"2:1:check:0":5,"2:1:check:1":6,"2:1:gate:0":2,"3:0:check:0":10,"3:0:check:1":4,"3:0:gate:0":2,"3:1:check:0":7,"3:1:check:1":6,"3:1:gate:0":3,"4:0:check:0":7,"4:0:check:1":8,"4:0:gate:0":1,"4:1:check:0":4,"4:1:check:1":4,"4:1:gate:0":1,"5:0:check:0":5,"5:0:check:1":6,"5:0:gate:0":3,"5:1:check:0":5,"5:1:check:1":6,"5:1:gate:0":6,"6:0:check:0":4,"6:0:check:1":6,"6:0:gate:0":1,"6:1:check:0":6,"6:1:check:1":4,"6:1:gate:0":1,"7:0:check:0":11,"7:0:check:1":10,"7:0:gate:0":3,"7:1:check:0":5,"7:1:check:1":4,"7:1:gate:0":1,"8:0:check:0":3,"8:0:check:1":6,"8:0:gate:0":3,"8:1:check:0":4,"8:1:check:1":4,"8:1:gate:0":6,"9:0:check:0":9,"9:0:check:1":10,"9:0:gate:0":3,"9:1:check:0":5,"9:1:check:1":6,"9:1:gate:0":2,"10:0:check:0":10,"10:0:check:1":10,"10:0:gate:0":1,"10:1:check:0":5,"10:1:check:1":4,"10:1:gate:0":6,"11:0:check:0":8,"11:0:check:1":4,"11:0:gate:0":8,"11:1:check:0":2,"11:1:check:1":6,"11:1:gate:0":4,"12:0:check:0":9,"12:0:check:1":10,"12:0:gate:0":2,"12:1:check:0":5,"12:1:check:1":2,"12:1:gate:0":2,"13:0:check:0":7,"13:0:check:1":5,"13:0:gate:0":1,"13:1:check:0":2,"13:1:check:1":3,"13:1:gate:0":3,"14:0:check:0":8,"14:0:check:1":9,"14:0:gate:0":7,"14:1:check:0":2,"14:1:check:1":6,"14:1:gate:0":2,"15:0:check:0":1,"15:0:check:1":4,"15:0:gate:0":1,"15:1:check:0":2,"15:1:check:1":5,"15:1:gate:0":6,"16:0:check:0":2,"16:0:check:1":7,"16:0:gate:0":2,"16:1:check:0":5,"16:1:check:1":7,"16:1:gate:0":5,"17:0:check:0":1,"17:0:check:1":8,"17:0:gate:0":2,"17:1:check:0":4,"17:1:check:1":4,"17:1:gate:0":1,"18:0:check:0":7,"18:0:check:1":2,"18:0:gate:0":7,"18:1:check:0":4,"18:1:check:1":6,"18:1:gate:0":3,"19:0:check:0":12,"19:0:check:1":5,"19:0:gate:0":3,"19:1:check:0":1,"19:1:check:1":6,"19:1:gate:0":4,"20:0:check:0":5,"20:0:check:1":11,"20:0:gate:0":12,"20:1:check:0":5,"20:1:check:1":5,"20:1:gate:0":4,"21:0:check:0":2,"21:0:check:1":6,"21:0:gate:0":3,"21:1:check:0":5,"21:1:check:1":6,"21:1:gate:0":2,"22:0:check:0":6,"22:0:check:1":2,"22:0:gate:0":6,"22:1:check:0":5,"22:1:check:1":7,"22:1:gate:0":5,"23:0:check:0":6,"23:0:check:1":4,"23:0:gate:0":3,"23:1:check:0":4,"23:1:check:1":6,"23:1:gate:0":3,"24:0:check:0":7,"24:0:check:1":6,"24:0:gate:0":3,"24:1:check:0":5,"24:1:check:1":6,"24:1:gate:0":3,"25:0:check:0":1,"25:0:check:1":3,"25:0:gate:0":2,"25:1:check:0":7,"25:1:check:1":4,"25:1:gate:0":2,"26:0:check:0":4,"26:0:check:1":4,"26:0:gate:0":4,"26:1:check:0":5,"26:1:check:1":4,"26:1:gate:0":1,"27:0:check:0":6,"27:0:check:1":4,"27:0:gate:0":5,"27:1:check:0":6,"27:1:check:1":6,"27:1:gate:0":2,"28:0:check:0":9,"28:0:check:1":7,"28:0:gate:0":3,"28:1:check:0":5,"28:1:check:1":7,"28:1:gate:0":1,"29:0:check:0":4,"29:0:check:1":5,"29:0:gate:0":3,"29:1:check:0":7,"29:1:check:1":4,"29:1:gate:0":1,"30:0:check:0":7,"30:0:check:1":6,"30:0:gate:0":3,"30:1:check:0":7,"30:1:check:1":4,"30:1:gate:0":4,"31:0:check:0":7,"31:0:check:1":5,"31:0:gate:0":2,"31:1:check:0":2,"31:1:check:1":6,"31:1:gate:0":2};
+  const lessonViewKey=index=>`${week}:${index}`;
+  function readReviewReturn(){try{const x=JSON.parse(sessionStorage.getItem(LESSON_REVIEW_RETURN_KEY)||'null');return x&&Number(x.week)===Number(week)?x:null;}catch{return null;}}
+  function writeReviewReturn(value){try{sessionStorage.setItem(LESSON_REVIEW_RETURN_KEY,JSON.stringify(value));}catch{}}
+  function clearReviewReturn(){try{sessionStorage.removeItem(LESSON_REVIEW_RETURN_KEY);}catch{}}
+  function setLessonView(index,target,plan){const max=Math.max(0,plan.length-1),next=Math.max(0,Math.min(max,Number(target)||0)),key=lessonViewKey(index),raw=lessonSegmentRecord(index,plan),allowed=Math.min(next,raw.furthest);if(allowed===raw.furthest)lessonViewOverrides.delete(key);else lessonViewOverrides.set(key,allowed);}
+  function reviewTargetForQuestion(index,kind,questionIndex){const plan=lessonSegmentPlan(moduleData.lessons[index],index),raw=Number(QUESTION_REVIEW_MAP[`${week}:${index}:${kind}:${questionIndex}`]);const target=Number.isFinite(raw)?Math.max(1,Math.min(plan.length-1,raw)):Math.max(1,Math.min(plan.length-1,plan.findIndex(x=>x.type==='teaching')));return {target,segment:plan[target]};}
+  function renderQuestionReviewAction(index,kind,questionIndex,anchor){const x=reviewTargetForQuestion(index,kind,questionIndex);return `<div class="question-review-tools"><button class="button outline-green question-review-link" type="button" data-review-lesson="${index}" data-review-section="${x.target}" data-review-anchor="${esc(anchor)}">Review Section ${x.target+1} · ${esc(x.segment?.label||'Teaching section')}</button><small>If you do not know the answer, review the teaching section and use Back to question when you are ready.</small></div>`;}
+
+  // v16.3.31 — Classroom lesson segments.  Course content is preserved; the
   // learner sees one resumable concept-sized unit at a time instead of one
   // extremely long continuous lesson stage.
   function segmentMinutesForText(value,base=2,min=5,max=12){
@@ -220,12 +232,16 @@
   }
   function lessonSegmentRecord(index,plan){
     const l=learningState().l,key=`lesson-${index}`,raw=l.lessonSegments?.[key]||{},total=plan.length;
-    const current=Math.max(0,Math.min(total-1,Number(raw.current)||0));
-    return {key,total,current,completed:{...(raw.completed||{})}};
+    const completed={...(raw.completed||{})};
+    let furthest=Math.max(0,Math.min(total-1,Number(raw.furthest ?? raw.current)||0));
+    Object.entries(completed).forEach(([k,v])=>{if(v){const n=Number(k);if(Number.isFinite(n))furthest=Math.max(furthest,Math.min(total-1,n+(n<total-1?1:0)));}});
+    const override=lessonViewOverrides.get(lessonViewKey(index));
+    const current=Number.isFinite(Number(override))?Math.max(0,Math.min(furthest,Number(override))):furthest;
+    return {key,total,current,furthest,completed};
   }
-  function saveLessonSegment(index,plan,current,{complete=false}={}){
-    const total=plan.length,next=Math.max(0,Math.min(total-1,current));
-    saveLearning(l=>{l.lessonSegments=l.lessonSegments||{};const key=`lesson-${index}`,prior=l.lessonSegments[key]||{},previous=Math.max(0,Math.min(total-1,Number(prior.current)||0)),completed={...(prior.completed||{})};if(complete)completed[String(previous)]=true;l.lessonSegments[key]={current:next,total,completed,updatedAt:new Date().toISOString()};l.currentStage=index===0?'ceta-lesson':'career-lesson';});
+  function saveLessonSegment(index,plan,viewIndex,{complete=false,advance=false}={}){
+    const total=plan.length,view=Math.max(0,Math.min(total-1,Number(viewIndex)||0));
+    saveLearning(l=>{l.lessonSegments=l.lessonSegments||{};const key=`lesson-${index}`,prior=l.lessonSegments[key]||{},completed={...(prior.completed||{})};let furthest=Math.max(0,Math.min(total-1,Number(prior.furthest ?? prior.current)||0));Object.entries(completed).forEach(([k,v])=>{if(v){const n=Number(k);if(Number.isFinite(n))furthest=Math.max(furthest,Math.min(total-1,n+(n<total-1?1:0)));}});if(complete)completed[String(view)]=true;if(advance&&view===furthest&&view<total-1)furthest=view+1;l.lessonSegments[key]={current:furthest,furthest,total,completed,updatedAt:new Date().toISOString()};l.currentStage=index===0?'ceta-lesson':'career-lesson';});
   }
   function segmentPrompt(seg){
     if(seg.type==='purpose')return 'Before continuing, name one thing this lesson should let you explain, predict, measure, or do safely.';
@@ -244,9 +260,16 @@
     else if(seg.type==='practice')body=`<section class="integrated-misconceptions"><div class="integrated-section-head"><span>Common misconceptions</span><h3>Why the tempting shortcut fails</h3></div><div>${(d.misconceptions||[]).map(x=>`<article><strong>${esc(x.mistake)}</strong><p><b>Why it is tempting:</b> ${esc(x.why)}</p><p><b>Repair the model:</b> ${esc(x.repair)}</p></article>`).join('')}</div></section><section class="integrated-practice"><div><span>Guided practice</span><h3>Work concrete problems with support</h3><ol>${(d.guidedPractice||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ol></div><div><span>Independent practice</span><h3>Changed scenario — no copying</h3><p>${esc(d.independentScenario)}</p></div></section>`;
     else if(seg.type==='checks')body=`<section class="integrated-connection"><div><span>Technician / embedded connection</span><h3>Where this shows up in real work</h3><p>${esc(d.connection)}</p></div><div><span>Specific teach-back</span><h3>Explain the mechanism, not the wording</h3><p>${esc(d.teachBack)}</p></div></section>${renderIntegratedChecks(lessonItem,index)}`;
     else body=renderIntegratedSemanticTasks(lessonItem);
-    const complete=!!state.completed[String(state.current)],isLast=state.current===state.total-1;
-    const progress=Math.round(((state.current+(complete?1:0))/state.total)*100);
-    return `<section class="lesson-segment-shell" data-lesson-index="${index}" data-segment-index="${state.current}" data-segment-total="${state.total}"><header class="lesson-segment-head"><div><span>Learning section ${state.current+1} of ${state.total}</span><h3>${esc(seg.label)}</h3><p>About ${seg.minutes} min · your exact place is saved on this browser and through the existing week record.</p></div><strong>${complete?'✓ Saved':`${progress}% through lesson`}</strong></header><div class="lesson-segment-progress" aria-hidden="true"><span style="width:${progress}%"></span></div><div class="lesson-segment-body">${body}</div><aside class="lesson-micro-check"><span>Pause & retrieve</span><p>${esc(segmentPrompt(seg))}</p><small>Say it aloud or work it on paper. No extra form is required.</small></aside><div class="lesson-segment-nav"><button class="button outline-green" type="button" data-lesson-segment-prev ${state.current===0?'disabled':''}>Previous section</button><div class="lesson-segment-status">${complete?'This section is saved.':''}</div>${isLast&&complete?'<span class="lesson-segment-finished">✓ All lesson sections visited. Finish the required evidence and gate below.</span>':`<button class="button green" type="button" data-lesson-segment-next>${isLast?'Save this section':'I answered · continue'}</button>`}</div></section>`;
+    const complete=!!state.completed[String(state.current)],isLast=state.current===state.total-1,reviewing=state.current<state.furthest;
+    const furthestComplete=!!state.completed[String(state.furthest)];
+    const progress=Math.round(((state.furthest+(furthestComplete?1:0))/state.total)*100);
+    const reviewReturn=readReviewReturn();
+    const backToQuestion=reviewReturn&&Number(reviewReturn.lessonIndex)===Number(index)?`<button class="button gold back-to-question" type="button" data-back-to-question>← Back to question</button>`:'';
+    const reviewStatus=reviewing?`<span class="lesson-reviewing-note">Reviewing Section ${state.current+1}. Your resume point stays at Section ${state.furthest+1}.</span>`:`<span class="lesson-reviewing-note current">Current learning section · future sections stay locked until you complete this one.</span>`;
+    const topForward=reviewing?`<button class="button outline-green" type="button" data-lesson-segment-forward>Next completed section →</button>`:'';
+    const topNav=`<nav class="lesson-segment-browse" aria-label="Lesson section navigation"><button class="button outline-green" type="button" data-lesson-segment-prev ${state.current===0?'disabled':''}>← Previous section</button>${reviewStatus}${topForward}${backToQuestion}</nav>`;
+    const bottomForward=reviewing?`<button class="button green" type="button" data-lesson-segment-forward>Next completed section →</button>`:(isLast&&complete?'<span class="lesson-segment-finished">✓ All lesson sections visited. Finish the required evidence and gate below.</span>':`<button class="button green" type="button" data-lesson-segment-next>${isLast?'Save this section':'I answered · continue'}</button>`);
+    return `<section class="lesson-segment-shell" data-lesson-index="${index}" data-segment-index="${state.current}" data-segment-furthest="${state.furthest}" data-segment-total="${state.total}"><header class="lesson-segment-head"><div><span>Learning section ${state.current+1} of ${state.total}</span><h3>${esc(seg.label)}</h3><p>About ${seg.minutes} min · completed sections stay available for review without moving your official resume point backward.</p></div><strong>${reviewing?'Reviewing':complete?'✓ Saved':`${progress}% through lesson`}</strong></header><div class="lesson-segment-progress" aria-hidden="true"><span style="width:${progress}%"></span></div>${topNav}<div class="lesson-segment-body">${body}</div><aside class="lesson-micro-check"><span>Pause & retrieve</span><p>${esc(segmentPrompt(seg))}</p><small>Say it aloud or work it on paper. No extra form is required.</small></aside><div class="lesson-segment-nav"><button class="button outline-green" type="button" data-lesson-segment-prev ${state.current===0?'disabled':''}>← Previous section</button><div class="lesson-segment-status">${reviewing?`Resume point: Section ${state.furthest+1}`:complete?'This section is saved.':''}</div>${bottomForward}${backToQuestion}</div></section>`;
   }
 
   function renderOrientation(){
@@ -306,9 +329,10 @@
   function renderIntegratedChecks(lessonItem,index){
     const checks=lessonItem.integrated?.checks||[];
     if(!checks.length)return '';
-    return `<section class="integrated-checks"><div class="integrated-section-head"><span>Check your understanding</span><h3>Use the lesson, then answer without guessing</h3></div>${checks.map((q,i)=>{
-      if(q.type==='mcq'){const displayed=integratedChoiceOrder(q,index,i);return `<article class="integrated-check" data-integrated-check="${index}-${i}"><p><strong>${esc(q.prompt)}</strong></p><div class="check-options">${displayed.map((item,j)=>`<label><input type="radio" name="integrated-check-${index}-${i}" value="${item.original}"><span>${String.fromCharCode(65+j)}. ${esc(item.text)}</span></label>`).join('')}</div><button class="button outline-green integrated-mcq-submit" data-lesson="${index}" data-check="${i}" type="button">Check answer</button><p class="check-feedback" role="status"></p></article>`;}
-      return `<article class="integrated-check"><p><strong>${esc(q.prompt)}</strong></p><textarea rows="4" maxlength="2000" placeholder="Work this out before opening the answer."></textarea><details class="answer-reveal"><summary>Compare with the model answer</summary><p>${esc(q.answer_text||q.explanation||'')}</p></details></article>`;
+    return `<section class="integrated-checks"><div class="integrated-section-head"><span>Check your understanding</span><h3>Use the lesson, then answer without guessing</h3><p>If you do not know an answer, use its Review Section link. Alfred will keep your progress and give you a Back to question button.</p></div>${checks.map((q,i)=>{
+      const anchor=`lesson-question-${index}-${i}`,review=renderQuestionReviewAction(index,'check',i,anchor);
+      if(q.type==='mcq'){const displayed=integratedChoiceOrder(q,index,i);return `<article class="integrated-check" id="${anchor}" data-integrated-check="${index}-${i}"><p><strong>${esc(q.prompt)}</strong></p>${review}<div class="check-options">${displayed.map((item,j)=>`<label><input type="radio" name="integrated-check-${index}-${i}" value="${item.original}"><span>${String.fromCharCode(65+j)}. ${esc(item.text)}</span></label>`).join('')}</div><button class="button outline-green integrated-mcq-submit" data-lesson="${index}" data-check="${i}" type="button">Check answer</button><p class="check-feedback" role="status"></p></article>`;}
+      return `<article class="integrated-check" id="${anchor}"><p><strong>${esc(q.prompt)}</strong></p>${review}<textarea rows="4" maxlength="2000" placeholder="Work this out before opening the answer."></textarea><details class="answer-reveal"><summary>Compare with the model answer</summary><p>${esc(q.answer_text||q.explanation||'')}</p></details></article>`;
     }).join('')}</section>`;
   }
 
@@ -321,7 +345,7 @@
 
   function renderIntegratedLesson(lessonItem,index){
     if(!lessonItem.integrated)return '<p>Integrated v16.3 lesson data is unavailable.</p>';
-    return `<section class="integrated-lesson segmented-lesson" data-v="16.3.30">${renderLessonSegment(lessonItem,index)}</section>`;
+    return `<section class="integrated-lesson segmented-lesson" data-v="16.3.31">${renderLessonSegment(lessonItem,index)}</section>`;
   }
 
   function renderLesson(index){
@@ -334,8 +358,9 @@
     </div>
     <section class="lesson-objectives"><h3>By the end, you can</h3><ul>${lessonItem.objectives.map(x => `<li>${esc(x)}</li>`).join('')}</ul></section>
     ${renderIntegratedLesson(lessonItem,index)}
-    ${atFinal?`<section class="required-check${checkItem.critical ? ' critical-check' : ''}" data-lesson-check="${index}">
+    ${atFinal?`<section class="required-check${checkItem.critical ? ' critical-check' : ''}" id="lesson-gate-${index}" data-lesson-check="${index}">
       <div class="required-check-head"><div><span>${checkItem.critical ? 'Safety-critical gate · 100% required' : 'Required lesson gate · correct answer required'}</span><h3>${esc(checkItem.prompt)}</h3></div>${saved.correct ? '<b class="check-passed">✓ Passed</b>' : ''}</div>
+      ${renderQuestionReviewAction(index,'gate',0,`lesson-gate-${index}`)}
       <div class="check-options">${checkItem.choices.map((choice,i) => `<label><input type="radio" name="lesson-check-${index}" value="${i}"${saved.correct ? ' disabled' : ''}><span>${String.fromCharCode(65+i)}. ${esc(choice)}</span></label>`).join('')}</div>
       <button class="button ${saved.correct ? 'outline-green' : 'green'} submit-lesson-check" data-check-index="${index}" type="button"${saved.correct ? ' disabled' : ''}>${saved.correct ? (semanticTasksComplete(index)?'Correct · stage complete':'Correct · gate passed') : 'Check my answer'}</button>
       <div class="check-feedback ${saved.correct ? 'correct' : ''}" role="status">${saved.correct ? esc(checkItem.correct) : ''}</div>
@@ -399,8 +424,11 @@
   }
 
   function bindStage(){
-    $('[data-lesson-segment-prev]')?.addEventListener('click',()=>{const li=Number($('.lesson-segment-shell')?.dataset.lessonIndex),plan=lessonSegmentPlan(moduleData.lessons[li],li),rec=lessonSegmentRecord(li,plan);saveLessonSegment(li,plan,Math.max(0,rec.current-1));renderStage();$('#classroom-card')?.scrollIntoView({behavior:'smooth',block:'start'});});
-    $('[data-lesson-segment-next]')?.addEventListener('click',()=>{const shell=$('.lesson-segment-shell'),li=Number(shell?.dataset.lessonIndex),plan=lessonSegmentPlan(moduleData.lessons[li],li),rec=lessonSegmentRecord(li,plan),isLast=rec.current===rec.total-1;saveLessonSegment(li,plan,isLast?rec.current:rec.current+1,{complete:true});renderStage();updateChrome();setMessage(isLast?'Learning sections saved. Finish the required evidence and lesson gate.':'Section saved. Your exact resume point moved forward.','success');$('#classroom-card')?.scrollIntoView({behavior:'smooth',block:'start'});});
+    $$('[data-lesson-segment-prev]').forEach(button=>button.addEventListener('click',()=>{const li=Number($('.lesson-segment-shell')?.dataset.lessonIndex),plan=lessonSegmentPlan(moduleData.lessons[li],li),rec=lessonSegmentRecord(li,plan);setLessonView(li,Math.max(0,rec.current-1),plan);renderStage();$('#classroom-card')?.scrollIntoView({behavior:'smooth',block:'start'});}));
+    $$('[data-lesson-segment-forward]').forEach(button=>button.addEventListener('click',()=>{const li=Number($('.lesson-segment-shell')?.dataset.lessonIndex),plan=lessonSegmentPlan(moduleData.lessons[li],li),rec=lessonSegmentRecord(li,plan);if(rec.current>=rec.furthest)return;setLessonView(li,rec.current+1,plan);renderStage();$('#classroom-card')?.scrollIntoView({behavior:'smooth',block:'start'});}));
+    $('[data-lesson-segment-next]')?.addEventListener('click',()=>{const shell=$('.lesson-segment-shell'),li=Number(shell?.dataset.lessonIndex),plan=lessonSegmentPlan(moduleData.lessons[li],li),rec=lessonSegmentRecord(li,plan),isLast=rec.current===rec.total-1;if(rec.current<rec.furthest)return;saveLessonSegment(li,plan,rec.current,{complete:true,advance:!isLast});lessonViewOverrides.delete(lessonViewKey(li));renderStage();updateChrome();setMessage(isLast?'Learning sections saved. Finish the required evidence and lesson gate.':'Section saved. The next section is now unlocked.','success');$('#classroom-card')?.scrollIntoView({behavior:'smooth',block:'start'});});
+    $$('.question-review-link').forEach(button=>button.addEventListener('click',()=>{const li=Number(button.dataset.reviewLesson),target=Number(button.dataset.reviewSection),anchor=button.dataset.reviewAnchor,plan=lessonSegmentPlan(moduleData.lessons[li],li),rec=lessonSegmentRecord(li,plan);writeReviewReturn({week,lessonIndex:li,returnSegment:rec.current,anchor});setLessonView(li,target,plan);renderStage();setMessage(`Reviewing Section ${target+1}. Your course progress has not moved backward.`,'success');$('#classroom-card')?.scrollIntoView({behavior:'smooth',block:'start'});}));
+    $$('.back-to-question').forEach(button=>button.addEventListener('click',()=>{const ret=readReviewReturn();if(!ret)return;const li=Number(ret.lessonIndex),plan=lessonSegmentPlan(moduleData.lessons[li],li);setLessonView(li,Number(ret.returnSegment),plan);clearReviewReturn();renderStage();requestAnimationFrame(()=>document.getElementById(ret.anchor)?.scrollIntoView({behavior:'smooth',block:'center'}));setMessage('Returned to your question. Your lesson progress stayed intact.','success');}));
     $$('.integrated-mcq-submit').forEach(button=>button.addEventListener('click',()=>{
       const li=Number(button.dataset.lesson), qi=Number(button.dataset.check);
       const q=moduleData.lessons[li]?.integrated?.checks?.[qi];
@@ -484,7 +512,7 @@
     const next = STAGES[nextIncompleteIndex()];
     let nextLabel=count===STAGES.length?'Week complete':next.label;
     const activeStage=STAGES[stageIndex]?.id;
-    if(!stageComplete(activeStage)&&(activeStage==='ceta-lesson'||activeStage==='career-lesson')){const li=activeStage==='ceta-lesson'?0:1,plan=lessonSegmentPlan(moduleData.lessons[li],li),rec=lessonSegmentRecord(li,plan);nextLabel=`${STAGES[stageIndex].label} · Section ${rec.current+1}/${rec.total}`;}
+    if(!stageComplete(activeStage)&&(activeStage==='ceta-lesson'||activeStage==='career-lesson')){const li=activeStage==='ceta-lesson'?0:1,plan=lessonSegmentPlan(moduleData.lessons[li],li),rec=lessonSegmentRecord(li,plan);nextLabel=`${STAGES[stageIndex].label} · Section ${rec.furthest+1}/${rec.total}`;}
     $('#next-action-label').textContent = nextLabel;
     $('#classroom-progress-bar').style.width = `${Math.round(count / STAGES.length * 100)}%`;
     $('#classroom-stages').innerHTML = STAGES.map((stage,i) => `<button type="button" data-stage-index="${i}" class="${i === stageIndex ? 'active ' : ''}${stageComplete(stage.id) ? 'complete' : ''}" aria-current="${i === stageIndex ? 'step' : 'false'}"><span>${stageComplete(stage.id) ? '✓' : i + 1}</span><div><strong>${esc(stage.label)}</strong><small>${esc(stage.track)}</small></div></button>`).join('');
@@ -496,7 +524,7 @@
   }
 
   function loadWeek(nextWeek){
-    week = nextWeek; moduleData = MODULES.find(m => m.week === week);
+    week = nextWeek; moduleData = MODULES.find(m => m.week === week); lessonViewOverrides.clear(); const reviewReturn=readReviewReturn(); if(reviewReturn&&Number(reviewReturn.week)!==Number(week))clearReviewReturn();
     const requestedStage = params.get('stage');
     const {l} = learningState();
     const savedIndex = STAGES.findIndex(s => s.id === (requestedStage || l.currentStage));

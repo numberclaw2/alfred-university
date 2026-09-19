@@ -1,10 +1,10 @@
 {
   "courseRelease": "16.3",
-  "runtimePatch": "16.3.30",
+  "runtimePatch": "16.3.31",
   "evidenceRevision": "16.2",
   "cloudSyncProtocol": 2,
-  "build": "v16.3.30-executive-function-study-flow-20260919",
-  "releaseStatus": "executive-function-study-flow",
+  "build": "v16.3.31-lesson-review-navigation-question-backlinks-20260919",
+  "releaseStatus": "lesson-review-navigation-question-backlinks",
   "presentationPatch": "mobile-visual-readability-final",
   "scheduleRevision": "2026-09-16-week1-reset",
   "modulePresentationRevision": "2026-09-18-week1-from-zero-visual-teaching",
@@ -16,7 +16,7 @@
   "week1InstructionRevision": "2026-09-18-from-zero-visual-teaching",
   "week1TeachingMediaRevision": "2026-09-18-beginner-teacher-youtube-layer",
   "teachingMediaBaseRevision": "2026-09-18-final-pots-31-week-standalone-accepted",
-  "releaseNotesRevision": "2026-09-19-v16.3.30-executive-function-study-flow-recorded",
+  "releaseNotesRevision": "2026-09-19-v16.3.31-lesson-review-navigation-question-backlinks-recorded",
   "repositoryLedgerBaseline": "2026-09-18-v16.3.9-63-commits",
   "studyRevision": "2026-09-19-classroom-first-routing-focus-isolation-site-issue-parking",
   "practiceRevision": "2026-09-18-priority-ladder-repair-router",
@@ -33,8 +33,9 @@
   "glossaryUxRevision": "2026-09-19-section-scoped-rehighlighting-context-aware-acronym-safe",
   "vocabularyStudyRevision": "2026-09-18-active-recall-spaced-vocabulary-lab",
   "uxRevision": "2026-09-19-state-aware-next-action-student-builder-focus-repair",
-  "lessonSegmentationRevision": "2026-09-19-resumable-concept-segments",
+  "lessonSegmentationRevision": "2026-09-19-completed-section-back-forward-review",
   "nextActionRevision": "2026-09-19-shared-state-aware-routing",
   "studentModeRevision": "2026-09-19-student-builder-boundary",
-  "executiveFunctionRevision": "2026-09-19-adhd-autism-minimum-effective-intervention"
+  "executiveFunctionRevision": "2026-09-19-adhd-autism-minimum-effective-intervention",
+  "questionReviewRevision": "2026-09-19-question-to-teaching-section-backlink-and-return"
 }
