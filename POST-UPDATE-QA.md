@@ -1,34 +1,42 @@
-# POST-UPDATE QA — v16.3.23 Course Glossary UX
+# POST-UPDATE QA — v16.3.24 Vocabulary Study + Smart Glossary Highlighting
 
-## Static verification
-- Glossary entries: **282**
-- Unique entry slugs: **282**
-- Course categories: **15**
-- Authoritative source families: **11**
-- Uppercase acronym-style canonical terms: **68**
-- Entries with symbol/notation/abbreviation metadata: **133**
-- Primary-navigation Glossary insertion present in site.js.
-- Course Glossary footer insertion present in site.js.
-- Search Everything loads glossary-data.js and indexes Glossary Term results.
-- Glossary supports All Terms, Acronyms & Abbreviations, Symbols & Notation, and Sources views.
-- Glossary supports search, category, week, and A–Z controls plus Clear filters.
-- Definition popover supports mouse hover, keyboard focus, Escape dismissal, hoverable/persistent pointer behavior, aria-describedby, and visible focus.
-- Full entries retain persistent definitions, source links, related terms, Classroom week links, and copyable deep links.
-- build-info.json reports runtimePatch 16.3.23.
-- Service worker namespace advanced to v16.3.23.
-- Release Notes contain v16.3.22 and v16.3.23 manifests so this cumulative package can be uploaded even if v16.3.22 was not separately deployed.
+## Static/runtime verification
+- Baseline Study HTML matched the current GitHub blob before modification.
+- Vocabulary Study uses existing `glossary-data.js`; no duplicate terminology dataset was created.
+- Study page loads `vocabulary-study.css`, `glossary-data.js`, and `vocabulary-study.js`.
+- Vocabulary scopes present: recommended/due + current week, needs review, by week, by category, all course.
+- Session sizes present: 5 / 10 / 20 terms.
+- Retrieval-before-reveal plus Again / Hard / Got it controls present.
+- Retained status requires >=3 distinct success dates.
+- Vocabulary state is isolated from assessment/mastery/progress state.
+- Classroom glossary decoration uses whole-lesson candidate scoring.
+- Maximum one selected anchor per canonical glossary slug in a rendered lesson pass.
+- Headings, interactive controls, code/pre, hidden content, and question-like low-value surfaces are excluded or deprioritized.
+- Multiword/self-disambiguating variants are preferred over weak bare aliases where appropriate.
+- Ambiguous bare terms require technical context.
+- Dynamic lesson mutations trigger a debounced full re-evaluation rather than cumulative decoration.
+- Existing hover/focus popover, Escape dismissal, pointer hoverability, and click-to-full-entry behavior are retained.
+- build-info.json reports runtimePatch 16.3.24.
+- Service worker namespace advanced to v16.3.24 and includes vocabulary-study.js/css.
+- Release Notes contain the v16.3.24 manifest.
 
-## Browser acceptance checks after upload
-1. Confirm **Glossary** appears as a direct primary-navigation tab on Home, Classroom, Search, Progress, and at least one More-menu page.
-2. Open Glossary and test All Terms, Acronyms & Abbreviations, Symbols & Notation, and Sources.
-3. Search `MOSFET`, filter Week 18, filter a category, and test A–Z; then Clear filters.
-4. Open Classroom Week 1 and hover/focus a marked term; verify concise definition, pronunciation, and technical meaning.
-5. Move the pointer from the term into the popover; it must remain open. Press Escape; it must dismiss without moving focus.
-6. Click/tap a term and verify its exact glossary fragment opens.
-7. Use Copy entry link and open the copied URL in a new tab.
-8. In Search Everything, search `UART`, select Glossary terms, and confirm a direct glossary result.
-9. Verify mobile navigation, horizontally scrollable A–Z controls, and tap-to-open lesson terms.
-10. Verify build-info.json reports v16.3.23 and stale v16.3.22/older cache does not persist.
+## Executed logic checks
+- JavaScript syntax passed for `glossary.js`, `vocabulary-study.js`, `release-notes-current.js`, and `service-worker.js`; `build-info.json` parsed successfully.
+- Glossary placement unit checks passed: everyday uses of `charge`/`power` were rejected; technical uses were accepted; `electric charge` outranked bare `charge`; explanatory prose outranked a practice-question surface.
+- Vocabulary scheduling unit checks passed: Again resets the streak and remains due, Hard schedules a next-day review, and a third distinct successful retrieval date satisfies the retained-state rule.
+- Static integration checks confirmed Study loads glossary data before the Vocabulary Study runtime and confirmed the 282-entry / 282-unique-slug source glossary remains unchanged.
+
+## Browser acceptance after upload
+1. Open Study and confirm Vocabulary Study Lab appears below Today’s Review Queue / Curiosity Parking Lot and above Weekly Planning.
+2. Start a 5-term Due + Current Week session; verify answer is hidden until Reveal.
+3. Rate cards Again / Hard / Got it and confirm Again can return later in the same session.
+4. Test By Week, By Category, Needs Review, and All Course scopes.
+5. Reload Study and confirm vocabulary study status persists locally.
+6. Open Classroom Week 1. For a repeated concept such as charge/current, verify only one occurrence is highlighted in the rendered stage.
+7. If both a fuller technical phrase and a bare alias appear, verify the clearer instructional occurrence is the highlighted one when eligible.
+8. Change Classroom stages and verify highlighting is recalculated cleanly without duplicate accumulation.
+9. Hover/focus the selected term, press Escape, and click through to the full Glossary entry.
+10. Verify build-info.json reports v16.3.24 and stale v16.3.23 cache is retired.
 
 ## Protected systems
-Curriculum, lesson source content, assessments/scoring, mastery, labs, projects, calendar, progress identities, Cloud Sync protocol, Teaching Media, and branding remain unchanged.
+Curriculum, glossary definitions/sources, Teaching Media, assessments/scoring, mastery, labs, projects, calendar, Progress identities, Cloud Sync protocol, and branding remain unchanged.

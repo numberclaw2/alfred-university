@@ -8,11 +8,12 @@
   const variants=[];
   entries.forEach(e=>{
     if(e.auto===false)return;
-    [e.term,...(e.aliases||[])].forEach(v=>{if(v&&String(v).trim().length>1)variants.push({text:String(v),entry:e});});
+    [e.term,...(e.aliases||[])].forEach((v,i)=>{if(v&&String(v).trim().length>1)variants.push({text:String(v),entry:e,canonical:i===0});});
   });
   variants.sort((a,b)=>b.text.length-a.text.length);
-  const variantMap=new Map();
-  variants.forEach(v=>{const k=v.text.toLocaleLowerCase();if(!variantMap.has(k))variantMap.set(k,v.entry);});
+  const variantInfoMap=new Map();
+  variants.forEach(v=>{const k=v.text.toLocaleLowerCase();if(!variantInfoMap.has(k))variantInfoMap.set(k,v);});
+  const variantMap=new Map([...variantInfoMap].map(([k,v])=>[k,v.entry]));
   const regex=new RegExp('(^|[^A-Za-z0-9])('+[...variantMap.keys()].map(v=>v.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|')+')(?![A-Za-z0-9])','gi');
 
   // ---- Accessible, concise in-lesson definition popover ----
@@ -51,40 +52,104 @@
   window.addEventListener('scroll',()=>{if(tip&&!tip.hidden&&activeAnchor)positionTip(activeAnchor,tip);},{passive:true});
   window.addEventListener('resize',()=>{if(tip&&!tip.hidden&&activeAnchor)positionTip(activeAnchor,tip);});
 
-  function decorate(root){
-    if(!root||!regex.source)return;
+  // ---- Deliberate in-lesson vocabulary placement ----
+  // One glossary concept gets one highlighted occurrence in the currently rendered
+  // Classroom lesson/stage. We evaluate the whole lesson before inserting links so
+  // a clearer technical phrase can win over an earlier but weaker everyday use.
+  const AMBIGUOUS=new Set([
+    'charge','current','power','ground','branch','mesh','bus','clock','carrier','collector','controller',
+    'counter','cutoff','drain','emitter','energy','fault','feedback','flux','gain','gate','period','phase',
+    'probe','register','requirement','reset','resolution','sampling','saturation','trace','validation','verification'
+  ]);
+  const TECH_CONTEXT=/\b(?:electric|electrical|electron|proton|coulomb|ampere|amps?|volts?|voltage|current|resistan|ohm|watt|power|energy|circuit|node|branch|conductor|ground|GND|signal|waveform|frequency|component|device|terminal|transistor|MOSFET|BJT|diode|resistor|capacitor|inductor|PCB|board|pin|GPIO|MCU|microcontroller|protocol|UART|I2C|I²C|SPI|data|firmware|measurement|meter|multimeter|oscilloscope|test|load|supply|positive|negative|physical\s+property)\b/i;
+  const DEFINE_CUE=/\b(?:is|are|means|refers\s+to|defined\s+as|describes|measures|represents|called|known\s+as|consists\s+of|provides|controls|stores|opposes|allows)\b/i;
+  const LOW_VALUE_CONTAINER=/\b(?:question|quiz|assessment|choice|knowledge-check|check-question|practice-question|prompt|answer)\b/i;
+  let lessonObserver=null,decorateTimer=null,decoratingLesson=false;
+
+  function withoutMatchedVariant(context,raw){
+    const safe=String(raw||'').replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+    return String(context||'').replace(new RegExp(`(^|[^A-Za-z0-9])${safe}(?![A-Za-z0-9])`,'ig'),' ');
+  }
+  function technicalContextOkay(info,context){
+    const key=info.text.toLocaleLowerCase();
+    if(!AMBIGUOUS.has(key))return true;
+    // Expanded phrases such as "electric current" or "electrical power" are
+    // already self-disambiguating; the context gate is only for bare words.
+    if(/\s|-/.test(key))return true;
+    return TECH_CONTEXT.test(withoutMatchedVariant(context,info.text));
+  }
+  function candidateScore(node,raw,info,context,start,order){
+    const p=node.parentElement,tag=p?.tagName||'',key=raw.toLocaleLowerCase(),contextMinusRaw=withoutMatchedVariant(context,raw);
+    let score=0;
+    if(tag==='P')score+=8;else if(tag==='LI')score+=7;else if(tag==='DD')score+=6;else if(tag==='TD')score+=4;else score+=2;
+    if(DEFINE_CUE.test(contextMinusRaw))score+=5;
+    if(TECH_CONTEXT.test(contextMinusRaw))score+=3;
+    if(context.trim().length>=55)score+=2;
+    if(start<180)score+=1;
+    let ancestor=p,surface='';for(let i=0;i<5&&ancestor;i++,ancestor=ancestor.parentElement)surface+=` ${String(ancestor.className||'')}`;
+    if(LOW_VALUE_CONTAINER.test(surface))score-=9;
+    const canonical=String(info.entry.term||'').toLocaleLowerCase();
+    const rawWords=key.split(/\s+/).length,canonicalWords=canonical.split(/\s+/).length;
+    if(key===canonical)score+=canonicalWords>1?7:2;
+    if(rawWords>1)score+=4; // fuller phrases are normally better first-teaching anchors
+    if(canonicalWords>1&&rawWords===1)score-=5; // prefer "electric charge" over bare "charge"
+    if(canonicalWords===1&&rawWords>1)score+=4; // prefer "electrical power" over bare "power"
+    return score-order/100000;
+  }
+  function stripLessonGlossary(root){
+    root.querySelectorAll('a.glossary-term').forEach(a=>a.replaceWith(document.createTextNode(a.textContent||'')));
+    root.normalize();
+  }
+  function makeTermAnchor(raw,e){
+    const a=document.createElement('a');a.className='glossary-term';a.href=`glossary.html#${encodeURIComponent(e.slug)}`;a.dataset.glossary=e.slug;a.textContent=raw;
+    a.addEventListener('mouseenter',()=>{dismissedAnchor=null;scheduleShow(a,e);});
+    a.addEventListener('mouseleave',()=>scheduleHide(a));
+    a.addEventListener('focus',()=>{dismissedAnchor=null;scheduleShow(a,e,0);});
+    a.addEventListener('blur',()=>{dismissedAnchor=null;scheduleHide(a);});
+    return a;
+  }
+  function decorateLesson(root){
+    if(!root||!regex.source||decoratingLesson)return;
+    decoratingLesson=true;lessonObserver?.disconnect();hideTip(true);stripLessonGlossary(root);
     const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode(node){
       const p=node.parentElement;if(!p||!node.nodeValue.trim())return NodeFilter.FILTER_REJECT;
-      if(p.closest('a,button,input,textarea,select,option,code,pre,kbd,samp,script,style,.glossary-term,.glossary-tip,[data-no-glossary]'))return NodeFilter.FILTER_REJECT;
+      if(p.closest('a,button,input,textarea,select,option,code,pre,kbd,samp,script,style,h1,h2,h3,h4,h5,h6,summary,.eyebrow,.glossary-term,.glossary-tip,[data-no-glossary],[hidden],.hidden,[aria-hidden="true"]'))return NodeFilter.FILTER_REJECT;
       return NodeFilter.FILTER_ACCEPT;
     }});
-    const nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);
-    nodes.forEach(node=>{
-      const text=node.nodeValue;regex.lastIndex=0;if(!regex.test(text))return;regex.lastIndex=0;
-      const frag=document.createDocumentFragment();let last=0,m;
+    const best=new Map();let nodeOrder=0,node;
+    while((node=walker.nextNode())){
+      const text=node.nodeValue;nodeOrder++;regex.lastIndex=0;let m;
       while((m=regex.exec(text))){
-        const lead=m[1]||'',raw=m[2]||'',start=m.index+lead.length;
-        if(start>last)frag.appendChild(document.createTextNode(text.slice(last,start)));
-        const e=variantMap.get(raw.toLocaleLowerCase());
-        if(!e){frag.appendChild(document.createTextNode(raw));last=start+raw.length;continue;}
-        const a=document.createElement('a');a.className='glossary-term';a.href=`glossary.html#${encodeURIComponent(e.slug)}`;a.dataset.glossary=e.slug;a.textContent=raw;
-        a.addEventListener('mouseenter',()=>{dismissedAnchor=null;scheduleShow(a,e);});
-        a.addEventListener('mouseleave',()=>scheduleHide(a));
-        a.addEventListener('focus',()=>{dismissedAnchor=null;scheduleShow(a,e,0);});
-        a.addEventListener('blur',()=>{dismissedAnchor=null;scheduleHide(a);});
-        frag.appendChild(a);last=start+raw.length;
+        const lead=m[1]||'',raw=m[2]||'',at=m.index+lead.length,info=variantInfoMap.get(raw.toLocaleLowerCase());
+        if(!info)continue;
+        const context=text.slice(Math.max(0,at-180),Math.min(text.length,at+raw.length+220));
+        if(!technicalContextOkay(info,context))continue;
+        const score=candidateScore(node,raw,info,context,at,nodeOrder);
+        const prior=best.get(info.entry.slug);
+        if(!prior||score>prior.score)best.set(info.entry.slug,{node,start:at,end:at+raw.length,raw,entry:info.entry,score});
       }
-      if(last<text.length)frag.appendChild(document.createTextNode(text.slice(last)));
-      node.replaceWith(frag);
+    }
+    const byNode=new Map();
+    best.forEach(c=>{if(!byNode.has(c.node))byNode.set(c.node,[]);byNode.get(c.node).push(c);});
+    byNode.forEach((items,textNode)=>{
+      if(!textNode.isConnected)return;
+      items.sort((a,b)=>a.start-b.start);const text=textNode.nodeValue,frag=document.createDocumentFragment();let last=0;
+      items.forEach(c=>{if(c.start<last)return;if(c.start>last)frag.appendChild(document.createTextNode(text.slice(last,c.start)));frag.appendChild(makeTermAnchor(c.raw,c.entry));last=c.end;});
+      if(last<text.length)frag.appendChild(document.createTextNode(text.slice(last)));textNode.replaceWith(frag);
     });
+    decoratingLesson=false;
+    lessonObserver?.observe(root,{childList:true,subtree:true,characterData:true});
+  }
+  function scheduleLessonDecoration(root){
+    clearTimeout(decorateTimer);decorateTimer=setTimeout(()=>decorateLesson(root),35);
   }
 
   const lesson=document.querySelector('#classroom-content');
   if(lesson){
-    decorate(lesson);
-    const help=document.createElement('div');help.className='glossary-inline-help';help.setAttribute('data-no-glossary','true');help.innerHTML='<span aria-hidden="true">📖</span><span><strong>Bold dotted terms are Glossary words.</strong> Hover or keyboard-focus for a quick definition; click for the full entry.</span>';
+    const help=document.createElement('div');help.className='glossary-inline-help';help.setAttribute('data-no-glossary','true');help.innerHTML='<span aria-hidden="true">📖</span><span><strong>Key Glossary terms are highlighted once.</strong> Alfred chooses one clear instructional use per concept; hover or keyboard-focus for a quick definition, or click for the full entry.</span>';
     const card=document.querySelector('#classroom-card');if(card)card.insertBefore(help,card.firstChild);
-    new MutationObserver(ms=>ms.forEach(m=>m.addedNodes.forEach(n=>{if(n.nodeType===1)decorate(n);else if(n.nodeType===3&&n.parentElement)decorate(n.parentElement);}))).observe(lesson,{childList:true,subtree:true});
+    lessonObserver=new MutationObserver(()=>{if(!decoratingLesson)scheduleLessonDecoration(lesson);});
+    decorateLesson(lesson);
   }
 
   // ---- Full academic glossary ----

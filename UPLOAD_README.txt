@@ -1,21 +1,17 @@
-AU-ESET 301 v16.3.23 — COURSE GLOSSARY UX / ACADEMIC REFERENCE UPLOAD
-=====================================================================
+AU-ESET 301 v16.3.24 — VOCABULARY STUDY + SMART GLOSSARY HIGHLIGHTING
+=======================================================================
 
-This is a CUMULATIVE package. Upload every file in this ZIP to the GitHub repository root, replacing same-named files when prompted. You do not need to upload the earlier v16.3.22 ZIP first.
+Baseline: verified deployed v16.3.23.
+Upload every file in this ZIP to the GitHub repository root, replacing same-named files when prompted.
 
-NEW / INCLUDED
-- glossary.html
-- glossary.css
-- glossary-data.js
-- glossary.js
-- AU-ESET-301-v16.3.22-Glossary-Source-Verification.md
-- AU-ESET-301-v16.3.23-Glossary-UX-Verification.md
+NEW
+- vocabulary-study.js
+- vocabulary-study.css
+- AU-ESET-301-v16.3.24-Vocabulary-Study-and-Glossary-Highlighting-Verification.md
 
 REPLACE / UPDATE
-- learn.html
-- search.html
-- search.js
-- site.js
+- study.html
+- glossary.js
 - build-info.json
 - release-notes-current.js
 - service-worker.js
@@ -23,6 +19,10 @@ REPLACE / UPDATE
 - UPLOAD_README.txt
 - SHA256SUMS.txt
 
-The Glossary is now a primary navigation tab, Search Everything indexes glossary entries, and the definition popover follows researched mouse/keyboard/accessibility behavior.
+WHAT CHANGES
+1. Study gains a Vocabulary Study Lab powered by the existing Course Glossary.
+2. Classroom glossary terms are highlighted at most once per concept per rendered lesson/stage.
+3. The highlighter chooses a stronger instructional occurrence instead of blindly decorating every matching word.
 
-No curriculum, assessment, calendar, mastery, lab, project, Teaching Media, progress identity, Cloud Sync protocol, or branding file is replaced by this package.
+No glossary data file is replaced because the existing 282-entry v16.3.23 glossary remains the source of truth.
+No curriculum, assessment, mastery, calendar, lab, project, Teaching Media, Progress, Cloud Sync, or branding file is replaced.

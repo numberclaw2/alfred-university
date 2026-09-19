@@ -1,6 +1,29 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.24",
+      "date": "September 18, 2026",
+      "title": "Vocabulary Study Lab + Context-Aware Single-Occurrence Glossary Highlighting",
+      "type": "Study / Vocabulary Retention / Classroom Glossary UX",
+      "request": "Add glossary-driven vocabulary study to Study, and reduce Classroom glossary-link clutter so each concept is highlighted only once at a deliberate, instructionally useful occurrence rather than every textual match.",
+      "changes": [
+        "Added a dedicated Vocabulary Study Lab inside Study using the same 282-entry Course Glossary as the single terminology source of truth.",
+        "Added vocabulary study scopes for Due + Current Week, Needs Review, By Week, By Category, and All Course, with 5-, 10-, and 20-term session sizes.",
+        "Vocabulary cards require retrieval before reveal: the learner explains the term first, then reveals the existing plain-English and technical glossary definitions, notation/aliases, source basis, and links back to the full Glossary and relevant Classroom week.",
+        "Added Again / Hard / Got it self-ratings with low-stakes spaced scheduling. Again cards can re-enter the same session, Hard returns the next day, and Got it uses increasing review intervals. Retained status requires successful retrieval on at least three separate study dates rather than one familiar-looking card.",
+        "Vocabulary study history is isolated in its own browser-local key and explicitly does not alter assessment scores, CETa readiness, weekly mastery, labs, course completion, Progress identities, or Cloud Sync evidence.",
+        "Changed Classroom vocabulary decoration from every occurrence to a maximum of one highlighted occurrence per glossary concept in the currently rendered lesson/stage.",
+        "The Classroom highlighter now evaluates the complete rendered lesson before inserting links, prefers fuller/self-disambiguating technical phrases such as electric charge or electrical power over weaker bare-word aliases when available, skips headings and interactive/question-like surfaces, and uses technical-context checks for ambiguous everyday words.",
+        "Dynamic Classroom rerenders are re-evaluated as a whole so the one-occurrence rule remains stable after stage changes instead of accumulating repeated highlights through MutationObserver updates.",
+        "Updated the Classroom glossary cue to explain that key terms are intentionally highlighted once at a clear instructional use.",
+        "Advanced build metadata and service-worker namespace to v16.3.24 and cached the Vocabulary Study assets and verification record.",
+        "No curriculum wording, lesson sequencing, glossary definitions/sources, assessments/scoring, mastery formulas, labs, projects, calendar identities, Teaching Media, Progress identities, Cloud Sync protocol, or branding was changed."
+      ],
+      "filesAdded": ["AU-ESET-301-v16.3.24-Vocabulary-Study-and-Glossary-Highlighting-Verification.md","vocabulary-study.css","vocabulary-study.js"],
+      "filesModified": ["POST-UPDATE-QA.md","SHA256SUMS.txt","UPLOAD_README.txt","build-info.json","glossary.js","release-notes-current.js","service-worker.js","study.html"],
+      "filesRemoved": []
+    },
+    {
       "version": "v16.3.23",
       "date": "September 18, 2026",
       "title": "Course Glossary — First-Class Tab, Academic Reference Views & UX/Accessibility Upgrade",
@@ -423,7 +446,7 @@
       ]
     }
   ];
-  const currentOrder = ['v16.3.21','v16.3.20','v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
+  const currentOrder = ['v16.3.24','v16.3.23','v16.3.22','v16.3.21','v16.3.20','v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
   entries.sort((a,b)=>currentOrder.indexOf(a.version)-currentOrder.indexOf(b.version));
   const historical = Array.isArray(window.ALFRED_RELEASES) ? window.ALFRED_RELEASES : [];
   const currentVersions = new Set(entries.map(entry=>entry.version));
