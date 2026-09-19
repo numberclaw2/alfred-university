@@ -1,3 +1,31 @@
+# AU-ESET 301 v16.3.31 — Post-Update QA
+
+**QA date:** September 19, 2026  
+**Baseline:** v16.3.30  
+**Candidate:** v16.3.31 `v16.3.31-lesson-review-navigation-question-backlinks-20260919`  
+**Result:** **PASS FOR UPLOAD**
+
+## Targeted acceptance
+
+- PASS — Previous section is available at the top and bottom of Classroom learning sections.
+- PASS — Reviewing earlier material does not reduce the saved furthest/resume position.
+- PASS — Forward review navigation stops at the learner's already reached resume point; it cannot skip into unreached future instruction.
+- PASS — Normal `I answered · continue` remains the only path that unlocks a new future section.
+- PASS — 186/186 lesson-question locations have a direct same-lesson teaching-section review target: 124 integrated checks + 62 required lesson gates.
+- PASS — Review links preserve a session return marker and expose `Back to question`.
+- PASS — Returning to the question restores its exact anchor without changing official lesson progress.
+- PASS — All review-map targets point to valid teaching sections.
+- PASS — `learn.js`, `release-notes-current.js`, and `service-worker.js` pass JavaScript syntax checks.
+- PASS — v16.3.30 vocabulary click/double-click behavior and the v16.3.30 executive-function systems remain present in the baseline files.
+
+## Protected systems
+
+No curriculum content, standards mapping, Teaching Media, assessment scoring/answers, mastery formulas, labs, projects, calendar identities, Progress state, Cloud Sync protocol, glossary dataset, or branding was changed.
+
+---
+
+## Previous QA record
+
 # AU-ESET 301 v16.3.30 — Post-Update QA
 
 **QA date:** September 19, 2026  

@@ -1,6 +1,35 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.31",
+      "date": "September 19, 2026",
+      "title": "Lesson Review Navigation — Back/Forward + Question Teaching Links",
+      "type": "Classroom Review Navigation / Retrieval Repair / Executive-Function Support",
+      "request": "Let the learner move backward through completed lesson sections and forward again only through already reached sections; add a direct review link from lesson questions to the teaching section that explains the concept; and add a Back to question control after reviewing without losing official lesson progress.",
+      "changes": [
+        "Separated temporary lesson review position from the saved furthest/resume position. Moving backward no longer rewinds official course progress or Cloud Sync-compatible week state.",
+        "Added Previous section navigation at both the top and bottom of each lesson section. When reviewing earlier material, Next completed section moves forward only through sections that were already reached; unreached future sections remain locked behind the normal I answered · continue progression action.",
+        "Added question-to-teaching-section review actions for all 124 integrated lesson checks and all 62 required lesson gates. Each question links to the most relevant teaching section in that same lesson instead of sending the learner to a generic lesson start.",
+        "Added a session-safe Back to question control while reviewing from a question. Returning restores the exact check/gate location and preserves the learner's furthest lesson progress.",
+        "Added clear reviewing-state language so Alfred distinguishes the section currently being reviewed from the official resume point.",
+        "Preserved the v16.3.30 executive-function flow, v16.3.30 vocabulary single-click/double-click behavior, 599-term glossary, curriculum wording, Teaching Media, assessments/scoring, labs, calendar identities, Progress state, Cloud Sync protocol, and branding."
+      ],
+      "filesAdded": [
+        "AU-ESET-301-v16.3.31-Lesson-Review-Navigation-and-Question-Backlinks-Verification.md"
+      ],
+      "filesModified": [
+        "POST-UPDATE-QA.md",
+        "SHA256SUMS.txt",
+        "UPLOAD_README.txt",
+        "build-info.json",
+        "learn.js",
+        "release-notes-current.js",
+        "service-worker.js",
+        "styles.css"
+      ],
+      "filesRemoved": []
+    },
+    {
           "version": "v16.3.30",
           "date": "September 19, 2026",
           "title": "Executive-Function Study Flow \u2014 Resumable Lessons + State-Aware Next Action",
@@ -623,7 +652,7 @@
       ]
     }
   ];
-  const currentOrder = ['v16.3.30','v16.3.29','v16.3.28','v16.3.27','v16.3.26','v16.3.25','v16.3.24','v16.3.23','v16.3.22','v16.3.21','v16.3.20','v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
+  const currentOrder = ['v16.3.31','v16.3.30','v16.3.29','v16.3.28','v16.3.27','v16.3.26','v16.3.25','v16.3.24','v16.3.23','v16.3.22','v16.3.21','v16.3.20','v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
   entries.sort((a,b)=>currentOrder.indexOf(a.version)-currentOrder.indexOf(b.version));
   const historical = Array.isArray(window.ALFRED_RELEASES) ? window.ALFRED_RELEASES : [];
   const currentVersions = new Set(entries.map(entry=>entry.version));

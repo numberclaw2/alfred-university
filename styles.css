@@ -1971,3 +1971,19 @@ body.focus-mode #vocabulary-study-section{display:none!important}
    even where footer/navigation link rules set an explicit display value. */
 body.student-mode a[href="deployment.html"],
 body.student-mode a[href="patch-notes.html"]{display:none!important}
+
+/* v16.3.31 — completed-section review navigation + question-to-teaching backlinks */
+.lesson-segment-browse{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:14px 22px;border-bottom:1px solid #e2e9e5;background:#fbfdfc}
+.lesson-reviewing-note{flex:1 1 260px;color:var(--muted);font-size:.88rem;line-height:1.45}
+.lesson-reviewing-note.current{color:#2f704e;font-weight:750}
+.question-review-tools{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:.65rem 0 1rem;padding:.75rem .85rem;border:1px solid #d6dfda;border-radius:12px;background:#f8fbf9}
+.question-review-tools small{flex:1 1 240px;color:var(--muted);line-height:1.4}
+.question-review-link{white-space:normal;text-align:left}
+.back-to-question{white-space:nowrap}
+@media(max-width:700px){
+  .lesson-segment-browse{display:grid;grid-template-columns:1fr;padding:12px 16px}
+  .lesson-segment-browse .button,.question-review-tools .button,.lesson-segment-nav .back-to-question{width:100%}
+  .lesson-reviewing-note{order:-1;flex:auto}
+  .question-review-tools{display:grid;margin:.65rem 0 1rem}
+  .question-review-tools small{flex:auto}
+}
