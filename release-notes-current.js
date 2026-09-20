@@ -1,6 +1,40 @@
 (() => {
   const entries = [
     {
+          "version": "v16.3.39",
+          "date": "September 20, 2026",
+          "title": "Dependency-First Career Curriculum Reconstruction + CETa/Career Weaving",
+          "type": "Curriculum / Standards / Instructional Reconstruction",
+          "request": "Reconstruct the Career curriculum from the completed beginner-scaffolding audit, weave it coherently with CETa, preserve the existing visual design, and make every Career standard/major curriculum block source-traceable.",
+          "changes": [
+                "Added career-curriculum-reconstruction.js as the authoritative post-v16.3.33 Career instructional layer. It preserves the official CETa competency identities and current site aesthetics while adding a shared prerequisite architecture, explicit CETa foundation, Career new-learning scope, future preparation, difficulty level, and source basis to every one of the 31 Career lessons.",
+                "Fully reconstructed the highest-risk Career teaching bodies identified by the audit: Weeks 1, 3, 12, 14, 15, 16, 17, 18, 20, and 27. The new bodies teach tools/concepts before professional use and expose expert reasoning through known-good behavior, layered evidence, and guided transfer.",
+                "Reviewed the remaining 21 Career lessons against the same dependency architecture and retained their strong technical bodies while adding explicit prerequisite chains, Builds on links, CETa activation, source provenance, and simple-to-intermediate-to-advanced placement.",
+                "Kept the 78 Career standard IDs for progress/assessment compatibility; rewrote 26 high-risk standards in measurement, C, embedded architecture, STM32, and Git/command-line areas, retained 52 appropriately scoped standards, and added source provenance to all 78.",
+                "Added explicit source grounding from Georgia Piedmont Technical College, Portland Community College, Texas A&M ESET, ABET Engineering Technology criteria, ETA/CETa, O*NET, and existing manufacturer/maintainer sources such as Fluke, Tektronix, STMicroelectronics, Arm, GitHub, Saleae, Python, and pySerial.",
+                "Added learner-visible Source basis text to Career lesson purpose sections and source-provenance text to Career standards using existing visual components; no broad aesthetic redesign, recoloring, layout change, or navigation change was performed.",
+                "Moved the existing source-grounded C pointer visual later in the reconstructed Week 14 dependency sequence and the Python serial pipeline visual later in Week 17 so visuals appear after their prerequisites instead of before them.",
+                "Added auditable standards/provenance, dependency, 31-week curriculum, reconciliation, and QA artifacts for future review.",
+                "Updated the Document Center so the v16.3.39 curriculum/provenance artifacts are identified as current while the older v16.3 plan/audits are clearly labeled baseline evidence."
+          ],
+          "filesAdded": [
+                "career-curriculum-reconstruction.js",
+                "AU-ESET-301-v16.3.39-Career-Standards-Provenance-Matrix.csv",
+                "AU-ESET-301-v16.3.39-Career-Standards-Provenance-Matrix.json",
+                "AU-ESET-301-v16.3.39-31-Week-Woven-Curriculum-Map.csv",
+                "AU-ESET-301-v16.3.39-Shared-CETa-Career-Dependency-Map.csv",
+                "AU-ESET-301-v16.3.39-External-Source-Benchmark-Ledger.md",
+                "AU-ESET-301-v16.3.39-Assessment-Lab-Project-Reconciliation.md",
+                "AU-ESET-301-v16.3.39-Final-Beginner-Dependency-Audit.md",
+                "AU-ESET-301-v16.3.39-Change-Report.md",
+                "AU-ESET-301-v16.3.39-Career-Curriculum-Reconstruction-Verification.md"
+          ],
+          "filesModified": [
+                "learn.js", "standards.js", "instructional-visuals.js", "learn.html", "study.html", "search.html", "practice.html", "progress.html", "analytics.html", "assessments.html", "quiz.html", "standards.html", "documents.html", "build-info.json", "service-worker.js", "release-notes-current.js", "UPLOAD_README.txt", "SHA256SUMS.txt"
+          ],
+          "filesRemoved": []
+    },
+    {
       "version": "v16.3.38",
       "date": "September 20, 2026",
       "title": "Global Classroom Vocabulary Click Contract Restoration",
@@ -907,7 +941,7 @@
       ]
     }
   ];
-  const currentOrder = ['v16.3.35','v16.3.34','v16.3.33','v16.3.32','v16.3.31','v16.3.30','v16.3.29','v16.3.28','v16.3.27','v16.3.26','v16.3.25','v16.3.24','v16.3.23','v16.3.22','v16.3.21','v16.3.20','v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
+  const currentOrder = ['v16.3.39','v16.3.38','v16.3.37','v16.3.36','v16.3.35','v16.3.34','v16.3.33','v16.3.32','v16.3.31','v16.3.30','v16.3.29','v16.3.28','v16.3.27','v16.3.26','v16.3.25','v16.3.24','v16.3.23','v16.3.22','v16.3.21','v16.3.20','v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
   entries.sort((a,b)=>currentOrder.indexOf(a.version)-currentOrder.indexOf(b.version));
   const historical = Array.isArray(window.ALFRED_RELEASES) ? window.ALFRED_RELEASES : [];
   const currentVersions = new Set(entries.map(entry=>entry.version));

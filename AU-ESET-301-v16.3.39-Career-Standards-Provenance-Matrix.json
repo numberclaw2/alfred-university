@@ -1,0 +1,1817 @@
+{
+  "revision": "2026-09-20-dependency-first-woven-career-reconstruction",
+  "standards": {
+    "C1.1": {
+      "status": "KEEP",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "pccEET101A",
+        "gptcElectronics",
+        "flukeSafety",
+        "nasaESD"
+      ],
+      "sourceBasisText": "Portland Community College — EET 101A — Electronic Lab and Essential Work Skills; Georgia Piedmont Technical College — Electronics Technology — current catalog; Fluke — Electrical Measurement Safety; NASA — NASA-HDBK-8739.21 — ESD Control",
+      "previous": "Prepare a low-voltage electronics bench using current limits, safe power-up sequencing, and an explicit stop condition.",
+      "final": "Prepare a low-voltage electronics bench using current limits, safe power-up sequencing, and an explicit stop condition.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C1.2": {
+      "status": "KEEP",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "pccEET101A",
+        "gptcElectronics",
+        "flukeSafety",
+        "nasaESD"
+      ],
+      "sourceBasisText": "Portland Community College — EET 101A — Electronic Lab and Essential Work Skills; Georgia Piedmont Technical College — Electronics Technology — current catalog; Fluke — Electrical Measurement Safety; NASA — NASA-HDBK-8739.21 — ESD Control",
+      "previous": "Apply ESD controls appropriate to CMOS/semiconductor handling and explain when straps, mats, grounding, and antistatic storage matter.",
+      "final": "Apply ESD controls appropriate to CMOS/semiconductor handling and explain when straps, mats, grounding, and antistatic storage matter.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C1.3": {
+      "status": "KEEP",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "pccEET101A",
+        "gptcElectronics",
+        "flukeSafety",
+        "nasaESD"
+      ],
+      "sourceBasisText": "Portland Community College — EET 101A — Electronic Lab and Essential Work Skills; Georgia Piedmont Technical College — Electronics Technology — current catalog; Fluke — Electrical Measurement Safety; NASA — NASA-HDBK-8739.21 — ESD Control",
+      "previous": "Distinguish safe low-voltage troubleshooting from work that requires qualified supervision, isolation, or energized-work procedures.",
+      "final": "Distinguish safe low-voltage troubleshooting from work that requires qualified supervision, isolation, or energized-work procedures.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C1.4": {
+      "status": "KEEP",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "pccEET101A",
+        "gptcElectronics",
+        "flukeSafety",
+        "nasaESD"
+      ],
+      "sourceBasisText": "Portland Community College — EET 101A — Electronic Lab and Essential Work Skills; Georgia Piedmont Technical College — Electronics Technology — current catalog; Fluke — Electrical Measurement Safety; NASA — NASA-HDBK-8739.21 — ESD Control",
+      "previous": "Perform a pre-power inspection for polarity, shorts, connector orientation, exposed conductors, and current-limit settings.",
+      "final": "Perform a pre-power inspection for polarity, shorts, connector orientation, exposed conductors, and current-limit settings.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C1.5": {
+      "status": "KEEP",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "pccEET101A",
+        "gptcElectronics",
+        "flukeSafety",
+        "nasaESD"
+      ],
+      "sourceBasisText": "Portland Community College — EET 101A — Electronic Lab and Essential Work Skills; Georgia Piedmont Technical College — Electronics Technology — current catalog; Fluke — Electrical Measurement Safety; NASA — NASA-HDBK-8739.21 — ESD Control",
+      "previous": "Choose PPE, ventilation, and tool practices appropriate to soldering, rework, cutting, crimping, and bench assembly.",
+      "final": "Choose PPE, ventilation, and tool practices appropriate to soldering, rework, cutting, crimping, and bench assembly.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C1.6": {
+      "status": "KEEP",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "pccEET101A",
+        "gptcElectronics",
+        "flukeSafety",
+        "nasaESD"
+      ],
+      "sourceBasisText": "Portland Community College — EET 101A — Electronic Lab and Essential Work Skills; Georgia Piedmont Technical College — Electronics Technology — current catalog; Fluke — Electrical Measurement Safety; NASA — NASA-HDBK-8739.21 — ESD Control",
+      "previous": "Document a safety or setup hazard and the corrective action before continuing a test.",
+      "final": "Document a safety or setup hazard and the corrective action before continuing a test.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C2.1": {
+      "status": "KEEP",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "gptcElectronics",
+        "pccEET101B",
+        "onetTech"
+      ],
+      "sourceBasisText": "Georgia Piedmont Technical College — Electronics Technology — current catalog; Portland Community College — EET 101B — Electronic Equipment and Lab Skills; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians",
+      "previous": "Read a schematic by following power rails, grounds, signal flow, reference designators, and functional blocks.",
+      "final": "Read a schematic by following power rails, grounds, signal flow, reference designators, and functional blocks.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C2.2": {
+      "status": "KEEP",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "gptcElectronics",
+        "pccEET101B",
+        "onetTech"
+      ],
+      "sourceBasisText": "Georgia Piedmont Technical College — Electronics Technology — current catalog; Portland Community College — EET 101B — Electronic Equipment and Lab Skills; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians",
+      "previous": "Use a component datasheet to identify pinout, absolute maximum ratings, recommended operating conditions, and key electrical characteristics.",
+      "final": "Use a component datasheet to identify pinout, absolute maximum ratings, recommended operating conditions, and key electrical characteristics.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C2.3": {
+      "status": "KEEP",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "gptcElectronics",
+        "pccEET101B",
+        "onetTech"
+      ],
+      "sourceBasisText": "Georgia Piedmont Technical College — Electronics Technology — current catalog; Portland Community College — EET 101B — Electronic Equipment and Lab Skills; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians",
+      "previous": "Distinguish a schematic, wiring diagram, block diagram, layout/PCB view, and timing diagram and choose the right artifact for a troubleshooting task.",
+      "final": "Distinguish a schematic, wiring diagram, block diagram, layout/PCB view, and timing diagram and choose the right artifact for a troubleshooting task.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C2.4": {
+      "status": "KEEP",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "gptcElectronics",
+        "pccEET101B",
+        "onetTech"
+      ],
+      "sourceBasisText": "Georgia Piedmont Technical College — Electronics Technology — current catalog; Portland Community College — EET 101B — Electronic Equipment and Lab Skills; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians",
+      "previous": "Trace a signal or power path from connector to load and identify useful test points before probing.",
+      "final": "Trace a signal or power path from connector to load and identify useful test points before probing.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C2.5": {
+      "status": "KEEP",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "gptcElectronics",
+        "pccEET101B",
+        "onetTech"
+      ],
+      "sourceBasisText": "Georgia Piedmont Technical College — Electronics Technology — current catalog; Portland Community College — EET 101B — Electronic Equipment and Lab Skills; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians",
+      "previous": "Interpret pull-ups, pull-downs, decoupling capacitors, current-limiting resistors, protection devices, and common interface support circuitry.",
+      "final": "Interpret pull-ups, pull-downs, decoupling capacitors, current-limiting resistors, protection devices, and common interface support circuitry.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C2.6": {
+      "status": "KEEP",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "gptcElectronics",
+        "pccEET101B",
+        "onetTech"
+      ],
+      "sourceBasisText": "Georgia Piedmont Technical College — Electronics Technology — current catalog; Portland Community College — EET 101B — Electronic Equipment and Lab Skills; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians",
+      "previous": "Explain design intent from a schematic well enough to predict expected node voltages or signal behavior before measuring.",
+      "final": "Explain design intent from a schematic well enough to predict expected node voltages or signal behavior before measuring.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C3.1": {
+      "status": "REWRITE",
+      "relationship": "Adapted from / informed by",
+      "sourceIds": [
+        "flukeDMM",
+        "pccEET101A"
+      ],
+      "sourceBasisText": "Fluke — Digital Multimeter Basics; Portland Community College — EET 101A — Electronic Lab and Essential Work Skills",
+      "previous": "Configure and use a DMM correctly for voltage, resistance/continuity, and current without creating a hazardous or circuit-altering connection.",
+      "final": "Select the correct DMM function, input jack, and circuit connection for voltage, resistance/continuity, or current; explain how each mode interacts with the circuit; then make the measurement safely.",
+      "rationale": "Rewritten to expose the beginner prerequisite/mental model while preserving the same competency identity and assessment domain.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C3.2": {
+      "status": "REWRITE",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "pccEET101A",
+        "flukeDMM"
+      ],
+      "sourceBasisText": "Portland Community College — EET 101A — Electronic Lab and Essential Work Skills; Fluke — Digital Multimeter Basics",
+      "previous": "Configure a bench power supply in constant-voltage/current-limit operation and use current consumption as a bring-up diagnostic.",
+      "final": "Set bench-supply voltage and a conservative current limit from expected circuit behavior, distinguish CV from current-limit operation, and use current consumption as evidence during bring-up.",
+      "rationale": "Rewritten to expose the beginner prerequisite/mental model while preserving the same competency identity and assessment domain.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C3.3": {
+      "status": "REWRITE",
+      "relationship": "Adapted from / informed by",
+      "sourceIds": [
+        "tekScope",
+        "pccEET101A"
+      ],
+      "sourceBasisText": "Tektronix — The XYZs of Oscilloscopes; Portland Community College — EET 101A — Electronic Lab and Essential Work Skills",
+      "previous": "Configure an oscilloscope probe, coupling, vertical scale, timebase, trigger, and reference ground to obtain a stable useful measurement.",
+      "final": "Starting with a known waveform, configure probe/reference, attenuation, coupling, vertical scale, timebase, and trigger to obtain a stable oscilloscope display and document the setup.",
+      "rationale": "Rewritten to expose the beginner prerequisite/mental model while preserving the same competency identity and assessment domain.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C3.4": {
+      "status": "REWRITE",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "tekScope",
+        "pccEET101B"
+      ],
+      "sourceBasisText": "Tektronix — The XYZs of Oscilloscopes; Portland Community College — EET 101B — Electronic Equipment and Lab Skills",
+      "previous": "Measure amplitude, frequency, period, duty cycle, rise/fall behavior, and DC offset from waveforms and explain measurement limitations.",
+      "final": "Predict and measure waveform amplitude, frequency, period, duty cycle, DC offset, and rise/fall behavior, while distinguishing resolution, accuracy, loading, bandwidth, and repeatability limits.",
+      "rationale": "Rewritten to expose the beginner prerequisite/mental model while preserving the same competency identity and assessment domain.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C3.5": {
+      "status": "REWRITE",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "saleae",
+        "pccEET101B"
+      ],
+      "sourceBasisText": "Saleae — Logic Analyzer Learning and Support; Portland Community College — EET 101B — Electronic Equipment and Lab Skills",
+      "previous": "Use a logic analyzer to capture and decode digital activity while checking sample rate, thresholds, channel mapping, and timing context.",
+      "final": "Configure a logic analyzer with correct reference, threshold, sample rate, channel mapping, and protocol settings before decoding digital activity; recognize when an oscilloscope is needed to investigate electrical signal quality.",
+      "rationale": "Rewritten to expose the beginner prerequisite/mental model while preserving the same competency identity and assessment domain.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C3.6": {
+      "status": "REWRITE",
+      "relationship": "Adapted from / informed by",
+      "sourceIds": [
+        "pccEET101A",
+        "pccEET101B",
+        "flukeDMM",
+        "tekScope"
+      ],
+      "sourceBasisText": "Portland Community College — EET 101A — Electronic Lab and Essential Work Skills; Portland Community College — EET 101B — Electronic Equipment and Lab Skills; Fluke — Digital Multimeter Basics; Tektronix — The XYZs of Oscilloscopes",
+      "previous": "Select a measurement instrument based on the hypothesis being tested rather than probing randomly.",
+      "final": "Translate a troubleshooting question into a measurable hypothesis, then choose the instrument, test point, setup, and expected result that will provide the most useful evidence.",
+      "rationale": "Rewritten to expose the beginner prerequisite/mental model while preserving the same competency identity and assessment domain.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C4.1": {
+      "status": "KEEP",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "gptcElectronics",
+        "nasaHarness",
+        "nasaESD",
+        "onetTech"
+      ],
+      "sourceBasisText": "Georgia Piedmont Technical College — Electronics Technology — current catalog; NASA — NASA-STD-8739.4 — Crimping, Cables, Harnesses, and Wiring; NASA — NASA-HDBK-8739.21 — ESD Control; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians",
+      "previous": "Identify acceptable and defective solder joints and explain likely causes of cold joints, bridges, insufficient wetting, and lifted pads.",
+      "final": "Identify acceptable and defective solder joints and explain likely causes of cold joints, bridges, insufficient wetting, and lifted pads.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C4.2": {
+      "status": "KEEP",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "gptcElectronics",
+        "nasaHarness",
+        "nasaESD",
+        "onetTech"
+      ],
+      "sourceBasisText": "Georgia Piedmont Technical College — Electronics Technology — current catalog; NASA — NASA-STD-8739.4 — Crimping, Cables, Harnesses, and Wiring; NASA — NASA-HDBK-8739.21 — ESD Control; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians",
+      "previous": "Plan a safe through-hole or basic SMT rework sequence that minimizes heat, mechanical stress, and ESD exposure.",
+      "final": "Plan a safe through-hole or basic SMT rework sequence that minimizes heat, mechanical stress, and ESD exposure.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C4.3": {
+      "status": "KEEP",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "gptcElectronics",
+        "nasaHarness",
+        "nasaESD",
+        "onetTech"
+      ],
+      "sourceBasisText": "Georgia Piedmont Technical College — Electronics Technology — current catalog; NASA — NASA-STD-8739.4 — Crimping, Cables, Harnesses, and Wiring; NASA — NASA-HDBK-8739.21 — ESD Control; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians",
+      "previous": "Prepare, strip, crimp, strain-relieve, and inspect a low-voltage wire or harness connection using workmanship criteria.",
+      "final": "Prepare, strip, crimp, strain-relieve, and inspect a low-voltage wire or harness connection using workmanship criteria.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C4.4": {
+      "status": "KEEP",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "gptcElectronics",
+        "nasaHarness",
+        "nasaESD",
+        "onetTech"
+      ],
+      "sourceBasisText": "Georgia Piedmont Technical College — Electronics Technology — current catalog; NASA — NASA-STD-8739.4 — Crimping, Cables, Harnesses, and Wiring; NASA — NASA-HDBK-8739.21 — ESD Control; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians",
+      "previous": "Use connector keying, pin numbering, continuity checks, and wire labels to prevent harness miswiring.",
+      "final": "Use connector keying, pin numbering, continuity checks, and wire labels to prevent harness miswiring.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C4.5": {
+      "status": "KEEP",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "gptcElectronics",
+        "nasaHarness",
+        "nasaESD",
+        "onetTech"
+      ],
+      "sourceBasisText": "Georgia Piedmont Technical College — Electronics Technology — current catalog; NASA — NASA-STD-8739.4 — Crimping, Cables, Harnesses, and Wiring; NASA — NASA-HDBK-8739.21 — ESD Control; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians",
+      "previous": "Document rework with before/after evidence, component orientation, and verification measurements.",
+      "final": "Document rework with before/after evidence, component orientation, and verification measurements.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C4.6": {
+      "status": "KEEP",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "gptcElectronics",
+        "nasaHarness",
+        "nasaESD",
+        "onetTech"
+      ],
+      "sourceBasisText": "Georgia Piedmont Technical College — Electronics Technology — current catalog; NASA — NASA-STD-8739.4 — Crimping, Cables, Harnesses, and Wiring; NASA — NASA-HDBK-8739.21 — ESD Control; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians",
+      "previous": "Explain when a damaged pad, trace, connector, or harness should be repaired, replaced, or escalated rather than improvised.",
+      "final": "Explain when a damaged pad, trace, connector, or harness should be repaired, replaced, or escalated rather than improvised.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C5.1": {
+      "status": "KEEP",
+      "relationship": "Informed by / cross-checked against",
+      "sourceIds": [
+        "pccEET101B",
+        "onetTech",
+        "nasaSystems"
+      ],
+      "sourceBasisText": "Portland Community College — EET 101B — Electronic Equipment and Lab Skills; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians; NASA — NASA Systems Engineering Handbook",
+      "previous": "Reproduce a fault reliably and define the observed symptom before attempting a fix.",
+      "final": "Reproduce a fault reliably and define the observed symptom before attempting a fix.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C5.2": {
+      "status": "KEEP",
+      "relationship": "Informed by / cross-checked against",
+      "sourceIds": [
+        "pccEET101B",
+        "onetTech",
+        "nasaSystems"
+      ],
+      "sourceBasisText": "Portland Community College — EET 101B — Electronic Equipment and Lab Skills; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians; NASA — NASA Systems Engineering Handbook",
+      "previous": "Form a testable hypothesis from expected versus actual behavior and choose the next measurement that best separates competing causes.",
+      "final": "Form a testable hypothesis from expected versus actual behavior and choose the next measurement that best separates competing causes.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C5.3": {
+      "status": "KEEP",
+      "relationship": "Informed by / cross-checked against",
+      "sourceIds": [
+        "pccEET101B",
+        "onetTech",
+        "nasaSystems"
+      ],
+      "sourceBasisText": "Portland Community College — EET 101B — Electronic Equipment and Lab Skills; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians; NASA — NASA Systems Engineering Handbook",
+      "previous": "Use divide-and-conquer, known-good substitution, signal tracing, or rail-by-rail checks appropriately without changing multiple variables at once.",
+      "final": "Use divide-and-conquer, known-good substitution, signal tracing, or rail-by-rail checks appropriately without changing multiple variables at once.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C5.4": {
+      "status": "KEEP",
+      "relationship": "Informed by / cross-checked against",
+      "sourceIds": [
+        "pccEET101B",
+        "onetTech",
+        "nasaSystems"
+      ],
+      "sourceBasisText": "Portland Community College — EET 101B — Electronic Equipment and Lab Skills; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians; NASA — NASA Systems Engineering Handbook",
+      "previous": "Distinguish root cause from symptom and verify that a repair removes the cause without creating a new failure.",
+      "final": "Distinguish root cause from symptom and verify that a repair removes the cause without creating a new failure.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C5.5": {
+      "status": "KEEP",
+      "relationship": "Informed by / cross-checked against",
+      "sourceIds": [
+        "pccEET101B",
+        "onetTech",
+        "nasaSystems"
+      ],
+      "sourceBasisText": "Portland Community College — EET 101B — Electronic Equipment and Lab Skills; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians; NASA — NASA Systems Engineering Handbook",
+      "previous": "Use fault injection or controlled perturbation to demonstrate that a diagnostic method can detect an expected failure mode.",
+      "final": "Use fault injection or controlled perturbation to demonstrate that a diagnostic method can detect an expected failure mode.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C5.6": {
+      "status": "KEEP",
+      "relationship": "Informed by / cross-checked against",
+      "sourceIds": [
+        "pccEET101B",
+        "onetTech",
+        "nasaSystems"
+      ],
+      "sourceBasisText": "Portland Community College — EET 101B — Electronic Equipment and Lab Skills; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians; NASA — NASA Systems Engineering Handbook",
+      "previous": "Write a concise failure report containing symptom, setup, evidence, root cause, corrective action, and verification.",
+      "final": "Write a concise failure report containing symptom, setup, evidence, root cause, corrective action, and verification.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C6.1": {
+      "status": "REWRITE",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "tamuESET",
+        "beejC"
+      ],
+      "sourceBasisText": "Texas A&M University — Electronic Systems Engineering Technology (ESET) course descriptions; Brian Hall / open textbook — Beej's Guide to C Programming",
+      "previous": "Write and explain C expressions using integer types, operators, precedence, conditionals, and loops.",
+      "final": "Read, write, and trace small C programs using typed variables, expressions, assignments, conditionals, and loops; predict control flow and resulting values before running the code.",
+      "rationale": "Rewritten to expose the beginner prerequisite/mental model while preserving the same competency identity and assessment domain.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C6.2": {
+      "status": "REWRITE",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "tamuESET",
+        "beejC"
+      ],
+      "sourceBasisText": "Texas A&M University — Electronic Systems Engineering Technology (ESET) course descriptions; Brian Hall / open textbook — Beej's Guide to C Programming",
+      "previous": "Use functions, prototypes, parameters, return values, and scope to organize code into testable units.",
+      "final": "Use function declarations/prototypes, parameters, return values, and scope to divide C programs into small testable units and explain the data passed into and out of each unit.",
+      "rationale": "Rewritten to expose the beginner prerequisite/mental model while preserving the same competency identity and assessment domain.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C6.3": {
+      "status": "REWRITE",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "cs50C",
+        "beejC"
+      ],
+      "sourceBasisText": "Harvard University — CS50x Week 4 — Memory and Pointers; Brian Hall / open textbook — Beej's Guide to C Programming",
+      "previous": "Use arrays, strings, structs, enums, and pointers without confusing values, addresses, and object lifetimes.",
+      "final": "Use arrays, strings, structs, enums, addresses, and pointers while clearly distinguishing stored values from memory addresses and respecting bounds and object lifetime.",
+      "rationale": "Rewritten to expose the beginner prerequisite/mental model while preserving the same competency identity and assessment domain.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C6.4": {
+      "status": "REWRITE",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "armEmbedded",
+        "beejC"
+      ],
+      "sourceBasisText": "Arm — Embedded C Programming with Arm Cortex-M; Brian Hall / open textbook — Beej's Guide to C Programming",
+      "previous": "Use bitwise AND, OR, XOR, shifts, and masks to inspect or modify individual bits.",
+      "final": "Use bitwise AND, OR, XOR, shifts, and masks to inspect or modify specific bits, and explain the before/after bit pattern rather than treating the operation as a memorized formula.",
+      "rationale": "Rewritten to expose the beginner prerequisite/mental model while preserving the same competency identity and assessment domain.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C6.5": {
+      "status": "REWRITE",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "tamuESET",
+        "beejC",
+        "cs50C",
+        "armEmbedded"
+      ],
+      "sourceBasisText": "Texas A&M University — Electronic Systems Engineering Technology (ESET) course descriptions; Brian Hall / open textbook — Beej's Guide to C Programming; Harvard University — CS50x Week 4 — Memory and Pointers; Arm — Embedded C Programming with Arm Cortex-M",
+      "previous": "Identify common C defects such as off-by-one errors, uninitialized variables, invalid pointer use, integer overflow, and missing bounds checks.",
+      "final": "Recognize and prevent common C defects including off-by-one errors, uninitialized data, invalid pointer use, out-of-bounds access, integer conversion/overflow problems, and missing validation.",
+      "rationale": "Rewritten to expose the beginner prerequisite/mental model while preserving the same competency identity and assessment domain.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C6.6": {
+      "status": "REWRITE",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "tamuESET",
+        "beejC",
+        "cs50C",
+        "armEmbedded"
+      ],
+      "sourceBasisText": "Texas A&M University — Electronic Systems Engineering Technology (ESET) course descriptions; Brian Hall / open textbook — Beej's Guide to C Programming; Harvard University — CS50x Week 4 — Memory and Pointers; Arm — Embedded C Programming with Arm Cortex-M",
+      "previous": "Compile with warnings enabled, read diagnostics, and debug a small program methodically rather than changing code at random.",
+      "final": "Build small C programs with warnings enabled, interpret compiler/runtime diagnostics, reproduce failures with controlled inputs, inspect state, and debug by testing one hypothesis at a time.",
+      "rationale": "Rewritten to expose the beginner prerequisite/mental model while preserving the same competency identity and assessment domain.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C7.1": {
+      "status": "REWRITE",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "tamuESET",
+        "armKit",
+        "stTraining"
+      ],
+      "sourceBasisText": "Texas A&M University — Electronic Systems Engineering Technology (ESET) course descriptions; Arm University Program — Efficient Embedded Systems Education Kit; STMicroelectronics — STM32 Online Training",
+      "previous": "Explain the role of CPU, registers, memory, peripherals, clocking, interrupts, and buses in a microcontroller system.",
+      "final": "Explain an embedded microcontroller as CPU + memory + clocks + buses + peripherals + registers, and connect each part to what executing C code can observe or control.",
+      "rationale": "Rewritten to expose the beginner prerequisite/mental model while preserving the same competency identity and assessment domain.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C7.2": {
+      "status": "REWRITE",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "tamuESET",
+        "armEmbedded",
+        "armKit",
+        "stTraining"
+      ],
+      "sourceBasisText": "Texas A&M University — Electronic Systems Engineering Technology (ESET) course descriptions; Arm — Embedded C Programming with Arm Cortex-M; Arm University Program — Efficient Embedded Systems Education Kit; STMicroelectronics — STM32 Online Training",
+      "previous": "Use volatile and fixed-width integer types appropriately when code interacts with hardware registers or asynchronous events.",
+      "final": "Use fixed-width integer types and volatile appropriately for hardware registers or asynchronously changed state, and explain what volatile does and does not guarantee.",
+      "rationale": "Rewritten to expose the beginner prerequisite/mental model while preserving the same competency identity and assessment domain.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C7.3": {
+      "status": "REWRITE",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "tamuESET",
+        "armEmbedded",
+        "armKit",
+        "stTraining"
+      ],
+      "sourceBasisText": "Texas A&M University — Electronic Systems Engineering Technology (ESET) course descriptions; Arm — Embedded C Programming with Arm Cortex-M; Arm University Program — Efficient Embedded Systems Education Kit; STMicroelectronics — STM32 Online Training",
+      "previous": "Apply read-modify-write and bit-mask operations to peripheral control registers while preserving unrelated bits.",
+      "final": "Apply read-modify-write and bit masks to memory-mapped peripheral registers while preserving unrelated bits and checking the relevant register documentation.",
+      "rationale": "Rewritten to expose the beginner prerequisite/mental model while preserving the same competency identity and assessment domain.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C7.4": {
+      "status": "REWRITE",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "tamuESET",
+        "armEmbedded",
+        "armKit",
+        "stTraining"
+      ],
+      "sourceBasisText": "Texas A&M University — Electronic Systems Engineering Technology (ESET) course descriptions; Arm — Embedded C Programming with Arm Cortex-M; Arm University Program — Efficient Embedded Systems Education Kit; STMicroelectronics — STM32 Online Training",
+      "previous": "Design a nonblocking state machine for a simple embedded behavior instead of relying on long blocking delays.",
+      "final": "Convert a simple blocking embedded behavior into an explicit nonblocking state machine with named states, transitions, events, and bounded timing behavior.",
+      "rationale": "Rewritten to expose the beginner prerequisite/mental model while preserving the same competency identity and assessment domain.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C7.5": {
+      "status": "REWRITE",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "tamuESET",
+        "armEmbedded",
+        "armKit",
+        "stTraining"
+      ],
+      "sourceBasisText": "Texas A&M University — Electronic Systems Engineering Technology (ESET) course descriptions; Arm — Embedded C Programming with Arm Cortex-M; Arm University Program — Efficient Embedded Systems Education Kit; STMicroelectronics — STM32 Online Training",
+      "previous": "Explain polling versus interrupts and select the simpler correct approach for a given timing requirement.",
+      "final": "Explain polling and interrupts from the CPU/peripheral point of view and choose the simpler correct mechanism for a stated latency, timing, and complexity requirement.",
+      "rationale": "Rewritten to expose the beginner prerequisite/mental model while preserving the same competency identity and assessment domain.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C7.6": {
+      "status": "REWRITE",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "tamuESET",
+        "armEmbedded",
+        "armKit",
+        "stTraining"
+      ],
+      "sourceBasisText": "Texas A&M University — Electronic Systems Engineering Technology (ESET) course descriptions; Arm — Embedded C Programming with Arm Cortex-M; Arm University Program — Efficient Embedded Systems Education Kit; STMicroelectronics — STM32 Online Training",
+      "previous": "Separate hardware abstraction, application logic, and diagnostic output so firmware is easier to test and troubleshoot.",
+      "final": "Separate hardware-access code, application/state logic, and diagnostic output so each layer can be reasoned about, tested, and troubleshot independently.",
+      "rationale": "Rewritten to expose the beginner prerequisite/mental model while preserving the same competency identity and assessment domain.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C8.1": {
+      "status": "REWRITE",
+      "relationship": "Adapted from / informed by",
+      "sourceIds": [
+        "stTraining",
+        "stMooc"
+      ],
+      "sourceBasisText": "STMicroelectronics — STM32 Online Training; STMicroelectronics — STM32CubeMX and STM32Cube HAL Basics",
+      "previous": "Create an STM32 project with correct MCU/board selection, clock configuration, pin mapping, and generated initialization code.",
+      "final": "Create an STM32 project by identifying the exact board/MCU, configuring clocks and pins, generating/inspecting initialization, building the project, and identifying the produced firmware image.",
+      "rationale": "Rewritten to expose the beginner prerequisite/mental model while preserving the same competency identity and assessment domain.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C8.2": {
+      "status": "REWRITE",
+      "relationship": "Adapted from / informed by",
+      "sourceIds": [
+        "stTraining",
+        "stMooc",
+        "tamuESET",
+        "armKit"
+      ],
+      "sourceBasisText": "STMicroelectronics — STM32 Online Training; STMicroelectronics — STM32CubeMX and STM32Cube HAL Basics; Texas A&M University — Electronic Systems Engineering Technology (ESET) course descriptions; Arm University Program — Efficient Embedded Systems Education Kit",
+      "previous": "Bring up a GPIO input/output and verify both firmware state and physical pin behavior.",
+      "final": "Bring up one STM32 GPIO path from project configuration through firmware state to physical pin behavior, using an independent measurement to prove the result.",
+      "rationale": "Rewritten to expose the beginner prerequisite/mental model while preserving the same competency identity and assessment domain.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C8.3": {
+      "status": "REWRITE",
+      "relationship": "Adapted from / informed by",
+      "sourceIds": [
+        "stTraining",
+        "armKit"
+      ],
+      "sourceBasisText": "STMicroelectronics — STM32 Online Training; Arm University Program — Efficient Embedded Systems Education Kit",
+      "previous": "Use SWD debugging to halt, step, inspect variables/registers, set breakpoints, and distinguish code-flow problems from hardware problems.",
+      "final": "Explain the debug-probe/SWD path and use it to connect, halt, step, set breakpoints, and inspect variables/registers so code-flow faults can be separated from hardware faults.",
+      "rationale": "Rewritten to expose the beginner prerequisite/mental model while preserving the same competency identity and assessment domain.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C8.4": {
+      "status": "REWRITE",
+      "relationship": "Adapted from / informed by",
+      "sourceIds": [
+        "stTraining",
+        "stMooc",
+        "tamuESET",
+        "armKit"
+      ],
+      "sourceBasisText": "STMicroelectronics — STM32 Online Training; STMicroelectronics — STM32CubeMX and STM32Cube HAL Basics; Texas A&M University — Electronic Systems Engineering Technology (ESET) course descriptions; Arm University Program — Efficient Embedded Systems Education Kit",
+      "previous": "Configure and validate a timer, ADC, or interrupt source while checking assumptions about clocks and units.",
+      "final": "Configure and validate a timer, ADC, or interrupt source by tracing clock/units/configuration assumptions through firmware state and physical or measured evidence.",
+      "rationale": "Rewritten to expose the beginner prerequisite/mental model while preserving the same competency identity and assessment domain.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C8.5": {
+      "status": "REWRITE",
+      "relationship": "Adapted from / informed by",
+      "sourceIds": [
+        "stTraining",
+        "stMooc",
+        "tamuESET",
+        "armKit"
+      ],
+      "sourceBasisText": "STMicroelectronics — STM32 Online Training; STMicroelectronics — STM32CubeMX and STM32Cube HAL Basics; Texas A&M University — Electronic Systems Engineering Technology (ESET) course descriptions; Arm University Program — Efficient Embedded Systems Education Kit",
+      "previous": "Use current draw, reset behavior, clock configuration, boot configuration, and debug connectivity as early board bring-up checks.",
+      "final": "Use staged evidence—power/current, reset/boot, clock/configuration, debug connectivity, minimal firmware, and I/O—to establish a known-good STM32 bring-up baseline before adding complexity.",
+      "rationale": "Rewritten to expose the beginner prerequisite/mental model while preserving the same competency identity and assessment domain.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C8.6": {
+      "status": "REWRITE",
+      "relationship": "Adapted from / informed by",
+      "sourceIds": [
+        "stTraining",
+        "stMooc",
+        "tamuESET",
+        "armKit"
+      ],
+      "sourceBasisText": "STMicroelectronics — STM32 Online Training; STMicroelectronics — STM32CubeMX and STM32Cube HAL Basics; Texas A&M University — Electronic Systems Engineering Technology (ESET) course descriptions; Arm University Program — Efficient Embedded Systems Education Kit",
+      "previous": "Capture a reproducible STM32 fault with firmware revision, configuration, measurements, and a verified fix.",
+      "final": "Capture an STM32 fault reproducibly with board/MCU identity, firmware revision, configuration, measurements/debug evidence, hypothesis, corrective action, and verified retest.",
+      "rationale": "Rewritten to expose the beginner prerequisite/mental model while preserving the same competency identity and assessment domain.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C9.1": {
+      "status": "KEEP",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "stTraining",
+        "saleae",
+        "sparkfunSerial",
+        "sparkfunI2C",
+        "sparkfunSPI"
+      ],
+      "sourceBasisText": "STMicroelectronics — STM32 Online Training; Saleae — Logic Analyzer Learning and Support; SparkFun — Serial Communication; SparkFun — I2C; SparkFun — Serial Peripheral Interface (SPI)",
+      "previous": "Configure UART parameters and diagnose mismatched baud rate, data bits, parity, stop bits, logic level, or crossed TX/RX connections.",
+      "final": "Configure UART parameters and diagnose mismatched baud rate, data bits, parity, stop bits, logic level, or crossed TX/RX connections.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C9.2": {
+      "status": "KEEP",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "stTraining",
+        "saleae",
+        "sparkfunSerial",
+        "sparkfunI2C",
+        "sparkfunSPI"
+      ],
+      "sourceBasisText": "STMicroelectronics — STM32 Online Training; Saleae — Logic Analyzer Learning and Support; SparkFun — Serial Communication; SparkFun — I2C; SparkFun — Serial Peripheral Interface (SPI)",
+      "previous": "Explain I²C addressing, open-drain signaling, pull-up resistors, START/STOP conditions, ACK/NACK, and common stuck-bus faults.",
+      "final": "Explain I²C addressing, open-drain signaling, pull-up resistors, START/STOP conditions, ACK/NACK, and common stuck-bus faults.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C9.3": {
+      "status": "KEEP",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "stTraining",
+        "saleae",
+        "sparkfunSerial",
+        "sparkfunI2C",
+        "sparkfunSPI"
+      ],
+      "sourceBasisText": "STMicroelectronics — STM32 Online Training; Saleae — Logic Analyzer Learning and Support; SparkFun — Serial Communication; SparkFun — I2C; SparkFun — Serial Peripheral Interface (SPI)",
+      "previous": "Explain SPI clock, MOSI/MISO, chip select, mode/polarity/phase, word length, and common configuration mismatches.",
+      "final": "Explain SPI clock, MOSI/MISO, chip select, mode/polarity/phase, word length, and common configuration mismatches.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C9.4": {
+      "status": "KEEP",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "stTraining",
+        "saleae",
+        "sparkfunSerial",
+        "sparkfunI2C",
+        "sparkfunSPI"
+      ],
+      "sourceBasisText": "STMicroelectronics — STM32 Online Training; Saleae — Logic Analyzer Learning and Support; SparkFun — Serial Communication; SparkFun — I2C; SparkFun — Serial Peripheral Interface (SPI)",
+      "previous": "Use a logic analyzer capture to correlate firmware actions with actual UART, I²C, or SPI bus transactions.",
+      "final": "Use a logic analyzer capture to correlate firmware actions with actual UART, I²C, or SPI bus transactions.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C9.5": {
+      "status": "KEEP",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "stTraining",
+        "saleae",
+        "sparkfunSerial",
+        "sparkfunI2C",
+        "sparkfunSPI"
+      ],
+      "sourceBasisText": "STMicroelectronics — STM32 Online Training; Saleae — Logic Analyzer Learning and Support; SparkFun — Serial Communication; SparkFun — I2C; SparkFun — Serial Peripheral Interface (SPI)",
+      "previous": "Read a sensor/interface datasheet to determine register address, transaction sequence, timing, and expected response.",
+      "final": "Read a sensor/interface datasheet to determine register address, transaction sequence, timing, and expected response.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C9.6": {
+      "status": "KEEP",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "stTraining",
+        "saleae",
+        "sparkfunSerial",
+        "sparkfunI2C",
+        "sparkfunSPI"
+      ],
+      "sourceBasisText": "STMicroelectronics — STM32 Online Training; Saleae — Logic Analyzer Learning and Support; SparkFun — Serial Communication; SparkFun — I2C; SparkFun — Serial Peripheral Interface (SPI)",
+      "previous": "Diagnose whether an interface failure is most likely firmware configuration, electrical connection, signal integrity, device addressing, or protocol sequencing.",
+      "final": "Diagnose whether an interface failure is most likely firmware configuration, electrical connection, signal integrity, device addressing, or protocol sequencing.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C10.1": {
+      "status": "KEEP",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "pythonDocs",
+        "pyserial",
+        "pytest",
+        "onetTech"
+      ],
+      "sourceBasisText": "Python Software Foundation — Python 3 Documentation; pySerial project — pySerial Documentation; pytest project — pytest Documentation; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians",
+      "previous": "Use Python to open, configure, read from, and write to a serial device with explicit timeouts and error handling.",
+      "final": "Use Python to open, configure, read from, and write to a serial device with explicit timeouts and error handling.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C10.2": {
+      "status": "KEEP",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "pythonDocs",
+        "pyserial",
+        "pytest",
+        "onetTech"
+      ],
+      "sourceBasisText": "Python Software Foundation — Python 3 Documentation; pySerial project — pySerial Documentation; pytest project — pytest Documentation; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians",
+      "previous": "Parse incoming measurements into structured values and reject malformed or out-of-range data safely.",
+      "final": "Parse incoming measurements into structured values and reject malformed or out-of-range data safely.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C10.3": {
+      "status": "KEEP",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "pythonDocs",
+        "pyserial",
+        "pytest",
+        "onetTech"
+      ],
+      "sourceBasisText": "Python Software Foundation — Python 3 Documentation; pySerial project — pySerial Documentation; pytest project — pytest Documentation; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians",
+      "previous": "Log timestamped test data in a reproducible format that preserves units, device identity, and test conditions.",
+      "final": "Log timestamped test data in a reproducible format that preserves units, device identity, and test conditions.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C10.4": {
+      "status": "KEEP",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "pythonDocs",
+        "pyserial",
+        "pytest",
+        "onetTech"
+      ],
+      "sourceBasisText": "Python Software Foundation — Python 3 Documentation; pySerial project — pySerial Documentation; pytest project — pytest Documentation; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians",
+      "previous": "Write an automated PASS/FAIL check against explicit limits and report why a failure occurred.",
+      "final": "Write an automated PASS/FAIL check against explicit limits and report why a failure occurred.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C10.5": {
+      "status": "KEEP",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "pythonDocs",
+        "pyserial",
+        "pytest",
+        "onetTech"
+      ],
+      "sourceBasisText": "Python Software Foundation — Python 3 Documentation; pySerial project — pySerial Documentation; pytest project — pytest Documentation; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians",
+      "previous": "Plot or summarize test data to reveal trends, drift, noise, or outliers relevant to a hardware decision.",
+      "final": "Plot or summarize test data to reveal trends, drift, noise, or outliers relevant to a hardware decision.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C10.6": {
+      "status": "KEEP",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "pythonDocs",
+        "pyserial",
+        "pytest",
+        "onetTech"
+      ],
+      "sourceBasisText": "Python Software Foundation — Python 3 Documentation; pySerial project — pySerial Documentation; pytest project — pytest Documentation; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians",
+      "previous": "Structure a small hardware-test script so setup, stimulus, measurement, evaluation, cleanup, and reporting are separate steps.",
+      "final": "Structure a small hardware-test script so setup, stimulus, measurement, evaluation, cleanup, and reporting are separate steps.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C11.1": {
+      "status": "KEEP",
+      "relationship": "Informed by / cross-checked against",
+      "sourceIds": [
+        "abetETAC",
+        "nasaSystems",
+        "onetTech"
+      ],
+      "sourceBasisText": "ABET — Criteria for Accrediting Engineering Technology Programs, 2026–2027; NASA — NASA Systems Engineering Handbook; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians",
+      "previous": "Translate a requirement into a measurable verification step with setup, stimulus, expected result, tolerance, and evidence.",
+      "final": "Translate a requirement into a measurable verification step with setup, stimulus, expected result, tolerance, and evidence.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C11.2": {
+      "status": "KEEP",
+      "relationship": "Informed by / cross-checked against",
+      "sourceIds": [
+        "abetETAC",
+        "nasaSystems",
+        "onetTech"
+      ],
+      "sourceBasisText": "ABET — Criteria for Accrediting Engineering Technology Programs, 2026–2027; NASA — NASA Systems Engineering Handbook; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians",
+      "previous": "Distinguish verification, validation, characterization, troubleshooting, and production test.",
+      "final": "Distinguish verification, validation, characterization, troubleshooting, and production test.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C11.3": {
+      "status": "KEEP",
+      "relationship": "Informed by / cross-checked against",
+      "sourceIds": [
+        "abetETAC",
+        "nasaSystems",
+        "onetTech"
+      ],
+      "sourceBasisText": "ABET — Criteria for Accrediting Engineering Technology Programs, 2026–2027; NASA — NASA Systems Engineering Handbook; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians",
+      "previous": "Design a repeatable test procedure that controls variables and records enough context for another technician to reproduce it.",
+      "final": "Design a repeatable test procedure that controls variables and records enough context for another technician to reproduce it.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C11.4": {
+      "status": "KEEP",
+      "relationship": "Informed by / cross-checked against",
+      "sourceIds": [
+        "abetETAC",
+        "nasaSystems",
+        "onetTech"
+      ],
+      "sourceBasisText": "ABET — Criteria for Accrediting Engineering Technology Programs, 2026–2027; NASA — NASA Systems Engineering Handbook; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians",
+      "previous": "Use boundary, nominal, and fault conditions to expose weaknesses that a single happy-path test would miss.",
+      "final": "Use boundary, nominal, and fault conditions to expose weaknesses that a single happy-path test would miss.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C11.5": {
+      "status": "KEEP",
+      "relationship": "Informed by / cross-checked against",
+      "sourceIds": [
+        "abetETAC",
+        "nasaSystems",
+        "onetTech"
+      ],
+      "sourceBasisText": "ABET — Criteria for Accrediting Engineering Technology Programs, 2026–2027; NASA — NASA Systems Engineering Handbook; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians",
+      "previous": "Interpret test results against requirements and identify whether the result is pass, fail, inconclusive, or requires additional data.",
+      "final": "Interpret test results against requirements and identify whether the result is pass, fail, inconclusive, or requires additional data.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C11.6": {
+      "status": "KEEP",
+      "relationship": "Informed by / cross-checked against",
+      "sourceIds": [
+        "abetETAC",
+        "nasaSystems",
+        "onetTech"
+      ],
+      "sourceBasisText": "ABET — Criteria for Accrediting Engineering Technology Programs, 2026–2027; NASA — NASA Systems Engineering Handbook; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians",
+      "previous": "Maintain traceability between requirement, test case, result, anomaly, corrective action, and retest evidence.",
+      "final": "Maintain traceability between requirement, test case, result, anomaly, corrective action, and retest evidence.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C12.1": {
+      "status": "REWRITE",
+      "relationship": "Adapted from / informed by",
+      "sourceIds": [
+        "githubSkills",
+        "pccEET101A"
+      ],
+      "sourceBasisText": "GitHub Skills — Introduction to GitHub; Portland Community College — EET 101A — Electronic Lab and Essential Work Skills",
+      "previous": "Use Git commits and branches to preserve meaningful firmware/test-script history and make changes reviewable.",
+      "final": "Use version control from a known mental model: repository/working tree → status/diff → commit/history → branch/tag, then apply those tools to preserve reviewable firmware, scripts, documentation, and known-good project baselines.",
+      "rationale": "Rewritten to expose the beginner prerequisite/mental model while preserving the same competency identity and assessment domain.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C12.2": {
+      "status": "REWRITE",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "githubSkills",
+        "pccEET101A"
+      ],
+      "sourceBasisText": "GitHub Skills — Introduction to GitHub; Portland Community College — EET 101A — Electronic Lab and Essential Work Skills",
+      "previous": "Use basic command-line tools and a repeatable project structure to build, run, inspect, and archive engineering work.",
+      "final": "Use basic command-line navigation and a repeatable project structure to build, run, inspect, compare, and archive engineering work without losing configuration or evidence context.",
+      "rationale": "Rewritten to expose the beginner prerequisite/mental model while preserving the same competency identity and assessment domain.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C12.3": {
+      "status": "KEEP",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "githubSkills",
+        "pccEET101A",
+        "onetTech"
+      ],
+      "sourceBasisText": "GitHub Skills — Introduction to GitHub; Portland Community College — EET 101A — Electronic Lab and Essential Work Skills; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians",
+      "previous": "Write lab notes with date, objective, configuration, observations, measurements, anomalies, and next actions.",
+      "final": "Write lab notes with date, objective, configuration, observations, measurements, anomalies, and next actions.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C12.4": {
+      "status": "KEEP",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "githubSkills",
+        "pccEET101A",
+        "onetTech"
+      ],
+      "sourceBasisText": "GitHub Skills — Introduction to GitHub; Portland Community College — EET 101A — Electronic Lab and Essential Work Skills; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians",
+      "previous": "Create a concise test report with purpose, setup, method, results, plots/tables, conclusions, and unresolved risks.",
+      "final": "Create a concise test report with purpose, setup, method, results, plots/tables, conclusions, and unresolved risks.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C12.5": {
+      "status": "KEEP",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "githubSkills",
+        "pccEET101A",
+        "onetTech"
+      ],
+      "sourceBasisText": "GitHub Skills — Introduction to GitHub; Portland Community College — EET 101A — Electronic Lab and Essential Work Skills; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians",
+      "previous": "Communicate a technical problem to an engineer using observed facts, measurements, attempted checks, and a clear question.",
+      "final": "Communicate a technical problem to an engineer using observed facts, measurements, attempted checks, and a clear question.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C12.6": {
+      "status": "KEEP",
+      "relationship": "Informed by",
+      "sourceIds": [
+        "githubSkills",
+        "pccEET101A",
+        "onetTech"
+      ],
+      "sourceBasisText": "GitHub Skills — Introduction to GitHub; Portland Community College — EET 101A — Electronic Lab and Essential Work Skills; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians",
+      "previous": "Keep filenames, versions, units, screenshots, code, schematics, and evidence organized so a future reviewer can reconstruct the work.",
+      "final": "Keep filenames, versions, units, screenshots, code, schematics, and evidence organized so a future reviewer can reconstruct the work.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C13.1": {
+      "status": "KEEP",
+      "relationship": "Alfred-authored integration; cross-checked against",
+      "sourceIds": [
+        "onetTech",
+        "blsTech"
+      ],
+      "sourceBasisText": "O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians; U.S. Bureau of Labor Statistics — Electrical and Electronic Engineering Technologists and Technicians",
+      "previous": "Present a project with problem, requirements, architecture, implementation, test evidence, failure/recovery story, and final result.",
+      "final": "Present a project with problem, requirements, architecture, implementation, test evidence, failure/recovery story, and final result.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C13.2": {
+      "status": "KEEP",
+      "relationship": "Alfred-authored integration; cross-checked against",
+      "sourceIds": [
+        "onetTech",
+        "blsTech"
+      ],
+      "sourceBasisText": "O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians; U.S. Bureau of Labor Statistics — Electrical and Electronic Engineering Technologists and Technicians",
+      "previous": "Explain personal contribution precisely without overstating ownership, certification, job title, or engineering authority.",
+      "final": "Explain personal contribution precisely without overstating ownership, certification, job title, or engineering authority.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C13.3": {
+      "status": "KEEP",
+      "relationship": "Alfred-authored integration; cross-checked against",
+      "sourceIds": [
+        "onetTech",
+        "blsTech"
+      ],
+      "sourceBasisText": "O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians; U.S. Bureau of Labor Statistics — Electrical and Electronic Engineering Technologists and Technicians",
+      "previous": "Answer a hardware troubleshooting interview question using a hypothesis-and-measurement process rather than guessing components.",
+      "final": "Answer a hardware troubleshooting interview question using a hypothesis-and-measurement process rather than guessing components.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C13.4": {
+      "status": "KEEP",
+      "relationship": "Alfred-authored integration; cross-checked against",
+      "sourceIds": [
+        "onetTech",
+        "blsTech"
+      ],
+      "sourceBasisText": "O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians; U.S. Bureau of Labor Statistics — Electrical and Electronic Engineering Technologists and Technicians",
+      "previous": "Tailor a resume bullet to an electronics/test/embedded role using concrete tools, actions, results, and evidence.",
+      "final": "Tailor a resume bullet to an electronics/test/embedded role using concrete tools, actions, results, and evidence.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C13.5": {
+      "status": "KEEP",
+      "relationship": "Alfred-authored integration; cross-checked against",
+      "sourceIds": [
+        "onetTech",
+        "blsTech"
+      ],
+      "sourceBasisText": "O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians; U.S. Bureau of Labor Statistics — Electrical and Electronic Engineering Technologists and Technicians",
+      "previous": "Evaluate a job description for must-have versus learnable skills and identify a credible bridge-role application strategy.",
+      "final": "Evaluate a job description for must-have versus learnable skills and identify a credible bridge-role application strategy.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    },
+    "C13.6": {
+      "status": "KEEP",
+      "relationship": "Alfred-authored integration; cross-checked against",
+      "sourceIds": [
+        "onetTech",
+        "blsTech"
+      ],
+      "sourceBasisText": "O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians; U.S. Bureau of Labor Statistics — Electrical and Electronic Engineering Technologists and Technicians",
+      "previous": "Use interview/application feedback to choose the next technical repair, portfolio improvement, or job-search adjustment.",
+      "final": "Use interview/application feedback to choose the next technical repair, portfolio improvement, or job-search adjustment.",
+      "rationale": "Retained because the existing competency remains appropriately scoped; provenance and prerequisite traceability were added.",
+      "adaptation": "Alfred sequences the competency inside the shared CETa/Career dependency graph and uses Alfred-specific labs/projects for evidence."
+    }
+  },
+  "weeks": {
+    "1": {
+      "level": "Foundation",
+      "ceta": "Voltage, current, resistance, power, polarity, reference, open/short circuit, and Week 1 safety boundaries.",
+      "prereq": "Use only the Week 1 CETa electrical-quantity and safety foundation. No prior bench-equipment experience is assumed.",
+      "new": "Bench power supply, DMM modes/jacks, current limiting, pre-power inspection, first-power sequence, stop conditions, and hazard logging.",
+      "overlap": "CETa explains the electrical quantities; Career turns them into a controlled first-power and measurement workflow.",
+      "future": "Creates the bench habits required for every later measurement, bring-up, troubleshooting, and lab task.",
+      "sources": [
+        "gptcElectronics",
+        "pccEET101A",
+        "flukeDMM",
+        "flukeSafety",
+        "nasaESD"
+      ],
+      "sourceRelationship": "Informed by / cross-checked against",
+      "sourceBasisText": "Georgia Piedmont Technical College — Electronics Technology — current catalog; Portland Community College — EET 101A — Electronic Lab and Essential Work Skills; Fluke — Digital Multimeter Basics; Fluke — Electrical Measurement Safety; NASA — NASA-HDBK-8739.21 — ESD Control"
+    },
+    "2": {
+      "level": "Foundation",
+      "ceta": "Series/parallel networks, KVL/KCL, dividers, expected node values, and reference-node reasoning.",
+      "prereq": "Bring forward Week 1 safe measurement habits plus the Week 2 CETa network equations and expected-node reasoning.",
+      "new": "Expected-versus-actual troubleshooting, node tables, first hypotheses, divide-and-conquer test-point selection, and one-change-at-a-time discipline.",
+      "overlap": "Career uses the exact CETa node-voltage/current predictions as the known-good baseline for troubleshooting.",
+      "future": "Prepares the learner to choose instruments and high-information measurements rather than probe randomly.",
+      "sources": [
+        "gptcElectronics",
+        "pccEET101B",
+        "onetTech"
+      ],
+      "sourceRelationship": "Informed by / cross-checked against",
+      "sourceBasisText": "Georgia Piedmont Technical College — Electronics Technology — current catalog; Portland Community College — EET 101B — Electronic Equipment and Lab Skills; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians"
+    },
+    "3": {
+      "level": "Foundation",
+      "ceta": "DMM/scope connection rules, waveform quantities, measurement units, and safe references.",
+      "prereq": "Use Week 1 bench safety and the CETa measurement concepts already taught. No professional measurement-planning experience is assumed.",
+      "new": "Question-first instrument selection, DMM/bench-supply/scope onboarding, probe/reference discipline, loading/accuracy/resolution, reproducible evidence, and logic-analyzer boundaries.",
+      "overlap": "CETa supplies what electrical quantities and waveforms mean; Career teaches how a technician chooses and configures the instrument that can answer a specific question.",
+      "future": "Becomes the common measurement workflow for filters, semiconductors, digital buses, MCU bring-up, RF work, and automated test.",
+      "sources": [
+        "pccEET101A",
+        "pccEET101B",
+        "flukeDMM",
+        "tekScope",
+        "onetTech"
+      ],
+      "sourceRelationship": "Informed by / cross-checked against",
+      "sourceBasisText": "Portland Community College — EET 101A — Electronic Lab and Essential Work Skills; Portland Community College — EET 101B — Electronic Equipment and Lab Skills; Fluke — Digital Multimeter Basics; Tektronix — The XYZs of Oscilloscopes; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians"
+    },
+    "4": {
+      "level": "Foundation",
+      "ceta": "Capacitance, RC time behavior, frequency response, and filter fundamentals.",
+      "prereq": "Use the Week 3 measurement workflow plus CETa RC/filter behavior. The learner should already know amplitude, period, frequency, and time constant.",
+      "new": "Turn time-domain observations into evidence about cutoff, charging/discharging, distortion, and fault location.",
+      "overlap": "Career measures the same RC/filter behavior CETa explains mathematically and physically.",
+      "future": "Builds the habit of predicting waveform shape before using a scope for diagnosis.",
+      "sources": [
+        "gptcElectronics",
+        "pccEET101B",
+        "tekScope"
+      ],
+      "sourceRelationship": "Informed by / cross-checked against",
+      "sourceBasisText": "Georgia Piedmont Technical College — Electronics Technology — current catalog; Portland Community College — EET 101B — Electronic Equipment and Lab Skills; Tektronix — The XYZs of Oscilloscopes"
+    },
+    "5": {
+      "level": "Foundation",
+      "ceta": "Cumulative DC/AC/component fundamentals needed for the first troubleshooting gate.",
+      "prereq": "Use Weeks 1–4 safety, expected-value, and instrument-selection habits. No new tool should appear without explanation.",
+      "new": "A complete reproduce → predict → measure → isolate → repair → verify troubleshooting loop under a practical gate.",
+      "overlap": "CETa supplies component/circuit behavior; Career organizes that knowledge into a repeatable diagnostic process.",
+      "future": "Establishes the troubleshooting model reused through the rest of the course.",
+      "sources": [
+        "pccEET101B",
+        "onetTech",
+        "nasaSystems"
+      ],
+      "sourceRelationship": "Informed by / cross-checked against",
+      "sourceBasisText": "Portland Community College — EET 101B — Electronic Equipment and Lab Skills; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians; NASA — NASA Systems Engineering Handbook"
+    },
+    "6": {
+      "level": "Foundation",
+      "ceta": "RLC/resonance/filter response and frequency-domain relationships.",
+      "prereq": "Bring forward Week 3 measurement planning and Week 4 waveform/filter evidence.",
+      "new": "Characterization tables, sweep planning, resonant/filter comparison, tolerance reasoning, and technician reporting.",
+      "overlap": "Career converts CETa frequency-response theory into measured characterization.",
+      "future": "Prepares for transistor/op-amp signal chains and later spectrum work.",
+      "sources": [
+        "gptcElectronics",
+        "tekScope",
+        "tiPrecision"
+      ],
+      "sourceRelationship": "Informed by / cross-checked against",
+      "sourceBasisText": "Georgia Piedmont Technical College — Electronics Technology — current catalog; Tektronix — The XYZs of Oscilloscopes; Texas Instruments — TI Precision Labs"
+    },
+    "7": {
+      "level": "Intermediate",
+      "ceta": "Diodes, rectification, inductance, switching devices, and protection concepts.",
+      "prereq": "Use CETa device behavior plus prior pre-power and measurement discipline. Datasheet reading is introduced explicitly before design use.",
+      "new": "Datasheet pin/rating extraction, relay/inductive-load interface planning, flyback protection, and evidence-based component selection.",
+      "overlap": "CETa teaches device physics/behavior; Career uses datasheets to turn that behavior into a safe interface.",
+      "future": "Prepares protected transistor/MOSFET switching and regulator bring-up.",
+      "sources": [
+        "gptcElectronics",
+        "tiPrecision",
+        "onetTech"
+      ],
+      "sourceRelationship": "Informed by / cross-checked against",
+      "sourceBasisText": "Georgia Piedmont Technical College — Electronics Technology — current catalog; Texas Instruments — TI Precision Labs; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians"
+    },
+    "8": {
+      "level": "Intermediate",
+      "ceta": "Transistor/MOSFET switching behavior, protection, power dissipation, and bias/control ideas.",
+      "prereq": "Use Week 7 datasheet and inductive-load discipline plus CETa transistor/MOSFET fundamentals.",
+      "new": "Protected low-side switching, gate/base drive checks, flyback paths, dissipation estimates, and layered fault isolation.",
+      "overlap": "Career applies CETa semiconductor behavior to a practical driver circuit.",
+      "future": "Creates a reusable switching pattern for actuators and embedded interfaces.",
+      "sources": [
+        "gptcElectronics",
+        "tiPrecision",
+        "adiLinear"
+      ],
+      "sourceRelationship": "Informed by / cross-checked against",
+      "sourceBasisText": "Georgia Piedmont Technical College — Electronics Technology — current catalog; Texas Instruments — TI Precision Labs; Analog Devices — Basic Linear Design"
+    },
+    "9": {
+      "level": "Intermediate",
+      "ceta": "Power-supply, regulation, ripple, grounding, and load concepts.",
+      "prereq": "Use Week 1 current-limited first power, Week 2 expected nodes, and Week 3 question-first measurement.",
+      "new": "Rail-by-rail bring-up, current signature interpretation, regulator checks, staged load connection, and supply-fault isolation.",
+      "overlap": "Career turns CETa power-supply theory into a staged bring-up sequence.",
+      "future": "Directly supports MCU board bring-up and project first power.",
+      "sources": [
+        "gptcElectronics",
+        "flukeDMM",
+        "onetTech"
+      ],
+      "sourceRelationship": "Informed by / cross-checked against",
+      "sourceBasisText": "Georgia Piedmont Technical College — Electronics Technology — current catalog; Fluke — Digital Multimeter Basics; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians"
+    },
+    "10": {
+      "level": "Intermediate",
+      "ceta": "Amplifiers, signal conditioning, gain, bandwidth, loading, and clipping concepts.",
+      "prereq": "Use Week 3 scope discipline and CETa amplifier/signal-chain models.",
+      "new": "Signal-path block reasoning, expected gain/offset/bandwidth, test-point planning, and stage-by-stage isolation.",
+      "overlap": "Career measures the same gain, bias, and bandwidth relationships CETa explains.",
+      "future": "Prepares mixed-signal and sensor-path diagnosis.",
+      "sources": [
+        "gptcElectronics",
+        "tiOpAmp",
+        "adiOpAmp"
+      ],
+      "sourceRelationship": "Informed by / cross-checked against",
+      "sourceBasisText": "Georgia Piedmont Technical College — Electronics Technology — current catalog; Texas Instruments — TI Precision Labs — Op Amps; Analog Devices — Learn the Fundamentals of Op Amps"
+    },
+    "11": {
+      "level": "Intermediate",
+      "ceta": "Digital logic levels, Boolean/state concepts, pull resistors, timing, and debounce.",
+      "prereq": "Use the CETa digital logic model plus Week 3 measurement planning. No MCU register knowledge is assumed yet.",
+      "new": "Real logic thresholds, pull-up/pull-down behavior, switch bounce, scope/logic-analyzer evidence, and bit-mask preview only where CETa has prepared the binary model.",
+      "overlap": "Career makes CETa logic states physical: voltage levels, timing, edges, and noisy transitions.",
+      "future": "Prepares MCU GPIO, registers, interrupts, and serial-bus analysis.",
+      "sources": [
+        "gptcElectronics",
+        "pccEETProgram",
+        "saleae"
+      ],
+      "sourceRelationship": "Informed by / cross-checked against",
+      "sourceBasisText": "Georgia Piedmont Technical College — Electronics Technology — current catalog; Portland Community College — Electronic Engineering Technology — program and course sequence; Saleae — Logic Analyzer Learning and Support"
+    },
+    "12": {
+      "level": "Intermediate",
+      "ceta": "Soldering/rework/workmanship and physical interconnection concepts.",
+      "prereq": "Use CETa workmanship/safety plus the established evidence rule. No version-control knowledge is assumed.",
+      "new": "Physical-change traceability plus Git from zero: repository, working tree, status, diff, commit, history, branch/tag, and known-good baseline.",
+      "overlap": "CETa governs physical workmanship; Career makes the change and its evidence reproducible in project history.",
+      "future": "Git becomes infrastructure for C, STM32, projects, test scripts, and portfolio evidence after this week.",
+      "sources": [
+        "gptcElectronics",
+        "pccEET101A",
+        "githubSkills",
+        "nasaHarness",
+        "nasaESD"
+      ],
+      "sourceRelationship": "Informed by / cross-checked against",
+      "sourceBasisText": "Georgia Piedmont Technical College — Electronics Technology — current catalog; Portland Community College — EET 101A — Electronic Lab and Essential Work Skills; GitHub Skills — Introduction to GitHub; NASA — NASA-STD-8739.4 — Crimping, Cables, Harnesses, and Wiring; NASA — NASA-HDBK-8739.21 — ESD Control"
+    },
+    "13": {
+      "level": "Intermediate",
+      "ceta": "Schematics, components, datasheets, signal flow, and prior troubleshooting evidence.",
+      "prereq": "Use the established troubleshooting loop, schematic/datasheet literacy, and Git/lab-record baseline.",
+      "new": "Competing hypotheses, discriminating tests, divide-and-conquer strategy, root-cause verification, and concise failure reporting.",
+      "overlap": "Career organizes CETa circuit knowledge into high-information diagnostic choices.",
+      "future": "This reasoning model becomes the debugging backbone for C, MCU, buses, and projects.",
+      "sources": [
+        "pccEET101B",
+        "onetTech",
+        "nasaSystems"
+      ],
+      "sourceRelationship": "Informed by / cross-checked against",
+      "sourceBasisText": "Portland Community College — EET 101B — Electronic Equipment and Lab Skills; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians; NASA — NASA Systems Engineering Handbook"
+    },
+    "14": {
+      "level": "Intermediate",
+      "ceta": "Binary/hex, logic, computer/processor concepts, and the idea that source code is translated into executable machine instructions.",
+      "prereq": "No C programming is assumed. Use only CETa binary/computer fundamentals and Week 12 project-file/Git habits.",
+      "new": "A real C foundation: source/build model, variables/types, expressions, conditionals, loops, functions, arrays/strings/structs/enums, addresses/pointers, bitwise operations, warnings, and debugging.",
+      "overlap": "CETa explains binary and processor concepts; Career teaches the programming language used to control and test those systems.",
+      "future": "Provides the programming prerequisites for embedded state/timing and STM32 work.",
+      "sources": [
+        "tamuESET",
+        "beejC",
+        "cs50C",
+        "armEmbedded"
+      ],
+      "sourceRelationship": "Informed by / cross-checked against",
+      "sourceBasisText": "Texas A&M University — Electronic Systems Engineering Technology (ESET) course descriptions; Brian Hall / open textbook — Beej's Guide to C Programming; Harvard University — CS50x Week 4 — Memory and Pointers; Arm — Embedded C Programming with Arm Cortex-M"
+    },
+    "15": {
+      "level": "Intermediate",
+      "ceta": "Microprocessor architecture, registers, ports, binary/bit logic, clocks, and timing concepts.",
+      "prereq": "Week 14 C must be usable before this lesson. Bring forward functions, types, arrays/pointers, bitwise masks, and debugging.",
+      "new": "MCU mental model, memory-mapped registers, read/modify/write, polling, blocking vs nonblocking, state machines, interrupts/ISR, shared state, volatile, and timing units.",
+      "overlap": "CETa supplies the architecture vocabulary; Career connects C statements to actual MCU state and timing.",
+      "future": "Direct prerequisite for STM32 configuration, SWD debugging, GPIO, timers, and interfaces.",
+      "sources": [
+        "tamuESET",
+        "armEmbedded",
+        "armKit",
+        "stTraining"
+      ],
+      "sourceRelationship": "Informed by / cross-checked against",
+      "sourceBasisText": "Texas A&M University — Electronic Systems Engineering Technology (ESET) course descriptions; Arm — Embedded C Programming with Arm Cortex-M; Arm University Program — Efficient Embedded Systems Education Kit; STMicroelectronics — STM32 Online Training"
+    },
+    "16": {
+      "level": "Intermediate",
+      "ceta": "MCU architecture, GPIO/register concepts, clocks, and interface fundamentals available so far.",
+      "prereq": "Use Week 14 C and Week 15 embedded architecture. No prior STM32 IDE, build, flash, or SWD experience is assumed.",
+      "new": "STM32 board/MCU identity, project/configuration, toolchain/build, output image, ST-LINK/debug probe, flash/reset/run, SWD, breakpoint, registers, GPIO proof, and fault layers.",
+      "overlap": "CETa explains what an MCU/peripheral is; Career shows how that model becomes a real build/flash/debug workflow.",
+      "future": "Creates a known-good MCU baseline for host serial, I2C/SPI, sensors, and Project 1.",
+      "sources": [
+        "tamuESET",
+        "stTraining",
+        "stMooc",
+        "armKit"
+      ],
+      "sourceRelationship": "Informed by / cross-checked against",
+      "sourceBasisText": "Texas A&M University — Electronic Systems Engineering Technology (ESET) course descriptions; STMicroelectronics — STM32 Online Training; STMicroelectronics — STM32CubeMX and STM32Cube HAL Basics; Arm University Program — Efficient Embedded Systems Education Kit"
+    },
+    "17": {
+      "level": "Intermediate",
+      "ceta": "UART framing/levels and serial communication theory.",
+      "prereq": "Use CETa UART theory, Week 14 programming ideas, and Week 16 known-good MCU baseline. No Python knowledge is assumed.",
+      "new": "Python from zero for test work, bytes versus text, modules/exceptions/files, pySerial configuration/read/write, message boundaries, parsing/validation, and evidence logging.",
+      "overlap": "CETa explains the UART link; Career builds the host-side software that uses and tests it.",
+      "future": "Python becomes the host/test foundation for later automated hardware validation.",
+      "sources": [
+        "pythonDocs",
+        "pyserial",
+        "sparkfunSerial",
+        "onetTech"
+      ],
+      "sourceRelationship": "Informed by / cross-checked against",
+      "sourceBasisText": "Python Software Foundation — Python 3 Documentation; pySerial project — pySerial Documentation; SparkFun — Serial Communication; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians"
+    },
+    "18": {
+      "level": "Intermediate",
+      "ceta": "UART/I2C/SPI electrical and protocol models plus MCU peripheral concepts.",
+      "prereq": "Use Week 16 STM32 bring-up, Week 17 host-side serial thinking, and CETa bus fundamentals. The learner should already understand what a register, pin, wire reference, and transaction are.",
+      "new": "One-interface-at-a-time datasheet-to-wire integration, transaction contracts, pull-ups/chip select, logic-analyzer setup, decoded evidence, and layered bus fault isolation.",
+      "overlap": "CETa teaches bus mechanics; Career turns a real device datasheet into wiring, driver behavior, captures, and diagnosis.",
+      "future": "Supports Project 1 peripheral integration and automated interface verification.",
+      "sources": [
+        "stTraining",
+        "saleae",
+        "sparkfunI2C",
+        "sparkfunSPI"
+      ],
+      "sourceRelationship": "Informed by / cross-checked against",
+      "sourceBasisText": "STMicroelectronics — STM32 Online Training; Saleae — Logic Analyzer Learning and Support; SparkFun — I2C; SparkFun — Serial Peripheral Interface (SPI)"
+    },
+    "19": {
+      "level": "Intermediate",
+      "ceta": "Cabling, connectors, transmission media, continuity, and workmanship concepts.",
+      "prereq": "Use CETa cable/media theory plus Week 3 measurement discipline and Week 12 workmanship evidence.",
+      "new": "Termination inspection, pin numbering/keying, strain relief, continuity/segment isolation, and serviceable harness documentation.",
+      "overlap": "Career applies CETa cabling theory to physical assembly and fault isolation.",
+      "future": "Prepares reliable project interconnects and employer-facing workmanship evidence.",
+      "sources": [
+        "nasaHarness",
+        "onetTech",
+        "pccEET101A"
+      ],
+      "sourceRelationship": "Informed by / cross-checked against",
+      "sourceBasisText": "NASA — NASA-STD-8739.4 — Crimping, Cables, Harnesses, and Wiring; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians; Portland Community College — EET 101A — Electronic Lab and Essential Work Skills"
+    },
+    "20": {
+      "level": "Intermediate",
+      "ceta": "RF/telecom fundamentals: frequency, spectra, modulation, transmission lines, and technician procedures.",
+      "prereq": "Use CETa RF/telecom concepts plus Week 3 measurement planning. No spectrum-analyzer workflow is assumed.",
+      "new": "Spectrum-analyzer controls/settings, marker interpretation, measurement procedure writing, observation-versus-interpretation, and technical escalation/handoff.",
+      "overlap": "CETa explains what spectral features mean; Career teaches how to measure and communicate them reproducibly.",
+      "future": "Strengthens professional test procedure and handoff skills used in project validation.",
+      "sources": [
+        "tekSpectrum",
+        "nptelComms",
+        "onetTech"
+      ],
+      "sourceRelationship": "Informed by / cross-checked against",
+      "sourceBasisText": "Tektronix — Fundamentals of Real-Time Spectrum Analysis; NPTEL — Principles of Communication Systems I; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians"
+    },
+    "21": {
+      "level": "Intermediate",
+      "ceta": "Broad CETa theory accumulated across electrical, components, digital, communications, safety, and procedures.",
+      "prereq": "Use all prior foundational models but continue to choose the smallest relevant model for each scenario.",
+      "new": "Rapid technician triage: identify the domain, select the likely evidence source/tool, state a hypothesis, and choose a safe next action.",
+      "overlap": "Career converts broad CETa recall into fast, disciplined technician decisions.",
+      "future": "Prepares requirements/project work where the learner must select methods without topic labels.",
+      "sources": [
+        "etaCompetencies",
+        "onetTech",
+        "abetETAC"
+      ],
+      "sourceRelationship": "Informed by / cross-checked against",
+      "sourceBasisText": "ETA International — ETA Associate CET (CETa) Competency Requirements; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians; ABET — Criteria for Accrediting Engineering Technology Programs, 2026–2027"
+    },
+    "22": {
+      "level": "Advanced",
+      "ceta": "Readiness review plus broad technical foundation.",
+      "prereq": "Use the troubleshooting, documentation, Git, measurement, and interface habits already established.",
+      "new": "Requirements, acceptance criteria, verification methods, traceability, test planning, and scope control before build work.",
+      "overlap": "CETa knowledge becomes design/test requirements; Career formalizes how those requirements are proven.",
+      "future": "Defines the contract for Project 1 and later automated validation.",
+      "sources": [
+        "abetETAC",
+        "nasaSystems",
+        "onetTech"
+      ],
+      "sourceRelationship": "Informed by / cross-checked against",
+      "sourceBasisText": "ABET — Criteria for Accrediting Engineering Technology Programs, 2026–2027; NASA — NASA Systems Engineering Handbook; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians"
+    },
+    "23": {
+      "level": "Advanced",
+      "ceta": "CETa readiness evidence and all prior technical foundations.",
+      "prereq": "Requirements must exist before the project baseline. Git/project structure, lab records, and safety limits are already taught.",
+      "new": "Controlled project baseline: repository, configuration identity, issue/evidence structure, bench readiness, BOM/interface ownership, and reproducible start state.",
+      "overlap": "Career turns accumulated CETa knowledge into a controlled project launch.",
+      "future": "Prevents first-power ambiguity and provides a known baseline for every Project 1 change.",
+      "sources": [
+        "githubSkills",
+        "nasaSystems",
+        "onetTech"
+      ],
+      "sourceRelationship": "Informed by / cross-checked against",
+      "sourceBasisText": "GitHub Skills — Introduction to GitHub; NASA — NASA Systems Engineering Handbook; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians"
+    },
+    "24": {
+      "level": "Advanced",
+      "ceta": "Power, measurement, digital/MCU, safety, and component behavior.",
+      "prereq": "Use the controlled baseline from Week 23 plus the Week 1/9/16 bring-up ladders.",
+      "new": "Project first power with inspection, continuity, current limiting, rail verification, reset/boot/debug checks, GPIO/UART proof, and baseline evidence.",
+      "overlap": "Career integrates many CETa concepts in a staged real-system bring-up.",
+      "future": "Creates the known-good platform required before adding a sensor/peripheral.",
+      "sources": [
+        "flukeDMM",
+        "stTraining",
+        "onetTech"
+      ],
+      "sourceRelationship": "Informed by / cross-checked against",
+      "sourceBasisText": "Fluke — Digital Multimeter Basics; STMicroelectronics — STM32 Online Training; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians"
+    },
+    "25": {
+      "level": "Advanced",
+      "ceta": "I2C/SPI/interface theory, sensors, ADC/digital concepts, and prior measurement skills.",
+      "prereq": "Use Week 18 one-interface workflow and Week 24 known-good project baseline.",
+      "new": "One controlled peripheral vertical slice from datasheet and wiring through firmware, capture, engineering-unit conversion, fault handling, and evidence.",
+      "overlap": "Career integrates CETa protocol/device theory into an end-to-end subsystem.",
+      "future": "Provides a stable functional slice that firmware architecture and automated test can exercise.",
+      "sources": [
+        "stTraining",
+        "saleae",
+        "sparkfunI2C",
+        "sparkfunSPI"
+      ],
+      "sourceRelationship": "Informed by / cross-checked against",
+      "sourceBasisText": "STMicroelectronics — STM32 Online Training; Saleae — Logic Analyzer Learning and Support; SparkFun — I2C; SparkFun — Serial Peripheral Interface (SPI)"
+    },
+    "26": {
+      "level": "Advanced",
+      "ceta": "MCU architecture, digital/state concepts, and the project peripheral now working.",
+      "prereq": "Use Week 15 nonblocking/state/interrupt concepts and Week 25 working vertical slice.",
+      "new": "Firmware layering: drivers, application state, diagnostics, timeouts, error/recovery paths, versioned changes, and testable module boundaries.",
+      "overlap": "Career organizes CETa/embedded concepts into maintainable project architecture.",
+      "future": "Makes Project 1 observable and controllable enough for automated testing.",
+      "sources": [
+        "armEmbedded",
+        "stTraining",
+        "githubSkills"
+      ],
+      "sourceRelationship": "Informed by / cross-checked against",
+      "sourceBasisText": "Arm — Embedded C Programming with Arm Cortex-M; STMicroelectronics — STM32 Online Training; GitHub Skills — Introduction to GitHub"
+    },
+    "27": {
+      "level": "Advanced",
+      "ceta": "Measurement/test concepts plus the working Project 1 interface.",
+      "prereq": "Use Week 17 Python/serial, Week 22 requirements/verification, and Week 26 observable firmware. No automated-test architecture is assumed beyond those pieces.",
+      "new": "Automated-test lifecycle, fixture/DUT boundaries, setup/stimulus/acquisition/evaluation/cleanup, PASS/FAIL/ERROR/INCONCLUSIVE semantics, configuration source-of-truth, logs, plots, and boundary tests.",
+      "overlap": "Career turns prior measurement and software skills into repeatable hardware verification.",
+      "future": "Provides the evidence engine for deliberate fault injection and final reports.",
+      "sources": [
+        "pythonDocs",
+        "pyserial",
+        "pytest",
+        "matplotlib",
+        "onetTech"
+      ],
+      "sourceRelationship": "Informed by / cross-checked against",
+      "sourceBasisText": "Python Software Foundation — Python 3 Documentation; pySerial project — pySerial Documentation; pytest project — pytest Documentation; Matplotlib project — Matplotlib Quick Start; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians"
+    },
+    "28": {
+      "level": "Advanced",
+      "ceta": "Broad electronics theory and established project/test baseline.",
+      "prereq": "Use Week 13 root-cause reasoning, Week 22 verification design, and Week 27 automated evidence.",
+      "new": "Controlled fault injection, failure-mode coverage, evidence-preserving diagnosis, requirement/result traceability, corrective action, retest, and defensible report writing.",
+      "overlap": "Career demonstrates mastery by using CETa theory to explain and prove real failures.",
+      "future": "Produces the strongest troubleshooting story for the portfolio and interviews.",
+      "sources": [
+        "nasaSystems",
+        "onetTech",
+        "abetETAC"
+      ],
+      "sourceRelationship": "Informed by / cross-checked against",
+      "sourceBasisText": "NASA — NASA Systems Engineering Handbook; O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians; ABET — Criteria for Accrediting Engineering Technology Programs, 2026–2027"
+    },
+    "29": {
+      "level": "Advanced",
+      "ceta": "All practical electronics, measurement, workmanship, and troubleshooting foundations.",
+      "prereq": "Only artifacts already created in labs/projects count as evidence; do not invent proficiency.",
+      "new": "Employer-facing role-proof dossier combining instruments, rework/harness quality, bring-up, troubleshooting, code, test evidence, and serviceability.",
+      "overlap": "Career packages the competencies already demonstrated across CETa and project work.",
+      "future": "Feeds the application and interview package without requiring a new technical project.",
+      "sources": [
+        "onetTech",
+        "nasaHarness",
+        "blsTech"
+      ],
+      "sourceRelationship": "Informed by / cross-checked against",
+      "sourceBasisText": "O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians; NASA — NASA-STD-8739.4 — Crimping, Cables, Harnesses, and Wiring; U.S. Bureau of Labor Statistics — Electrical and Electronic Engineering Technologists and Technicians"
+    },
+    "30": {
+      "level": "Advanced",
+      "ceta": "Completed technical evidence plus readiness results.",
+      "prereq": "Use verified project/lab evidence and accurate statements of personal contribution.",
+      "new": "Evidence-first portfolio, truthful resume bullets, 90-second transition story, technical project explanations, troubleshooting interviews, and job-description skill-gap analysis.",
+      "overlap": "Career converts technical mastery into accurate employer communication.",
+      "future": "Creates a reusable application package and feedback baseline.",
+      "sources": [
+        "onetTech",
+        "blsTech"
+      ],
+      "sourceRelationship": "Informed by / cross-checked against",
+      "sourceBasisText": "O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians; U.S. Bureau of Labor Statistics — Electrical and Electronic Engineering Technologists and Technicians"
+    },
+    "31": {
+      "level": "Advanced",
+      "ceta": "Course technical foundation is complete; remaining work is retention and targeted repair.",
+      "prereq": "Use the existing portfolio/application package and real feedback. Do not restart mastered curriculum wholesale.",
+      "new": "Application/interview feedback loop, gap classification, targeted technical repair, portfolio maintenance, and bridge-role targeting.",
+      "overlap": "Career uses the learning system as a repair loop after formal instruction ends.",
+      "future": "Transitions Alfred from course delivery to ongoing targeted professional development.",
+      "sources": [
+        "onetTech",
+        "blsTech"
+      ],
+      "sourceRelationship": "Informed by / cross-checked against",
+      "sourceBasisText": "O*NET OnLine / U.S. Department of Labor — Electrical and Electronic Engineering Technologists and Technicians; U.S. Bureau of Labor Statistics — Electrical and Electronic Engineering Technologists and Technicians"
+    }
+  },
+  "sources": {
+    "gptcElectronics": {
+      "title": "Electronics Technology — current catalog",
+      "org": "Georgia Piedmont Technical College",
+      "kind": "Technical-college EET curriculum",
+      "url": "https://www.gptc.edu/college-catalog/current/programs/electronics-technology"
+    },
+    "pccEET101A": {
+      "title": "EET 101A — Electronic Lab and Essential Work Skills",
+      "org": "Portland Community College",
+      "kind": "Community-college EET course guide",
+      "url": "https://www.pcc.edu/ccog/eet/101a/"
+    },
+    "flukeDMM": {
+      "title": "Digital Multimeter Basics",
+      "org": "Fluke",
+      "kind": "Manufacturer training",
+      "url": "https://www.fluke.com/en-us/learn/online-courses/digital-multimeter-basics-online-course"
+    },
+    "flukeSafety": {
+      "title": "Electrical Measurement Safety",
+      "org": "Fluke",
+      "kind": "Manufacturer training",
+      "url": "https://www.fluke.com/en-us/learn/online-courses/electrical-measurement-safety"
+    },
+    "nasaESD": {
+      "title": "NASA-HDBK-8739.21 — ESD Control",
+      "org": "NASA",
+      "kind": "Government workmanship handbook",
+      "url": "https://standards.nasa.gov/standard/NASA/NASA-HDBK-873921"
+    },
+    "pccEET101B": {
+      "title": "EET 101B — Electronic Equipment and Lab Skills",
+      "org": "Portland Community College",
+      "kind": "Community-college EET course guide",
+      "url": "https://www.pcc.edu/ccog/eet/101b/"
+    },
+    "onetTech": {
+      "title": "Electrical and Electronic Engineering Technologists and Technicians",
+      "org": "O*NET OnLine / U.S. Department of Labor",
+      "kind": "Government occupational evidence",
+      "url": "https://www.onetonline.org/link/summary/17-3023.00"
+    },
+    "tekScope": {
+      "title": "The XYZs of Oscilloscopes",
+      "org": "Tektronix",
+      "kind": "Manufacturer primer",
+      "url": "https://www.tek.com/en/documents/primer/xyzs-oscilloscopes-primer"
+    },
+    "nasaSystems": {
+      "title": "NASA Systems Engineering Handbook",
+      "org": "NASA",
+      "kind": "Government engineering handbook",
+      "url": "https://www.nasa.gov/reference/systems-engineering-handbook/"
+    },
+    "tiPrecision": {
+      "title": "TI Precision Labs",
+      "org": "Texas Instruments",
+      "kind": "Manufacturer video library",
+      "url": "https://www.ti.com/video/series/precision-labs.html"
+    },
+    "adiLinear": {
+      "title": "Basic Linear Design",
+      "org": "Analog Devices",
+      "kind": "Manufacturer handbook",
+      "url": "https://www.analog.com/media/en/training-seminars/design-handbooks/Basic-Linear-Design/LinearDesign_Cover.pdf"
+    },
+    "tiOpAmp": {
+      "title": "TI Precision Labs — Op Amps",
+      "org": "Texas Instruments",
+      "kind": "Manufacturer video series",
+      "url": "https://www.ti.com/video/series/precision-labs/ti-precision-labs-op-amps.html"
+    },
+    "adiOpAmp": {
+      "title": "Learn the Fundamentals of Op Amps",
+      "org": "Analog Devices",
+      "kind": "Manufacturer video",
+      "url": "https://www.analog.com/en/resources/media-center/videos/6313213708112.html"
+    },
+    "pccEETProgram": {
+      "title": "Electronic Engineering Technology — program and course sequence",
+      "org": "Portland Community College",
+      "kind": "Community-college EET curriculum",
+      "url": "https://catalog.pcc.edu/programsanddisciplines/electronicengineeringtechnology/"
+    },
+    "saleae": {
+      "title": "Logic Analyzer Learning and Support",
+      "org": "Saleae",
+      "kind": "Manufacturer documentation",
+      "url": "https://support.saleae.com/"
+    },
+    "githubSkills": {
+      "title": "Introduction to GitHub",
+      "org": "GitHub Skills",
+      "kind": "Interactive training",
+      "url": "https://github.com/skills/introduction-to-github"
+    },
+    "nasaHarness": {
+      "title": "NASA-STD-8739.4 — Crimping, Cables, Harnesses, and Wiring",
+      "org": "NASA",
+      "kind": "Government workmanship standard",
+      "url": "https://standards.nasa.gov/standard/NASA/NASA-STD-87394"
+    },
+    "tamuESET": {
+      "title": "Electronic Systems Engineering Technology (ESET) course descriptions",
+      "org": "Texas A&M University",
+      "kind": "University ESET curriculum",
+      "url": "https://catalog.tamu.edu/undergraduate/course-descriptions/eset/"
+    },
+    "beejC": {
+      "title": "Beej's Guide to C Programming",
+      "org": "Brian Hall / open textbook",
+      "kind": "Open C textbook",
+      "url": "https://beej.us/guide/bgc/"
+    },
+    "cs50C": {
+      "title": "CS50x Week 4 — Memory and Pointers",
+      "org": "Harvard University",
+      "kind": "University course notes and video",
+      "url": "https://cs50.harvard.edu/x/notes/4/"
+    },
+    "armEmbedded": {
+      "title": "Embedded C Programming with Arm Cortex-M",
+      "org": "Arm",
+      "kind": "Vendor-validated video course",
+      "url": "https://developer.arm.com/community/arm-community-blogs/b/embedded-and-microcontrollers-blog/posts/embedded-c-programming-with-arm-cortex-m-video-course"
+    },
+    "armKit": {
+      "title": "Efficient Embedded Systems Education Kit",
+      "org": "Arm University Program",
+      "kind": "University teaching kit",
+      "url": "https://www.arm.com/resources/education/education-kits/efficient-embedded-systems"
+    },
+    "stTraining": {
+      "title": "STM32 Online Training",
+      "org": "STMicroelectronics",
+      "kind": "Manufacturer training",
+      "url": "https://www.st.com/content/st_com/en/support/learning/stm32-online-training.html"
+    },
+    "stMooc": {
+      "title": "STM32CubeMX and STM32Cube HAL Basics",
+      "org": "STMicroelectronics",
+      "kind": "Manufacturer MOOC",
+      "url": "https://www.st.com/content/st_com/en/support/learning/stm32-moocs/stm32cubemx-and-cubeHhal-basics.html"
+    },
+    "pythonDocs": {
+      "title": "Python 3 Documentation",
+      "org": "Python Software Foundation",
+      "kind": "Official documentation",
+      "url": "https://docs.python.org/3/"
+    },
+    "pyserial": {
+      "title": "pySerial Documentation",
+      "org": "pySerial project",
+      "kind": "Official project documentation",
+      "url": "https://pyserial.readthedocs.io/"
+    },
+    "sparkfunSerial": {
+      "title": "Serial Communication",
+      "org": "SparkFun",
+      "kind": "Industry tutorial",
+      "url": "https://learn.sparkfun.com/tutorials/serial-communication/all"
+    },
+    "sparkfunI2C": {
+      "title": "I2C",
+      "org": "SparkFun",
+      "kind": "Industry tutorial",
+      "url": "https://learn.sparkfun.com/tutorials/i2c/all"
+    },
+    "sparkfunSPI": {
+      "title": "Serial Peripheral Interface (SPI)",
+      "org": "SparkFun",
+      "kind": "Industry tutorial",
+      "url": "https://learn.sparkfun.com/tutorials/serial-peripheral-interface-spi/all"
+    },
+    "tekSpectrum": {
+      "title": "Fundamentals of Real-Time Spectrum Analysis",
+      "org": "Tektronix",
+      "kind": "Manufacturer primer",
+      "url": "https://www.tek.com/en/documents/primer/fundamentals-real-time-spectrum-analysis"
+    },
+    "nptelComms": {
+      "title": "Principles of Communication Systems I",
+      "org": "NPTEL",
+      "kind": "University video course",
+      "url": "https://nptel.ac.in/courses/108104091"
+    },
+    "etaCompetencies": {
+      "title": "ETA Associate CET (CETa) Competency Requirements",
+      "org": "ETA International",
+      "kind": "Official standard",
+      "url": "https://www.etai.org/comps/CETa_comps.pdf"
+    },
+    "abetETAC": {
+      "title": "Criteria for Accrediting Engineering Technology Programs, 2026–2027",
+      "org": "ABET",
+      "kind": "Engineering Technology accreditation criteria / outcomes guardrail",
+      "url": "https://www.abet.org/accreditation/accreditation-criteria/criteria-for-accrediting-engineering-technology-programs-2026-2027/"
+    },
+    "pytest": {
+      "title": "pytest Documentation",
+      "org": "pytest project",
+      "kind": "Official project documentation",
+      "url": "https://docs.pytest.org/"
+    },
+    "matplotlib": {
+      "title": "Matplotlib Quick Start",
+      "org": "Matplotlib project",
+      "kind": "Official project documentation",
+      "url": "https://matplotlib.org/stable/users/explain/quick_start.html"
+    },
+    "blsTech": {
+      "title": "Electrical and Electronic Engineering Technologists and Technicians",
+      "org": "U.S. Bureau of Labor Statistics",
+      "kind": "Government occupational profile",
+      "url": "https://www.bls.gov/ooh/architecture-and-engineering/electrical-and-electronics-engineering-technicians.htm"
+    }
+  }
+}

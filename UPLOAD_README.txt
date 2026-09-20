@@ -1,26 +1,23 @@
-AU-ESET 301 v16.3.38 — GLOBAL GLOSSARY CLICK CONTRACT RESTORATION
+AU-ESET 301 v16.3.39 — DEPENDENCY-FIRST CAREER CURRICULUM RECONSTRUCTION
 
-Upload the files in this ZIP to the website root, replacing files with the same names.
+BASELINE
+Apply this changed-files package to the accepted v16.3.38 site/runtime (v16.3.32 full baseline plus accepted v16.3.33–v16.3.38 overlays).
 
-What this fixes
-- Removes hover-triggered glossary definition popups in Classroom lessons.
-- One click/tap opens the definition card.
-- A second click/tap on the same highlighted term within 500 ms opens its full Glossary entry.
-- The behavior is shared across all 31 modules and both CETa/Career lesson stages, including Week 1 Career Selection.
+UPLOAD
+Upload/replace every file in this ZIP at the website root, preserving the filenames exactly.
 
-Important
-This is a regression-repair package. It preserves the current v16.3.37 curriculum/content and advances only the runtime patch to v16.3.38.
+WHAT THIS UPDATE DOES
+- Reconstructs Career curriculum/standards around a shared CETa/Career prerequisite graph.
+- Fully reconstructs high-risk Career teaching bodies in Weeks 1, 3, 12, 14, 15, 16, 17, 18, 20, and 27.
+- Adds source-traceable standards and curriculum provenance.
+- Preserves official CETa competency wording/identities, assessment/progress IDs, labs/projects, Cloud Sync protocol 2, and the existing visual design.
+- Does not redesign colors, layout, CETa/Career labels, branding, navigation, or CSS.
 
-Files to replace
-- glossary.js
-- glossary.css
-- learn.html
-- glossary.html
-- build-info.json
-- service-worker.js
-- release-notes-current.js
+IMPORTANT
+career-curriculum-reconstruction.js must be uploaded with the updated HTML files. Learn, Study, and Search load the prior Career instructional-depth layer first and then apply v16.3.39 as the authoritative Career reconstruction layer.
 
-Files to add/replace for verification
-- AU-ESET-301-v16.3.38-Global-Glossary-Click-Contract-Verification.md
-- SHA256SUMS.txt
-- UPLOAD_README.txt
+AFTER UPLOAD
+Hard refresh once so service-worker cache alfred-u-v16-3-39-career-curriculum-20260920 replaces the prior cache.
+
+VERIFY
+Open build-info.json or Release Notes and confirm runtimePatch = 16.3.39. In a Career lesson, confirm the Purpose/Prerequisite stage includes Source basis and direct source links. In Standards, confirm Career standards show source provenance.
