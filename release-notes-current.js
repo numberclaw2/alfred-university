@@ -1,6 +1,37 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.38",
+      "date": "September 20, 2026",
+      "title": "Global Classroom Vocabulary Click Contract Restoration",
+      "type": "Glossary / Classroom Runtime / Regression Repair",
+      "request": "Confirm that the one-click definition / double-click full Glossary behavior is active across the learning platform, especially Week 1 Career Selection, and make it consistent across all modules if it is not.",
+      "changes": [
+        "Confirmed a packaging regression: the current v16.3.37 Classroom was loading glossary.js?v=16.3.29, whose hover handlers and single-click navigation predated the approved v16.3.30 interaction contract.",
+        "Restored the shared Classroom glossary runtime so hover performs no popup action, one click/tap opens the in-lesson definition card, and a second click/tap on the same term within 500 ms opens the full Course Glossary entry.",
+        "Restored outside-click and Escape dismissal and updated the in-lesson helper text/popup hint to describe the click/double-click contract.",
+        "Restored the pointer cursor and removed the glossary-term hover styling that implied hover interaction.",
+        "Applied the repair at the shared glossary.js layer used by the Classroom #classroom-content renderer, so the behavior covers both CETa and Career lesson stages across all 31 modules instead of special-casing Week 1.",
+        "Advanced Classroom/Glossary cache-busters and the service-worker namespace to v16.3.38 so stale v16.3.29/v16.3.30 assets cannot silently override the repaired behavior.",
+        "Did not alter the 599-term glossary dataset, term-selection/highlighting rules, curriculum text, lesson section counts, assessments, progress state, labs, calendar identities, or Cloud Sync protocol 2."
+      ],
+      "filesAdded": [
+        "AU-ESET-301-v16.3.38-Global-Glossary-Click-Contract-Verification.md"
+      ],
+      "filesModified": [
+        "glossary.js",
+        "glossary.css",
+        "learn.html",
+        "glossary.html",
+        "build-info.json",
+        "service-worker.js",
+        "release-notes-current.js",
+        "SHA256SUMS.txt",
+        "UPLOAD_README.txt"
+      ],
+      "filesRemoved": []
+    },
+    {
       "version": "v16.3.37",
       "date": "September 20, 2026",
       "title": "Research-Informed Focus Prep Gate for ADHD / Sensory Setup",
