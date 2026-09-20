@@ -1,4 +1,4 @@
-/* AU-ESET 301 v16.3.27 — Whole-site UX system · native visual QA repair */
+/* AU-ESET 301 v16.3.36 — Whole-site UX system · split learning/study resume controls */
 :root{
   --ux-focus:#765600;
   --ux-surface:#fffdf8;
@@ -12,7 +12,7 @@
 :where(input[type="search"],input[type="text"],input[type="email"],input[type="url"],input[type="number"],textarea,select){font-size:16px}
 main :where(h2,h3,h4,[id]){scroll-margin-top:9rem}
 .button{min-height:44px;gap:.48rem}
-.button svg,.ux-header-continue svg,.ux-header-search-trigger svg,.ux-quick-destinations svg,.ux-back-top svg{width:1.08rem;height:1.08rem;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.button svg,.ux-header-resume svg,.ux-header-search-trigger svg,.ux-quick-destinations svg,.ux-back-top svg{width:1.08rem;height:1.08rem;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
 .button svg path[d^="m9"]{fill:currentColor;stroke:none}
 .button:active{transform:translateY(0)!important;box-shadow:none!important}
 .button[data-ux-role="prominent"]{box-shadow:0 7px 18px rgba(109,81,11,.14)}
@@ -30,8 +30,12 @@ main :where(h2,h3,h4,[id]){scroll-margin-top:9rem}
 .ux-header-search-icon svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2}
 .ux-header-search-form button{position:absolute;right:0;height:44px;min-height:44px;border:0;border-radius:0 11px 11px 0;background:var(--green);color:#fff;padding:0 12px;font-weight:800;cursor:pointer}
 .ux-key-hint{position:absolute;right:67px;border:1px solid #d4d1c6;background:#f7f5ef;color:#666;padding:2px 5px;border-radius:5px;font-size:.66rem;line-height:1.2;pointer-events:none}
-.ux-header-continue{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:44px;padding:0 14px;border-radius:12px;background:linear-gradient(180deg,#d9bd72,#caa858);color:#123126;font-weight:850;white-space:nowrap;box-shadow:0 6px 16px rgba(90,68,16,.14)}
-.ux-header-continue:hover{transform:translateY(-1px);box-shadow:0 10px 22px rgba(90,68,16,.18)}
+.ux-header-resume-actions{display:flex;align-items:center;gap:7px;min-width:0}
+.ux-header-resume{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:44px;padding:0 12px;border-radius:12px;font-weight:850;white-space:nowrap;box-shadow:0 6px 16px rgba(90,68,16,.10);transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease}
+.ux-header-resume-learning{background:linear-gradient(180deg,#d9bd72,#caa858);color:#123126;border:1px solid #c09c44}
+.ux-header-resume-study{background:#fff;color:var(--green);border:1px solid rgba(13,62,49,.28)}
+.ux-header-resume:hover{transform:translateY(-1px);box-shadow:0 10px 22px rgba(90,68,16,.16)}
+.ux-header-resume-study:hover{border-color:var(--gold)}
 .ux-header-search-trigger{display:none;align-items:center;gap:7px;min-width:44px;min-height:44px;border:1px solid rgba(13,62,49,.2);border-radius:11px;background:#fff;color:var(--green);padding:0 11px;font-weight:800;cursor:pointer}
 .ux-menu-label{font-size:.78rem;font-weight:850;letter-spacing:.02em}
 .nav-toggle{align-items:center;gap:7px}
@@ -104,7 +108,7 @@ main :where(input[type="search"],input[type="text"],input[type="email"],input[ty
 main :where(button,[role="button"]):not(.glossary-term){touch-action:manipulation}
 
 @media(max-width:1050px){
-  .ux-header-search-form,.ux-header-continue{display:none}
+  .ux-header-search-form,.ux-header-resume-actions{display:none}
   .ux-header-search-trigger{display:inline-flex}
   .ux-header-tools{margin-left:auto}
   .nav-toggle{display:flex}
@@ -128,7 +132,7 @@ main :where(button,[role="button"]):not(.glossary-term){touch-action:manipulatio
   .ux-back-top{width:48px;padding:0;justify-content:center}
 }
 @media(prefers-reduced-motion:reduce){
-  .ux-back-top,a.portal-card,.ux-action-card,.ux-header-continue{transition:none!important}
+  .ux-back-top,a.portal-card,.ux-action-card,.ux-header-resume{transition:none!important}
   html{scroll-behavior:auto!important}
 }
 

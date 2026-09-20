@@ -1,26 +1,33 @@
-AU-ESET 301 v16.3.35 — CALENDAR EXECUTION MODERNIZATION
+AU-ESET 301 v16.3.36 — SPLIT RESUME LEARNING / RESUME STUDY
 
-Upload every file in the changed-files-only ZIP to the GitHub repository root, replacing files with the same names.
+Upload every file in the changed-files-only ZIP to the GitHub repository root, replacing files with the same names. The verification Markdown file is new and should be added.
 
-This release intentionally preserves all 125 Calendar event IDs and all 125 ICS UIDs. Do not delete/recreate calendar identities manually.
+WHAT CHANGED
+The prior shared return-to-work action is now two independent controls everywhere that action was surfaced:
+- Resume Learning → returns to the saved Classroom week/stage/lesson section.
+- Resume Study → returns to the saved Study week/view/index or unfinished Active Recall step.
+
+No curriculum, assessments, Calendar identities, or Cloud Sync protocol changed.
 
 After GitHub Pages deploys:
-1. Hard refresh Calendar.
-2. Confirm build-info.json reports runtimePatch 16.3.35.
-3. Open Calendar and verify Current required stage + Next scheduled.
-4. Open a milestone (for example Foundation Gate 1) and confirm it no longer routes to Week 01.
-5. Confirm the downloaded ICS imports as an update to the existing UID set rather than creating duplicate calendar identities.
+1. Hard refresh the Home page.
+2. Confirm build-info.json reports runtimePatch 16.3.36.
+3. Confirm the Home hero shows both Resume Learning and Resume Study.
+4. On desktop, confirm the header shows both buttons.
+5. Open Calendar and confirm the current-week dashboard shows both buttons.
+6. Enter Classroom, move to a saved learning point, then enter Study and move to a different Study view/week. Return Home and confirm each button independently returns to its own saved location.
+7. Start an Active Recall session, leave it unfinished, and confirm Resume Study returns to that exact session while Resume Learning still returns to Classroom.
 
 CHANGED-FILES-ONLY PACKAGE
 Files in ZIP: 11
-- Alfred University - AU-ESET 301 - Simplified Course Calendar.ics
-- AU-ESET-301-v16.3.35-Calendar-Execution-Modernization-Verification.md
+- AU-ESET-301-v16.3.36-Split-Resume-Learning-Study-Verification.md
 - build-info.json
-- calendar.html
-- course-data.js
+- index.html
 - release-notes-current.js
 - service-worker.js
 - SHA256SUMS.txt
 - site.js
-- styles.css
+- study.js
+- ux-system.css
+- ux-system.js
 - UPLOAD_README.txt

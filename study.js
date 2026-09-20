@@ -10,11 +10,11 @@ const fmtDate=(v,o={weekday:'short',month:'short',day:'numeric'})=>new Intl.Date
 const cleanTitle=e=>String(e?.summary||'').replace(/^AU-ESET 301 \| /,'');
 const css=document.createElement('link');css.rel='stylesheet';css.href='study-v2.css';document.head.appendChild(css);
 
-function defaultState(){return {version:17,defaultMode:'standard',reviews:{},parking:[],history:[],sessionConfidence:{},session:null,library:{view:'review',reviewIndex:0,flashIndex:0,flashRevealed:false}};}
+function defaultState(){return {version:18,defaultMode:'standard',reviews:{},parking:[],history:[],sessionConfidence:{},session:null,lastWeek:null,library:{view:'review',reviewIndex:0,flashIndex:0,flashRevealed:false}};}
 function load(){try{const raw=JSON.parse(localStorage.getItem(STUDY_KEY)||'null')||{};const base=defaultState();return {...base,...raw,library:{...base.library,...(raw.library||{})}};}catch{return defaultState();}}
 let state=load();
 if(state.session&&!Array.isArray(state.session.conceptIds))state.session=null;
-function save(){localStorage.setItem(STUDY_KEY,JSON.stringify({version:17,defaultMode:state.defaultMode,parking:state.parking||[],history:(state.history||[]).slice(0,100),session:state.session||null,library:state.library||defaultState().library}));}
+function save(){localStorage.setItem(STUDY_KEY,JSON.stringify({version:18,defaultMode:state.defaultMode,parking:state.parking||[],history:(state.history||[]).slice(0,100),session:state.session||null,lastWeek:Number(state.lastWeek)||null,library:state.library||defaultState().library}));}
 function progress(){try{return JSON.parse(localStorage.getItem(PROGRESS_KEY)||'null')||{events:{},weeks:{},readiness:{},recordTimes:{}};}catch{return {events:{},weeks:{},readiness:{},recordTimes:{}};}}
 function currentWeek(){const requested=Number(new URLSearchParams(location.search).get('week')||0);if(requested&&W.some(w=>Number(w.week)===requested))return requested;return window.AlfredState?.currentWeek?.()||1;}
 function weekData(n){return W.find(w=>Number(w.week)===Number(n))||{};}
@@ -96,7 +96,7 @@ function reachedResources(week=currentWeek()){
 }
 function libraryView(){return state.library?.view||'review';}
 function setLibraryView(view){
-  state.library=state.library||defaultState().library;state.library.view=view;save();renderStudyLibrary();
+  state.library=state.library||defaultState().library;state.library.view=view;state.lastWeek=currentWeek();save();renderStudyLibrary();
   try{const u=new URL(location.href);u.searchParams.set('view',view);history.replaceState(null,'',u);}catch{}
 }
 function renderReachedSummary(){
@@ -275,7 +275,7 @@ function startSession({forcedIds=null,mode=null}={}){
   const week=currentWeek();activeMode=mode||$('input[name="session-mode"]:checked')?.value||'standard';state.defaultMode=activeMode;
   const chosen=forcedIds?.length?forcedIds.map(id=>conceptById(id,week)).filter(Boolean):chooseConcepts(week,activeMode);
   if(!chosen.length)return;
-  state.session={version:2,week,eventId:target?.id||null,mode:activeMode,step:0,startedAt:new Date().toISOString(),conceptIds:chosen.map(c=>c.id),ratings:{},responses:{},repairs:{},practice:{},teachBack:{text:'',checks:{},aloud:false},note:''};step=0;save();
+  state.lastWeek=week;state.session={version:2,week,eventId:target?.id||null,mode:activeMode,step:0,startedAt:new Date().toISOString(),conceptIds:chosen.map(c=>c.id),ratings:{},responses:{},repairs:{},practice:{},teachBack:{text:'',checks:{},aloud:false},note:''};step=0;save();
   $('#resume-session-section')?.classList.add('hidden');$('#session-workspace')?.classList.remove('hidden');document.body.classList.add('focus-mode');$('#focus-mode-toggle')?.setAttribute('aria-pressed','true');renderSession();$('#session-workspace')?.scrollIntoView({behavior:'smooth',block:'start'});
 }
 function renderResumeSession(){
@@ -345,7 +345,8 @@ function rewriteStaticCopy(){
 
 
 const initialView=new URLSearchParams(location.search).get('view');if(['review','flashcards','media','reference','weak','recall'].includes(initialView))state.library.view=initialView;
-hydrateReviewsFromProgress();rewriteStaticCopy();installSiteIssueParking();renderRecommendation();renderWeeklyPlan();renderReviews();renderParking();renderResumeSession();renderStudyLibrary();applyQuiet();syncProgressFromCloud();
+state.lastWeek=currentWeek();save();
+hydrateReviewsFromProgress();rewriteStaticCopy();installSiteIssueParking();renderRecommendation();renderWeeklyPlan();renderReviews();renderParking();renderResumeSession();renderStudyLibrary();if(state.session?.conceptIds?.length&&location.hash==='#session-workspace')$('#resume-session-button')?.click();applyQuiet();syncProgressFromCloud();
 window.addEventListener('online',syncProgressFromCloud);window.addEventListener('storage',e=>{if(e.key===PROGRESS_KEY){hydrateReviewsFromProgress();renderRecommendation();renderReviews();renderStudyLibrary();}if(e.key===STUDY_KEY){state=load();renderResumeSession();renderParking();renderStudyLibrary();}});
 $$('input[name="session-mode"]').forEach(r=>{r.checked=r.value===activeMode});
 $$('[data-study-view]').forEach(b=>b.addEventListener('click',()=>setLibraryView(b.dataset.studyView)));

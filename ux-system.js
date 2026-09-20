@@ -1,10 +1,10 @@
-/* AU-ESET 301 v16.3.30 — Whole-site UX system · executive-function study-flow repair
+/* AU-ESET 301 v16.3.36 — Whole-site UX system · split learning/study resume controls
    Purpose: improve task orientation, search discoverability, interaction hierarchy,
    long-page navigation, mobile affordance, and accessibility without changing course logic. */
 (() => {
   'use strict';
-  if (window.__ALFRED_UX_1630__) return;
-  window.__ALFRED_UX_1630__ = true;
+  if (window.__ALFRED_UX_1636__) return;
+  window.__ALFRED_UX_1636__ = true;
 
   const $=(s,r=document)=>r.querySelector(s);
   const $$=(s,r=document)=>[...r.querySelectorAll(s)];
@@ -45,7 +45,8 @@
     const row=$('.brand-row');
     if(!row||$('.ux-header-tools',row)) return;
     const week=currentWeek();
-    const next=window.AlfredNextAction?.get?.()||{kind:'classroom',week,label:`Continue Week ${String(week).padStart(2,'0')}`,detail:'Required course path',href:`learn.html?week=${week}`};
+    const learning=window.AlfredNextAction?.learning?.()||{kind:'learning',week,label:'Resume Learning',detail:`Week ${String(week).padStart(2,'0')} · Classroom`,href:`learn.html?week=${week}`};
+    const studying=window.AlfredNextAction?.study?.()||{kind:'study',week,label:'Resume Study',detail:`Week ${String(week).padStart(2,'0')} · Review Material`,href:`study.html?week=${week}`};
     const tools=document.createElement('div');
     tools.className='ux-header-tools';
     const desktopSearch=document.createElement('form');
@@ -58,12 +59,20 @@
     mobileSearch.className='ux-header-search-trigger';mobileSearch.type='button';
     mobileSearch.innerHTML=`${svg('search')}<span>Search</span>`;
     mobileSearch.setAttribute('aria-label','Search the course');
-    const continueLink=document.createElement('a');
-    continueLink.className='ux-header-continue';
-    continueLink.href=next.href;
-    continueLink.title=next.detail||'Continue the recommended course action';
-    continueLink.innerHTML=`${svg(next.kind==='study'?'target':'play')}<span>${esc(next.label)}</span>`;
-    tools.append(desktopSearch,mobileSearch,continueLink);
+    const resumeActions=document.createElement('div');
+    resumeActions.className='ux-header-resume-actions';
+    const learningLink=document.createElement('a');
+    learningLink.className='ux-header-resume ux-header-resume-learning';
+    learningLink.href=learning.href;
+    learningLink.title=learning.detail||'Resume your saved Classroom learning point';
+    learningLink.innerHTML=`${svg('play')}<span>Resume Learning</span>`;
+    const studyLink=document.createElement('a');
+    studyLink.className='ux-header-resume ux-header-resume-study';
+    studyLink.href=studying.href;
+    studyLink.title=studying.detail||'Resume your saved Study point';
+    studyLink.innerHTML=`${svg('target')}<span>Resume Study</span>`;
+    resumeActions.append(learningLink,studyLink);
+    tools.append(desktopSearch,mobileSearch,resumeActions);
     const toggle=$('.nav-toggle',row);
     row.insertBefore(tools,toggle||null);
     mobileSearch.addEventListener('click',()=>openSearchSheet(mobileSearch));
@@ -138,9 +147,11 @@
     if(!['index','home'].includes(pageKey))return;
     const actions=$('.hero-actions');if(!actions)return;
     const study=actions.querySelector('a[href^="study.html"]'),learn=actions.querySelector('a[href^="learn.html"]');
-    const week=currentWeek(),next=window.AlfredNextAction?.get?.()||{kind:'classroom',label:`Continue Week ${String(week).padStart(2,'0')}`,detail:'Required course path',href:`learn.html?week=${week}`};
-    const primary=study||learn;if(primary){primary.classList.add('gold');primary.classList.remove('outline-light');primary.dataset.uxPrimary='true';primary.href=next.href;primary.title=next.detail||'';primary.innerHTML=`${svg(next.kind==='study'?'target':'play')}<span>${esc(next.label)}</span>`;actions.insertBefore(primary,actions.firstChild);}
-    const secondary=primary===study?learn:study;if(secondary){secondary.classList.remove('gold');secondary.classList.add('outline-light');if(next.kind==='classroom'){secondary.href=`study.html?week=${week}`;secondary.innerHTML=`${svg('target')}<span>Open Study</span>`;}else{secondary.href=`learn.html?week=${week}`;secondary.innerHTML=`${svg('book')}<span>Open Classroom</span>`;}}
+    const week=currentWeek();
+    const learning=window.AlfredNextAction?.learning?.()||{label:'Resume Learning',detail:`Week ${String(week).padStart(2,'0')} · Classroom`,href:`learn.html?week=${week}`};
+    const studying=window.AlfredNextAction?.study?.()||{label:'Resume Study',detail:`Week ${String(week).padStart(2,'0')} · Review Material`,href:`study.html?week=${week}`};
+    if(learn){learn.classList.add('gold');learn.classList.remove('outline-light');learn.dataset.uxPrimary='true';learn.href=learning.href;learn.title=learning.detail||'';learn.innerHTML=`${svg('play')}<span>Resume Learning</span>`;actions.insertBefore(learn,actions.firstChild);}
+    if(study){study.classList.remove('gold');study.classList.add('outline-light');study.removeAttribute('data-ux-primary');study.href=studying.href;study.title=studying.detail||'';study.innerHTML=`${svg('target')}<span>Resume Study</span>`;if(learn)learn.after(study);}
   }
 
   function markNestedNavCurrent(){

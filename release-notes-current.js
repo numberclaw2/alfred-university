@@ -1,6 +1,38 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.36",
+      "date": "September 20, 2026",
+      "title": "Independent Resume Learning + Resume Study Controls",
+      "type": "Navigation / Progress Resume / Study State",
+      "request": "Split the shared Resume Learning/Study behavior into two separate buttons everywhere it previously appeared: one returns to the exact saved Classroom learning point and the other returns to the saved Study point.",
+      "changes": [
+        "Added independent Resume Learning and Resume Study destinations to the global desktop header, Home hero, and Calendar current-week dashboard.",
+        "Resume Learning now resolves the most recently updated incomplete Classroom week and stage from existing Progress state, while preserving the exact saved lesson-section position already managed by Classroom.",
+        "Resume Study now persists the last Study week and restores the saved Study Library view/index or the exact unfinished Active Recall session step.",
+        "Separated the two resume routes so an unfinished Study session or due review no longer replaces the learner's Classroom resume control.",
+        "Kept the legacy prioritized AlfredNextAction.get() helper for compatibility while adding explicit AlfredNextAction.learning() and AlfredNextAction.study() APIs for split controls.",
+        "Preserved curriculum, assessments, mastery thresholds, Calendar event/UID identities, Progress keys, and Cloud Sync protocol 2.",
+        "Advanced the UX asset cache-buster and service-worker namespace to v16.3.36 so the split controls replace cached v16.3.35 behavior cleanly."
+      ],
+      "filesAdded": [
+        "AU-ESET-301-v16.3.36-Split-Resume-Learning-Study-Verification.md"
+      ],
+      "filesModified": [
+        "index.html",
+        "site.js",
+        "study.js",
+        "ux-system.js",
+        "ux-system.css",
+        "build-info.json",
+        "service-worker.js",
+        "release-notes-current.js",
+        "SHA256SUMS.txt",
+        "UPLOAD_README.txt"
+      ],
+      "filesRemoved": []
+    },
+    {
         "version": "v16.3.35",
         "date": "September 20, 2026",
         "title": "Calendar Execution Modernization — Current Classroom Stages, Workload, Mastery, and Progress-Aware Routing",

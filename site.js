@@ -212,9 +212,8 @@
   };
 
 
-  // v16.3.30 — one shared "what should I do next?" engine.  The student
-  // should not have to remember whether new instruction belongs in Classroom
-  // or whether a due/saved retrieval session belongs in Study.
+  // v16.3.36 — independent resume routing. Learning and Study keep separate
+  // return points while the legacy prioritized helper remains available for compatibility.
   const PROGRESS_KEY='alfred-u-progress-v2';
   const STUDY_KEY='alfred-u-study-v13';
   const INTERFACE_MODE_KEY='alfred-u-interface-mode-v1';
@@ -237,25 +236,57 @@
   function lessonSegmentSummary(l,stage){
     const index=stage==='ceta-lesson'?0:stage==='career-lesson'?1:null;if(index===null)return null;
     const rec=l?.lessonSegments?.[`lesson-${index}`];if(!rec)return null;
-    const total=Number(rec.total||0),current=Math.max(0,Number(rec.current||0));
+    const total=Number(rec.total||0),current=Math.max(0,Number(rec.furthest??rec.current??0));
     if(!total)return null;
     return {current,total,label:`Section ${Math.min(current+1,total)} of ${total}`};
   }
-  function nextAction(){
-    const p=readLocalJSON(PROGRESS_KEY,{}),study=readLocalJSON(STUDY_KEY,{}),week=currentCourseWeek();
-    const session=study?.session;
-    if(session?.conceptIds?.length){
-      const sw=Number(session.week)||week,step=STUDY_STAGE_NAMES[Math.max(0,Math.min(STUDY_STAGE_NAMES.length-1,Number(session.step)||0))];
-      return {kind:'study',week:sw,label:'Resume Study',detail:`${step} · saved session`,href:`study.html?week=${sw}#session-workspace`,reason:'saved-session'};
-    }
-    const due=dueReviewCount(p);
-    if(due>0)return {kind:'study',week,label:`Review ${due} due ${due===1?'item':'items'}`,detail:'Spaced retrieval is due now',href:`study.html?week=${week}#review-queue`,reason:'due-review',due};
-    const w=weekProgressRecord(p,week),l=w.learning||{},stage=incompleteClassroomStage(week,p),seg=lessonSegmentSummary(l,stage);
-    const stageLabel=CLASSROOM_STAGE_LABELS[stage]||'Classroom';
-    const detail=seg?`${stageLabel} · ${seg.label}`:`${stageLabel} · required course path`;
-    return {kind:'classroom',week,stage,label:`Continue Week ${String(week).padStart(2,'0')}`,detail,href:`learn.html?week=${week}&stage=${encodeURIComponent(stage)}`,reason:'required-instruction',segment:seg};
+  const CLASSROOM_STAGE_ORDER=['orientation','ceta-lesson','career-lesson','media','practice','application','mastery'];
+  const STUDY_VIEW_LABELS={review:'Review Material',flashcards:'Concept Flashcards',media:'Watch & Review',reference:'Reference',weak:'Work Weak Areas',recall:'Active Recall'};
+  function learningWeekComplete(week,p){
+    const completed=weekProgressRecord(p,week)?.learning?.completed||{};
+    return CLASSROOM_STAGE_ORDER.every(id=>completed?.[id]===true);
   }
-  window.AlfredNextAction={get:nextAction,dueReviewCount,incompleteClassroomStage};
+  function learningResumeWeek(p){
+    const candidates=Object.entries(p?.weeks||{}).map(([key,value])=>{
+      const week=Number(key),record=weekProgressRecord(p,week),l=record.learning||{};
+      if(!Number.isFinite(week)||week<1||week>31||!Object.keys(l).length)return null;
+      const updated=Date.parse(l.updatedAt||'')||Number(p?.recordTimes?.[`week:${week}`]||0)||0;
+      return {week,l,updated,complete:learningWeekComplete(week,p)};
+    }).filter(Boolean);
+    const incomplete=candidates.filter(x=>!x.complete).sort((a,b)=>b.updated-a.updated||b.week-a.week);
+    if(incomplete.length)return incomplete[0].week;
+    const completed=candidates.filter(x=>x.complete).sort((a,b)=>b.updated-a.updated||b.week-a.week);
+    if(completed.length)return Math.min(31,completed[0].week+1);
+    return currentCourseWeek();
+  }
+  function learningAction(){
+    const p=readLocalJSON(PROGRESS_KEY,{}),week=learningResumeWeek(p),w=weekProgressRecord(p,week),l=w.learning||{};
+    const stage=incompleteClassroomStage(week,p),seg=lessonSegmentSummary(l,stage),stageLabel=CLASSROOM_STAGE_LABELS[stage]||'Classroom';
+    const detail=seg?`Week ${String(week).padStart(2,'0')} · ${stageLabel} · ${seg.label}`:`Week ${String(week).padStart(2,'0')} · ${stageLabel}`;
+    return {kind:'learning',week,stage,label:'Resume Learning',detail,href:`learn.html?week=${week}&stage=${encodeURIComponent(stage)}`,reason:'learning-resume',segment:seg};
+  }
+  function studyAction(){
+    const p=readLocalJSON(PROGRESS_KEY,{}),study=readLocalJSON(STUDY_KEY,{}),courseWeek=currentCourseWeek(),session=study?.session;
+    if(session?.conceptIds?.length){
+      const week=Number(session.week)||Number(study.lastWeek)||courseWeek,step=STUDY_STAGE_NAMES[Math.max(0,Math.min(STUDY_STAGE_NAMES.length-1,Number(session.step)||0))];
+      return {kind:'study',week,view:'recall',label:'Resume Study',detail:`Week ${String(week).padStart(2,'0')} · Active Recall · ${step}`,href:`study.html?week=${week}&view=recall#session-workspace`,reason:'saved-session',due:dueReviewCount(p)};
+    }
+    const week=Math.max(1,Math.min(31,Number(study.lastWeek)||courseWeek)),rawView=study?.library?.view||'review';
+    const view=Object.prototype.hasOwnProperty.call(STUDY_VIEW_LABELS,rawView)?rawView:'review',viewLabel=STUDY_VIEW_LABELS[view],due=dueReviewCount(p);
+    let detail=`Week ${String(week).padStart(2,'0')} · ${viewLabel}`;
+    if(view==='review'&&Number.isFinite(Number(study?.library?.reviewIndex)))detail+=` · Review ${Number(study.library.reviewIndex)+1}`;
+    if(view==='flashcards'&&Number.isFinite(Number(study?.library?.flashIndex)))detail+=` · Card ${Number(study.library.flashIndex)+1}`;
+    if(due>0)detail+=` · ${due} due`;
+    const anchor=view==='recall'?'active-recall-section':'study-material-workspace';
+    return {kind:'study',week,view,label:'Resume Study',detail,href:`study.html?week=${week}&view=${encodeURIComponent(view)}#${anchor}`,reason:'study-resume',due};
+  }
+  function nextAction(){
+    const study=studyAction();
+    if(study.reason==='saved-session')return study;
+    if(study.due>0)return {...study,reason:'due-review'};
+    return learningAction();
+  }
+  window.AlfredNextAction={get:nextAction,learning:learningAction,study:studyAction,dueReviewCount,incompleteClassroomStage};
   function eventProgressState(e,p=readLocalJSON(PROGRESS_KEY,{})){return p?.events?.[String(e.id)]||p?.events?.[e.id]||{};}
   function stagesCompleteForEvent(e,p=readLocalJSON(PROGRESS_KEY,{})){
     const stages=Array.isArray(e.stageTargets)?e.stageTargets:[];const week=calendarWeek(e);if(!stages.length||!week)return false;
@@ -581,7 +612,7 @@
       } else label.textContent='Full Course Agenda';
     }
     function renderCurrentWeek(){
-      const info=courseInfo(), w=info?.currentWeek||1, bounds=weekBounds(w), list=bounds?.list||[], action=nextAction();
+      const info=courseInfo(), w=info?.currentWeek||1, bounds=weekBounds(w), list=bounds?.list||[], learning=learningAction(), studying=studyAction();
       const scheduled=info?.nextRequired||info?.next;
       const prep=info?.nextPrep&&Number(info.nextPrep.contextWeek)===w?info.nextPrep:null;
       $('#calendar-current-week').innerHTML=`
@@ -589,8 +620,9 @@
           <div>
             <div class="eyebrow">${esc(phaseForWeek(w))}</div>
             <h2>Week ${String(w).padStart(2,'0')} · ${esc(weekTopic(w))}</h2>
-            <p><strong>Current required stage:</strong> ${esc(action?.detail||'Open Classroom to continue the required path.')}</p>
-            <div class="calendar-current-actions"><a class="button gold small" href="${esc(action?.href||`learn.html?week=${w}`)}">${esc(action?.label||'Continue Classroom')} →</a></div>
+            <p><strong>Learning resume point:</strong> ${esc(learning?.detail||'Open Classroom to continue the required path.')}</p>
+            <div class="calendar-current-actions"><a class="button gold small" href="${esc(learning?.href||`learn.html?week=${w}`)}">Resume Learning →</a><a class="button outline-green small" href="${esc(studying?.href||`study.html?week=${w}`)}">Resume Study →</a></div>
+            <p class="calendar-next-line"><strong>Study resume point:</strong> ${esc(studying?.detail||`Week ${String(w).padStart(2,'0')} · Review Material`)}</p>
             <p class="calendar-next-line"><strong>Next scheduled:</strong> ${esc(scheduled?.summary||'—')}${scheduled?` · ${fmtDate(scheduled.start,{weekday:'short',month:'short',day:'numeric'})}`:''}</p>
             ${prep?`<p class="calendar-prep-line"><strong>Advance prep:</strong> ${esc(prep.summary)} · does not replace the current required stage.</p>`:''}
           </div>
@@ -717,18 +749,18 @@
   }
 })();
 
-/* v16.3.30: whole-site UX layer + executive-function study-flow repair. */
+/* v16.3.36: whole-site UX layer + split learning/study resume controls. */
 (() => {
-  if (window.__ALFRED_UX_LOADER_1630__) return;
-  window.__ALFRED_UX_LOADER_1630__ = true;
-  if (!document.querySelector('link[data-alfred-ux="16.3.30"]')) {
+  if (window.__ALFRED_UX_LOADER_1636__) return;
+  window.__ALFRED_UX_LOADER_1636__ = true;
+  if (!document.querySelector('link[data-alfred-ux="16.3.36"]')) {
     const css=document.createElement('link');
-    css.rel='stylesheet';css.href='ux-system.css?v=16.3.30';css.dataset.alfredUx='16.3.30';
+    css.rel='stylesheet';css.href='ux-system.css?v=16.3.36';css.dataset.alfredUx='16.3.36';
     document.head.append(css);
   }
-  if (!document.querySelector('script[data-alfred-ux="16.3.30"]')) {
+  if (!document.querySelector('script[data-alfred-ux="16.3.36"]')) {
     const script=document.createElement('script');
-    script.src='ux-system.js?v=16.3.30';script.dataset.alfredUx='16.3.30';script.async=true;
+    script.src='ux-system.js?v=16.3.36';script.dataset.alfredUx='16.3.36';script.async=true;
     document.body.append(script);
   }
 })();
