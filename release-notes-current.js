@@ -1,6 +1,37 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.37",
+      "date": "September 20, 2026",
+      "title": "Research-Informed Focus Prep Gate for ADHD / Sensory Setup",
+      "type": "Executive Function / Focus Environment / Accessibility",
+      "request": "Add an optional setting that places a check-off preparation gate before actual focus-required work so the learner deliberately removes distractions and prepares the sensory/study environment before Classroom, Study, labs, and assessments.",
+      "changes": [
+        "Added a default-on Focus Prep setting under the More menu, with a second option to automatically enable Alfred Quiet Mode after the checklist is completed.",
+        "Added a blocking six-item preflight checklist at the start of Classroom and Study, on direct lab-work routes, and in the Quiz/Test Runner. The Begin button remains disabled until every preparation item is checked.",
+        "Kept the gate out of reference/browsing pages and Practice/Assessment hubs; it does not reappear between individual lesson sections.",
+        "Built the checklist around the prior ADHD/autism audit and current evidence: phone Focus/DND and distance, reduced digital/physical distractions, configurable light/sound sensory setup, materials/basic-needs readiness, one explicit task/finish line, and a realistic focus-block/break plan.",
+        "Made the phone item device-aware so mobile Study does not demand that the device running Alfred be physically put away.",
+        "Added a lab-specific sensory safety variant so headphones are not encouraged when they could block safety cues.",
+        "Added an optional movement-reset note rather than making exercise another mandatory checkbox, reflecting evidence that acute exercise can help adult ADHD executive control while avoiding unnecessary startup friction.",
+        "A completed preflight is remembered across a simple page reload of the same focus route for up to two hours, preventing accidental refreshes from creating another checklist interruption.",
+        "Exposed window.AlfredFocusPrep for future focus-session integrations without changing curriculum, progress keys, mastery rules, labs, assessments, calendar identities, or Cloud Sync protocol 2."
+      ],
+      "filesAdded": [
+        "AU-ESET-301-v16.3.37-Focus-Prep-ADHD-Autism-Verification.md"
+      ],
+      "filesModified": [
+        "site.js",
+        "styles.css",
+        "build-info.json",
+        "service-worker.js",
+        "release-notes-current.js",
+        "SHA256SUMS.txt",
+        "UPLOAD_README.txt"
+      ],
+      "filesRemoved": []
+    },
+    {
       "version": "v16.3.36",
       "date": "September 20, 2026",
       "title": "Independent Resume Learning + Resume Study Controls",

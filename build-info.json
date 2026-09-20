@@ -1,10 +1,10 @@
 {
   "courseRelease": "16.3",
-  "runtimePatch": "16.3.36",
+  "runtimePatch": "16.3.37",
   "evidenceRevision": "16.2",
   "cloudSyncProtocol": 2,
-  "build": "v16.3.36-split-resume-learning-study-20260920",
-  "releaseStatus": "split-resume-learning-study",
+  "build": "v16.3.37-focus-prep-gate-20260920",
+  "releaseStatus": "focus-prep-gate",
   "presentationPatch": "mobile-visual-readability-final",
   "scheduleRevision": "2026-09-20-current-classroom-stage-and-workload-sync",
   "modulePresentationRevision": "2026-09-18-week1-from-zero-visual-teaching",
@@ -16,7 +16,7 @@
   "week1InstructionRevision": "2026-09-19-beginner-first-safety-scaffolding",
   "week1TeachingMediaRevision": "2026-09-18-beginner-teacher-youtube-layer",
   "teachingMediaBaseRevision": "2026-09-18-final-pots-31-week-standalone-accepted",
-  "releaseNotesRevision": "2026-09-20-v16.3.36-split-resume-actions-recorded",
+  "releaseNotesRevision": "2026-09-20-v16.3.37-focus-prep-gate-recorded",
   "repositoryLedgerBaseline": "2026-09-18-v16.3.9-63-commits",
   "studyRevision": "2026-09-20-last-study-location-resume",
   "practiceRevision": "2026-09-18-priority-ladder-repair-router",
@@ -36,7 +36,7 @@
   "lessonSegmentationRevision": "2026-09-19-completed-section-back-forward-review",
   "nextActionRevision": "2026-09-20-dual-resume-routing-learning-study",
   "studentModeRevision": "2026-09-19-student-builder-boundary",
-  "executiveFunctionRevision": "2026-09-19-adhd-autism-minimum-effective-intervention",
+  "executiveFunctionRevision": "2026-09-20-research-informed-focus-prep-gate",
   "questionReviewRevision": "2026-09-19-question-to-teaching-section-backlink-and-return",
   "studyLibraryRevision": "2026-09-19-reached-material-review-flashcards-media-reference",
   "safetyScaffoldingRevision": "2026-09-19-week1-future-concept-context-before-safety-questions",
@@ -44,5 +44,6 @@
   "visualInstructionRevision": "2026-09-19-source-provenance-legacy-svg-retirement",
   "visualSourceRevision": "2026-09-19-open-license-real-media-and-authoritative-source-grounding",
   "calendarRevision": "2026-09-20-125-event-stage-routing-workload-status-modernization",
-  "resumeNavigationRevision": "2026-09-20-learning-and-study-independent-resume-points"
+  "resumeNavigationRevision": "2026-09-20-learning-and-study-independent-resume-points",
+  "focusPrepRevision": "2026-09-20-context-aware-pre-study-environment-checklist"
 }

@@ -2048,3 +2048,47 @@ body.student-mode a[href="patch-notes.html"]{display:none!important}
 .dashboard-event-prep{border-left:3px solid #7892aa;padding-left:10px}
 @media(max-width:800px){.calendar-toolbar.refined{grid-template-columns:1fr 1fr}.calendar-toolbar.refined .toolbar-note{grid-column:1/-1}}
 @media(max-width:560px){.calendar-toolbar.refined{grid-template-columns:1fr}.calendar-toolbar.refined .toolbar-note{grid-column:auto}.calendar-period-nav .period-button:not(.today){min-width:44px;min-height:44px}.calendar-destination-actions .button{width:100%;justify-content:center}.calendar-event-meta{margin-top:6px}}
+
+/* v16.3.37 — Focus Prep gate for Classroom, Study, direct Labs, and Assessments */
+.nav-menu-focus-prep{border-top:1px solid rgba(11,61,46,.12);padding:.25rem .7rem .65rem;margin-top:.15rem}
+.focus-prep-settings-button{width:100%;border:1px solid #c8d3ce;background:#f7faf8;color:var(--green);border-radius:9px;padding:.65rem .75rem;font-weight:850;cursor:pointer;text-align:left}
+.focus-prep-settings-button:hover,.focus-prep-settings-button:focus-visible{border-color:var(--gold);background:#fffaf0}
+body.focus-prep-open{overflow:hidden}
+.focus-prep-overlay{position:fixed;inset:0;z-index:10050;display:grid;place-items:center;padding:20px}
+.focus-prep-overlay[hidden]{display:none!important}
+.focus-prep-backdrop{position:absolute;inset:0;background:rgba(7,30,23,.76);backdrop-filter:blur(3px)}
+.focus-prep-dialog{position:relative;z-index:1;width:min(720px,100%);max-height:min(88vh,900px);overflow:auto;background:#fffdf8;border:1px solid #d7d0bd;border-radius:20px;box-shadow:0 30px 90px rgba(5,31,23,.34);padding:28px}
+.focus-prep-kicker{font-size:.74rem;letter-spacing:.09em;text-transform:uppercase;font-weight:900;color:#80651d;margin-bottom:.45rem}
+.focus-prep-dialog h2{margin:.15rem 0 .55rem;color:var(--green);font-size:clamp(1.65rem,4vw,2.25rem)}
+.focus-prep-dialog>p{color:#50625a;line-height:1.55}
+.focus-prep-current{display:grid;gap:.2rem;margin:1rem 0 1.15rem;padding:.85rem 1rem;background:#f3f6f3;border:1px solid #d8e0db;border-left:4px solid var(--green);border-radius:12px}
+.focus-prep-current span{font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;font-weight:800;color:#6b786f}
+.focus-prep-current strong{color:#173f32}
+.focus-prep-checklist{border:0;padding:0;margin:0;display:grid;gap:.72rem}
+.focus-prep-checklist legend{font-weight:850;color:#243e35;margin-bottom:.65rem}
+.focus-prep-checklist label{display:grid;grid-template-columns:auto 1fr;gap:.75rem;align-items:start;padding:.82rem .9rem;background:#fff;border:1px solid #d9ded9;border-radius:12px;cursor:pointer;line-height:1.45}
+.focus-prep-checklist label:has(input:checked){background:#f1f7f3;border-color:#91b29f}
+.focus-prep-checklist input{width:1.25rem;height:1.25rem;margin-top:.08rem;accent-color:var(--green)}
+.focus-prep-tools{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:1rem 0 .3rem;padding-top:.9rem;border-top:1px solid #e2ded2}
+.focus-prep-tools span{font-size:.78rem;color:#66736d}
+.focus-prep-quiet{border:1px solid #a9bbb2;background:#fff;color:var(--green);border-radius:999px;padding:.58rem .9rem;font-weight:850;cursor:pointer}
+.focus-prep-quiet[aria-pressed="true"]{background:#e9f1ec;border-color:#6e9b84}
+.focus-prep-tip{margin:.8rem 0 0;padding:.72rem .85rem;border-radius:10px;background:#fff7df!important;color:#5c512f!important;font-size:.86rem}
+.focus-prep-actions{display:flex;justify-content:flex-end;gap:.7rem;flex-wrap:wrap;margin-top:1.2rem}
+.focus-prep-actions .button[disabled]{opacity:.45;cursor:not-allowed;filter:grayscale(.2)}
+.focus-prep-status{text-align:right;margin:.5rem 0 0!important;font-size:.8rem;color:#66756d!important}
+.focus-prep-close{position:absolute;top:14px;right:14px;width:40px;height:40px;border-radius:999px;border:1px solid #ccd6d0;background:#fff;color:var(--green);font-size:1.5rem;line-height:1;cursor:pointer}
+.focus-prep-settings{width:min(650px,100%)}
+.focus-prep-setting-row{display:grid;grid-template-columns:auto 1fr;gap:.8rem;align-items:start;padding:1rem;border:1px solid #d9ded9;border-radius:12px;margin:.75rem 0;background:#fff;cursor:pointer}
+.focus-prep-setting-row input{width:1.25rem;height:1.25rem;margin-top:.1rem;accent-color:var(--green)}
+.focus-prep-setting-row strong,.focus-prep-setting-row small{display:block}
+.focus-prep-setting-row small{margin-top:.25rem;color:#68766f;line-height:1.4}
+body.quiet-mode .focus-prep-dialog{box-shadow:none;background:#fbfaf5}
+body.quiet-mode .focus-prep-backdrop{backdrop-filter:none}
+@media(max-width:620px){
+  .focus-prep-overlay{padding:10px;align-items:end}
+  .focus-prep-dialog{max-height:92vh;border-radius:18px 18px 0 0;padding:22px 18px calc(18px + env(safe-area-inset-bottom))}
+  .focus-prep-actions{display:grid;grid-template-columns:1fr}
+  .focus-prep-actions .button{width:100%}
+  .focus-prep-status{text-align:left}
+}

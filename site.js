@@ -217,6 +217,9 @@
   const PROGRESS_KEY='alfred-u-progress-v2';
   const STUDY_KEY='alfred-u-study-v13';
   const INTERFACE_MODE_KEY='alfred-u-interface-mode-v1';
+  const FOCUS_PREP_KEY='alfred-u-focus-prep-v1';
+  const FOCUS_PREP_APPROVAL_KEY='alfred-u-focus-prep-approved-v1';
+  const QUIET_MODE_KEY='alfred-u-quiet-mode';
   const STUDY_STAGE_NAMES=['Retrieve','Diagnose','Repair','Practice','Teach Back','Next Move'];
   const CLASSROOM_STAGE_LABELS={orientation:'Start Here','ceta-lesson':'CETa Lesson','career-lesson':'Career Lesson',media:'Teaching Media',practice:'Guided Practice',application:'Lab / Application',mastery:'Weekly Mastery'};
   function readLocalJSON(key,fallback={}){try{return JSON.parse(localStorage.getItem(key)||'null')||fallback;}catch{return fallback;}}
@@ -302,6 +305,120 @@
     return {key:'scheduled',label:'Scheduled'};
   }
   window.AlfredCalendarStatus={get:calendarEventStatus,stagesComplete:stagesCompleteForEvent};
+
+  // v16.3.37 — research-informed focus-preparation gate. The checklist appears
+  // only at the start of work that requires sustained attention; it does not
+  // interrupt individual lesson sections or reference/browsing pages.
+  let focusPrepModal=null,focusPrepReturnFocus=null,focusPrepMode='';
+  function focusPrepConfig(){
+    const saved=readLocalJSON(FOCUS_PREP_KEY,{});
+    return {enabled:saved.enabled!==false,autoQuiet:saved.autoQuiet===true};
+  }
+  function saveFocusPrepConfig(next){
+    const cfg={...focusPrepConfig(),...(next||{})};
+    try{localStorage.setItem(FOCUS_PREP_KEY,JSON.stringify(cfg));}catch{}
+    updateFocusPrepControl();
+    return cfg;
+  }
+  function setQuietMode(on){
+    document.body.classList.toggle('quiet-mode',!!on);
+    try{localStorage.setItem(QUIET_MODE_KEY,on?'1':'0');}catch{}
+    const quiet=$('#quiet-mode-toggle');if(quiet){quiet.setAttribute('aria-pressed',String(!!on));quiet.textContent=on?'Quiet Mode On':'Quiet Mode';}
+    updateFocusPrepQuietButton();
+  }
+  function focusPrepContext(){
+    const params=new URLSearchParams(location.search),weekRaw=params.get('week'),week=Math.max(1,Math.min(31,Number(weekRaw)||currentCourseWeek()));
+    if(pageKey==='learn'){
+      const stage=params.get('stage')||incompleteClassroomStage(week),stageLabel=CLASSROOM_STAGE_LABELS[stage]||'Classroom';
+      return {kind:'learning',title:'Prepare for Classroom learning',detail:`Week ${String(week).padStart(2,'0')} · ${stageLabel}`,signature:`learn:${week}:${stage}`};
+    }
+    if(pageKey==='study'){
+      const stored=readLocalJSON(STUDY_KEY,{}),rawView=params.get('view')||stored?.library?.view||'review',view=Object.prototype.hasOwnProperty.call(STUDY_VIEW_LABELS,rawView)?rawView:'review';
+      return {kind:'study',title:'Prepare for Study',detail:`Week ${String(week).padStart(2,'0')} · ${STUDY_VIEW_LABELS[view]}`,signature:`study:${week}:${view}`};
+    }
+    if(pageKey==='quiz'){
+      const type=params.get('type')||'assessment',id=params.get('id')||'current';
+      return {kind:'assessment',title:'Prepare for this assessment',detail:`${type==='week'?'Weekly mastery':type==='lab'?'Lab knowledge check':type==='major'?'Major assessment':'Practice assessment'} · ${id}`,signature:`quiz:${type}:${id}`};
+    }
+    if(pageKey==='labs'&&(params.has('week')||(/^#LAB-/i.test(location.hash)))){
+      const lab=decodeURIComponent(location.hash.replace(/^#/,''))||`Week ${String(week).padStart(2,'0')} lab`;
+      return {kind:'lab',title:'Prepare for focused lab work',detail:`Week ${String(week).padStart(2,'0')} · ${lab}`,signature:`lab:${week}:${lab}`};
+    }
+    return null;
+  }
+  function focusPrepItems(ctx){
+    const onPhone=window.matchMedia?.('(max-width:700px)').matches;
+    const phone=onPhone?'My phone is on Focus / Do Not Disturb, and Alfred is the only app I need open right now.':'My phone is on Focus / Do Not Disturb and parked out of reach.';
+    const sensory=ctx.kind==='lab'?'I chose a safe sensory setup: comfortable lighting and sound. I am not using headphones if they could hide a safety cue.':'I chose the sensory setup that works for me: comfortable lighting plus quiet, headphones/earplugs, or steady background sound.';
+    return [
+      phone,
+      'Unrelated tabs, apps, TV, and workspace clutter are closed, muted, or moved out of my immediate attention.',
+      sensory,
+      'The materials I need are within reach—paper/notes/calculator and any required lab tools—and water/basic needs are handled.',
+      `I know my one task right now: ${ctx.detail}. I know what “done” means for this focus block.`,
+      'I picked a realistic focus block and know when I can take my next break.'
+    ];
+  }
+  function ensureFocusPrepModal(){
+    if(focusPrepModal)return focusPrepModal;
+    const modal=document.createElement('div');modal.id='focus-prep-modal';modal.className='focus-prep-overlay';modal.hidden=true;modal.setAttribute('aria-hidden','true');
+    modal.addEventListener('keydown',e=>{
+      if(e.key==='Escape'){
+        e.stopPropagation();
+        if(focusPrepMode==='settings')closeFocusPrep(true);else e.preventDefault();
+      }
+      trapFocus(e,$('.focus-prep-dialog',modal));
+    });
+    document.body.append(modal);focusPrepModal=modal;return modal;
+  }
+  function closeFocusPrep(restore=false){
+    if(!focusPrepModal)return;focusPrepModal.hidden=true;focusPrepModal.setAttribute('aria-hidden','true');document.body.classList.remove('focus-prep-open');
+    if(restore&&focusPrepReturnFocus?.focus)focusPrepReturnFocus.focus();focusPrepReturnFocus=null;focusPrepMode='';
+  }
+  function updateFocusPrepQuietButton(){
+    const b=$('#focus-prep-quiet-toggle',focusPrepModal);if(!b)return;const on=document.body.classList.contains('quiet-mode');b.textContent=`Quiet Mode: ${on?'On':'Off'}`;b.setAttribute('aria-pressed',String(on));
+  }
+  function recordFocusPrepApproval(ctx){
+    try{sessionStorage.setItem(FOCUS_PREP_APPROVAL_KEY,JSON.stringify({signature:ctx.signature,approvedAt:Date.now()}));}catch{}
+  }
+  function approvedReload(ctx){
+    try{
+      const nav=performance.getEntriesByType?.('navigation')?.[0],saved=JSON.parse(sessionStorage.getItem(FOCUS_PREP_APPROVAL_KEY)||'null');
+      return nav?.type==='reload'&&saved?.signature===ctx.signature&&(Date.now()-Number(saved.approvedAt||0))<2*60*60*1000;
+    }catch{return false;}
+  }
+  function openFocusPrep(ctx=focusPrepContext()){
+    if(!ctx)return;const modal=ensureFocusPrepModal(),items=focusPrepItems(ctx);focusPrepMode='preflight';focusPrepReturnFocus=document.activeElement;
+    modal.innerHTML=`<div class="focus-prep-backdrop" aria-hidden="true"></div><section class="focus-prep-dialog" role="dialog" aria-modal="true" aria-labelledby="focus-prep-title" aria-describedby="focus-prep-intro"><div class="focus-prep-kicker">Focus Setup · ADHD / sensory support</div><h2 id="focus-prep-title">${esc(ctx.title)}</h2><p id="focus-prep-intro">Set up the environment once, then do the work. This checklist will not interrupt you between lesson sections.</p><div class="focus-prep-current"><span>Current focus</span><strong>${esc(ctx.detail)}</strong></div><fieldset class="focus-prep-checklist"><legend>Check each item before you begin</legend>${items.map((item,i)=>`<label><input type="checkbox" data-focus-prep-check="${i}"><span>${esc(item)}</span></label>`).join('')}</fieldset><div class="focus-prep-tools"><button type="button" class="focus-prep-quiet" id="focus-prep-quiet-toggle" aria-pressed="false">Quiet Mode</button><span>Focus Prep can be turned on or off from More → Focus Prep.</span></div><p class="focus-prep-tip"><strong>If your body feels restless:</strong> a brief movement reset before starting can help some adults with ADHD. Use it when it helps; it is not another requirement.</p><div class="focus-prep-actions"><button type="button" class="button ghost" id="focus-prep-exit">Not starting now</button><button type="button" class="button gold" id="focus-prep-begin" disabled>Begin focused work</button></div><p class="focus-prep-status" id="focus-prep-status" role="status">0 of ${items.length} ready.</p></section>`;
+    modal.hidden=false;modal.setAttribute('aria-hidden','false');document.body.classList.add('focus-prep-open');updateFocusPrepQuietButton();
+    const checks=$$('[data-focus-prep-check]',modal),begin=$('#focus-prep-begin',modal),status=$('#focus-prep-status',modal);
+    const update=()=>{const count=checks.filter(x=>x.checked).length;begin.disabled=count!==checks.length;status.textContent=count===checks.length?'Ready. Begin when you are set.':`${count} of ${checks.length} ready.`;};
+    checks.forEach(c=>c.addEventListener('change',update));
+    $('#focus-prep-quiet-toggle',modal)?.addEventListener('click',()=>setQuietMode(!document.body.classList.contains('quiet-mode')));
+    $('#focus-prep-exit',modal)?.addEventListener('click',()=>{closeFocusPrep();if(history.length>1)history.back();else location.href='index.html';});
+    begin.addEventListener('click',()=>{if(begin.disabled)return;const cfg=focusPrepConfig();if(cfg.autoQuiet)setQuietMode(true);recordFocusPrepApproval(ctx);closeFocusPrep();});
+    requestAnimationFrame(()=>checks[0]?.focus());
+  }
+  function openFocusPrepSettings(){
+    const modal=ensureFocusPrepModal(),cfg=focusPrepConfig();focusPrepMode='settings';focusPrepReturnFocus=focusPrepReturnFocus||document.activeElement;
+    modal.innerHTML=`<div class="focus-prep-backdrop" data-focus-prep-settings-close aria-hidden="true"></div><section class="focus-prep-dialog focus-prep-settings" role="dialog" aria-modal="true" aria-labelledby="focus-prep-settings-title"><button type="button" class="focus-prep-close" data-focus-prep-settings-close aria-label="Close Focus Prep settings">×</button><div class="focus-prep-kicker">Focus Setup</div><h2 id="focus-prep-settings-title">Focus Prep settings</h2><p>Keep the support lightweight. When enabled, Alfred asks for one environment check at the start of Classroom, Study, a direct lab session, or an assessment—not between individual lesson sections and not on reference pages.</p><label class="focus-prep-setting-row"><input id="focus-prep-enabled" type="checkbox"${cfg.enabled?' checked':''}><span><strong>Show Focus Prep before focus-required work</strong><small>Recommended for the workflow you asked for.</small></span></label><label class="focus-prep-setting-row"><input id="focus-prep-auto-quiet" type="checkbox"${cfg.autoQuiet?' checked':''}><span><strong>Automatically turn on Alfred Quiet Mode when I begin</strong><small>Optional because sensory needs vary; leave this off if Quiet Mode is not always helpful.</small></span></label><div class="focus-prep-actions"><button type="button" class="button ghost" data-focus-prep-settings-close>Cancel</button><button type="button" class="button green" id="focus-prep-save-settings">Save settings</button></div></section>`;
+    modal.hidden=false;modal.setAttribute('aria-hidden','false');document.body.classList.add('focus-prep-open');
+    $$('[data-focus-prep-settings-close]',modal).forEach(b=>b.addEventListener('click',()=>closeFocusPrep(true)));
+    $('#focus-prep-save-settings',modal)?.addEventListener('click',()=>{saveFocusPrepConfig({enabled:$('#focus-prep-enabled',modal)?.checked!==false,autoQuiet:$('#focus-prep-auto-quiet',modal)?.checked===true});closeFocusPrep(true);});
+    requestAnimationFrame(()=>$('#focus-prep-enabled',modal)?.focus());
+  }
+  function updateFocusPrepControl(){
+    const b=$('.focus-prep-settings-button');if(!b)return;const cfg=focusPrepConfig();b.textContent=`Focus Prep · ${cfg.enabled?'On':'Off'}`;b.setAttribute('aria-pressed',String(cfg.enabled));b.title='Open the pre-study environment checklist settings.';
+  }
+  function installFocusPrepControl(){
+    const menu=$('.nav-more-menu');if(!menu)return;let wrap=$('.nav-menu-focus-prep',menu);
+    if(!wrap){wrap=document.createElement('div');wrap.className='nav-menu-focus-prep';const b=document.createElement('button');b.type='button';b.className='focus-prep-settings-button';b.addEventListener('click',openFocusPrepSettings);wrap.append(b);menu.append(wrap);}
+    updateFocusPrepControl();
+  }
+  function maybeAutoOpenFocusPrep(){
+    const ctx=focusPrepContext(),cfg=focusPrepConfig();if(!ctx||!cfg.enabled||approvedReload(ctx))return;openFocusPrep(ctx);
+  }
+  window.AlfredFocusPrep={open:()=>openFocusPrep(focusPrepContext()),settings:openFocusPrepSettings,get:focusPrepConfig,set:saveFocusPrepConfig,context:focusPrepContext};
 
   function interfaceMode(){try{return localStorage.getItem(INTERFACE_MODE_KEY)==='builder'?'builder':'student';}catch{return 'student';}}
   function applyInterfaceMode(){
@@ -406,6 +523,8 @@
   addContextTrail();
   groupMoreMenu();
   applyInterfaceMode();
+  installFocusPrepControl();
+  setTimeout(maybeAutoOpenFocusPrep,0);
 
   const toggle=$('.nav-toggle');
   const nav=$('.main-nav');
