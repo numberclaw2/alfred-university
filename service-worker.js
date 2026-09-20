@@ -1,4 +1,4 @@
-const CACHE='alfred-u-v16-3-34-authoritative-visual-learning-layer-20260919';
+const CACHE='alfred-u-v16-3-35-calendar-execution-modernization-20260920';
 const CORE=[
   './','index.html','engineering.html','course.html','calendar.html','progress.html','resources.html','projects.html','documents.html','student-services.html','about.html','deployment.html','404.html','offline.html',
   'study.html','learn.html','glossary.html','search.html','week.html','practice.html','labs.html','assessments.html','quiz.html','standards.html','analytics.html','knowledge.html','patch-notes.html','academic-state.js',
@@ -19,7 +19,7 @@ const CORE=[
   'AU-ESET-301-v16.3.2-Final-Runtime-Acceptance-Report.md',
   'AU-ESET-301-v16.3-Resource-Verification.md',
   'AU-ESET-301-v16.3.7-Whole-System-Audit-Repair-Report.md',
-  'AU-ESET-301-Release-Notes-Policy.md','AU-ESET-301-v16.3.22-Glossary-Source-Verification.md','AU-ESET-301-v16.3.23-Glossary-UX-Verification.md','AU-ESET-301-v16.3.24-Vocabulary-Study-and-Glossary-Highlighting-Verification.md','AU-ESET-301-v16.3.25-Glossary-Deduplication-Verification.md','AU-ESET-301-v16.3.26-Whole-Site-UX-Audit.md','AU-ESET-301-v16.3.27-Native-Visual-QA-Repair.md','AU-ESET-301-v16.3.28-Native-UX-Round2-Repair.md','AU-ESET-301-v16.3.29-Glossary-Coverage-and-Section-Highlighting-Verification.md','ADHD_AUTISM_AUDIT_REPORT.md','AU-ESET-301-v16.3.30-Executive-Function-Study-Flow-Verification.md','AU-ESET-301-v16.3.31-Lesson-Review-Navigation-and-Question-Backlinks-Verification.md','AU-ESET-301-v16.3.32-Study-Library-and-Week1-Safety-Scaffolding-Verification.md','AU-ESET-301-v16.3.33-Career-Beginner-First-Instructional-Depth-Verification.md','AU-ESET-301-v16.3.34-Authoritative-Visual-Learning-Verification.md','VISUAL-SOURCES.md',
+  'AU-ESET-301-Release-Notes-Policy.md','AU-ESET-301-v16.3.22-Glossary-Source-Verification.md','AU-ESET-301-v16.3.23-Glossary-UX-Verification.md','AU-ESET-301-v16.3.24-Vocabulary-Study-and-Glossary-Highlighting-Verification.md','AU-ESET-301-v16.3.25-Glossary-Deduplication-Verification.md','AU-ESET-301-v16.3.26-Whole-Site-UX-Audit.md','AU-ESET-301-v16.3.27-Native-Visual-QA-Repair.md','AU-ESET-301-v16.3.28-Native-UX-Round2-Repair.md','AU-ESET-301-v16.3.29-Glossary-Coverage-and-Section-Highlighting-Verification.md','ADHD_AUTISM_AUDIT_REPORT.md','AU-ESET-301-v16.3.30-Executive-Function-Study-Flow-Verification.md','AU-ESET-301-v16.3.31-Lesson-Review-Navigation-and-Question-Backlinks-Verification.md','AU-ESET-301-v16.3.32-Study-Library-and-Week1-Safety-Scaffolding-Verification.md','AU-ESET-301-v16.3.33-Career-Beginner-First-Instructional-Depth-Verification.md','AU-ESET-301-v16.3.34-Authoritative-Visual-Learning-Verification.md','AU-ESET-301-v16.3.35-Calendar-Execution-Modernization-Verification.md','VISUAL-SOURCES.md',
   'Embedded Career Transition Readiness Checklist.pdf',
   'Alfred University - AU-ESET 301 - Simplified Course Calendar.ics'
 ];

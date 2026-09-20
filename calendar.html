@@ -36,7 +36,7 @@
 <div class="shell">
 <div class="eyebrow">Office of Academic Affairs</div>
 <h1>Academic Calendar</h1>
-<p>125 dated learning items · Month · Week · Agenda · Search</p>
+<p>125 dated execution items · Classroom-stage routing · Progress-aware status · Month · Week · Agenda</p>
 </div>
 </section>
 <section class="section shell calendar-dashboard-wrap">
@@ -70,9 +70,13 @@
 <label for="type-filter">Event type</label>
 <select id="type-filter"><option value="">All types</option></select>
 </div>
-<div class="toolbar-note">Choose a view, then open an item for today’s work and required outcomes. Reference notes stay available below when you need them.</div>
+<div>
+<label for="status-filter">Execution status</label>
+<select id="status-filter"><option value="">All statuses</option><option value="current">Current required stage</option><option value="scheduled">Scheduled</option><option value="advance-prep">Advance prep</option><option value="milestone">Milestone</option><option value="complete">Complete</option><option value="overdue">Overdue</option></select>
 </div>
-<p class="calendar-guidance" role="note"><strong>How to use this calendar:</strong> Start with today’s work. Treat the outcomes as the finish line. Use the search and filters to narrow the record without losing the full course schedule.</p>
+<div class="toolbar-note">Calendar status mirrors existing Classroom/Progress state; it does not create a second completion record.</div>
+</div>
+<p class="calendar-guidance" role="note"><strong>How to use this calendar:</strong> Follow <em>Current required stage</em> first, then the next scheduled block. Advance-prep reminders never replace current-week teaching. If you miss a session, resume the earliest incomplete required Classroom stage rather than creating a make-up marathon. A week closes only after required evidence exists, weekly mastery is at least 80%, and safety-critical checks are 100%.</p>
 <div class="calendar-view-panel" id="calendar-month-view"></div>
 <div class="calendar-view-panel hidden" id="calendar-week-view"></div>
 <div class="calendar-view-panel hidden" id="calendar-agenda-view">

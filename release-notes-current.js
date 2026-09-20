@@ -1,6 +1,45 @@
 (() => {
   const entries = [
     {
+        "version": "v16.3.35",
+        "date": "September 20, 2026",
+        "title": "Calendar Execution Modernization — Current Classroom Stages, Workload, Mastery, and Progress-Aware Routing",
+        "type": "Calendar / Scheduling / Runtime Routing / Mastery Integration",
+        "request": "Implement the full adversarial Calendar audit: synchronize the existing 31-week/125-event calendar with the current seven-stage Classroom, realistic current workload, beginner-first Career instruction, formal labs, readiness gates, mastery/repair rules, current Teaching Media ownership, and progress-aware next actions without changing event IDs/UIDs or the accepted course sequence.",
+        "changes": [
+            "Rewrote all 125 Calendar event records around the current execution model: Start Here → CETa Lesson → Career Lesson → Teaching Media/text path → Guided Practice → Lab/Application → Weekly Mastery.",
+            "Preserved all 125 event IDs, all 125 ICS UIDs, the 31-week order, lesson/lab/assessment identities, Progress keys, and Cloud Sync protocol 2.",
+            "Fixed the no-week milestone routing defect: 10 milestone/career/project checkpoints now carry explicit contextWeek and destination metadata instead of falling back to Week 01.",
+            "Added explicit advance-prep semantics for seven future-week equipment reminders so they no longer masquerade as the learner's next required Classroom session.",
+            "Made the Calendar status layer read-only over existing Classroom/Progress state: Current required stage, Scheduled, Advance prep, Milestone, Complete, and Overdue.",
+            "Updated the Calendar hero to show the shared state-aware next action first and the next dated required session second; advance prep is shown separately.",
+            "Replaced the legacy completion/catch-up rule with the current mastery rule: required stages/evidence, ≥80% weekly mastery, 100% safety-critical checks, targeted repair, and a new attempt before advancing.",
+            "Removed legacy Calendar ownership of direct video/resource hierarchies from current event notes; events now route to the verified Classroom Teaching Media/text path and reached-material Study Library.",
+            "Applied the audit-approved duration increases in 47 events. The minimum scheduled course budget rises from about 192.25 active hours to about 221.75 hours while retaining the existing evening/weekend pattern and existing event dates.",
+            "Added explicit Calendar execution homes for LAB-021 CETa Mixed Practical Review, LAB-022 Project 1 Design Review, and LAB-024 Portfolio Demonstration + Technical Defense.",
+            "Reclassified Week 24/25/26/28/29 Saturday evidence blocks that are not separate Lab Center records as Project/Application events while preserving their event IDs/UIDs.",
+            "Added holiday flex guidance (±48 hours with stage order preserved) for Thanksgiving, Christmas Eve/Dec. 26, and the New Year holiday weekend.",
+            "Added execution-status filtering, requirement/status chips, stage-specific destinations, current time budgets, missed-session guidance, and larger mobile period-arrow targets.",
+            "Regenerated the simplified ICS from the upgraded event records while preserving the original UID set exactly."
+        ],
+        "filesAdded": [
+            "AU-ESET-301-v16.3.35-Calendar-Execution-Modernization-Verification.md"
+        ],
+        "filesModified": [
+            "course-data.js",
+            "site.js",
+            "calendar.html",
+            "styles.css",
+            "Alfred University - AU-ESET 301 - Simplified Course Calendar.ics",
+            "build-info.json",
+            "service-worker.js",
+            "release-notes-current.js",
+            "SHA256SUMS.txt",
+            "UPLOAD_README.txt"
+        ],
+        "filesRemoved": []
+    },
+    {
         "version": "v16.3.34",
         "date": "September 19, 2026",
         "title": "Authoritative Visual Learning Layer — Real Equipment, Source Grounding, and Provenance",
@@ -774,7 +813,7 @@
       ]
     }
   ];
-  const currentOrder = ['v16.3.31','v16.3.30','v16.3.29','v16.3.28','v16.3.27','v16.3.26','v16.3.25','v16.3.24','v16.3.23','v16.3.22','v16.3.21','v16.3.20','v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
+  const currentOrder = ['v16.3.35','v16.3.34','v16.3.33','v16.3.32','v16.3.31','v16.3.30','v16.3.29','v16.3.28','v16.3.27','v16.3.26','v16.3.25','v16.3.24','v16.3.23','v16.3.22','v16.3.21','v16.3.20','v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
   entries.sort((a,b)=>currentOrder.indexOf(a.version)-currentOrder.indexOf(b.version));
   const historical = Array.isArray(window.ALFRED_RELEASES) ? window.ALFRED_RELEASES : [];
   const currentVersions = new Set(entries.map(entry=>entry.version));

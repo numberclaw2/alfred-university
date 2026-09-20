@@ -849,7 +849,7 @@ h1,h2,.brand-name,.section-heading h2,.split h2,.band h2,.feature-panel h2,.feat
 }
 .period-button.today{font-size:.82rem}
 #calendar-period-label{min-width:180px;color:var(--green);font-family:Georgia,serif;text-align:center}
-.calendar-toolbar.refined{grid-template-columns:1.8fr 1fr 1fr 1.4fr;margin-bottom:22px}
+.calendar-toolbar.refined{grid-template-columns:minmax(220px,1.7fr) minmax(130px,.8fr) minmax(130px,.8fr) minmax(150px,1fr);margin-bottom:22px}.calendar-toolbar.refined .toolbar-note{grid-column:1/-1;margin-top:-2px}
 .toolbar-note{color:var(--muted);font-size:.82rem;align-self:center}
 .hidden{display:none!important}
 .month-calendar{
@@ -2017,3 +2017,34 @@ body.student-mode a[href="patch-notes.html"]{display:none!important}
   .source-gallery-item .source-figure-image-link img{height:auto;max-height:330px}
   .source-figure-heading>div{align-items:flex-start;display:grid;gap:.35rem}
 }
+
+
+/* =========================================================
+   v16.3.35 Calendar execution-layer modernization
+   ========================================================= */
+.calendar-current-actions{display:flex;gap:10px;flex-wrap:wrap;margin:.8rem 0 .35rem}
+.calendar-current-week .calendar-next-line,.calendar-current-week .calendar-prep-line{font-size:.9rem;margin:.55rem 0 0;line-height:1.5}
+.calendar-current-week .calendar-prep-line{color:#f7e7ae}
+.calendar-event-meta{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}
+.calendar-status,.requirement-chip{display:inline-flex;align-items:center;border-radius:999px;padding:5px 9px;font-size:.68rem;font-weight:900;letter-spacing:.055em;text-transform:uppercase;line-height:1.1}
+.requirement-chip{background:#f3eee1;color:#665526;border:1px solid #dfd3b5}
+.calendar-status{background:#edf2ef;color:#2f5144;border:1px solid #cedbd4}
+.calendar-status.status-current{background:#fff1bd;color:#654d0a;border-color:#dfc96c}
+.calendar-status.status-complete{background:#e7f5ea;color:#1f633b;border-color:#b9ddc3}
+.calendar-status.status-overdue{background:#fbe9e6;color:#8a3429;border-color:#ecc0b9}
+.calendar-status.status-advance-prep{background:#e9f0f8;color:#365675;border-color:#c2d2e3}
+.calendar-status.status-milestone{background:#eeeaf8;color:#57447f;border-color:#cec3e3}
+.calendar-status.status-scheduled{background:#edf2ef;color:#36584a;border-color:#cedbd4}
+.calendar-event.status-current{box-shadow:0 0 0 2px rgba(224,198,118,.72),var(--shadow)}
+.calendar-event.status-overdue{border-color:#dfb2aa}
+.calendar-event.status-complete{opacity:.86}
+.month-event.status-complete,.week-event.status-complete{opacity:.68}
+.month-event.status-current,.week-event.status-current{box-shadow:0 0 0 2px rgba(224,198,118,.75)}
+.month-event.status-overdue,.week-event.status-overdue{border-color:#b25c4c;background:#faece8}
+.week-event small{display:block;margin-top:4px;font-size:.62rem;font-weight:850;color:#6f7f78;text-transform:uppercase;letter-spacing:.05em}
+.calendar-destination-actions{display:flex;gap:9px;flex-wrap:wrap;margin:.75rem 0}
+.event-flex{border-left:4px solid #cf9c2f;padding-left:14px!important;background:#fff8e7;border-radius:0 10px 10px 0}
+.event-flex p{margin:.1rem 0;color:#5e512f;line-height:1.6}
+.dashboard-event-prep{border-left:3px solid #7892aa;padding-left:10px}
+@media(max-width:800px){.calendar-toolbar.refined{grid-template-columns:1fr 1fr}.calendar-toolbar.refined .toolbar-note{grid-column:1/-1}}
+@media(max-width:560px){.calendar-toolbar.refined{grid-template-columns:1fr}.calendar-toolbar.refined .toolbar-note{grid-column:auto}.calendar-period-nav .period-button:not(.today){min-width:44px;min-height:44px}.calendar-destination-actions .button{width:100%;justify-content:center}.calendar-event-meta{margin-top:6px}}

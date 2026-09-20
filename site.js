@@ -122,15 +122,16 @@
     const whyLine=findCalendarLine(lines,/^WHY THIS STARTS HERE:/i);
     const pathLine=findCalendarLine(lines,/^START FROM ZERO/i);
     const notes=renderCalendarLinks(raw);
+    const contextWeek=Number(e.contextWeek||e.week||e.prepForWeek)||0;
     return {
       raw,
-      focus,
+      focus:focus||(contextWeek?{week:String(contextWeek),title:weekTopic(contextWeek),topics:''}:null),
       scope:scopeLine?valueAfterLabel(scopeLine,/^ETA\/CETa SCOPE(?:\s+—[^:]+)?:\s*/i):'',
       purpose:purposeLine?valueAfterLabel(purposeLine,/^CAREER\/EMBEDDED PURPOSE:\s*/i):'',
       career:careerLine?valueAfterLabel(careerLine,/^CAREER CONNECTION:\s*/i):'',
-      mastery:masteryLine?valueAfterLabel(masteryLine,/^MASTERY GATE:\s*/i):'',
+      mastery:e.masteryRule||(masteryLine?valueAfterLabel(masteryLine,/^MASTERY GATE:\s*/i):''),
       why:whyLine?valueAfterLabel(whyLine,/^WHY THIS STARTS HERE:\s*/i):'',
-      path:pathLine?pathLine.replace(/\s+—\s+SESSION\s+\d+$/i,'').trim():'',
+      path:e.sessionRole||(pathLine?pathLine.replace(/\s+—\s+SESSION\s+\d+$/i,'').trim():''),
       links:notes,
       linkCount:labeledLinks(raw).length
     };
@@ -160,6 +161,15 @@
     if(w<=29) return 'Phase V · Capstone & Role Proof';
     return 'Phase VI · Career Launch';
   };
+  const calendarWeek=e=>Number(e?.week||e?.contextWeek||e?.prepForWeek)||0;
+  const isAdvancePrep=e=>Boolean(e?.advancePrep||e?.requirement==='ADVANCE PREP');
+  const isAllDayEvent=e=>{const a=new Date(e.start),b=new Date(e.end);return (b-a)>=20*60*60*1000;};
+  function eventDurationLabel(e){
+    if(isAllDayEvent(e)) return 'All-day checkpoint';
+    const minutes=Math.max(0,Math.round((new Date(e.end)-new Date(e.start))/60000));
+    if(minutes<60)return `${minutes} min`;
+    const h=Math.floor(minutes/60),m=minutes%60;return m?`${h} h ${m} min`:`${h} h`;
+  }
 
   const focusableSelector='a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
   function trapFocus(e,container,extra=[]){
@@ -246,6 +256,21 @@
     return {kind:'classroom',week,stage,label:`Continue Week ${String(week).padStart(2,'0')}`,detail,href:`learn.html?week=${week}&stage=${encodeURIComponent(stage)}`,reason:'required-instruction',segment:seg};
   }
   window.AlfredNextAction={get:nextAction,dueReviewCount,incompleteClassroomStage};
+  function eventProgressState(e,p=readLocalJSON(PROGRESS_KEY,{})){return p?.events?.[String(e.id)]||p?.events?.[e.id]||{};}
+  function stagesCompleteForEvent(e,p=readLocalJSON(PROGRESS_KEY,{})){
+    const stages=Array.isArray(e.stageTargets)?e.stageTargets:[];const week=calendarWeek(e);if(!stages.length||!week)return false;
+    const completed=weekProgressRecord(p,week)?.learning?.completed||{};return stages.every(stage=>completed?.[stage]===true);
+  }
+  function calendarEventStatus(e,p=readLocalJSON(PROGRESS_KEY,{})){
+    const direct=eventProgressState(e,p)?.status;if(direct==='complete'||stagesCompleteForEvent(e,p))return {key:'complete',label:'Complete'};
+    if(isAdvancePrep(e))return {key:'advance-prep',label:'Advance prep'};
+    if(e.requirement==='MILESTONE')return {key:'milestone',label:'Milestone'};
+    const week=calendarWeek(e),current=currentCourseWeek(),stage=incompleteClassroomStage(current,p);
+    if(week===current&&Array.isArray(e.stageTargets)&&e.stageTargets.includes(stage))return {key:'current',label:'Current required stage'};
+    if(new Date(e.end||e.start)<new Date())return {key:'overdue',label:'Overdue'};
+    return {key:'scheduled',label:'Scheduled'};
+  }
+  window.AlfredCalendarStatus={get:calendarEventStatus,stagesComplete:stagesCompleteForEvent};
 
   function interfaceMode(){try{return localStorage.getItem(INTERFACE_MODE_KEY)==='builder'?'builder':'student';}catch{return 'student';}}
   function applyInterfaceMode(){
@@ -381,11 +406,14 @@
     const sorted=[...EVENTS].sort((a,b)=>new Date(a.start)-new Date(b.start));
     const future=sorted.filter(e=>new Date(e.start)>=now);
     const next=future[0]||null;
+    const nextRequired=future.find(e=>!isAdvancePrep(e))||null;
+    const nextPrep=future.find(e=>isAdvancePrep(e))||null;
     const finalEvent=sorted[sorted.length-1];
     const complete=now>new Date(finalEvent.end||finalEvent.start);
-    const same=sorted.find(e=>sameDay(new Date(e.start),now));
+    const same=sorted.find(e=>sameDay(new Date(e.start),now)&&!isAdvancePrep(e));
+    const prepToday=sorted.find(e=>sameDay(new Date(e.start),now)&&isAdvancePrep(e));
     const currentWeek=window.AlfredState?.currentWeek(EVENTS,now,WEEKS)||1;
-    return {now,next,sameDay:same,currentWeek,complete};
+    return {now,next,nextRequired,nextPrep,sameDay:same,prepToday,currentWeek,complete};
   }
 
   function weekBounds(week){
@@ -426,7 +454,8 @@
       const end=new Date(bounds.last.getFullYear(),bounds.last.getMonth(),bounds.last.getDate(),23,59,59).getTime();
       progress=Math.max(0,Math.min(100,((now.getTime()-start)/(end-start))*100));
     }
-    const upcoming=EVENTS.filter(e=>e.week===w && new Date(e.start)>=now).slice(0,3);
+    const upcoming=EVENTS.filter(e=>calendarWeek(e)===w && !isAdvancePrep(e) && new Date(e.start)>=now).slice(0,3);
+    const prep=EVENTS.find(e=>isAdvancePrep(e)&&Number(e.contextWeek)===w&&new Date(e.start)>=startOfDay(now));
     const outcomes=(week?.outcomes||[]).slice(0,4);
     const milestone=nextMilestone(now);
     return `
@@ -440,7 +469,7 @@
       </section>
       <section class="week-dashboard-card">
         <h4>Next on your calendar</h4>
-        ${upcoming.length?upcoming.map(e=>`<div class="dashboard-event"><strong>${esc(e.summary.replace(/^AU-ESET 301 \| /,''))}</strong><span>${fmtDate(e.start,{weekday:'short',month:'short',day:'numeric'})} · ${fmtTime(e.start)}</span></div>`).join(''):'<p>No remaining sessions this week.</p>'}
+        ${upcoming.length?upcoming.map(e=>`<div class="dashboard-event"><strong>${esc(e.summary.replace(/^AU-ESET 301 \| /,''))}</strong><span>${fmtDate(e.start,{weekday:'short',month:'short',day:'numeric'})} · ${fmtTime(e.start)} · ${esc(calendarEventStatus(e).label)}</span></div>`).join(''):'<p>No remaining required sessions this week.</p>'}${prep?`<div class="dashboard-event dashboard-event-prep"><strong>${esc(prep.summary)}</strong><span>${fmtDate(prep.start,{weekday:'short',month:'short',day:'numeric'})} · advance preparation only</span></div>`:''}
       </section>
       <section class="week-dashboard-card">
         <h4>This week should leave you able to…</h4>
@@ -461,8 +490,8 @@
         if($('#announcement-text')) $('#announcement-text').textContent='AU-ESET 301 scheduled calendar complete · Close incomplete work in Progress and mastery gaps in Analytics.';
       }else{
         if(title) title.textContent=`Week ${String(info.currentWeek||1).padStart(2,'0')} · ${weekTopic(info.currentWeek||1)}`;
-        if(copy) copy.textContent=info.sameDay?`Today: ${info.sameDay.summary.replace(/^AU-ESET 301 \| /,'')}`:`Next: ${info.next?.summary.replace(/^AU-ESET 301 \| /,'')||'No additional scheduled session'}`;
-        if($('#announcement-text')) $('#announcement-text').textContent=info.sameDay?`Today: ${info.sameDay.summary}`:`Next session: ${info.next?.summary||'No additional scheduled session'}`;
+        if(copy) copy.textContent=info.sameDay?`Today: ${info.sameDay.summary.replace(/^AU-ESET 301 \| /,'')}`:`Next: ${(info.nextRequired||info.next)?.summary.replace(/^AU-ESET 301 \| /,'')||'No additional scheduled session'}`;
+        if($('#announcement-text')) $('#announcement-text').textContent=info.sameDay?`Today: ${info.sameDay.summary}`:`Next session: ${(info.nextRequired||info.next)?.summary||'No additional scheduled session'}`;
       }
     }
   }
@@ -470,27 +499,31 @@
   const modal=$('#event-modal');
   let modalReturnFocus=null;
   function eventDetailHTML(e){
-    const ctx=eventContext(e);
+    const ctx=eventContext(e),status=calendarEventStatus(e),week=calendarWeek(e);
     const outcomes=e.outcomes?.length?`<div class="modal-section event-outcomes"><h3>After Today — Required Learning Outcomes</h3><p class="section-lede">By the end of this item, you should be able to explain or demonstrate:</p><ul>${e.outcomes.map(x=>`<li>${esc(tidyCalendarLine(x))}</li>`).join('')}</ul></div>`:'';
     const today=`<div class="modal-section event-today"><h3>Today’s work</h3>${textBlock(e.today)}</div>`;
     const glance=[];
-    if(ctx.scope)glance.push(`<div class="event-glance-card"><span class="event-glance-label">CETa scope</span><strong>${esc(ctx.scope)}</strong></div>`);
-    if(ctx.purpose)glance.push(`<div class="event-glance-card"><span class="event-glance-label">Why it matters</span><strong>${esc(ctx.purpose)}</strong></div>`);
-    if(ctx.career)glance.push(`<div class="event-glance-card"><span class="event-glance-label">Career connection</span><strong>${esc(ctx.career)}</strong></div>`);
-    const focus=ctx.focus?`<div class="event-glance-card event-focus"><span class="event-glance-label">Week ${esc(ctx.focus.week)} focus</span><strong>${esc(ctx.focus.title)}</strong>${ctx.focus.topics?`<span>${esc(ctx.focus.topics)}</span>`:''}</div>`:ctx.path?`<div class="event-glance-card event-focus"><span class="event-glance-label">Session focus</span><strong>${esc(ctx.path)}</strong></div>`:'';
-    const glanceHTML=focus||glance.length?`<div class="event-at-a-glance">${focus}${glance.join('')}</div>`:'';
-    const why=ctx.why?`<div class="modal-section event-note"><h3>Why this comes here</h3><p>${esc(ctx.why)}</p></div>`:'';
-    const mastery=ctx.mastery?`<div class="modal-section event-mastery"><h3>Mastery gate</h3><p>${esc(ctx.mastery)}</p></div>`:'';
+    glance.push(`<div class="event-glance-card"><span class="event-glance-label">Requirement</span><strong>${esc(e.requirement||'REQUIRED')}</strong></div>`);
+    glance.push(`<div class="event-glance-card"><span class="event-glance-label">Status</span><strong><span class="calendar-status status-${esc(status.key)}">${esc(status.label)}</span></strong></div>`);
+    glance.push(`<div class="event-glance-card"><span class="event-glance-label">Time budget</span><strong>${esc(eventDurationLabel(e))}</strong></div>`);
+    if(e.labId)glance.push(`<div class="event-glance-card"><span class="event-glance-label">Practical evidence</span><strong>${esc(e.labId)}</strong></div>`);
+    const focus=ctx.focus?`<div class="event-glance-card event-focus"><span class="event-glance-label">${isAdvancePrep(e)?'Prepares':'Week'} ${esc(ctx.focus.week)}</span><strong>${esc(ctx.focus.title)}</strong>${ctx.path?`<span>${esc(ctx.path)}</span>`:''}</div>`:ctx.path?`<div class="event-glance-card event-focus"><span class="event-glance-label">Session role</span><strong>${esc(ctx.path)}</strong></div>`:'';
+    const glanceHTML=`<div class="event-at-a-glance">${focus}${glance.join('')}</div>`;
+    const mastery=ctx.mastery?`<div class="modal-section event-mastery"><h3>Mastery / gate rule</h3><p>${esc(ctx.mastery)}</p></div>`:'';
+    const flex=e.holidayFlex?`<div class="modal-section event-flex"><h3>Holiday flex</h3><p>This session falls on or next to ${esc(e.holidayName||'a holiday')}. Complete it within ±48 hours without creating late-work debt; keep the required stage order intact.</p></div>`:'';
+    const completion=`<div class="modal-section event-completion"><h3>Completion check</h3><p>${esc(e.completionEvidence||'Complete the assigned required stage(s) and preserve the required evidence.')}</p><p><strong>If mastery is missed:</strong> repair the exact gap and make the required new attempt before advancing. Do not simply carry an unresolved required concept into the next week.</p></div>`;
+    const primary=e.destination?`<a class="button green" href="${esc(e.destination)}">${esc(e.destinationLabel||'Open current required path')} →</a>`:'';
+    const secondary=e.secondaryDestination?` <a class="button outline-green" href="${esc(e.secondaryDestination)}">${esc(e.secondaryLabel||'Open related evidence')} →</a>`:'';
+    const repair=week&&!isAdvancePrep(e)?` <a class="text-link" href="study.html?week=${week}">Review reached weak areas in Study →</a>`:'';
     const references=ctx.links?`<details class="event-reference"><summary>Open reference links <span>${ctx.linkCount} linked resource${ctx.linkCount===1?'':'s'}</span></summary>${ctx.links}</details>`:'';
-    const completion=`<div class="modal-section event-completion"><h3>Completion check</h3><p>Complete today’s work, then test each outcome. If one is not yet explainable or demonstrable, carry that single concept into the next review block. No spreadsheet logging is required.</p></div>`;
     return `
-      <div class="modal-date">${fmtDate(e.start)} · ${fmtTime(e.start)}${e.week?` · Week ${String(e.week).padStart(2,'0')}`:''}</div>
+      <div class="modal-date">${fmtDate(e.start)} · ${isAllDayEvent(e)?'Checkpoint / reminder':`${fmtTime(e.start)} – ${fmtTime(e.end)}`}${week?` · Week ${String(week).padStart(2,'0')}`:''}</div>
       <h2 id="event-modal-title">${esc(e.summary.replace(/^AU-ESET 301 \| /,''))}</h2>
-      <p class="event-modal-intro">The calendar tells you when and what. The Classroom teaches it. Start with the required Classroom path, then use this event’s outcomes and timing as the finish line.</p>
-      ${glanceHTML}${today}${outcomes}${mastery}${why}${completion}
-      <div class="modal-section event-quiz-cta"><h3>Required teaching and mastery path</h3><p>Open the complete Week ${String(e.week||1).padStart(2,'0')} lesson sequence: original teaching, expert media, worked examples, required checks, guided practice, lab/application, and weekly mastery.</p><a class="button green" href="learn.html?week=${e.week||1}">Continue in Classroom →</a> <a class="text-link" href="quiz.html?type=lesson&id=${e.id}">Open extra practice only if needed →</a></div>
+      <p class="event-modal-intro">The Calendar is the execution layer. It tells you what stage owns this block, how long to budget, what counts as evidence, and where to continue. Classroom/Progress remain the source of truth for mastery and completion.</p>
+      ${glanceHTML}${today}${outcomes}${mastery}${flex}${completion}
+      <div class="modal-section event-quiz-cta"><h3>Current destination</h3><p>${isAdvancePrep(e)?'Prepare the upcoming route without skipping the current week’s required teaching.':e.requirement==='MILESTONE'?'Use the milestone-specific destination below; this event never falls back to Week 01.':'Resume the exact current stage assigned to this calendar block.'}</p><div class="calendar-destination-actions">${primary}${secondary}</div>${repair}</div>
       ${references}
-      <details class="event-reference event-full-notes"><summary>Open full event notes <span>Source record</span></summary><div class="raw-desc">${linkify(ctx.raw)}</div></details>`;
+      <details class="event-reference event-full-notes"><summary>Open execution notes <span>Current calendar record</span></summary><div class="raw-desc">${linkify(ctx.raw)}</div></details>`;
   }
   function openEvent(id){
     const e=EVENTS.find(x=>x.id===Number(id)); if(!e||!modal) return;
@@ -517,9 +550,9 @@
   // Calendar
   const monthView=$('#calendar-month-view');
   if(monthView){
-    const q=$('#calendar-search'), wf=$('#week-filter'), tf=$('#type-filter');
+    const q=$('#calendar-search'), wf=$('#week-filter'), tf=$('#type-filter'), sf=$('#status-filter');
     const agenda=$('#calendar-agenda-view'), weekView=$('#calendar-week-view');
-    [...new Set(EVENTS.map(e=>e.week).filter(Boolean))].sort((a,b)=>a-b).forEach(w=>wf.insertAdjacentHTML('beforeend',`<option value="${w}">Week ${String(w).padStart(2,'0')}</option>`));
+    [...new Set(EVENTS.map(calendarWeek).filter(Boolean))].sort((a,b)=>a-b).forEach(w=>wf.insertAdjacentHTML('beforeend',`<option value="${w}">Week ${String(w).padStart(2,'0')}</option>`));
     [...new Set(EVENTS.map(e=>e.type))].sort().forEach(t=>tf.insertAdjacentHTML('beforeend',`<option value="${esc(t)}">${esc(t)}</option>`));
 
     let activeView='month';
@@ -530,11 +563,12 @@
     if(today<firstEvent||today>lastEvent) focusDate=new Date(firstEvent);
 
     function filteredEvents(){
-      const query=q.value.trim().toLowerCase(), week=wf.value, type=tf.value;
+      const query=q.value.trim().toLowerCase(), week=wf.value, type=tf.value, status=sf?.value||'';
       return EVENTS.filter(e=>
-        (!week||String(e.week)===week)&&
+        (!week||String(calendarWeek(e))===week)&&
         (!type||e.type===type)&&
-        (!query||(e.summary+' '+e.description).toLowerCase().includes(query))
+        (!status||calendarEventStatus(e).key===status)&&
+        (!query||(e.summary+' '+e.description+' '+(e.sessionRole||'')).toLowerCase().includes(query))
       );
     }
     function periodLabel(){
@@ -547,18 +581,23 @@
       } else label.textContent='Full Course Agenda';
     }
     function renderCurrentWeek(){
-      const info=courseInfo(), w=info?.currentWeek||1, bounds=weekBounds(w), list=bounds?.list||[];
+      const info=courseInfo(), w=info?.currentWeek||1, bounds=weekBounds(w), list=bounds?.list||[], action=nextAction();
+      const scheduled=info?.nextRequired||info?.next;
+      const prep=info?.nextPrep&&Number(info.nextPrep.contextWeek)===w?info.nextPrep:null;
       $('#calendar-current-week').innerHTML=`
         <div class="calendar-current-week-grid">
           <div>
             <div class="eyebrow">${esc(phaseForWeek(w))}</div>
             <h2>Week ${String(w).padStart(2,'0')} · ${esc(weekTopic(w))}</h2>
-            <p>${info?.complete?`The scheduled AU-ESET 301 calendar is complete. Use Student Progress to close remaining work.`:info?.sameDay?`Today has ${EVENTS.filter(e=>sameDay(new Date(e.start),info.now)).length} scheduled course item(s).`:`Next scheduled session: ${esc(info?.next?.summary.replace(/^AU-ESET 301 \| /,'')||'—')}`}</p>
+            <p><strong>Current required stage:</strong> ${esc(action?.detail||'Open Classroom to continue the required path.')}</p>
+            <div class="calendar-current-actions"><a class="button gold small" href="${esc(action?.href||`learn.html?week=${w}`)}">${esc(action?.label||'Continue Classroom')} →</a></div>
+            <p class="calendar-next-line"><strong>Next scheduled:</strong> ${esc(scheduled?.summary||'—')}${scheduled?` · ${fmtDate(scheduled.start,{weekday:'short',month:'short',day:'numeric'})}`:''}</p>
+            ${prep?`<p class="calendar-prep-line"><strong>Advance prep:</strong> ${esc(prep.summary)} · does not replace the current required stage.</p>`:''}
           </div>
           <div class="mini-stats">
-            <div><strong>${list.length}</strong><span>Scheduled items</span></div>
+            <div><strong>${list.filter(e=>!isAdvancePrep(e)).length}</strong><span>Week items</span></div>
             <div><strong>${WEEKS.find(x=>x.week===w)?.outcomes?.length||0}</strong><span>Week outcomes</span></div>
-            <div><strong>${fmtDate((bounds?.last||new Date()).toISOString(),{month:'short',day:'numeric'})}</strong><span>Week endpoint</span></div>
+            <div><strong>≥80%</strong><span>Mastery target · safety 100%</span></div>
           </div>
         </div>`;
     }
@@ -573,7 +612,7 @@
         const dayEvents=events.filter(e=>sameDay(new Date(e.start),d)).sort((a,b)=>new Date(a.start)-new Date(b.start));
         cells.push(`<div class="month-day ${d.getMonth()!==m?'outside ':''}${sameDay(d,today)?'today':''}">
           <div class="day-number">${d.getDate()}</div>
-          ${dayEvents.map((e,index)=>{const p=eventDisplayParts(e);return `<button class="month-event type-${esc(e.type)}${index>=3?' month-event-extra hidden':''}" data-event-id="${e.id}">${fmtTime(e.start)} · ${esc(p.short)}</button>`}).join('')}
+          ${dayEvents.map((e,index)=>{const p=eventDisplayParts(e);const st=calendarEventStatus(e);return `<button class="month-event type-${esc(e.type)} status-${esc(st.key)}${index>=3?' month-event-extra hidden':''}" data-event-id="${e.id}" title="${esc(st.label)} · ${esc(e.requirement||'REQUIRED')}">${isAllDayEvent(e)?'All day':fmtTime(e.start)} · ${esc(p.short)}</button>`}).join('')}
           ${dayEvents.length>3?`<button type="button" class="more-events" data-more-events aria-expanded="false">Show ${dayEvents.length-3} more</button>`:''}
         </div>`);
       }
@@ -597,7 +636,7 @@
         const dayEvents=events.filter(e=>sameDay(new Date(e.start),d)).sort((a,b)=>new Date(a.start)-new Date(b.start));
         days.push(`<div class="week-day-column ${sameDay(d,today)?'today':''}">
           <div class="week-day-head"><strong>${fmtDate(d,{weekday:'short'})}</strong><span>${fmtDate(d,{month:'short',day:'numeric'})}</span></div>
-          <div class="week-day-events">${dayEvents.length?dayEvents.map(e=>{const p=eventDisplayParts(e);return `<button type="button" class="week-event" data-event-id="${e.id}" aria-label="Open ${esc(p.summary)}"><strong>${fmtTime(e.start)}</strong><span>${esc(p.short)}</span></button>`}).join(''):'<span class="week-empty">No scheduled work</span>'}</div>
+          <div class="week-day-events">${dayEvents.length?dayEvents.map(e=>{const p=eventDisplayParts(e);const st=calendarEventStatus(e);return `<button type="button" class="week-event status-${esc(st.key)}" data-event-id="${e.id}" aria-label="Open ${esc(p.summary)} · ${esc(st.label)}"><strong>${isAllDayEvent(e)?'All day':fmtTime(e.start)}</strong><span>${esc(p.short)}</span><small>${esc(st.label)}</small></button>`}).join(''):'<span class="week-empty">No scheduled work</span>'}</div>
         </div>`);
       }
       weekView.innerHTML=`<div class="week-calendar">${days.join('')}</div>`;
@@ -605,11 +644,11 @@
     }
     function renderAgenda(){
       const events=filteredEvents();
-      $('#calendar-summary').innerHTML=`<span class="summary-chip">${events.length} scheduled items</span>${wf.value?`<span class="summary-chip">Week ${String(wf.value).padStart(2,'0')}</span>`:''}${tf.value?`<span class="summary-chip">${esc(tf.value)}</span>`:''}`;
-      $('#calendar-list').innerHTML=events.map(e=>{const p=eventDisplayParts(e);return `<article class="calendar-event">
-        <div class="event-date-block"><strong>${esc(fmtDate(e.start))}</strong><span>${esc(fmtTime(e.start))} – ${esc(fmtTime(e.end))}</span>${e.week?`<span> · Week ${String(e.week).padStart(2,'0')}</span>`:''}</div>
-        <div class="event-main"><div class="event-top"><div>${p.week?`<span class="event-kicker">Week ${esc(p.week)} · ${esc(p.activity)}</span>`:''}<h3>${esc(p.topic)}</h3></div><span class="event-badge">${esc(e.type)}</span></div>
-        <div class="event-actions"><button class="event-toggle" data-event-id="${e.id}" aria-label="Open ${esc(p.summary)} assignment and outcomes">Open assignment &amp; outcomes</button></div></div>
+      $('#calendar-summary').innerHTML=`<span class="summary-chip">${events.length} scheduled items</span>${wf.value?`<span class="summary-chip">Week ${String(wf.value).padStart(2,'0')}</span>`:''}${tf.value?`<span class="summary-chip">${esc(tf.value)}</span>`:''}${sf?.value?`<span class="summary-chip">${esc(sf.options[sf.selectedIndex]?.text||sf.value)}</span>`:''}`;
+      $('#calendar-list').innerHTML=events.map(e=>{const p=eventDisplayParts(e),st=calendarEventStatus(e),cw=calendarWeek(e);return `<article class="calendar-event status-${esc(st.key)}">
+        <div class="event-date-block"><strong>${esc(fmtDate(e.start))}</strong><span>${isAllDayEvent(e)?'All-day checkpoint':`${esc(fmtTime(e.start))} – ${esc(fmtTime(e.end))}`}</span>${cw?`<span> · Week ${String(cw).padStart(2,'0')}</span>`:''}<span> · ${esc(eventDurationLabel(e))}</span></div>
+        <div class="event-main"><div class="event-top"><div>${p.week?`<span class="event-kicker">Week ${esc(p.week)} · ${esc(p.activity)}</span>`:`<span class="event-kicker">${esc(e.requirement||e.type)}</span>`}<h3>${esc(p.topic)}</h3><div class="calendar-event-meta"><span class="calendar-status status-${esc(st.key)}">${esc(st.label)}</span><span class="requirement-chip">${esc(e.requirement||'REQUIRED')}</span>${e.labId?`<span class="requirement-chip">${esc(e.labId)}</span>`:''}</div></div><span class="event-badge">${esc(e.type)}</span></div>
+        <div class="event-actions"><button class="event-toggle" data-event-id="${e.id}" aria-label="Open ${esc(p.summary)} assignment and outcomes">Open execution plan</button></div></div>
       </article>`}).join('');
       $$('[data-event-id]',$('#calendar-list')).forEach(b=>b.addEventListener('click',()=>openEvent(b.dataset.eventId)));
     }
@@ -632,7 +671,7 @@
       render();
     });
     $('#calendar-today').addEventListener('click',()=>{focusDate=new Date(today);render();});
-    q.addEventListener('input',render); wf.addEventListener('change',render); tf.addEventListener('change',render);
+    q.addEventListener('input',render); wf.addEventListener('change',render); tf.addEventListener('change',render); sf?.addEventListener('change',render);
     renderCurrentWeek(); render();
   }
 
