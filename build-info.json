@@ -1,10 +1,10 @@
 {
   "courseRelease": "16.3",
-  "runtimePatch": "16.3.33",
+  "runtimePatch": "16.3.34",
   "evidenceRevision": "16.2",
   "cloudSyncProtocol": 2,
-  "build": "v16.3.33-career-beginner-first-instructional-depth-20260919",
-  "releaseStatus": "career-beginner-first-instructional-depth",
+  "build": "v16.3.34-authoritative-visual-learning-layer-20260919",
+  "releaseStatus": "authoritative-visual-learning-layer",
   "presentationPatch": "mobile-visual-readability-final",
   "scheduleRevision": "2026-09-16-week1-reset",
   "modulePresentationRevision": "2026-09-18-week1-from-zero-visual-teaching",
@@ -16,7 +16,7 @@
   "week1InstructionRevision": "2026-09-19-beginner-first-safety-scaffolding",
   "week1TeachingMediaRevision": "2026-09-18-beginner-teacher-youtube-layer",
   "teachingMediaBaseRevision": "2026-09-18-final-pots-31-week-standalone-accepted",
-  "releaseNotesRevision": "2026-09-19-v16.3.33-career-beginner-first-depth-recorded",
+  "releaseNotesRevision": "2026-09-19-v16.3.34-authoritative-visual-learning-recorded",
   "repositoryLedgerBaseline": "2026-09-18-v16.3.9-63-commits",
   "studyRevision": "2026-09-19-review-first-study-library-active-recall-optional",
   "practiceRevision": "2026-09-18-priority-ladder-repair-router",
@@ -40,5 +40,7 @@
   "questionReviewRevision": "2026-09-19-question-to-teaching-section-backlink-and-return",
   "studyLibraryRevision": "2026-09-19-reached-material-review-flashcards-media-reference",
   "safetyScaffoldingRevision": "2026-09-19-week1-future-concept-context-before-safety-questions",
-  "careerInstructionalDepthRevision": "2026-09-19-all-31-career-lessons-beginner-first"
+  "careerInstructionalDepthRevision": "2026-09-19-all-31-career-lessons-beginner-first",
+  "visualInstructionRevision": "2026-09-19-source-provenance-legacy-svg-retirement",
+  "visualSourceRevision": "2026-09-19-open-license-real-media-and-authoritative-source-grounding"
 }

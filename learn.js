@@ -67,7 +67,7 @@
     if (week === 1) return '';
     const visual = CONCEPT_MAPS[week];
     if (!visual) return '';
-    return `<figure class="concept-map" aria-labelledby="concept-map-title-${week}"><div class="concept-map-label">Visual mental model · ${trackBadge('CETa + Career','How the ideas connect')}</div><h3 id="concept-map-title-${week}">${esc(visual.title)}</h3><ol>${visual.steps.map((step,i) => `<li><span>${i + 1}</span><strong>${esc(step)}</strong></li>`).join('')}</ol><figcaption>${esc(visual.caption)}</figcaption></figure>`;
+    return `<figure class="concept-map" aria-labelledby="concept-map-title-${week}"><div class="concept-map-label">Alfred instructional model · ${trackBadge('CETa + Career','How the ideas connect')}</div><h3 id="concept-map-title-${week}">${esc(visual.title)}</h3><ol>${visual.steps.map((step,i) => `<li><span>${i + 1}</span><strong>${esc(step)}</strong></li>`).join('')}</ol><figcaption>${esc(visual.caption)}</figcaption></figure>`;
   }
 
   function loadProgress(){
@@ -297,9 +297,11 @@
   function renderSourceFigure(figure){
     if(!figure)return '';
     const sourceLinks=[];
-    if(figure.sourceUrl)sourceLinks.push(`<a href="${esc(figure.sourceUrl)}" target="_blank" rel="noopener noreferrer">Open source ↗</a>`);
+    if(figure.sourceUrl)sourceLinks.push(`<a href="${esc(figure.sourceUrl)}" target="_blank" rel="noopener noreferrer">Open primary source ↗</a>`);
     if(figure.secondaryUrl)sourceLinks.push(`<a href="${esc(figure.secondaryUrl)}" target="_blank" rel="noopener noreferrer">Second source ↗</a>`);
+    if(figure.tertiaryUrl)sourceLinks.push(`<a href="${esc(figure.tertiaryUrl)}" target="_blank" rel="noopener noreferrer">Third source ↗</a>`);
     if(figure.licenseUrl)sourceLinks.push(`<a href="${esc(figure.licenseUrl)}" target="_blank" rel="noopener noreferrer">License ↗</a>`);
+    const provenanceLabel=figure.provenance==='source'?'Real/source visual':figure.provenance==='source-grounded'?'Source-grounded technical visual':figure.provenance==='alfred-model'?'Alfred instructional model':'';
     let body='';
     if(figure.type==='table'){
       const cols=figure.columns||[];
@@ -308,10 +310,13 @@
     }else if(figure.type==='flow'){
       const steps=figure.steps||[];
       body=`<div class="source-figure-flow" role="group" aria-label="${esc(figure.title||'Instructional flow')}">${steps.map((step,i)=>`<div class="source-flow-step"><span>${i+1}</span><div><strong>${esc(step.title||`Step ${i+1}`)}</strong><p>${esc(step.body||'')}</p></div></div>${i<steps.length-1?'<span class="source-flow-arrow" aria-hidden="true">→</span>':''}`).join('')}</div>`;
+    }else if(figure.type==='gallery'){
+      const items=figure.items||[];
+      body=`<div class="source-figure-gallery" role="group" aria-label="${esc(figure.title||'Instructional image gallery')}">${items.map(item=>`<article class="source-gallery-item"><a class="source-figure-image-link" href="${esc(item.src||'#')}" target="_blank" rel="noopener noreferrer" aria-label="Open ${esc(item.label||'source image')} full size"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="${esc(item.src||'')}" alt="${esc(item.alt||item.label||'Instructional source image')}"></a><div class="source-gallery-meta"><strong>${esc(item.label||'Source image')}</strong>${item.credit?`<span>${esc(item.credit)}</span>`:''}<div class="source-gallery-links">${item.sourceUrl?`<a href="${esc(item.sourceUrl)}" target="_blank" rel="noopener noreferrer">Image source ↗</a>`:''}${item.license?`<span>${esc(item.license)}</span>`:''}${item.licenseUrl?`<a href="${esc(item.licenseUrl)}" target="_blank" rel="noopener noreferrer">License ↗</a>`:''}</div></div></article>`).join('')}</div>`;
     }else if(figure.src){
       body=`<a class="source-figure-image-link" href="${esc(figure.src)}" target="_blank" rel="noopener noreferrer" aria-label="Open ${esc(figure.number||'figure')} full size"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="${esc(figure.src)}" alt="${esc(figure.alt||figure.title||'Instructional source figure')}"></a>`;
     }
-    return `<figure class="source-figure"><div class="source-figure-heading"><span>${esc(figure.number||'Source figure')}</span><strong>${esc(figure.title||'Instructional visual')}</strong></div>${body}<figcaption><p>${esc(figure.caption||'')}</p><p class="source-figure-credit"><strong>Source:</strong> ${esc(figure.source||'Credited instructional source')}${figure.license?` · ${esc(figure.license)}`:''}</p>${sourceLinks.length?`<div class="source-figure-links">${sourceLinks.join('')}</div>`:''}</figcaption></figure>`;
+    return `<figure class="source-figure ${figure.provenance?`source-figure-${esc(figure.provenance)}`:''}"><div class="source-figure-heading"><div><span>${esc(figure.number||'Source figure')}</span>${provenanceLabel?`<span class="source-provenance">${esc(provenanceLabel)}</span>`:''}</div><strong>${esc(figure.title||'Instructional visual')}</strong></div>${body}<figcaption><p>${esc(figure.caption||'')}</p><p class="source-figure-credit"><strong>Source:</strong> ${esc(figure.source||'Credited instructional source')}${figure.license?` · ${esc(figure.license)}`:''}</p>${sourceLinks.length?`<div class="source-figure-links">${sourceLinks.join('')}</div>`:''}</figcaption></figure>`;
   }
 
   function renderWorkedExample(example,label='Worked example'){

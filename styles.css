@@ -1996,3 +1996,24 @@ body.student-mode a[href="patch-notes.html"]{display:none!important}
 .source-flow-step strong{display:block;color:var(--green);margin-bottom:.25rem}.source-flow-step p{margin:0;color:var(--muted);line-height:1.45;font-size:.9rem}
 .source-flow-arrow{align-self:center;color:var(--gold-dark,#8a6b17);font-size:1.35rem;font-weight:900;flex:0 0 auto}
 @media(max-width:720px){.source-figure-flow{display:grid;overflow:visible}.source-flow-step{min-width:0}.source-flow-arrow{transform:rotate(90deg);justify-self:center;margin:-.35rem 0}}
+
+/* v16.3.34 — authoritative visual-learning provenance + real-source gallery */
+.source-figure-heading>div{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap}
+.source-figure-heading .source-provenance{display:inline-flex;align-items:center;width:max-content;padding:.18rem .48rem;border:1px solid #c9d5cf;border-radius:999px;background:#fff;color:#456158;font-size:.64rem;letter-spacing:.05em;text-transform:uppercase}
+.source-figure-source .source-provenance{border-color:#9fc7af;background:#eef8f2;color:#215f40}
+.source-figure-source-grounded .source-provenance{border-color:#d7c680;background:#fff9e8;color:#725c16}
+.source-figure-alfred-model .source-provenance{border-color:#bdc8d8;background:#f3f6fb;color:#3e5574}
+.source-figure-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;padding:1rem;background:#fff}
+.source-gallery-item{display:grid;align-content:start;overflow:hidden;border:1px solid #ddd6c5;border-radius:14px;background:#fbfaf6}
+.source-gallery-item .source-figure-image-link{min-height:220px;padding:.55rem;border-bottom:1px solid #e5dfd0}
+.source-gallery-item .source-figure-image-link img{width:100%;height:260px;max-height:none;object-fit:contain;background:#fff}
+.source-gallery-meta{display:grid;gap:.3rem;padding:.7rem .8rem .8rem;color:#5a675f;font-size:.8rem;line-height:1.35}
+.source-gallery-meta>strong{color:var(--green);font-size:.9rem}
+.source-gallery-links{display:flex;flex-wrap:wrap;gap:.35rem .65rem;align-items:center}
+.source-gallery-links a{color:var(--green);font-weight:800;text-decoration:underline;text-underline-offset:2px}
+@media(max-width:620px){
+  .source-figure-gallery{grid-template-columns:1fr;padding:.65rem}
+  .source-gallery-item .source-figure-image-link{min-height:160px}
+  .source-gallery-item .source-figure-image-link img{height:auto;max-height:330px}
+  .source-figure-heading>div{align-items:flex-start;display:grid;gap:.35rem}
+}

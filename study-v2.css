@@ -66,3 +66,11 @@
 @media(max-width:900px){.study-path-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.study-library-head,.study-media-grid,.study-reference-knowledge,.study-reference-columns,.study-weak-grid{grid-template-columns:1fr}}
 @media(max-width:620px){.study-path-grid{grid-template-columns:1fr}.study-path-card{padding:.85rem}.study-material-workspace{padding:.7rem}.study-review-sheet>header,.study-subhead{display:grid}.study-library-nav{display:grid;grid-template-columns:1fr auto 1fr}.study-library-nav .button{width:100%}.study-library-nav .button:last-child{justify-self:end}.study-full-read,.study-concept-card{padding:.85rem}.study-review-figure{padding:.7rem}}
 body.focus-mode #study-library-section,body.focus-mode #active-recall-section{display:none!important}
+
+/* v16.3.34 — visual provenance in Study review */
+.study-review-figure .study-figure-provenance{display:inline-flex;width:max-content;padding:.18rem .45rem;border:1px solid #c9d5cf;border-radius:999px;background:#f7faf8;color:#496158;font-size:.68rem;font-weight:850;text-transform:uppercase;letter-spacing:.04em}
+.study-figure-source{margin:.25rem 0 0;color:var(--muted);font-size:.8rem;line-height:1.4}
+.study-figure-links{display:flex;gap:.45rem .8rem;flex-wrap:wrap;margin-top:.35rem}.study-figure-links a{font-weight:850;color:var(--green);text-decoration:underline;text-underline-offset:2px}
+.study-figure-gallery{margin:.75rem -1rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.study-figure-gallery .source-gallery-item img{max-height:320px}
+@media(max-width:620px){.study-figure-gallery{margin:.65rem -.7rem 0}}

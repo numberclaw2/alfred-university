@@ -1,3 +1,51 @@
+# AU-ESET 301 v16.3.34 — Post-Update QA
+
+**QA date:** September 19, 2026  
+**Baseline:** v16.3.33 `v16.3.33-career-beginner-first-instructional-depth-20260919`  
+**Candidate:** v16.3.34 `v16.3.34-authoritative-visual-learning-layer-20260919`  
+**Result:** **PASS FOR UPLOAD**
+
+## Visual-learning acceptance
+
+- PASS — corrected baseline audit confirmed 62 legacy `wNN-*.svg` visuals were still active through `integrated.visualId`; v16.3.34 clears all 62 runtime hooks.
+- PASS — all 62 legacy SVG entries were removed from the service-worker CORE cache.
+- PASS — Classroom and Study render explicit provenance: Real/source visual, Source-grounded technical visual, or Alfred instructional model.
+- PASS — all **31/31 CETa weeks** have section-level instructional visual coverage; Week 1 retains four accepted visuals and Weeks 2–31 have targeted new visual support.
+- PASS — candidate curriculum contains **68 section-level figures**: 15 source, 25 source-grounded, 28 Alfred-model.
+- PASS — the existing **30 weekly orientation concept maps** remain and are now explicitly labeled Alfred instructional models.
+- PASS — real/open-license image use includes representative DMM, bench supply, oscilloscope display, solder joint, STM32 Nucleo board, wiring harness, spectrum-analyzer display, and logic-analyzer media with item-level attribution/licensing.
+- PASS — Week 1 Career bench orientation now leads with real equipment recognition rather than a generic flow.
+- PASS — Week 14 Career pointer visual now uses a concrete memory/address model grounded in GNU C rather than an abstract generated flow.
+- PASS — manufacturer/standards material is used as authoritative technical grounding and linked rather than copied when redistribution permission is unclear.
+- PASS — `VISUAL-SOURCES.md` records source/licensing/provenance and the redistribution boundary.
+
+## Structural / instructional integrity
+
+- PASS — lesson titles, teaching-section titles, and teaching-section counts remain unchanged.
+- PASS — zero legacy `integrated.visualId` hooks remain after the visual overlay.
+- PASS — gallery/source integrity scan returned zero issues.
+- PASS — **93/93 Career question targets** remain valid.
+- PASS — **13/13 Career semantic competency tasks** remain mapped to valid teaching sections.
+- PASS — Study continues to inherit visuals only from reached teaching sections.
+
+## Runtime / rendering checks
+
+- PASS — JavaScript syntax: `instructional-visuals.js`, `learn.js`, `study.js`, `release-notes-current.js`, `service-worker.js`.
+- PASS — `instructional-visuals.js` loads once on Classroom, Study, and Search after accepted content overlays.
+- PASS — inline Chromium renderer harness at **1440 × 1000**: representative Classroom/Study source images, galleries, tables, flows, and Alfred models rendered with zero JS errors and no page-level horizontal overflow.
+- PASS — inline Chromium renderer harness at **390 × 844**: representative figures remained readable/contained, galleries stacked, tables stayed contained/scrollable, zero JS errors and no page-level horizontal overflow.
+- LIMITATION — the environment blocked local/file navigation and external network image retrieval in Chromium. Therefore this QA does **not** claim a full native routed-site browser run or live remote-image fetch test. External image licenses/source pages were verified separately.
+
+## Protected systems
+
+PASS — course release remains 16.3, evidence revision 16.2, Cloud Sync protocol 2. Assessments/scoring, mastery, standards/competencies, labs/projects, calendar identities, Progress, glossary/vocabulary behavior, Teaching Media, Student/Builder, Focus Mode, section review/backlinks, and branding were not intentionally changed.
+
+**PASS FOR UPLOAD.** See `AU-ESET-301-v16.3.34-Authoritative-Visual-Learning-Verification.md` and `VISUAL-SOURCES.md` for full evidence.
+
+---
+
+## Previous QA record
+
 # AU-ESET 301 v16.3.33 — Post-Update QA
 
 **QA date:** September 19, 2026  

@@ -1,6 +1,49 @@
 (() => {
   const entries = [
     {
+        "version": "v16.3.34",
+        "date": "September 19, 2026",
+        "title": "Authoritative Visual Learning Layer — Real Equipment, Source Grounding, and Provenance",
+        "type": "Instructional Visuals / Source Provenance / Legacy Diagram Retirement",
+        "request": "Audit every instructional diagram/image for educational value, add visuals where they materially improve learning, identify reputable sources, and remove or replace synthetic/AI-style visuals when real or authoritative technical visuals are better.",
+        "changes": [
+            "Corrected the visual inventory at runtime: the 62 legacy w01–w31 SVGs were still active through integrated.visualId even though newer section-level figures also existed. v16.3.34 explicitly retires all 62 from the learner path instead of leaving duplicate synthetic visual systems active.",
+            "Added instructional-visuals.js after the accepted Week 1 and Career overlays. It nulls legacy purpose-stage visualId values without changing lesson section counts, titles, progress indices, standards mappings, or assessment logic.",
+            "Removed all 62 legacy wNN-*.svg files from the service-worker CORE cache. The files may remain in repository history, but they are no longer presented or actively cached as current instruction.",
+            "Added an explicit visual-provenance badge to Classroom and Study: Real/source visual, Source-grounded technical visual, or Alfred instructional model.",
+            "Added source-grounded section visuals across all 31 CETa weeks. Week 1 retains the accepted OpenStax figures and SI-prefix table; Weeks 2–31 now receive targeted diagrams/tables/real-source images matched to the concept being taught.",
+            "Added real open-license equipment/workmanship imagery where physical recognition matters: DMM, bench supply, oscilloscope display, solder joint, STM32 Nucleo board, wiring harness, spectrum analyzer display, and logic analyzer.",
+            "Replaced the Career Week 1 generic bench flow as the primary visual with real bench-supply and DMM photographs backed by Keysight/Fluke training.",
+            "Replaced the Career Week 14 generic pointer flow with a concrete source-grounded memory/address table based on GNU C pointer/array definitions.",
+            "Strengthened Career Git, STM32, Python serial, I2C/SPI, harness, RF/spectrum, requirements/traceability, and automated-test visuals with authoritative technical grounding from Pro Git, ST, pySerial, NXP/Microchip, NASA, Keysight, and NI.",
+            "Kept Alfred-authored process diagrams only where an external photograph would not teach the intended reasoning process (for example mixed-model selection, troubleshooting logic, retention, and application feedback). Those are now labeled honestly as Alfred instructional models.",
+            "Added gallery support to Classroom and Study so real-source photographs can carry item-level creator/source/license attribution without losing the lesson-level technical source.",
+            "Extended the in-course source registry and visual-source ledger so new authoritative sources are discoverable and redistribution boundaries are explicit. Manufacturer figures are linked/grounded rather than copied when reuse permission is unclear.",
+            "Preserved v16.3.33 Career beginner-first teaching, v16.3.32 Study reached-material rules, question backlinks, vocabulary behavior, assessments/mastery, labs/projects, calendar, Progress/Cloud Sync 2, and branding."
+        ],
+        "filesAdded": [
+            "instructional-visuals.js",
+            "VISUAL-SOURCES.md",
+            "AU-ESET-301-v16.3.34-Authoritative-Visual-Learning-Verification.md"
+        ],
+        "filesModified": [
+            "POST-UPDATE-QA.md",
+            "SHA256SUMS.txt",
+            "UPLOAD_README.txt",
+            "build-info.json",
+            "learn.html",
+            "learn.js",
+            "release-notes-current.js",
+            "search.html",
+            "service-worker.js",
+            "study.html",
+            "study.js",
+            "study-v2.css",
+            "styles.css"
+        ],
+        "filesRemoved": []
+    },
+    {
           "version": "v16.3.33",
           "date": "September 19, 2026",
           "title": "Career Beginner-First Instructional Depth — All 31 Career Lessons",
