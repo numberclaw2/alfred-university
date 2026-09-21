@@ -472,7 +472,7 @@
     'This redraw follows Git’s official object/branch mental model while keeping the notation simple enough for the first Career Git lesson.'
   ));
 
-  figAt(14,'Career',5,table(
+  figAt(14,'Career',7,table(
     'Array addresses and a pointer — a concrete memory model',
     ['Expression / address','Stored value or meaning','What it tells you'],
     [
@@ -497,7 +497,7 @@
     'Project, build, flash, reset, SWD, and debug are software actions connected to physical hardware. Identify the target MCU and debugger path before treating “flash the board” as one black-box step.'
   ));
 
-  figAt(17,'Career',4,flow(
+  figAt(17,'Career',10,flow(
     'Python serial client: software layers from port to evidence',
     [
       {title:'Open/configure the port',body:'Choose the correct device and UART parameters before exchanging application data.'},

@@ -1,6 +1,37 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.42",
+      "date": "September 21, 2026",
+      "title": "Final Traceability, Stable Learner Routing, and Independent Chromium Acceptance",
+      "type": "Curriculum Traceability / Learner Routing / Instructional Cleanup / QA",
+      "request": "Finish the v16.3.41 repair correctly, execute the learner-facing site internally, run a separate blind acceptance pass, and package only after every blocking gate passes.",
+      "changes": [
+        "Assigned 219 stable semantic IDs to Career teaching sections and made stable IDs authoritative for current Career review navigation.",
+        "Rebuilt 93 Career question remediation routes and 17 Career semantic-task routes; 93/93 question actions and 43/43 semantic remediation buttons were clicked through the production handler in Chromium.",
+        "Reconciled all 81 Career standards to one authoritative first-exposure, substantive-teaching, practice, application, reinforcement, and mastery timeline and rebuilt weekly standards labels from that timeline.",
+        "Corrected Week 17 escape-sequence teaching, Week 14/17 visual placement, Week 12 crimp preview boundaries, and early MCU terminology; added missing source-grounded teaching uncovered by blind QA.",
+        "Rebuilt current provenance, dependency, curriculum-map, question-route, semantic-route, regression, and independent acceptance artifacts from the actual runtime.",
+        "Preserved all 262 official CETa competency records and preserved styles.css / ux-system.css unchanged."
+      ],
+      "filesAdded": [
+        "career-traceability-routing.js",
+        "AU-ESET-301-v16.3.42-Final-Independent-Acceptance-Report.md",
+        "AU-ESET-301-v16.3.42-Question-Review-Route-Matrix.csv",
+        "AU-ESET-301-v16.3.42-Semantic-Task-Review-Route-Matrix.csv",
+        "AU-ESET-301-v16.3.42-Career-Standards-Provenance-Matrix.csv",
+        "AU-ESET-301-v16.3.42-Concept-Level-CETa-Career-Dependency-Graph.csv",
+        "AU-ESET-301-v16.3.42-31-Week-Woven-Curriculum-Map.csv",
+        "AU-ESET-301-v16.3.42-Regression-Report.md",
+        "AU-ESET-301-v16.3.42-Change-Report.md",
+        "AU-ESET-301-v16.3.42-External-Source-Benchmark-Ledger.md"
+      ],
+      "filesModified": [
+        "learn.js", "instructional-visuals.js", "learn.html", "study.html", "search.html", "practice.html", "progress.html", "quiz.html", "analytics.html", "assessments.html", "standards.html", "documents.html", "build-info.json", "service-worker.js", "release-notes-current.js", "UPLOAD_README.txt", "SHA256SUMS.txt"
+      ],
+      "filesRemoved": []
+    },
+    {
       "version": "v16.3.41",
       "date": "September 20, 2026",
       "title": "Final Adversarial Acceptance Repair — Runtime Task Wiring, First-Use Integrity, and Lesson Cohesion",
