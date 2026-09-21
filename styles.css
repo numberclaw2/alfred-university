@@ -2144,3 +2144,17 @@ body.quiet-mode .focus-prep-backdrop{backdrop-filter:none}
 .media-integration-error p{margin:.35rem 0 0!important}
 @media(max-width:700px){.media-used-in.course-wide>a,.media-also-used a{grid-template-columns:1fr}.media-location-heading{display:grid;gap:2px}}
 
+
+/* v16.3.47 — Final Teaching Media acceptance repair */
+.media-card-top .media-requirement-status{font-weight:950}
+.media-card-top .media-requirement-status.requirement-required{background:#f7edd0;color:#694f06;border:1px solid #e2cf93}
+.media-card-top .media-requirement-status.requirement-optional{background:#eef0f2;color:#48535c;border:1px solid #d5dadd}
+.media-card-top .media-requirement-status.requirement-supporting{background:#edf4ef;color:#315c49;border:1px solid #cfe0d6}
+.lesson-required-resources{margin-top:12px;border:1px solid #d8c47a;background:#fffdf7;border-radius:14px;padding:12px}
+.lesson-resource-group-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#684f08;background:#fbf5df;border:1px solid #eadba7;border-radius:10px;padding:10px 12px;margin-bottom:10px}
+.lesson-resource-group-heading span{font-size:.82rem;font-weight:800;color:#6f6250}
+.lesson-supporting-resources>summary{color:#4e6659}
+.lesson-reviewing-note.reference-preview{background:#fbf5df;color:#604b13;border:1px solid #dfcc88;border-radius:10px;padding:8px 10px}
+.reference-preview-shell{outline:2px solid rgba(178,143,35,.2);outline-offset:2px}
+.reference-preview-nav{grid-template-columns:minmax(0,1fr) auto auto}
+@media(max-width:700px){.reference-preview-nav{grid-template-columns:1fr}.reference-preview-nav .button{width:100%}.lesson-resource-group-heading{align-items:flex-start;flex-direction:column}.lesson-supporting-resources>summary{line-height:1.4}}

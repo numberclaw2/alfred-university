@@ -1,6 +1,39 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.47",
+      "date": "September 21, 2026",
+      "title": "Final Teaching Media Acceptance — Closed-Loop UX, Backlinks, and Single-Map Repair",
+      "type": "Teaching Media / Instructional UX / Final Acceptance Repair",
+      "request": "Run a final closed-loop audit of v16.3.46, repair every in-scope Teaching Media defect in the same pass, rerun the full 31-week acceptance suite, and leave no orphan, ambiguous, hidden-required, or broken-backlink state before moving to later resource-expansion phases.",
+      "changes": [
+        "Rebuilt the complete current inventory independently: 328 original Teaching Media assignments, 324 retained assignments, 4 intentional removals, 252 retained source IDs, and 248 canonical retained resource identities.",
+        "Removed the broad Week 19 FOA lecture index from Teaching Media after confirming equivalent broad FOA reference/video browsing already exists in Engineering Library; focused FOA resources remain integrated at their exact Week 19 instructional sections.",
+        "Added normalized Required source / Optional / Supporting resource status directly to every rendered Teaching Media card so priority is explicit even when the historical role wording is descriptive rather than normative.",
+        "Changed dense lesson resource groups so every required source is always visible and never hidden behind optional progressive disclosure; only optional/supporting resources remain collapsible.",
+        "Hardened Teaching Media deep links with read-only reference preview support so a cross-week link can open the exact future lesson section without advancing or corrupting the learner's official resume point.",
+        "Fixed cross-week return routing by carrying the Teaching Media origin week through exact-section links, so Back to Teaching Media returns to the actual originating card instead of the target lesson's week.",
+        "Retired the obsolete v16.3.45 video-only runtime layer and its stale library-only decisions; teaching-media-resource-integration.js is now the single authoritative Teaching Media-to-curriculum map.",
+        "Preserved privacy-enhanced lazy YouTube loading, exact source access, resource-specific Next actions, course-wide reused-resource backlinks, responsive layouts, CETa/Career lesson sequencing, and Alfred's primary-teacher model.",
+        "Kept the outside-literature expansion and CETa Study Guide page integration phases out of scope; no new outside-resource catalog was added."
+      ],
+      "filesAdded": [
+        "AU-ESET-301-v16.3.47-Final-Teaching-Media-Acceptance.md",
+        "AU-ESET-301-v16.3.47-Teaching-Media-Reconciliation.csv",
+        "AU-ESET-301-v16.3.47-31-Week-Acceptance.csv",
+        "AU-ESET-301-v16.3.47-Removed-Moved-Resource-Dispositions.csv",
+        "AU-ESET-301-v16.3.47-Duplicate-Source-Reconciliation.csv",
+        "AU-ESET-301-v16.3.47-Regression-Report.md",
+        "UPLOAD_README_v16.3.47.txt"
+      ],
+      "filesModified": [
+        "learn.js", "learn.html", "styles.css", "teaching-media-resource-integration.js",
+        "teaching-media-lesson-integration.js", "service-worker.js", "build-info.json",
+        "release-notes-current.js", "SHA256SUMS.txt"
+      ],
+      "filesRemoved": []
+    },
+    {
       "version": "v16.3.46",
       "date": "September 21, 2026",
       "title": "Complete Teaching Media Integration — Zero Orphans + Course-Wide Backlinks",

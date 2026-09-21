@@ -2,7 +2,7 @@
   const C = window.ALFRED_CURRICULUM;
   if (!C?.modules?.length) return;
 
-  // v16.3.46 — Complete Teaching Media integration.
+  // v16.3.47 — Final closed-loop Teaching Media acceptance repair.
   // Static placement decisions only: no runtime keyword matching.
   const placements = [
   {
@@ -3232,21 +3232,6 @@
   },
   {
     "assignmentWeek": 19,
-    "source": "foaMediaLectureIndex",
-    "targetWeek": 19,
-    "lesson": 0,
-    "segment": "concept-3",
-    "relationship": "Taught in",
-    "presentationRole": "core",
-    "display": "compact",
-    "inline": true,
-    "requirement": "required",
-    "mediaType": "video",
-    "afterAction": "After watching, be able to explain or demonstrate: Trace source→fiber/path→receiver; explain loss, connector/bend effects, eye safety and why test method depends on the fault question.",
-    "reason": "Existing Teaching Media assignment reconciled to the strongest current instructional section."
-  },
-  {
-    "assignmentWeek": 19,
     "source": "foaSplicesConnectors",
     "targetWeek": 19,
     "lesson": 0,
@@ -4879,51 +4864,6 @@
     "mediaType": "resource",
     "afterAction": "After using this reference, be able to locate, explain, or apply: Compare each real posting with the model instead of treating O*NET as the job description.",
     "reason": "Existing Teaching Media assignment reconciled to the strongest current instructional section."
-  },
-  {
-    "assignmentWeek": 19,
-    "source": "foaMediaLectureIndex",
-    "targetWeek": 19,
-    "lesson": 0,
-    "segment": "concept-5",
-    "relationship": "Used in",
-    "presentationRole": "reference",
-    "display": "compact",
-    "inline": false,
-    "requirement": "required",
-    "mediaType": "video",
-    "afterAction": "Use the focused FOA resources attached to the corresponding lesson sections; use this index only to revisit the complete lecture sequence.",
-    "reason": "Secondary course-wide relationship for a broad index; not rendered repeatedly inline."
-  },
-  {
-    "assignmentWeek": 19,
-    "source": "foaMediaLectureIndex",
-    "targetWeek": 19,
-    "lesson": 0,
-    "segment": "concept-6",
-    "relationship": "Used in",
-    "presentationRole": "reference",
-    "display": "compact",
-    "inline": false,
-    "requirement": "required",
-    "mediaType": "video",
-    "afterAction": "Use the focused FOA resources attached to the corresponding lesson sections; use this index only to revisit the complete lecture sequence.",
-    "reason": "Secondary course-wide relationship for a broad index; not rendered repeatedly inline."
-  },
-  {
-    "assignmentWeek": 19,
-    "source": "foaMediaLectureIndex",
-    "targetWeek": 19,
-    "lesson": 0,
-    "segment": "concept-7",
-    "relationship": "Used in",
-    "presentationRole": "reference",
-    "display": "compact",
-    "inline": false,
-    "requirement": "required",
-    "mediaType": "video",
-    "afterAction": "Use the focused FOA resources attached to the corresponding lesson sections; use this index only to revisit the complete lecture sequence.",
-    "reason": "Secondary course-wide relationship for a broad index; not rendered repeatedly inline."
   }
 ];
   const removed = [
@@ -4941,6 +4881,11 @@
     "assignmentWeek": 21,
     "source": "privateGuide",
     "reason": "Private CETa Study Guide is reserved for the later dedicated Study Guide integration phase and is not a Teaching Media source."
+  },
+  {
+    "assignmentWeek": 19,
+    "source": "foaMediaLectureIndex",
+    "reason": "Broad FOA lecture index removed from Teaching Media during final closed-loop audit. Focused FOA instructional resources remain integrated in Week 19, and the Engineering Library already provides the FOA video/reference library for broad browsing."
   }
 ];
 
@@ -4967,7 +4912,7 @@
   const removedByAssignment = Object.fromEntries(removed.map(x => [`${x.assignmentWeek}:${x.source}`, x]));
 
   C.teachingResourceIntegration = {
-    revision: '2026-09-21-v16.3.46-complete-teaching-media-integration',
+    revision: '2026-09-21-v16.3.47-final-teaching-media-acceptance',
     placements,
     removed,
     byTargetWeek,
