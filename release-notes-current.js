@@ -1,6 +1,24 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.44",
+      "date": "September 21, 2026",
+      "title": "Classroom Parking Lot — In-Lesson Capture Without Leaving Learn",
+      "type": "Learn / Study Workflow / UX",
+      "request": "Make the existing Cloud-synced Curiosity and Site issue parking lot accessible from the Learn/Classroom experience, using deliberate UX placement that does not interrupt the lesson sequence.",
+      "changes": [
+        "Placed a persistent Parking Lot control in the Classroom hero utility group between Quiet Mode and Glossary, where always-available learning tools already live, rather than inside a lesson stage or navigation rail.",
+        "Added an accessible modal capture surface with separate Curiosity and Site issue inputs plus the existing Done and Explore-later behaviors.",
+        "Reused the v16.3.43 per-item parking:<id> Cloud Sync and tombstone model so Learn, Study, and Progress share one parking lot rather than creating a second data store.",
+        "Added a subtle saved-item count badge and current-week tagging so parked thoughts retain the lesson context without competing with required coursework.",
+        "Added lightweight parking-only cloud refresh on Classroom load/open and preserved offline localStorage behavior when Cloud Sync is unavailable.",
+        "Changed no curriculum, assessments, lesson routing, mastery rules, CETa standards, Career standards, or existing visual theme."
+      ],
+      "filesAdded": ["learn-parking.js","learn-parking.css","AU-ESET-301-v16.3.44-Classroom-Parking-Lot-Verification.md"],
+      "filesModified": ["learn.html","service-worker.js","build-info.json","release-notes-current.js"],
+      "filesRemoved": []
+    },
+    {
       "version": "v16.3.43",
       "date": "September 21, 2026",
       "title": "Parking Lot Cloud Sync — Durable Curiosity and Site-Issue Records",
@@ -1070,7 +1088,7 @@
       ]
     }
   ];
-  const currentOrder = ['v16.3.43','v16.3.42','v16.3.41','v16.3.40','v16.3.39','v16.3.38','v16.3.37','v16.3.36','v16.3.35','v16.3.34','v16.3.33','v16.3.32','v16.3.31','v16.3.30','v16.3.29','v16.3.28','v16.3.27','v16.3.26','v16.3.25','v16.3.24','v16.3.23','v16.3.22','v16.3.21','v16.3.20','v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
+  const currentOrder = ['v16.3.44','v16.3.43','v16.3.42','v16.3.41','v16.3.40','v16.3.39','v16.3.38','v16.3.37','v16.3.36','v16.3.35','v16.3.34','v16.3.33','v16.3.32','v16.3.31','v16.3.30','v16.3.29','v16.3.28','v16.3.27','v16.3.26','v16.3.25','v16.3.24','v16.3.23','v16.3.22','v16.3.21','v16.3.20','v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
   entries.sort((a,b)=>currentOrder.indexOf(a.version)-currentOrder.indexOf(b.version));
   const historical = Array.isArray(window.ALFRED_RELEASES) ? window.ALFRED_RELEASES : [];
   const currentVersions = new Set(entries.map(entry=>entry.version));

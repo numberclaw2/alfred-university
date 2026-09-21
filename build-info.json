@@ -1,10 +1,10 @@
 {
   "courseRelease": "16.3",
-  "runtimePatch": "16.3.43",
+  "runtimePatch": "16.3.44",
   "evidenceRevision": "16.2",
   "cloudSyncProtocol": 2,
-  "build": "v16.3.43-parking-lot-cloud-sync-durable-20260921",
-  "releaseStatus": "parking-lot-cloud-sync-durable",
+  "build": "v16.3.44-classroom-parking-lot-access-20260921",
+  "releaseStatus": "classroom-parking-lot-access",
   "presentationPatch": "mobile-visual-readability-final",
   "scheduleRevision": "2026-09-20-current-classroom-stage-and-workload-sync",
   "modulePresentationRevision": "2026-09-18-week1-from-zero-visual-teaching",
@@ -16,7 +16,7 @@
   "week1InstructionRevision": "2026-09-19-beginner-first-safety-scaffolding",
   "week1TeachingMediaRevision": "2026-09-18-beginner-teacher-youtube-layer",
   "teachingMediaBaseRevision": "2026-09-18-final-pots-31-week-standalone-accepted",
-  "releaseNotesRevision": "2026-09-21-v16.3.43-parking-lot-cloud-sync",
+  "releaseNotesRevision": "2026-09-21-v16.3.44-classroom-parking-lot-access",
   "repositoryLedgerBaseline": "2026-09-18-v16.3.9-63-commits",
   "studyRevision": "2026-09-21-parking-lot-cloud-sync-tombstones",
   "practiceRevision": "2026-09-18-priority-ladder-repair-router",
@@ -56,5 +56,6 @@
   "careerQuestionReviewRouteCount": 93,
   "careerSemanticTaskCount": 17,
   "careerSemanticReviewButtonCount": 43,
-  "parkingLotSyncRevision": "2026-09-21-per-item-cloud-records-tombstone-deletions"
+  "parkingLotSyncRevision": "2026-09-21-per-item-cloud-records-tombstone-deletions",
+  "learnParkingRevision": "2026-09-21-classroom-utility-dialog-cloud-synced"
 }
