@@ -1,6 +1,37 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.48",
+      "date": "September 21, 2026",
+      "title": "Part 2 — Outside Literature Companion Curriculum",
+      "type": "Teaching Media / Written Companion Curriculum / Three-Channel Learning",
+      "request": "Build a comprehensive outside-written-literature pathway across all 31 weeks using the finalized Teaching Media architecture, integrate every reading at a real lesson point, preserve Alfred as the primary teacher and the accepted video pathway, and internally audit/repair the implementation before handoff.",
+      "changes": [
+        "Added a curated 84-placement written companion pathway covering all 31 weeks: 42 placements from 37 newly researched canonical written sources plus 42 deliberate uses of strong written professional resources already present in Alfred.",
+        "Added outside-literature-integration.js as an additive canonical layer on top of the accepted v16.3.47 resource map; no runtime keyword matching is used and existing video placements are not reclassified or replaced.",
+        "Integrated free/open textbook sections, university notes, manufacturer primers/application material, government engineering/failure-analysis guidance, official protocol specifications, practitioner debugging articles, case studies, and career/communication references where they add a distinct written-learning function.",
+        "Added reading-specific lesson and Teaching Media framing: literature type, author/provider, access status, Why this reading is here, exact Read / use direction, Focus on, and a resource-specific After reading action.",
+        "Kept new required reading deliberately limited: 6 of 42 new literature placements are Required, 30 Supporting, and 6 Optional; required resources remain visible while supporting/optional resources use existing progressive disclosure.",
+        "Preserved course-wide exact-section backlinks, single-source resource architecture, the v16.3.47 no-orphan contract, lazy video behavior, CETa/Career lesson sequencing, and the accepted maximum combined section density of seven resources.",
+        "Verified long-document assignments point to relevant sections/tables/pages rather than assigning entire manuals; examples include NXP UM10204 §§3.1.3–3.1.6/§3.1.10/Table 11 and TI MOSFET-loss article pp. 22–25.",
+        "Kept Part 3 CETa Study Guide recommended-page integration out of scope; the private study-guide resource remains excluded from Teaching Media."
+      ],
+      "filesAdded": [
+        "outside-literature-integration.js",
+        "AU-ESET-301-v16.3.48-Part2-Outside-Literature-Acceptance.md",
+        "AU-ESET-301-v16.3.48-Literature-Reconciliation.csv",
+        "AU-ESET-301-v16.3.48-31-Week-Literature-Acceptance.csv",
+        "AU-ESET-301-v16.3.48-Three-Channel-Coverage.csv",
+        "AU-ESET-301-v16.3.48-Literature-Provenance-Ledger.csv",
+        "AU-ESET-301-v16.3.48-Rejected-Literature-Resources.csv",
+        "AU-ESET-301-v16.3.48-Literature-Duplicate-Reconciliation.csv",
+        "AU-ESET-301-v16.3.48-Regression-Report.md",
+        "UPLOAD_README_v16.3.48.txt"
+      ],
+      "filesModified": ["learn.js", "learn.html", "styles.css", "service-worker.js", "build-info.json", "release-notes-current.js", "SHA256SUMS.txt"],
+      "filesRemoved": []
+    },
+    {
       "version": "v16.3.47",
       "date": "September 21, 2026",
       "title": "Final Teaching Media Acceptance — Closed-Loop UX, Backlinks, and Single-Map Repair",

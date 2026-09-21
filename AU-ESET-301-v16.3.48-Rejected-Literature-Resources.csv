@@ -1,0 +1,9 @@
+Candidate,Decision,Reason
+Generic SEO/content-farm electronics explainers,REJECTED,"Lower authority and teaching value than selected open textbooks, university notes, manufacturer sources, or verified practitioners."
+Wikipedia as primary assigned reading,REJECTED,"Useful as a lookup tool, but stronger first-party/open textbook sources were available for required companion instruction."
+Social-media UART/I²C/SPI animation as protocol authority,REJECTED,"Community feedback itself identified oversimplifications and inaccuracies; SparkFun/NXP/ADI written sources provide clearer, verifiable protocol treatment."
+Old static NXP UM10204 /docs/en/user-guide/UM10204.pdf link,REJECTED / REPLACED,Historical link is documented as dead; Part 2 uses the current NXP download endpoint/current NXP-hosted specification.
+Whole-manual / whole-datasheet reading assignments,REJECTED AS UX PATTERN,"Long sources are bounded to exact sections, tables, figures, or purposes so the reading load remains intentional."
+Paywalled standards/articles when a strong free source exists,REJECTED AS DEFAULT,Part 2 prioritizes freely accessible authoritative material and does not make paywalled reading a required dependency.
+Additional sources merely repeating Alfred/video wording,REJECTED,"Literature must add a distinct alternate explanation, professional reference, practical application, case study, or troubleshooting function."
+CETa Study Guide recommended-page harvesting,DEFERRED TO PART 3,Explicitly outside Part 2 scope; no private Study Guide pages were added to the outside-literature catalog.
