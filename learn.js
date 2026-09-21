@@ -171,6 +171,46 @@
     if (focus) $('#classroom-card')?.scrollIntoView({behavior:'smooth',block:'start'});
   }
   function source(sourceId){ return C.sources?.[sourceId] || {title:sourceId,org:'',kind:'Reference',url:''}; }
+  function mediaIntegration(){ return C.videoLessonIntegration || {placements:[],placementByWeek:{},libraryOnlyByWeek:{}}; }
+  function mediaItem(sourceId){ return (moduleData?.integration?.media || []).find(item => item.source === sourceId) || null; }
+  function videoPlacementsForWeek(){ return mediaIntegration().placementByWeek?.[week] || []; }
+  function segmentVideoPlacements(lessonIndex,segmentId){ return videoPlacementsForWeek().filter(p => Number(p.lesson)===Number(lessonIndex) && p.segment===segmentId); }
+  function youtubeVideoId(url=''){
+    const value=String(url||'');
+    const watch=value.match(/[?&]v=([A-Za-z0-9_-]{6,})/);
+    if(watch)return watch[1];
+    const short=value.match(/youtu\.be\/([A-Za-z0-9_-]{6,})/);
+    if(short)return short[1];
+    const embed=value.match(/youtube(?:-nocookie)?\.com\/embed\/([A-Za-z0-9_-]{6,})/);
+    return embed?embed[1]:'';
+  }
+  function lessonVideoCard(placement,{compact=false}={}){
+    const item=mediaItem(placement.source),s=source(placement.source);
+    if(!item)return '';
+    const youtubeId=youtubeVideoId(s.url),requirement=/required/i.test(item.role||'')?'Required source':placement.role==='core'?'Core teaching':'Supporting media';
+    const cardId=`lesson-video-${week}-${placement.lesson}-${String(placement.segment).replace(/[^a-z0-9_-]/gi,'-')}-${String(placement.source).replace(/[^a-z0-9_-]/gi,'-')}`;
+    const after=`Connect what you saw to “${placement.segmentLabel||'this section'},” then answer the Pause & retrieve prompt below without replaying the video.`;
+    const inline=youtubeId?`<button class="button outline-green lesson-video-toggle" type="button" data-inline-video="${esc(cardId)}" data-video-src="https://www.youtube-nocookie.com/embed/${esc(youtubeId)}?rel=0" aria-expanded="false">Watch inline</button>`:'';
+    return `<article class="lesson-video-card${compact?' compact':''}" id="${esc(cardId)}" data-video-source="${esc(placement.source)}"><div class="lesson-video-card-top"><span class="lesson-video-role role-${esc(placement.role)}">${esc(placement.roleLabel||'Teaching video')}</span><span class="lesson-video-requirement">${esc(requirement)}</span></div><h4>${esc(s.title)}</h4><p class="lesson-video-org">${esc(s.org)}</p><div class="lesson-video-framing"><p><strong>Why this is here:</strong> ${esc(item.use)}</p><p><strong>Watch for:</strong> ${esc(item.watchFor)}</p><p><strong>After watching:</strong> ${esc(after)}</p></div><div class="lesson-video-actions">${inline}${s.url?`<a class="button outline-green" href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">Open source ↗</a>`:''}<a class="lesson-video-library-link" href="learn.html?week=${week}&stage=media#media-${encodeURIComponent(placement.source)}">Teaching Media entry</a></div>${youtubeId?`<div class="lesson-video-inline hidden" id="${esc(cardId)}-frame" data-inline-frame="${esc(cardId)}"><div class="lesson-video-aspect"><iframe title="${esc(s.title)}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>`:''}</article>`;
+  }
+  function renderSegmentTeachingMedia(lessonIndex,seg){
+    const placements=segmentVideoPlacements(lessonIndex,seg.id).map(p=>({...p,segmentLabel:seg.label}));
+    if(!placements.length)return '';
+    const primary=placements.filter(p=>p.display==='primary');
+    const compact=placements.filter(p=>p.display!=='primary');
+    const lead=primary.length?primary:[compact.shift()].filter(Boolean);
+    return `<section class="lesson-teaching-media" aria-label="Teaching media for ${esc(seg.label)}"><div class="lesson-teaching-media-head"><span>Teaching media · placed at point of use</span><h3>See the concept in another voice</h3><p>Alfred taught the model above. Use this media to visualize or reinforce it before you retrieve and apply the idea.</p></div>${lead.map(p=>lessonVideoCard(p)).join('')}${[...primary.slice(lead.length),...compact].length?`<details class="lesson-video-more"><summary>More media for this section (${[...primary.slice(lead.length),...compact].length})</summary><div class="lesson-video-more-grid">${[...primary.slice(lead.length),...compact].map(p=>lessonVideoCard(p,{compact:true})).join('')}</div></details>`:''}</section>`;
+  }
+  function placementLessonLabel(placement){
+    const lesson=moduleData?.lessons?.[placement.lesson],plan=lesson?lessonSegmentPlan(lesson,placement.lesson):[],seg=plan.find(x=>x.id===placement.segment);
+    return `${placement.lesson===0?'CETa Lesson':'Career Lesson'} → ${seg?.label||placement.segment}`;
+  }
+  function teachingMediaLessonLinks(sourceId){
+    const placements=videoPlacementsForWeek().filter(p=>p.source===sourceId);
+    if(placements.length){return `<div class="media-used-in"><strong>Taught in this week:</strong><div>${placements.map(p=>`<a href="learn.html?week=${week}&stage=${p.lesson===0?'ceta-lesson':'career-lesson'}&lesson=${p.lesson}&section=${encodeURIComponent(p.segment)}&from=media&media=${encodeURIComponent(sourceId)}">${esc(placementLessonLabel(p))} →</a>`).join('')}</div></div>`;}
+    const decision=(mediaIntegration().libraryOnlyByWeek?.[week]||[]).find(x=>x.source===sourceId);
+    return decision?`<div class="media-library-only"><strong>Reference library only this week.</strong><p>${esc(decision.reason)}</p></div>`:'';
+  }
   function studyGuideAssignment(weekNumber=week){
     const marker='OFFICIAL STUDY GUIDE — V6 BOOK ASSIGNMENT';
     const event=E.find(item => Number(item.week) === Number(weekNumber) && String(item.description || '').includes(marker));
@@ -260,6 +300,14 @@
     if((d.semanticTasks||[]).length)segments.push({id:'evidence',type:'evidence',label:'Competency evidence',minutes:15});
     return segments;
   }
+  function applyRequestedLessonSection(){
+    const requestedLesson=Number(params.get('lesson')),requestedSection=params.get('section'),requestedStage=params.get('stage');
+    if(!Number.isInteger(requestedLesson)||requestedLesson<0||requestedLesson>1||!requestedSection)return;
+    const expectedStage=requestedLesson===0?'ceta-lesson':'career-lesson';
+    if(requestedStage!==expectedStage||STAGES[stageIndex]?.id!==expectedStage)return;
+    const plan=lessonSegmentPlan(moduleData.lessons[requestedLesson],requestedLesson),target=plan.findIndex(seg=>seg.id===requestedSection);
+    if(target>=0)setLessonView(requestedLesson,target,plan);
+  }
   function lessonSegmentRecord(index,plan){
     const l=learningState().l,key=`lesson-${index}`,raw=l.lessonSegments?.[key]||{},total=plan.length;
     const completed={...(raw.completed||{})};
@@ -302,11 +350,12 @@
     const progress=Math.round(((state.furthest+(furthestComplete?1:0))/state.total)*100);
     const reviewReturn=readReviewReturn();
     const backToQuestion=reviewReturn&&Number(reviewReturn.lessonIndex)===Number(index)?`<button class="button gold back-to-question" type="button" data-back-to-question>← Back to question</button>`:'';
+    const mediaReturn=params.get('from')==='media'&&params.get('stage')===STAGES[stageIndex]?.id?`<a class="button gold back-to-media" href="learn.html?week=${week}&stage=media${params.get('media')?`#media-${encodeURIComponent(params.get('media'))}`:''}">← Back to Teaching Media</a>`:'';
     const reviewStatus=reviewing?`<span class="lesson-reviewing-note">Reviewing Section ${state.current+1}. Your resume point stays at Section ${state.furthest+1}.</span>`:`<span class="lesson-reviewing-note current">Current learning section · future sections stay locked until you complete this one.</span>`;
     const topForward=reviewing?`<button class="button outline-green" type="button" data-lesson-segment-forward>Next completed section →</button>`:'';
-    const topNav=`<nav class="lesson-segment-browse" aria-label="Lesson section navigation"><button class="button outline-green" type="button" data-lesson-segment-prev ${state.current===0?'disabled':''}>← Previous section</button>${reviewStatus}${topForward}${backToQuestion}</nav>`;
+    const topNav=`<nav class="lesson-segment-browse" aria-label="Lesson section navigation"><button class="button outline-green" type="button" data-lesson-segment-prev ${state.current===0?'disabled':''}>← Previous section</button>${reviewStatus}${topForward}${backToQuestion}${mediaReturn}</nav>`;
     const bottomForward=reviewing?`<button class="button green" type="button" data-lesson-segment-forward>Next completed section →</button>`:(isLast&&complete?'<span class="lesson-segment-finished">✓ All lesson sections visited. Finish the required evidence and gate below.</span>':`<button class="button green" type="button" data-lesson-segment-next>${isLast?'Save this section':'I answered · continue'}</button>`);
-    return `<section class="lesson-segment-shell" data-lesson-index="${index}" data-segment-index="${state.current}" data-segment-furthest="${state.furthest}" data-segment-total="${state.total}"><header class="lesson-segment-head"><div><span>Learning section ${state.current+1} of ${state.total}</span><h3>${esc(seg.label)}</h3><p>About ${seg.minutes} min · completed sections stay available for review without moving your official resume point backward.</p></div><strong>${reviewing?'Reviewing':complete?'✓ Saved':`${progress}% through lesson`}</strong></header><div class="lesson-segment-progress" aria-hidden="true"><span style="width:${progress}%"></span></div>${topNav}<div class="lesson-segment-body">${body}</div><aside class="lesson-micro-check"><span>Pause & retrieve</span><p>${esc(segmentPrompt(seg))}</p><small>Say it aloud or work it on paper. No extra form is required.</small></aside><div class="lesson-segment-nav"><button class="button outline-green" type="button" data-lesson-segment-prev ${state.current===0?'disabled':''}>← Previous section</button><div class="lesson-segment-status">${reviewing?`Resume point: Section ${state.furthest+1}`:complete?'This section is saved.':''}</div>${bottomForward}${backToQuestion}</div></section>`;
+    return `<section class="lesson-segment-shell" data-lesson-index="${index}" data-segment-index="${state.current}" data-segment-furthest="${state.furthest}" data-segment-total="${state.total}"><header class="lesson-segment-head"><div><span>Learning section ${state.current+1} of ${state.total}</span><h3>${esc(seg.label)}</h3><p>About ${seg.minutes} min · completed sections stay available for review without moving your official resume point backward.</p></div><strong>${reviewing?'Reviewing':complete?'✓ Saved':`${progress}% through lesson`}</strong></header><div class="lesson-segment-progress" aria-hidden="true"><span style="width:${progress}%"></span></div>${topNav}<div class="lesson-segment-body">${body}${renderSegmentTeachingMedia(index,seg)}</div><aside class="lesson-micro-check"><span>Pause & retrieve</span><p>${esc(segmentPrompt(seg))}</p><small>Say it aloud or work it on paper. No extra form is required.</small></aside><div class="lesson-segment-nav"><button class="button outline-green" type="button" data-lesson-segment-prev ${state.current===0?'disabled':''}>← Previous section</button><div class="lesson-segment-status">${reviewing?`Resume point: Section ${state.furthest+1}`:complete?'This section is saved.':''}</div>${bottomForward}${backToQuestion}${mediaReturn}</div></section>`;
   }
 
   function renderOrientation(){
@@ -419,7 +468,7 @@
     return `<div class="classroom-stage-head"><div><span class="stage-count">Stage 4 of ${STAGES.length} · Required media or accessible text path</span><h2>Learn it from another voice—then connect it</h2><p>The links add demonstrations, diagrams, and expert perspective. Alfred’s two lessons remain sufficient if a video is unavailable or text is the more accessible route.</p></div>${trackBadge('CETa + Career')}</div>
     <div class="media-policy"><strong>Required does not mean video-only.</strong><p>For each required item, either review the linked section or use the complete Alfred lesson above as its text alternative. Do not let a broken link or unavailable caption block the course.</p></div>
     ${renderStudyGuideAssignment()}
-    <div class="teaching-media-list">${items.map((item,i) => {const s=source(item.source);return `<article><div class="media-card-top"><span>${esc(item.role)}</span><span>${esc(s.kind)}</span></div><h3>${esc(s.title)}</h3><p class="media-org">${esc(s.org)}</p><p><strong>Use it for:</strong> ${esc(item.use)}</p><p><strong>Watch/read for:</strong> ${esc(item.watchFor)}</p><p><strong>What Alfred still supplies:</strong> ${esc(item.gap)}</p><div>${s.url ? `<a class="button outline-green" href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">Open source ↗</a>` : '<span class="private-source">Use your private course copy; it is not republished here.</span>'}</div></article>`}).join('')}</div>
+    <div class="teaching-media-list">${items.map((item,i) => {const s=source(item.source);return `<article id="media-${esc(item.source)}"><div class="media-card-top"><span>${esc(item.role)}</span><span>${esc(s.kind)}</span></div><h3>${esc(s.title)}</h3><p class="media-org">${esc(s.org)}</p><p><strong>Use it for:</strong> ${esc(item.use)}</p><p><strong>Watch/read for:</strong> ${esc(item.watchFor)}</p><p><strong>What Alfred still supplies:</strong> ${esc(item.gap)}</p>${teachingMediaLessonLinks(item.source)}<div>${s.url ? `<a class="button outline-green" href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">Open source ↗</a>` : '<span class="private-source">Use your private course copy; it is not republished here.</span>'}</div></article>`}).join('')}</div>
     <section class="media-reflection"><label for="media-connection"><strong>One-sentence connection</strong><span>What became clearer, or which Alfred explanation will you use instead?</span></label><textarea id="media-connection" rows="3" maxlength="1200" placeholder="Example: The scope demonstration made trigger level clearer; I can now explain why it stabilizes a repeating waveform.">${esc(learningState().l.responses?.media || '')}</textarea><button class="button green" id="complete-media" type="button">${stageComplete('media') ? '✓ Media / text path complete' : `Confirm media or text path complete${requiredCount ? ` (${requiredCount} required source${requiredCount === 1 ? '' : 's'})` : ''}`}</button></section>`;
   }
 
@@ -521,6 +570,12 @@
       else setMessage('Not yet. Read the targeted correction, then try again.','error');
       updateChrome();
     }));
+    $$('.lesson-video-toggle').forEach(button=>button.addEventListener('click',()=>{
+      const key=button.dataset.inlineVideo,frame=$(`[data-inline-frame="${key}"]`),iframe=frame?.querySelector('iframe'),open=button.getAttribute('aria-expanded')==='true';
+      if(!frame||!iframe)return;
+      if(open){frame.classList.add('hidden');button.setAttribute('aria-expanded','false');button.textContent='Watch inline';}
+      else{if(!iframe.getAttribute('src'))iframe.src=button.dataset.videoSrc||'';frame.classList.remove('hidden');button.setAttribute('aria-expanded','true');button.textContent='Hide video';}
+    }));
     const mediaText = $('#media-connection');
     mediaText?.addEventListener('input',() => saveLearning(l => { l.responses.media = mediaText.value; },{sync:false,notify:false}));
     $('#complete-media')?.addEventListener('click',() => {
@@ -570,7 +625,7 @@
 
   function loadWeek(nextWeek){
     week = nextWeek; moduleData = MODULES.find(m => m.week === week); lessonViewOverrides.clear(); const reviewReturn=readReviewReturn(); if(reviewReturn&&Number(reviewReturn.week)!==Number(week))clearReviewReturn();
-    const requestedStage = params.get('stage');
+    const requestedStage = Number(params.get('week'))===Number(nextWeek) ? params.get('stage') : null;
     const {l} = learningState();
     const savedIndex = STAGES.findIndex(s => s.id === (requestedStage || l.currentStage));
     stageIndex = savedIndex >= 0 ? savedIndex : nextIncompleteIndex();
@@ -592,6 +647,7 @@
     const saved = learningState().l.currentStage;
     const idx = STAGES.findIndex(s => s.id === (requestedStage || saved));
     stageIndex = idx >= 0 ? idx : nextIncompleteIndex();
+    applyRequestedLessonSection();
     renderStage(); updateChrome();
   }
 

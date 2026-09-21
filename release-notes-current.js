@@ -1,6 +1,26 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.45",
+      "date": "September 21, 2026",
+      "title": "Contextual Video Integration — Lesson Placement + Teaching Media Backlinks",
+      "type": "Instructional UX / Teaching Media / Classroom",
+      "request": "Keep Teaching Media as the centralized video library while placing existing videos inside lessons at deliberate points of instructional value, with direct links back to the exact lesson locations.",
+      "changes": [
+        "Added a curated video-placement layer covering all 155 current video assignments: 152 contextual lesson placements and 3 deliberate library-only decisions; no runtime keyword matching is used.",
+        "Placed media after the relevant Alfred teaching section and before retrieval/application, preserving Alfred as the primary teacher rather than delegating the concept to outside video.",
+        "Added consistent instructional framing for lesson media: why the video appears here, what to watch for, and what the learner should connect afterward.",
+        "Added progressive disclosure so dense topics show one primary media card and collapse secondary/review videos instead of stacking multiple large blocks.",
+        "Added privacy-enhanced lazy inline playback for direct YouTube videos; manufacturer/provider videos continue to open at their authoritative source page.",
+        "Added Teaching Media 'Taught in this week' links that deep-link to the exact CETa or Career lesson section and a return path back to Teaching Media without moving the learner's official resume point backward.",
+        "Kept the Week 4 binary/Boolean videos and the Week 19 FOA lecture index intentionally library-only where inline placement would duplicate a stronger instructional home or disrupt lesson flow.",
+        "Preserved curriculum wording, CETa/Career sequencing, assessments, labs, glossary behavior, navigation, Cloud Sync, and the existing Alfred visual system. Outside-literature and CETa-study-guide integration remain out of scope for this release."
+      ],
+      "filesAdded": ["teaching-media-lesson-integration.js","AU-ESET-301-v16.3.45-Video-Placement-Matrix.csv","AU-ESET-301-v16.3.45-Video-Integration-Acceptance.md","UPLOAD_README_v16.3.45.txt"],
+      "filesModified": ["learn.js","learn.html","styles.css","service-worker.js","build-info.json","release-notes-current.js","SHA256SUMS.txt"],
+      "filesRemoved": []
+    },
+    {
       "version": "v16.3.44",
       "date": "September 21, 2026",
       "title": "Classroom Parking Lot — In-Lesson Capture Without Leaving Learn",

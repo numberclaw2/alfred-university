@@ -1,14 +1,14 @@
 {
   "courseRelease": "16.3",
-  "runtimePatch": "16.3.44",
+  "runtimePatch": "16.3.45",
   "evidenceRevision": "16.2",
   "cloudSyncProtocol": 2,
-  "build": "v16.3.44-classroom-parking-lot-access-20260921",
-  "releaseStatus": "classroom-parking-lot-access",
+  "build": "v16.3.45-contextual-video-integration-20260921",
+  "releaseStatus": "contextual-video-integration",
   "presentationPatch": "mobile-visual-readability-final",
   "scheduleRevision": "2026-09-20-current-classroom-stage-and-workload-sync",
   "modulePresentationRevision": "2026-09-18-week1-from-zero-visual-teaching",
-  "teachingMediaRevision": "2026-09-18-week1-beginner-teacher-youtube-layer",
+  "teachingMediaRevision": "2026-09-21-contextual-video-lesson-integration",
   "resourceVerificationRevision": "2026-09-18-v16.3.9-week1-beginner-video-verified",
   "assessmentRevision": "2026-09-18-dual-source-ceta-readiness",
   "masteryRevision": "2026-09-18-bank-breadth-truthful-progression",
@@ -16,7 +16,7 @@
   "week1InstructionRevision": "2026-09-19-beginner-first-safety-scaffolding",
   "week1TeachingMediaRevision": "2026-09-18-beginner-teacher-youtube-layer",
   "teachingMediaBaseRevision": "2026-09-18-final-pots-31-week-standalone-accepted",
-  "releaseNotesRevision": "2026-09-21-v16.3.44-classroom-parking-lot-access",
+  "releaseNotesRevision": "2026-09-21-v16.3.45-contextual-video-integration",
   "repositoryLedgerBaseline": "2026-09-18-v16.3.9-63-commits",
   "studyRevision": "2026-09-21-parking-lot-cloud-sync-tombstones",
   "practiceRevision": "2026-09-18-priority-ladder-repair-router",
@@ -57,5 +57,9 @@
   "careerSemanticTaskCount": 17,
   "careerSemanticReviewButtonCount": 43,
   "parkingLotSyncRevision": "2026-09-21-per-item-cloud-records-tombstone-deletions",
-  "learnParkingRevision": "2026-09-21-classroom-utility-dialog-cloud-synced"
+  "learnParkingRevision": "2026-09-21-classroom-utility-dialog-cloud-synced",
+  "teachingMediaLessonIntegrationRevision": "2026-09-21-v16.3.45-152-contextual-placements-3-library-only",
+  "videoLessonPlacementCount": 152,
+  "videoLibraryOnlyDecisionCount": 3,
+  "videoAssignmentDispositionCount": 155
 }
