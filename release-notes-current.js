@@ -1,6 +1,25 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.49",
+      "date": "September 21, 2026",
+      "title": "Teaching Media Filters — Faster Resource Browsing",
+      "type": "Teaching Media / UX / Browsing",
+      "request": "Add a practical filtering system to Teaching Media so the growing resource library can be narrowed by video versus reading/reference, required versus non-required status, beginner-friendly material, track, purpose, and search without changing curriculum requirements.",
+      "changes": [
+        "Added a responsive Teaching Media filter panel with free-text search plus Type, Priority, Track, Purpose, and Beginner-friendly controls.",
+        "Added an explicit Not required priority filter that groups Supporting and Optional resources while preserving their individual filter choices.",
+        "Added normalized Video, Written literature, Interactive / tool, and Reference / guide badges so format is readable at a glance even before filtering.",
+        "Added a conservative Beginner-friendly classification based only on explicit beginner/clarity metadata and the accepted Week 1 beginner-teacher pathway; the filter does not guess difficulty from week number alone.",
+        "Added live visible-result counts, a Reset filters action, a no-results state, and a warning when active filters temporarily hide required resources. Filtering changes visibility only and never changes completion or course requirements.",
+        "Added CETa/Career and instructional-purpose filtering using the existing exact resource-to-lesson map; reused resources can match both tracks or multiple instructional roles without duplicating resource records.",
+        "Kept filtering entirely client-side and scoped to the Teaching Media stage. No curriculum, resource assignments, outside-literature selection, video integration, assessments, labs, progress, Cloud Sync, or Part 3 Study Guide work changed."
+      ],
+      "filesAdded": ["AU-ESET-301-v16.3.49-Teaching-Media-Filter-QA.md", "UPLOAD_README_v16.3.49.txt"],
+      "filesModified": ["learn.js", "styles.css", "learn.html", "service-worker.js", "build-info.json", "release-notes-current.js", "SHA256SUMS.txt"],
+      "filesRemoved": []
+    },
+    {
       "version": "v16.3.48",
       "date": "September 21, 2026",
       "title": "Part 2 — Outside Literature Companion Curriculum",
@@ -1194,7 +1213,7 @@
       ]
     }
   ];
-  const currentOrder = ['v16.3.46','v16.3.45','v16.3.44','v16.3.43','v16.3.42','v16.3.41','v16.3.40','v16.3.39','v16.3.38','v16.3.37','v16.3.36','v16.3.35','v16.3.34','v16.3.33','v16.3.32','v16.3.31','v16.3.30','v16.3.29','v16.3.28','v16.3.27','v16.3.26','v16.3.25','v16.3.24','v16.3.23','v16.3.22','v16.3.21','v16.3.20','v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
+  const currentOrder = ['v16.3.49','v16.3.48','v16.3.47','v16.3.46','v16.3.45','v16.3.44','v16.3.43','v16.3.42','v16.3.41','v16.3.40','v16.3.39','v16.3.38','v16.3.37','v16.3.36','v16.3.35','v16.3.34','v16.3.33','v16.3.32','v16.3.31','v16.3.30','v16.3.29','v16.3.28','v16.3.27','v16.3.26','v16.3.25','v16.3.24','v16.3.23','v16.3.22','v16.3.21','v16.3.20','v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
   entries.sort((a,b)=>currentOrder.indexOf(a.version)-currentOrder.indexOf(b.version));
   const historical = Array.isArray(window.ALFRED_RELEASES) ? window.ALFRED_RELEASES : [];
   const currentVersions = new Set(entries.map(entry=>entry.version));

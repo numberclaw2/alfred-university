@@ -1,14 +1,14 @@
 {
   "courseRelease": "16.3",
-  "runtimePatch": "16.3.48",
+  "runtimePatch": "16.3.49",
   "evidenceRevision": "16.2",
   "cloudSyncProtocol": 2,
-  "build": "v16.3.48-part2-outside-literature-integration-20260921",
-  "releaseStatus": "part2-outside-literature-integration",
+  "build": "v16.3.49-teaching-media-filters-20260921",
+  "releaseStatus": "teaching-media-filter-ux",
   "presentationPatch": "mobile-visual-readability-final",
   "scheduleRevision": "2026-09-20-current-classroom-stage-and-workload-sync",
   "modulePresentationRevision": "2026-09-18-week1-from-zero-visual-teaching",
-  "teachingMediaRevision": "2026-09-21-three-channel-alfred-video-literature-integration",
+  "teachingMediaRevision": "2026-09-21-filterable-teaching-media-library",
   "resourceVerificationRevision": "2026-09-18-v16.3.9-week1-beginner-video-verified",
   "assessmentRevision": "2026-09-18-dual-source-ceta-readiness",
   "masteryRevision": "2026-09-18-bank-breadth-truthful-progression",
@@ -16,7 +16,7 @@
   "week1InstructionRevision": "2026-09-19-beginner-first-safety-scaffolding",
   "week1TeachingMediaRevision": "2026-09-18-beginner-teacher-youtube-layer",
   "teachingMediaBaseRevision": "2026-09-18-final-pots-31-week-standalone-accepted",
-  "releaseNotesRevision": "2026-09-21-v16.3.48-part2-outside-literature-integration",
+  "releaseNotesRevision": "2026-09-21-v16.3.49-teaching-media-filters",
   "repositoryLedgerBaseline": "2026-09-18-v16.3.9-63-commits",
   "studyRevision": "2026-09-21-parking-lot-cloud-sync-tombstones",
   "practiceRevision": "2026-09-18-priority-ladder-repair-router",
@@ -99,5 +99,14 @@
   "outsideLiteratureOrphanCount": 0,
   "outsideLiteratureInvalidTargetCount": 0,
   "outsideLiteratureDuplicateUrlCount": 0,
-  "outsideLiteraturePart3ScopeViolationCount": 0
+  "outsideLiteraturePart3ScopeViolationCount": 0,
+  "teachingMediaFilterRevision": "2026-09-21-search-type-priority-track-purpose-beginner",
+  "teachingMediaFilterCategories": [
+    "search",
+    "type",
+    "priority",
+    "track",
+    "purpose",
+    "beginner-friendly"
+  ]
 }
