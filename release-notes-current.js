@@ -1,6 +1,52 @@
 (() => {
   const entries = [
     {
+          "version": "v16.3.40",
+          "date": "September 20, 2026",
+          "title": "Independent Native Acceptance Repair — Dependency, Assessment, and Standards Integrity",
+          "type": "Curriculum / Standards / Assessment / QA Repair",
+          "request": "Repair every defect found by the independent native v16.3.39 acceptance test without changing the accepted visual design or official CETa competency wording.",
+          "changes": [
+                "Removed the remaining future-concept leaks from early Career examples and mastery routes: Week 3 no longer uses UART/SPI/logic-analyzer setup, Week 13 uses protocol-neutral fault isolation, and Week 15 uses GPIO/timer-state examples before later communications/ADC work.",
+                "Moved C3.5 logic-analyzer mastery to Week 18, C4.3 harness strip/crimp/strain-relief mastery to Week 19, C5.5 controlled fault-injection mastery to Week 28, and C13.6 application/interview feedback-loop mastery to Week 31.",
+                "Reconstructed Week 17 as an explicit Python-from-zero ladder before serial I/O and rebuilt Week 18 as a strict I²C-first complete path before SPI comparison and UART reactivation.",
+                "Split overloaded Career standards instead of preserving 78 for compatibility: C6.3 now separates aggregate data structures from new C6.7 pointer/address/lifetime reasoning; C8.4 separates timer/event/interrupt work from new C8.7 ADC proof; C12.1 separates basic Git history from new C12.7 branch/tag known-good-baseline control. Career standards now total 81.",
+                "Added a concept-level CETa/Career dependency graph and repaired the standards provenance matrix so first-use, instructional-home, and mastery-week fields agree with runtime teaching.",
+                "Replaced seven premature aggregate Career semantic routes with eleven prerequisite-correct routes; runtime semantic tasks now total 91 while all official 262 CETa rows remain unchanged.",
+                "Preserved styles.css, ux-system.css, CETa/Career colors, labels, navigation, layout, branding, and other aesthetic systems."
+          ],
+          "filesAdded": [
+                "AU-ESET-301-v16.3.40-Independent-Acceptance-Repair-Verification.md",
+                "AU-ESET-301-v16.3.40-Final-Beginner-Dependency-Audit.md",
+                "AU-ESET-301-v16.3.40-Assessment-Lab-Project-Reconciliation.md",
+                "AU-ESET-301-v16.3.40-Change-Report.md",
+                "AU-ESET-301-v16.3.40-Career-Standards-Provenance-Matrix.csv",
+                "AU-ESET-301-v16.3.40-31-Week-Woven-Curriculum-Map.csv",
+                "AU-ESET-301-v16.3.40-Concept-Level-CETa-Career-Dependency-Graph.csv",
+                "AU-ESET-301-v16.3.40-External-Source-Benchmark-Ledger.md"
+          ],
+          "filesModified": [
+                "career-curriculum-reconstruction.js",
+                "standards.js",
+                "analytics.html",
+                "assessments.html",
+                "learn.html",
+                "practice.html",
+                "progress.html",
+                "quiz.html",
+                "search.html",
+                "standards.html",
+                "study.html",
+                "documents.html",
+                "build-info.json",
+                "service-worker.js",
+                "release-notes-current.js",
+                "UPLOAD_README.txt",
+                "SHA256SUMS.txt"
+          ],
+          "filesRemoved": []
+    },
+    {
           "version": "v16.3.39",
           "date": "September 20, 2026",
           "title": "Dependency-First Career Curriculum Reconstruction + CETa/Career Weaving",
@@ -941,7 +987,7 @@
       ]
     }
   ];
-  const currentOrder = ['v16.3.39','v16.3.38','v16.3.37','v16.3.36','v16.3.35','v16.3.34','v16.3.33','v16.3.32','v16.3.31','v16.3.30','v16.3.29','v16.3.28','v16.3.27','v16.3.26','v16.3.25','v16.3.24','v16.3.23','v16.3.22','v16.3.21','v16.3.20','v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
+  const currentOrder = ['v16.3.40','v16.3.39','v16.3.38','v16.3.37','v16.3.36','v16.3.35','v16.3.34','v16.3.33','v16.3.32','v16.3.31','v16.3.30','v16.3.29','v16.3.28','v16.3.27','v16.3.26','v16.3.25','v16.3.24','v16.3.23','v16.3.22','v16.3.21','v16.3.20','v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
   entries.sort((a,b)=>currentOrder.indexOf(a.version)-currentOrder.indexOf(b.version));
   const historical = Array.isArray(window.ALFRED_RELEASES) ? window.ALFRED_RELEASES : [];
   const currentVersions = new Set(entries.map(entry=>entry.version));
