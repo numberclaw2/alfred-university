@@ -1,6 +1,23 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.43",
+      "date": "September 21, 2026",
+      "title": "Parking Lot Cloud Sync — Durable Curiosity and Site-Issue Records",
+      "type": "Study / Cloud Sync / Persistence",
+      "request": "Make both Study parking-lot categories survive normal Cloud Sync, browser reopen, and use across devices without changing the curriculum or visual design.",
+      "changes": [
+        "Added per-item parking:<id> Cloud Sync records for both Curiosity and Site issue parking-lot entries.",
+        "Added durable tombstone records when an item is marked Done so deleted items cannot reappear from another device.",
+        "Migrated existing local parking entries into the cloud-record model automatically using their existing IDs and timestamps.",
+        "Integrated parking records into both the Study-page automatic sync path and the Progress-page manual/automatic Cloud Sync path.",
+        "Kept localStorage as the offline cache and preserved Cloud Sync protocol 2, curriculum, assessments, progress identities, and visual styling."
+      ],
+      "filesAdded": ["parking-sync.js","AU-ESET-301-v16.3.43-Parking-Lot-Cloud-Sync-Verification.md"],
+      "filesModified": ["study.js","progress.js","study.html","progress.html","service-worker.js","build-info.json","release-notes-current.js"],
+      "filesRemoved": []
+    },
+    {
       "version": "v16.3.42",
       "date": "September 21, 2026",
       "title": "Final Traceability, Stable Learner Routing, and Independent Chromium Acceptance",
@@ -1053,7 +1070,7 @@
       ]
     }
   ];
-  const currentOrder = ['v16.3.40','v16.3.39','v16.3.38','v16.3.37','v16.3.36','v16.3.35','v16.3.34','v16.3.33','v16.3.32','v16.3.31','v16.3.30','v16.3.29','v16.3.28','v16.3.27','v16.3.26','v16.3.25','v16.3.24','v16.3.23','v16.3.22','v16.3.21','v16.3.20','v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
+  const currentOrder = ['v16.3.43','v16.3.42','v16.3.41','v16.3.40','v16.3.39','v16.3.38','v16.3.37','v16.3.36','v16.3.35','v16.3.34','v16.3.33','v16.3.32','v16.3.31','v16.3.30','v16.3.29','v16.3.28','v16.3.27','v16.3.26','v16.3.25','v16.3.24','v16.3.23','v16.3.22','v16.3.21','v16.3.20','v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
   entries.sort((a,b)=>currentOrder.indexOf(a.version)-currentOrder.indexOf(b.version));
   const historical = Array.isArray(window.ALFRED_RELEASES) ? window.ALFRED_RELEASES : [];
   const currentVersions = new Set(entries.map(entry=>entry.version));

@@ -180,6 +180,7 @@
     Object.entries(state.analytics||{}).forEach(([key,value])=>{
       addRecord(`analytics:${key}`,value);
     });
+    records.push(...(window.AlfredParkingSync?.recordsFromLocalStorage?.(deviceId)||[]));
     return records;
   }
   function applyCloudRecord(rec){
@@ -209,6 +210,7 @@
     let changed=false;
     (records||[]).forEach(rec=>{if(applyCloudRecord(rec))changed=true;});
     if(changed) persist({skipSync:true});
+    window.AlfredParkingSync?.applyRecordsToLocalStorage?.(records||[]);
   }
 
   // -----------------------------
