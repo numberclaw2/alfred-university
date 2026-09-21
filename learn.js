@@ -122,9 +122,13 @@
     const description = track === 'CETa' ? 'Certification knowledge' : track === 'Career' ? 'Technician / embedded job skill' : 'Certification knowledge + job skill';
     return `<span class="lesson-track ${trackClass(track)}"><strong>${esc(track)}</strong><small>${esc(detail || description)}</small></span>`;
   }
+  function semanticItems(lessonItem){
+    const repaired=lessonItem?.semanticTeaching||[];
+    return repaired.length ? repaired : (lessonItem?.integrated?.semanticTasks||[]);
+  }
   function semanticTasksComplete(index,l=learningState().l){
     const lessonItem=moduleData.lessons[index];
-    const items=lessonItem?.integrated?.semanticTasks||lessonItem?.semanticTeaching||[];
+    const items=semanticItems(lessonItem);
     return items.every(item=>l.semanticTasks?.[item.taskId]?.complete===true);
   }
   function stageComplete(stageId){
@@ -354,7 +358,7 @@
   }
 
   function renderIntegratedSemanticTasks(lessonItem,index){
-    const items=lessonItem.integrated?.semanticTasks||[];
+    const items=semanticItems(lessonItem);
     if(!items.length)return '';
     const l=learningState().l;
     return `<section class="semantic-evidence" aria-label="Required competency evidence"><div class="integrated-section-head"><span>Required competency evidence</span><h3>Demonstrate the technical content in your own words or artifact</h3><p>These tasks assess subject-specific knowledge already taught above. They are not teaching substitutes. If a term or scenario is unfamiliar, use Review Section before answering.</p></div>${items.map(item=>{const saved=l.semanticTasks?.[item.taskId]||{},checked=new Set(saved.checked||[]),anchor=`semantic-question-${index}-${item.taskId}`;return `<article class="semantic-topic compact-semantic" id="${esc(anchor)}" data-sem-task="${esc(item.taskId)}"><div class="semantic-topic-head"><div><span>${esc((item.codes||[]).join(', '))}</span><h3>${esc(item.title)}</h3></div><b>${saved.complete?'✓ Complete':esc(item.taskId)}</b></div><div class="semantic-check"><p><strong>Prompt:</strong> ${esc(item.prompt)}</p>${renderSemanticReviewAction(index,item,anchor)}<label class="semantic-response-label" for="sem-response-${esc(item.taskId)}"><strong>Your technical response or exact artifact pointer</strong><small>Address the actual facts, relationships, calculations, device behavior, or evidence named in the rubric.</small></label><textarea id="sem-response-${esc(item.taskId)}" data-sem-response="${esc(item.taskId)}" rows="5" maxlength="6000">${esc(saved.response||'')}</textarea><p><strong>A passing response must include:</strong></p><ul class="semantic-required">${(item.required||[]).map((x,j)=>`<li><label><input type="checkbox" data-sem-required="${esc(item.taskId)}" value="${j}"${checked.has(j)?' checked':''}><span>${esc(x)}</span></label></li>`).join('')}</ul><button class="button ${saved.complete?'outline-green':'green'} semantic-complete" data-sem-complete="${esc(item.taskId)}" type="button">${saved.complete?'✓ Competency evidence saved':'Save competency evidence'}</button><p class="semantic-rule" id="sem-status-${esc(item.taskId)}">${saved.complete?'Response and required elements recorded.':'A substantive response plus every required technical element is required.'}</p></div></article>`}).join('')}</section>`;

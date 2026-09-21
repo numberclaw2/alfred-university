@@ -1,6 +1,41 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.41",
+      "date": "September 20, 2026",
+      "title": "Final Adversarial Acceptance Repair — Runtime Task Wiring, First-Use Integrity, and Lesson Cohesion",
+      "type": "Curriculum / Assessment Runtime / Provenance / QA Repair",
+      "request": "Fix every defect found by the fresh adversarial v16.3.40 curriculum audit without redesigning the site or changing official CETa competency wording.",
+      "changes": [
+        "Made the canonical Career semantic-task registry authoritative for learner-facing lesson evidence so stale embedded tasks can no longer override prerequisite-correct mastery routes.",
+        "Added explicit Week 12 command-line onboarding plus lab-note, test-report, and technical-handoff teaching before C12.2–C12.5 mastery.",
+        "Expanded Week 14 bitwise instruction into explicit bit-position, AND/OR/XOR, shift, mask, and changed-context I DO/WE DO/YOU DO examples before C6.4 mastery.",
+        "Corrected the Week 17 beginner Python conditional example to valid multi-line syntax.",
+        "Removed Week 11 required logic-analyzer use before Week 18 onboarding and retained only an explicit later-tool preview.",
+        "Merged duplicate teaching blocks in Weeks 10, 22, 24, and 25 so each concept has one authoritative instructional home.",
+        "Narrowed C1.5 so Week 1 masters general bench safety/escalation boundaries without claiming untaught process-specific solder/crimp technique.",
+        "Recomputed first-use and instructional-coverage metadata for C11/C12 and corrected C13.1–C13.5 prerequisites so no Week 30 standard depends on the Week 31 feedback loop.",
+        "Updated Git provenance from GitHub Skills Introduction to GitHub to the more directly relevant GitHub Skills Introduction to Git source.",
+        "Preserved all 262 official CETa rows and preserved styles.css / ux-system.css unchanged."
+      ],
+      "filesAdded": [
+        "AU-ESET-301-v16.3.41-Final-Acceptance-Verification.md",
+        "AU-ESET-301-v16.3.41-Assessment-Route-Reconciliation.md",
+        "AU-ESET-301-v16.3.41-Change-Report.md",
+        "AU-ESET-301-v16.3.41-Career-Standards-Provenance-Matrix.csv",
+        "AU-ESET-301-v16.3.41-31-Week-Woven-Curriculum-Map.csv",
+        "AU-ESET-301-v16.3.41-Concept-Level-CETa-Career-Dependency-Graph.csv",
+        "AU-ESET-301-v16.3.41-External-Source-Benchmark-Ledger.md"
+      ],
+      "filesModified": [
+        "career-curriculum-reconstruction.js", "learn.js", "standards.js", "documents.html",
+        "learn.html", "study.html", "search.html", "progress.html", "quiz.html", "practice.html",
+        "analytics.html", "standards.html", "assessments.html", "build-info.json",
+        "service-worker.js", "release-notes-current.js", "UPLOAD_README.txt", "SHA256SUMS.txt"
+      ],
+      "filesRemoved": []
+    },
+    {
           "version": "v16.3.40",
           "date": "September 20, 2026",
           "title": "Independent Native Acceptance Repair — Dependency, Assessment, and Standards Integrity",

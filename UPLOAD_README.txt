@@ -1,36 +1,37 @@
-AU-ESET 301 v16.3.40 — INDEPENDENT NATIVE ACCEPTANCE REPAIR
+AU-ESET 301 v16.3.41 — FINAL ADVERSARIAL ACCEPTANCE REPAIR
 
-BASELINE
-Apply this changed-files package on top of the uploaded v16.3.39 Dependency-First Career Curriculum Reconstruction.
+UPLOAD TARGET
+Apply this changed-files-only package on top of the currently deployed v16.3.40 site.
+
+WHAT THIS RELEASE FIXES
+- Learner-facing semantic tasks now use the canonical prerequisite-correct assessment routes.
+- Week 12 now teaches CLI navigation plus lab-note/report/handoff structure before mastery.
+- Week 14 now explicitly teaches AND/OR/XOR/shifts/masks before bitwise mastery.
+- Week 17 invalid Python conditional example is corrected.
+- Week 11 no longer requires the logic analyzer before Week 18 onboarding.
+- C13.1-C13.5 no longer depend on the Week 31 feedback-loop node.
+- Duplicate repair-layer teaching blocks are removed from Weeks 10, 22, 24, and 25.
+- C1.5 and C11/C12 traceability metadata are corrected.
+- Git provenance uses GitHub Skills Introduction to Git.
 
 UPLOAD
-Upload/replace every file in this ZIP at the website root, preserving the filenames exactly.
-
-WHAT THIS REPAIR FIXES
-- Removes the future-concept leaks found by the independent v16.3.39 acceptance test.
-- Moves C3.5 logic-analyzer mastery to Week 18, C4.3 harness workmanship to Week 19, C5.5 controlled fault injection to Week 28, and C13.6 feedback-loop mastery to Week 31.
-- Rebuilds Week 17 as Python-from-zero before serial I/O.
-- Rebuilds Week 18 as one complete I2C path before SPI comparison and UART reactivation.
-- Adds timer/event and ADC known-input instruction/evidence to Week 16 before assessment.
-- Reconstructs the Career standards instead of preserving 78 merely for compatibility: 81 standards total, including new C6.7, C8.7, and C12.7.
-- Adds an auditable concept-level CETa/Career dependency graph and a corrected standards/provenance matrix.
-- Replaces premature Career semantic mastery routes with prerequisite-correct routes.
-- Preserves all 262 official CETa rows and their wording/identity.
-
-VISUAL SCOPE
-No broad aesthetic redesign was performed. styles.css and ux-system.css are unchanged from v16.3.39. CETa/Career colors, labels, branding, navigation, cards, fonts, and layout remain intact.
-
-AFTER UPLOAD
-Hard refresh once. The service-worker namespace should become:
-alfred-u-v16-3-40-native-acceptance-repair-20260920
+1. Upload every file in the ZIP to the website root.
+2. Replace matching files when prompted.
+3. Do not delete unrelated existing site files.
+4. Hard-refresh once after upload so the v16.3.41 service-worker cache replaces v16.3.40.
 
 VERIFY
-1. Open build-info.json and confirm runtimePatch = 16.3.40.
-2. Week 17 Career should begin with basic Python before serial communication.
-3. Week 18 Career should teach a complete I2C transaction/analyzer path before SPI comparison.
-4. Standards should show 81 Career standards including C6.7, C8.7, and C12.7.
-5. C3.5 should point to Week 18, C4.3 to Week 19, C5.5 to Week 28, and C13.6 to Week 31.
-6. The Documents page should expose the v16.3.40 provenance matrix and concept-level dependency graph.
+1. Open build-info.json and confirm runtimePatch = 16.3.41.
+2. Open a Career lesson and confirm the lesson loads normally.
+3. Spot-check Week 12 (CLI/Git), Week 14 (bitwise), Week 17 (Python), and Week 18 (logic analyzer / I2C-first path).
+4. Confirm the Standards page still shows 81 Career standards with provenance.
+5. Confirm the CETa/Career colors and overall site appearance are unchanged.
 
-QA
-The production curriculum/assessment JavaScript was executed in V8 in production script order. 62/62 adversarial runtime checks passed. The installed Chromium binary in the container failed to initialize even on a trivial page, so no unsupported browser-render PASS is claimed; see the verification report for details.
+INTERNAL ACCEPTANCE
+Fresh adversarial runtime suite: 28/28 passed.
+Official CETa rows: 262 unchanged.
+Career standards: 81.
+Browser-render caveat: Chromium would not initialize inside the build container even for about:blank, so browser rendering is not claimed as passed by the internal test.
+
+SERVICE WORKER CACHE
+alfred-u-v16-3-41-final-adversarial-acceptance-repair-20260920
