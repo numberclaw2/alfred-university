@@ -1,6 +1,28 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.46",
+      "date": "September 21, 2026",
+      "title": "Complete Teaching Media Integration — Zero Orphans + Course-Wide Backlinks",
+      "type": "Instructional UX / Teaching Media / Resource Reconciliation",
+      "request": "Audit every existing Teaching Media item, integrate every retained resource at a real instructional location, eliminate orphan resources, make backlinks course-wide, resolve required/optional contradictions, and keep the later outside-literature and CETa Study Guide phases out of scope.",
+      "changes": [
+        "Reconciled all 328 current Teaching Media assignments against the actual 31-week segmented curriculum; 325 assignments remain in Teaching Media and each has an exact instructional placement.",
+        "Removed three Teaching Media assignments that violated the new architecture: duplicate early Week 4 Binary Conversion and Boolean Algebra entries that are actually taught in Week 11, plus the private CETa Study Guide card reserved for the later dedicated Study Guide integration phase.",
+        "Added one static course-wide resource-to-curriculum map for videos, simulations, guides, datasheets, standards, manufacturer training, documentation, and other existing Teaching Media resources; no runtime keyword matching is used.",
+        "Expanded lesson integration beyond videos so retained non-video resources appear at the point of use with role, requirement state, source access, resource-specific guidance, and a Teaching Media return link.",
+        "Changed dense lesson sections to one lead resource plus progressive disclosure for the remaining sources, preserving the one-section-at-a-time Classroom rhythm.",
+        "Changed Teaching Media backlinks from current-week-only to course-wide: every retained card exposes a direct exact-section link and reused canonical sources can reveal additional course locations without duplicating source metadata.",
+        "Reconciled four exact-URL duplicate source-ID groups into 249 canonical resource identities; same-week duplicates render as one Teaching Media card while preserving each legitimate instructional use and course connection.",
+        "Resolved the v16.3.45 Required + Go Deeper contradiction by normalizing all required resources to required instructional roles; zero required resources now present as optional enrichment.",
+        "Replaced the universal post-video instruction with resource-specific Next guidance derived from each resource's established watch/read target, while preserving Alfred as the primary teacher.",
+        "Preserved lazy privacy-enhanced YouTube loading, existing curriculum wording, assessments, labs, glossary behavior, Study, parking/Cloud Sync, CETa/Career sequencing, and the current visual system. No new outside-literature catalog or CETa Study Guide page integration was added."
+      ],
+      "filesAdded": ["teaching-media-resource-integration.js","AU-ESET-301-v16.3.46-Teaching-Media-Resource-Map.csv","AU-ESET-301-v16.3.46-Complete-Teaching-Media-Acceptance.md","UPLOAD_README_v16.3.46.txt"],
+      "filesModified": ["learn.js","learn.html","styles.css","service-worker.js","build-info.json","release-notes-current.js","SHA256SUMS.txt"],
+      "filesRemoved": []
+    },
+    {
       "version": "v16.3.45",
       "date": "September 21, 2026",
       "title": "Contextual Video Integration — Lesson Placement + Teaching Media Backlinks",
@@ -1108,7 +1130,7 @@
       ]
     }
   ];
-  const currentOrder = ['v16.3.44','v16.3.43','v16.3.42','v16.3.41','v16.3.40','v16.3.39','v16.3.38','v16.3.37','v16.3.36','v16.3.35','v16.3.34','v16.3.33','v16.3.32','v16.3.31','v16.3.30','v16.3.29','v16.3.28','v16.3.27','v16.3.26','v16.3.25','v16.3.24','v16.3.23','v16.3.22','v16.3.21','v16.3.20','v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
+  const currentOrder = ['v16.3.46','v16.3.45','v16.3.44','v16.3.43','v16.3.42','v16.3.41','v16.3.40','v16.3.39','v16.3.38','v16.3.37','v16.3.36','v16.3.35','v16.3.34','v16.3.33','v16.3.32','v16.3.31','v16.3.30','v16.3.29','v16.3.28','v16.3.27','v16.3.26','v16.3.25','v16.3.24','v16.3.23','v16.3.22','v16.3.21','v16.3.20','v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
   entries.sort((a,b)=>currentOrder.indexOf(a.version)-currentOrder.indexOf(b.version));
   const historical = Array.isArray(window.ALFRED_RELEASES) ? window.ALFRED_RELEASES : [];
   const currentVersions = new Set(entries.map(entry=>entry.version));

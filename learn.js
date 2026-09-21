@@ -171,10 +171,34 @@
     if (focus) $('#classroom-card')?.scrollIntoView({behavior:'smooth',block:'start'});
   }
   function source(sourceId){ return C.sources?.[sourceId] || {title:sourceId,org:'',kind:'Reference',url:''}; }
-  function mediaIntegration(){ return C.videoLessonIntegration || {placements:[],placementByWeek:{},libraryOnlyByWeek:{}}; }
-  function mediaItem(sourceId){ return (moduleData?.integration?.media || []).find(item => item.source === sourceId) || null; }
-  function videoPlacementsForWeek(){ return mediaIntegration().placementByWeek?.[week] || []; }
-  function segmentVideoPlacements(lessonIndex,segmentId){ return videoPlacementsForWeek().filter(p => Number(p.lesson)===Number(lessonIndex) && p.segment===segmentId); }
+  function resourceIntegration(){ return C.teachingResourceIntegration || {placements:[],byTargetWeek:{},bySource:{},byAssignment:{},removedByAssignment:{}}; }
+  function assignmentKey(sourceId,assignmentWeek=week){ return `${assignmentWeek}:${sourceId}`; }
+  function canonicalSourceId(sourceId){ return resourceIntegration().canonicalAliases?.[sourceId] || sourceId; }
+  function mediaItem(sourceId,assignmentWeek=week){
+    const mod=C.modules?.find(x=>Number(x.week)===Number(assignmentWeek));
+    return (mod?.integration?.media || []).find(item => item.source === sourceId) || null;
+  }
+  function retainedMediaItems(){
+    const removed=resourceIntegration().removedByAssignment||{},items=(moduleData?.integration?.media || []).filter(item=>!removed[assignmentKey(item.source,week)]),seen=new Set();
+    return items.filter(item=>{
+      const canonical=canonicalSourceId(item.source);
+      if(seen.has(canonical))return false;
+      const canonicalPresent=items.some(candidate=>candidate.source===canonical);
+      if(canonicalPresent && item.source!==canonical)return false;
+      seen.add(canonical); return true;
+    });
+  }
+  function targetResourcePlacements(){ return resourceIntegration().byTargetWeek?.[week] || []; }
+  function segmentResourcePlacements(lessonIndex,segmentId){
+    return targetResourcePlacements().filter(p=>p.inline!==false && Number(p.lesson)===Number(lessonIndex) && p.segment===segmentId);
+  }
+  function globalResourcePlacements(sourceId){
+    const canonical=canonicalSourceId(sourceId),raw=(resourceIntegration().placements||[]).filter(p=>canonicalSourceId(p.source)===canonical),seen=new Set();
+    return raw.filter(p=>{
+      const key=`${p.targetWeek}:${p.lesson}:${p.segment}:${p.relationship}`;
+      if(seen.has(key))return false; seen.add(key); return true;
+    }).sort((a,b)=>Number(a.targetWeek)-Number(b.targetWeek)||Number(a.lesson)-Number(b.lesson)||String(a.segment).localeCompare(String(b.segment)));
+  }
   function youtubeVideoId(url=''){
     const value=String(url||'');
     const watch=value.match(/[?&]v=([A-Za-z0-9_-]{6,})/);
@@ -184,32 +208,49 @@
     const embed=value.match(/youtube(?:-nocookie)?\.com\/embed\/([A-Za-z0-9_-]{6,})/);
     return embed?embed[1]:'';
   }
-  function lessonVideoCard(placement,{compact=false}={}){
-    const item=mediaItem(placement.source),s=source(placement.source);
+  function resourceRoleLabel(role){
+    return {core:'Core teaching resource',demonstration:'Demonstration','lab-prep':'Lab preparation',troubleshooting:'Troubleshooting demonstration',reinforcement:'Reinforcement',review:'Review','go-deeper':'Go deeper',reference:'Reference / source'}[role]||'Teaching resource';
+  }
+  function resourceRequirementLabel(placement){
+    return placement.requirement==='required'?'Required source':placement.requirement==='optional'?'Optional':'Supporting resource';
+  }
+  function teachingMediaAnchorSource(sourceId,assignmentWeek){
+    const canonical=canonicalSourceId(sourceId),mod=C.modules?.find(x=>Number(x.week)===Number(assignmentWeek));
+    return (mod?.integration?.media||[]).some(item=>item.source===canonical) ? canonical : sourceId;
+  }
+  function lessonResourceCard(placement,{compact=false}={}){
+    const item=mediaItem(placement.source,placement.assignmentWeek),s=source(placement.source);
     if(!item)return '';
-    const youtubeId=youtubeVideoId(s.url),requirement=/required/i.test(item.role||'')?'Required source':placement.role==='core'?'Core teaching':'Supporting media';
-    const cardId=`lesson-video-${week}-${placement.lesson}-${String(placement.segment).replace(/[^a-z0-9_-]/gi,'-')}-${String(placement.source).replace(/[^a-z0-9_-]/gi,'-')}`;
-    const after=`Connect what you saw to “${placement.segmentLabel||'this section'},” then answer the Pause & retrieve prompt below without replaying the video.`;
-    const inline=youtubeId?`<button class="button outline-green lesson-video-toggle" type="button" data-inline-video="${esc(cardId)}" data-video-src="https://www.youtube-nocookie.com/embed/${esc(youtubeId)}?rel=0" aria-expanded="false">Watch inline</button>`:'';
-    return `<article class="lesson-video-card${compact?' compact':''}" id="${esc(cardId)}" data-video-source="${esc(placement.source)}"><div class="lesson-video-card-top"><span class="lesson-video-role role-${esc(placement.role)}">${esc(placement.roleLabel||'Teaching video')}</span><span class="lesson-video-requirement">${esc(requirement)}</span></div><h4>${esc(s.title)}</h4><p class="lesson-video-org">${esc(s.org)}</p><div class="lesson-video-framing"><p><strong>Why this is here:</strong> ${esc(item.use)}</p><p><strong>Watch for:</strong> ${esc(item.watchFor)}</p><p><strong>After watching:</strong> ${esc(after)}</p></div><div class="lesson-video-actions">${inline}${s.url?`<a class="button outline-green" href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">Open source ↗</a>`:''}<a class="lesson-video-library-link" href="learn.html?week=${week}&stage=media#media-${encodeURIComponent(placement.source)}">Teaching Media entry</a></div>${youtubeId?`<div class="lesson-video-inline hidden" id="${esc(cardId)}-frame" data-inline-frame="${esc(cardId)}"><div class="lesson-video-aspect"><iframe title="${esc(s.title)}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>`:''}</article>`;
+    const youtubeId=placement.mediaType==='video'?youtubeVideoId(s.url):'';
+    const cardId=`lesson-resource-${placement.assignmentWeek}-${placement.targetWeek}-${placement.lesson}-${String(placement.segment).replace(/[^a-z0-9_-]/gi,'-')}-${String(placement.source).replace(/[^a-z0-9_-]/gi,'-')}`;
+    const inline=youtubeId?`<button class="button outline-green lesson-video-toggle" type="button" data-inline-video="${esc(cardId)}" data-video-src="https://www.youtube-nocookie.com/embed/${esc(youtubeId)}?rel=0" aria-controls="${esc(cardId)}-frame" aria-expanded="false">Watch inline</button>`:'';
+    const verb=placement.mediaType==='video'?'Watch for':'Read / use for';
+    const sourceButton=s.url?`<a class="button outline-green" href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${placement.mediaType==='video'?'Open source':'Open reference'} ↗</a>`:'<span class="private-source">Use your authorized private copy; it is not republished here.</span>';
+    return `<article class="lesson-video-card lesson-resource-card${compact?' compact':''}" id="${esc(cardId)}" data-resource-source="${esc(placement.source)}"><div class="lesson-video-card-top"><span class="lesson-video-role role-${esc(placement.presentationRole)}">${esc(resourceRoleLabel(placement.presentationRole))}</span><span class="lesson-video-requirement requirement-${esc(placement.requirement)}">${esc(resourceRequirementLabel(placement))}</span></div><h4>${esc(s.title)}</h4><p class="lesson-video-org">${esc(s.org)}</p><div class="lesson-video-framing"><p><strong>Why this is here:</strong> ${esc(item.use)}</p><p><strong>${verb}:</strong> ${esc(item.watchFor)}</p><p><strong>Next:</strong> ${esc(placement.afterAction)}</p></div><div class="lesson-video-actions">${inline}${sourceButton}<a class="lesson-video-library-link" href="learn.html?week=${placement.assignmentWeek}&stage=media#media-${encodeURIComponent(teachingMediaAnchorSource(placement.source,placement.assignmentWeek))}">Teaching Media entry</a></div>${youtubeId?`<div class="lesson-video-inline hidden" id="${esc(cardId)}-frame" data-inline-frame="${esc(cardId)}"><div class="lesson-video-aspect"><iframe title="${esc(s.title)}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>`:''}</article>`;
   }
   function renderSegmentTeachingMedia(lessonIndex,seg){
-    const placements=segmentVideoPlacements(lessonIndex,seg.id).map(p=>({...p,segmentLabel:seg.label}));
+    const placements=segmentResourcePlacements(lessonIndex,seg.id).map(p=>({...p,segmentLabel:seg.label}));
     if(!placements.length)return '';
-    const primary=placements.filter(p=>p.display==='primary');
-    const compact=placements.filter(p=>p.display!=='primary');
-    const lead=primary.length?primary:[compact.shift()].filter(Boolean);
-    return `<section class="lesson-teaching-media" aria-label="Teaching media for ${esc(seg.label)}"><div class="lesson-teaching-media-head"><span>Teaching media · placed at point of use</span><h3>See the concept in another voice</h3><p>Alfred taught the model above. Use this media to visualize or reinforce it before you retrieve and apply the idea.</p></div>${lead.map(p=>lessonVideoCard(p)).join('')}${[...primary.slice(lead.length),...compact].length?`<details class="lesson-video-more"><summary>More media for this section (${[...primary.slice(lead.length),...compact].length})</summary><div class="lesson-video-more-grid">${[...primary.slice(lead.length),...compact].map(p=>lessonVideoCard(p,{compact:true})).join('')}</div></details>`:''}</section>`;
+    const priority=p=>p.display==='primary'?0:p.requirement==='required'?1:p.presentationRole==='reference'?3:2;
+    placements.sort((a,b)=>priority(a)-priority(b)||String(a.source).localeCompare(String(b.source)));
+    const lead=placements[0],rest=placements.slice(1);
+    return `<section class="lesson-teaching-media" aria-label="Teaching resources for ${esc(seg.label)}"><div class="lesson-teaching-media-head"><span>Teaching resources · placed at point of use</span><h3>Use the supporting source where it helps</h3><p>Alfred teaches the model here. These resources demonstrate, reinforce, document, or help you apply that exact idea before retrieval and practice.</p></div>${lessonResourceCard(lead)}${rest.length?`<details class="lesson-video-more"><summary>More resources for this section (${rest.length})</summary><div class="lesson-video-more-grid">${rest.map(p=>lessonResourceCard(p,{compact:true})).join('')}</div></details>`:''}</section>`;
   }
   function placementLessonLabel(placement){
-    const lesson=moduleData?.lessons?.[placement.lesson],plan=lesson?lessonSegmentPlan(lesson,placement.lesson):[],seg=plan.find(x=>x.id===placement.segment);
-    return `${placement.lesson===0?'CETa Lesson':'Career Lesson'} → ${seg?.label||placement.segment}`;
+    const mod=C.modules?.find(x=>Number(x.week)===Number(placement.targetWeek)),lesson=mod?.lessons?.[placement.lesson],plan=lesson?lessonSegmentPlan(lesson,placement.lesson):[],seg=plan.find(x=>x.id===placement.segment);
+    return `Week ${String(placement.targetWeek).padStart(2,'0')} → ${placement.lesson===0?'CETa Lesson':'Career Lesson'} → ${seg?.label||placement.segment}`;
+  }
+  function resourceLessonHref(placement,sourceId){
+    return `learn.html?week=${placement.targetWeek}&stage=${placement.lesson===0?'ceta-lesson':'career-lesson'}&lesson=${placement.lesson}&section=${encodeURIComponent(placement.segment)}&from=media&media=${encodeURIComponent(sourceId)}`;
   }
   function teachingMediaLessonLinks(sourceId){
-    const placements=videoPlacementsForWeek().filter(p=>p.source===sourceId);
-    if(placements.length){return `<div class="media-used-in"><strong>Taught in this week:</strong><div>${placements.map(p=>`<a href="learn.html?week=${week}&stage=${p.lesson===0?'ceta-lesson':'career-lesson'}&lesson=${p.lesson}&section=${encodeURIComponent(p.segment)}&from=media&media=${encodeURIComponent(sourceId)}">${esc(placementLessonLabel(p))} →</a>`).join('')}</div></div>`;}
-    const decision=(mediaIntegration().libraryOnlyByWeek?.[week]||[]).find(x=>x.source===sourceId);
-    return decision?`<div class="media-library-only"><strong>Reference library only this week.</strong><p>${esc(decision.reason)}</p></div>`:'';
+    const placements=globalResourcePlacements(sourceId);
+    if(!placements.length)return `<div class="media-integration-error"><strong>Integration check needed</strong><p>This retained Teaching Media item has no lesson relationship. It should not remain here.</p></div>`;
+    const current=placements.filter(p=>Number(p.assignmentWeek)===Number(week));
+    const primary=current.find(p=>p.source===sourceId)||current[0]||placements[0],rest=placements.filter(p=>p!==primary);
+    const primaryLink=`<a href="${resourceLessonHref(primary,sourceId)}"><span>${esc(primary.relationship||'Used in')}</span><strong>${esc(placementLessonLabel(primary))}</strong> →</a>`;
+    const additional=rest.length?`<details class="media-also-used"><summary>Also used in ${rest.length} other course location${rest.length===1?'':'s'}</summary><div>${rest.map(p=>`<a href="${resourceLessonHref(p,sourceId)}"><span>${esc(p.relationship||'Used in')}</span><strong>${esc(placementLessonLabel(p))}</strong> →</a>`).join('')}</div></details>`:'';
+    return `<div class="media-used-in course-wide"><div class="media-location-heading"><strong>Course connection</strong><span>Jump directly back to the instruction.</span></div>${primaryLink}${additional}</div>`;
   }
   function studyGuideAssignment(weekNumber=week){
     const marker='OFFICIAL STUDY GUIDE — V6 BOOK ASSIGNMENT';
@@ -463,11 +504,10 @@
   }
 
   function renderMedia(){
-    const items = moduleData.integration.media || [];
+    const items = retainedMediaItems();
     const requiredCount = items.filter(x => /^Required/.test(x.role)).length;
-    return `<div class="classroom-stage-head"><div><span class="stage-count">Stage 4 of ${STAGES.length} · Required media or accessible text path</span><h2>Learn it from another voice—then connect it</h2><p>The links add demonstrations, diagrams, and expert perspective. Alfred’s two lessons remain sufficient if a video is unavailable or text is the more accessible route.</p></div>${trackBadge('CETa + Career')}</div>
-    <div class="media-policy"><strong>Required does not mean video-only.</strong><p>For each required item, either review the linked section or use the complete Alfred lesson above as its text alternative. Do not let a broken link or unavailable caption block the course.</p></div>
-    ${renderStudyGuideAssignment()}
+    return `<div class="classroom-stage-head"><div><span class="stage-count">Stage 4 of ${STAGES.length} · Integrated Teaching Media</span><h2>Learn it from another voice—then connect it</h2><p>Every retained Teaching Media item is connected to a real lesson section. Use these sources to demonstrate, reinforce, or reference what Alfred teaches—then jump back to the exact instructional location whenever you need context.</p></div>${trackBadge('CETa + Career')}</div>
+    <div class="media-policy"><strong>No orphan resources.</strong><p>If a source is listed here, Alfred teaches, demonstrates, applies, or deliberately reviews it somewhere in the course. Use the Course connection on every card to return to that exact lesson section.</p></div>
     <div class="teaching-media-list">${items.map((item,i) => {const s=source(item.source);return `<article id="media-${esc(item.source)}"><div class="media-card-top"><span>${esc(item.role)}</span><span>${esc(s.kind)}</span></div><h3>${esc(s.title)}</h3><p class="media-org">${esc(s.org)}</p><p><strong>Use it for:</strong> ${esc(item.use)}</p><p><strong>Watch/read for:</strong> ${esc(item.watchFor)}</p><p><strong>What Alfred still supplies:</strong> ${esc(item.gap)}</p>${teachingMediaLessonLinks(item.source)}<div>${s.url ? `<a class="button outline-green" href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">Open source ↗</a>` : '<span class="private-source">Use your private course copy; it is not republished here.</span>'}</div></article>`}).join('')}</div>
     <section class="media-reflection"><label for="media-connection"><strong>One-sentence connection</strong><span>What became clearer, or which Alfred explanation will you use instead?</span></label><textarea id="media-connection" rows="3" maxlength="1200" placeholder="Example: The scope demonstration made trigger level clearer; I can now explain why it stabilizes a repeating waveform.">${esc(learningState().l.responses?.media || '')}</textarea><button class="button green" id="complete-media" type="button">${stageComplete('media') ? '✓ Media / text path complete' : `Confirm media or text path complete${requiredCount ? ` (${requiredCount} required source${requiredCount === 1 ? '' : 's'})` : ''}`}</button></section>`;
   }

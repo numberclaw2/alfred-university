@@ -2124,3 +2124,23 @@ body.quiet-mode .focus-prep-backdrop{backdrop-filter:none}
 .media-library-only p{margin:0!important;color:#655f50}
 .teaching-media-list article:target{outline:3px solid rgba(178,143,35,.55);outline-offset:3px;scroll-margin-top:110px}
 @media(max-width:700px){.lesson-video-actions{display:grid;grid-template-columns:1fr}.lesson-video-actions .button{width:100%;text-align:center}.lesson-video-library-link{padding:6px 0}.lesson-video-card{padding:14px}.lesson-video-more-grid{padding:0 10px 10px}}
+/* v16.3.46 — complete Teaching Media integration */
+.lesson-video-role.role-reference{background:#e8edf3;color:#31475b}
+.lesson-video-requirement.requirement-required{background:#f7edd0;color:#694f06}
+.lesson-video-requirement.requirement-optional{background:#eef0f2;color:#48535c}
+.lesson-video-requirement.requirement-supporting{background:#edf4ef;color:#315c49}
+.media-used-in.course-wide{display:grid;gap:8px}
+.media-location-heading{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
+.media-location-heading>strong{margin:0!important}
+.media-location-heading>span{font-size:.72rem;color:#647269}
+.media-used-in.course-wide>a,.media-also-used a{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center;width:100%;padding:9px 10px;border-radius:9px;background:#fff;border:1px solid #d5e2da;text-decoration:none}
+.media-used-in.course-wide>a:hover,.media-also-used a:hover{border-color:#9fc1af;background:#fbfdfb}
+.media-used-in.course-wide>a>span,.media-also-used a>span{font-size:.64rem;font-weight:900;letter-spacing:.04em;text-transform:uppercase;color:#75631f}
+.media-used-in.course-wide>a>strong,.media-also-used a>strong{font-size:.78rem;line-height:1.35;color:var(--green)}
+.media-also-used{margin-top:2px;border-top:1px solid #dce5df;padding-top:6px}
+.media-also-used>summary{cursor:pointer;color:var(--green);font-size:.76rem;font-weight:850;padding:4px 0}
+.media-also-used>div{display:grid;gap:6px;padding-top:7px}
+.media-integration-error{margin:13px 0;padding:11px 12px;border-radius:10px;background:#fff0ed;border:1px solid #e0a69a;color:#71352a}
+.media-integration-error p{margin:.35rem 0 0!important}
+@media(max-width:700px){.media-used-in.course-wide>a,.media-also-used a{grid-template-columns:1fr}.media-location-heading{display:grid;gap:2px}}
+
