@@ -1,6 +1,43 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.52",
+      "date": "September 22, 2026",
+      "title": "Direct Lesson & Guided Practice Page Navigation",
+      "type": "Classroom / UX / Review Navigation / Progress Compatibility",
+      "request": "Add direct navigation inside CETa/Career lesson modules and Guided Practice so a learner can jump to a specific page such as 7 of 14, especially when previously completed lessons have since been rebuilt, without erasing prior passes or saved progress.",
+      "changes": [
+        "Added direct lesson-page navigation to both CETa and Career lessons: Previous/Next arrows, a named section dropdown, a Page X of Y indicator, and a numeric page box with Go/Enter navigation.",
+        "Preserved first-pass sequencing: learners who have not passed the lesson may freely revisit unlocked pages but cannot jump forward into still-locked pages.",
+        "Added prior-pass compatibility for rebuilt lessons: if the lesson stage was already completed, every current lesson page is available for review even when the new lesson has more/reorganized sections; opening those pages never erases the prior pass or rewrites the official saved resume point.",
+        "Added an explicit Return to saved resume point control while reviewing a different lesson page.",
+        "Converted Guided Practice into selectable pages for worked-example review, guided tasks, independent transfer, and the oral checkpoint, with Previous/Next, dropdown, and numeric jump controls.",
+        "Guided Practice uses one shared practice notebook across pages and preserves existing practice completion/checkpoint state; page browsing itself does not mark practice complete or reset completed work.",
+        "Added responsive navigation styling sized for desktop and mobile touch use while preserving the existing Alfred visual system.",
+        "Inherited the v16.3.51 Microsoft source-health hotfix. No curriculum, assessments, labs, Project 1, Teaching Media counts, Calendar, glossary, progress IDs, or Cloud Sync protocol were redesigned."
+      ],
+      "filesAdded": ["AU-ESET-301-v16.3.52-Direct-Section-Navigation-QA.md", "AU-ESET-301-v16.3.52-Change-Manifest.md", "UPLOAD_README_v16.3.52.txt"],
+      "filesModified": ["learn.js", "styles.css", "learn.html", "service-worker.js", "build-info.json", "README.md", "release-notes-current.js", "teaching-media-architecture-repair.js", "study.html", "resources.html", "SHA256SUMS.txt"],
+      "filesRemoved": []
+    },
+    {
+      "version": "v16.3.51",
+      "date": "September 22, 2026",
+      "title": "Post-Upload Source Health Hotfix",
+      "type": "Teaching Media / Source Verification / Hotfix",
+      "request": "Verify the uploaded v16.3.50 release against GitHub, execute the deployed artifact internally, and repair any remaining defect found during post-upload validation.",
+      "changes": [
+        "Verified GitHub main is exactly one commit ahead of v16.3.49 with the intended 19-file v16.3.50 update and no unrelated changes.",
+        "Verified the GitHub Pages build/deploy workflow completed successfully and downloaded/executed the exact Pages artifact produced from commit 109f43e7f798ee12ffd1ec251b8b723310ddc317.",
+        "Reconfirmed 31 modules, 62 lessons, 24 labs, 20 universal Required, 7 conditional, 235 Study, 85 Engineering Library, and 24 removed assignments in the deployed artifact.",
+        "Found one stale Week 17 Study link: the former Explore Common Configuration Options Microsoft Learn module now redirects to the generic Training browse page.",
+        "Replaced that Study source with Microsoft's current stable Configure Windows client documentation hub. No Required-media counts, placements, curriculum, progress, Cloud Sync, Project 1, Calendar, glossary, visuals, or Study Guide scope changed."
+      ],
+      "filesAdded": ["AU-ESET-301-v16.3.51-Post-Upload-Verification-and-Source-Hotfix.md", "UPLOAD_README_v16.3.51.txt"],
+      "filesModified": ["teaching-media-architecture-repair.js", "learn.html", "study.html", "resources.html", "service-worker.js", "build-info.json", "README.md", "release-notes-current.js", "SHA256SUMS.txt"],
+      "filesRemoved": []
+    },
+    {
       "version": "v16.3.50",
       "date": "September 21, 2026",
       "title": "Teaching Media Architecture / Workload Calibration Repair",

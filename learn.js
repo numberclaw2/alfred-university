@@ -343,7 +343,13 @@
   function readReviewReturn(){try{const x=JSON.parse(sessionStorage.getItem(LESSON_REVIEW_RETURN_KEY)||'null');return x&&Number(x.week)===Number(week)?x:null;}catch{return null;}}
   function writeReviewReturn(value){try{sessionStorage.setItem(LESSON_REVIEW_RETURN_KEY,JSON.stringify(value));}catch{}}
   function clearReviewReturn(){try{sessionStorage.removeItem(LESSON_REVIEW_RETURN_KEY);}catch{}}
-  function setLessonView(index,target,plan,{referencePreview=false}={}){const max=Math.max(0,plan.length-1),next=Math.max(0,Math.min(max,Number(target)||0)),key=lessonViewKey(index),raw=lessonSegmentRecord(index,plan);if(referencePreview&&next>raw.furthest){lessonViewOverrides.set(key,next);lessonReferencePreviews.add(key);return;}lessonReferencePreviews.delete(key);const allowed=Math.min(next,raw.furthest);if(allowed===raw.furthest)lessonViewOverrides.delete(key);else lessonViewOverrides.set(key,allowed);}
+  function setLessonView(index,target,plan,{referencePreview=false}={}){
+    const max=Math.max(0,plan.length-1),next=Math.max(0,Math.min(max,Number(target)||0)),key=lessonViewKey(index),raw=lessonSegmentRecord(index,plan);
+    if(referencePreview){lessonViewOverrides.set(key,next);lessonReferencePreviews.add(key);return;}
+    lessonReferencePreviews.delete(key);
+    const allowed=Math.min(next,raw.unlockedMax);
+    if(allowed===raw.furthest)lessonViewOverrides.delete(key);else lessonViewOverrides.set(key,allowed);
+  }
   function reviewTargetForQuestion(index,kind,questionIndex){
     const lesson=moduleData.lessons[index],plan=lessonSegmentPlan(lesson,index);
     const item=kind==='check'?lesson?.integrated?.checks?.[questionIndex]:lesson?.knowledgeCheck;
@@ -399,13 +405,21 @@
     if(target>=0)setLessonView(requestedLesson,target,plan,{referencePreview:params.get('from')==='media'});
   }
   function lessonSegmentRecord(index,plan){
-    const l=learningState().l,key=`lesson-${index}`,raw=l.lessonSegments?.[key]||{},total=plan.length;
+    const l=learningState().l,key=`lesson-${index}`,raw=l.lessonSegments?.[key]||{},total=plan.length,stageId=index===0?'ceta-lesson':'career-lesson';
     const completed={...(raw.completed||{})};
     let furthest=Math.max(0,Math.min(total-1,Number(raw.furthest ?? raw.current)||0));
     Object.entries(completed).forEach(([k,v])=>{if(v){const n=Number(k);if(Number.isFinite(n))furthest=Math.max(furthest,Math.min(total-1,n+(n<total-1?1:0)));}});
-    const viewKey=lessonViewKey(index),override=lessonViewOverrides.get(viewKey),referencePreview=lessonReferencePreviews.has(viewKey)&&Number(override)>furthest;
-    const current=Number.isFinite(Number(override))?Math.max(0,Math.min(referencePreview?total-1:furthest,Number(override))):furthest;
-    return {key,total,current,furthest,completed,referencePreview};
+    const priorStagePass=!!l.completed?.[stageId],unlockedMax=priorStagePass?Math.max(0,total-1):furthest;
+    const viewKey=lessonViewKey(index),override=lessonViewOverrides.get(viewKey),referencePreview=lessonReferencePreviews.has(viewKey);
+    const current=Number.isFinite(Number(override))?Math.max(0,Math.min(referencePreview?total-1:unlockedMax,Number(override))):furthest;
+    const reviewAccessAll=priorStagePass&&unlockedMax>furthest;
+    return {key,total,current,furthest,unlockedMax,completed,referencePreview,priorStagePass,reviewAccessAll};
+  }
+  function lessonSectionNavigator(index,plan,state){
+    const preview=!!state.referencePreview,maxIndex=preview?state.total-1:state.unlockedMax;
+    const options=plan.map((seg,i)=>`<option value="${i}"${i===state.current?' selected':''}${i>maxIndex?' disabled':''}>${i+1}. ${esc(seg.label)}${i>maxIndex?' — locked':''}</option>`).join('');
+    const reviewCopy=preview?'Reference preview · choosing another page will not change course progress.':state.priorStagePass?'Previously passed lesson · every page is open for review. Your earlier pass remains recorded.':`Unlocked through page ${maxIndex+1} of ${state.total}. Future pages stay locked until you complete the current learning page.`;
+    return `<div class="lesson-section-picker" data-lesson-section-picker><div class="lesson-page-count"><span>Page</span><strong>${state.current+1}</strong><span>of ${state.total}</span></div><div class="lesson-page-arrows" aria-label="Flip between lesson pages"><button class="button outline-green" type="button" data-lesson-page-prev ${state.current===0?'disabled':''} aria-label="Previous lesson page">←</button><button class="button outline-green" type="button" data-lesson-page-next ${state.current>=maxIndex?'disabled':''} aria-label="Next available lesson page">→</button></div><label class="lesson-page-select"><span>Select section</span><select data-lesson-section-select aria-label="Select lesson section">${options}</select></label><div class="lesson-page-number"><label for="lesson-page-number-${index}">Go to page</label><div><input id="lesson-page-number-${index}" data-lesson-page-input type="number" inputmode="numeric" min="1" max="${maxIndex+1}" value="${state.current+1}" aria-label="Lesson page number"><button class="button outline-green" type="button" data-lesson-page-go>Go</button></div></div>${!preview&&state.current!==state.furthest?`<button class="button gold lesson-return-resume" type="button" data-lesson-resume-point>Return to saved resume point · ${state.furthest+1}</button>`:''}<p class="lesson-page-help">${esc(reviewCopy)}</p></div>`;
   }
   function saveLessonSegment(index,plan,viewIndex,{complete=false,advance=false}={}){
     const total=plan.length,view=Math.max(0,Math.min(total-1,Number(viewIndex)||0));
@@ -437,19 +451,28 @@
     else body=renderIntegratedSemanticTasks(lessonItem,index);
     const complete=!!state.completed[String(state.current)],isLast=state.current===state.total-1,referencePreview=!!state.referencePreview,reviewing=!referencePreview&&state.current<state.furthest;
     const furthestComplete=!!state.completed[String(state.furthest)];
-    const progress=Math.round(((state.furthest+(furthestComplete?1:0))/state.total)*100);
+    const progress=state.priorStagePass?100:Math.round(((state.furthest+(furthestComplete?1:0))/state.total)*100);
     const reviewReturn=readReviewReturn();
     const backToQuestion=reviewReturn&&Number(reviewReturn.lessonIndex)===Number(index)?`<button class="button gold back-to-question" type="button" data-back-to-question>← Back to question</button>`:'';
     const mediaOriginWeek=Number(params.get('mediaWeek'))||week;
     const mediaReturn=params.get('from')==='media'&&params.get('stage')===STAGES[stageIndex]?.id?`<a class="button gold back-to-media" href="learn.html?week=${mediaOriginWeek}&stage=media${params.get('media')?`#media-${encodeURIComponent(teachingMediaAnchorSource(params.get('media'),mediaOriginWeek))}`:''}">← Back to Teaching Media</a>`:'';
-    const reviewStatus=referencePreview?`<span class="lesson-reviewing-note reference-preview">Reference preview · this exact section is shown from Teaching Media without changing your official resume point at Section ${state.furthest+1}.</span>`:reviewing?`<span class="lesson-reviewing-note">Reviewing Section ${state.current+1}. Your resume point stays at Section ${state.furthest+1}.</span>`:`<span class="lesson-reviewing-note current">Current learning section · future sections stay locked until you complete this one.</span>`;
-    const topForward=reviewing?`<button class="button outline-green" type="button" data-lesson-segment-forward>Next completed section →</button>`:'';
-    const topNav=referencePreview?`<nav class="lesson-segment-browse reference-preview-nav" aria-label="Reference preview navigation">${reviewStatus}<button class="button outline-green" type="button" data-reference-resume>Return to my resume point</button>${mediaReturn}</nav>`:`<nav class="lesson-segment-browse" aria-label="Lesson section navigation"><button class="button outline-green" type="button" data-lesson-segment-prev ${state.current===0?'disabled':''}>← Previous section</button>${reviewStatus}${topForward}${backToQuestion}${mediaReturn}</nav>`;
-    const bottomForward=referencePreview?`<button class="button green" type="button" data-reference-resume>Return to my resume point</button>`:reviewing?`<button class="button green" type="button" data-lesson-segment-forward>Next completed section →</button>`:(isLast&&complete?'<span class="lesson-segment-finished">✓ All lesson sections visited. Finish the required evidence and gate below.</span>':`<button class="button green" type="button" data-lesson-segment-next>${isLast?'Save this section':'I answered · continue'}</button>`);
-    const headerStatus=referencePreview?'Reference preview':reviewing?'Reviewing':complete?'✓ Saved':`${progress}% through lesson`;
-    const bottomPrev=referencePreview?'':`<button class="button outline-green" type="button" data-lesson-segment-prev ${state.current===0?'disabled':''}>← Previous section</button>`;
-    const bottomStatus=referencePreview?`Preview only · resume remains at Section ${state.furthest+1}`:reviewing?`Resume point: Section ${state.furthest+1}`:complete?'This section is saved.':'';
-    return `<section class="lesson-segment-shell${referencePreview?' reference-preview-shell':''}" data-lesson-index="${index}" data-segment-index="${state.current}" data-segment-furthest="${state.furthest}" data-segment-total="${state.total}"><header class="lesson-segment-head"><div><span>Learning section ${state.current+1} of ${state.total}</span><h3>${esc(seg.label)}</h3><p>${referencePreview?'Opened from Teaching Media as a read-only reference. Your official lesson position is unchanged.':`About ${seg.minutes} min · completed sections stay available for review without moving your official resume point backward.`}</p></div><strong>${headerStatus}</strong></header><div class="lesson-segment-progress" aria-hidden="true"><span style="width:${progress}%"></span></div>${topNav}<div class="lesson-segment-body">${body}${renderSegmentTeachingMedia(index,seg)}</div><aside class="lesson-micro-check"><span>Pause & retrieve</span><p>${esc(segmentPrompt(seg))}</p><small>Say it aloud or work it on paper. No extra form is required.</small></aside><div class="lesson-segment-nav">${bottomPrev}<div class="lesson-segment-status">${bottomStatus}</div>${bottomForward}${backToQuestion}${mediaReturn}</div></section>`;
+    const reviewStatus=referencePreview?`<span class="lesson-reviewing-note reference-preview">Reference preview · this page is shown without changing your official resume point at Page ${state.furthest+1}.</span>`:state.priorStagePass?`<span class="lesson-reviewing-note prior-pass">Previously passed lesson · all ${state.total} pages are open for review. Your earlier pass remains recorded.</span>`:reviewing?`<span class="lesson-reviewing-note">Reviewing Page ${state.current+1}. Your resume point stays at Page ${state.furthest+1}.</span>`:`<span class="lesson-reviewing-note current">Current learning page · future pages stay locked until you complete this one.</span>`;
+    const canBrowseForward=!referencePreview&&state.current<state.unlockedMax;
+    const topForward=canBrowseForward?`<button class="button outline-green" type="button" data-lesson-segment-forward>${state.priorStagePass?'Next review page':'Next unlocked page'} →</button>`:'';
+    const sectionPicker=lessonSectionNavigator(index,plan,state);
+    const topNav=`<nav class="lesson-segment-browse${referencePreview?' reference-preview-nav':''}" aria-label="Lesson section navigation">${sectionPicker}<div class="lesson-segment-browse-context">${reviewStatus}<div class="lesson-segment-browse-actions">${topForward}${referencePreview?`<button class="button outline-green" type="button" data-reference-resume>Return to my resume point</button>`:''}${backToQuestion}${mediaReturn}</div></div></nav>`;
+    let bottomForward='';
+    if(referencePreview)bottomForward=`<button class="button green" type="button" data-reference-resume>Return to my resume point</button>`;
+    else if(state.priorStagePass){
+      if(state.current<state.unlockedMax)bottomForward=`<button class="button green" type="button" data-lesson-segment-forward>Next review page →</button>`;
+      else if(state.current!==state.furthest)bottomForward=`<button class="button green" type="button" data-lesson-resume-point>Return to saved resume point · ${state.furthest+1}</button>`;
+      else bottomForward='<span class="lesson-segment-finished">✓ Previously passed · every lesson page is available for review.</span>';
+    } else if(reviewing)bottomForward=`<button class="button green" type="button" data-lesson-segment-forward>Next unlocked page →</button>`;
+    else bottomForward=isLast&&complete?'<span class="lesson-segment-finished">✓ All lesson pages visited. Finish the required evidence and gate below.</span>':`<button class="button green" type="button" data-lesson-segment-next>${isLast?'Save this page':'I answered · continue'}</button>`;
+    const headerStatus=referencePreview?'Reference preview':state.priorStagePass?'✓ Passed · review mode':reviewing?'Reviewing':complete?'✓ Saved':`${progress}% through lesson`;
+    const bottomPrev=referencePreview?'':`<button class="button outline-green" type="button" data-lesson-segment-prev ${state.current===0?'disabled':''}>← Previous page</button>`;
+    const bottomStatus=referencePreview?`Preview only · resume remains at Page ${state.furthest+1}`:state.priorStagePass?`Prior pass preserved · saved resume point: Page ${state.furthest+1}`:reviewing?`Resume point: Page ${state.furthest+1}`:complete?'This page is saved.':'';
+    return `<section class="lesson-segment-shell${referencePreview?' reference-preview-shell':''}${state.priorStagePass?' prior-pass-review-shell':''}" data-lesson-index="${index}" data-segment-index="${state.current}" data-segment-furthest="${state.furthest}" data-segment-unlocked="${state.unlockedMax}" data-segment-total="${state.total}"><header class="lesson-segment-head"><div><span>Learning page ${state.current+1} of ${state.total}</span><h3>${esc(seg.label)}</h3><p>${referencePreview?'Opened from Teaching Media as a read-only reference. Your official lesson position is unchanged.':state.priorStagePass?`About ${seg.minutes} min · review freely using the page selector; opening a page does not erase or rewrite your earlier pass.`:`About ${seg.minutes} min · completed sections stay available for review without moving your official resume point backward.`}</p></div><strong>${headerStatus}</strong></header><div class="lesson-segment-progress" aria-hidden="true"><span style="width:${progress}%"></span></div>${topNav}<div class="lesson-segment-body">${body}${renderSegmentTeachingMedia(index,seg)}</div><aside class="lesson-micro-check"><span>Pause & retrieve</span><p>${esc(segmentPrompt(seg))}</p><small>Say it aloud or work it on paper. No extra form is required.</small></aside><div class="lesson-segment-nav">${bottomPrev}<div class="lesson-segment-status">${bottomStatus}</div>${bottomForward}${backToQuestion}${mediaReturn}</div></section>`;
   }
 
   function renderOrientation(){
@@ -542,7 +565,7 @@
     const checkItem = lessonItem.knowledgeCheck;
     const plan=lessonSegmentPlan(lessonItem,index),segState=lessonSegmentRecord(index,plan),atFinal=segState.current===segState.total-1&&!segState.referencePreview;
     return `<div class="classroom-stage-head">
-      <div><span class="stage-count">Stage ${index + 2} of ${STAGES.length} · Required · ${segState.total} resumable learning sections</span><h2>${esc(lessonItem.title)}</h2><p>This is the primary instruction. Work one section at a time; Alfred saves the exact section so you can stop at a clean boundary and resume later.</p></div>${trackBadge(lessonItem.track)}
+      <div><span class="stage-count">Stage ${index + 2} of ${STAGES.length} · Required · ${segState.total} selectable lesson pages</span><h2>${esc(lessonItem.title)}</h2><p>This is the primary instruction. Move one page at a time or jump among pages you have already unlocked; Alfred preserves your saved resume point so review never erases your progress.</p></div>${trackBadge(lessonItem.track)}
     </div>
     <section class="lesson-objectives"><h3>By the end, you can</h3><ul>${lessonItem.objectives.map(x => `<li>${esc(x)}</li>`).join('')}</ul></section>
     ${renderIntegratedLesson(lessonItem,index)}
@@ -552,7 +575,7 @@
       <div class="check-options">${checkItem.choices.map((choice,i) => `<label><input type="radio" name="lesson-check-${index}" value="${i}"${saved.correct ? ' disabled' : ''}><span>${String.fromCharCode(65+i)}. ${esc(choice)}</span></label>`).join('')}</div>
       <button class="button ${saved.correct ? 'outline-green' : 'green'} submit-lesson-check" data-check-index="${index}" type="button"${saved.correct ? ' disabled' : ''}>${saved.correct ? (semanticTasksComplete(index)?'Correct · stage complete':'Correct · gate passed') : 'Check my answer'}</button>
       <div class="check-feedback ${saved.correct ? 'correct' : ''}" role="status">${saved.correct ? esc(checkItem.correct) : ''}</div>
-    </section>`:`<section class="lesson-gate-locked"><strong>Required lesson gate unlocks in the final learning section.</strong><span>Current position: section ${segState.current+1} of ${segState.total}. Your place is saved.</span></section>`}
+    </section>`:`<section class="lesson-gate-locked"><strong>Required lesson gate unlocks on the final lesson page.</strong><span>Current position: Page ${segState.current+1} of ${segState.total}. Your saved resume point is preserved.</span></section>`}
     ${saved.correct && semanticTasksComplete(index) ? `<div class="stage-complete-confirmation">✓ ${esc(STAGES[index + 1].label)} complete. Continue when you are ready.</div>` : ''}`;
   }
 
@@ -601,12 +624,37 @@
 
 
 
+  function practiceSectionPlan(){
+    const sections=[{id:'worked-review',kind:'review',label:'Review worked examples',kicker:'Review',text:'Return to either lesson only for the exact worked step you cannot explain. Say why each step is legal instead of copying it.'}];
+    const conceptPractice=week===1?(moduleData.lessons?.[0]?.integrated?.guidedPractice||[]):[];
+    conceptPractice.forEach((text,i)=>sections.push({id:`concept-guided-${i+1}`,kind:'guided',label:`Guided concept practice ${i+1}`,kicker:'Guided concept practice',text}));
+    (moduleData.integration.guided||[]).forEach((text,i)=>sections.push({id:`guided-${i+1}`,kind:'guided',label:`Guided practice ${i+1}`,kicker:week===1?'Application rehearsal':'Guided practice',text}));
+    sections.push({id:'independent-transfer',kind:'independent',label:'Independent transfer',kicker:'Independent practice',text:moduleData.integration.independent});
+    sections.push({id:'oral-checkpoint',kind:'checkpoint',label:'Oral checkpoint & finish',kicker:'Checkpoint',text:moduleData.integration.practiceCheck});
+    return sections;
+  }
+  function practiceViewRecord(plan){
+    const raw=learningState().l.practiceNavigation||{},total=plan.length,current=Math.max(0,Math.min(total-1,Number(raw.current)||0));
+    return {current,total,section:plan[current]};
+  }
+  function renderPracticeNavigator(plan,state){
+    const options=plan.map((section,i)=>`<option value="${i}"${i===state.current?' selected':''}>${i+1}. ${esc(section.label)}</option>`).join('');
+    return `<nav class="practice-page-navigator" aria-label="Guided practice page navigation"><div class="practice-page-count"><span>Page</span><strong>${state.current+1}</strong><span>of ${state.total}</span></div><div class="practice-page-arrows"><button class="button outline-green" type="button" data-practice-page-prev ${state.current===0?'disabled':''} aria-label="Previous practice page">←</button><button class="button outline-green" type="button" data-practice-page-next ${state.current===state.total-1?'disabled':''} aria-label="Next practice page">→</button></div><label class="practice-page-select"><span>Select section</span><select data-practice-page-select aria-label="Select guided practice section">${options}</select></label><div class="practice-page-number"><label for="practice-page-number">Go to page</label><div><input id="practice-page-number" data-practice-page-input type="number" inputmode="numeric" min="1" max="${state.total}" value="${state.current+1}" aria-label="Guided practice page number"><button class="button outline-green" type="button" data-practice-page-go>Go</button></div></div><p>All Guided Practice pages are available once you reach this stage. Jumping between them never erases your written response or completion status.</p></nav>`;
+  }
+  function renderPracticePage(section,state){
+    const l=learningState().l;
+    if(section.kind==='review')return `<section class="practice-page-card review"><span>${esc(section.kicker)}</span><h3>${esc(section.label)}</h3><p>${esc(section.text)}</p><div class="practice-page-tip"><strong>Best use:</strong> jump back to the exact CETa or Career lesson page you need, then return here.</div></section>`;
+    if(section.kind==='guided')return `<section class="practice-page-card guided"><span>${esc(section.kicker)}</span><h3>${esc(section.label)}</h3><p>${esc(section.text)}</p><div class="practice-page-tip"><strong>Work it before moving on.</strong> Put calculations, predictions, assumptions, or reasoning in the shared practice notebook below.</div></section>`;
+    if(section.kind==='independent')return `<section class="practice-page-card independent"><span>${esc(section.kicker)}</span><h3>${esc(section.label)}</h3><p>${esc(section.text)}</p><div class="practice-page-tip"><strong>No copying:</strong> use the same model on the changed situation and explain what evidence would confirm the result.</div></section>`;
+    const revealed=!!l.practiceCheckpointRevealed;
+    return `<section class="practice-page-card checkpoint"><span>${esc(section.kicker)}</span><h3>${esc(section.label)}</h3><p>Answer from memory after you have made a real attempt. The checkpoint is a self-check, not a new graded quiz.</p>${revealed?`<div class="practice-checkpoint revealed"><strong>Checkpoint</strong><p>${esc(section.text)}</p><p>Answer this aloud or add it to the shared practice notebook. If the explanation is shaky, use the page selector to return to the smallest relevant practice or lesson section.</p></div>`:`<button class="button outline-green" id="reveal-practice" type="button">Reveal oral checkpoint</button>`}</section>`;
+  }
   function renderPractice(){
-    const response = learningState().l.responses?.practice || '';
-    const weekOneConceptPractice=week===1?(moduleData.lessons?.[0]?.integrated?.guidedPractice||[]):[];
-    return `<div class="classroom-stage-head"><div><span class="stage-count">Stage 5 of ${STAGES.length} · Required</span><h2>Worked → guided → independent</h2><p>Now remove support gradually. Write a real attempt before revealing the checkpoint.</p></div>${trackBadge('CETa + Career')}</div>
-    <section class="practice-sequence"><div><span>1</span><h3>Review the worked examples</h3><p>Return to either lesson only for the exact step you cannot explain. Say why each step is legal instead of copying it.</p></div>${week===1?`<div><span>2</span><h3>Guided concept practice</h3><ol>${weekOneConceptPractice.map(x=>`<li>${esc(x)}</li>`).join('')}</ol></div><div><span>3</span><h3>Application rehearsal</h3><ol>${moduleData.integration.guided.map(x=>`<li>${esc(x)}</li>`).join('')}</ol></div><div><span>4</span><h3>Independent transfer</h3><p>${esc(moduleData.integration.independent)}</p></div>`:`<div><span>2</span><h3>Guided practice</h3><ol>${moduleData.integration.guided.map(x => `<li>${esc(x)}</li>`).join('')}</ol></div><div><span>3</span><h3>Independent transfer</h3><p>${esc(moduleData.integration.independent)}</p></div>`}</section>
-    <section class="practice-response"><label for="practice-response"><strong>Write your attempt or reasoning</strong><span>At least a few complete sentences, calculations, or a precise pointer to your saved artifact.</span></label><textarea id="practice-response" rows="8" maxlength="6000" placeholder="Show your reasoning, units, expected result, and evidence—not only the final answer.">${esc(response)}</textarea><div class="practice-response-actions"><button class="button outline-green" id="reveal-practice" type="button">Reveal oral checkpoint</button><span id="practice-save-status">Saved as you type.</span></div><div class="practice-checkpoint hidden" id="practice-checkpoint"><strong>Checkpoint</strong><p>${esc(moduleData.integration.practiceCheck)}</p><p>Answer this aloud or add it above. If the explanation is shaky, return to the smallest relevant section before marking complete.</p></div><button class="button green" id="complete-practice" type="button">${stageComplete('practice') ? '✓ Guided practice complete' : 'Mark practice complete'}</button></section>`;
+    const response=learningState().l.responses?.practice||'',plan=practiceSectionPlan(),state=practiceViewRecord(plan),section=state.section;
+    return `<div class="classroom-stage-head"><div><span class="stage-count">Stage 5 of ${STAGES.length} · Required</span><h2>Worked → guided → independent</h2><p>Move through practice one page at a time, or jump directly to the section you need to redo. Your practice notebook stays with you across pages.</p></div>${trackBadge('CETa + Career')}</div>
+    ${renderPracticeNavigator(plan,state)}
+    <section class="practice-page-shell" data-practice-page-index="${state.current}" data-practice-page-total="${state.total}"><header><span>Practice page ${state.current+1} of ${state.total}</span><strong>${esc(section.label)}</strong></header>${renderPracticePage(section,state)}</section>
+    <section class="practice-response"><label for="practice-response"><strong>Shared practice notebook</strong><span>This response stays intact while you flip between pages. Use complete sentences, calculations, or a precise pointer to your saved artifact.</span></label><textarea id="practice-response" rows="8" maxlength="6000" placeholder="Show your reasoning, units, expected result, and evidence—not only the final answer.">${esc(response)}</textarea><div class="practice-response-actions"><span id="practice-save-status">Saved as you type.</span><small>Page navigation does not change whether this stage is complete.</small></div><button class="button green" id="complete-practice" type="button">${stageComplete('practice')?'✓ Guided practice complete':'Mark practice complete'}</button></section>`;
   }
 
   function renderApplication(){
@@ -647,11 +695,25 @@
   }
 
   function bindStage(){
-    $$('[data-lesson-segment-prev]').forEach(button=>button.addEventListener('click',()=>{const li=Number($('.lesson-segment-shell')?.dataset.lessonIndex),plan=lessonSegmentPlan(moduleData.lessons[li],li),rec=lessonSegmentRecord(li,plan);setLessonView(li,Math.max(0,rec.current-1),plan);renderStage();$('#classroom-card')?.scrollIntoView({behavior:'smooth',block:'start'});}));
-    $$('[data-lesson-segment-forward]').forEach(button=>button.addEventListener('click',()=>{const li=Number($('.lesson-segment-shell')?.dataset.lessonIndex),plan=lessonSegmentPlan(moduleData.lessons[li],li),rec=lessonSegmentRecord(li,plan);if(rec.current>=rec.furthest)return;setLessonView(li,rec.current+1,plan);renderStage();$('#classroom-card')?.scrollIntoView({behavior:'smooth',block:'start'});}));
+    const navigateLessonPage=(target,{announce=true}={})=>{
+      const shell=$('.lesson-segment-shell'); if(!shell)return;
+      const li=Number(shell.dataset.lessonIndex),plan=lessonSegmentPlan(moduleData.lessons[li],li),rec=lessonSegmentRecord(li,plan),preview=shell.classList.contains('reference-preview-shell');
+      const requested=Number(target); if(!Number.isFinite(requested))return;
+      const next=Math.max(0,Math.min(plan.length-1,Math.round(requested))),max=preview?plan.length-1:rec.unlockedMax;
+      if(!preview&&next>max){setMessage(`Page ${next+1} is still locked. You can jump through Page ${max+1} right now.`,'error');return;}
+      setLessonView(li,next,plan,{referencePreview:preview});renderStage();updateChrome();
+      if(announce)setMessage(`Opened Page ${next+1} of ${plan.length}: ${plan[next]?.label||'Lesson section'}. Your saved lesson progress was not moved backward.`,'success');
+      $('#classroom-card')?.scrollIntoView({behavior:'smooth',block:'start'});
+    };
+    $$('[data-lesson-segment-prev],[data-lesson-page-prev]').forEach(button=>button.addEventListener('click',()=>{const shell=$('.lesson-segment-shell'),li=Number(shell?.dataset.lessonIndex),plan=lessonSegmentPlan(moduleData.lessons[li],li),rec=lessonSegmentRecord(li,plan);navigateLessonPage(Math.max(0,rec.current-1),{announce:false});}));
+    $$('[data-lesson-segment-forward],[data-lesson-page-next]').forEach(button=>button.addEventListener('click',()=>{const shell=$('.lesson-segment-shell'),li=Number(shell?.dataset.lessonIndex),plan=lessonSegmentPlan(moduleData.lessons[li],li),rec=lessonSegmentRecord(li,plan),preview=shell?.classList.contains('reference-preview-shell'),max=preview?plan.length-1:rec.unlockedMax;if(rec.current>=max)return;navigateLessonPage(rec.current+1,{announce:false});}));
+    $('[data-lesson-section-select]')?.addEventListener('change',event=>navigateLessonPage(Number(event.target.value)));
+    $('[data-lesson-page-go]')?.addEventListener('click',()=>{const input=$('[data-lesson-page-input]');navigateLessonPage(Number(input?.value)-1);});
+    $('[data-lesson-page-input]')?.addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();navigateLessonPage(Number(event.currentTarget.value)-1);}});
+    $$('[data-lesson-resume-point]').forEach(button=>button.addEventListener('click',()=>{const shell=$('.lesson-segment-shell'),li=Number(shell?.dataset.lessonIndex),plan=lessonSegmentPlan(moduleData.lessons[li],li),rec=lessonSegmentRecord(li,plan);setLessonView(li,rec.furthest,plan);renderStage();updateChrome();setMessage(`Returned to your saved resume point at Page ${rec.furthest+1}.`,'success');$('#classroom-card')?.scrollIntoView({behavior:'smooth',block:'start'});}));
     $$('[data-reference-resume]').forEach(button=>button.addEventListener('click',()=>{const li=Number($('.lesson-segment-shell')?.dataset.lessonIndex),key=lessonViewKey(li);lessonViewOverrides.delete(key);lessonReferencePreviews.delete(key);renderStage();updateChrome();$('#classroom-card')?.scrollIntoView({behavior:'smooth',block:'start'});}));
-    $('[data-lesson-segment-next]')?.addEventListener('click',()=>{const shell=$('.lesson-segment-shell'),li=Number(shell?.dataset.lessonIndex),plan=lessonSegmentPlan(moduleData.lessons[li],li),rec=lessonSegmentRecord(li,plan),isLast=rec.current===rec.total-1;if(rec.current<rec.furthest)return;saveLessonSegment(li,plan,rec.current,{complete:true,advance:!isLast});lessonViewOverrides.delete(lessonViewKey(li));renderStage();updateChrome();setMessage(isLast?'Learning sections saved. Finish the required evidence and lesson gate.':'Section saved. The next section is now unlocked.','success');$('#classroom-card')?.scrollIntoView({behavior:'smooth',block:'start'});});
-    $$('.question-review-link').forEach(button=>button.addEventListener('click',()=>{const li=Number(button.dataset.reviewLesson),requestedId=button.dataset.reviewSectionId,anchor=button.dataset.reviewAnchor,plan=lessonSegmentPlan(moduleData.lessons[li],li);let target=requestedId?plan.findIndex(seg=>seg.id===requestedId):-1;if(target<0)target=Number(button.dataset.reviewSection);const rec=lessonSegmentRecord(li,plan);writeReviewReturn({week,lessonIndex:li,returnSegment:rec.current,anchor});setLessonView(li,target,plan);renderStage();setMessage(`Reviewing ${plan[target]?.label||`Section ${target+1}`}. Your course progress has not moved backward.`,'success');$('#classroom-card')?.scrollIntoView({behavior:'smooth',block:'start'});}));
+    $('[data-lesson-segment-next]')?.addEventListener('click',()=>{const shell=$('.lesson-segment-shell'),li=Number(shell?.dataset.lessonIndex),plan=lessonSegmentPlan(moduleData.lessons[li],li),rec=lessonSegmentRecord(li,plan),isLast=rec.current===rec.total-1;if(rec.current<rec.furthest)return;saveLessonSegment(li,plan,rec.current,{complete:true,advance:!isLast});lessonViewOverrides.delete(lessonViewKey(li));renderStage();updateChrome();setMessage(isLast?'Lesson pages saved. Finish the required evidence and lesson gate.':'Page saved. The next page is now unlocked.','success');$('#classroom-card')?.scrollIntoView({behavior:'smooth',block:'start'});});
+    $$('.question-review-link').forEach(button=>button.addEventListener('click',()=>{const li=Number(button.dataset.reviewLesson),requestedId=button.dataset.reviewSectionId,anchor=button.dataset.reviewAnchor,plan=lessonSegmentPlan(moduleData.lessons[li],li);let target=requestedId?plan.findIndex(seg=>seg.id===requestedId):-1;if(target<0)target=Number(button.dataset.reviewSection);const rec=lessonSegmentRecord(li,plan);writeReviewReturn({week,lessonIndex:li,returnSegment:rec.current,anchor});setLessonView(li,target,plan);renderStage();setMessage(`Reviewing ${plan[target]?.label||`Page ${target+1}`}. Your course progress has not moved backward.`,'success');$('#classroom-card')?.scrollIntoView({behavior:'smooth',block:'start'});}));
     $$('.back-to-question').forEach(button=>button.addEventListener('click',()=>{const ret=readReviewReturn();if(!ret)return;const li=Number(ret.lessonIndex),plan=lessonSegmentPlan(moduleData.lessons[li],li);setLessonView(li,Number(ret.returnSegment),plan);clearReviewReturn();renderStage();requestAnimationFrame(()=>document.getElementById(ret.anchor)?.scrollIntoView({behavior:'smooth',block:'center'}));setMessage('Returned to your question. Your lesson progress stayed intact.','success');}));
     $$('.integrated-mcq-submit').forEach(button=>button.addEventListener('click',()=>{
       const li=Number(button.dataset.lesson), qi=Number(button.dataset.check);
@@ -727,11 +789,23 @@
       clearTimeout(practiceTimer); $('#practice-save-status').textContent = 'Saving…';
       practiceTimer = setTimeout(() => {saveLearning(l => { l.responses.practice = practiceText.value; },{sync:false,notify:false});$('#practice-save-status').textContent='Saved.';},350);
     });
-    $('#reveal-practice')?.addEventListener('click',() => $('#practice-checkpoint')?.classList.remove('hidden'));
+    const navigatePracticePage=target=>{
+      const plan=practiceSectionPlan(),next=Math.max(0,Math.min(plan.length-1,Math.round(Number(target)||0))),value=$('#practice-response')?.value??learningState().l.responses?.practice??'';
+      clearTimeout(practiceTimer);
+      saveLearning(l=>{l.responses.practice=value;l.practiceNavigation={current:next,total:plan.length,updatedAt:new Date().toISOString()};},{sync:false,notify:false});
+      renderStage();updateChrome();setMessage(`Opened Practice Page ${next+1} of ${plan.length}: ${plan[next]?.label||'Practice section'}. Your notebook and completion status are unchanged.`,'success');$('#classroom-card')?.scrollIntoView({behavior:'smooth',block:'start'});
+    };
+    $('[data-practice-page-prev]')?.addEventListener('click',()=>{const plan=practiceSectionPlan(),state=practiceViewRecord(plan);if(state.current>0)navigatePracticePage(state.current-1);});
+    $('[data-practice-page-next]')?.addEventListener('click',()=>{const plan=practiceSectionPlan(),state=practiceViewRecord(plan);if(state.current<state.total-1)navigatePracticePage(state.current+1);});
+    $('[data-practice-page-select]')?.addEventListener('change',event=>navigatePracticePage(Number(event.target.value)));
+    $('[data-practice-page-go]')?.addEventListener('click',()=>navigatePracticePage(Number($('[data-practice-page-input]')?.value)-1));
+    $('[data-practice-page-input]')?.addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();navigatePracticePage(Number(event.currentTarget.value)-1);}});
+    $('#reveal-practice')?.addEventListener('click',()=>{const value=$('#practice-response')?.value??'';saveLearning(l=>{l.responses.practice=value;l.practiceCheckpointRevealed=true;},{sync:false,notify:false});renderStage();setMessage('Oral checkpoint revealed. Use the page selector if it exposes a weak area.','success');});
     $('#complete-practice')?.addEventListener('click',() => {
       const value = practiceText?.value.trim() || '';
       if (value.length < 30) { setMessage('Show a real attempt or point precisely to your saved artifact before completing practice.','error'); practiceText?.focus(); return; }
-      saveLearning(l => {l.responses.practice=value;l.completed.practice=true;});renderStage();updateChrome();setMessage('Guided and independent practice saved.','success');
+      const plan=practiceSectionPlan(),state=practiceViewRecord(plan);
+      saveLearning(l => {l.responses.practice=value;l.completed.practice=true;l.practiceNavigation={current:state.current,total:plan.length,updatedAt:new Date().toISOString()};});renderStage();updateChrome();setMessage('Guided and independent practice saved. You can still jump between practice pages for review.','success');
     });
     $('#complete-application')?.addEventListener('click',() => {
       if (!$('#project-evidence-confirm')?.checked) {setMessage('Confirm that the evidence contract exists before completing this stage.','error');return;}
@@ -751,7 +825,7 @@
     const next = STAGES[nextIncompleteIndex()];
     let nextLabel=count===STAGES.length?'Week complete':next.label;
     const activeStage=STAGES[stageIndex]?.id;
-    if(!stageComplete(activeStage)&&(activeStage==='ceta-lesson'||activeStage==='career-lesson')){const li=activeStage==='ceta-lesson'?0:1,plan=lessonSegmentPlan(moduleData.lessons[li],li),rec=lessonSegmentRecord(li,plan);nextLabel=`${STAGES[stageIndex].label} · Section ${rec.furthest+1}/${rec.total}`;}
+    if(!stageComplete(activeStage)&&(activeStage==='ceta-lesson'||activeStage==='career-lesson')){const li=activeStage==='ceta-lesson'?0:1,plan=lessonSegmentPlan(moduleData.lessons[li],li),rec=lessonSegmentRecord(li,plan);nextLabel=`${STAGES[stageIndex].label} · Page ${rec.furthest+1}/${rec.total}`;}
     $('#next-action-label').textContent = nextLabel;
     $('#classroom-progress-bar').style.width = `${Math.round(count / STAGES.length * 100)}%`;
     $('#classroom-stages').innerHTML = STAGES.map((stage,i) => `<button type="button" data-stage-index="${i}" class="${i === stageIndex ? 'active ' : ''}${stageComplete(stage.id) ? 'complete' : ''}" aria-current="${i === stageIndex ? 'step' : 'false'}"><span>${stageComplete(stage.id) ? '✓' : i + 1}</span><div><strong>${esc(stage.label)}</strong><small>${esc(stage.track)}</small></div></button>`).join('');

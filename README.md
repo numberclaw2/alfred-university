@@ -7,29 +7,38 @@ AU-ESET 301 is a fictional, university-style independent-study environment built
 
 It is not an accredited university, an ETA-endorsed course, an official exam, or a guarantee of certification or employment.
 
-## Current production state — v16.3.50 Teaching Media architecture repair
+## Current production state — v16.3.52 Direct lesson/practice navigation
 
-The accepted instructional curriculum remains **v16.3**. Runtime patch **v16.3.50** implements the approved 31-week Teaching Media workload audit without redesigning the curriculum. Alfred remains the primary teacher: Classroom now contains only bounded first-pass Required media, Study holds help-on-demand alternates/review/troubleshooting, and Engineering Library holds professional reference/deep training.
-
-**Teaching Media calibration:** audit baseline `312 Required` → **20 universal Required functions + 7 route/task-specific conditionals**. Good resources were preserved through reclassification rather than wholesale deletion.
+The accepted instructional curriculum remains **v16.3**. Runtime patch **v16.3.52** preserves the accepted v16.3.50 Teaching Media architecture and the v16.3.51 source-health hotfix, then adds direct page navigation inside CETa/Career lessons and Guided Practice.
 
 Current production markers:
 
 - Course release: `16.3`
-- Runtime patch: `16.3.50`
+- Runtime patch: `16.3.52`
 - Objective evidence revision: `16.2`
 - Cloud Sync protocol: `2`
-- Build: `v16.3.50-teaching-media-architecture-20260921`
-- Teaching Media architecture: `Required-only Classroom · Study help-on-demand · Engineering Library professional reference`
-- Service-worker cache: `alfred-u-v16-3-50-teaching-media-architecture-20260921`
+- Build: `v16.3.52-direct-section-navigation-20260922`
+- Service-worker cache: `alfred-u-v16-3-52-direct-section-navigation-20260922`
+
+### v16.3.52 direct lesson & Guided Practice navigation
+
+- CETa and Career lessons now provide **Previous/Next**, a named section selector, **Page X of Y**, and direct numeric page entry.
+- First-pass learners may jump backward among completed/unlocked pages but cannot skip forward past the normal instructional gate.
+- A lesson that was already passed before later content reconstruction opens all of its current pages for review while preserving the old pass and official resume point.
+- Guided Practice is divided into selectable pages while keeping one shared notebook and the existing completion/evidence gate.
+- Navigation controls do not create new curriculum requirements and do not alter assessment, lab, Project 1, progress-ID, Calendar, glossary, or Cloud Sync semantics.
+
+### v16.3.51 post-upload source hotfix
+
+- Preserves the v16.3.50 Teaching Media workload calibration.
+- Replaces one stale Week 17 Microsoft configuration Study link with Microsoft's current stable Windows configuration documentation hub.
+- No Teaching Media counts or instructional assignments changed.
 
 ### v16.3.50 Teaching Media workload calibration
 
-- Adds `teaching-media-architecture-repair.js` after the accepted v16.3.47 mapping and v16.3.48 literature layer.
-- Preserves canonical source IDs/provenance while reclassifying resources by instructional purpose.
-- Adds explicit scope/time/focus/ignore/after/done metadata to every universal or conditional first-pass media item.
-- Repairs known Week 4, Week 9, Week 10, stale Microsoft, obsolete B&K, STM32 toolchain, and route-specific documentation defects.
-- Does **not** begin the separate CETa Study Guide recommended-page integration phase.
+- Classroom remains Required-only: **20 universal Required functions + 7 route/task-specific conditionals**.
+- Strong alternates/remediation remain in Study; deep professional references remain in Engineering Library.
+- The separate CETa Study Guide recommended-page integration phase remains out of scope.
 
 ## v16.3.7 whole-system audit repair
 

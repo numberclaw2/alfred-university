@@ -1,4 +1,4 @@
-/* AU-ESET 301 Teaching Media Architecture / Workload Calibration Repair — v16.3.50
+/* AU-ESET 301 Teaching Media Architecture / Workload Calibration Repair — v16.3.50 + v16.3.51 source hotfix
    Scope: Teaching Media architecture only. Preserves v16.3 curriculum, IDs, progress,
    labs, projects, assessments, Cloud Sync protocol 2, visuals, glossary, and calendar.
    Load AFTER teaching-media-resource-integration.js and outside-literature-integration.js.
@@ -127,7 +127,7 @@
   // Current authoritative replacements for Week 17 Microsoft breadth resources.
   const sourcePatches = {
     adiLtspice:{title:'LTspice AC Analysis Setup and Configuration',url:'https://www.analog.com/en/resources/media-center/videos/series/ltspice-ac-and-noise-simulation.html',kind:'Analog Devices targeted LTspice AC-analysis video — use video 1 only'},
-    microsoftWindowsConfig:{title:'Explore Common Configuration Options — Windows Client',url:'https://learn.microsoft.com/en-us/training/modules/explore-common-configuration-options/',kind:'Current Microsoft Learn beginner Windows configuration module'},
+    microsoftWindowsConfig:{title:'Configure Windows Client — Microsoft Learn Documentation',url:'https://learn.microsoft.com/en-us/windows/configuration/',kind:'Current Microsoft Windows client configuration documentation hub'},
     microsoftSupportTools:{title:'Windows Client Troubleshooting Documentation',url:'https://learn.microsoft.com/en-us/troubleshoot/windows-client/welcome-windows-client',kind:'Current Microsoft Windows troubleshooting documentation'},
     microsoftAppsUpdates:{title:'Manage Windows Updates and Lifecycle',url:'https://learn.microsoft.com/en-us/training/modules/manage-windows-updates-intune/',kind:'Current Microsoft Learn Windows update/lifecycle module'},
     microsoftDefenderBasics:{title:'Manage Microsoft Defender in Windows Client',url:'https://learn.microsoft.com/en-us/training/modules/manage-defender-windows-client/',kind:'Current Microsoft Learn Windows security module'},
@@ -223,11 +223,11 @@
     (R.byAssignment[key(p.assignmentWeek,p.source)] ||= []).push(p);
   });
   R.retainedAssignmentCount = Object.values(assignments).filter(a=>a.destination!=='removed').length;
-  R.revision='2026-09-21-v16.3.50-required-only-classroom-study-library-calibration';
+  R.revision='2026-09-22-v16.3.51-required-only-classroom-study-library-source-hotfix';
 
   const counts = Object.values(assignments).reduce((acc,a)=>{acc[a.destination]=(acc[a.destination]||0)+1;if(a.requirement==='required')acc.universalRequired++;if(a.requirement==='conditional')acc.conditionalRequired++;return acc;},{classroom:0,study:0,library:0,removed:0,universalRequired:0,conditionalRequired:0});
   C.teachingMediaArchitecture={
-    revision:'2026-09-21-v16.3.50-teaching-media-architecture-repair',
+    revision:'2026-09-22-v16.3.51-teaching-media-architecture-source-hotfix',
     policy:'Classroom = bounded first-pass Required media only; Study = help on demand; Engineering Library = professional reference. Learn once, retrieve/apply later, Study if forgotten.',
     assignments,universal,conditional,removedAssignments:[...removedAssignments],movedWeek,counts,
     sourcePatches
