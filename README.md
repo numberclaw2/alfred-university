@@ -7,18 +7,27 @@ AU-ESET 301 is a fictional, university-style independent-study environment built
 
 It is not an accredited university, an ETA-endorsed course, an official exam, or a guarantee of certification or employment.
 
-## Current production state — v16.3.53 CETa Study Guide instructional integration
+## Current production state — v16.3.54 Teaching Media consumption checklist
 
-The accepted instructional curriculum remains **v16.3**. Runtime patch **v16.3.53** preserves the calibrated Teaching Media architecture, v16.3.51 source-health hotfix, and v16.3.52 direct lesson/Guided Practice navigation, then adds the audited CETa Study Guide integration as a metadata-driven reinforcement layer.
+The accepted instructional curriculum remains **v16.3**. Runtime patch **v16.3.54** preserves the accepted v16.3.53 CETa Study Guide integration and adds a shared Teaching Media consumption checklist for watched/read/used/reviewed resources without changing mastery or curriculum gates.
 
 Current production markers:
 
 - Course release: `16.3`
-- Runtime patch: `16.3.53`
+- Runtime patch: `16.3.54`
 - Objective evidence revision: `16.2`
 - Cloud Sync protocol: `2`
-- Build: `v16.3.53-ceta-study-guide-integration-20260922`
-- Service-worker cache: `alfred-u-v16-3-53-ceta-study-guide-integration-20260922`
+- Build: `v16.3.54-teaching-media-consumption-checklist-20260922`
+- Service-worker cache: `alfred-u-v16-3-54-teaching-media-consumption-checklist-20260922`
+
+
+### v16.3.54 Teaching Media consumption checklist
+
+- Adds an accessible per-resource checkbox across Classroom Related Learning, the Teaching Media Required Path, and Study Media.
+- Resource-specific labels are used: **Watched** for video, **Read** for literature/Study Guide, **Used** for interactive tools, and **Reviewed** for references/documentation.
+- The same assignment uses one shared checklist state across surfaces and can be unchecked at any time.
+- Checklist state is stored inside the existing weekly progress record and follows Cloud Sync protocol 2 when sync is connected.
+- Consumption tracking is deliberately separate from lesson mastery, practice evidence, and the existing Required Path completion confirmation. Opening a link does not auto-check the resource.
 
 ### v16.3.53 CETa Study Guide integration
 

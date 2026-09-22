@@ -1,6 +1,24 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.54",
+      "date": "September 22, 2026",
+      "title": "Teaching Media Watched / Read Checklist",
+      "type": "Teaching Media / Study / UX / Progress Tracking",
+      "request": "Add a check-mark system so the learner can mark Teaching Media as watched or read after consuming it.",
+      "changes": [
+        "Added one shared per-assignment consumption checklist across Classroom Related Learning, the Teaching Media Required Path, and Study Media.",
+        "Uses resource-specific completion language: Watched for videos, Read for literature and CETa Study Guide ranges, Used for interactive tools, and Reviewed for references/documentation.",
+        "Checklist state is reversible and stored in the existing alfred-u-progress-v2 weekly learning record; when Cloud Sync is connected, the updated week record uses the existing protocol 2 sync path.",
+        "Added a Teaching Media checklist summary showing how many visible Required/conditional resources are marked watched/read/reviewed.",
+        "Kept consumption tracking separate from mastery and evidence gates: opening a resource does not auto-check it, a check mark does not prove mastery, and the existing Required Path completion confirmation remains separate.",
+        "Preserved v16.3.53 Study Guide integration, 31 modules, 62 lessons, 24 labs, Teaching Media 20+7 calibration, Page X of Y navigation, prior-pass review, Guided Practice state, and Cloud Sync protocol 2."
+      ],
+      "filesAdded": ["media-consumption.js", "AU-ESET-301-v16.3.54-Implementation-Report.md", "AU-ESET-301-v16.3.54-Teaching-Media-Checklist-QA.md", "AU-ESET-301-v16.3.54-Change-Manifest.md", "UPLOAD_README_v16.3.54.txt"],
+      "filesModified": ["learn.js", "study.js", "learn.html", "study.html", "styles.css", "service-worker.js", "build-info.json", "README.md", "release-notes-current.js", "SHA256SUMS.txt"],
+      "filesRemoved": []
+    },
+    {
       "version": "v16.3.53",
       "date": "September 22, 2026",
       "title": "CETa Study Guide Instructional Integration",
@@ -1291,7 +1309,7 @@
       ]
     }
   ];
-  const currentOrder = ['v16.3.49','v16.3.48','v16.3.47','v16.3.46','v16.3.45','v16.3.44','v16.3.43','v16.3.42','v16.3.41','v16.3.40','v16.3.39','v16.3.38','v16.3.37','v16.3.36','v16.3.35','v16.3.34','v16.3.33','v16.3.32','v16.3.31','v16.3.30','v16.3.29','v16.3.28','v16.3.27','v16.3.26','v16.3.25','v16.3.24','v16.3.23','v16.3.22','v16.3.21','v16.3.20','v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
+  const currentOrder = ['v16.3.54','v16.3.53','v16.3.52','v16.3.51','v16.3.50','v16.3.49','v16.3.48','v16.3.47','v16.3.46','v16.3.45','v16.3.44','v16.3.43','v16.3.42','v16.3.41','v16.3.40','v16.3.39','v16.3.38','v16.3.37','v16.3.36','v16.3.35','v16.3.34','v16.3.33','v16.3.32','v16.3.31','v16.3.30','v16.3.29','v16.3.28','v16.3.27','v16.3.26','v16.3.25','v16.3.24','v16.3.23','v16.3.22','v16.3.21','v16.3.20','v16.3.19','v16.3.18','v16.3.17','v16.3.16','v16.3.15','v16.3.14','v16.3.13','v16.3.12','v16.3.11','v16.3.10.1','v16.3.10','v16.3.9','v16.3.8','v16.3.7','v16.3.6','v16.3.5'];
   entries.sort((a,b)=>currentOrder.indexOf(a.version)-currentOrder.indexOf(b.version));
   const historical = Array.isArray(window.ALFRED_RELEASES) ? window.ALFRED_RELEASES : [];
   const currentVersions = new Set(entries.map(entry=>entry.version));

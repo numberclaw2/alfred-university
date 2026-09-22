@@ -1,10 +1,10 @@
 {
   "courseRelease": "16.3",
-  "runtimePatch": "16.3.53",
+  "runtimePatch": "16.3.54",
   "evidenceRevision": "16.2",
   "cloudSyncProtocol": 2,
-  "build": "v16.3.53-ceta-study-guide-integration-20260922",
-  "releaseStatus": "ceta-study-guide-instructional-integration",
+  "build": "v16.3.54-teaching-media-consumption-checklist-20260922",
+  "releaseStatus": "teaching-media-consumption-checklist",
   "presentationPatch": "mobile-visual-readability-final",
   "scheduleRevision": "2026-09-20-current-classroom-stage-and-workload-sync",
   "modulePresentationRevision": "2026-09-18-week1-from-zero-visual-teaching",
@@ -16,7 +16,7 @@
   "week1InstructionRevision": "2026-09-19-beginner-first-safety-scaffolding",
   "week1TeachingMediaRevision": "2026-09-18-beginner-teacher-youtube-layer",
   "teachingMediaBaseRevision": "2026-09-18-final-pots-31-week-standalone-accepted",
-  "releaseNotesRevision": "2026-09-22-v16.3.53-ceta-study-guide-integration",
+  "releaseNotesRevision": "2026-09-22-v16.3.54-teaching-media-consumption-checklist",
   "repositoryLedgerBaseline": "2026-09-18-v16.3.9-63-commits",
   "studyRevision": "2026-09-21-parking-lot-cloud-sync-tombstones",
   "practiceRevision": "2026-09-22-guided-practice-paginated-direct-navigation",
@@ -32,7 +32,7 @@
   "glossaryRevision": "2026-09-19-expanded-599-term-course-glossary",
   "glossaryUxRevision": "2026-09-20-global-classroom-click-definition-double-click-entry-no-hover-restored",
   "vocabularyStudyRevision": "2026-09-18-active-recall-spaced-vocabulary-lab",
-  "uxRevision": "2026-09-22-related-learning-study-guide-integration",
+  "uxRevision": "2026-09-22-teaching-media-consumption-checklist",
   "lessonSegmentationRevision": "2026-09-22-direct-page-select-prior-pass-review",
   "nextActionRevision": "2026-09-20-dual-resume-routing-learning-study",
   "studentModeRevision": "2026-09-19-student-builder-boundary",
@@ -166,5 +166,13 @@
   "cetaStudyGuideRequiredMinutesMax": 260,
   "cetaStudyGuidePublicPdfIncluded": false,
   "cetaStudyGuidePrivateCopyStorage": "device-local IndexedDB only; no Cloud Sync or service-worker cache",
-  "cetaStudyGuideSequenceRepair": "Week 4 misplaced Number Systems / Boolean Algebra removed from learner path; existing Week 11 digital instruction remains authoritative home"
+  "cetaStudyGuideSequenceRepair": "Week 4 misplaced Number Systems / Boolean Algebra removed from learner path; existing Week 11 digital instruction remains authoritative home",
+  "teachingMediaConsumptionRevision": "2026-09-22-v16.3.54-shared-watched-read-reviewed-checklist",
+  "teachingMediaConsumptionStorage": "alfred-u-progress-v2 week learning.mediaConsumption; Cloud Sync protocol 2",
+  "teachingMediaConsumptionAffectsMastery": false,
+  "teachingMediaConsumptionSurfaces": [
+    "Classroom Related Learning",
+    "Teaching Media Required Path",
+    "Study Media"
+  ]
 }
