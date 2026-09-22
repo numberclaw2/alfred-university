@@ -1,6 +1,26 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.53",
+      "date": "September 22, 2026",
+      "title": "CETa Study Guide Instructional Integration",
+      "type": "Curriculum Support / Related Learning / Teaching Media / Study / Remediation",
+      "request": "Integrate the mapped Associate CET Study Guide, Sixth Edition into Alfred without replacing Alfred's teaching, republishing the private book, recreating media overload, or invalidating historical progress.",
+      "changes": [
+        "Added a single-source 224-page Study Guide metadata map: 64 Required pages, 133 Study/Review pages, and 27 Reference/Historical pages, with Required reading in 14 of 31 weeks.",
+        "Added compact Related Learning blocks at exact lesson pages so Study Guide, existing literature, videos, diagrams, and professional sources appear at point of use without turning every resource into homework.",
+        "Added Required Study Guide readings to the calibrated Teaching Media Required Path and a separate Weekly Resource Map for non-required review/reference material; the same Study Guide record powers all surfaces, avoiding double completion.",
+        "Added Study Library discovery, Search Everything indexing, and targeted Active Recall remediation links to exact Study Guide ranges.",
+        "Added structured ETA errata and current-authority warnings for affected/outdated Study Guide material.",
+        "Added optional device-local private-PDF connection using IndexedDB. The private Study Guide PDF is not included in the public package, service worker, or Cloud Sync.",
+        "Reconciled the misplaced Week 4 Number Systems / Boolean Algebra section out of the AC/transient learner path while preserving its legacy source record and keeping the existing Week 11 digital lesson as the authoritative home.",
+        "Preserved prior lesson passes, direct Page X of Y navigation, Guided Practice state, Teaching Media 20+7 calibration, 31 modules, 62 lessons, 24 labs, Project 1, glossary, Focus Prep, and Cloud Sync protocol 2."
+      ],
+      "filesAdded": ["ceta-study-guide-map.js", "ceta-study-guide-private.js", "AU-ESET-301-v16.3.53-CETa-Study-Guide-Implementation-Report.md", "AU-ESET-301-v16.3.53-CETa-Study-Guide-QA.md", "AU-ESET-301-v16.3.53-31-Week-Study-Guide-Matrix.csv", "AU-ESET-301-v16.3.53-224-Page-Study-Guide-Disposition.csv", "AU-ESET-301-v16.3.53-Change-Manifest.md", "UPLOAD_README_v16.3.53.txt"],
+      "filesModified": ["learn.js", "learn.html", "study.js", "study.html", "search.js", "search.html", "styles.css", "service-worker.js", "build-info.json", "README.md", "release-notes-current.js", "SHA256SUMS.txt"],
+      "filesRemoved": []
+    },
+    {
       "version": "v16.3.52",
       "date": "September 22, 2026",
       "title": "Direct Lesson & Guided Practice Page Navigation",

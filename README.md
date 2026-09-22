@@ -7,38 +7,42 @@ AU-ESET 301 is a fictional, university-style independent-study environment built
 
 It is not an accredited university, an ETA-endorsed course, an official exam, or a guarantee of certification or employment.
 
-## Current production state — v16.3.52 Direct lesson/practice navigation
+## Current production state — v16.3.53 CETa Study Guide instructional integration
 
-The accepted instructional curriculum remains **v16.3**. Runtime patch **v16.3.52** preserves the accepted v16.3.50 Teaching Media architecture and the v16.3.51 source-health hotfix, then adds direct page navigation inside CETa/Career lessons and Guided Practice.
+The accepted instructional curriculum remains **v16.3**. Runtime patch **v16.3.53** preserves the calibrated Teaching Media architecture, v16.3.51 source-health hotfix, and v16.3.52 direct lesson/Guided Practice navigation, then adds the audited CETa Study Guide integration as a metadata-driven reinforcement layer.
 
 Current production markers:
 
 - Course release: `16.3`
-- Runtime patch: `16.3.52`
+- Runtime patch: `16.3.53`
 - Objective evidence revision: `16.2`
 - Cloud Sync protocol: `2`
-- Build: `v16.3.52-direct-section-navigation-20260922`
-- Service-worker cache: `alfred-u-v16-3-52-direct-section-navigation-20260922`
+- Build: `v16.3.53-ceta-study-guide-integration-20260922`
+- Service-worker cache: `alfred-u-v16-3-53-ceta-study-guide-integration-20260922`
+
+### v16.3.53 CETa Study Guide integration
+
+- Maps all **224 printed Study Guide pages**: 64 Required, 133 Study/Review, and 27 Reference/Historical.
+- Required Study Guide reading appears in 14 of 31 weeks; 17 weeks add no new universal Required reading.
+- Adds compact **Related Learning** at exact lesson pages and a Teaching Media **Weekly Resource Map** without turning optional resources into homework.
+- Adds structured official ETA errata/current-authority notices, Study/Search/remediation routing, and a device-local private-PDF option. The private book is not published or Cloud Synced.
+- Reconciles the misplaced Week 4 Number Systems / Boolean Algebra learner page into the existing Week 11 digital home while preserving legacy source data and saved-progress compatibility.
 
 ### v16.3.52 direct lesson & Guided Practice navigation
 
-- CETa and Career lessons now provide **Previous/Next**, a named section selector, **Page X of Y**, and direct numeric page entry.
-- First-pass learners may jump backward among completed/unlocked pages but cannot skip forward past the normal instructional gate.
-- A lesson that was already passed before later content reconstruction opens all of its current pages for review while preserving the old pass and official resume point.
-- Guided Practice is divided into selectable pages while keeping one shared notebook and the existing completion/evidence gate.
-- Navigation controls do not create new curriculum requirements and do not alter assessment, lab, Project 1, progress-ID, Calendar, glossary, or Cloud Sync semantics.
+- CETa and Career lessons provide Previous/Next, named section selection, Page X of Y, and numeric page entry.
+- First-pass learners cannot skip locked material; prior-passed lessons remain fully open for review without rewriting the saved resume point.
+- Guided Practice keeps one shared notebook and preserved completion/checkpoint state while pages are browsed.
 
 ### v16.3.51 post-upload source hotfix
 
 - Preserves the v16.3.50 Teaching Media workload calibration.
 - Replaces one stale Week 17 Microsoft configuration Study link with Microsoft's current stable Windows configuration documentation hub.
-- No Teaching Media counts or instructional assignments changed.
 
 ### v16.3.50 Teaching Media workload calibration
 
-- Classroom remains Required-only: **20 universal Required functions + 7 route/task-specific conditionals**.
-- Strong alternates/remediation remain in Study; deep professional references remain in Engineering Library.
-- The separate CETa Study Guide recommended-page integration phase remains out of scope.
+- Classroom uses **20 universal Required functions + 7 route/task-specific conditionals**.
+- Strong alternates/remediation live in Study; deep professional references live in Engineering Library.
 
 ## v16.3.7 whole-system audit repair
 

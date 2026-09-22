@@ -1,5 +1,5 @@
 (()=>{
-const A=window.ALFRED_ACADEMIC||{},D=window.ALFRED_ASSESSMENT||{},C=window.ALFRED_CURRICULUM||{},W=window.ALFRED_WEEKS||[],E=window.ALFRED_EVENTS||[],R0=window.ALFRED_RESOURCES||[],REL=window.ALFRED_RELEASES||[],G=window.ALFRED_GLOSSARY||[];
+const A=window.ALFRED_ACADEMIC||{},D=window.ALFRED_ASSESSMENT||{},C=window.ALFRED_CURRICULUM||{},SG=window.ALFRED_CETA_STUDY_GUIDE||{},W=window.ALFRED_WEEKS||[],E=window.ALFRED_EVENTS||[],R0=window.ALFRED_RESOURCES||[],REL=window.ALFRED_RELEASES||[],G=window.ALFRED_GLOSSARY||[];
 const $=(s,r=document)=>r.querySelector(s); const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
 const norm=s=>String(s??'').toLowerCase().normalize('NFKD').replace(/[^a-z0-9+.#/\- ]/g,' ').replace(/\s+/g,' ').trim();
 const terms=q=>norm(q).split(' ').filter(Boolean);
@@ -19,6 +19,7 @@ A.deepResources.forEach(r=>add('Resource',r.title,`${r.summary} ${r.keywords} ${
 R0.forEach(r=>add('Resource',r.title,`${r.category||''} ${r.domain||''} ${(r.contexts||[]).join(' ')}`,r.url,{week:r.weeks,source:r.domain,external:true},2));
 A.localDocuments.forEach(d=>{const historical=/Academic System Guide/i.test(d.title||'')||/historical|superseded/i.test(d.source||'');add('Document',d.title,d.text,d.url,{source:d.source,fulltext:true,historical},historical?0.75:3)});
 G.forEach(e=>add('Glossary Term',e.term,[e.definition,e.technical,e.category,e.notation,e.note,...(e.aliases||[]),e.sourceDetail?.name].filter(Boolean).join(' '),'glossary.html#'+encodeURIComponent(e.slug),{week:e.weeks,source:'AU-ESET 301 Course Glossary',glossary:true},8));
+(SG.records||[]).forEach(r=>{const p=SG.primaryPlacement?.(r),url=p?`learn.html?week=${p.week}&stage=${p.lesson===0?'ceta-lesson':'career-lesson'}&lesson=${p.lesson}&section=${encodeURIComponent(p.segment)}`:`learn.html?week=${r.week}&stage=media`;add('CETa Study Guide',`Associate CET Study Guide · Ch.${r.chapter} · ${SG.pageLabel?.(r)||''}`,`${r.purpose} ${r.focus} ${r.keywords||''} ${r.authorityNote||''}`,url,{week:r.week,source:'Associate CET Study Guide · Sixth Edition',classification:r.classification,privateLocator:true},4);});
 REL.forEach(r=>add('Release Note',`${r.version} · ${r.title}`,`${r.request} ${(r.changes||[]).join(' ')} ${r.type} ${r.date}`,'patch-notes.html#release-'+r.version.replace(/[^a-z0-9]+/gi,'-'),{source:'Alfred University release history'},2));
 ;(D.cetaStandards||[]).forEach(s=>add('CETa Standard',`CETa ${s.code} · ${s.categoryTitle}`,`${s.text} ${s.sourceChapter||''}`,'standards.html?standard='+encodeURIComponent(s.id),{domain:s.category,source:'ETA competency framework'},6));
 ;(D.careerStandards||[]).forEach(s=>add('Career Standard',`${s.code} · ${s.categoryTitle}`,s.text,'standards.html?standard='+encodeURIComponent(s.id),{source:'Alfred career transition standards'},5));
