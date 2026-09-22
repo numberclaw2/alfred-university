@@ -74,3 +74,11 @@ body.focus-mode #study-library-section,body.focus-mode #active-recall-section{di
 .study-figure-gallery{margin:.75rem -1rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .study-figure-gallery .source-gallery-item img{max-height:320px}
 @media(max-width:620px){.study-figure-gallery{margin:.65rem -.7rem 0}}
+
+/* v16.3.50 Study Teaching Media filters */
+.study-media-filters{margin:1rem 0;display:grid;grid-template-columns:minmax(220px,1.5fr) repeat(3,minmax(130px,1fr));gap:.75rem}
+.study-media-filters label{display:grid;gap:.35rem;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--green)}
+.study-media-filters input,.study-media-filters select{width:100%;min-width:0;border:1px solid var(--line);border-radius:10px;padding:.7rem .75rem;background:#fff;font:inherit;color:var(--ink)}
+.study-media-card[hidden]{display:none!important}
+@media(max-width:980px){.study-media-filters{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.study-media-filters{grid-template-columns:1fr}}

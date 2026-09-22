@@ -1,6 +1,27 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.50",
+      "date": "September 21, 2026",
+      "title": "Teaching Media Architecture / Workload Calibration Repair",
+      "type": "Teaching Media / Classroom / Study / Engineering Library",
+      "request": "Implement the approved 31-week Teaching Media load and feasibility audit without redesigning the accepted curriculum: make Classroom genuinely Required-only, preserve strong alternates in Study, move professional references into Engineering Library, add route-specific requirements and explicit stopping points, and repair duplicate/stale/toolchain defects.",
+      "changes": [
+        "Added teaching-media-architecture-repair.js as an additive v16.3.50 policy layer over the accepted v16.3.47 resource map and v16.3.48 literature layer, preserving source IDs and provenance while changing instructional role.",
+        "Reduced the universal first-pass Teaching Media path from the audit baseline of 312 Required assignments to 20 universal Required resources/functions plus 7 route-specific conditional resources.",
+        "Reclassified 235 assignments to Study and 85 to Engineering Library; Study now exposes migrated media by learner need while Engineering Library absorbs professional manuals, standards, full curricula, application notes, and deep vendor training.",
+        "Removed 24 obsolete, duplicate, misplaced, or superseded assignments, including the live Week 4 Binary/Boolean placements, Week 9/10 canonical duplicate aliases, obsolete B&K 1655A placements, and repeated resources whose correct later-week assignment already exists.",
+        "Added bounded Required metadata: exact scope, estimated time, why Required, focus, safely-ignore guidance, after-action, and explicit completion criterion.",
+        "Made LTspice, physical soldering/wick, Saleae I2C analysis, fiber termination, version-matched Project 1 HAL documentation, and watchdog documentation route/task-specific instead of universal homework.",
+        "Repaired Week 17 Microsoft Study links to current authoritative Microsoft Learn/documentation destinations and aligned Week 16 debugging with current STM32CubeIDE Eclipse documentation instead of mixing IDE variants.",
+        "Simplified Classroom Teaching Media filters to Search, Type, and Track; added learner-need filtering to Study; preserved deep professional references in Engineering Library.",
+        "Preserved all 31 weeks, 62 lessons, 24 labs, Project 1 sequencing, assessments, Calendar identities, progress keys, Cloud Sync protocol 2, glossary/vocabulary behavior, instructional visuals, Focus Prep/executive-function support, and overall visual design."
+      ],
+      "filesAdded": ["teaching-media-architecture-repair.js", "AU-ESET-301-v16.3.50-Teaching-Media-Architecture-QA.md", "AU-ESET-301-v16.3.50-31-Week-Teaching-Media-Architecture.csv", "AU-ESET-301-v16.3.50-Implementation-Report.md", "AU-ESET-301-v16.3.50-Change-Manifest.md", "UPLOAD_README_v16.3.50.txt"],
+      "filesModified": ["learn.js", "learn.html", "study.js", "study.html", "academic.js", "resources.html", "styles.css", "study-v2.css", "service-worker.js", "build-info.json", "README.md", "release-notes-current.js", "SHA256SUMS.txt"],
+      "filesRemoved": []
+    },
+    {
       "version": "v16.3.49",
       "date": "September 21, 2026",
       "title": "Teaching Media Filters — Faster Resource Browsing",

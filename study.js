@@ -8,7 +8,7 @@ const startOfDay=d=>new Date(d.getFullYear(),d.getMonth(),d.getDate());
 const addDays=(d,n)=>{const x=new Date(d);x.setDate(x.getDate()+n);return x;};
 const fmtDate=(v,o={weekday:'short',month:'short',day:'numeric'})=>new Intl.DateTimeFormat('en-US',o).format(new Date(v));
 const cleanTitle=e=>String(e?.summary||'').replace(/^AU-ESET 301 \| /,'');
-const css=document.createElement('link');css.rel='stylesheet';css.href='study-v2.css';document.head.appendChild(css);
+const css=document.createElement('link');css.rel='stylesheet';css.href='study-v2.css?v=16.3.50';document.head.appendChild(css);
 
 function defaultState(){return {version:19,defaultMode:'standard',reviews:{},parking:[],parkingTombstones:{},parkingRecordTimes:{},history:[],sessionConfidence:{},session:null,lastWeek:null,library:{view:'review',reviewIndex:0,flashIndex:0,flashRevealed:false}};}
 function load(){try{const raw=JSON.parse(localStorage.getItem(STUDY_KEY)||'null')||{};const base=defaultState();const merged={...base,...raw,library:{...base.library,...(raw.library||{})}};return window.AlfredParkingSync?.normalizeStudyState?.(merged)||merged;}catch{return defaultState();}}
@@ -26,6 +26,7 @@ function targetEvent(){
   return inWeek.find(incomplete)||inWeek[0]||E.filter(incomplete).sort((a,b)=>new Date(a.start)-new Date(b.start))[0]||null;
 }
 let target=targetEvent(),step=0,activeMode=state.defaultMode||'standard',reviewedThisBlock=0,reviewLimit=3;
+const studyMediaFilter={query:'',category:'all',type:'all',track:'all'};
 
 function weekRecord(p,week){const raw=p.weeks?.[week]??p.weeks?.[String(week)];return typeof raw==='string'?{mastery:raw}:{...(raw||{})};}
 function classroomStage(week){
@@ -76,14 +77,17 @@ function studyFlashcards(week=currentWeek()){
   return reachedStudySections(week).map((x,i)=>({id:`lesson-${x.lessonIndex}-section-${x.sectionIndex}`,title:x.section.title||`Concept ${i+1}`,track:x.track,lessonTitle:x.lessonTitle,front:`Explain this idea in your own words: ${x.section.title||`Concept ${i+1}`}`,back:x.section.remember||shortText(x.section.text,560),buildOn:x.section.buildOn||''}));
 }
 function reachedMedia(week=currentWeek()){
-  const module=moduleForWeek(week),sections=reachedStudySections(week),corpus=reachedCorpus(week);if(!module||!sections.length)return [];
-  const media=module.integration?.media||[];
-  if(Number(week)===1){
-    const unlock={mathScienceVoltageCurrentResistance:4,afrotechmodsWhatIsAmp:1,afrotechmodsWhatIsVoltage:2,afrotechmodsResistanceOhmsLaw:7,afrotechmodsPowerWatts:9,organicChemTutorBasicCircuits:9,afrotechmodsMultimeter:10,aacElectricalA:4,aacElectricalB:9,aacTechnicalNotation:6,aacCurrentPath:3,aacGroundReference:2,flukeSafety:10,phetDC:4,oshaLotoInteractive:12,medlineElectricalInjury:11,oshaFireExtinguisher:15,oshaLadderSafety:15,oshaDriverSafety:15,oshaRfSafety:14,oshaFiberLaserSafety:14,oshaElectricalStandardsTrainer:12,keysightBenchPowerCourse:10,flukeMultimeterGuide:10,nasaESD:13};
-    const reachedCeta=reachedTeachingCount(1,0);
-    return media.filter(m=>!(m.source in unlock)||reachedCeta>unlock[m.source]).map((m,i)=>({...m,sourceMeta:C.sources?.[m.source]||{},score:1,index:i}));
-  }
-  return media.map((m,i)=>{const source=C.sources?.[m.source]||{};const score=overlapScore(`${m.role||''} ${m.use||''} ${m.watchFor||''} ${source.title||''}`,corpus);return {...m,sourceMeta:source,score,index:i};}).filter(x=>x.score>=2).sort((a,b)=>b.score-a.score||a.index-b.index).slice(0,12);
+  const sections=reachedStudySections(week),corpus=reachedCorpus(week),arch=C.teachingMediaArchitecture;if(!sections.length||!arch?.assignments)return [];
+  const rows=Object.values(arch.assignments).filter(a=>a.destination==='study'&&Number(a.studyWeek||a.assignmentWeek)===Number(week));
+  const totalTeaching=(moduleForWeek(week)?.lessons||[]).reduce((n,l)=>n+(l?.integrated?.teaching?.length||0),0),allReached=sections.length>=totalTeaching&&totalTeaching>0;
+  return rows.map((a,i)=>{
+    const sourceMeta=C.sources?.[a.source]||{};
+    const origin=C.modules?.find(m=>Number(m.week)===Number(a.assignmentWeek));
+    const media=(origin?.integration?.media||[]).find(x=>x.source===a.source)||{};
+    const text=`${media.role||''} ${media.use||''} ${media.watchFor||''} ${sourceMeta.title||''} ${a.studyCategory||''}`;
+    const score=overlapScore(text,corpus);
+    return {...media,source:a.source,sourceMeta,score,index:i,architecture:a,studyCategory:a.studyCategory||'Alternate Explanation',studyWeek:Number(a.studyWeek||a.assignmentWeek),originWeek:Number(a.assignmentWeek)};
+  }).filter(x=>allReached||x.score>=1).sort((a,b)=>b.score-a.score||a.index-b.index);
 }
 function reachedGlossary(week=currentWeek()){
   const corpus=` ${reachedCorpus(week).replace(/[^a-z0-9µΩ]+/g,' ')} `;return (G||[]).map(g=>{const term=String(g.term||'').toLowerCase();const normalized=` ${term.replace(/[^a-z0-9µΩ]+/g,' ')} `;const present=term.length>=3&&corpus.includes(normalized);return {...g,present};}).filter(x=>x.present).slice(0,36);
@@ -119,8 +123,15 @@ function renderFlashcards(){
   $('#study-flash-next')?.addEventListener('click',()=>{state.library.flashIndex=Math.min(cards.length-1,i+1);state.library.flashRevealed=false;save();renderStudyLibrary();});
 }
 function renderMediaStudy(){
-  const out=$('#study-material-content'),items=reachedMedia();if(!out)return;if(!reachedStudySections().length){out.innerHTML='<div class="study-library-empty"><strong>No reached material yet.</strong><p>Teaching Media will appear here as you reach the concepts it supports.</p></div>';return;}
-  out.innerHTML=`<section class="study-media-library"><div class="study-view-intro"><span>Watch &amp; Review</span><h3>Verified teaching media for concepts you have already reached.</h3><p>These are not random recommendations. Alfred filters the course’s verified Teaching Media layer against the material currently available in your Study Library.</p></div>${items.length?`<div class="study-media-grid">${items.map(m=>`<article class="study-media-card"><span>${esc(m.role||'Teaching Media')}</span><h4>${esc(m.sourceMeta?.title||m.source||'Course media')}</h4><small>${esc(m.sourceMeta?.org||m.sourceMeta?.kind||'Verified course source')}</small>${m.use?`<p><strong>Use it for:</strong> ${esc(m.use)}</p>`:''}${m.watchFor?`<p><strong>Watch for:</strong> ${esc(m.watchFor)}</p>`:''}${m.sourceMeta?.url?`<a class="button outline-green" href="${esc(m.sourceMeta.url)}" target="_blank" rel="noopener">Open teaching source ↗</a>`:''}</article>`).join('')}</div>`:'<div class="study-library-empty"><strong>No media match has unlocked yet.</strong><p>Continue through Classroom; relevant videos will appear automatically as their concepts are reached.</p></div>'}</section>`;
+  const out=$('#study-material-content'),items=reachedMedia();if(!out)return;if(!reachedStudySections().length){out.innerHTML='<div class="study-library-empty"><strong>No reached material yet.</strong><p>Study media will appear after Classroom teaches the relevant material.</p></div>';return;}
+  const categories=[...new Set(items.map(x=>x.studyCategory).filter(Boolean))].sort();
+  const types=[...new Set(items.map(x=>{const k=String(x.sourceMeta?.kind||'Resource');return /video|lecture/i.test(k)?'Video':/interactive|simulation|tool/i.test(k)?'Interactive / Tool':/course|training|mooc/i.test(k)?'Course':'Written / Reference';}))].sort();
+  const tracks=[...new Set(items.map(x=>x.architecture?.track||'ceta'))].sort();
+  const options=(arr,current)=>arr.map(x=>`<option value="${esc(x)}"${current===x?' selected':''}>${esc(x)}</option>`).join('');
+  const cards=items.map(m=>{const type=/video|lecture/i.test(String(m.sourceMeta?.kind||''))?'Video':/interactive|simulation|tool/i.test(String(m.sourceMeta?.kind||''))?'Interactive / Tool':/course|training|mooc/i.test(String(m.sourceMeta?.kind||''))?'Course':'Written / Reference';return `<article class="study-media-card" data-study-media-card data-study-media-category="${esc(m.studyCategory)}" data-study-media-type="${esc(type)}" data-study-media-track="${esc(m.architecture?.track||'ceta')}"><span>${esc(m.studyCategory)}</span><h4>${esc(m.sourceMeta?.title||m.source||'Course media')}</h4><small>${esc(m.sourceMeta?.org||m.sourceMeta?.kind||'Verified course source')}${m.originWeek!==Number(currentWeek())?` · originally W${String(m.originWeek).padStart(2,'0')}`:''}</small>${m.use?`<p><strong>Use it when:</strong> ${esc(m.use)}</p>`:''}${m.watchFor?`<p><strong>Focus on:</strong> ${esc(m.watchFor)}</p>`:''}${m.sourceMeta?.url?`<a class="button outline-green" href="${esc(m.sourceMeta.url)}" target="_blank" rel="noopener">Open study source ↗</a>`:'<span class="small-note">Use the exact route/version-specific source identified by the task.</span>'}</article>`}).join('');
+  out.innerHTML=`<section class="study-media-library"><div class="study-view-intro"><span>Help on demand</span><h3>Use another explanation only when you need it.</h3><p>These resources are no longer first-pass homework. Choose by the problem you are trying to solve: another explanation, demonstration, troubleshooting, review, tool help, or deeper study.</p></div>${items.length?`<div class="resource-filters study-media-filters"><label>Search<input id="study-media-search" type="search" value="${esc(studyMediaFilter.query)}" placeholder="Example: op amp, UART, troubleshooting…"></label><label>Need<select id="study-media-category"><option value="all">All needs</option>${options(categories,studyMediaFilter.category)}</select></label><label>Format<select id="study-media-type"><option value="all">All formats</option>${options(types,studyMediaFilter.type)}</select></label><label>Track<select id="study-media-track"><option value="all">All tracks</option>${options(tracks,studyMediaFilter.track)}</select></label></div><p class="small-note" id="study-media-count">${items.length} study resource${items.length===1?'':'s'} available for Week ${String(currentWeek()).padStart(2,'0')}.</p><div class="study-media-grid">${cards}</div><div class="study-library-empty" id="study-media-empty" hidden><strong>No Study resources match those filters.</strong><p>Reset one filter or search for a broader topic.</p></div>`:'<div class="study-library-empty"><strong>No extra media are assigned here.</strong><p>That is fine. Classroom remains sufficient for the first pass, and Engineering Library holds deeper professional references.</p></div>'}</section>`;
+  function apply(){const q=String($('#study-media-search')?.value||'').trim().toLowerCase(),cat=$('#study-media-category')?.value||'all',type=$('#study-media-type')?.value||'all',track=$('#study-media-track')?.value||'all';Object.assign(studyMediaFilter,{query:q,category:cat,type,track});let shown=0;$$('[data-study-media-card]',out).forEach(card=>{const ok=(!q||card.textContent.toLowerCase().includes(q))&&(cat==='all'||card.dataset.studyMediaCategory===cat)&&(type==='all'||card.dataset.studyMediaType===type)&&(track==='all'||card.dataset.studyMediaTrack===track||card.dataset.studyMediaTrack==='both');card.hidden=!ok;if(ok)shown++;});const count=$('#study-media-count'),empty=$('#study-media-empty');if(count)count.textContent=`Showing ${shown} of ${items.length} Study resources for Week ${String(currentWeek()).padStart(2,'0')}.`;if(empty)empty.hidden=shown!==0;}
+  ['#study-media-search','#study-media-category','#study-media-type','#study-media-track'].forEach(sel=>{const el=$(sel);el?.addEventListener(el.type==='search'?'input':'change',apply);});apply();
 }
 function renderReferenceStudy(){
   const out=$('#study-material-content');if(!out)return;const sections=reachedStudySections(),terms=reachedGlossary(),knowledge=reachedKnowledge(),resources=reachedResources();if(!sections.length){out.innerHTML='<div class="study-library-empty"><strong>No reached material yet.</strong><p>References will populate from concepts you encounter in Classroom.</p></div>';return;}

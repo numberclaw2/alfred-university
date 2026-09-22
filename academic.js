@@ -1,5 +1,5 @@
 (()=>{
-const A=window.ALFRED_ACADEMIC||{}, W=window.ALFRED_WEEKS||[], E=window.ALFRED_EVENTS||[], R=window.ALFRED_RESOURCES||[];
+const A=window.ALFRED_ACADEMIC||{}, W=window.ALFRED_WEEKS||[], E=window.ALFRED_EVENTS||[], R=window.ALFRED_RESOURCES||[], C=window.ALFRED_CURRICULUM||{};
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
 const dom=id=>A.cetaDomains?.find(x=>String(x.id)===String(id));
@@ -16,15 +16,32 @@ function saveLabProgress(lab,route,value){const p=normalizeProgress(loadProgress
 function fillDomains(sel){if(!sel)return; A.cetaDomains.forEach(d=>sel.insertAdjacentHTML('beforeend',`<option value="${d.id}">${d.id}.0 ${esc(d.title)}</option>`));}
 function fillWeeks(sel){if(!sel)return; W.forEach(w=>sel.insertAdjacentHTML('beforeend',`<option value="${w.week}">Week ${String(w.week).padStart(2,'0')} · ${esc(w.topic)}</option>`));}
 function currentWeek(){return window.AlfredState.currentWeek();}
+function teachingMediaLibraryResources(){
+ const arch=C.teachingMediaArchitecture;if(!arch?.assignments)return [];
+ const bySource=new Map();
+ Object.values(arch.assignments).filter(a=>a.destination==='library').forEach(a=>{
+   const src=C.sources?.[a.source]||{},existing=bySource.get(a.source)||{id:`tm-${a.source}`,title:src.title||a.source,source:src.org||'Teaching Media',kind:a.libraryCategory||'Professional Reference',summary:`${src.kind||'Professional reference'} moved from Classroom by the v16.3.50 workload-calibration repair. Use it deliberately for deeper professional reference; it is not first-pass homework.`,url:src.url||'',verified:'v16.3.50 architecture review',weeks:[],ceta:[],keywords:`${src.title||''} ${src.org||''} ${src.kind||''} ${a.libraryCategory||''}`,priority:'PROFESSIONAL REFERENCE',hosting:'publisher-only',hostingNote:'Preserved from the verified Teaching Media source library; reclassified from first-pass Classroom to Engineering Library.'};
+   if(!existing.weeks.includes(Number(a.assignmentWeek)))existing.weeks.push(Number(a.assignmentWeek));
+   bySource.set(a.source,existing);
+ });
+ return [...bySource.values()].sort((a,b)=>a.title.localeCompare(b.title));
+}
+function mergedEngineeringResources(){
+ const out=[...(A.deepResources||[])],seen=new Set(out.map(r=>String(r.url||r.title||'').toLowerCase()));
+ teachingMediaLibraryResources().forEach(r=>{const k=String(r.url||r.title||'').toLowerCase();if(!seen.has(k)){out.push(r);seen.add(k);}});
+ return out;
+}
+
 function resCard(r){const host=r.hosting==='publisher-only'?'<span class="hosting-badge publisher-only">Publisher copy</span>':r.hosting==='local-open-library'?'<span class="hosting-badge local-copy">Also in local library</span>':'';return `<article class="resource-card enhanced-card"><div class="resource-meta"><span>${esc(r.kind)}</span><span>${esc(r.source)}</span>${r.priority?`<span class="priority-${esc(r.priority.toLowerCase().replace(/[^a-z]+/g,'-'))}">${esc(r.priority)}</span>`:''}${host}</div><h3>${esc(r.title)}</h3><p>${esc(r.summary||'')}</p>${r.hostingNote?`<p class="hosting-note">${esc(r.hostingNote)}</p>`:''}<div class="resource-map">${(r.ceta||[]).slice(0,5).map(x=>`<span>CETa ${esc(x)}</span>`).join('')}${(r.weeks||[]).slice(0,5).map(x=>`<span>W${x}</span>`).join('')}</div><div class="resource-card-foot">${ext(r.url,'Open at publisher')}${r.verified?`<small>Verified ${esc(r.verified)}</small>`:''}</div></article>`}
 
 function initResources(){
- const count=$('#deep-resource-count'); if(count)count.textContent=A.deepResources.length;
- const videoCount=$('#video-resource-count'); if(videoCount)videoCount.textContent=A.deepResources.filter(r=>/(video|course|training|mooc)/i.test([r.kind,r.title].join(' '))).length;
- const core=$('#ceta-core-resources'); if(core)core.innerHTML=A.deepResources.filter(r=>r.priority==='CETa CORE').map(resCard).join('');
+ const library=mergedEngineeringResources();
+ const count=$('#deep-resource-count'); if(count)count.textContent=library.length;
+ const videoCount=$('#video-resource-count'); if(videoCount)videoCount.textContent=library.filter(r=>/(video|course|training|mooc)/i.test([r.kind,r.title].join(' '))).length;
+ const core=$('#ceta-core-resources'); if(core)core.innerHTML=library.filter(r=>r.priority==='CETa CORE').map(resCard).join('');
  const ks=$('#deep-resource-kind'), ds=$('#deep-resource-domain'), ws=$('#deep-resource-week'), qs=$('#deep-resource-search'), out=$('#deep-resource-results');
- if(ks){[...new Set(A.deepResources.map(r=>r.kind))].sort().forEach(x=>ks.insertAdjacentHTML('beforeend',`<option>${esc(x)}</option>`)); fillDomains(ds); fillWeeks(ws);}
- function render(){if(!out)return; const q=(qs?.value||'').trim().toLowerCase(), kind=ks?.value||'', d=ds?.value||'', w=Number(ws?.value||0); const list=A.deepResources.filter(r=>(!kind||r.kind===kind)&&(!d||(r.ceta||[]).includes(d))&&(!w||(r.weeks||[]).includes(w))&&(!q||[r.title,r.source,r.kind,r.summary,r.keywords,r.career,(r.ceta||[]).join(' '),(r.weeks||[]).join(' ')].join(' ').toLowerCase().includes(q))); out.innerHTML=list.length?list.map(resCard).join(''):'<p class="empty-state">No verified resources match these filters.</p>'; }
+ if(ks){[...new Set(library.map(r=>r.kind).filter(Boolean))].sort().forEach(x=>ks.insertAdjacentHTML('beforeend',`<option>${esc(x)}</option>`)); fillDomains(ds); fillWeeks(ws);}
+ function render(){if(!out)return; const q=(qs?.value||'').trim().toLowerCase(), kind=ks?.value||'', d=ds?.value||'', w=Number(ws?.value||0); const list=library.filter(r=>(!kind||r.kind===kind)&&(!d||(r.ceta||[]).includes(d))&&(!w||(r.weeks||[]).includes(w))&&(!q||[r.title,r.source,r.kind,r.summary,r.keywords,r.career,(r.ceta||[]).join(' '),(r.weeks||[]).join(' ')].join(' ').toLowerCase().includes(q))); out.innerHTML=list.length?list.map(resCard).join(''):'<p class="empty-state">No verified resources match these filters.</p>'; }
  [qs,ks,ds,ws].forEach(x=>x?.addEventListener('input',render)); render();
 }
 

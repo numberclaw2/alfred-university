@@ -16,7 +16,7 @@
   if (!MODULES.some(m => m.week === week)) week = 1;
   let moduleData = MODULES.find(m => m.week === week);
   let stageIndex = 0;
-  const mediaFilterState = {query:'',type:'all',priority:'all',track:'all',role:'all',beginner:false};
+  const mediaFilterState = {query:'',type:'all',track:'all'};
 
   const STAGES = [
     {id:'orientation',label:'Start Here',short:'Orient',track:'CETa + Career'},
@@ -179,13 +179,16 @@
   function literatureMediaMeta(sourceId){ const rows=literatureIntegration().bySource?.[sourceId]||[]; return rows.find(x=>Number(x.assignmentWeek)===Number(week))||rows[0]||null; }
   function isLiteratureSource(sourceId){ return !!literatureIntegration().bySource?.[sourceId]; }
   function assignmentKey(sourceId,assignmentWeek=week){ return `${assignmentWeek}:${sourceId}`; }
+  function mediaArchitecture(){ return C.teachingMediaArchitecture || {assignments:{},counts:{}}; }
+  function mediaArchitectureAssignment(sourceId,assignmentWeek=week){ return mediaArchitecture().assignments?.[assignmentKey(sourceId,assignmentWeek)] || null; }
+  function classroomAssignment(sourceId,assignmentWeek=week){ const a=mediaArchitectureAssignment(sourceId,assignmentWeek); return !a || a.destination==='classroom'; }
   function canonicalSourceId(sourceId){ return resourceIntegration().canonicalAliases?.[sourceId] || sourceId; }
   function mediaItem(sourceId,assignmentWeek=week){
     const mod=C.modules?.find(x=>Number(x.week)===Number(assignmentWeek));
     return (mod?.integration?.media || []).find(item => item.source === sourceId) || null;
   }
   function retainedMediaItems(){
-    const removed=resourceIntegration().removedByAssignment||{},items=(moduleData?.integration?.media || []).filter(item=>!removed[assignmentKey(item.source,week)]),seen=new Set();
+    const removed=resourceIntegration().removedByAssignment||{},items=(moduleData?.integration?.media || []).filter(item=>!removed[assignmentKey(item.source,week)]&&classroomAssignment(item.source,week)),seen=new Set();
     return items.filter(item=>{
       const canonical=canonicalSourceId(item.source);
       if(seen.has(canonical))return false;
@@ -196,10 +199,10 @@
   }
   function targetResourcePlacements(){ return resourceIntegration().byTargetWeek?.[week] || []; }
   function segmentResourcePlacements(lessonIndex,segmentId){
-    return targetResourcePlacements().filter(p=>p.inline!==false && Number(p.lesson)===Number(lessonIndex) && p.segment===segmentId);
+    return targetResourcePlacements().filter(p=>p.inline!==false && Number(p.lesson)===Number(lessonIndex) && p.segment===segmentId && classroomAssignment(p.source,p.assignmentWeek));
   }
   function globalResourcePlacements(sourceId){
-    const canonical=canonicalSourceId(sourceId),raw=(resourceIntegration().placements||[]).filter(p=>canonicalSourceId(p.source)===canonical),seen=new Set();
+    const canonical=canonicalSourceId(sourceId),raw=(resourceIntegration().placements||[]).filter(p=>canonicalSourceId(p.source)===canonical && classroomAssignment(p.source,p.assignmentWeek)),seen=new Set();
     return raw.filter(p=>{
       const key=`${p.targetWeek}:${p.lesson}:${p.segment}:${p.relationship}`;
       if(seen.has(key))return false; seen.add(key); return true;
@@ -218,13 +221,13 @@
     return {core:'Core teaching resource',demonstration:'Demonstration','lab-prep':'Lab preparation',troubleshooting:'Troubleshooting demonstration',reinforcement:'Reinforcement',review:'Review','go-deeper':'Go deeper',reference:'Reference / source'}[role]||'Teaching resource';
   }
   function resourceRequirementLabel(placement){
-    return placement.requirement==='required'?'Required source':placement.requirement==='optional'?'Optional':'Supporting resource';
+    return placement.requirement==='required'?'Required first-pass source':placement.requirement==='conditional'?'Route-specific source':placement.requirement==='optional'?'Optional':'Supporting resource';
   }
   function teachingMediaPrimaryPlacement(sourceId){
     const placements=globalResourcePlacements(sourceId),current=placements.filter(p=>Number(p.assignmentWeek)===Number(week));
     return current.find(p=>p.source===sourceId)||current[0]||placements[0]||null;
   }
-  function teachingMediaRequirement(sourceId){ return teachingMediaPrimaryPlacement(sourceId)?.requirement||'supporting'; }
+  function teachingMediaRequirement(sourceId){ return mediaArchitectureAssignment(sourceId,week)?.requirement || teachingMediaPrimaryPlacement(sourceId)?.requirement || 'supporting'; }
   function teachingMediaType(sourceId){ return teachingMediaPrimaryPlacement(sourceId)?.mediaType||'resource'; }
   const BEGINNER_MEDIA_IDS=new Set(['mathScienceVoltageCurrentResistance','afrotechmodsWhatIsAmp','afrotechmodsWhatIsVoltage','afrotechmodsResistanceOhmsLaw','afrotechmodsPowerWatts','organicChemTutorBasicCircuits','afrotechmodsMultimeter']);
   function teachingMediaFilterType(sourceId){
@@ -556,45 +559,46 @@
   function renderMedia(){
     const items=retainedMediaItems();
     const rows=items.map(item=>{
-      const s=source(item.source),requirement=teachingMediaRequirement(item.source),mediaType=teachingMediaType(item.source),lit=literatureMediaMeta(item.source),isLit=!!lit,litSource=literatureIntegration().sources?.[item.source]||null;
+      const s=source(item.source),assignment=mediaArchitectureAssignment(item.source,week),requirement=assignment?.requirement||teachingMediaRequirement(item.source),mediaType=teachingMediaType(item.source),lit=literatureMediaMeta(item.source),isLit=!!lit,litSource=literatureIntegration().sources?.[item.source]||null;
       const readUse=isLit?(litSource?lit.readUse:item.watchFor):item.watchFor,focus=isLit?(lit.focus||item.use):'',after=isLit?(lit.afterReading||teachingMediaPrimaryPlacement(item.source)?.afterAction):'';
       const typeLabel=isLit?(lit.literatureType||litSource?.literatureType||literatureIntegration().existingType?.[item.source]||s.kind):s.kind;
-      const filterType=teachingMediaFilterType(item.source),track=teachingMediaTrack(item.source),roles=teachingMediaRoleTokens(item.source),beginner=teachingMediaBeginnerFriendly(item.source,item);
-      return {item,s,requirement,mediaType,lit,isLit,litSource,readUse,focus,after,typeLabel,filterType,track,roles,beginner};
+      const filterType=teachingMediaFilterType(item.source),track=teachingMediaTrack(item.source),meta=assignment?.requiredMeta||item.architectureRequiredMeta||null;
+      return {item,s,assignment,requirement,mediaType,lit,isLit,litSource,readUse,focus,after,typeLabel,filterType,track,meta};
     });
-    const requiredCount=rows.filter(x=>x.requirement==='required').length;
+    const requiredCount=rows.filter(x=>x.requirement==='required').length,conditionalCount=rows.filter(x=>x.requirement==='conditional').length;
+    if(!rows.length){
+      return `<div class="classroom-stage-head"><div><span class="stage-count">Stage 4 of ${STAGES.length} · Required path</span><h2>No external Teaching Media is required this week</h2><p>Alfred's lesson, practice, and application already provide the first-pass teaching. Use Study only if you want another explanation, a refresher, troubleshooting help, or deeper material.</p></div>${trackBadge('CETa + Career')}</div>
+      <section class="media-policy"><strong>Your stopping point is explicit.</strong><p>You do not need to watch or read an outside resource before continuing. Move directly into practice and application.</p><div class="button-row"><a class="button outline-green" href="study.html?week=${week}&view=media">Open Study only if needed</a><a class="button outline-green" href="resources.html">Open Engineering Library</a></div></section>
+      <section class="media-reflection"><button class="button green" id="complete-media" type="button">${stageComplete('media')?'✓ No external media required — stage complete':'Continue — no external media required'}</button></section>`;
+    }
     const countBy=(key,value)=>rows.filter(row=>row[key]===value).length;
     const typeOptions=['video','reading','interactive','reference'].filter(value=>countBy('filterType',value)>0).map(value=>`<option value="${value}"${mediaFilterState.type===value?' selected':''}>${esc(teachingMediaFilterTypeLabel(value))} (${countBy('filterType',value)})</option>`).join('');
-    const reqCount=countBy('requirement','required'),supportCount=countBy('requirement','supporting'),optionalCount=countBy('requirement','optional');
-    const priorityOptions=`<option value="all"${mediaFilterState.priority==='all'?' selected':''}>All priorities (${rows.length})</option>${reqCount?`<option value="required"${mediaFilterState.priority==='required'?' selected':''}>Required (${reqCount})</option>`:''}${supportCount+optionalCount?`<option value="not-required"${mediaFilterState.priority==='not-required'?' selected':''}>Not required (${supportCount+optionalCount})</option>`:''}${supportCount?`<option value="supporting"${mediaFilterState.priority==='supporting'?' selected':''}>Supporting (${supportCount})</option>`:''}${optionalCount?`<option value="optional"${mediaFilterState.priority==='optional'?' selected':''}>Optional (${optionalCount})</option>`:''}`;
     const tracks=['ceta','career','both'].filter(value=>countBy('track',value)>0),trackNames={ceta:'CETa',career:'Career',both:'CETa + Career'};
     const trackOptions=tracks.map(value=>`<option value="${value}"${mediaFilterState.track===value?' selected':''}>${trackNames[value]} (${countBy('track',value)})</option>`).join('');
-    const roleValues=[...new Set(rows.flatMap(row=>row.roles))].sort((a,b)=>resourceRoleLabel(a).localeCompare(resourceRoleLabel(b)));
-    const roleOptions=roleValues.map(value=>{const n=rows.filter(row=>row.roles.includes(value)).length;return `<option value="${esc(value)}"${mediaFilterState.role===value?' selected':''}>${esc(resourceRoleLabel(value))} (${n})</option>`;}).join('');
-    const beginnerCount=rows.filter(x=>x.beginner).length;
-    const cards=rows.map(({item,s,requirement,mediaType,lit,isLit,litSource,readUse,focus,after,typeLabel,filterType,track,roles,beginner})=>`<article id="media-${esc(item.source)}" class="${isLit?'literature-media-card ':''}teaching-media-card" data-media-filter-card data-media-type="${esc(filterType)}" data-media-requirement="${esc(requirement)}" data-media-track="${esc(track)}" data-media-roles="${esc(roles.join(' '))}" data-media-beginner="${beginner?'true':'false'}"><div class="media-card-top"><span class="media-requirement-status requirement-${esc(requirement)}">${esc(resourceRequirementLabel({requirement}))}</span><span class="media-normalized-type media-type-${esc(filterType)}">${esc(teachingMediaFilterTypeLabel(filterType))}</span>${beginner?'<span class="media-beginner-status">Beginner-friendly</span>':''}</div><h3>${esc(s.title)}</h3><p class="media-org">${isLit&&litSource?.author?`${esc(litSource.author)} · `:''}${esc(s.org)}${isLit&&litSource?.access?` · ${esc(litSource.access)}`:''}</p><p class="media-classification"><strong>${esc(item.role)}</strong> · ${esc(typeLabel)}</p><p><strong>${isLit?'Why this reading is here':'Use it for'}:</strong> ${esc(isLit?(lit.why||item.use):item.use)}</p>${isLit?`<p><strong>Read / use:</strong> ${esc(readUse)}</p><p><strong>Focus on:</strong> ${esc(focus)}</p><p><strong>After reading:</strong> ${esc(after)}</p>`:`<p><strong>${mediaType==='video'?'Watch for':'Read / use for'}:</strong> ${esc(item.watchFor)}</p>`}<p><strong>What Alfred still supplies:</strong> ${esc(isLit?(lit.gap||item.gap):item.gap)}</p>${teachingMediaLessonLinks(item.source)}<div>${s.url?`<a class="button outline-green" href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${isLit?'Open reading':'Open source'} ↗</a>`:'<span class="private-source">Use your private course copy; it is not republished here.</span>'}</div></article>`).join('');
-    return `<div class="classroom-stage-head"><div><span class="stage-count">Stage 4 of ${STAGES.length} · Integrated Teaching Media</span><h2>Learn it from another voice—then connect it</h2><p>Every retained Teaching Media item is connected to a real lesson section. Video gives you a visual path; outside literature gives you a professional written path. Use either to reinforce Alfred, then jump back to the exact instruction whenever you need context.</p></div>${trackBadge('CETa + Career')}</div>
-    <div class="media-policy"><strong>No orphan resources.</strong><p>If a source is listed here, Alfred teaches, demonstrates, applies, or deliberately reviews it somewhere in the course. Written readings are assigned for a specific purpose—not as a link dump.</p></div>
-    <section class="media-filter-panel" aria-labelledby="media-filter-heading"><div class="media-filter-head"><div><span class="media-filter-kicker">Find what you need</span><h3 id="media-filter-heading">Filter Teaching Media</h3><p>Filter this week by format, priority, lesson track, purpose, or beginner-friendly resources. Search checks titles, sources, topics, and lesson connections.</p></div><button class="button outline-green" id="media-filter-reset" type="button">Reset filters</button></div><div class="media-filter-grid"><label class="media-filter-field media-filter-search"><span>Search</span><input id="media-filter-search" type="search" value="${esc(mediaFilterState.query)}" placeholder="Example: oscilloscope, I2C, soldering…" autocomplete="off"></label><label class="media-filter-field"><span>Type</span><select id="media-filter-type"><option value="all"${mediaFilterState.type==='all'?' selected':''}>All types (${rows.length})</option>${typeOptions}</select></label><label class="media-filter-field"><span>Priority</span><select id="media-filter-priority">${priorityOptions}</select></label><label class="media-filter-field"><span>Track</span><select id="media-filter-track"><option value="all"${mediaFilterState.track==='all'?' selected':''}>All tracks (${rows.length})</option>${trackOptions}</select></label><label class="media-filter-field"><span>Purpose</span><select id="media-filter-role"><option value="all"${mediaFilterState.role==='all'?' selected':''}>All purposes (${rows.length})</option>${roleOptions}</select></label><label class="media-filter-check"><input id="media-filter-beginner" type="checkbox"${mediaFilterState.beginner&&beginnerCount?' checked':''}${beginnerCount?'':' disabled'}><span><strong>Beginner-friendly only</strong><small>${beginnerCount?`${beginnerCount} explicitly beginner/clarity-first resource${beginnerCount===1?'':'s'} this week`:'No resources are explicitly beginner-labeled this week'}</small></span></label></div><div class="media-filter-feedback"><strong id="media-filter-count" role="status" aria-live="polite">Showing ${rows.length} of ${rows.length} resources</strong><span id="media-filter-required-note">Filters change only what is visible; they never change course requirements.</span></div></section>
-    <div class="teaching-media-list">${cards}</div><div class="media-filter-empty" id="media-filter-empty" hidden><strong>No resources match those filters.</strong><p>Try clearing one filter or use Reset filters to show everything for this week.</p></div>
-    <section class="media-reflection"><label for="media-connection"><strong>One-sentence connection</strong><span>What became clearer, or which Alfred explanation will you use instead?</span></label><textarea id="media-connection" rows="3" maxlength="1200" placeholder="Example: The scope primer made trigger level clearer; I can now explain why it stabilizes a repeating waveform.">${esc(learningState().l.responses?.media || '')}</textarea><button class="button green" id="complete-media" type="button">${stageComplete('media')?'✓ Media / text path complete':`Confirm media or text path complete${requiredCount?` (${requiredCount} required source${requiredCount===1?'':'s'})`:''}`}</button></section>`;
+    const metaBlock=meta=>meta?`<section class="media-required-scope"><p><strong>${meta.condition?'Required when':'Required scope'}:</strong> ${esc(meta.condition||meta.scope||'Bounded first-pass use')}</p>${meta.condition&&meta.scope?`<p><strong>Use only:</strong> ${esc(meta.scope)}</p>`:''}${Number(meta.minutes)>0?`<p><strong>Estimated time:</strong> ${esc(meta.minutes)} minutes</p>`:''}${meta.why?`<p><strong>Why this is here:</strong> ${esc(meta.why)}</p>`:''}${meta.focus?`<p><strong>Focus on:</strong> ${esc(meta.focus)}</p>`:''}${meta.ignore?`<p><strong>Safely ignore:</strong> ${esc(meta.ignore)}</p>`:''}${meta.after?`<p><strong>Afterward:</strong> ${esc(meta.after)}</p>`:''}${meta.completion?`<p><strong>Done when:</strong> ${esc(meta.completion)}</p>`:''}</section>`:'';
+    const cards=rows.map(({item,s,requirement,mediaType,lit,isLit,litSource,readUse,focus,after,typeLabel,filterType,track,meta})=>`<article id="media-${esc(item.source)}" class="${isLit?'literature-media-card ':''}teaching-media-card" data-media-filter-card data-media-type="${esc(filterType)}" data-media-requirement="${esc(requirement)}" data-media-track="${esc(track)}"><div class="media-card-top"><span class="media-requirement-status requirement-${esc(requirement)}">${esc(resourceRequirementLabel({requirement}))}</span><span class="media-normalized-type media-type-${esc(filterType)}">${esc(teachingMediaFilterTypeLabel(filterType))}</span></div><h3>${esc(s.title)}</h3><p class="media-org">${isLit&&litSource?.author?`${esc(litSource.author)} · `:''}${esc(s.org)}${isLit&&litSource?.access?` · ${esc(litSource.access)}`:''}</p>${metaBlock(meta)}<p class="media-classification"><strong>${esc(item.role)}</strong> · ${esc(typeLabel)}</p><p><strong>${isLit?'Why this reading is here':'Use it for'}:</strong> ${esc(isLit?(lit.why||item.use):item.use)}</p>${isLit?`<p><strong>Read / use:</strong> ${esc(readUse)}</p><p><strong>Focus on:</strong> ${esc(focus)}</p><p><strong>After reading:</strong> ${esc(after)}</p>`:`<p><strong>${mediaType==='video'?'Watch for':'Read / use for'}:</strong> ${esc(item.watchFor)}</p>`}<p><strong>What Alfred still supplies:</strong> ${esc(isLit?(lit.gap||item.gap):item.gap)}</p>${teachingMediaLessonLinks(item.source)}<div>${s.url?`<a class="button outline-green" href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${isLit?'Open reading':'Open source'} ↗</a>`:'<span class="private-source">Use the exact route/version-specific documentation identified in the task. No generic link is substituted here.</span>'}</div></article>`).join('');
+    return `<div class="classroom-stage-head"><div><span class="stage-count">Stage 4 of ${STAGES.length} · Required Teaching Media only</span><h2>Use the smallest outside resource that adds something Alfred cannot</h2><p>${requiredCount} universal Required source${requiredCount===1?'':'s'}${conditionalCount?` · ${conditionalCount} route-specific source${conditionalCount===1?'':'s'}`:''}. Each card has a bounded stopping point. Alternate explanations and deeper references now live in Study and Engineering Library.</p></div>${trackBadge('CETa + Career')}</div>
+    <div class="media-policy"><strong>Classroom = Required only.</strong><p>Finish only the universal cards plus any route-specific card that actually matches your selected lab/project route. Do not consume unrelated route-specific material.</p></div>
+    <section class="media-filter-panel" aria-labelledby="media-filter-heading"><div class="media-filter-head"><div><span class="media-filter-kicker">Keep the Required path simple</span><h3 id="media-filter-heading">Filter this week's Required media</h3><p>Search by source, narrow by format, or show the CETa/Career track. Filtering never changes which universal or route-specific items apply.</p></div><button class="button outline-green" id="media-filter-reset" type="button">Reset filters</button></div><div class="media-filter-grid"><label class="media-filter-field media-filter-search"><span>Search</span><input id="media-filter-search" type="search" value="${esc(mediaFilterState.query)}" placeholder="Example: oscilloscope, I2C, soldering…" autocomplete="off"></label><label class="media-filter-field"><span>Type</span><select id="media-filter-type"><option value="all"${mediaFilterState.type==='all'?' selected':''}>All types (${rows.length})</option>${typeOptions}</select></label><label class="media-filter-field"><span>Track</span><select id="media-filter-track"><option value="all"${mediaFilterState.track==='all'?' selected':''}>All tracks (${rows.length})</option>${trackOptions}</select></label></div><div class="media-filter-feedback"><strong id="media-filter-count" role="status" aria-live="polite">Showing ${rows.length} of ${rows.length} resources</strong><span id="media-filter-required-note">${conditionalCount?'Route-specific cards apply only when their stated condition matches your route.':'Everything shown is part of the bounded first-pass path.'}</span></div></section>
+    <div class="teaching-media-list">${cards}</div><div class="media-filter-empty" id="media-filter-empty" hidden><strong>No Required resources match those filters.</strong><p>Reset filters to show this week's first-pass media.</p></div>
+    <section class="media-reflection"><label for="media-connection"><strong>One-sentence connection</strong><span>What did the Required source make clearer, demonstrate, or document?</span></label><textarea id="media-connection" rows="3" maxlength="1200" placeholder="Example: The scope demonstration made trigger level clearer; I can now explain why it stabilizes a repeating waveform.">${esc(learningState().l.responses?.media || '')}</textarea><button class="button green" id="complete-media" type="button">${stageComplete('media')?'✓ Required media path complete':`Confirm Required media path complete (${requiredCount} universal${conditionalCount?` + ${conditionalCount} route-specific if applicable`:''})`}</button></section>`;
   }
 
   function applyMediaFilters(){
     const cards=$$('.teaching-media-list [data-media-filter-card]'); if(!cards.length)return;
-    const query=String($('#media-filter-search')?.value||'').trim().toLowerCase(),type=$('#media-filter-type')?.value||'all',priority=$('#media-filter-priority')?.value||'all',track=$('#media-filter-track')?.value||'all',role=$('#media-filter-role')?.value||'all',beginnerControl=$('#media-filter-beginner'),beginner=beginnerControl?.disabled?false:!!beginnerControl?.checked;
-    Object.assign(mediaFilterState,{query,type,priority,track,role,beginner});
-    let visible=0,hiddenRequired=0;
+    const query=String($('#media-filter-search')?.value||'').trim().toLowerCase(),type=$('#media-filter-type')?.value||'all',track=$('#media-filter-track')?.value||'all';
+    Object.assign(mediaFilterState,{query,type,track});
+    let visible=0;
     cards.forEach(card=>{
-      const cardPriority=card.dataset.mediaRequirement||'supporting',cardTrack=card.dataset.mediaTrack||'ceta',roles=(card.dataset.mediaRoles||'').split(/\s+/).filter(Boolean);
-      const matchesQuery=!query||card.textContent.toLowerCase().includes(query),matchesType=type==='all'||card.dataset.mediaType===type,matchesPriority=priority==='all'||(priority==='not-required'?cardPriority!=='required':cardPriority===priority),matchesTrack=track==='all'||cardTrack===track||cardTrack==='both'&&(track==='ceta'||track==='career'),matchesRole=role==='all'||roles.includes(role),matchesBeginner=!beginner||card.dataset.mediaBeginner==='true';
-      const show=matchesQuery&&matchesType&&matchesPriority&&matchesTrack&&matchesRole&&matchesBeginner; card.hidden=!show; if(show)visible++; else if(cardPriority==='required')hiddenRequired++;
+      const cardTrack=card.dataset.mediaTrack||'ceta';
+      const matchesQuery=!query||card.textContent.toLowerCase().includes(query),matchesType=type==='all'||card.dataset.mediaType===type,matchesTrack=track==='all'||cardTrack===track||cardTrack==='both'&&(track==='ceta'||track==='career');
+      const show=matchesQuery&&matchesType&&matchesTrack; card.hidden=!show; if(show)visible++;
     });
-    const count=$('#media-filter-count'),note=$('#media-filter-required-note'),empty=$('#media-filter-empty');
+    const count=$('#media-filter-count'),empty=$('#media-filter-empty');
     if(count)count.textContent=`Showing ${visible} of ${cards.length} resources`;
-    if(note)note.textContent=hiddenRequired?`Current filters hide ${hiddenRequired} required source${hiddenRequired===1?'':'s'}. Filtering never changes what is required.`:'Filters change only what is visible; they never change course requirements.';
     if(empty)empty.hidden=visible!==0;
   }
+
 
 
   function renderPractice(){
@@ -696,12 +700,12 @@
       else setMessage('Not yet. Read the targeted correction, then try again.','error');
       updateChrome();
     }));
-    const mediaFilterControls=['#media-filter-search','#media-filter-type','#media-filter-priority','#media-filter-track','#media-filter-role','#media-filter-beginner'].map(sel=>$(sel)).filter(Boolean);
+    const mediaFilterControls=['#media-filter-search','#media-filter-type','#media-filter-track'].map(sel=>$(sel)).filter(Boolean);
     mediaFilterControls.forEach(control=>control.addEventListener(control.type==='search'?'input':'change',applyMediaFilters));
     $('#media-filter-reset')?.addEventListener('click',()=>{
-      Object.assign(mediaFilterState,{query:'',type:'all',priority:'all',track:'all',role:'all',beginner:false});
-      const search=$('#media-filter-search'),type=$('#media-filter-type'),priority=$('#media-filter-priority'),track=$('#media-filter-track'),role=$('#media-filter-role'),beginner=$('#media-filter-beginner');
-      if(search)search.value=''; if(type)type.value='all'; if(priority)priority.value='all'; if(track)track.value='all'; if(role)role.value='all'; if(beginner)beginner.checked=false; applyMediaFilters(); search?.focus();
+      Object.assign(mediaFilterState,{query:'',type:'all',track:'all'});
+      const search=$('#media-filter-search'),type=$('#media-filter-type'),track=$('#media-filter-track');
+      if(search)search.value=''; if(type)type.value='all'; if(track)track.value='all'; applyMediaFilters(); search?.focus();
     });
     if(mediaFilterControls.length)applyMediaFilters();
     $$('.lesson-video-toggle').forEach(button=>button.addEventListener('click',()=>{
@@ -713,9 +717,10 @@
     const mediaText = $('#media-connection');
     mediaText?.addEventListener('input',() => saveLearning(l => { l.responses.media = mediaText.value; },{sync:false,notify:false}));
     $('#complete-media')?.addEventListener('click',() => {
+      const universalCount=retainedMediaItems().filter(item=>mediaArchitectureAssignment(item.source,week)?.requirement==='required').length;
       const value = mediaText?.value.trim() || '';
-      if (value.length < 15) { setMessage('Write one brief connection before completing this stage.','error'); mediaText?.focus(); return; }
-      markComplete('media'); renderStage(); setMessage('Media / accessible text path saved.','success');
+      if (universalCount>0 && value.length < 15) { setMessage('Write one brief connection to the universal Required source before completing this stage.','error'); mediaText?.focus(); return; }
+      markComplete('media'); renderStage(); setMessage(universalCount?'Required media path saved.':'No universal external media required; continue to active practice.','success');
     });
     const practiceText = $('#practice-response'); let practiceTimer;
     practiceText?.addEventListener('input',() => {

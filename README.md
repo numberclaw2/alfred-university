@@ -7,25 +7,29 @@ AU-ESET 301 is a fictional, university-style independent-study environment built
 
 It is not an accredited university, an ETA-endorsed course, an official exam, or a guarantee of certification or employment.
 
-## Current production state — v16.3.7 accepted
+## Current production state — v16.3.50 Teaching Media architecture repair
 
-The accepted instructional curriculum remains **v16.3**. Runtime patch **v16.3.7** preserves the accepted v16.3.6 Teaching Media content-completion release and applies the three bounded repairs identified by the completed whole-system acceptance audit: CETa readiness independence, truthful automatic mastery progression, and Project 2 identity coherence.
+The accepted instructional curriculum remains **v16.3**. Runtime patch **v16.3.50** implements the approved 31-week Teaching Media workload audit without redesigning the curriculum. Alfred remains the primary teacher: Classroom now contains only bounded first-pass Required media, Study holds help-on-demand alternates/review/troubleshooting, and Engineering Library holds professional reference/deep training.
 
-**Acceptance status:** **31/31 PASS** — zero BLOCKER and zero MATERIAL DEFECT results in the final standalone Teaching Media re-audit.
+**Teaching Media calibration:** audit baseline `312 Required` → **20 universal Required functions + 7 route/task-specific conditionals**. Good resources were preserved through reclassification rather than wholesale deletion.
 
 Current production markers:
 
 - Course release: `16.3`
-- Runtime patch: `16.3.7`
+- Runtime patch: `16.3.50`
 - Objective evidence revision: `16.2`
 - Cloud Sync protocol: `2`
-- Build: `v16.3.7-whole-system-audit-repair-20260918`
-- Schedule revision: `2026-09-16-week1-reset`
-- Teaching Media revision: `2026-09-18-final-pots-31-week-standalone-accepted`
-- Resource verification revision: `2026-09-18-v16.3.6-final-pots-accepted`
-- Service-worker cache: `alfred-u-v16-3-7-whole-system-audit-repair-20260918`
+- Build: `v16.3.50-teaching-media-architecture-20260921`
+- Teaching Media architecture: `Required-only Classroom · Study help-on-demand · Engineering Library professional reference`
+- Service-worker cache: `alfred-u-v16-3-50-teaching-media-architecture-20260921`
 
-The 31-week schedule is unchanged: **Week 1 is September 15–19, 2026** and **Week 31 is April 13–17, 2027**. Calendar identities and iCalendar UIDs remain preserved.
+### v16.3.50 Teaching Media workload calibration
+
+- Adds `teaching-media-architecture-repair.js` after the accepted v16.3.47 mapping and v16.3.48 literature layer.
+- Preserves canonical source IDs/provenance while reclassifying resources by instructional purpose.
+- Adds explicit scope/time/focus/ignore/after/done metadata to every universal or conditional first-pass media item.
+- Repairs known Week 4, Week 9, Week 10, stale Microsoft, obsolete B&K, STM32 toolchain, and route-specific documentation defects.
+- Does **not** begin the separate CETa Study Guide recommended-page integration phase.
 
 ## v16.3.7 whole-system audit repair
 
