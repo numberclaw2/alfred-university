@@ -4896,7 +4896,8 @@
     tekPulseDutyCycle: 'tekSignalGenerator',
     aacSystemNotationsGraphs: 'aacSystemNotations',
     aacPowerSupplies: 'aacPowerSuppliesApplications',
-    aacAmpConfigs: 'aacAmplifierConfigs'
+    aacAmpConfigs: 'aacAmplifierConfigs',
+    litNasaSystemsAppendix: 'nasaRequirementAppendix'
   };
 
   const canonicalSourceId = sourceId => canonicalAliases[sourceId] || sourceId;

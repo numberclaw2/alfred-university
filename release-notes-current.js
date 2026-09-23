@@ -1,6 +1,32 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.57",
+      "date": "September 23, 2026",
+      "title": "Runtime Integrity & Canonical Completion Hotfix",
+      "type": "Service Worker / Teaching Media / Progress Tracking",
+      "request": "Finish the post-deployment acceptance audit by repairing service-worker installation integrity and enforcing one completion identity for exact-URL Teaching Media aliases without reducing section coverage.",
+      "changes": [
+        "Removed two stale v16.3.51 service-worker precache entries; the missing TXT entry had been classified as essential and could abort a fresh service-worker install.",
+        "Bumped the service-worker cache identity to v16.3.57 and refreshed cache keys for modified Teaching Media and media-consumption scripts.",
+        "Added the NASA Systems Engineering Handbook appendix exact-URL pair to the canonical alias map.",
+        "Canonicalized media-consumption IDs centrally and kept backward-compatible lookup/removal of legacy alias IDs so existing watched/read/reviewed checkmarks are preserved.",
+        "Preserved the v16.3.56 result: 491 live sections, 1,020 contextual placements, zero orphan targets, and complete Required video + written coverage.",
+        "Reconciled current Teaching Media metadata from the stale 489-section wording to the verified 491-section runtime."
+      ],
+      "filesModified": [
+        "service-worker.js",
+        "teaching-media-resource-integration.js",
+        "media-consumption.js",
+        "learn.html",
+        "study.html",
+        "resources.html",
+        "build-info.json",
+        "release-notes-current.js",
+        "SHA256SUMS.txt"
+      ]
+    },
+    {
       "version": "v16.3.56",
       "date": "September 23, 2026",
       "title": "Runtime Placement Verification Hotfix",

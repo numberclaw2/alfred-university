@@ -1,10 +1,10 @@
 {
   "courseRelease": "16.3",
-  "runtimePatch": "16.3.56",
+  "runtimePatch": "16.3.57",
   "evidenceRevision": "16.2",
   "cloudSyncProtocol": 2,
-  "build": "v16.3.56-runtime-placement-verification-hotfix-20260923",
-  "releaseStatus": "runtime-placement-verification-hotfix",
+  "build": "v16.3.57-runtime-integrity-hotfix-20260923",
+  "releaseStatus": "runtime-integrity-hotfix",
   "presentationPatch": "mobile-visual-readability-final",
   "scheduleRevision": "2026-09-20-current-classroom-stage-and-workload-sync",
   "modulePresentationRevision": "2026-09-18-week1-from-zero-visual-teaching",
@@ -16,7 +16,7 @@
   "week1InstructionRevision": "2026-09-19-beginner-first-safety-scaffolding",
   "week1TeachingMediaRevision": "2026-09-18-beginner-teacher-youtube-layer",
   "teachingMediaBaseRevision": "2026-09-18-final-pots-31-week-standalone-accepted",
-  "releaseNotesRevision": "2026-09-23-v16.3.56-runtime-placement-hotfix",
+  "releaseNotesRevision": "2026-09-23-v16.3.57-runtime-integrity-hotfix",
   "repositoryLedgerBaseline": "2026-09-18-v16.3.9-63-commits",
   "studyRevision": "2026-09-21-parking-lot-cloud-sync-tombstones",
   "practiceRevision": "2026-09-22-guided-practice-paginated-direct-navigation",
@@ -69,7 +69,7 @@
   "teachingMediaUniqueSourceCount": 321,
   "teachingMediaInlinePlacementCount": 1020,
   "teachingMediaOrphanCount": 0,
-  "teachingMediaCanonicalSourceCount": 285,
+  "teachingMediaCanonicalSourceCount": 316,
   "teachingMediaRenderedCardCount": 27,
   "teachingMediaCrossWeekCanonicalCount": 57,
   "teachingMediaCrossWeekBacklinkCount": 198,
@@ -81,7 +81,7 @@
   "teachingMediaFinalAcceptanceVerdict": "PASS",
   "teachingMediaVideoCanonicalResourceCount": 117,
   "teachingMediaNonVideoCanonicalResourceCount": 131,
-  "teachingMediaCanonicalDuplicateGroupCount": 4,
+  "teachingMediaCanonicalDuplicateGroupCount": 5,
   "teachingMediaRemovedOrMovedCount": 344,
   "teachingMediaSourceLevelMobileDefectCount": 0,
   "teachingMediaSourceLevelAccessibilityBlockerCount": 0,
@@ -136,7 +136,7 @@
     "Technician Reference",
     "Career/Occupation"
   ],
-  "teachingMediaWorkloadCalibrationVerdict": "v16.3.55 policy: complete video + written-literature coverage for all 489 substantive teaching sections; canonical resources complete once; same-medium duplication avoided; additional explanations remain in Study.",
+  "teachingMediaWorkloadCalibrationVerdict": "v16.3.57 verified policy: complete dual-channel coverage for all 491 live substantive teaching sections; exact-URL aliases share one canonical completion identity; additional explanations remain in Study.",
   "teachingMediaSourceHotfixRevision": "2026-09-22-microsoft-windows-configuration-docs-current",
   "directSectionNavigationRevision": "2026-09-22-lesson-and-guided-practice-page-navigation",
   "lessonSectionNavigationModes": [
@@ -175,5 +175,8 @@
     "Teaching Media Required Path",
     "Study Media"
   ],
-  "contentPlacementBlueprintRevision": "2026-09-23-31-week-491-live-section-verified"
+  "contentPlacementBlueprintRevision": "2026-09-23-31-week-491-live-section-verified",
+  "serviceWorkerRevision": "2026-09-23-v16.3.57-install-integrity-repair",
+  "serviceWorkerInstallIntegrityVerdict": "PASS",
+  "mediaConsumptionRevision": "2026-09-23-v16.3.57-canonical-source-identity-with-legacy-alias-compatibility"
 }

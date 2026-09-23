@@ -12,16 +12,29 @@
     const raw=p.weeks?.[week]??p.weeks?.[String(week)];
     return typeof raw==='string'?{mastery:raw,assessments:{},labs:{},learning:{}}:{...(raw||{}),assessments:raw?.assessments||{},labs:raw?.labs||{},learning:raw?.learning||{}};
   }
+  function aliasMap(){return window.ALFRED_CURRICULUM?.teachingResourceIntegration?.canonicalAliases||{};}
+  function canonicalSource(source){
+    const aliases=aliasMap(),seen=new Set();let current=String(source||'unknown');
+    while(aliases[current]&&!seen.has(current)){seen.add(current);current=String(aliases[current]);}
+    return current;
+  }
+  function equivalentMediaIds(id){
+    const m=String(id||'').match(/^media:(\d+):(.+)$/);if(!m)return [String(id||'')];
+    const week=Number(m[1])||0,canonical=canonicalSource(m[2]),ids=[`media:${week}:${canonical}`];
+    Object.keys(aliasMap()).forEach(alias=>{if(canonicalSource(alias)===canonical)ids.push(`media:${week}:${alias}`);});
+    return [...new Set(ids)];
+  }
   function state(week,id){
-    const p=load(),w=weekRecord(p,week),row=w.learning?.mediaConsumption?.[id];
-    return row&&row.done===true?row:null;
+    const p=load(),w=weekRecord(p,week),rows=w.learning?.mediaConsumption||{};
+    for(const candidate of equivalentMediaIds(id)){const row=rows[candidate];if(row&&row.done===true)return row;}
+    return null;
   }
   function label(kind,done=false){
     const k=String(kind||'reference').toLowerCase();
     const pair=k==='video'?['Mark watched','Watched']:k==='reading'||k==='study-guide'||k==='literature'?['Mark read','Read']:k==='interactive'?['Mark used','Used']:['Mark reviewed','Reviewed'];
     return pair[done?1:0];
   }
-  function mediaId(assignmentWeek,source){return `media:${Number(assignmentWeek)||0}:${String(source||'unknown')}`;}
+  function mediaId(assignmentWeek,source){return `media:${Number(assignmentWeek)||0}:${canonicalSource(source)}`;}
   function guideId(recordId){return `guide:${String(recordId||'unknown')}`;}
   function controlHTML({week,id,kind='reference',compact=false}={}){
     const done=!!state(week,id),text=label(kind,done);
@@ -46,7 +59,8 @@
     const p=load();p.weeks=p.weeks||{};p.recordTimes=p.recordTimes||{};
     const w=weekRecord(p,week),learning={...(w.learning||{})},rows={...(learning.mediaConsumption||{})};
     const now=Date.now(),iso=new Date(now).toISOString();
-    if(done)rows[id]={done:true,kind:String(kind||'reference'),updatedAt:iso}; else delete rows[id];
+    equivalentMediaIds(id).forEach(candidate=>delete rows[candidate]);
+    if(done)rows[id]={done:true,kind:String(kind||'reference'),updatedAt:iso};
     learning.mediaConsumption=rows;learning.updatedAt=iso;w.learning=learning;p.weeks[week]=w;p.recordTimes[`week:${week}`]=now;p.updatedAt=iso;
     try{localStorage.setItem(PROGRESS_KEY,JSON.stringify(p));}catch{return false;}
     pushWeek(week,w,now);
