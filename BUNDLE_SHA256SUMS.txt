@@ -1,0 +1,4 @@
+0ae49956741342a91911eff620fc47ed8ad8078f2e6e0cb916999c66b50f30e7  AU-ESET-301-v16.3.56-Post-Deployment-Runtime-Placement-Verification.md
+a215bc02531049b0ed592d55a66769e08c9235decd0204ae9e725dfedb0a38ad  README_APPLY_v16.3.56.md
+de22e51774968aed9e66ac4e6c18a59c989304586ad5d4ddde22f06838ad84b9  apply_v16_3_56_patch.py
+b3ea4646d978cb2dfb7796ecb8b5878f1adc518c5048822ba15b3a922ea5cc35  v16.3.56-runtime-placement-hotfix.js
