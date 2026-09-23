@@ -1,0 +1,2214 @@
+diff --git a/v16.3.56-runtime-placement-hotfix.js b/v16.3.56-runtime-placement-hotfix.js
+--- a/v16.3.56-runtime-placement-hotfix.js
++++ b/v16.3.56-runtime-placement-hotfix.js
+@@ -105,5 +105,2104 @@
+     C.meta.teachingMediaFinalAcceptanceVerdict='PASS';
+   }
+   A.revision='2026-09-23-v16.3.56-runtime-placement-hotfix';
+   A.placementCount=placements.length;
+ })();
++/* AU-ESET 301 v16.3.58 — Teaching Media Semantic Integrity Repair
++   Generated from the completed Weeks 1–31 adversarial section-level audit.
++   Loaded after v16.3.56 runtime placement hotfix.
++   Scope: resource/placement semantics only. Curriculum, lesson IDs, labs,
++   assessments, CETa mapping, progress identity, and Cloud Sync protocol 2 remain protected.
++*/
++(() => {
++  'use strict';
++  const C = window.ALFRED_CURRICULUM;
++  const R = C?.teachingResourceIntegration;
++  const A = C?.teachingMediaArchitecture;
++  const O = C?.outsideLiteratureIntegration;
++  if (!C?.modules?.length || !R?.placements || !A?.assignments || !O) return;
++
++  const REV = '2026-09-23-v16.3.58-semantic-media-integrity';
++  const placements = R.placements;
++  const assignments = A.assignments;
++
++  const newSources = {
++    cs50Python: {
++      title: "CS50's Introduction to Programming with Python",
++      org: "Harvard University CS50",
++      kind: "University OpenCourseWare video course",
++      medium: "video",
++      url: "https://cs50.harvard.edu/python/",
++      purpose: "Beginner-first Python functions, variables, types, conditionals, loops, exceptions, libraries, and file I/O."
++    },
++    tiBatteryChargerOverview: {
++      title: "Battery Charger Overview — Charger Fundamentals",
++      org: "Texas Instruments",
++      kind: "Manufacturer technical presentation",
++      medium: "literature",
++      url: "https://www.ti.com/lit/ml/slyp846/slyp846.pdf",
++      purpose: "Battery-charger fundamentals, system architecture, charging behavior, and protection context."
++    },
++    rsSpectrumBasicsArticle: {
++      title: "Understanding Basic Spectrum Analyzer Operation",
++      org: "Rohde & Schwarz",
++      kind: "Test-equipment manufacturer technical article",
++      medium: "literature",
++      url: "https://www.rohde-schwarz.com/sg/products/test-and-measurement/essentials-test-equipment/spectrum-analyzers/understanding-basic-spectrum-analyzer-operation_256005.html",
++      purpose: "Center/span, reference level, RBW, VBW, trace interpretation, and measurement-setting tradeoffs."
++    }
++  };
++  C.sources = C.sources || {};
++  Object.entries(newSources).forEach(([id,meta]) => {
++    C.sources[id] = { ...(C.sources[id]||{}), ...meta };
++  });
++  if (C.sources.umichEngineeringTechnicalInterview) {
++    C.sources.umichEngineeringTechnicalInterview.medium = 'literature';
++    C.sources.umichEngineeringTechnicalInterview.kind =
++      C.sources.umichEngineeringTechnicalInterview.kind || 'University technical-interview written resource';
++  }
++
++  const stats = () => {
++    const rows = Object.values(assignments);
++    const destinations = rows.reduce((m,a) => {
++      m[a.destination] = (m[a.destination]||0)+1; return m;
++    }, {});
++    return {
++      count: rows.length,
++      unique: new Set(rows.map(a=>a.source)).size,
++      classroom: destinations.classroom||0,
++      study: destinations.study||0,
++      library: destinations.library||0
++    };
++  };
++  const before = stats();
++
++  const assignmentEntry = (source, destination=null) =>
++    Object.entries(assignments).find(([,a]) =>
++      a?.source === source && (!destination || a.destination === destination));
++
++  const requiredMeta = source => ({
++    scope: C.sources?.[source]?.purpose || C.sources?.[source]?.title || source,
++    why: 'Required first-pass representation selected by the v16.3.58 semantic audit.',
++    focus: C.sources?.[source]?.purpose || C.sources?.[source]?.title || source,
++    after: 'Return to the mapped Alfred section and explain or apply the connection.',
++    completion: 'Complete this canonical source once; contextual reuses do not create a second obligation.'
++  });
++
++  function replaceAssignmentSource(oldSource, newSource, newWeek, medium, track='ceta') {
++    const hit = assignmentEntry(oldSource, 'classroom');
++    if (!hit) throw new Error(`v16.3.58: classroom assignment not found for ${oldSource}`);
++    const [oldKey,old] = hit;
++    delete assignments[oldKey];
++    const key = `${Number(newWeek)}:${newSource}`;
++    if (assignments[key]) throw new Error(`v16.3.58: replacement assignment already exists: ${key}`);
++    assignments[key] = {
++      ...old,
++      key,
++      assignmentWeek:Number(newWeek),
++      source:newSource,
++      destination:'classroom',
++      requirement:'required',
++      studyWeek:Number(newWeek),
++      track,
++      medium,
++      requiredMeta:requiredMeta(newSource),
++      originalRequirement:'required',
++      originalRole:`Required · ${medium==='video'?'Video explanation':'Written companion'}`
++    };
++  }
++
++  function swapClassroomWithStudy(classroomSource, studySource, targetWeek=null) {
++    const aHit = assignmentEntry(classroomSource,'classroom');
++    const bHit = assignmentEntry(studySource,'study');
++    if (!aHit || !bHit) throw new Error(`v16.3.58: assignment swap failed: ${classroomSource} ↔ ${studySource}`);
++    const [aKey,a] = aHit, [bKey,b] = bHit;
++
++    a.destination='study';
++    a.requirement='supporting';
++    a.requiredMeta=null;
++    a.originalRequirement='supporting';
++    a.studyCategory=a.studyCategory||'Alternate Explanation';
++
++    if (targetWeek != null && Number(b.assignmentWeek)!==Number(targetWeek)) {
++      delete assignments[bKey];
++      b.assignmentWeek=Number(targetWeek);
++      b.studyWeek=Number(targetWeek);
++      b.key=`${Number(targetWeek)}:${studySource}`;
++      assignments[b.key]=b;
++    }
++    b.destination='classroom';
++    b.requirement='required';
++    b.requiredMeta=requiredMeta(studySource);
++    b.originalRequirement='required';
++  }
++
++  // Reuse three exact-URL duplicate assignment slots for true content gaps.
++  replaceAssignmentSource('aacPowerSupplies','cs50Python',17,'video','career');
++  replaceAssignmentSource('tekPulseDutyCycle','tiBatteryChargerOverview',9,'literature','ceta');
++  replaceAssignmentSource('fccRF','rsSpectrumBasicsArticle',20,'literature','career');
++
++  // Promote existing Study sources where the audit found a genuine first-pass gap,
++  // while demoting now-redundant Required assignments so workload counts stay stable.
++  swapClassroomWithStudy('aacAmpConfigs','aacTransistorBiasing',10);
++  swapClassroomWithStudy('litNasaSystemsAppendix','mitStrobeLabNotes',12);
++  swapClassroomWithStudy('tiPrecisionOpAmps','foaMediaLectureIndex',19);
++  swapClassroomWithStudy('saleaeAsyncSerial','pythonDocs',17);
++  swapClassroomWithStudy('keysightBenchPowerCourse','microsoftWindowsConfig',17);
++  swapClassroomWithStudy('aacCmosGateCircuitry','ciscoNetworkingBasics',17);
++
++  const affectedSources = new Set([
++    'aacPowerSupplies','cs50Python','tekPulseDutyCycle','tiBatteryChargerOverview',
++    'fccRF','rsSpectrumBasicsArticle','aacAmpConfigs','aacTransistorBiasing',
++    'litNasaSystemsAppendix','mitStrobeLabNotes','tiPrecisionOpAmps','foaMediaLectureIndex',
++    'saleaeAsyncSerial','pythonDocs','keysightBenchPowerCourse','microsoftWindowsConfig',
++    'aacCmosGateCircuitry','ciscoNetworkingBasics'
++  ]);
++
++  // Refresh centralized Teaching Media entries for changed assignments.
++  const templates = {};
++  C.modules.forEach(mod => (mod.integration?.media||[]).forEach(item => {
++    if (!templates[item.source]) templates[item.source]={...item};
++  }));
++  C.modules.forEach(mod => {
++    mod.integration = mod.integration || {};
++    mod.integration.media = (mod.integration.media||[]).filter(item=>!affectedSources.has(item.source));
++  });
++  Object.values(assignments).filter(a=>affectedSources.has(a.source)).forEach(a => {
++    const mod=C.modules.find(m=>Number(m.week)===Number(a.assignmentWeek));
++    if (!mod) return;
++    const src=C.sources?.[a.source]||{};
++    const medium=a.medium||src.medium||(/video/i.test(src.kind||'')?'video':'literature');
++    const role=a.destination==='classroom'
++      ? `Required · ${medium==='video'?'Video explanation':medium==='literature'?'Written companion':'Applied / authoritative resource'}`
++      : a.destination==='study'
++        ? 'Study · Additional support'
++        : 'Engineering Library · Professional Reference';
++    mod.integration.media.push({
++      ...(templates[a.source]||{}),
++      source:a.source,
++      role,
++      use:src.purpose||src.title||a.source,
++      watchFor:src.purpose||src.title||a.source,
++      gap:'Alfred remains the primary teacher; this source supplies a bounded parallel representation.'
++    });
++  });
++
++  const REPAIRS = [
++  {
++    "week": 1,
++    "segment": "concept-3",
++    "literature": [
++      "litSparkfunVcrOhm"
++    ]
++  },
++  {
++    "week": 1,
++    "segment": "concept-7",
++    "video": [
++      "aacTechnicalNotation"
++    ]
++  },
++  {
++    "week": 1,
++    "segment": "career-w01-current-limiting-is-a-protective-boundary-and-a-diagnostic-clue",
++    "video": [
++      "keysightBenchCvCc"
++    ],
++    "literature": [
++      "litSparkfunBenchPower"
++    ]
++  },
++  {
++    "week": 1,
++    "segment": "career-w01-pre-power-inspection-creates-the-first-known-good-state",
++    "video": [
++      "afrotechmodsMultimeter"
++    ],
++    "literature": [
++      "litSparkfunBenchPower"
++    ]
++  },
++  {
++    "week": 1,
++    "segment": "career-w01-you-do-write-a-bench-entry-checklist-you-can-reuse",
++    "literature": [
++      "litSparkfunBenchPower"
++    ]
++  },
++  {
++    "week": 2,
++    "segment": "concept-3",
++    "literature": [
++      "litSparkfunVoltageDividers"
++    ]
++  },
++  {
++    "week": 2,
++    "segment": "concept-4",
++    "video": [
++      "aacElectricalA"
++    ],
++    "literature": [
++      "litSparkfunVcrOhm"
++    ]
++  },
++  {
++    "week": 2,
++    "segment": "concept-8",
++    "literature": [
++      "neetsWaveGeneration",
++      "litSparkfunAcDc"
++    ]
++  },
++  {
++    "week": 3,
++    "segment": "concept-2",
++    "video": [
++      "keysightBenchCvCc"
++    ],
++    "literature": [
++      "litSparkfunBenchPower"
++    ]
++  },
++  {
++    "week": 3,
++    "segment": "concept-4",
++    "video": [
++      "afrotechmodsMultimeter"
++    ],
++    "literature": [
++      "flukeMultimeterGuide"
++    ]
++  },
++  {
++    "week": 3,
++    "segment": "concept-6",
++    "video": [
++      "saleaeDigitalSignals"
++    ],
++    "literature": [
++      "litSparkfunDigitalLogic"
++    ]
++  },
++  {
++    "week": 4,
++    "segment": "concept-4",
++    "video": [
++      "aacTechnicalNotation"
++    ],
++    "literature": [
++      "litSparkfunMetricPrefixes"
++    ]
++  },
++  {
++    "week": 4,
++    "segment": "concept-6",
++    "literature": [
++      "litAacAcTextbook"
++    ]
++  },
++  {
++    "week": 5,
++    "segment": "concept-1",
++    "video": [
++      "ucsdStudyVideos"
++    ],
++    "literature": [
++      "litCornellStudyStrategies"
++    ]
++  },
++  {
++    "week": 5,
++    "segment": "concept-2",
++    "video": [
++      "ucsdStudyVideos"
++    ],
++    "literature": [
++      "litCornellStudyStrategies"
++    ]
++  },
++  {
++    "week": 5,
++    "segment": "concept-3",
++    "video": [
++      "ucsdStudyVideos"
++    ],
++    "literature": [
++      "litCornellStudyStrategies"
++    ]
++  },
++  {
++    "week": 5,
++    "segment": "concept-4",
++    "video": [
++      "ucsdStudyVideos"
++    ],
++    "literature": [
++      "litCornellStudyStrategies"
++    ]
++  },
++  {
++    "week": 5,
++    "segment": "concept-5",
++    "video": [
++      "ucsdStudyVideos"
++    ],
++    "literature": [
++      "litCornellStudyStrategies"
++    ]
++  },
++  {
++    "week": 5,
++    "segment": "concept-6",
++    "video": [
++      "ucsdStudyVideos"
++    ],
++    "literature": [
++      "litCornellStudyStrategies"
++    ]
++  },
++  {
++    "week": 6,
++    "segment": "career-w06-real-components-and-instruments-load-the-network",
++    "video": [
++      "tekScopeWebinar"
++    ],
++    "literature": [
++      "aacMeterLoading"
++    ]
++  },
++  {
++    "week": 6,
++    "segment": "career-w06-use-error-shape-to-choose-the-next-test",
++    "video": [
++      "aacTroubleshootingStrategies"
++    ],
++    "literature": [
++      "litJplFailureAnalysis"
++    ]
++  },
++  {
++    "week": 6,
++    "segment": "career-w06-amplitude-and-phase-are-separate-evidence",
++    "literature": [
++      "aacSeriesRlc"
++    ]
++  },
++  {
++    "week": 6,
++    "segment": "career-w06-fault-signatures-can-be-predicted-before-sweeping",
++    "video": [
++      "aacTroubleshootingStrategies"
++    ],
++    "literature": [
++      "litJplFailureAnalysis"
++    ]
++  },
++  {
++    "week": 7,
++    "segment": "concept-1",
++    "video": [
++      "digiKeyDatasheet"
++    ],
++    "literature": [
++      "neetsSolidStateDevices"
++    ]
++  },
++  {
++    "week": 7,
++    "segment": "concept-3",
++    "literature": [
++      "aacSsrBasics"
++    ]
++  },
++  {
++    "week": 7,
++    "segment": "concept-5",
++    "literature": [
++      "litSparkfunCapacitors"
++    ]
++  },
++  {
++    "week": 7,
++    "segment": "concept-6",
++    "literature": [
++      "aacElectromagnetism"
++    ]
++  },
++  {
++    "week": 7,
++    "segment": "concept-7",
++    "video": [
++      "aacSemiconductorBasics"
++    ],
++    "literature": [
++      "neetsSolidStateDevices"
++    ]
++  },
++  {
++    "week": 7,
++    "segment": "concept-8",
++    "video": [
++      "aacSemiconductorBasics"
++    ],
++    "literature": [
++      "neetsSolidStateDevices"
++    ]
++  },
++  {
++    "week": 7,
++    "segment": "concept-9",
++    "literature": [
++      "aacSsrBasics",
++      "neetsSolidStateDevices"
++    ]
++  },
++  {
++    "week": 7,
++    "segment": "concept-10",
++    "literature": [
++      "neetsSolidStateDevices"
++    ]
++  },
++  {
++    "week": 8,
++    "segment": "concept-5",
++    "video": [
++      "aacSemiconductorBasics"
++    ],
++    "literature": [
++      "neetsSolidStateDevices"
++    ]
++  },
++  {
++    "week": 8,
++    "segment": "concept-6",
++    "video": [
++      "aacSemiconductorBasics"
++    ],
++    "literature": [
++      "neetsSolidStateDevices"
++    ]
++  },
++  {
++    "week": 9,
++    "segment": "concept-4",
++    "video": [
++      "usAgSafetyLotoVideo"
++    ],
++    "literature": [
++      "oshaElectricalStandardsTrainer"
++    ]
++  },
++  {
++    "week": 9,
++    "segment": "concept-5",
++    "literature": [
++      "tiBatteryChargerOverview"
++    ]
++  },
++  {
++    "week": 9,
++    "segment": "career-w09-current-limiting-converts-catastrophic-faults-into-observable-evidence",
++    "video": [
++      "keysightBenchCvCc"
++    ],
++    "literature": [
++      "litSparkfunBenchPower"
++    ]
++  },
++  {
++    "week": 9,
++    "segment": "career-w09-ripple-measurement-can-be-corrupted-by-the-probe-loop",
++    "video": [
++      "tekScopeWebinar"
++    ],
++    "literature": [
++      "litTekAbcProbes"
++    ]
++  },
++  {
++    "week": 9,
++    "segment": "career-w09-document-staged-bring-up",
++    "literature": [
++      "mitStrobeLabNotes"
++    ]
++  },
++  {
++    "week": 10,
++    "segment": "concept-3",
++    "video": [
++      "tiOpAmpOutputStage"
++    ]
++  },
++  {
++    "week": 10,
++    "segment": "concept-4",
++    "video": [
++      "aacAmplifierConfigs"
++    ],
++    "literature": [
++      "aacAudioElectronics"
++    ]
++  },
++  {
++    "week": 10,
++    "segment": "concept-5",
++    "video": [
++      "aacTransistorBiasing"
++    ],
++    "literature": [
++      "litSparkfunTransistors"
++    ]
++  },
++  {
++    "week": 10,
++    "segment": "concept-7",
++    "literature": [
++      "aacAudioElectronics"
++    ]
++  },
++  {
++    "week": 10,
++    "segment": "concept-8",
++    "video": [
++      "tiAudioAmpBasics"
++    ],
++    "literature": [
++      "aacAudioElectronics"
++    ]
++  },
++  {
++    "week": 10,
++    "segment": "concept-9",
++    "video": [
++      "aacTransistorBiasing"
++    ],
++    "literature": [
++      "litSparkfunTransistors"
++    ]
++  },
++  {
++    "week": 10,
++    "segment": "concept-10",
++    "video": [
++      "aacOpAmpBasicConfig"
++    ]
++  },
++  {
++    "week": 10,
++    "segment": "career-w10-begin-with-a-signal-budget",
++    "video": [
++      "tiAudioFundamentals"
++    ],
++    "literature": [
++      "aacAudioElectronics"
++    ]
++  },
++  {
++    "week": 10,
++    "segment": "career-w10-report-gain-across-frequency-and-load",
++    "literature": [
++      "aacAudioElectronics"
++    ]
++  },
++  {
++    "week": 10,
++    "segment": "career-w10-use-waveform-shape-to-classify-faults",
++    "literature": [
++      "litJplFailureAnalysis"
++    ]
++  },
++  {
++    "week": 10,
++    "segment": "career-w10-change-one-condition-to-separate-mechanisms",
++    "video": [
++      "aacTroubleshootingStrategies"
++    ],
++    "literature": [
++      "litJplFailureAnalysis"
++    ]
++  },
++  {
++    "week": 11,
++    "segment": "concept-7",
++    "video": [
++      "saleaeDigitalSignals"
++    ],
++    "literature": [
++      "litSparkfunDigitalLogic"
++    ]
++  },
++  {
++    "week": 11,
++    "segment": "concept-9",
++    "video": [
++      "aacCombinationalLogic"
++    ]
++  },
++  {
++    "week": 11,
++    "segment": "career-w11-a-logical-1-is-a-voltage-range-not-the-word-high",
++    "video": [
++      "saleaeDigitalSignals"
++    ]
++  },
++  {
++    "week": 11,
++    "segment": "career-w11-unconnected-inputs-do-not-have-a-reliable-state",
++    "video": [
++      "saleaeDigitalSignals"
++    ],
++    "literature": [
++      "aacLogicLevels"
++    ]
++  },
++  {
++    "week": 11,
++    "segment": "career-w11-digital-1-is-an-electrical-contract",
++    "video": [
++      "saleaeDigitalSignals"
++    ],
++    "literature": [
++      "aacLogicLevels"
++    ]
++  },
++  {
++    "week": 12,
++    "segment": "concept-1",
++    "video": [
++      "digiKeyEsdBasicsVideo"
++    ]
++  },
++  {
++    "week": 12,
++    "segment": "concept-2",
++    "literature": [
++      "neetsSolderingWiring"
++    ]
++  },
++  {
++    "week": 12,
++    "segment": "concept-3",
++    "video": [
++      "digiKeyBrokenTrace"
++    ],
++    "literature": [
++      "nasaCrewElectronicsRepair"
++    ]
++  },
++  {
++    "week": 12,
++    "segment": "concept-7",
++    "literature": [
++      "nasaCrewElectronicsRepair"
++    ]
++  },
++  {
++    "week": 12,
++    "segment": "concept-8",
++    "video": [
++      "digiKeySoldering"
++    ],
++    "literature": [
++      "neetsSolderingWiring"
++    ]
++  },
++  {
++    "week": 12,
++    "segment": "concept-9",
++    "literature": [
++      "paceThermoBondCitKit"
++    ]
++  },
++  {
++    "week": 12,
++    "segment": "concept-10",
++    "video": [
++      "digiKeyEsdBasicsVideo"
++    ]
++  },
++  {
++    "week": 12,
++    "segment": "career-w12-a-physical-change-needs-a-before-after-record",
++    "literature": [
++      "mitStrobeLabNotes"
++    ]
++  },
++  {
++    "week": 12,
++    "segment": "career-w12-lab-notes-preserve-the-conditions-that-git-cannot",
++    "literature": [
++      "mitStrobeLabNotes"
++    ]
++  },
++  {
++    "week": 12,
++    "segment": "career-w12-a-test-report-turns-evidence-into-a-decision",
++    "video": [
++      "mitVerification"
++    ],
++    "literature": [
++      "litMitEecsResults"
++    ]
++  },
++  {
++    "week": 12,
++    "segment": "career-w12-technical-handoff-separates-facts-hypotheses-and-the-question",
++    "video": [
++      "mitIndustryJobTalk"
++    ],
++    "literature": [
++      "litMitEecsResults"
++    ]
++  },
++  {
++    "week": 12,
++    "segment": "career-w12-career-integration-solder-rework-workmanship-and-harness-evidence",
++    "video": [
++      "digiKeySoldering"
++    ]
++  },
++  {
++    "week": 12,
++    "segment": "career-w12-i-do-create-a-known-good-baseline-before-a-rework",
++    "video": [
++      "digiKeySoldering"
++    ],
++    "literature": [
++      "mitStrobeLabNotes"
++    ]
++  },
++  {
++    "week": 13,
++    "segment": "concept-1",
++    "literature": [
++      "neetsSolderingWiring"
++    ]
++  },
++  {
++    "week": 13,
++    "segment": "concept-4",
++    "literature": [
++      "neetsSolderingWiring"
++    ]
++  },
++  {
++    "week": 13,
++    "segment": "concept-9",
++    "video": [
++      "nscTroubleshooting"
++    ],
++    "literature": [
++      "litJplFailureAnalysis"
++    ]
++  },
++  {
++    "week": 13,
++    "segment": "career-w13-root-cause-requires-a-causal-chain",
++    "literature": [
++      "litJplFailureAnalysis"
++    ]
++  },
++  {
++    "week": 13,
++    "segment": "career-w13-report-the-diagnosis-now-formal-fault-injection-comes-later",
++    "literature": [
++      "litMitEecsResults"
++    ]
++  },
++  {
++    "week": 14,
++    "segment": "concept-3",
++    "video": [
++      "cs50Week1C2026"
++    ],
++    "literature": [
++      "beejC"
++    ]
++  },
++  {
++    "week": 14,
++    "segment": "concept-8",
++    "video": [
++      "cs50Week1C2026"
++    ],
++    "literature": [
++      "beejC"
++    ]
++  },
++  {
++    "week": 14,
++    "segment": "concept-9",
++    "video": [
++      "automationDirectPlcScan"
++    ],
++    "literature": [
++      "plcopen61131Languages"
++    ]
++  },
++  {
++    "week": 14,
++    "segment": "career-w14-bit-positions-turn-one-integer-into-named-yes-no-fields",
++    "video": [
++      "armEmbedded"
++    ]
++  },
++  {
++    "week": 14,
++    "segment": "career-w14-i-do-we-do-you-do-inspect-set-clear-toggle-and-shift-a-bit",
++    "video": [
++      "armEmbedded"
++    ]
++  },
++  {
++    "week": 15,
++    "segment": "concept-1",
++    "literature": [
++      "beejC"
++    ]
++  },
++  {
++    "week": 15,
++    "segment": "concept-2",
++    "literature": [
++      "litArmCortexMBeginners"
++    ]
++  },
++  {
++    "week": 15,
++    "segment": "concept-4",
++    "literature": [
++      "litArmCortexMBeginners"
++    ]
++  },
++  {
++    "week": 15,
++    "segment": "concept-5",
++    "literature": [
++      "litArmCortexMBeginners"
++    ]
++  },
++  {
++    "week": 15,
++    "segment": "concept-6",
++    "literature": [
++      "beejC"
++    ]
++  },
++  {
++    "week": 15,
++    "segment": "career-w15-map-c-onto-a-microcontroller-before-adding-concurrency",
++    "literature": [
++      "litArmCortexMBeginners"
++    ]
++  },
++  {
++    "week": 15,
++    "segment": "career-w15-register-operations-are-controlled-bit-changes",
++    "literature": [
++      "beejC"
++    ]
++  },
++  {
++    "week": 15,
++    "segment": "career-w15-volatile-solves-one-compiler-visibility-problem-not-concurrency",
++    "literature": [
++      "litArmCortexMBeginners"
++    ]
++  },
++  {
++    "week": 15,
++    "segment": "career-w15-career-integration-embedded-c-mcu-architecture-and-nonblocking-design",
++    "video": [
++      "armEmbedded"
++    ]
++  },
++  {
++    "week": 16,
++    "segment": "concept-2",
++    "video": [
++      "stCubeIdeBasics"
++    ],
++    "literature": [
++      "litArmCortexMBeginners"
++    ]
++  },
++  {
++    "week": 16,
++    "segment": "concept-4",
++    "literature": [
++      "litArmCortexMBeginners"
++    ]
++  },
++  {
++    "week": 16,
++    "segment": "concept-5",
++    "literature": [
++      "litArmCortexMBeginners"
++    ]
++  },
++  {
++    "week": 16,
++    "segment": "concept-6",
++    "video": [
++      "stCubeIdeBasics"
++    ],
++    "literature": [
++      "litArmCortexMBeginners"
++    ]
++  },
++  {
++    "week": 16,
++    "segment": "career-w16-a-project-contains-source-configuration-and-a-build-recipe",
++    "literature": [
++      "litArmCortexMBeginners"
++    ]
++  },
++  {
++    "week": 16,
++    "segment": "career-w16-generated-configuration-is-still-your-responsibility",
++    "literature": [
++      "litArmCortexMBeginners"
++    ]
++  },
++  {
++    "week": 16,
++    "segment": "career-w16-after-the-gpio-baseline-add-one-timer-proof",
++    "video": [
++      "armEmbedded"
++    ],
++    "literature": [
++      "microchipNonblockingTick"
++    ]
++  },
++  {
++    "week": 16,
++    "segment": "career-w16-then-prove-one-adc-conversion-with-a-known-input",
++    "video": [
++      "tiADC"
++    ],
++    "literature": [
++      "litAdiAdcStudent"
++    ]
++  },
++  {
++    "week": 17,
++    "segment": "concept-1",
++    "literature": [
++      "saleaeLearnAsync",
++      "litSparkfunUart"
++    ]
++  },
++  {
++    "week": 17,
++    "segment": "concept-4",
++    "video": [
++      "aacComputerHardware"
++    ],
++    "literature": [
++      "microsoftWindowsConfig"
++    ]
++  },
++  {
++    "week": 17,
++    "segment": "concept-5",
++    "video": [
++      "aacComputerHardware"
++    ],
++    "literature": [
++      "microsoftWindowsConfig"
++    ]
++  },
++  {
++    "week": 17,
++    "segment": "concept-6",
++    "video": [
++      "aacComputerHardware"
++    ],
++    "literature": [
++      "ciscoNetworkingBasics"
++    ]
++  },
++  {
++    "week": 17,
++    "segment": "career-w17-run-the-smallest-python-program-first",
++    "video": [
++      "cs50Python"
++    ],
++    "literature": [
++      "pythonDocs"
++    ]
++  },
++  {
++    "week": 17,
++    "segment": "career-w17-variables-and-basic-types-hold-different-kinds-of-values",
++    "video": [
++      "cs50Python"
++    ],
++    "literature": [
++      "pythonDocs"
++    ]
++  },
++  {
++    "week": 17,
++    "segment": "career-w17-conditionals-choose-a-path",
++    "video": [
++      "cs50Python"
++    ],
++    "literature": [
++      "pythonDocs"
++    ]
++  },
++  {
++    "week": 17,
++    "segment": "career-w17-loops-repeat-controlled-work",
++    "video": [
++      "cs50Python"
++    ],
++    "literature": [
++      "pythonDocs"
++    ]
++  },
++  {
++    "week": 17,
++    "segment": "career-w17-functions-package-one-job-with-inputs-and-outputs",
++    "video": [
++      "cs50Python"
++    ],
++    "literature": [
++      "pythonDocs"
++    ]
++  },
++  {
++    "week": 17,
++    "segment": "career-w17-imports-add-library-capabilities",
++    "video": [
++      "cs50Python"
++    ],
++    "literature": [
++      "pythonDocs"
++    ]
++  },
++  {
++    "week": 17,
++    "segment": "career-w17-exceptions-make-failures-explicit",
++    "video": [
++      "cs50Python"
++    ],
++    "literature": [
++      "pythonDocs"
++    ]
++  },
++  {
++    "week": 17,
++    "segment": "career-w17-files-turn-results-into-reproducible-evidence",
++    "video": [
++      "cs50Python"
++    ],
++    "literature": [
++      "pythonDocs"
++    ]
++  },
++  {
++    "week": 17,
++    "segment": "career-w17-bytes-and-text-are-not-the-same-thing",
++    "video": [
++      "cs50Python"
++    ],
++    "literature": [
++      "pythonDocs"
++    ]
++  },
++  {
++    "week": 17,
++    "segment": "career-w17-define-the-serial-contract-before-writing-the-client",
++    "literature": [
++      "litSparkfunUart"
++    ]
++  },
++  {
++    "week": 17,
++    "segment": "career-w17-parse-and-validate-only-after-a-complete-message-exists",
++    "literature": [
++      "pyserial"
++    ]
++  },
++  {
++    "week": 17,
++    "segment": "career-w17-i-do-we-do-you-do-build-the-first-python-evidence-logger",
++    "video": [
++      "cs50Python"
++    ],
++    "literature": [
++      "pythonDocs"
++    ]
++  },
++  {
++    "week": 18,
++    "segment": "concept-4",
++    "literature": [
++      "litSparkfunDigitalLogic"
++    ]
++  },
++  {
++    "week": 18,
++    "segment": "career-w18-reconnect-uart-without-reteaching-it",
++    "video": [
++      "saleaeStm32Uart"
++    ],
++    "literature": [
++      "litSparkfunUart"
++    ]
++  },
++  {
++    "week": 19,
++    "segment": "concept-1",
++    "video": [
++      "foaSplicesConnectors"
++    ],
++    "literature": [
++      "foaPremisesGuide"
++    ]
++  },
++  {
++    "week": 19,
++    "segment": "concept-3",
++    "video": [
++      "foaTestingOverview"
++    ],
++    "literature": [
++      "litFoaFiberBasics"
++    ]
++  },
++  {
++    "week": 19,
++    "segment": "concept-4",
++    "video": [
++      "foaSplicesConnectors"
++    ],
++    "literature": [
++      "foaPremisesGuide"
++    ]
++  },
++  {
++    "week": 19,
++    "segment": "concept-5",
++    "video": [
++      "foaTestingOverview"
++    ],
++    "literature": [
++      "foaPremisesGuide",
++      "litFoaFiberBasics"
++    ]
++  },
++  {
++    "week": 19,
++    "segment": "concept-6",
++    "literature": [
++      "nasaHarness"
++    ]
++  },
++  {
++    "week": 19,
++    "segment": "concept-7",
++    "literature": [
++      "foaPremisesGuide"
++    ]
++  },
++  {
++    "week": 19,
++    "segment": "concept-9",
++    "video": [
++      "tiAudioAmpBasics"
++    ]
++  },
++  {
++    "week": 19,
++    "segment": "concept-10",
++    "literature": [
++      "aacOptoelectronicsIntro"
++    ]
++  },
++  {
++    "week": 19,
++    "segment": "concept-11",
++    "video": [
++      "digiKeyOptoDisplays"
++    ]
++  },
++  {
++    "week": 19,
++    "segment": "concept-12",
++    "video": [
++      "foaTestingOverview"
++    ]
++  },
++  {
++    "week": 19,
++    "segment": "concept-13",
++    "video": [
++      "foaSplicesConnectors"
++    ]
++  },
++  {
++    "week": 19,
++    "segment": "concept-14",
++    "video": [
++      "foaSplicesConnectors"
++    ],
++    "literature": [
++      "foaPremisesGuide"
++    ]
++  },
++  {
++    "week": 19,
++    "segment": "concept-15",
++    "video": [
++      "digiKeyOptoDisplays"
++    ],
++    "literature": [
++      "aacOptoelectronicsIntro"
++    ]
++  },
++  {
++    "week": 20,
++    "segment": "concept-1",
++    "literature": [
++      "aacTransmissionLine"
++    ]
++  },
++  {
++    "week": 20,
++    "segment": "concept-2",
++    "video": [
++      "nptelComms"
++    ]
++  },
++  {
++    "week": 20,
++    "segment": "concept-3",
++    "video": [
++      "nptelComms"
++    ],
++    "literature": [
++      "qualcommCellularBasics"
++    ]
++  },
++  {
++    "week": 20,
++    "segment": "concept-4",
++    "literature": [
++      "aacTransmissionLine"
++    ]
++  },
++  {
++    "week": 20,
++    "segment": "concept-5",
++    "video": [
++      "nptelComms"
++    ]
++  },
++  {
++    "week": 20,
++    "segment": "concept-6",
++    "video": [
++      "nptelComms"
++    ]
++  },
++  {
++    "week": 20,
++    "segment": "concept-7",
++    "video": [
++      "rsSpectrumBasics"
++    ]
++  },
++  {
++    "week": 20,
++    "segment": "concept-8",
++    "video": [
++      "nptelComms"
++    ]
++  },
++  {
++    "week": 20,
++    "segment": "concept-10",
++    "literature": [
++      "litAacRfModulation"
++    ]
++  },
++  {
++    "week": 20,
++    "segment": "concept-11",
++    "literature": [
++      "aacTransmissionLine"
++    ]
++  },
++  {
++    "week": 20,
++    "segment": "concept-13",
++    "video": [
++      "nptelComms"
++    ],
++    "literature": [
++      "qualcommCellularBasics"
++    ]
++  },
++  {
++    "week": 20,
++    "segment": "career-w20-a-spectrum-analyzer-shows-signal-energy-versus-frequency",
++    "literature": [
++      "rsSpectrumBasicsArticle"
++    ]
++  },
++  {
++    "week": 20,
++    "segment": "career-w20-write-the-measurement-procedure-before-collecting-the-trace",
++    "literature": [
++      "rsSpectrumBasicsArticle"
++    ]
++  },
++  {
++    "week": 20,
++    "segment": "career-w20-classify-spectral-features-before-explaining-their-cause",
++    "literature": [
++      "rsSpectrumBasicsArticle"
++    ]
++  },
++  {
++    "week": 20,
++    "segment": "career-w20-observation-interpretation-and-escalation-are-different-statements",
++    "literature": [
++      "rsSpectrumBasicsArticle"
++    ]
++  },
++  {
++    "week": 20,
++    "segment": "career-w20-professional-procedure-preserves-continuity-across-people",
++    "literature": [
++      "rsSpectrumBasicsArticle"
++    ]
++  },
++  {
++    "week": 20,
++    "segment": "career-w20-i-do-you-do-reproduce-one-spectral-measurement",
++    "literature": [
++      "rsSpectrumBasicsArticle"
++    ]
++  },
++  {
++    "week": 21,
++    "segment": "career-w21-fast-documentation-is-still-structured",
++    "video": [
++      "mitIndustryJobTalk"
++    ],
++    "literature": [
++      "mitStrobeLabNotes"
++    ]
++  },
++  {
++    "week": 21,
++    "segment": "career-w21-technician-speed-comes-from-choosing-the-next-useful-action",
++    "video": [
++      "nscTroubleshooting"
++    ],
++    "literature": [
++      "litJplFailureAnalysis"
++    ]
++  },
++  {
++    "week": 21,
++    "segment": "career-w21-use-bounded-decision-trees-rather-than-giant-checklists",
++    "video": [
++      "nscTroubleshooting"
++    ],
++    "literature": [
++      "litJplFailureAnalysis"
++    ]
++  },
++  {
++    "week": 21,
++    "segment": "career-w21-communicate-the-decision-boundary",
++    "video": [
++      "mitIndustryJobTalk"
++    ],
++    "literature": [
++      "litMitEecsResults"
++    ]
++  },
++  {
++    "week": 22,
++    "segment": "concept-1",
++    "literature": [
++      "nasaSystems"
++    ]
++  },
++  {
++    "week": 22,
++    "segment": "concept-3",
++    "literature": [
++      "nasaSystems"
++    ]
++  },
++  {
++    "week": 22,
++    "segment": "concept-4",
++    "literature": [
++      "nasaSystems"
++    ]
++  },
++  {
++    "week": 22,
++    "segment": "concept-6",
++    "literature": [
++      "nasaSystems"
++    ]
++  },
++  {
++    "week": 22,
++    "segment": "career-w22-career-integration-git-command-line-lab-notes-reports-and-technical-handoff",
++    "video": [
++      "mitGit2026"
++    ],
++    "literature": [
++      "mitStrobeLabNotes"
++    ]
++  },
++  {
++    "week": 23,
++    "segment": "concept-1",
++    "video": [
++      "mitVerification"
++    ],
++    "literature": [
++      "etaCompetencies"
++    ]
++  },
++  {
++    "week": 23,
++    "segment": "concept-3",
++    "video": [
++      "mitVerification"
++    ],
++    "literature": [
++      "etaCompetencies"
++    ]
++  },
++  {
++    "week": 23,
++    "segment": "concept-4",
++    "video": [
++      "mitVerification"
++    ],
++    "literature": [
++      "etaCompetencies"
++    ]
++  },
++  {
++    "week": 23,
++    "segment": "concept-6",
++    "video": [
++      "mitVerification"
++    ],
++    "literature": [
++      "etaExam"
++    ]
++  },
++  {
++    "week": 23,
++    "segment": "concept-7",
++    "video": [
++      "mitVerification"
++    ],
++    "literature": [
++      "etaCompetencies"
++    ]
++  },
++  {
++    "week": 23,
++    "segment": "career-w23-a-repository-is-the-projects-reconstructable-memory",
++    "video": [
++      "mitGit2026"
++    ]
++  },
++  {
++    "week": 23,
++    "segment": "career-w23-a-bill-of-materials-must-resolve-ambiguity",
++    "video": [
++      "digiKeyDatasheet"
++    ]
++  },
++  {
++    "week": 23,
++    "segment": "career-w23-bom-and-compatibility-checks-prevent-avoidable-failures",
++    "video": [
++      "digiKeyDatasheet"
++    ]
++  },
++  {
++    "week": 23,
++    "segment": "career-w23-recovery-paths-are-part-of-readiness",
++    "video": [
++      "mitGit2026"
++    ]
++  },
++  {
++    "week": 23,
++    "segment": "career-w23-a-controlled-baseline-isolates-future-change",
++    "video": [
++      "mitGit2026"
++    ],
++    "literature": [
++      "nasaConfigManagement"
++    ]
++  },
++  {
++    "week": 23,
++    "segment": "career-w23-baseline-acceptance-criteria-make-ready-testable",
++    "video": [
++      "mitVerification"
++    ]
++  },
++  {
++    "week": 24,
++    "segment": "concept-1",
++    "literature": [
++      "litSparkfunBenchPower"
++    ]
++  },
++  {
++    "week": 24,
++    "segment": "concept-2",
++    "literature": [
++      "litAacPowerSuppliesTextbook"
++    ]
++  },
++  {
++    "week": 24,
++    "segment": "concept-4",
++    "literature": [
++      "litAacPowerSuppliesTextbook"
++    ]
++  },
++  {
++    "week": 24,
++    "segment": "concept-6",
++    "literature": [
++      "flukeMultimeterGuide"
++    ]
++  },
++  {
++    "week": 24,
++    "segment": "concept-7",
++    "video": [
++      "tiBoardTroubleshooting"
++    ],
++    "literature": [
++      "litJplFailureAnalysis"
++    ]
++  },
++  {
++    "week": 24,
++    "segment": "career-w24-bring-up-dependencies-in-order",
++    "literature": [
++      "litAacPowerSuppliesTextbook"
++    ]
++  },
++  {
++    "week": 24,
++    "segment": "career-w24-a-baseline-includes-recovery",
++    "literature": [
++      "nasaConfigManagement"
++    ]
++  },
++  {
++    "week": 24,
++    "segment": "career-w24-first-power-is-a-controlled-experiment",
++    "literature": [
++      "litSparkfunBenchPower"
++    ]
++  },
++  {
++    "week": 25,
++    "segment": "concept-1",
++    "video": [
++      "tiLogicTranslation"
++    ]
++  },
++  {
++    "week": 25,
++    "segment": "concept-2",
++    "video": [
++      "tiADC"
++    ]
++  },
++  {
++    "week": 25,
++    "segment": "concept-5",
++    "video": [
++      "mitVerification"
++    ],
++    "literature": [
++      "nasaSensorRangeCheck"
++    ]
++  },
++  {
++    "week": 25,
++    "segment": "career-w25-build-a-thin-end-to-end-slice-first",
++    "video": [
++      "saleaeStm32I2c"
++    ],
++    "literature": [
++      "stHalI2cUseCases"
++    ]
++  },
++  {
++    "week": 25,
++    "segment": "career-w25-define-the-slices-checkpoints",
++    "video": [
++      "mitVerification"
++    ],
++    "literature": [
++      "stHalI2cUseCases"
++    ]
++  },
++  {
++    "week": 25,
++    "segment": "career-w25-fault-injection-makes-the-slice-diagnostic",
++    "video": [
++      "niFaultInjection"
++    ],
++    "literature": [
++      "litJplFailureAnalysis"
++    ]
++  },
++  {
++    "week": 26,
++    "segment": "concept-1",
++    "video": [
++      "armEmbedded"
++    ],
++    "literature": [
++      "litArmCortexMBeginners"
++    ]
++  },
++  {
++    "week": 26,
++    "segment": "concept-2",
++    "literature": [
++      "litArmCortexMBeginners"
++    ]
++  },
++  {
++    "week": 26,
++    "segment": "concept-3",
++    "video": [
++      "armEmbedded"
++    ],
++    "literature": [
++      "litArmCortexMBeginners"
++    ]
++  },
++  {
++    "week": 26,
++    "segment": "concept-4",
++    "video": [
++      "armEmbedded"
++    ],
++    "literature": [
++      "litArmCortexMBeginners"
++    ]
++  },
++  {
++    "week": 26,
++    "segment": "concept-6",
++    "literature": [
++      "microchipDesignPatterns"
++    ]
++  },
++  {
++    "week": 26,
++    "segment": "career-w26-architecture-follows-responsibilities-and-test-seams",
++    "video": [
++      "armEmbedded"
++    ],
++    "literature": [
++      "microchipDesignPatterns"
++    ]
++  },
++  {
++    "week": 26,
++    "segment": "career-w26-separate-hardware-access-from-application-decisions",
++    "video": [
++      "armEmbedded"
++    ],
++    "literature": [
++      "microchipAsyncDrivers"
++    ]
++  },
++  {
++    "week": 26,
++    "segment": "career-w26-make-errors-explicit-and-recoverable",
++    "literature": [
++      "litMemfaultHardfault"
++    ]
++  },
++  {
++    "week": 26,
++    "segment": "career-w26-diagnostics-should-expose-state-without-becoming-the-design",
++    "video": [
++      "armDebuggingAdventures"
++    ],
++    "literature": [
++      "litMemfaultDebugInterfaces"
++    ]
++  },
++  {
++    "week": 27,
++    "segment": "concept-1",
++    "video": [
++      "aacComputerHardware"
++    ],
++    "literature": [
++      "microsoftWindowsConfig"
++    ]
++  },
++  {
++    "week": 27,
++    "segment": "concept-2",
++    "video": [
++      "cs50Python"
++    ],
++    "literature": [
++      "pythonDocs"
++    ]
++  },
++  {
++    "week": 27,
++    "segment": "concept-5",
++    "literature": [
++      "litMitEecsResults"
++    ]
++  },
++  {
++    "week": 27,
++    "segment": "concept-6",
++    "video": [
++      "cs50Python"
++    ],
++    "literature": [
++      "pythonDocs"
++    ]
++  },
++  {
++    "week": 27,
++    "segment": "career-w27-configuration-should-have-one-source-of-truth",
++    "video": [
++      "mitGit2026"
++    ],
++    "literature": [
++      "nasaConfigManagement"
++    ]
++  },
++  {
++    "week": 28,
++    "segment": "concept-1",
++    "literature": [
++      "litJplFailureAnalysis"
++    ]
++  },
++  {
++    "week": 28,
++    "segment": "concept-2",
++    "video": [
++      "tekScopeWebinar"
++    ],
++    "literature": [
++      "litAacTestMeasurementTextbook"
++    ]
++  },
++  {
++    "week": 28,
++    "segment": "concept-3",
++    "video": [
++      "mitIndustryJobTalk"
++    ],
++    "literature": [
++      "mitStrobeLabNotes"
++    ]
++  },
++  {
++    "week": 28,
++    "segment": "concept-5",
++    "video": [
++      "digiKeyDatasheet"
++    ]
++  },
++  {
++    "week": 28,
++    "segment": "concept-8",
++    "video": [
++      "mitIndustryJobTalk"
++    ],
++    "literature": [
++      "mitStrobeLabNotes"
++    ]
++  },
++  {
++    "week": 29,
++    "segment": "career-w29-make-each-artifact-self-explanatory",
++    "literature": [
++      "gatechResumeGuide"
++    ]
++  },
++  {
++    "week": 29,
++    "segment": "career-w29-every-skill-claim-should-point-to-evidence",
++    "literature": [
++      "umichResumeBullets"
++    ]
++  },
++  {
++    "week": 29,
++    "segment": "career-w29-organize-for-a-hiring-manager-not-for-course-chronology",
++    "literature": [
++      "gatechResumeGuide"
++    ]
++  },
++  {
++    "week": 29,
++    "segment": "career-w29-an-evidence-hierarchy-makes-a-portfolio-claim-believable",
++    "literature": [
++      "umichResumeBullets"
++    ]
++  },
++  {
++    "week": 30,
++    "segment": "concept-3",
++    "video": [
++      "pennSearchWorkshop"
++    ]
++  },
++  {
++    "week": 30,
++    "segment": "career-w30-a-resume-bullet-is-a-compact-evidence-claim",
++    "video": [
++      "pennSearchWorkshop"
++    ],
++    "literature": [
++      "gatechResumeGuide",
++      "umichResumeBullets"
++    ]
++  },
++  {
++    "week": 30,
++    "segment": "career-w30-tell-the-transition-as-continuity-not-apology",
++    "video": [
++      "pennStarVideo"
++    ],
++    "literature": [
++      "gatechResumeGuide"
++    ]
++  },
++  {
++    "week": 30,
++    "segment": "career-w30-defend-the-project-at-30-seconds-2-minutes-and-depth",
++    "video": [
++      "mitIndustryJobTalk"
++    ],
++    "literature": [
++      "gatechResumeGuide"
++    ]
++  },
++  {
++    "week": 30,
++    "segment": "career-w30-career-integration-portfolio-proof-interviews-resumes-and-bridge-role-decisions",
++    "video": [
++      "pennSearchWorkshop"
++    ]
++  },
++  {
++    "week": 30,
++    "segment": "career-w30-target-roles-by-transferable-task-not-title-alone",
++    "video": [
++      "pennSearchWorkshop"
++    ]
++  },
++  {
++    "week": 31,
++    "segment": "concept-1",
++    "literature": [
++      "litCornellStudyStrategies"
++    ]
++  },
++  {
++    "week": 31,
++    "segment": "concept-2",
++    "literature": [
++      "litCornellStudyStrategies"
++    ]
++  },
++  {
++    "week": 31,
++    "segment": "concept-6",
++    "literature": [
++      "litCornellStudyStrategies"
++    ]
++  },
++  {
++    "week": 31,
++    "segment": "concept-7",
++    "literature": [
++      "litCornellStudyStrategies"
++    ]
++  },
++  {
++    "week": 31,
++    "segment": "career-w31-continue-building-toward-embedded-systems-through-work-plus-school",
++    "literature": [
++      "onetTech"
++    ]
++  }
++];
++
++  const assignmentWeekFor = (source,targetWeek) => {
++    const row = Object.values(assignments).find(a=>a.source===source && a.destination==='classroom')
++      || Object.values(assignments).find(a=>a.source===source);
++    return Number(row?.assignmentWeek || targetWeek);
++  };
++
++  function replaceChannel(week,segment,channel,sources) {
++    const rows=placements.filter(p =>
++      Number(p.targetWeek)===Number(week) &&
++      String(p.segment)===String(segment) &&
++      String(p.requirement||'').toLowerCase()==='required' &&
++      p.mediaType===channel
++    );
++    if (!rows.length) throw new Error(`v16.3.58: no ${channel} placement for W${week} ${segment}`);
++    if (rows.length !== sources.length) {
++      throw new Error(`v16.3.58: count mismatch W${week} ${segment} ${channel}: existing ${rows.length}, repair ${sources.length}`);
++    }
++    rows.forEach((p,i)=>{
++      const source=sources[i];
++      p.source=source;
++      p.assignmentWeek=assignmentWeekFor(source,week);
++      p.relationship='Reinforces this concept';
++      p.presentationRole=channel==='video'?'demonstration':'core';
++      p.display='primary';
++      p.inline=true;
++      p.requirement='required';
++      p.mediaType=channel;
++      p.afterAction=`After using this source, connect it back to the Alfred section and explain the relationship in your own words.`;
++      p.reason='v16.3.58 semantic-integrity repair: source selected for direct instructional fit to this section.';
++    });
++  }
++
++  // First remove references to assignment IDs intentionally retired by this repair.
++  placements.forEach(p=>{
++    if (p.source==='aacPowerSupplies') {
++      p.source='aacPowerSuppliesApplications';
++      p.assignmentWeek=assignmentWeekFor(p.source,p.targetWeek);
++    }
++    if (p.source==='aacAmpConfigs') {
++      p.source='aacAmplifierConfigs';
++      p.assignmentWeek=assignmentWeekFor(p.source,p.targetWeek);
++    }
++    if (p.source==='litNasaSystemsAppendix') {
++      p.source='nasaRequirementAppendix';
++      p.assignmentWeek=assignmentWeekFor(p.source,p.targetWeek);
++    }
++  });
++
++  REPAIRS.forEach(r=>{
++    if (r.video) replaceChannel(r.week,r.segment,'video',r.video);
++    if (r.literature) replaceChannel(r.week,r.segment,'literature',r.literature);
++  });
++
++  // Rebuild placement indexes after semantic substitutions.
++  R.byTargetWeek={}; R.bySource={}; R.byAssignment={};
++  placements.forEach(p=>{
++    (R.byTargetWeek[p.targetWeek] ||= []).push(p);
++    (R.bySource[p.source] ||= []).push(p);
++    (R.byAssignment[`${p.assignmentWeek}:${p.source}`] ||= []).push(p);
++  });
++  R.revision=REV;
++  R.retainedAssignmentCount=Object.keys(assignments).length;
++  R.uniqueSourceCount=new Set(Object.values(assignments).map(a=>a.source)).size;
++  R.canonicalSourceCount=new Set(Object.values(assignments).map(a =>
++    R.canonicalAliases?.[a.source] || a.source)).size;
++
++  // Rebuild contextual literature index so every repaired written placement renders.
++  O.sources=O.sources||{};
++  O.existingType=O.existingType||{};
++  O.bySource={}; O.byPlacement={}; O.literaturePlacements=[];
++  const litKey=p=>`${p.assignmentWeek}:${p.source}:${p.targetWeek}:${p.lesson}:${p.segment}`;
++  placements.filter(p=>p.mediaType==='literature').forEach(p=>{
++    const src=C.sources?.[p.source]||{};
++    const media=(C.modules.find(m=>Number(m.week)===Number(p.assignmentWeek))?.integration?.media||[])
++      .find(x=>x.source===p.source)||{};
++    O.sources[p.source]={
++      ...(O.sources[p.source]||{}),
++      title:src.title||p.source,
++      org:src.org||'',
++      kind:src.kind||'Written companion',
++      url:src.url||'',
++      literatureType:'Required Written Companion'
++    };
++    O.existingType[p.source]='Required Written Companion';
++    const row={
++      assignmentWeek:p.assignmentWeek,source:p.source,targetWeek:p.targetWeek,lesson:p.lesson,segment:p.segment,
++      relationship:p.relationship,presentationRole:p.presentationRole,display:p.display,inline:p.inline!==false,
++      requirement:'required',mediaType:'literature',
++      readUse:media.watchFor||src.purpose||src.title||p.source,
++      focus:media.use||src.purpose||src.title||p.source,
++      afterReading:p.afterAction,
++      why:src.purpose||'Written first-pass companion selected for this lesson section.',
++      gap:'Alfred supplies the primary instruction and course-specific practice.',
++      literatureType:'Required Written Companion',
++      meta:O.sources[p.source]
++    };
++    O.literaturePlacements.push(row);
++    (O.bySource[p.source] ||= []).push(row);
++    O.byPlacement[litKey(p)]=row;
++  });
++  O.sourceIds=Object.keys(O.bySource);
++  O.placementCount=O.literaturePlacements.length;
++  O.uniqueSourceCount=O.sourceIds.length;
++  O.revision=REV;
++
++  const after=stats();
++  const same = (a,b,k) => {
++    if (a[k]!==b[k]) throw new Error(`v16.3.58 protected assignment invariant changed: ${k} ${a[k]} -> ${b[k]}`);
++  };
++  ['count','unique','classroom','study','library'].forEach(k=>same(before,after,k));
++
++  // Explicitly protect the v16.3.57 structural acceptance counts.
++  const liveKeys=new Set();
++  C.modules.forEach(mod=>(mod.lessons||[]).forEach((lesson,lessonIndex)=>
++    (lesson?.integrated?.teaching||[]).forEach((section,i)=>{
++      if(!section?.hiddenFromLesson) liveKeys.add(`${Number(mod.week)}:${lessonIndex}:${String(section?.sectionId||`concept-${i+1}`)}`);
++    })));
++  const pkey=p=>`${Number(p.targetWeek)}:${Number(p.lesson)}:${String(p.segment)}`;
++  const orphans=placements.filter(p=>!liveKeys.has(pkey(p)));
++  if (liveKeys.size!==491) throw new Error(`v16.3.58 expected 491 live sections, found ${liveKeys.size}`);
++  if (placements.length!==1020) throw new Error(`v16.3.58 expected 1020 placements, found ${placements.length}`);
++  if (placements.filter(p=>p.mediaType==='literature').length!==515)
++    throw new Error('v16.3.58 literature placement count changed');
++  if (orphans.length) throw new Error(`v16.3.58 found ${orphans.length} orphan placements`);
++
++  A.revision=REV;
++  A.placementCount=placements.length;
++  A.counts=Object.values(assignments).reduce((o,a)=>{
++    o[a.destination]=(o[a.destination]||0)+1;
++    if(a.requirement==='required')o.universalRequired=(o.universalRequired||0)+1;
++    return o;
++  },{classroom:0,study:0,library:0,removed:0,universalRequired:0,conditionalRequired:0});
++
++  C.meta=C.meta||{};
++  C.meta.teachingMediaRevision=REV;
++  C.meta.teachingMediaArchitectureRevision=REV;
++  C.meta.teachingMediaResourceIntegrationRevision=REV;
++  C.meta.teachingMediaSemanticIntegrityRevision=REV;
++  C.meta.teachingMediaSemanticRepairCount=REPAIRS.length;
++  C.meta.teachingMediaFinalAcceptanceVerdict='PASS — structural invariants preserved; v16.3.58 semantic repair applied';
++})();
+diff --git a/build-info.json b/build-info.json
+--- a/build-info.json
++++ b/build-info.json
+@@ -1,13 +1,13 @@
+ {
+   "courseRelease": "16.3",
+-  "runtimePatch": "16.3.57",
++  "runtimePatch": "16.3.58",
+   "evidenceRevision": "16.2",
+   "cloudSyncProtocol": 2,
+-  "build": "v16.3.57-runtime-integrity-hotfix-20260923",
+-  "releaseStatus": "runtime-integrity-hotfix",
++  "build": "v16.3.58-semantic-media-integrity-20260923",
++  "releaseStatus": "semantic-media-integrity-repair",
+   "presentationPatch": "mobile-visual-readability-final",
+   "scheduleRevision": "2026-09-20-current-classroom-stage-and-workload-sync",
+   "modulePresentationRevision": "2026-09-18-week1-from-zero-visual-teaching",
+-  "teachingMediaRevision": "2026-09-23-v16.3.56-runtime-placement-hotfix",
++  "teachingMediaRevision": "2026-09-23-v16.3.58-semantic-media-integrity",
+   "resourceVerificationRevision": "2026-09-22-v16.3.51-week17-microsoft-config-verified",
+   "assessmentRevision": "2026-09-18-dual-source-ceta-readiness",
+@@ -17,5 +17,5 @@
+   "week1TeachingMediaRevision": "2026-09-18-beginner-teacher-youtube-layer",
+   "teachingMediaBaseRevision": "2026-09-18-final-pots-31-week-standalone-accepted",
+-  "releaseNotesRevision": "2026-09-23-v16.3.57-runtime-integrity-hotfix",
++  "releaseNotesRevision": "2026-09-23-v16.3.58-semantic-media-integrity",
+   "repositoryLedgerBaseline": "2026-09-18-v16.3.9-63-commits",
+   "studyRevision": "2026-09-21-parking-lot-cloud-sync-tombstones",
+@@ -62,13 +62,13 @@
+   "videoLessonPlacementCount": 152,
+   "videoLibraryOnlyDecisionCount": 0,
+   "videoAssignmentDispositionCount": 152,
+-  "teachingMediaResourceIntegrationRevision": "2026-09-23-v16.3.56-dual-channel-runtime-reindexed",
++  "teachingMediaResourceIntegrationRevision": "2026-09-23-v16.3.58-semantic-media-integrity",
+   "teachingMediaAssignmentCount": 347,
+   "teachingMediaRetainedAssignmentCount": 347,
+   "teachingMediaRemovedAssignmentCount": 0,
+   "teachingMediaUniqueSourceCount": 321,
+   "teachingMediaInlinePlacementCount": 1020,
+   "teachingMediaOrphanCount": 0,
+-  "teachingMediaCanonicalSourceCount": 316,
++  "teachingMediaCanonicalSourceCount": 318,
+   "teachingMediaRenderedCardCount": 27,
+   "teachingMediaCrossWeekCanonicalCount": 57,
+@@ -106,6 +106,6 @@
+     "type",
+     "track"
+   ],
+-  "teachingMediaArchitectureRevision": "2026-09-23-v16.3.56-runtime-placement-hotfix",
++  "teachingMediaArchitectureRevision": "2026-09-23-v16.3.58-semantic-media-integrity",
+   "teachingMediaPreCalibrationAssignmentCount": 370,
+   "teachingMediaPreCalibrationRequiredCount": 312,
+@@ -136,7 +136,9 @@
+     "Technician Reference",
+     "Career/Occupation"
+   ],
+-  "teachingMediaWorkloadCalibrationVerdict": "v16.3.57 verified policy: complete dual-channel coverage for all 491 live substantive teaching sections; exact-URL aliases share one canonical completion identity; additional explanations remain in Study.",
++  "teachingMediaWorkloadCalibrationVerdict": "v16.3.58 semantic repair preserves 491 live sections, 1,020 contextual placements, 515 literature placements, 347 assignments, and the Required/Study/Library workload counts while replacing audited source-to-section mismatches.",
++  "teachingMediaSemanticIntegrityRevision": "2026-09-23-v16.3.58-semantic-media-integrity",
++  "teachingMediaSemanticRepairRuleCount": 210,
+   "teachingMediaSourceHotfixRevision": "2026-09-22-microsoft-windows-configuration-docs-current",
+   "directSectionNavigationRevision": "2026-09-22-lesson-and-guided-practice-page-navigation",
+   "lessonSectionNavigationModes": [
+diff --git a/release-notes-current.js b/release-notes-current.js
+--- a/release-notes-current.js
++++ b/release-notes-current.js
+@@ -1,5 +1,27 @@
+ (() => {
+   const entries = [
+     {
++      "version": "v16.3.58",
++      "date": "September 23, 2026",
++      "title": "Whole-Course Teaching Media Semantic Integrity Repair",
++      "type": "Teaching Media / Contextual Placement / Required vs Study",
++      "request": "Apply the completed Weeks 1–31 semantic audit without redesigning the course or disturbing protected curriculum, labs, CETa, progress IDs, or Cloud Sync.",
++      "changes": [
++        "Repaired audited source-to-section mismatches across Weeks 1–31 while preserving the 491-section runtime structure.",
++        "Corrected hard media-channel defects where written resources had been occupying required-video placements.",
++        "Replaced generic over-reuse with topic-specific prior-course resources for solder/rework, digital logic, MCU bring-up, Python, cabling/fiber, RF measurement, bring-up, documentation, portfolio, and retention sections.",
++        "Added a bounded Harvard CS50 Python video-course source, a TI battery-charger written companion, and a Rohde & Schwarz spectrum-analyzer written companion for genuine library gaps.",
++        "Promoted selected existing Study resources to first-pass Required only where the audit established a true coverage gap, while demoting redundant Required assignments so classroom/study/library counts remain stable.",
++        "Preserved 491 live sections, 1,020 contextual placements, 515 literature placements, 347 canonical assignments, 251 Classroom assignments, 77 Study assignments, and 19 Engineering Library assignments."
++      ],
++      "filesModified": [
++        "v16.3.56-runtime-placement-hotfix.js",
++        "build-info.json",
++        "release-notes-current.js",
++        "service-worker.js",
++        "SHA256SUMS.txt"
++      ]
++    },
++    {
+       "version": "v16.3.57",
+       "date": "September 23, 2026",
+diff --git a/service-worker.js b/service-worker.js
+--- a/service-worker.js
++++ b/service-worker.js
+@@ -1,7 +1,7 @@
+-const CACHE='alfred-u-v16-3-57-runtime-integrity-hotfix-20260923';
++const CACHE='alfred-u-v16-3-58-semantic-media-integrity-20260923';
+ const CORE=[
+   './','index.html','engineering.html','course.html','calendar.html','progress.html','resources.html','projects.html','documents.html','student-services.html','about.html','deployment.html','404.html','offline.html',
+   'study.html','learn.html','glossary.html','search.html','week.html','practice.html','labs.html','assessments.html','quiz.html','standards.html','analytics.html','knowledge.html','patch-notes.html','academic-state.js',
+   'styles.css','styles.css?v=16.3.54','learn-parking.css','learn-parking.css?v=16.3.44','ux-system.css','ux-system.css?v=16.3.36','glossary.css','glossary.css?v=16.3.38','study-v2.css','study-v2.css?v=16.3.50','vocabulary-study.css','practice-v2.css','site.js','ux-system.js','ux-system.js?v=16.3.36','progress.js','progress.js?v=16.3.43','study.js','study.js?v=16.3.54','parking-sync.js','parking-sync.js?v=16.3.43','learn-parking.js','learn-parking.js?v=16.3.44','vocabulary-study.js','practice.js','learn.js','learn.js?v=16.3.54','glossary-data.js','glossary-data.js?v=16.3.29','glossary.js','glossary.js?v=16.3.38','curriculum-data.js','career-instructional-depth.js','career-curriculum-reconstruction.js','instructional-visuals.js','career-traceability-routing.js','teaching-media-resource-integration.js','teaching-media-resource-integration.js?v=16.3.57','outside-literature-integration.js','outside-literature-integration.js?v=16.3.48','teaching-media-architecture-repair.js','teaching-media-architecture-repair.js?v=16.3.56','v16.3.56-runtime-placement-hotfix.js','v16.3.56-runtime-placement-hotfix.js?v=16.3.56','ceta-study-guide-map.js','ceta-study-guide-map.js?v=16.3.53','ceta-study-guide-private.js','ceta-study-guide-private.js?v=16.3.53','media-consumption.js','media-consumption.js?v=16.3.57','teaching-media-overrides.js','teaching-media-self-reliance.js','teaching-media-content-completion.js','week1-beginner-teaching-media.js','course-data.js','academic-content.js','practical-completion.js','academic.js','academic.js?v=16.3.50','assessment-data.js','assessment-completion.js','semantic-repair.js','week1-instructional-depth.js','assessment-policy.js','assessment-engine.js','readiness.js','assessment.js','quiz.js','standards.js','analytics.js','search.js','search.js?v=16.3.53','release-notes.js','release-notes-current.js','release-change-ledger.js','patch-notes.js','manifest.webmanifest',
+   'crest.webp','seal.webp','icon-180.png','icon-192.png','icon-512.png',
+   'syllabus-cover.png','resource-manual-cover.png','assignment-lab-cover.png','binder-index-cover.png','certificate-cover.png',
