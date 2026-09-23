@@ -1,6 +1,32 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.56",
+      "date": "September 23, 2026",
+      "title": "Runtime Placement Verification Hotfix",
+      "type": "Teaching Media / Related Learning / Runtime Verification",
+      "request": "Repair defects found during post-deployment verification of v16.3.55 without redesigning the site or reopening the accepted curriculum.",
+      "changes": [
+        "Resolved five long Career section-ID mismatches and 11 orphaned contextual placements.",
+        "Added Required video and written support to the two live substantive sections missed by the v16.3.55 blueprint.",
+        "Preserved the accepted Week 4 \u2192 Week 11 digital sequencing move.",
+        "Rebuilt contextual literature indexing so written companions render and track as readings.",
+        "Refreshed Learn, Study, Engineering Library, and service-worker cache keys to v16.3.56.",
+        "Verified 491 live sections, 1,020 contextual placements, zero broken targets, zero uncovered live sections, and 515/515 contextual literature placements indexed."
+      ],
+      "filesModified": [
+        "v16.3.56-runtime-placement-hotfix.js",
+        "learn.html",
+        "study.html",
+        "resources.html",
+        "service-worker.js",
+        "build-info.json",
+        "release-notes-current.js",
+        "SHA256SUMS.txt",
+        "AU-ESET-301-v16.3.56-Post-Deployment-Runtime-Placement-Verification.md"
+      ]
+    },
+    {
       "version": "v16.3.55",
       "date": "September 23, 2026",
       "title": "Complete Dual-Channel Lesson Resource Placement",
