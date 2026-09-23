@@ -1,4 +1,4 @@
-const CACHE='alfred-u-v16-3-54-teaching-media-consumption-checklist-20260922';
+const CACHE='alfred-u-v16-3-55-complete-dual-channel-content-20260923';
 const CORE=[
   './','index.html','engineering.html','course.html','calendar.html','progress.html','resources.html','projects.html','documents.html','student-services.html','about.html','deployment.html','404.html','offline.html',
   'study.html','learn.html','glossary.html','search.html','week.html','practice.html','labs.html','assessments.html','quiz.html','standards.html','analytics.html','knowledge.html','patch-notes.html','academic-state.js',

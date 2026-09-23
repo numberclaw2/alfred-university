@@ -1,6 +1,22 @@
 (() => {
   const entries = [
     {
+      "version": "v16.3.55",
+      "date": "September 23, 2026",
+      "title": "Complete Dual-Channel Lesson Resource Placement",
+      "type": "Teaching Media / Related Learning / Study / Engineering Library",
+      "request": "Import the accepted 31-week placement blueprint without changing the site's design or UX.",
+      "changes": [
+        "Imported the accepted placement blueprint across all 31 weeks and all 489 live teaching sections.",
+        "Every substantive teaching section now has contextual Required video coverage and Required outside-written-literature coverage.",
+        "Same-medium repetition is controlled by one canonical completion assignment per Required source; later contextual appearances reuse that source without a second completion obligation.",
+        "Additional alternate explanations and optional depth remain in Study; professional/deep references remain in Engineering Library.",
+        "Preserved the v16.3.53 CETa Study Guide integration and the v16.3.54 shared watched/read/reviewed checklist.",
+        "No CSS, layout, navigation, aesthetics, lesson prose, assessments, labs, projects, glossary, calendar, progress identity, or Cloud Sync protocol was redesigned."
+      ],
+      "filesModified": ["teaching-media-architecture-repair.js", "service-worker.js", "build-info.json", "release-notes-current.js", "SHA256SUMS.txt"]
+    },
+    {
       "version": "v16.3.54",
       "date": "September 22, 2026",
       "title": "Teaching Media Watched / Read Checklist",
