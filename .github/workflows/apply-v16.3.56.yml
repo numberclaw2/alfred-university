@@ -1,0 +1,150 @@
+name: Apply AU-ESET 301 v16.3.56
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/apply-v16.3.56.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: au-eset-301-v16-3-56-apply
+  cancel-in-progress: false
+
+jobs:
+  apply-hotfix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Verify hotfix package is present
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f apply_v16_3_56_patch.py
+          test -f v16.3.56-runtime-placement-hotfix.js
+          test -f AU-ESET-301-v16.3.56-Post-Deployment-Runtime-Placement-Verification.md
+          test -f learn.html
+          test -f study.html
+          test -f resources.html
+          test -f service-worker.js
+          test -f build-info.json
+          test -f release-notes-current.js
+
+      - name: Apply v16.3.56 production repair
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # The patcher was packaged to run from outside the repository.
+          # Copy its three bundle files to a temporary directory so source
+          # and destination paths are not identical.
+          tmpdir="$(mktemp -d)"
+          cp apply_v16_3_56_patch.py "$tmpdir/"
+          cp v16.3.56-runtime-placement-hotfix.js "$tmpdir/"
+          cp AU-ESET-301-v16.3.56-Post-Deployment-Runtime-Placement-Verification.md "$tmpdir/"
+
+          python "$tmpdir/apply_v16_3_56_patch.py" "$GITHUB_WORKSPACE"
+
+      - name: Reconcile release metadata and checksums
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib
+          import json
+
+          root = Path(".")
+
+          # The original patcher updates the runtime markers but did not
+          # advance releaseNotesRevision. Keep all release metadata aligned.
+          p = root / "build-info.json"
+          info = json.loads(p.read_text(encoding="utf-8"))
+          info["releaseNotesRevision"] = "2026-09-23-v16.3.56-runtime-placement-hotfix"
+          p.write_text(json.dumps(info, indent=2) + "\n", encoding="utf-8")
+
+          touched = [
+              "AU-ESET-301-v16.3.56-Post-Deployment-Runtime-Placement-Verification.md",
+              "build-info.json",
+              "learn.html",
+              "release-notes-current.js",
+              "resources.html",
+              "service-worker.js",
+              "study.html",
+              "v16.3.56-runtime-placement-hotfix.js",
+          ]
+          lines = []
+          for name in sorted(touched):
+              data = (root / name).read_bytes()
+              lines.append(f"{hashlib.sha256(data).hexdigest()}  {name}")
+          (root / "SHA256SUMS.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
+          PY
+
+      - name: Validate v16.3.56 production markers
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          info = json.loads(Path("build-info.json").read_text(encoding="utf-8"))
+          assert info["runtimePatch"] == "16.3.56"
+          assert info["releaseNotesRevision"] == "2026-09-23-v16.3.56-runtime-placement-hotfix"
+          assert info["teachingMediaTargetSectionCount"] == 491
+          assert info["teachingMediaInlinePlacementCount"] == 1020
+          assert info["teachingMediaFinalAcceptanceVerdict"] == "PASS"
+          PY
+
+          for page in learn.html study.html resources.html; do
+            grep -Fq 'teaching-media-architecture-repair.js?v=16.3.56' "$page"
+            grep -Fq 'v16.3.56-runtime-placement-hotfix.js?v=16.3.56' "$page"
+          done
+
+          grep -Fq 'alfred-u-v16-3-56-runtime-placement-hotfix-20260923' service-worker.js
+          grep -Fq "'v16.3.56-runtime-placement-hotfix.js'" service-worker.js
+          grep -Fq '"version": "v16.3.56"' release-notes-current.js
+
+          # Confirm the old production cache/version markers are no longer
+          # active in the files this hotfix owns.
+          ! grep -Fq 'alfred-u-v16-3-55-complete-dual-channel-content-20260923' service-worker.js
+          ! grep -Fq 'teaching-media-architecture-repair.js?v=16.3.51' learn.html
+          ! grep -Fq 'teaching-media-architecture-repair.js?v=16.3.51' study.html
+          ! grep -Fq 'teaching-media-architecture-repair.js?v=16.3.51' resources.html
+
+      - name: Commit repaired production files
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git config user.name "AU-ESET 301 Release Bot"
+          git config user.email "actions@users.noreply.github.com"
+
+          git add \
+            learn.html \
+            study.html \
+            resources.html \
+            service-worker.js \
+            build-info.json \
+            release-notes-current.js \
+            SHA256SUMS.txt \
+            v16.3.56-runtime-placement-hotfix.js \
+            AU-ESET-301-v16.3.56-Post-Deployment-Runtime-Placement-Verification.md
+
+          if git diff --cached --quiet; then
+            echo "v16.3.56 is already applied; nothing to commit."
+            exit 0
+          fi
+
+          git commit -m "Apply AU-ESET 301 v16.3.56 runtime placement hotfix"
+          git push origin HEAD:main
