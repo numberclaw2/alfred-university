@@ -150,6 +150,30 @@
       medium: "literature",
       url: "https://www.rohde-schwarz.com/sg/products/test-and-measurement/essentials-test-equipment/spectrum-analyzers/understanding-basic-spectrum-analyzer-operation_256005.html",
       purpose: "Center/span, reference level, RBW, VBW, trace interpretation, and measurement-setting tradeoffs."
+    },
+    ftcCyberBasicsVideo: {
+      title: "Cybersecurity Basics for Small Business",
+      org: "Federal Trade Commission",
+      kind: "Government cybersecurity video",
+      medium: "video",
+      url: "https://www.ftc.gov/business-guidance/small-businesses/cybersecurity/videos",
+      purpose: "Beginner cybersecurity practices, malware awareness, updates, accounts, and practical network/device protection."
+    },
+    eatonSurgeProtectionVideo: {
+      title: "What Is a Surge Protector and How Does It Work?",
+      org: "Eaton",
+      kind: "Manufacturer educational video",
+      medium: "video",
+      url: "https://videos.eaton.com/detail/video/5677832528001/what-is-a-surge-protector-and-how-does-it-work",
+      purpose: "Visual explanation of surge-protection purpose and application for connected electronic equipment."
+    },
+    nistCyberPowerProtection: {
+      title: "How to Protect Your Business from Cyber Attacks",
+      org: "National Institute of Standards and Technology",
+      kind: "Government cybersecurity and equipment-protection guidance",
+      medium: "literature",
+      url: "https://www.nist.gov/blogs/manufacturing-innovation-blog/how-protect-your-business-cyber-attacks",
+      purpose: "Combined practical guidance on UPS/surge protection, software patching, firewalls, and cyber-risk reduction."
     }
   };
   C.sources = C.sources || {};
@@ -241,6 +265,9 @@
   replaceAssignmentSource('aacPowerSupplies','cs50Python',17,'video','career');
   replaceAssignmentSource('tekPulseDutyCycle','tiBatteryChargerOverview',9,'literature','ceta');
   replaceAssignmentSource('fccRF','rsSpectrumBasicsArticle',20,'literature','career');
+  replaceAssignmentSource('aacGroundReference','ftcCyberBasicsVideo',17,'video','career');
+  replaceAssignmentSource('khanEquationIsolation','eatonSurgeProtectionVideo',17,'video','career');
+  replaceAssignmentSource('aacCmosGateCircuitry','nistCyberPowerProtection',17,'literature','career');
 
   // Promote existing Study sources where the audit found a genuine first-pass gap,
   // while demoting now-redundant Required assignments so workload counts stay stable.
@@ -249,14 +276,14 @@
   swapClassroomWithStudy('tiPrecisionOpAmps','foaMediaLectureIndex',19);
   swapClassroomWithStudy('saleaeAsyncSerial','pythonDocs',17);
   swapClassroomWithStudy('keysightBenchPowerCourse','microsoftWindowsConfig',17);
-  swapClassroomWithStudy('aacCmosGateCircuitry','ciscoNetworkingBasics',17);
 
   const affectedSources = new Set([
     'aacPowerSupplies','cs50Python','tekPulseDutyCycle','tiBatteryChargerOverview',
     'fccRF','rsSpectrumBasicsArticle','aacAmpConfigs','aacTransistorBiasing',
     'litNasaSystemsAppendix','mitStrobeLabNotes','tiPrecisionOpAmps','foaMediaLectureIndex',
     'saleaeAsyncSerial','pythonDocs','keysightBenchPowerCourse','microsoftWindowsConfig',
-    'aacCmosGateCircuitry','ciscoNetworkingBasics'
+    'aacGroundReference','ftcCyberBasicsVideo','khanEquationIsolation','eatonSurgeProtectionVideo',
+    'aacCmosGateCircuitry','nistCyberPowerProtection','ciscoNetworkingBasics'
   ]);
 
   // Refresh centralized Teaching Media entries for changed assignments.
@@ -1119,10 +1146,10 @@
     "week": 17,
     "segment": "concept-6",
     "video": [
-      "aacComputerHardware"
+      "ftcCyberBasicsVideo"
     ],
     "literature": [
-      "ciscoNetworkingBasics"
+      "nistCyberPowerProtection"
     ]
   },
   {
@@ -2119,6 +2146,30 @@
     if (r.literature) replaceChannel(r.week,r.segment,'literature',r.literature);
   });
 
+  // Week 17 concept 6 combines two distinct protection domains. Keep one
+  // cybersecurity video and add a separate electrical-surge video rather than
+  // pretending one source teaches both.
+  const w17ProtectionVideo=placements.find(p=>
+    Number(p.targetWeek)===17 && String(p.segment)==='concept-6' &&
+    String(p.requirement||'').toLowerCase()==='required' && p.mediaType==='video');
+  if(w17ProtectionVideo && !placements.some(p=>
+    Number(p.targetWeek)===17 && String(p.segment)==='concept-6' &&
+    p.source==='eatonSurgeProtectionVideo' && p.mediaType==='video')){
+    placements.push({
+      ...w17ProtectionVideo,
+      source:'eatonSurgeProtectionVideo',
+      assignmentWeek:assignmentWeekFor('eatonSurgeProtectionVideo',17),
+      relationship:'Reinforces this concept',
+      presentationRole:'demonstration',
+      display:'primary',
+      inline:true,
+      requirement:'required',
+      mediaType:'video',
+      afterAction:'After watching, distinguish electrical surge protection from malware/network protection and state why both belong in a complete computer-protection plan.',
+      reason:'v16.3.58 semantic-integrity repair: second video is required because this live section contains two distinct protection domains.'
+    });
+  }
+
   // Rebuild placement indexes after semantic substitutions.
   R.byTargetWeek={}; R.bySource={}; R.byAssignment={};
   placements.forEach(p=>{
@@ -2186,7 +2237,7 @@
   const pkey=p=>`${Number(p.targetWeek)}:${Number(p.lesson)}:${String(p.segment)}`;
   const orphans=placements.filter(p=>!liveKeys.has(pkey(p)));
   if (liveKeys.size!==491) throw new Error(`v16.3.58 expected 491 live sections, found ${liveKeys.size}`);
-  if (placements.length!==1020) throw new Error(`v16.3.58 expected 1020 placements, found ${placements.length}`);
+  if (placements.length!==1021) throw new Error(`v16.3.58 expected 1021 placements, found ${placements.length}`);
   if (placements.filter(p=>p.mediaType==='literature').length!==515)
     throw new Error('v16.3.58 literature placement count changed');
   if (orphans.length) throw new Error(`v16.3.58 found ${orphans.length} orphan placements`);
@@ -2205,5 +2256,6 @@
   C.meta.teachingMediaResourceIntegrationRevision=REV;
   C.meta.teachingMediaSemanticIntegrityRevision=REV;
   C.meta.teachingMediaSemanticRepairCount=REPAIRS.length;
-  C.meta.teachingMediaFinalAcceptanceVerdict='PASS — structural invariants preserved; v16.3.58 semantic repair applied';
+  C.meta.teachingMediaInlinePlacementCount=placements.length;
+  C.meta.teachingMediaFinalAcceptanceVerdict='PASS — v16.3.58 semantic repair applied; Week 17 dual-domain protection receives separate cyber and surge videos';
 })();

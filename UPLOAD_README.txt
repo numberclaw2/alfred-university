@@ -1,21 +1,22 @@
-AU-ESET 301 v16.3.58 — DIRECT UPLOAD
+AU-ESET 301 v16.3.58 — FINAL REPLACEMENT
 
-Upload the included file to the ROOT of the GitHub repository and choose to REPLACE
-the existing file with the exact same name:
+Upload the included file to the ROOT of the GitHub repository and REPLACE the
+existing file with the exact same name:
 
 v16.3.56-runtime-placement-hotfix.js
 
-This replacement contains:
-- the existing v16.3.56 runtime placement hotfix
-- the full v16.3.58 semantic Teaching Media repair
+This fixes the last Week 17 defect found during post-upload verification:
+- FTC video for cybersecurity/malware protection
+- separate Eaton video for electrical surge protection
+- NIST written companion covering cyber protection plus UPS/surge protection
 
-Do NOT rename it.
-Do NOT upload it as a second copy with (1), (2), etc.
+The repair reuses currently-unused Required assignment slots, so the accepted
+347 assignment total and Classroom / Study / Engineering Library counts stay unchanged.
 
-After uploading, the current HTML already loads this filename, so no HTML edit is needed.
+The contextual placement total becomes 1,021 because Week 17 concept 6 honestly
+needs two video resources for its two distinct protection domains.
 
-Verification performed before packaging:
-- JavaScript syntax: PASS
+Do not rename the file.
 
-After upload, return to ChatGPT and say:
-uploaded replacement
+After upload, tell ChatGPT:
+uploaded final replacement
