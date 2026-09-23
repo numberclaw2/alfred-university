@@ -1,0 +1,547 @@
+name: Alfred University Maintenance
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/alfred-maintenance.yml"
+  workflow_dispatch:
+    inputs:
+      patch_b64:
+        description: "Base64-encoded unified patch. Leave blank for verification-only."
+        required: false
+        type: string
+      expected_head:
+        description: "Optional expected main commit SHA before applying the patch."
+        required: false
+        type: string
+      commit_message:
+        description: "Commit message for the maintenance update."
+        required: false
+        default: "Apply Alfred University maintenance update"
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: alfred-university-maintenance
+  cancel-in-progress: false
+
+jobs:
+  maintain:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out current main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Guard expected repository head
+        if: github.event_name == 'workflow_dispatch' && inputs.expected_head != ''
+        shell: bash
+        env:
+          EXPECTED_HEAD: ${{ inputs.expected_head }}
+        run: |
+          set -euo pipefail
+          actual="$(git rev-parse HEAD)"
+          if [ "$actual" != "$EXPECTED_HEAD" ]; then
+            echo "Expected main at $EXPECTED_HEAD but found $actual."
+            exit 1
+          fi
+
+      - name: Bootstrap v16.3.57 runtime-integrity repair
+        if: github.event_name == 'push'
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import json
+
+          root = Path(".")
+
+          def replace_required(file_name, old, new):
+              path = root / file_name
+              text = path.read_text(encoding="utf-8")
+              if old not in text:
+                  raise SystemExit(f"{file_name}: expected text not found: {old[:100]}")
+              path.write_text(text.replace(old, new), encoding="utf-8")
+
+          # Add the one exact-URL literature pair missed by the existing alias map.
+          replace_required(
+              "teaching-media-resource-integration.js",
+              "    aacAmpConfigs: 'aacAmplifierConfigs'\n  };",
+              "    aacAmpConfigs: 'aacAmplifierConfigs',\n"
+              "    litNasaSystemsAppendix: 'nasaRequirementAppendix'\n  };",
+          )
+
+          # Canonicalize media-consumption identity centrally. Legacy alias IDs
+          # are still recognized and are migrated when the learner next changes
+          # that checkbox, so existing watched/read/reviewed progress is retained.
+          path = root / "media-consumption.js"
+          text = path.read_text(encoding="utf-8")
+
+          old_state = (
+              "  function state(week,id){\n"
+              "    const p=load(),w=weekRecord(p,week),row=w.learning?.mediaConsumption?.[id];\n"
+              "    return row&&row.done===true?row:null;\n"
+              "  }\n"
+          )
+          new_state = (
+              "  function aliasMap(){return window.ALFRED_CURRICULUM?.teachingResourceIntegration?.canonicalAliases||{};}\n"
+              "  function canonicalSource(source){\n"
+              "    const aliases=aliasMap(),seen=new Set();let current=String(source||'unknown');\n"
+              "    while(aliases[current]&&!seen.has(current)){seen.add(current);current=String(aliases[current]);}\n"
+              "    return current;\n"
+              "  }\n"
+              "  function equivalentMediaIds(id){\n"
+              "    const m=String(id||'').match(/^media:(\\d+):(.+)$/);if(!m)return [String(id||'')];\n"
+              "    const week=Number(m[1])||0,canonical=canonicalSource(m[2]),ids=[`media:${week}:${canonical}`];\n"
+              "    Object.keys(aliasMap()).forEach(alias=>{if(canonicalSource(alias)===canonical)ids.push(`media:${week}:${alias}`);});\n"
+              "    return [...new Set(ids)];\n"
+              "  }\n"
+              "  function state(week,id){\n"
+              "    const p=load(),w=weekRecord(p,week),rows=w.learning?.mediaConsumption||{};\n"
+              "    for(const candidate of equivalentMediaIds(id)){const row=rows[candidate];if(row&&row.done===true)return row;}\n"
+              "    return null;\n"
+              "  }\n"
+          )
+          if old_state not in text:
+              raise SystemExit("media-consumption.js: state block not found")
+          text = text.replace(old_state, new_state)
+
+          old_media_id = "function mediaId(assignmentWeek,source){return `media:${Number(assignmentWeek)||0}:${String(source||'unknown')}`;}"
+          new_media_id = "function mediaId(assignmentWeek,source){return `media:${Number(assignmentWeek)||0}:${canonicalSource(source)}`;}"
+          if old_media_id not in text:
+              raise SystemExit("media-consumption.js: mediaId definition not found")
+          text = text.replace(old_media_id, new_media_id)
+
+          old_set = "    if(done)rows[id]={done:true,kind:String(kind||'reference'),updatedAt:iso}; else delete rows[id];\n"
+          new_set = "    equivalentMediaIds(id).forEach(candidate=>delete rows[candidate]);\n    if(done)rows[id]={done:true,kind:String(kind||'reference'),updatedAt:iso};\n"
+          if old_set not in text:
+              raise SystemExit("media-consumption.js: set block not found")
+          text = text.replace(old_set, new_set)
+          path.write_text(text, encoding="utf-8")
+
+          # Cache-bust only the scripts changed by this repair.
+          for file_name in ("learn.html", "study.html"):
+              path = root / file_name
+              text = path.read_text(encoding="utf-8")
+              text = text.replace(
+                  "teaching-media-resource-integration.js?v=16.3.47",
+                  "teaching-media-resource-integration.js?v=16.3.57",
+              )
+              text = text.replace(
+                  "media-consumption.js?v=16.3.54",
+                  "media-consumption.js?v=16.3.57",
+              )
+              path.write_text(text, encoding="utf-8")
+
+          path = root / "resources.html"
+          text = path.read_text(encoding="utf-8").replace(
+              "teaching-media-resource-integration.js?v=16.3.47",
+              "teaching-media-resource-integration.js?v=16.3.57",
+          )
+          path.write_text(text, encoding="utf-8")
+
+          # Repair the service-worker install transaction. The missing TXT file
+          # was treated as essential by cache.addAll(), so a 404 could abort the
+          # new service worker before activation.
+          path = root / "service-worker.js"
+          text = path.read_text(encoding="utf-8")
+          text = text.replace(
+              "const CACHE='alfred-u-v16-3-56-runtime-placement-hotfix-20260923';",
+              "const CACHE='alfred-u-v16-3-57-runtime-integrity-hotfix-20260923';",
+          )
+          text = text.replace(
+              "'teaching-media-resource-integration.js?v=16.3.47'",
+              "'teaching-media-resource-integration.js?v=16.3.57'",
+          )
+          text = text.replace(
+              "'media-consumption.js?v=16.3.54'",
+              "'media-consumption.js?v=16.3.57'",
+          )
+          text = text.replace(
+              "'AU-ESET-301-v16.3.51-Post-Upload-Verification-and-Source-Hotfix.md',",
+              "",
+          )
+          text = text.replace("'UPLOAD_README_v16.3.51.txt',", "")
+          path.write_text(text, encoding="utf-8")
+
+          # Current build/release metadata.
+          path = root / "build-info.json"
+          info = json.loads(path.read_text(encoding="utf-8"))
+          info.update({
+              "runtimePatch": "16.3.57",
+              "build": "v16.3.57-runtime-integrity-hotfix-20260923",
+              "releaseStatus": "runtime-integrity-hotfix",
+              "releaseNotesRevision": "2026-09-23-v16.3.57-runtime-integrity-hotfix",
+              "serviceWorkerRevision": "2026-09-23-v16.3.57-install-integrity-repair",
+              "serviceWorkerInstallIntegrityVerdict": "PASS",
+              "teachingMediaCanonicalDuplicateGroupCount": 5,
+              "teachingMediaCanonicalSourceCount": 316,
+              "mediaConsumptionRevision": "2026-09-23-v16.3.57-canonical-source-identity-with-legacy-alias-compatibility",
+              "teachingMediaWorkloadCalibrationVerdict": (
+                  "v16.3.57 verified policy: complete dual-channel coverage for all "
+                  "491 live substantive teaching sections; exact-URL aliases share "
+                  "one canonical completion identity; additional explanations remain in Study."
+              ),
+          })
+          path.write_text(json.dumps(info, indent=2) + "\n", encoding="utf-8")
+
+          # Release Notes.
+          path = root / "release-notes-current.js"
+          text = path.read_text(encoding="utf-8")
+          if '"version": "v16.3.57"' not in text:
+              marker = "const entries = ["
+              note = {
+                  "version": "v16.3.57",
+                  "date": "September 23, 2026",
+                  "title": "Runtime Integrity & Canonical Completion Hotfix",
+                  "type": "Service Worker / Teaching Media / Progress Tracking",
+                  "request": (
+                      "Finish the post-deployment acceptance audit by repairing "
+                      "service-worker installation integrity and enforcing one "
+                      "completion identity for exact-URL Teaching Media aliases "
+                      "without reducing section coverage."
+                  ),
+                  "changes": [
+                      "Removed two stale v16.3.51 service-worker precache entries; the missing TXT entry had been classified as essential and could abort a fresh service-worker install.",
+                      "Bumped the service-worker cache identity to v16.3.57 and refreshed cache keys for modified Teaching Media and media-consumption scripts.",
+                      "Added the NASA Systems Engineering Handbook appendix exact-URL pair to the canonical alias map.",
+                      "Canonicalized media-consumption IDs centrally and kept backward-compatible lookup/removal of legacy alias IDs so existing watched/read/reviewed checkmarks are preserved.",
+                      "Preserved the v16.3.56 result: 491 live sections, 1,020 contextual placements, zero orphan targets, and complete Required video + written coverage.",
+                      "Reconciled current Teaching Media metadata from the stale 489-section wording to the verified 491-section runtime.",
+                  ],
+                  "filesModified": [
+                      "service-worker.js",
+                      "teaching-media-resource-integration.js",
+                      "media-consumption.js",
+                      "learn.html",
+                      "study.html",
+                      "resources.html",
+                      "build-info.json",
+                      "release-notes-current.js",
+                      "SHA256SUMS.txt",
+                  ],
+              }
+              payload = "\n".join(
+                  "    " + line for line in json.dumps(note, indent=2).splitlines()
+              )
+              if marker not in text:
+                  raise SystemExit("release-notes-current.js: entries marker missing")
+              text = text.replace(marker, marker + "\n" + payload + ",", 1)
+              path.write_text(text, encoding="utf-8")
+          PY
+
+      - name: Apply supplied maintenance patch
+        if: github.event_name == 'workflow_dispatch' && inputs.patch_b64 != ''
+        shell: bash
+        env:
+          PATCH_B64: ${{ inputs.patch_b64 }}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import base64
+          import os
+          from pathlib import Path
+
+          raw = os.environ["PATCH_B64"].strip()
+          try:
+              data = base64.b64decode(raw, validate=True)
+          except Exception as exc:
+              raise SystemExit(f"patch_b64 is not valid base64: {exc}")
+
+          text = data.decode("utf-8")
+          forbidden = (
+              ".github/workflows/",
+              "../",
+              "/.git/",
+          )
+          for line in text.splitlines():
+              if line.startswith(("+++ ", "--- ")):
+                  path = line[4:].split("\t", 1)[0]
+                  if any(token in path for token in forbidden):
+                      raise SystemExit(f"Refusing patch path: {path}")
+
+          Path("/tmp/alfred-maintenance.patch").write_text(text, encoding="utf-8")
+          PY
+
+          git apply --check /tmp/alfred-maintenance.patch
+          git apply --whitespace=error-all /tmp/alfred-maintenance.patch
+
+      - name: Verify local references and service-worker core
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          from urllib.parse import unquote
+          import re
+
+          root = Path(".")
+
+          # Every local href/src in every routed HTML document must exist.
+          missing = []
+          for html in sorted(root.glob("*.html")):
+              text = html.read_text(encoding="utf-8", errors="ignore")
+              for value in re.findall(r'(?:href|src)=["\']([^"\']+)["\']', text, re.I):
+                  if re.match(r'^(?:https?:|mailto:|tel:|data:|javascript:|#)', value, re.I):
+                      continue
+                  target = unquote(value.split("?", 1)[0].split("#", 1)[0])
+                  if target and not (root / target).exists():
+                      missing.append(f"{html.name}: {value}")
+          if missing:
+              raise SystemExit("Missing local HTML references:\n" + "\n".join(missing))
+
+          # Every service-worker CORE entry must resolve in the exact deployment tree.
+          sw = (root / "service-worker.js").read_text(encoding="utf-8")
+          match = re.search(r"const CORE=\[(.*?)\];", sw, re.S)
+          if not match:
+              raise SystemExit("service-worker.js CORE list not found")
+          missing_core = []
+          for value in re.findall(r"'([^']+)'", match.group(1)):
+              if value == "./":
+                  continue
+              target = unquote(value.split("?", 1)[0].split("#", 1)[0])
+              if target and not (root / target).exists():
+                  missing_core.append(value)
+          if missing_core:
+              raise SystemExit(
+                  "Service-worker CORE contains missing assets:\n" + "\n".join(missing_core)
+              )
+          PY
+
+      - name: Verify JavaScript syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          for file in ./*.js; do
+            node --check "$file"
+          done
+
+      - name: Verify AU-ESET 301 protected runtime and Teaching Media invariants
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat > /tmp/alfred-runtime-audit.cjs <<'NODE'
+          const fs=require('fs'),vm=require('vm'),path=require('path');
+          const root=process.cwd();
+
+          const documentStub={
+            addEventListener(){},querySelector(){return null},querySelectorAll(){return[]},
+            getElementById(){return null},createElement(){return{}},
+            body:{},documentElement:{classList:{add(){},remove(){}}}
+          };
+          const storage={getItem(){return null},setItem(){},removeItem(){}};
+          const context={
+            console,window:{},document:documentStub,localStorage:storage,sessionStorage:storage,
+            navigator:{userAgent:'github-actions-audit'},location:{href:'https://example.invalid/learn.html',pathname:'/learn.html',search:'',hash:''},
+            URL,URLSearchParams,TextEncoder,TextDecoder,setTimeout,clearTimeout,setInterval,clearInterval,
+            structuredClone:global.structuredClone,crypto:global.crypto
+          };
+          context.window.addEventListener=()=>{};
+          context.window.removeEventListener=()=>{};
+          context.window.dispatchEvent=()=>true;
+          context.window.window=context.window;
+          Object.assign(context.window,{
+            document:documentStub,localStorage:storage,sessionStorage:storage,
+            navigator:context.navigator,location:context.location
+          });
+          vm.createContext(context);
+
+          const files=[
+            'course-data.js','academic-content.js','curriculum-data.js',
+            'teaching-media-overrides.js','teaching-media-self-reliance.js',
+            'teaching-media-content-completion.js','week1-beginner-teaching-media.js',
+            'assessment-data.js','assessment-completion.js','semantic-repair.js',
+            'week1-instructional-depth.js','career-instructional-depth.js',
+            'career-curriculum-reconstruction.js','instructional-visuals.js',
+            'career-traceability-routing.js','teaching-media-resource-integration.js',
+            'outside-literature-integration.js','teaching-media-architecture-repair.js',
+            'v16.3.56-runtime-placement-hotfix.js','ceta-study-guide-map.js',
+            'ceta-study-guide-private.js','media-consumption.js','academic-state.js'
+          ];
+
+          for(const file of files){
+            vm.runInContext(
+              fs.readFileSync(path.join(root,file),'utf8'),
+              context,{filename:file,timeout:10000}
+            );
+          }
+
+          const w=context.window;
+          const C=w.ALFRED_CURRICULUM||{};
+          const R=C.teachingResourceIntegration||{};
+          const A=C.teachingMediaArchitecture||{};
+          const O=C.outsideLiteratureIntegration||{};
+          const placements=R.placements||[];
+
+          const live=[];
+          for(const module of C.modules||[]){
+            for(let lessonIndex=0;lessonIndex<(module.lessons||[]).length;lessonIndex++){
+              const teaching=module.lessons?.[lessonIndex]?.integrated?.teaching||[];
+              for(let i=0;i<teaching.length;i++){
+                const section=teaching[i];
+                if(section?.hiddenFromLesson)continue;
+                live.push({
+                  week:Number(module.week),lesson:lessonIndex,
+                  segment:String(section?.sectionId||`concept-${i+1}`)
+                });
+              }
+            }
+          }
+
+          const liveKeys=new Set(live.map(x=>`${x.week}:${x.lesson}:${x.segment}`));
+          const placementKey=p=>`${Number(p.targetWeek)}:${Number(p.lesson)}:${String(p.segment)}`;
+
+          const orphan=placements.filter(p=>!liveKeys.has(placementKey(p)));
+          const missingVideo=[];
+          const missingLiterature=[];
+          for(const section of live){
+            const key=`${section.week}:${section.lesson}:${section.segment}`;
+            const rows=placements.filter(
+              p=>placementKey(p)===key && String(p.requirement||'').toLowerCase()==='required'
+            );
+            if(!rows.some(p=>p.mediaType==='video'))missingVideo.push(key);
+            if(!rows.some(p=>p.mediaType==='literature'))missingLiterature.push(key);
+          }
+
+          const literature=placements.filter(p=>p.mediaType==='literature');
+          const litKey=p=>`${p.assignmentWeek}:${p.source}:${p.targetWeek}:${p.lesson}:${p.segment}`;
+          const missingLitMeta=literature.filter(p=>!O.byPlacement?.[litKey(p)]);
+
+          const assignments=Object.values(A.assignments||{});
+          const destinations=assignments.reduce((m,a)=>{
+            m[a.destination]=(m[a.destination]||0)+1;return m;
+          },{});
+
+          function assert(value,message){
+            if(!value)throw new Error(message);
+          }
+
+          assert((C.modules||[]).length===31,'Expected 31 modules');
+          assert(live.length===491,`Expected 491 live sections, found ${live.length}`);
+          assert(placements.length===1020,`Expected 1,020 placements, found ${placements.length}`);
+          assert(literature.length===515,`Expected 515 literature placements, found ${literature.length}`);
+          assert(orphan.length===0,`Found ${orphan.length} orphan placements`);
+          assert(missingVideo.length===0,`Found ${missingVideo.length} sections missing Required video`);
+          assert(missingLiterature.length===0,`Found ${missingLiterature.length} sections missing Required literature`);
+          assert(missingLitMeta.length===0,`Found ${missingLitMeta.length} literature placements without reading metadata`);
+          assert(assignments.length===347,`Expected 347 canonical assignments, found ${assignments.length}`);
+          assert(destinations.classroom===251,'Expected 251 Classroom assignments');
+          assert(destinations.study===77,'Expected 77 Study assignments');
+          assert(destinations.library===19,'Expected 19 Engineering Library assignments');
+          assert(new Set(assignments.map(a=>a.source)).size===321,'Expected 321 unique assignment source IDs');
+
+          const week4=(C.modules||[]).find(m=>Number(m.week)===4)?.lessons?.[0]?.integrated?.teaching||[];
+          assert(
+            week4.find(s=>s?.title==='Number systems and Boolean algebra')?.hiddenFromLesson===true,
+            'Week 4 legacy Number Systems / Boolean Algebra section is visible'
+          );
+
+          assert(w.ALFRED_ACADEMIC?.labs?.length===24,'Expected 24 labs');
+          assert(w.ALFRED_ASSESSMENT?.cetaStandards?.length===262,'Expected 262 CETa standards');
+          assert(w.ALFRED_ASSESSMENT?.careerStandards?.length===81,'Expected 81 Career standards');
+          assert(w.ALFRED_ASSESSMENT?.weeklyTests?.length===31,'Expected 31 weekly mastery tests');
+
+          const guide=w.ALFRED_CETA_STUDY_GUIDE||{};
+          assert(guide.requiredPageCount===64,'Expected 64 Required CETa Study Guide pages');
+          assert(guide.dispositionCounts?.study===133,'Expected 133 Study/Review CETa Study Guide pages');
+          assert(guide.dispositionCounts?.reference===27,'Expected 27 Reference/Historical CETa Study Guide pages');
+          assert((guide.requiredWeeks||[]).length===14,'Expected 14 CETa Study Guide Required weeks');
+          assert((guide.zeroNewRequiredWeeks||[]).length===17,'Expected 17 weeks with no new Required CETa reading');
+
+          const info=JSON.parse(fs.readFileSync(path.join(root,'build-info.json'),'utf8'));
+          assert(info.courseRelease==='16.3','Course release changed unexpectedly');
+          assert(info.evidenceRevision==='16.2','Evidence revision changed unexpectedly');
+          assert(info.cloudSyncProtocol===2,'Cloud Sync protocol changed unexpectedly');
+
+          // Exact-URL aliases must resolve to one media-consumption identity.
+          const MC=w.AlfredMediaConsumption||{};
+          assert(
+            MC.mediaId(9,'aacPowerSupplies')===MC.mediaId(9,'aacPowerSuppliesApplications'),
+            'Power-supply duplicate video does not share one completion identity'
+          );
+          assert(
+            MC.mediaId(10,'aacAmpConfigs')===MC.mediaId(10,'aacAmplifierConfigs'),
+            'Amplifier-config duplicate video does not share one completion identity'
+          );
+          assert(
+            MC.mediaId(22,'litNasaSystemsAppendix')===MC.mediaId(22,'nasaRequirementAppendix'),
+            'NASA duplicate literature does not share one completion identity'
+          );
+
+          console.log('AU-ESET 301 runtime audit PASS');
+          NODE
+
+          node /tmp/alfred-runtime-audit.cjs
+
+      - name: Rebuild current checksums
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib
+          import subprocess
+
+          root=Path(".")
+          changed=set(
+              x for x in subprocess.check_output(
+                  ["git","diff","--name-only"],text=True
+              ).splitlines() if x
+          )
+          critical={
+              "build-info.json",
+              "learn.html",
+              "study.html",
+              "resources.html",
+              "service-worker.js",
+              "teaching-media-resource-integration.js",
+              "media-consumption.js",
+              "release-notes-current.js",
+              "v16.3.56-runtime-placement-hotfix.js",
+          }
+          files=sorted(
+              f for f in (changed|critical)
+              if f!="SHA256SUMS.txt" and (root/f).is_file()
+          )
+          lines=[
+              f"{hashlib.sha256((root/f).read_bytes()).hexdigest()}  {f}"
+              for f in files
+          ]
+          (root/"SHA256SUMS.txt").write_text(
+              "\n".join(lines)+"\n",encoding="utf-8"
+          )
+          PY
+
+      - name: Commit and push verified changes
+        shell: bash
+        env:
+          REQUESTED_MESSAGE: ${{ inputs.commit_message }}
+        run: |
+          set -euo pipefail
+
+          git add -A
+
+          if git diff --cached --quiet; then
+            echo "Verification passed; there are no repository changes to commit."
+            exit 0
+          fi
+
+          git config user.name "AU-ESET 301 Maintenance Bot"
+          git config user.email "actions@users.noreply.github.com"
+
+          if [ "${{ github.event_name }}" = "push" ]; then
+            message="Apply AU-ESET 301 v16.3.57 runtime integrity hotfix"
+          else
+            message="${REQUESTED_MESSAGE:-Apply Alfred University maintenance update}"
+          fi
+
+          git commit -m "$message"
+          git push origin HEAD:main
