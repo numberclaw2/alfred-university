@@ -225,10 +225,50 @@
   function readLocalJSON(key,fallback={}){try{return JSON.parse(localStorage.getItem(key)||'null')||fallback;}catch{return fallback;}}
   function currentCourseWeek(){try{return Number(window.AlfredState?.currentWeek?.(EVENTS,new Date(),WEEKS))||1;}catch{return 1;}}
   function weekProgressRecord(p,week){const raw=p?.weeks?.[week]??p?.weeks?.[String(week)];return typeof raw==='string'?{mastery:raw}:{...(raw||{})};}
+  // v16.3.63 — one completion truth for shared navigation + calendar status.
+  // Classroom stores Lab/Application and Weekly Mastery as evidence (route + scores
+  // + safety-critical checks), not as ordinary learning.completed flags. Shared
+  // surfaces must derive those stages from the same evidence instead of treating
+  // a missing literal flag as incomplete.
+  const CRITICAL_CHECKS_BY_WEEK={1:[1],3:[0],9:[1],19:[0],24:[0],28:[1],29:[0]};
+  function curriculumModuleForWeek(week){return window.ALFRED_CURRICULUM?.modules?.find(m=>Number(m.week)===Number(week))||null;}
+  function labIdForWeek(week){
+    const module=curriculumModuleForWeek(week),fromModule=module?.integration?.labId;if(fromModule)return fromModule;
+    return EVENTS.find(e=>calendarWeek(e)===Number(week)&&e.labId)?.labId||'';
+  }
+  function masteryTargetForWeek(week){
+    const module=curriculumModuleForWeek(week),target=Number(module?.mastery?.target);if(Number.isFinite(target)&&target>0)return target;
+    const rule=EVENTS.find(e=>calendarWeek(e)===Number(week)&&/mastery/i.test(String(e.masteryRule||'')))?.masteryRule||'';
+    const match=String(rule).match(/(?:at least\s*)?(\d{2,3})%/i);return match?Number(match[1]):80;
+  }
+  function criticalLessonIndexesForWeek(week){
+    const module=curriculumModuleForWeek(week);
+    if(module?.lessons)return module.lessons.map((lesson,index)=>lesson?.knowledgeCheck?.critical?index:null).filter(index=>index!==null);
+    return CRITICAL_CHECKS_BY_WEEK[Number(week)]||[];
+  }
+  function criticalChecksCompleteForWeek(week,p=readLocalJSON(PROGRESS_KEY,{})){
+    const l=weekProgressRecord(p,week)?.learning||{},indexes=criticalLessonIndexesForWeek(week);
+    return indexes.every(index=>l.checks?.[`lesson-${index}`]?.correct===true);
+  }
+  function stageCompleteForWeek(week,stage,p=readLocalJSON(PROGRESS_KEY,{})){
+    const w=weekProgressRecord(p,week),l=w.learning||{};
+    if(stage==='application'){
+      const labId=labIdForWeek(week);
+      if(labId){
+        const route=w.labs?.[labId],practical=!!(route?.virtual||route?.physical),labScore=Number(w.assessments?.[`lab:${labId}`]?.bestPct||0);
+        return practical&&labScore>=80;
+      }
+    }
+    if(stage==='mastery'){
+      const best=Number(w.assessments?.[`week:${week}`]?.bestPct||0);
+      return best>=masteryTargetForWeek(week)&&criticalChecksCompleteForWeek(week,p);
+    }
+    return l.completed?.[stage]===true;
+  }
   function incompleteClassroomStage(week,p=readLocalJSON(PROGRESS_KEY,{})){
-    const w=weekProgressRecord(p,week),l=w.learning||{},order=['orientation','ceta-lesson','career-lesson','media','practice','application','mastery'];
-    if(l.currentStage&&order.includes(l.currentStage)&&!l.completed?.[l.currentStage])return l.currentStage;
-    return order.find(id=>!l.completed?.[id])||'mastery';
+    const l=weekProgressRecord(p,week)?.learning||{},order=['orientation','ceta-lesson','career-lesson','media','practice','application','mastery'];
+    if(l.currentStage&&order.includes(l.currentStage)&&!stageCompleteForWeek(week,l.currentStage,p))return l.currentStage;
+    return order.find(id=>!stageCompleteForWeek(week,id,p))||'mastery';
   }
   function dueReviewCount(p=readLocalJSON(PROGRESS_KEY,{})){
     let count=0,now=Date.now();
@@ -246,8 +286,7 @@
   const CLASSROOM_STAGE_ORDER=['orientation','ceta-lesson','career-lesson','media','practice','application','mastery'];
   const STUDY_VIEW_LABELS={review:'Review Material',flashcards:'Concept Flashcards',media:'Watch & Review',reference:'Reference',weak:'Work Weak Areas',recall:'Active Recall'};
   function learningWeekComplete(week,p){
-    const completed=weekProgressRecord(p,week)?.learning?.completed||{};
-    return CLASSROOM_STAGE_ORDER.every(id=>completed?.[id]===true);
+    return CLASSROOM_STAGE_ORDER.every(id=>stageCompleteForWeek(week,id,p));
   }
   function learningResumeWeek(p){
     const candidates=Object.entries(p?.weeks||{}).map(([key,value])=>{
@@ -289,11 +328,12 @@
     if(study.due>0)return {...study,reason:'due-review'};
     return learningAction();
   }
+  window.AlfredCompletionTruth={stageComplete:stageCompleteForWeek,weekComplete:learningWeekComplete,criticalChecksComplete:criticalChecksCompleteForWeek,labIdForWeek,masteryTargetForWeek};
   window.AlfredNextAction={get:nextAction,learning:learningAction,study:studyAction,dueReviewCount,incompleteClassroomStage};
   function eventProgressState(e,p=readLocalJSON(PROGRESS_KEY,{})){return p?.events?.[String(e.id)]||p?.events?.[e.id]||{};}
   function stagesCompleteForEvent(e,p=readLocalJSON(PROGRESS_KEY,{})){
     const stages=Array.isArray(e.stageTargets)?e.stageTargets:[];const week=calendarWeek(e);if(!stages.length||!week)return false;
-    const completed=weekProgressRecord(p,week)?.learning?.completed||{};return stages.every(stage=>completed?.[stage]===true);
+    return stages.every(stage=>stageCompleteForWeek(week,stage,p));
   }
   function calendarEventStatus(e,p=readLocalJSON(PROGRESS_KEY,{})){
     const direct=eventProgressState(e,p)?.status;if(direct==='complete'||stagesCompleteForEvent(e,p))return {key:'complete',label:'Complete'};
