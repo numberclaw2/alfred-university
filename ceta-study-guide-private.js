@@ -20,3 +20,52 @@
   window.addEventListener('pageshow',refreshControls);
   window.AlfredPrivateCetaGuide={state,connect,forget,openPrintedPage,refreshControls,storage:'IndexedDB device-local only',cloudSynced:false,serviceWorkerCached:false};
 })();
+
+/* v16.3.59 — Study Guide context parity on the Study surface.
+   Classroom already shows estimated time and after-reading action. Study now does too.
+*/
+(()=>{
+  const SG=window.ALFRED_CETA_STUDY_GUIDE||{};
+  if(document.body?.dataset?.page!=='study'||!Array.isArray(SG.records))return;
+  const normalize=s=>String(s||'').replace(/\s+/g,' ').trim();
+  const titleFor=r=>`Associate CET Study Guide · Chapter ${r.chapter} · ${SG.pageLabel?.(r)||''}`;
+
+  function recordForCard(card){
+    const title=normalize(card.querySelector('h4')?.textContent);
+    return SG.records.find(r=>normalize(titleFor(r))===title)||null;
+  }
+
+  function enhance(){
+    document.querySelectorAll('.study-media-card.study-guide-card').forEach(card=>{
+      if(card.dataset.cetaContextEnhanced==='16.3.59')return;
+      const r=recordForCard(card);
+      if(!r)return;
+      const small=card.querySelector('small');
+      if(Number(r.estimatedMinutes)>0&&!card.querySelector('.study-guide-time')){
+        const p=document.createElement('p');
+        p.className='study-guide-time';
+        p.innerHTML=`<strong>Estimated time:</strong> ~${Number(r.estimatedMinutes)} min`;
+        small?.insertAdjacentElement('afterend',p);
+      }
+      if(r.after&&!card.querySelector('.study-guide-after')){
+        const p=document.createElement('p');
+        p.className='study-guide-after';
+        p.innerHTML=`<strong>After reading:</strong> ${String(r.after).replace(/[&<>"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]))}`;
+        const before=card.querySelector('.study-guide-authority,.study-guide-errata,.study-guide-private-controls');
+        if(before)before.insertAdjacentElement('beforebegin',p);else card.appendChild(p);
+      }
+      card.dataset.cetaContextEnhanced='16.3.59';
+    });
+    const head=document.querySelector('.study-library-head > div');
+    if(head&&!document.querySelector('[data-reading-index-link]')){
+      const p=document.createElement('p');
+      p.className='small-note';
+      p.dataset.readingIndexLink='true';
+      p.innerHTML='<a class="text-link" href="resources.html#course-reading-index">Browse the centralized outside-reading + CETa Study Guide index →</a>';
+      head.appendChild(p);
+    }
+  }
+
+  const start=()=>{enhance();const root=document.querySelector('#study-material-content')||document.body;new MutationObserver(enhance).observe(root,{childList:true,subtree:true});};
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
+})();
