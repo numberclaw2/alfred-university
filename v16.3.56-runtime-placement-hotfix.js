@@ -2670,3 +2670,310 @@
   C.meta.teachingMediaCanonicalSourceCount=R.canonicalSourceCount;
   C.meta.teachingMediaFinalAcceptanceVerdict='PASS — v16.3.58 semantic repair applied with title-safe routing and preserved assignment workload.';
 })();
+
+/* AU-ESET 301 — v16.3.60 combined multimodal QA repair
+   Scope:
+   - remove phantom Required assignments that have no Required contextual use
+   - align Required assignment weeks with actual contextual use
+   - eliminate Required-placement / Study-assignment contradictions
+   - preserve all 491 sections and 1,021 contextual placements
+*/
+(()=>{
+  'use strict';
+  const C=window.ALFRED_CURRICULUM;
+  const R=C?.teachingResourceIntegration;
+  const A=C?.teachingMediaArchitecture;
+  const O=C?.outsideLiteratureIntegration;
+  if(!C?.modules?.length||!R?.placements||!A?.assignments||!O)return;
+
+  const REV='2026-09-23-v16.3.60-combined-multimodal-qa-repair';
+  const assignments=A.assignments;
+  const placements=R.placements;
+
+  const entries=(source,destination=null)=>
+    Object.entries(assignments).filter(([,a])=>
+      a?.source===source&&(!destination||a.destination===destination)
+    );
+  const one=(source,destination=null)=>{
+    const rows=entries(source,destination);
+    if(rows.length!==1)throw new Error(
+      `v16.3.60: expected one ${destination||'assignment'} row for ${source}, found ${rows.length}`
+    );
+    return rows[0];
+  };
+
+  const requiredMeta=source=>({
+    scope:C.sources?.[source]?.purpose||C.sources?.[source]?.title||source,
+    why:'Required first-pass representation retained by the combined multimodal QA.',
+    focus:C.sources?.[source]?.purpose||C.sources?.[source]?.title||source,
+    after:'Return to the mapped Alfred section and explain or apply the connection.',
+    completion:'Complete this canonical source once; contextual reuses do not create another obligation.'
+  });
+
+  function markRequired(a,source){
+    a.destination='classroom';
+    a.requirement='required';
+    a.requiredMeta=requiredMeta(source);
+    a.originalRequirement='required';
+    a.originalRole=`Required · ${a.medium==='video'?'Video explanation':a.medium==='literature'?'Written companion':'Applied resource'}`;
+  }
+  function markStudy(a){
+    a.destination='study';
+    a.requirement='supporting';
+    a.requiredMeta=null;
+    a.originalRequirement='supporting';
+    a.studyCategory=a.studyCategory||'Alternate Explanation';
+  }
+  function markLibrary(a){
+    a.destination='library';
+    a.requirement='reference';
+    a.requiredMeta=null;
+    a.originalRequirement='reference';
+  }
+  function moveKey(source,destination,targetWeek){
+    const [oldKey,a]=one(source,destination);
+    const newKey=`${Number(targetWeek)}:${source}`;
+    if(oldKey===newKey)return a;
+    if(assignments[newKey])throw new Error(`v16.3.60: assignment-key collision ${newKey}`);
+    delete assignments[oldKey];
+    a.assignmentWeek=Number(targetWeek);
+    a.studyWeek=Number(targetWeek);
+    a.key=newKey;
+    assignments[newKey]=a;
+    return a;
+  }
+
+  // 1) Week 4 uses litAacAcTextbook as Required contextual literature.
+  //    Promote it and demote the unused Week 1 grounding article.
+  {
+    const [,ground]=one('litAacGroundIntro','classroom');
+    const [,acText]=one('litAacAcTextbook','study');
+    markStudy(ground);
+    markRequired(acText,'litAacAcTextbook');
+    moveKey('litAacAcTextbook','classroom',4);
+  }
+
+  // 2) These four sources had Classroom/Required assignments but zero
+  //    Required contextual placements after the v16.3.58 semantic repair.
+  for(const source of ['aacDiac','aacZener','aacJfet','foaMediaLectureIndex']){
+    const [,a]=one(source,'classroom');
+    markStudy(a);
+  }
+
+  // 3) Align Required assignment week with the first actual Required use.
+  moveKey('aacBjtIntro','classroom',8);
+
+  // NASA Systems Engineering Handbook already has a Week 22 Library record.
+  // Swap roles with the stale Week 23 Classroom record instead of creating
+  // a duplicate key.
+  {
+    const [,required23]=one('nasaSystems','classroom');
+    const library22=assignments['22:nasaSystems'];
+    if(!library22||library22.destination!=='library')
+      throw new Error('v16.3.60: expected Week 22 NASA Systems library assignment');
+    markLibrary(required23);
+    markRequired(library22,'nasaSystems');
+  }
+
+  // 4) Week 23 first-power planning is Required, but Keysight Bench Power
+  //    is intentionally Study after v16.3.58. Reuse the already-Required
+  //    SparkFun bench-supply written companion instead of creating a second
+  //    Required obligation.
+  {
+    const rows=placements.filter(p=>
+      Number(p.targetWeek)===23 &&
+      String(p.segment)==='career-w23-plan-first-power-as-a-test-case' &&
+      String(p.requirement||'').toLowerCase()==='required' &&
+      p.mediaType==='literature'
+    );
+    if(rows.length!==1)throw new Error(
+      `v16.3.60: expected one Week 23 first-power literature placement, found ${rows.length}`
+    );
+    const requiredSpark=one('litSparkfunBenchPower','classroom')[1];
+    rows[0].source='litSparkfunBenchPower';
+    rows[0].assignmentWeek=Number(requiredSpark.assignmentWeek);
+    rows[0].relationship='Reinforces this concept';
+    rows[0].presentationRole='core';
+    rows[0].afterAction='After reading, write the first-power current-limit, expected-voltage, and stop-condition checks you will use before energizing the board.';
+    rows[0].reason='v16.3.60 combined QA: Required contextual literature must point to a Classroom/Required canonical source.';
+  }
+
+  // Keep Teaching Media / Study roles synchronized with assignment changes.
+  const affected=new Set([
+    'litAacGroundIntro','litAacAcTextbook','aacDiac','aacZener','aacJfet',
+    'foaMediaLectureIndex','aacBjtIntro','nasaSystems'
+  ]);
+  const templates={};
+  C.modules.forEach(mod=>(mod.integration?.media||[]).forEach(item=>{
+    if(affected.has(item.source)&&!templates[item.source])templates[item.source]={...item};
+  }));
+  C.modules.forEach(mod=>{
+    mod.integration=mod.integration||{};
+    mod.integration.media=(mod.integration.media||[]).filter(item=>!affected.has(item.source));
+  });
+  Object.values(assignments).filter(a=>affected.has(a.source)).forEach(a=>{
+    const mod=C.modules.find(m=>Number(m.week)===Number(a.assignmentWeek));
+    if(!mod)return;
+    mod.integration=mod.integration||{};
+    mod.integration.media=mod.integration.media||[];
+    const src=C.sources?.[a.source]||{};
+    const medium=a.medium||src.medium||(/video/i.test(src.kind||'')?'video':'literature');
+    const role=a.destination==='classroom'
+      ?`Required · ${medium==='video'?'Video explanation':medium==='literature'?'Written companion':'Applied / authoritative resource'}`
+      :a.destination==='study'
+        ?'Study · Additional support'
+        :'Engineering Library · Professional Reference';
+    mod.integration.media.push({
+      ...(templates[a.source]||{}),
+      source:a.source,
+      role,
+      use:src.purpose||src.title||a.source,
+      watchFor:src.purpose||src.title||a.source,
+      gap:'Alfred remains the primary teacher; this source supplies a bounded parallel representation.'
+    });
+  });
+
+  // Rebuild placement indexes after the Week 23 source correction.
+  R.byTargetWeek={}; R.bySource={}; R.byAssignment={};
+  placements.forEach(p=>{
+    (R.byTargetWeek[p.targetWeek]||=[]).push(p);
+    (R.bySource[p.source]||=[]).push(p);
+    (R.byAssignment[`${p.assignmentWeek}:${p.source}`]||=[]).push(p);
+  });
+
+  // Rebuild contextual literature metadata after the source correction.
+  O.sources=O.sources||{};
+  O.existingType=O.existingType||{};
+  O.bySource={};
+  O.byPlacement={};
+  O.literaturePlacements=[];
+  const litKey=p=>`${p.assignmentWeek}:${p.source}:${p.targetWeek}:${p.lesson}:${p.segment}`;
+  placements.filter(p=>p.mediaType==='literature').forEach(p=>{
+    const src=C.sources?.[p.source]||{};
+    const media=(C.modules.find(m=>Number(m.week)===Number(p.assignmentWeek))?.integration?.media||[])
+      .find(x=>x.source===p.source)||{};
+    O.sources[p.source]={
+      ...(O.sources[p.source]||{}),
+      title:src.title||p.source,
+      org:src.org||'',
+      kind:src.kind||'Written companion',
+      url:src.url||'',
+      literatureType:'Required Written Companion'
+    };
+    O.existingType[p.source]='Required Written Companion';
+    const row={
+      assignmentWeek:p.assignmentWeek,
+      source:p.source,
+      targetWeek:p.targetWeek,
+      lesson:p.lesson,
+      segment:p.segment,
+      relationship:p.relationship,
+      presentationRole:p.presentationRole,
+      display:p.display,
+      inline:p.inline!==false,
+      requirement:'required',
+      mediaType:'literature',
+      readUse:media.watchFor||src.purpose||src.title||p.source,
+      focus:media.use||src.purpose||src.title||p.source,
+      afterReading:p.afterAction,
+      why:src.purpose||'Written first-pass companion selected for this lesson section.',
+      gap:'Alfred supplies the primary instruction and course-specific practice.',
+      literatureType:'Required Written Companion',
+      meta:O.sources[p.source]
+    };
+    O.literaturePlacements.push(row);
+    (O.bySource[p.source]||=[]).push(row);
+    O.byPlacement[litKey(p)]=row;
+  });
+  O.sourceIds=Object.keys(O.bySource);
+  O.placementCount=O.literaturePlacements.length;
+  O.uniqueSourceCount=O.sourceIds.length;
+  O.revision=REV;
+
+  // Recalculate assignment/runtime metadata.
+  const assignmentRows=Object.values(assignments);
+  const destinations=assignmentRows.reduce((m,a)=>{
+    m[a.destination]=(m[a.destination]||0)+1;
+    return m;
+  },{});
+  R.retainedAssignmentCount=assignmentRows.length;
+  R.uniqueSourceCount=new Set(assignmentRows.map(a=>a.source)).size;
+  R.canonicalSourceCount=new Set(
+    assignmentRows.map(a=>R.canonicalAliases?.[a.source]||a.source)
+  ).size;
+  R.revision=REV;
+
+  A.revision=REV;
+  A.placementCount=placements.length;
+  A.counts={
+    classroom:destinations.classroom||0,
+    study:destinations.study||0,
+    library:destinations.library||0,
+    removed:0,
+    universalRequired:destinations.classroom||0,
+    conditionalRequired:0
+  };
+
+  // Fail-closed audit invariants.
+  const classroomSources=new Set(
+    assignmentRows.filter(a=>a.destination==='classroom').map(a=>a.source)
+  );
+  const requiredPlacementSources=new Set(
+    placements
+      .filter(p=>String(p.requirement||'').toLowerCase()==='required')
+      .map(p=>p.source)
+  );
+  const missingClassroom=[...requiredPlacementSources].filter(s=>!classroomSources.has(s));
+  if(missingClassroom.length)
+    throw new Error(`v16.3.60 Required placements without Classroom assignments: ${missingClassroom.join(', ')}`);
+
+  const placementWeeks={};
+  placements
+    .filter(p=>String(p.requirement||'').toLowerCase()==='required')
+    .forEach(p=>(placementWeeks[p.source]||=new Set()).add(Number(p.targetWeek)));
+
+  const phantom=assignmentRows.filter(a=>
+    a.destination==='classroom' && !requiredPlacementSources.has(a.source)
+  );
+  if(phantom.length)
+    throw new Error(`v16.3.60 phantom Required assignments: ${phantom.map(a=>a.source).join(', ')}`);
+
+  const misaligned=assignmentRows.filter(a=>
+    a.destination==='classroom' &&
+    placementWeeks[a.source]?.size &&
+    !placementWeeks[a.source].has(Number(a.assignmentWeek))
+  );
+  if(misaligned.length)
+    throw new Error(`v16.3.60 misaligned Required weeks: ${misaligned.map(a=>`${a.source}@W${a.assignmentWeek}`).join(', ')}`);
+
+  const literatureCount=placements.filter(p=>p.mediaType==='literature').length;
+  if(assignmentRows.length!==347)throw new Error(`v16.3.60 expected 347 assignments, found ${assignmentRows.length}`);
+  if((destinations.classroom||0)!==247)throw new Error(`v16.3.60 expected 247 Classroom assignments, found ${destinations.classroom||0}`);
+  if((destinations.study||0)!==81)throw new Error(`v16.3.60 expected 81 Study assignments, found ${destinations.study||0}`);
+  if((destinations.library||0)!==19)throw new Error(`v16.3.60 expected 19 Library assignments, found ${destinations.library||0}`);
+  if(R.uniqueSourceCount!==322)throw new Error(`v16.3.60 expected 322 unique assignment source IDs, found ${R.uniqueSourceCount}`);
+  if(R.canonicalSourceCount!==319)throw new Error(`v16.3.60 expected 319 canonical source identities, found ${R.canonicalSourceCount}`);
+  if(placements.length!==1021)throw new Error(`v16.3.60 expected 1021 contextual placements, found ${placements.length}`);
+  if(literatureCount!==515)throw new Error(`v16.3.60 expected 515 literature placements, found ${literatureCount}`);
+
+  C.meta=C.meta||{};
+  Object.assign(C.meta,{
+    teachingMediaRevision:REV,
+    teachingMediaArchitectureRevision:REV,
+    teachingMediaResourceIntegrationRevision:REV,
+    teachingMediaCombinedQaRevision:REV,
+    teachingMediaAssignmentCount:347,
+    teachingMediaRetainedAssignmentCount:347,
+    teachingMediaUniversalRequiredCount:247,
+    teachingMediaClassroomAssignmentCount:247,
+    teachingMediaStudyAssignmentCount:81,
+    teachingMediaEngineeringLibraryAssignmentCount:19,
+    teachingMediaInlinePlacementCount:1021,
+    teachingMediaUniqueSourceCount:322,
+    teachingMediaCanonicalSourceCount:319,
+    teachingMediaPhantomRequiredCount:0,
+    teachingMediaRequiredPlacementClassificationContradictionCount:0,
+    teachingMediaRequiredWeekMisalignmentCount:0,
+    teachingMediaFinalAcceptanceVerdict:'PASS — combined multimodal QA removed phantom Required obligations, aligned Required weeks, and eliminated Required-placement classification contradictions without reducing section coverage.'
+  });
+})();
