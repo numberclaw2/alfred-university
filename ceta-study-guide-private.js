@@ -1,33 +1,129 @@
-(()=>{
-  const DB_NAME='alfred-private-ceta-guide-v1';
-  const STORE='files';
-  const GUIDE_KEY='associate-cet-sixth-edition';
-  const VERIFIED_OFFSET=Number(window.ALFRED_CETA_STUDY_GUIDE?.privateCopy?.verifiedCopyPdfPageOffset??10);
-  let cachedState=null;
-
-  function openDb(){return new Promise((resolve,reject)=>{const req=indexedDB.open(DB_NAME,1);req.onupgradeneeded=()=>{const db=req.result;if(!db.objectStoreNames.contains(STORE))db.createObjectStore(STORE,{keyPath:'id'});};req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error);});}
-  async function getRecord(){try{const db=await openDb();return await new Promise((resolve,reject)=>{const tx=db.transaction(STORE,'readonly'),req=tx.objectStore(STORE).get(GUIDE_KEY);req.onsuccess=()=>resolve(req.result||null);req.onerror=()=>reject(req.error);});}catch{return null;}}
-  async function putRecord(value){const db=await openDb();return await new Promise((resolve,reject)=>{const tx=db.transaction(STORE,'readwrite');tx.objectStore(STORE).put(value);tx.oncomplete=()=>resolve(true);tx.onerror=()=>reject(tx.error);});}
-  async function deleteRecord(){try{const db=await openDb();return await new Promise((resolve,reject)=>{const tx=db.transaction(STORE,'readwrite');tx.objectStore(STORE).delete(GUIDE_KEY);tx.oncomplete=()=>resolve(true);tx.onerror=()=>reject(tx.error);});}catch{return false;}}
-  async function state(){if(cachedState)return cachedState;const r=await getRecord();cachedState={connected:!!r,name:r?.name||'',offset:Number(r?.offset??VERIFIED_OFFSET),size:Number(r?.size||0)};return cachedState;}
-  async function refreshControls(){const s=await state();document.querySelectorAll('[data-private-guide-state]').forEach(el=>{el.textContent=s.connected?`Private copy connected on this device${s.name?` · ${s.name}`:''}`:'Private copy not connected on this device';});document.querySelectorAll('[data-private-guide-open]').forEach(el=>{el.hidden=!s.connected;el.disabled=!s.connected;});document.querySelectorAll('[data-private-guide-forget]').forEach(el=>{el.hidden=!s.connected;});document.querySelectorAll('[data-private-guide-choose]').forEach(el=>{el.textContent=s.connected?'Replace private PDF on this device':'Connect private PDF on this device';});}
-  function chooseFile(){return new Promise(resolve=>{const input=document.createElement('input');input.type='file';input.accept='application/pdf,.pdf';input.hidden=true;document.body.appendChild(input);input.addEventListener('change',()=>{const file=input.files?.[0]||null;input.remove();resolve(file);},{once:true});input.addEventListener('cancel',()=>{input.remove();resolve(null);},{once:true});input.click();});}
-  async function connect(){const file=await chooseFile();if(!file)return false;if(file.type&&file.type!=='application/pdf'&&!/\.pdf$/i.test(file.name||''))return false;await putRecord({id:GUIDE_KEY,name:file.name||'Associate CET Study Guide.pdf',size:file.size||0,type:file.type||'application/pdf',offset:VERIFIED_OFFSET,blob:file,updatedAt:new Date().toISOString(),private:true});cachedState=null;await refreshControls();return true;}
-  async function forget(){await deleteRecord();cachedState=null;await refreshControls();}
-  async function openPrintedPage(printedPage){const popup=window.open('about:blank','_blank');const record=await getRecord();if(!record?.blob){popup?.close();cachedState=null;await refreshControls();return false;}const pdfPage=Math.max(1,Number(printedPage)||1)+Number(record.offset??VERIFIED_OFFSET);const url=URL.createObjectURL(record.blob)+`#page=${pdfPage}`;if(popup){popup.opener=null;popup.location.replace(url);}else window.location.href=url;setTimeout(()=>URL.revokeObjectURL(url.split('#')[0]),120000);return true;}
-  document.addEventListener('click',async event=>{const choose=event.target.closest('[data-private-guide-choose]');if(choose){event.preventDefault();choose.disabled=true;try{await connect();}finally{choose.disabled=false;}return;}const forgetBtn=event.target.closest('[data-private-guide-forget]');if(forgetBtn){event.preventDefault();await forget();return;}const open=event.target.closest('[data-private-guide-open]');if(open){event.preventDefault();await openPrintedPage(open.dataset.printedPage);}});
-  document.addEventListener('DOMContentLoaded',refreshControls,{once:true});
-  window.addEventListener('pageshow',refreshControls);
-  window.AlfredPrivateCetaGuide={state,connect,forget,openPrintedPage,refreshControls,storage:'IndexedDB device-local only',cloudSynced:false,serviceWorkerCached:false};
-})();
-
-/* v16.3.59 — Study Guide context parity on the Study surface.
-   Classroom already shows estimated time and after-reading action. Study now does too.
+/* AU-ESET 301 — v16.3.61 built-in private-repository CETa Study Guide
+   Replaces the former device-import flow with the learner-owned bundled PDF.
+   Existing lesson/page mappings remain authoritative; printed-page -> PDF-page offset stays +10.
 */
 (()=>{
+  'use strict';
+
+  const GUIDE_FILE='Associate_CET_Study_Guide_Sixth_Edition.pdf';
+  const GUIDE_NAME='Associate CET Study Guide, Sixth Edition';
+  const VERIFIED_OFFSET=Number(window.ALFRED_CETA_STUDY_GUIDE?.privateCopy?.verifiedCopyPdfPageOffset??10);
+
+  const builtInState=()=>({
+    connected:true,
+    bundled:true,
+    name:GUIDE_NAME,
+    file:GUIDE_FILE,
+    offset:VERIFIED_OFFSET,
+    storage:'private-repository bundled static asset',
+    cloudIntegration:'allowed; not configured by this module'
+  });
+
+  async function state(){
+    return builtInState();
+  }
+
+  function hideControl(el){
+    if(!el)return;
+    el.hidden=true;
+    el.setAttribute('aria-hidden','true');
+    if('disabled' in el)el.disabled=true;
+  }
+
+  async function refreshControls(){
+    document.querySelectorAll('[data-private-guide-state]').forEach(el=>{
+      el.textContent='Built-in Study Guide ready';
+    });
+
+    document.querySelectorAll('[data-private-guide-open]').forEach(el=>{
+      el.hidden=false;
+      el.removeAttribute('aria-hidden');
+      if('disabled' in el)el.disabled=false;
+      if(/connect|upload|choose|import/i.test(el.textContent||''))el.textContent='Open Study Guide';
+      el.setAttribute('title','Open the built-in private Study Guide copy');
+    });
+
+    document.querySelectorAll('[data-private-guide-choose],[data-private-guide-forget]').forEach(hideControl);
+
+    document.querySelectorAll('.study-guide-private-controls').forEach(wrapper=>{
+      const visible=[...wrapper.children].some(child=>!child.hidden);
+      if(!visible)wrapper.hidden=true;
+    });
+  }
+
+  function guideUrlForPrintedPage(printedPage){
+    const printed=Math.max(1,Number(printedPage)||1);
+    const pdfPage=printed+VERIFIED_OFFSET;
+    const url=new URL(GUIDE_FILE,window.location.href);
+    url.hash=`page=${pdfPage}`;
+    return url.toString();
+  }
+
+  async function openPrintedPage(printedPage){
+    const url=guideUrlForPrintedPage(printedPage);
+    const popup=window.open(url,'_blank');
+    if(popup)popup.opener=null;
+    else window.location.href=url;
+    return true;
+  }
+
+  // Backward-compatible no-op methods. Existing callers may still invoke them,
+  // but there is no import/remove workflow in bundled mode.
+  async function connect(){
+    await refreshControls();
+    return true;
+  }
+  async function forget(){
+    await refreshControls();
+    return false;
+  }
+
+  document.addEventListener('click',async event=>{
+    const choose=event.target.closest?.('[data-private-guide-choose]');
+    if(choose){
+      event.preventDefault();
+      event.stopPropagation();
+      await refreshControls();
+      return;
+    }
+
+    const forgetBtn=event.target.closest?.('[data-private-guide-forget]');
+    if(forgetBtn){
+      event.preventDefault();
+      event.stopPropagation();
+      await refreshControls();
+      return;
+    }
+
+    const open=event.target.closest?.('[data-private-guide-open]');
+    if(open){
+      event.preventDefault();
+      event.stopPropagation();
+      await openPrintedPage(open.dataset.printedPage||open.getAttribute('data-printed-page')||1);
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded',refreshControls,{once:true});
+  window.addEventListener('pageshow',refreshControls);
+
+  window.AlfredPrivateCetaGuide={
+    state,connect,forget,openPrintedPage,refreshControls,guideUrlForPrintedPage,
+    bundled:true,
+    file:GUIDE_FILE,
+    storage:'private-repository bundled static asset',
+    cloudIntegration:'allowed; not configured by this module',
+    serviceWorkerCached:true
+  };
+})();
+
+/* Preserve v16.3.59 Study Guide context parity on the Study surface. */
+(()=>{
+  'use strict';
   const SG=window.ALFRED_CETA_STUDY_GUIDE||{};
   if(document.body?.dataset?.page!=='study'||!Array.isArray(SG.records))return;
+
   const normalize=s=>String(s||'').replace(/\s+/g,' ').trim();
+  const esc=s=>String(s??'').replace(/[&<>\"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[ch]));
   const titleFor=r=>`Associate CET Study Guide · Chapter ${r.chapter} · ${SG.pageLabel?.(r)||''}`;
 
   function recordForCard(card){
@@ -37,9 +133,10 @@
 
   function enhance(){
     document.querySelectorAll('.study-media-card.study-guide-card').forEach(card=>{
-      if(card.dataset.cetaContextEnhanced==='16.3.59')return;
+      if(card.dataset.cetaContextEnhanced==='16.3.61')return;
       const r=recordForCard(card);
       if(!r)return;
+
       const small=card.querySelector('small');
       if(Number(r.estimatedMinutes)>0&&!card.querySelector('.study-guide-time')){
         const p=document.createElement('p');
@@ -47,15 +144,18 @@
         p.innerHTML=`<strong>Estimated time:</strong> ~${Number(r.estimatedMinutes)} min`;
         small?.insertAdjacentElement('afterend',p);
       }
+
       if(r.after&&!card.querySelector('.study-guide-after')){
         const p=document.createElement('p');
         p.className='study-guide-after';
-        p.innerHTML=`<strong>After reading:</strong> ${String(r.after).replace(/[&<>"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]))}`;
+        p.innerHTML=`<strong>After reading:</strong> ${esc(r.after)}`;
         const before=card.querySelector('.study-guide-authority,.study-guide-errata,.study-guide-private-controls');
         if(before)before.insertAdjacentElement('beforebegin',p);else card.appendChild(p);
       }
-      card.dataset.cetaContextEnhanced='16.3.59';
+
+      card.dataset.cetaContextEnhanced='16.3.61';
     });
+
     const head=document.querySelector('.study-library-head > div');
     if(head&&!document.querySelector('[data-reading-index-link]')){
       const p=document.createElement('p');
@@ -64,8 +164,16 @@
       p.innerHTML='<a class="text-link" href="resources.html#course-reading-index">Browse the centralized outside-reading + CETa Study Guide index →</a>';
       head.appendChild(p);
     }
+
+    window.AlfredPrivateCetaGuide?.refreshControls?.();
   }
 
-  const start=()=>{enhance();const root=document.querySelector('#study-material-content')||document.body;new MutationObserver(enhance).observe(root,{childList:true,subtree:true});};
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
+  const start=()=>{
+    enhance();
+    const root=document.querySelector('#study-material-content')||document.body;
+    if(typeof MutationObserver==='function')new MutationObserver(enhance).observe(root,{childList:true,subtree:true});
+  };
+
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});
+  else start();
 })();
