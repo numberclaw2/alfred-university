@@ -19,6 +19,8 @@
     ],
     filesModified:[
       'ceta-study-guide-private.js',
+      'learn.html',
+      'study.html',
       'build-info.json',
       'service-worker.js',
       'patch-notes.html',
