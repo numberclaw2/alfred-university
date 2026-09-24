@@ -8,7 +8,7 @@ const startOfDay=d=>new Date(d.getFullYear(),d.getMonth(),d.getDate());
 const addDays=(d,n)=>{const x=new Date(d);x.setDate(x.getDate()+n);return x;};
 const fmtDate=(v,o={weekday:'short',month:'short',day:'numeric'})=>new Intl.DateTimeFormat('en-US',o).format(new Date(v));
 const cleanTitle=e=>String(e?.summary||'').replace(/^AU-ESET 301 \| /,'');
-const css=document.createElement('link');css.rel='stylesheet';css.href='study-v2.css?v=16.3.50';document.head.appendChild(css);
+const css=document.createElement('link');css.rel='stylesheet';css.href='study-v2.css?v=16.3.62';document.head.appendChild(css);
 
 function defaultState(){return {version:19,defaultMode:'standard',reviews:{},parking:[],parkingTombstones:{},parkingRecordTimes:{},history:[],sessionConfidence:{},session:null,lastWeek:null,library:{view:'review',reviewIndex:0,flashIndex:0,flashRevealed:false}};}
 function load(){try{const raw=JSON.parse(localStorage.getItem(STUDY_KEY)||'null')||{};const base=defaultState();const merged={...base,...raw,library:{...base.library,...(raw.library||{})}};return window.AlfredParkingSync?.normalizeStudyState?.(merged)||merged;}catch{return defaultState();}}
@@ -99,6 +99,30 @@ function reachedResources(week=currentWeek()){
   const corpus=reachedCorpus(week);return (R||[]).filter(r=>(r.weeks||[]).map(Number).includes(Number(week))).map(r=>({...r,score:overlapScore(`${r.title||''} ${(r.contexts||[]).join(' ')} ${r.category||''}`,corpus)})).filter(r=>r.score>0||/CETa \/ Official/i.test(r.category||'')).sort((a,b)=>b.score-a.score).slice(0,10);
 }
 function libraryView(){return state.library?.view||'review';}
+function academicCurrentWeek(){return Number(window.AlfredState?.currentWeek?.()||1)||1;}
+function availableStudyWeeks(){
+  const active=academicCurrentWeek(),weeks=new Set([active]);
+  W.forEach(w=>{const n=Number(w.week);if(n&&reachedStudySections(n).length)weeks.add(n);});
+  return [...weeks].filter(n=>W.some(w=>Number(w.week)===n)).sort((a,b)=>a-b);
+}
+function studyWeekLabel(week){
+  const n=Number(week),topic=weekData(n).topic||moduleForWeek(n)?.title||'Course week',current=n===academicCurrentWeek()?' · current course week':'';
+  return `Week ${String(n).padStart(2,'0')} — ${topic}${current}`;
+}
+function renderStudyWeekSelector(){
+  const select=$('#study-week-select');if(!select)return;const selected=currentWeek(),weeks=availableStudyWeeks();
+  select.innerHTML=weeks.map(n=>`<option value="${n}"${n===selected?' selected':''}>${esc(studyWeekLabel(n))}</option>`).join('');
+  select.disabled=weeks.length<=1;
+  const help=$('#study-week-help');if(help){
+    const saved=state.session?.conceptIds?.length&&Number(state.session.week)!==Number(selected)?` Your saved Active Recall session remains in Week ${String(state.session.week).padStart(2,'0')}.`:'';
+    help.textContent=`Switch among weeks you have already reached. Your current course week stays available even before its first Study section unlocks. Changing this does not move Classroom progress.${saved}`;
+  }
+}
+function changeStudyWeek(value){
+  const next=Number(value),allowed=availableStudyWeeks();if(!allowed.includes(next)||next===currentWeek())return;
+  state.library=state.library||defaultState().library;state.library.reviewIndex=0;state.library.flashIndex=0;state.library.flashRevealed=false;state.lastWeek=next;save();
+  const u=new URL(location.href);u.searchParams.set('week',String(next));u.searchParams.set('view',libraryView());u.searchParams.delete('event');u.searchParams.delete('standard');u.hash='';location.assign(u.toString());
+}
 function setLibraryView(view){
   state.library=state.library||defaultState().library;state.library.view=view;state.lastWeek=currentWeek();save();renderStudyLibrary();
   try{const u=new URL(location.href);u.searchParams.set('view',view);history.replaceState(null,'',u);}catch{}
@@ -149,7 +173,7 @@ function renderWeakAreasStudy(){
   $$('[data-weak-review]').forEach(b=>b.addEventListener('click',()=>setLibraryView(b.dataset.weakReview)));
 }
 function renderStudyLibrary(){
-  renderReachedSummary();const view=libraryView();$$('[data-study-view]').forEach(b=>{const on=b.dataset.studyView===view;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on));});
+  renderStudyWeekSelector();renderReachedSummary();const view=libraryView();$$('[data-study-view]').forEach(b=>{const on=b.dataset.studyView===view;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on));});
   const material=$('#study-material-workspace'),recall=$('#active-recall-section');if(view==='recall'){material?.classList.add('hidden');recall?.classList.remove('hidden');renderRecommendation();renderResumeSession();return;}material?.classList.remove('hidden');recall?.classList.add('hidden');
   if(view==='flashcards')renderFlashcards();else if(view==='media')renderMediaStudy();else if(view==='reference')renderReferenceStudy();else if(view==='weak')renderWeakAreasStudy();else renderReviewMaterial();
 }
@@ -368,6 +392,7 @@ hydrateReviewsFromProgress();rewriteStaticCopy();installSiteIssueParking();rende
 window.addEventListener('online',syncProgressFromCloud);window.addEventListener('storage',e=>{if(e.key===PROGRESS_KEY){hydrateReviewsFromProgress();renderRecommendation();renderReviews();renderStudyLibrary();}if(e.key===STUDY_KEY){state=load();renderResumeSession();renderParking();renderStudyLibrary();}});window.addEventListener('alfred-parking-updated',()=>{state=load();renderParking();});
 $$('input[name="session-mode"]').forEach(r=>{r.checked=r.value===activeMode});
 $$('[data-study-view]').forEach(b=>b.addEventListener('click',()=>setLibraryView(b.dataset.studyView)));
+$('#study-week-select')?.addEventListener('change',e=>changeStudyWeek(e.currentTarget.value));
 $('#back-to-study-library')?.addEventListener('click',()=>{setLibraryView('review');$('#study-library-section')?.scrollIntoView({behavior:'smooth',block:'start'});});
 $('#start-study-session')?.addEventListener('click',e=>{const href=e.currentTarget?.dataset?.routeHref;if(href){location.href=href;return;}startSession();});$('#quiet-mode-toggle')?.addEventListener('click',toggleQuiet);$('#focus-mode-toggle')?.addEventListener('click',toggleFocus);$('#leave-focus')?.addEventListener('click',()=>{document.body.classList.remove('focus-mode');$('#focus-mode-toggle')?.setAttribute('aria-pressed','false');});
 $('#session-prev')?.addEventListener('click',()=>{if(step>0){step--;state.session.step=step;save();renderSession();}});$('#session-next')?.addEventListener('click',()=>{const names=sessionStageNames();if(step<names.length-1){if(!validateStage())return;step++;state.session.step=step;save();renderSession();}else finishSession();});
