@@ -337,9 +337,13 @@
   }
   function calendarEventStatus(e,p=readLocalJSON(PROGRESS_KEY,{})){
     const direct=eventProgressState(e,p)?.status;if(direct==='complete'||stagesCompleteForEvent(e,p))return {key:'complete',label:'Complete'};
+    // v16.3.66: a required prep item cannot become falsely overdue after the
+    // practical/application evidence it prepared has already been completed.
+    const week=calendarWeek(e);
+    if(e?.requirement==='REQUIRED PREP'&&e?.sessionKind==='prep'&&week&&stageCompleteForWeek(week,'application',p))return {key:'complete',label:'Complete'};
     if(isAdvancePrep(e))return {key:'advance-prep',label:'Advance prep'};
     if(e.requirement==='MILESTONE')return {key:'milestone',label:'Milestone'};
-    const week=calendarWeek(e),current=currentCourseWeek(),stage=incompleteClassroomStage(current,p);
+    const current=currentCourseWeek(),stage=incompleteClassroomStage(current,p);
     if(week===current&&Array.isArray(e.stageTargets)&&e.stageTargets.includes(stage))return {key:'current',label:'Current required stage'};
     if(new Date(e.end||e.start)<new Date())return {key:'overdue',label:'Overdue'};
     return {key:'scheduled',label:'Scheduled'};
@@ -647,15 +651,16 @@
     const upcoming=EVENTS.filter(e=>calendarWeek(e)===w && !isAdvancePrep(e) && new Date(e.start)>=now).slice(0,3);
     const prep=EVENTS.find(e=>isAdvancePrep(e)&&Number(e.contextWeek)===w&&new Date(e.start)>=startOfDay(now));
     const outcomes=(week?.outcomes||[]).slice(0,4);
-    const milestone=nextMilestone(now);
+    const milestone=nextMilestone(now),learning=learningAction(),aheadBy=Math.max(0,Number(learning?.week||w)-Number(w));
     return `
       <section class="week-dashboard-primary">
-        <div class="week-kicker">${esc(phaseForWeek(w))}</div>
+        <div class="week-kicker">Schedule baseline · ${esc(phaseForWeek(w))}</div>
         <h3>Week ${String(w).padStart(2,'0')} · ${esc(weekTopic(w))}</h3>
         <p>${bounds?`${fmtDate(bounds.first.toISOString(),{month:'long',day:'numeric'})} – ${fmtDate(bounds.last.toISOString(),{month:'long',day:'numeric',year:'numeric'})}`:''}</p>
+        <p class="small-note"><strong>Calendar = sustainable baseline.</strong> Working ahead never moves these dates. Mastery and saved Classroom evidence determine your actual learning resume point.${aheadBy?` You are currently ${aheadBy} week${aheadBy===1?'':'s'} ahead of the baseline.`:''}</p>
         <div class="week-progress"><span style="width:${progress.toFixed(0)}%"></span></div>
         <div class="week-progress-meta"><span>Week start</span><span>${progress.toFixed(0)}% through calendar week</span><span>Week end</span></div>
-        <a class="button gold" href="learn.html?week=${w}">Continue Week ${String(w).padStart(2,'0')} Classroom</a>
+        <div class="button-row"><a class="button gold" href="${esc(learning?.href||`learn.html?week=${w}`)}">Resume Learning →</a>${Number(learning?.week||w)!==Number(w)?`<a class="button outline-green" href="learn.html?week=${w}">Open baseline Week ${String(w).padStart(2,'0')}</a>`:''}</div>
       </section>
       <section class="week-dashboard-card">
         <h4>Next on your calendar</h4>
@@ -709,7 +714,7 @@
     return `
       <div class="modal-date">${fmtDate(e.start)} · ${isAllDayEvent(e)?'Checkpoint / reminder':`${fmtTime(e.start)} – ${fmtTime(e.end)}`}${week?` · Week ${String(week).padStart(2,'0')}`:''}</div>
       <h2 id="event-modal-title">${esc(e.summary.replace(/^AU-ESET 301 \| /,''))}</h2>
-      <p class="event-modal-intro">The Calendar is the execution layer. It tells you what stage owns this block, how long to budget, what counts as evidence, and where to continue. Classroom/Progress remain the source of truth for mastery and completion.</p>
+      <p class="event-modal-intro">The Calendar is the sustainable baseline execution layer. Its dates stay fixed even if you study ahead. It tells you what stage owns this block, how long to budget, and what counts as evidence; Classroom/Progress remain the source of truth for mastery and completion.</p>
       ${glanceHTML}${today}${outcomes}${mastery}${flex}${completion}
       <div class="modal-section event-quiz-cta"><h3>Current destination</h3><p>${isAdvancePrep(e)?'Prepare the upcoming route without skipping the current week’s required teaching.':e.requirement==='MILESTONE'?'Use the milestone-specific destination below; this event never falls back to Week 01.':'Resume the exact current stage assigned to this calendar block.'}</p><div class="calendar-destination-actions">${primary}${secondary}</div>${repair}</div>
       ${references}
@@ -772,13 +777,14 @@
     }
     function renderCurrentWeek(){
       const info=courseInfo(), w=info?.currentWeek||1, bounds=weekBounds(w), list=bounds?.list||[], learning=learningAction(), studying=studyAction();
-      const scheduled=info?.nextRequired||info?.next;
+      const scheduled=info?.nextRequired||info?.next, aheadBy=Math.max(0,Number(learning?.week||w)-Number(w));
       const prep=info?.nextPrep&&Number(info.nextPrep.contextWeek)===w?info.nextPrep:null;
       $('#calendar-current-week').innerHTML=`
         <div class="calendar-current-week-grid">
           <div>
-            <div class="eyebrow">${esc(phaseForWeek(w))}</div>
+            <div class="eyebrow">Schedule baseline · ${esc(phaseForWeek(w))}</div>
             <h2>Week ${String(w).padStart(2,'0')} · ${esc(weekTopic(w))}</h2>
+            <p><strong>Baseline rule:</strong> These dates remain your sustainable fallback pace even when you work ahead.${aheadBy?` Your saved Classroom work is ${aheadBy} week${aheadBy===1?'':'s'} ahead.`:''}</p>
             <p><strong>Learning resume point:</strong> ${esc(learning?.detail||'Open Classroom to continue the required path.')}</p>
             <div class="calendar-current-actions"><a class="button gold small" href="${esc(learning?.href||`learn.html?week=${w}`)}">Resume Learning →</a><a class="button outline-green small" href="${esc(studying?.href||`study.html?week=${w}`)}">Resume Study →</a></div>
             <p class="calendar-next-line"><strong>Study resume point:</strong> ${esc(studying?.detail||`Week ${String(w).padStart(2,'0')} · Review Material`)}</p>

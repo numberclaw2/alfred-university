@@ -100,14 +100,24 @@ function reachedResources(week=currentWeek()){
 }
 function libraryView(){return state.library?.view||'review';}
 function academicCurrentWeek(){return Number(window.AlfredState?.currentWeek?.()||1)||1;}
+function learningActivityWeeks(){
+  const p=progress(),out=[];
+  Object.entries(p.weeks||{}).forEach(([key,value])=>{
+    const n=Number(key),w=typeof value==='string'?{}:(value||{}),l=w.learning||{};
+    const active=Object.keys(l.completed||{}).length||Object.keys(l.lessonSegments||{}).length||Object.keys(l.responses||{}).length||l.currentStage||Object.keys(w.assessments||{}).length||Object.keys(w.labs||{}).length;
+    if(n&&active)out.push(n);
+  });
+  return out;
+}
 function availableStudyWeeks(){
-  const active=academicCurrentWeek(),weeks=new Set([active]);
+  const active=academicCurrentWeek(),selected=currentWeek(),weeks=new Set([active,selected]);
+  learningActivityWeeks().forEach(n=>weeks.add(n));
   W.forEach(w=>{const n=Number(w.week);if(n&&reachedStudySections(n).length)weeks.add(n);});
   return [...weeks].filter(n=>W.some(w=>Number(w.week)===n)).sort((a,b)=>a-b);
 }
 function studyWeekLabel(week){
-  const n=Number(week),topic=weekData(n).topic||moduleForWeek(n)?.title||'Course week',current=n===academicCurrentWeek()?' · current course week':'';
-  return `Week ${String(n).padStart(2,'0')} — ${topic}${current}`;
+  const n=Number(week),baseline=academicCurrentWeek(),topic=weekData(n).topic||moduleForWeek(n)?.title||'Course week',pace=n===baseline?' · scheduled baseline':n>baseline?' · ahead of baseline':'';
+  return `Week ${String(n).padStart(2,'0')} — ${topic}${pace}`;
 }
 function renderStudyWeekSelector(){
   const select=$('#study-week-select');if(!select)return;const selected=currentWeek(),weeks=availableStudyWeeks();
@@ -115,7 +125,7 @@ function renderStudyWeekSelector(){
   select.disabled=weeks.length<=1;
   const help=$('#study-week-help');if(help){
     const saved=state.session?.conceptIds?.length&&Number(state.session.week)!==Number(selected)?` Your saved Active Recall session remains in Week ${String(state.session.week).padStart(2,'0')}.`:'';
-    help.textContent=`Switch among weeks you have already reached. Your current course week stays available even before its first Study section unlocks. Changing this does not move Classroom progress.${saved}`;
+    help.textContent=`Switch among the scheduled baseline and weeks you have reached or started—even when you are working ahead. Calendar dates never move. Study still exposes only Classroom sections you have actually reached, and changing this does not rewrite Classroom progress.${saved}`;
   }
 }
 function changeStudyWeek(value){
@@ -129,7 +139,8 @@ function setLibraryView(view){
 }
 function renderReachedSummary(){
   const out=$('#study-reached-summary');if(!out)return;const week=currentWeek(),sections=reachedStudySections(week),module=moduleForWeek(week),ceta=sections.filter(x=>x.lessonIndex===0).length,career=sections.filter(x=>x.lessonIndex===1).length;
-  out.innerHTML=sections.length?`<strong>Week ${String(week).padStart(2,'0')} · ${esc(module?.title||weekData(week).topic||'Current week')}</strong><span>${sections.length} teaching section${sections.length===1?'':'s'} available to study · ${ceta} CETa${career?` · ${career} Career`:''}</span>`:`<strong>Week ${String(week).padStart(2,'0')}</strong><span>Complete the first teaching section in Classroom, then it will appear here for study.</span>`;
+  const baseline=academicCurrentWeek(),ahead=Number(week)>baseline?` · ${Number(week)-baseline} week${Number(week)-baseline===1?'':'s'} ahead of schedule baseline`:'';
+  out.innerHTML=sections.length?`<strong>Week ${String(week).padStart(2,'0')} · ${esc(module?.title||weekData(week).topic||'Course week')}</strong><span>${sections.length} teaching section${sections.length===1?'':'s'} available to study · ${ceta} CETa${career?` · ${career} Career`:''}${ahead}</span>`:`<strong>Week ${String(week).padStart(2,'0')}</strong><span>No Study content is exposed yet for this week. Complete the first teaching section in Classroom${Number(week)>baseline?' while working ahead':''}, then it will appear here.${ahead}</span>`;
 }
 function renderReviewMaterial(){
   const sections=reachedStudySections(),out=$('#study-material-content');if(!out)return;if(!sections.length){out.innerHTML='<div class="study-library-empty"><strong>No teaching section has been reached yet.</strong><p>Open Classroom and complete the first teaching section. Study will automatically unlock that material here without exposing future content.</p><a class="button green" href="learn.html">Open Classroom →</a></div>';return;}

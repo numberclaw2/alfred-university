@@ -831,6 +831,8 @@
     if(!stageComplete(activeStage)&&(activeStage==='ceta-lesson'||activeStage==='career-lesson')){const li=activeStage==='ceta-lesson'?0:1,plan=lessonSegmentPlan(moduleData.lessons[li],li),rec=lessonSegmentRecord(li,plan);nextLabel=`${STAGES[stageIndex].label} · Page ${rec.furthest+1}/${rec.total}`;}
     $('#next-action-label').textContent = nextLabel;
     $('#classroom-progress-bar').style.width = `${Math.round(count / STAGES.length * 100)}%`;
+    const baseline=Number(window.AlfredState?.currentWeek?.()||1),paceNote=$('#classroom-pacing-note'),ahead=Math.max(0,Number(week)-baseline);
+    if(paceNote)paceNote.textContent=ahead?`Working ahead: Week ${String(week).padStart(2,'0')} is ${ahead} week${ahead===1?'':'s'} beyond the scheduled baseline Week ${String(baseline).padStart(2,'0')}. Calendar dates stay unchanged; use mastery and evidence to decide when to keep advancing.`:`Calendar baseline: Week ${String(baseline).padStart(2,'0')}. You may work ahead whenever mastery supports it; the calendar remains your sustainable fallback pace.`;
     $('#classroom-stages').innerHTML = STAGES.map((stage,i) => `<button type="button" data-stage-index="${i}" class="${i === stageIndex ? 'active ' : ''}${stageComplete(stage.id) ? 'complete' : ''}" aria-current="${i === stageIndex ? 'step' : 'false'}"><span>${stageComplete(stage.id) ? '✓' : i + 1}</span><div><strong>${esc(stage.label)}</strong><small>${esc(stage.track)}</small></div></button>`).join('');
     $$('[data-stage-index]').forEach(button => button.addEventListener('click',() => goTo(Number(button.dataset.stageIndex))));
     $('#classroom-prev').disabled = stageIndex === 0;
