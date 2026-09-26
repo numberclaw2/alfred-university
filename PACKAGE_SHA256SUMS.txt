@@ -1,0 +1,11 @@
+76b4a27506b46990c14b5c12dfe6e37132d635711be7eb12b3fc07b882feb090  AU-ESET-301-v16.3.64-Current-Curriculum-and-Instruction-Plan.docx
+36793c5e26d2aa07689481094d44c8a0e9386a9fe5fb8395438f3b83447bff72  AU-ESET-301-v16.3.64-Current-Curriculum-and-Instruction-Plan.pdf
+8ba1d2593fc6269cd8abb02a9dcb74ef48c584aeee726007e178378bfdc6ce3f  AU-ESET-301-v16.3.64-Document-and-Resource-Verification.md
+8a03200251af3b3c67dbfe351d930609377b7d8a56a99c652f0276405db197e4  Alfred University - AU-ESET 301 - Academic System Guide.pdf
+88ec868bae5622d9694a98e290c8ed0272467b0e82441b12f76de1de23d91966  Alfred University - AU-ESET 301 - Learning Resource Manual.pdf
+3c4e87b1607e7e5ca4bbf853710e017f5d2c5426650870f2fc2735d84f3cf803  Alfred University - AU-ESET 301 - Syllabus and Student Handbook.pdf
+b0113a05ecb84109859acdadd26ad5bcc1f798b7bf0030a79cf54892a1784b73  Associate_CET_Study_Guide_Sixth_Edition.pdf
+124728ecdf6f716e799df6daacc484fa32e6bc3444ead38010c539fee0f27812  UPLOAD_README_v16.3.65.txt
+90b0d11b1ca252c3dc96588f89bc2bbd07fb9cec576de9351fb8ddc107a18585  ceta-study-guide-private.js
+f2688a29e6e0a214fab2b305119069d4ff3911501e1833954c508ffea459d21e  patch-notes.html
+84c2b24a01fe07fd5ba39ef893ba2b20c436f9a883274167f5cf6a0091e07f4e  release-notes-v16.3.65.js

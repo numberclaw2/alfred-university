@@ -46,7 +46,7 @@ Current resource architecture remains governed by the v16.3.60 combined multimod
 - 133 Study/Review printed pages.
 - 27 Reference/Historical printed pages.
 - 17 weeks with no new Required Study Guide reading.
-- Verified printed-page to bundled-PDF mapping remains **+10**.
+- Verified printed-page to bundled-PDF mapping is **+9** for the v16.3.65 cleaned searchable scan-derived copy.
 - Current ETA scope, formulas, errata, and current official guidance control conflicts with older book content.
 - Opening/reading the Study Guide does not by itself establish mastery or completion.
 

@@ -1,13 +1,24 @@
-/* AU-ESET 301 — v16.3.61 built-in private-repository CETa Study Guide
-   Replaces the former device-import flow with the learner-owned bundled PDF.
-   Existing lesson/page mappings remain authoritative; printed-page -> PDF-page offset stays +10.
+/* AU-ESET 301 - v16.3.65 compact scanned CETa Study Guide
+   Keeps the existing printed-page assignments while switching the bundled PDF.
+   The cleaned scan uses printed-page -> PDF-page offset +9.
 */
 (()=>{
   'use strict';
 
   const GUIDE_FILE='Associate_CET_Study_Guide_Sixth_Edition.pdf';
   const GUIDE_NAME='Associate CET Study Guide, Sixth Edition';
-  const VERIFIED_OFFSET=Number(window.ALFRED_CETA_STUDY_GUIDE?.privateCopy?.verifiedCopyPdfPageOffset??10);
+  const GUIDE_REV='16.3.65';
+  const VERIFIED_OFFSET=9;
+
+  // Keep shared Study Guide metadata aligned with the new scan mapping.
+  if(window.ALFRED_CETA_STUDY_GUIDE){
+    if(window.ALFRED_CETA_STUDY_GUIDE.source){
+      window.ALFRED_CETA_STUDY_GUIDE.source.verifiedPrivateCopyPdfOffset=VERIFIED_OFFSET;
+    }
+    if(window.ALFRED_CETA_STUDY_GUIDE.privateCopy){
+      window.ALFRED_CETA_STUDY_GUIDE.privateCopy.verifiedCopyPdfPageOffset=VERIFIED_OFFSET;
+    }
+  }
 
   const builtInState=()=>({
     connected:true,
@@ -15,13 +26,11 @@
     name:GUIDE_NAME,
     file:GUIDE_FILE,
     offset:VERIFIED_OFFSET,
-    storage:'private-repository bundled static asset',
+    storage:'bundled static asset',
     cloudIntegration:'allowed; not configured by this module'
   });
 
-  async function state(){
-    return builtInState();
-  }
+  async function state(){ return builtInState(); }
 
   function hideControl(el){
     if(!el)return;
@@ -40,7 +49,7 @@
       el.removeAttribute('aria-hidden');
       if('disabled' in el)el.disabled=false;
       if(/connect|upload|choose|import/i.test(el.textContent||''))el.textContent='Open Study Guide';
-      el.setAttribute('title','Open the built-in private Study Guide copy');
+      el.setAttribute('title','Open the built-in Study Guide copy');
     });
 
     document.querySelectorAll('[data-private-guide-choose],[data-private-guide-forget]').forEach(hideControl);
@@ -55,6 +64,8 @@
     const printed=Math.max(1,Number(printedPage)||1);
     const pdfPage=printed+VERIFIED_OFFSET;
     const url=new URL(GUIDE_FILE,window.location.href);
+    // Versioned query avoids serving the former Study Guide from an older PWA cache.
+    url.searchParams.set('v',GUIDE_REV);
     url.hash=`page=${pdfPage}`;
     return url.toString();
   }
@@ -67,33 +78,15 @@
     return true;
   }
 
-  // Backward-compatible no-op methods. Existing callers may still invoke them,
-  // but there is no import/remove workflow in bundled mode.
-  async function connect(){
-    await refreshControls();
-    return true;
-  }
-  async function forget(){
-    await refreshControls();
-    return false;
-  }
+  async function connect(){ await refreshControls(); return true; }
+  async function forget(){ await refreshControls(); return false; }
 
   document.addEventListener('click',async event=>{
     const choose=event.target.closest?.('[data-private-guide-choose]');
-    if(choose){
-      event.preventDefault();
-      event.stopPropagation();
-      await refreshControls();
-      return;
-    }
+    if(choose){ event.preventDefault(); event.stopPropagation(); await refreshControls(); return; }
 
     const forgetBtn=event.target.closest?.('[data-private-guide-forget]');
-    if(forgetBtn){
-      event.preventDefault();
-      event.stopPropagation();
-      await refreshControls();
-      return;
-    }
+    if(forgetBtn){ event.preventDefault(); event.stopPropagation(); await refreshControls(); return; }
 
     const open=event.target.closest?.('[data-private-guide-open]');
     if(open){
@@ -110,13 +103,15 @@
     state,connect,forget,openPrintedPage,refreshControls,guideUrlForPrintedPage,
     bundled:true,
     file:GUIDE_FILE,
-    storage:'private-repository bundled static asset',
+    offset:VERIFIED_OFFSET,
+    storage:'bundled static asset',
     cloudIntegration:'allowed; not configured by this module',
-    serviceWorkerCached:true
+    serviceWorkerCached:true,
+    revision:GUIDE_REV
   };
 })();
 
-/* Preserve v16.3.59 Study Guide context parity on the Study surface. */
+/* Preserve Study Guide context parity on the Study surface. */
 (()=>{
   'use strict';
   const SG=window.ALFRED_CETA_STUDY_GUIDE||{};
@@ -133,7 +128,7 @@
 
   function enhance(){
     document.querySelectorAll('.study-media-card.study-guide-card').forEach(card=>{
-      if(card.dataset.cetaContextEnhanced==='16.3.61')return;
+      if(card.dataset.cetaContextEnhanced==='16.3.65')return;
       const r=recordForCard(card);
       if(!r)return;
 
@@ -153,7 +148,7 @@
         if(before)before.insertAdjacentElement('beforebegin',p);else card.appendChild(p);
       }
 
-      card.dataset.cetaContextEnhanced='16.3.61';
+      card.dataset.cetaContextEnhanced='16.3.65';
     });
 
     const head=document.querySelector('.study-library-head > div');
