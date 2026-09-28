@@ -133,3 +133,10 @@ Week 3 now centers on the three core bench instruments a beginning electronics/t
 The required external path is four bounded resources: Fluke DC-voltage setup, Keysight CV/CC Lesson 4, selected Tektronix scope/probe setup subsections, and Tektronix's focused 4:31 trigger lesson. The full Tek oscilloscope webinar and other broad/specialist resources are optional Study. CETa Study Guide Chapter 19 is sliced at point of use rather than assigned as one pp.165–175 block, and p.175 is not used as a wholesale Week 3 quiz.
 
 LAB-003 now requires prediction, safe configuration, CV/CC observation, known-waveform scope setup, manual waveform calculations, expected-versus-measured comparison, and reproducible evidence. The Week 3 mastery set is likewise focused on actual instrument decisions and measurement limitations. Calendar dates, pacing, Cloud Sync protocol 2, and the rest of the course remain unchanged.
+
+
+## v16.3.72 — Week 3 final acceptance
+
+Post-deployment Week 3 acceptance confirms the v16.3.71 redesign and closes two subtle QA gaps. DMM current-mode work now explicitly requires output/source power OFF while inserting or removing the series ammeter connection, with rated input/range verification before energizing and lead reset to V/Ω afterward. The Chapter 19 oscilloscope Study Guide slices now explicitly separate useful scope/loading/probe/trigger concepts from legacy CRT/Z-axis detail and from the old blanket AC-coupling startup instruction; Alfred and current Tektronix guidance remain authoritative for modern setup.
+
+The Week 3 core remains seven CETa pages, six Career pages, four Required external resources, four contextual Study Guide slices, a focused 12-question mastery set, and LAB-003. Calendar dates, pacing, Cloud Sync protocol 2, and other weeks are unchanged.
