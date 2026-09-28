@@ -2,6 +2,11 @@
   const STUDY_KEY = 'alfred-u-study-v13';
   const PREFIX = 'parking:';
 
+  // Compatibility hotfix: the production protocol-2 Worker currently rejects
+  // parking:* records. Keep parking fully local/offline-safe until the Worker
+  // validator is upgraded, so parking records cannot block normal course sync.
+  const CLOUD_RECORDS_ENABLED = false;
+
   const nowIso = ms => new Date(ms).toISOString();
   const parseTime = value => {
     const n = Date.parse(String(value || ''));
@@ -50,7 +55,6 @@
       if(Number(state.parkingRecordTimes[key]||0)<=0) state.parkingRecordTimes[key]=parseTime(updatedAt)||Date.now();
     });
 
-    // A local tombstone is authoritative for that ID until a newer cloud record wins.
     state.parking = active.filter(item=>!state.parkingTombstones[item.id]);
     return state;
   }
@@ -71,6 +75,7 @@
   }
 
   function recordsFromState(input,deviceId='unknown'){
+    if(!CLOUD_RECORDS_ENABLED) return [];
     const state=normalizeStudyState(input);
     const records=[];
     state.parking.forEach(item=>{
@@ -149,7 +154,8 @@
     state.parking.push(item);
     delete state.parkingTombstones[id];
     state.parkingRecordTimes[PREFIX+id]=stamp;
-    return {state,item,record:{key:PREFIX+id,value:item,updatedAt:stamp}};
+    const record=CLOUD_RECORDS_ENABLED?{key:PREFIX+id,value:item,updatedAt:stamp}:null;
+    return {state,item,record};
   }
 
   function removeItem(input,idValue){
@@ -164,12 +170,14 @@
     state.parking=state.parking.filter(item=>String(item.id)!==id);
     state.parkingTombstones[id]=tombstone;
     state.parkingRecordTimes[PREFIX+id]=stamp;
-    return {state,tombstone,record:{key:PREFIX+id,value:tombstone,updatedAt:stamp}};
+    const record=CLOUD_RECORDS_ENABLED?{key:PREFIX+id,value:tombstone,updatedAt:stamp}:null;
+    return {state,tombstone,record};
   }
 
   window.AlfredParkingSync={
     studyKey:STUDY_KEY,
     prefix:PREFIX,
+    cloudRecordsEnabled:CLOUD_RECORDS_ENABLED,
     normalizeStudyState,
     loadLocalStorage,
     saveLocalStorage,
