@@ -125,3 +125,11 @@ The focused v16.3.68 Week 2 required path remains unchanged. Six All About Circu
 ## v16.3.70 — Week 2 final acceptance
 
 Final Week 2 QA corrected the Chapter 4 p.34 retrieval scope so only questions 2–4 are used; transistor-amplifier Q5–Q7 and maximum-power-transfer Q8–Q9 are explicitly deferred. Optional All About Circuits Study guidance now tells the learner exactly which KCL/KVL or series concepts to use and which unrelated/sign-convention material to ignore. Required Week 2 media remains Khan/OpenStax only.
+
+## v16.3.71 — Week 3 Instructional Redesign
+
+Week 3 now centers on the three core bench instruments a beginning electronics/test technician will use repeatedly: the DMM, current-limited DC bench supply, and oscilloscope. The required CETa path is reduced from eleven broad instrument sections to seven deliberate pages, while specialist equipment is preserved for optional Study or later natural weeks instead of being forced into first-pass Week 3 learning.
+
+The required external path is four bounded resources: Fluke DC-voltage setup, Keysight CV/CC Lesson 4, selected Tektronix scope/probe setup subsections, and Tektronix's focused 4:31 trigger lesson. The full Tek oscilloscope webinar and other broad/specialist resources are optional Study. CETa Study Guide Chapter 19 is sliced at point of use rather than assigned as one pp.165–175 block, and p.175 is not used as a wholesale Week 3 quiz.
+
+LAB-003 now requires prediction, safe configuration, CV/CC observation, known-waveform scope setup, manual waveform calculations, expected-versus-measured comparison, and reproducible evidence. The Week 3 mastery set is likewise focused on actual instrument decisions and measurement limitations. Calendar dates, pacing, Cloud Sync protocol 2, and the rest of the course remain unchanged.

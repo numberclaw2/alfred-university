@@ -1,10 +1,10 @@
 {
   "courseRelease": "16.3",
-  "runtimePatch": "16.3.70",
+  "runtimePatch": "16.3.71",
   "evidenceRevision": "16.2",
   "cloudSyncProtocol": 2,
-  "build": "v16.3.70-week2-final-acceptance-20260927",
-  "releaseStatus": "week2-final-acceptance",
+  "build": "v16.3.71-week3-instructional-redesign-20260927",
+  "releaseStatus": "week3-instructional-redesign",
   "presentationPatch": "sitewide-text-readability-overlay",
   "scheduleRevision": "2026-09-20-current-classroom-stage-and-workload-sync",
   "modulePresentationRevision": "2026-09-18-week1-from-zero-visual-teaching",
@@ -16,7 +16,7 @@
   "week1InstructionRevision": "2026-09-19-beginner-first-safety-scaffolding",
   "week1TeachingMediaRevision": "2026-09-18-beginner-teacher-youtube-layer",
   "teachingMediaBaseRevision": "2026-09-18-final-pots-31-week-standalone-accepted",
-  "releaseNotesRevision": "2026-09-27-v16.3.70-week2-final-acceptance",
+  "releaseNotesRevision": "2026-09-27-v16.3.71-week3-instructional-redesign",
   "repositoryLedgerBaseline": "2026-09-18-v16.3.9-63-commits",
   "studyRevision": "2026-09-26-v16.3.66-ahead-of-calendar-reached-week-support",
   "practiceRevision": "2026-09-22-guided-practice-paginated-direct-navigation",
@@ -176,7 +176,7 @@
     "Study Media"
   ],
   "contentPlacementBlueprintRevision": "2026-09-23-31-week-491-live-section-semantic-repaired",
-  "serviceWorkerRevision": "2026-09-27-v16.3.70-week2-final-acceptance-cache-refresh",
+  "serviceWorkerRevision": "2026-09-27-v16.3.71-week3-redesign-cache-refresh",
   "serviceWorkerInstallIntegrityVerdict": "PASS",
   "mediaConsumptionRevision": "2026-09-23-v16.3.57-canonical-source-identity-with-legacy-alias-compatibility",
   "teachingMediaSemanticIntegrityRevision": "2026-09-23-v16.3.58-semantic-media-integrity-final",
@@ -241,8 +241,8 @@
   "week2SemanticTaskIdPreserved": "SEM-4-02-017",
   "week2CalendarDatesChanged": false,
   "week2CurriculumScope": "DC resistor networks, KCL/KVL, mixed-network reduction, voltage-divider loading, and prediction-based troubleshooting.",
-  "activeSemanticTaskCount": 82,
-  "deferredSemanticTaskCount": 9,
+  "activeSemanticTaskCount": 79,
+  "deferredSemanticTaskCount": 12,
   "week2DeferredSemanticTaskCount": 9,
   "week2DeferredSemanticTaskIds": [
     "SEM-2-02-006",
@@ -275,5 +275,52 @@
     9
   ],
   "week2AllAboutCircuitsRequiredCount": 0,
-  "week2FinalAcceptanceVerdict": "PASS after correcting p.34 future-topic quiz leakage and tightening optional AAC scope guidance."
+  "week2FinalAcceptanceVerdict": "PASS after correcting p.34 future-topic quiz leakage and tightening optional AAC scope guidance.",
+  "week3InstructionalRevision": "2026-09-27-v16.3.71-core-bench-measurement-redesign",
+  "week3PrimaryCetaTeachingSectionCount": 7,
+  "week3CareerTeachingSectionCount": 6,
+  "week3RequiredTeachingMediaCount": 4,
+  "week3RequiredTeachingMediaSources": [
+    "litFlukeDcVoltageW3",
+    "keysightCvCcW3",
+    "tekScopeSetup",
+    "tekTriggerW3"
+  ],
+  "week3StudyGuideContextSliceCount": 4,
+  "week3StudyGuideContextPrintedPages": [
+    165,
+    167,
+    168,
+    169,
+    172,
+    173
+  ],
+  "week3StudyGuideChapterQuizP175Required": false,
+  "week3ActiveSemanticTaskCount": 2,
+  "week3DeferredSemanticTaskCount": 3,
+  "week3DeferredSemanticTaskIds": [
+    "SEM-8-03-034",
+    "SEM-8-03-035",
+    "SEM-8-03-037"
+  ],
+  "week3DeferredCompetencyCodes": [
+    "8.1",
+    "8.2",
+    "8.5",
+    "8.7",
+    "8.8",
+    "8.9",
+    "8.10",
+    "8.11",
+    "8.13",
+    "8.14",
+    "8.15",
+    "8.16"
+  ],
+  "week3AllAboutCircuitsRequiredCount": 0,
+  "week3CalendarDatesChanged": false,
+  "week3LabId": "LAB-003",
+  "week3AssessmentQuestionCount": 12,
+  "week3CurriculumScope": "Question-first DMM, current-limited bench supply CV/CC, oscilloscope scale/probe/reference/trigger, waveform measurement, and measurement-system limitations.",
+  "week3FinalAcceptanceStatus": "Implementation package QA pending post-upload production verification."
 }

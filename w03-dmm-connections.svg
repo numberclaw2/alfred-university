@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="t d">
+<title id="t">DMM connection modes: voltage, current, and resistance</title>
+<desc id="d">Three source-grounded technical sketches show voltage measured in parallel using the V-ohm jack, current measured by breaking the path and inserting the meter in series using the current jack, and resistance measured across a de-energized component using the V-ohm jack.</desc>
+<rect width="1200" height="620" fill="#f8fbf9"/>
+<style>
+.t{font:700 28px system-ui,sans-serif;fill:#153a31}.h{font:700 22px system-ui,sans-serif;fill:#153a31}.b{font:500 18px system-ui,sans-serif;fill:#2f433d}.s{font:600 17px system-ui,sans-serif;fill:#43544e}.w{stroke:#173e33;stroke-width:6;fill:none;stroke-linecap:round;stroke-linejoin:round}.m{fill:#fff;stroke:#173e33;stroke-width:4}.p{fill:#e8f3ee;stroke:#173e33;stroke-width:3}.warn{fill:#fff3dc;stroke:#8b5e00;stroke-width:3}.ok{fill:#edf6ff;stroke:#245a76;stroke-width:3}
+</style>
+<text x="60" y="50" class="t">The DMM changes roles when you change modes</text>
+<g transform="translate(55,95)">
+ <rect x="0" y="0" width="340" height="455" rx="24" class="p"/>
+ <text x="24" y="42" class="h">1 · Voltage</text>
+ <text x="24" y="72" class="s">Connect across two points</text>
+ <path d="M58 180 H282 M58 300 H282 M58 180 V300 M282 180 V300" class="w"/>
+ <rect x="145" y="210" width="50" height="60" rx="8" class="m"/><text x="158" y="247" class="h">R</text>
+ <circle cx="170" cy="130" r="46" class="m"/><text x="151" y="138" class="h">V</text>
+ <path d="M140 160 L95 180 M200 160 L245 180" class="w"/>
+ <text x="24" y="355" class="b">Black → COM</text><text x="24" y="382" class="b">Red → V/Ω</text>
+ <rect x="22" y="402" width="296" height="35" rx="10" class="ok"/><text x="42" y="426" class="s">Circuit normally energized</text>
+</g>
+<g transform="translate(430,95)">
+ <rect x="0" y="0" width="340" height="455" rx="24" class="p"/>
+ <text x="24" y="42" class="h">2 · Current</text>
+ <text x="24" y="72" class="s">Break the path; insert in series</text>
+ <path d="M55 230 H122 M218 230 H285" class="w"/>
+ <circle cx="170" cy="230" r="48" class="m"/><text x="151" y="239" class="h">A</text>
+ <circle cx="55" cy="230" r="9" fill="#173e33"/><circle cx="285" cy="230" r="9" fill="#173e33"/>
+ <text x="24" y="330" class="b">Black → COM</text><text x="24" y="357" class="b">Red → A or mA jack</text>
+ <rect x="22" y="385" width="296" height="52" rx="10" class="warn"/><text x="37" y="408" class="s">Power off to insert/remove.</text><text x="37" y="430" class="s">Never place A mode across a source.</text>
+</g>
+<g transform="translate(805,95)">
+ <rect x="0" y="0" width="340" height="455" rx="24" class="p"/>
+ <text x="24" y="42" class="h">3 · Resistance / continuity</text>
+ <text x="24" y="72" class="s">Meter supplies its own test stimulus</text>
+ <path d="M65 230 H135 M205 230 H275" class="w"/>
+ <rect x="135" y="200" width="70" height="60" rx="8" class="m"/><text x="151" y="238" class="h">R</text>
+ <circle cx="170" cy="130" r="46" class="m"/><text x="143" y="139" class="h">Ω</text>
+ <path d="M140 160 L95 230 M200 160 L245 230" class="w"/>
+ <text x="24" y="330" class="b">Black → COM</text><text x="24" y="357" class="b">Red → V/Ω</text>
+ <rect x="22" y="385" width="296" height="52" rx="10" class="warn"/><text x="42" y="408" class="s">De-energize first.</text><text x="42" y="430" class="s">Discharge stored energy.</text>
+</g>
+<text x="60" y="595" class="s">Source-grounded technical model based on Fluke DMM measurement guidance. Always follow the manual and ratings for the actual instrument.</text>
+</svg>

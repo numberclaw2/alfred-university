@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-labelledby="t d">
+<title id="t">Bench power supply constant-voltage and constant-current behavior</title>
+<desc id="d">A flow diagram shows a voltage setpoint and current limit. When the load current stays below the limit the supply operates in constant voltage mode; when the load attempts to exceed the limit the supply lowers voltage and holds current at the limit in constant current mode.</desc>
+<rect width="1200" height="560" fill="#f8fbf9"/>
+<style>.t{font:700 29px system-ui,sans-serif;fill:#153a31}.h{font:700 22px system-ui,sans-serif;fill:#153a31}.b{font:500 18px system-ui,sans-serif;fill:#2f433d}.box{fill:#fff;stroke:#173e33;stroke-width:4}.cv{fill:#e9f5ee;stroke:#236b4d;stroke-width:4}.cc{fill:#fff1dc;stroke:#9a6200;stroke-width:4}.a{stroke:#173e33;stroke-width:5;fill:none;marker-end:url(#m)} </style>
+<defs><marker id="m" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#173e33"/></marker></defs>
+<text x="55" y="48" class="t">A bench supply has two setpoints, but only one operating state at a time</text>
+<rect x="55" y="105" width="265" height="165" rx="22" class="box"/>
+<text x="85" y="145" class="h">You set</text><text x="85" y="182" class="b">Voltage target: 5.0 V</text><text x="85" y="215" class="b">Current limit: 100 mA</text><text x="85" y="248" class="b">Output OFF while wiring</text>
+<path d="M320 188 H460" class="a"/>
+<rect x="460" y="105" width="280" height="165" rx="22" class="box"/>
+<text x="492" y="145" class="h">Load attempts to draw</text><text x="492" y="188" class="b">How much current does the circuit</text><text x="492" y="216" class="b">want at the requested voltage?</text>
+<path d="M740 150 H880" class="a"/><path d="M740 225 C805 225 810 355 880 355" class="a"/>
+<rect x="880" y="78" width="265" height="160" rx="22" class="cv"/>
+<text x="912" y="120" class="h">Below limit → CV</text><text x="912" y="158" class="b">Supply holds 5.0 V.</text><text x="912" y="188" class="b">Current is whatever the load</text><text x="912" y="216" class="b">requires below 100 mA.</text>
+<rect x="880" y="292" width="265" height="160" rx="22" class="cc"/>
+<text x="912" y="334" class="h">At limit → CC</text><text x="912" y="372" class="b">Supply holds 100 mA.</text><text x="912" y="402" class="b">Voltage falls as needed.</text><text x="912" y="430" class="b">CC is diagnostic evidence.</text>
+<text x="55" y="500" class="b">If a 5 V supply reads 1.8 V while CC is active, investigate load demand, wiring, and the chosen current limit before declaring the supply faulty.</text>
+<text x="55" y="535" class="b">Source-grounded technical model based on Keysight Bench Power Supply Basics, Lesson 4: constant-voltage and constant-current modes.</text>
+</svg>

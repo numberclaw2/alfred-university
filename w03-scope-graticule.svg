@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="660" viewBox="0 0 1200 660" role="img" aria-labelledby="t d">
+<title id="t">Oscilloscope graticule with amplitude, period, and scale annotations</title>
+<desc id="d">A square waveform spans four vertical divisions and one cycle spans five horizontal divisions. The diagram labels volts per division, time per division, peak-to-peak voltage, period, frequency, and the jobs of the main controls.</desc>
+<rect width="1200" height="660" fill="#f8fbf9"/>
+<style>.t{font:700 29px system-ui,sans-serif;fill:#153a31}.h{font:700 20px system-ui,sans-serif;fill:#153a31}.b{font:500 17px system-ui,sans-serif;fill:#2f433d}.grid{stroke:#a9b9b3;stroke-width:1}.axis{stroke:#546a62;stroke-width:2}.wave{stroke:#173e33;stroke-width:7;fill:none;stroke-linejoin:round}.ann{stroke:#8b5e00;stroke-width:3;fill:none;marker-start:url(#a);marker-end:url(#a)}.tag{fill:#fff3dc;stroke:#8b5e00;stroke-width:2}.panel{fill:#edf5f1;stroke:#54756a;stroke-width:2}</style>
+<defs><marker id="a" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto-start-reverse"><path d="M0,3.5 L7,0 L7,7 z" fill="#8b5e00"/></marker></defs>
+<text x="55" y="48" class="t">Read the grid before trusting the automatic measurement</text>
+<g transform="translate(55,90)">
+ <rect x="0" y="0" width="720" height="420" rx="18" fill="#fff" stroke="#173e33" stroke-width="4"/>
+ <g>
+  <path d="M72 0 V420 M144 0 V420 M216 0 V420 M288 0 V420 M360 0 V420 M432 0 V420 M504 0 V420 M576 0 V420 M648 0 V420" class="grid"/>
+  <path d="M0 52.5 H720 M0 105 H720 M0 157.5 H720 M0 210 H720 M0 262.5 H720 M0 315 H720 M0 367.5 H720" class="grid"/>
+  <path d="M0 210 H720" class="axis"/><path d="M360 0 V420" class="axis"/>
+ </g>
+ <path d="M0 315 H72 V105 H360 V315 H432 V105 H720" class="wave"/>
+ <path d="M72 360 H432" class="ann"/>
+ <rect x="165" y="374" width="365" height="72" rx="12" class="tag"/>
+ <text x="183" y="400" class="h">5 divisions × 200 µs/div</text><text x="183" y="428" class="b">T = 1 ms → f = 1/T = 1 kHz</text>
+</g>
+<path d="M800 195 V405" class="ann"/>
+<rect x="835" y="215" width="310" height="72" rx="12" class="tag"/>
+<text x="855" y="243" class="h">4 divisions × 0.5 V/div</text><text x="855" y="270" class="b">Vpp = 2.0 V</text>
+<rect x="825" y="315" width="330" height="220" rx="18" class="panel"/>
+<text class="h" x="848" y="348">Controls answer different questions</text>
+<text class="b" x="848" y="382">Volts/div → vertical size</text>
+<text class="b" x="848" y="414">Time/div → horizontal time</text>
+<text class="b" x="848" y="446">Vertical position → reference location</text>
+<text class="b" x="848" y="478">Trigger → where each capture begins</text>
+<text class="b" x="848" y="510">Probe factor → displayed amplitude scaling</text>
+<text class="b" x="848" y="532">Coupling → DC + AC or AC-only view</text>
+<text x="55" y="615" class="b">Source-grounded technical model based on Tektronix XYZs / Setting Up and Using an Oscilloscope.</text>
+<text x="55" y="640" class="b">Example values match Alfred's Week 3 worked calculation.</text>
+</svg>
