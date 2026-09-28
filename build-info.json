@@ -1,10 +1,10 @@
 {
   "courseRelease": "16.3",
-  "runtimePatch": "16.3.68",
+  "runtimePatch": "16.3.69",
   "evidenceRevision": "16.2",
   "cloudSyncProtocol": 2,
-  "build": "v16.3.68-week2-instructional-redesign-20260927",
-  "releaseStatus": "week2-instructional-redesign",
+  "build": "v16.3.69-week2-aac-study-shelf-20260927",
+  "releaseStatus": "week2-aac-study-shelf",
   "presentationPatch": "sitewide-text-readability-overlay",
   "scheduleRevision": "2026-09-20-current-classroom-stage-and-workload-sync",
   "modulePresentationRevision": "2026-09-18-week1-from-zero-visual-teaching",
@@ -16,7 +16,7 @@
   "week1InstructionRevision": "2026-09-19-beginner-first-safety-scaffolding",
   "week1TeachingMediaRevision": "2026-09-18-beginner-teacher-youtube-layer",
   "teachingMediaBaseRevision": "2026-09-18-final-pots-31-week-standalone-accepted",
-  "releaseNotesRevision": "2026-09-27-v16.3.68-week2-instructional-redesign",
+  "releaseNotesRevision": "2026-09-27-v16.3.69-week2-aac-study-shelf",
   "repositoryLedgerBaseline": "2026-09-18-v16.3.9-63-commits",
   "studyRevision": "2026-09-26-v16.3.66-ahead-of-calendar-reached-week-support",
   "practiceRevision": "2026-09-22-guided-practice-paginated-direct-navigation",
@@ -176,7 +176,7 @@
     "Study Media"
   ],
   "contentPlacementBlueprintRevision": "2026-09-23-31-week-491-live-section-semantic-repaired",
-  "serviceWorkerRevision": "2026-09-27-v16.3.68-week2-redesign-cache-refresh",
+  "serviceWorkerRevision": "2026-09-27-v16.3.69-week2-aac-study-cache-refresh",
   "serviceWorkerInstallIntegrityVerdict": "PASS",
   "mediaConsumptionRevision": "2026-09-23-v16.3.57-canonical-source-identity-with-legacy-alias-compatibility",
   "teachingMediaSemanticIntegrityRevision": "2026-09-23-v16.3.58-semantic-media-integrity-final",
@@ -256,5 +256,8 @@
     "SEM-4-02-021"
   ],
   "week2DeferredSemanticRealignmentRequired": true,
-  "week2DeferredSemanticNote": "Nine future-topic CETa tasks were removed from the Week 2 learner gate for coherence and preserved as deferred metadata for re-homing during later focused week audits; no task record was deleted."
+  "week2DeferredSemanticNote": "Nine future-topic CETa tasks were removed from the Week 2 learner gate for coherence and preserved as deferred metadata for re-homing during later focused week audits; no task record was deleted.",
+  "week2AllAboutCircuitsStudyCount": 6,
+  "week2AllAboutCircuitsStudyRequirement": "Optional Study only; no Required Teaching Media obligation and no mastery gate.",
+  "week2AllAboutCircuitsStudyRevision": "2026-09-27-v16.3.69-optional-study-shelf"
 }

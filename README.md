@@ -115,3 +115,8 @@ The final semantic re-audit added direct POTS loop-start instruction for tip/rin
 ## v16.3.68 — Week 2 Instructional Redesign
 
 Week 2 now teaches one coherent DC-network story: topology → series/parallel → KCL/KVL → mixed-network reduction → voltage-divider loading → prediction-based troubleshooting. The redesign removes unrelated future topics from the Week 2 learner path, replaces repetitive Week 2 media with focused Khan Academy/OpenStax placements, distributes CETa Study Guide pp.27–34 at the exact point of use, and preserves the existing calendar, LAB-002, mastery/progress identities, and Cloud Sync protocol.
+
+
+## v16.3.69 — Week 2 All About Circuits optional Study shelf
+
+The focused v16.3.68 Week 2 required path remains unchanged. Six All About Circuits resources that the learner found useful are restored only in **Study** as optional/supporting explanations: series, parallel, voltage-divider, KCL/KVL, meter-loading, and troubleshooting material. They do not count as Required Teaching Media and do not gate Week 2 mastery.
