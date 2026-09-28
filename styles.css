@@ -10,7 +10,7 @@
   --cream:#f7f3e8;
   --paper:#fdfaf3;
   --ink:#172520;
-  --muted:#5f6c67;
+  --muted:#46544f;
   --line:#d9d2c2;
   --line-2:#c8bfaa;
   --card:#fffefb;
@@ -30,6 +30,8 @@ body{
     radial-gradient(circle at top left, rgba(201,168,87,.10), transparent 22%),
     radial-gradient(circle at top right, rgba(13,62,49,.06), transparent 24%),
     linear-gradient(180deg, #fffefb 0%, #fbf8f0 45%, #f8f3e7 100%);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
 }
 body:before{
   content:"";
@@ -2262,3 +2264,27 @@ body.quiet-mode .focus-prep-backdrop{backdrop-filter:none}
 
 /* v16.3.54 Teaching Media consumption checklist */
 .media-consumption-check{display:flex;align-items:flex-start;gap:10px;margin-top:12px;padding:10px 12px;border:1px solid #cfdad3;border-radius:11px;background:#f8faf8;cursor:pointer;min-height:44px;transition:border-color .15s ease,background .15s ease,box-shadow .15s ease}.media-consumption-check:hover{border-color:#8eaa9a}.media-consumption-check:focus-within{outline:3px solid rgba(17,92,67,.18);outline-offset:2px}.media-consumption-check input{width:20px;height:20px;margin:1px 0 0;flex:0 0 auto;accent-color:var(--green)}.media-consumption-check>span{display:grid;gap:2px;min-width:0}.media-consumption-check strong{font-size:.82rem;color:var(--green);line-height:1.25}.media-consumption-check small{font-size:.7rem;line-height:1.35;color:#66736d}.media-consumption-check.is-done{background:#eef7f1;border-color:#9bbda9}.media-consumption-check.is-done strong{color:#23563e}.media-consumption-check.compact{display:inline-flex;width:auto;padding:8px 10px;margin-top:10px;min-height:40px}.media-consumption-summary{display:flex;justify-content:space-between;gap:16px;align-items:center;margin:0 0 18px;padding:12px 14px;border:1px solid #d3ddd7;border-radius:12px;background:#f8faf8}.media-consumption-summary strong{font-size:.82rem;color:var(--green)}.media-consumption-summary span{font-size:.74rem;color:#66736d;text-align:right}.media-consumption-summary.is-complete{background:#eef7f1;border-color:#9bbda9}.study-media-card .media-consumption-check,.study-guide-card .media-consumption-check{margin-bottom:10px}.lesson-resource-card .media-consumption-check{margin-top:10px}@media(max-width:680px){.media-consumption-summary{align-items:flex-start;flex-direction:column;gap:4px}.media-consumption-summary span{text-align:left}.media-consumption-check{width:100%}.media-consumption-check.compact{width:100%}}
+
+
+/* v16.3.67 — sitewide readability polish */
+p, li, dd, dt, figcaption, .summary-chip, .muted-block, .event-date-block span, .event-detail .raw-desc, .site-footer a, .footer-brand p, .legal, .study-week-help, .section-heading > p, .portal-card p, .plain-card p, .document-card p, .service-card p, .resource-card p, .preview-event p, .timeline-step p, .fact-panel > div, .showcase-links span, .document-mini-grid span{
+  color:#33413c;
+}
+small, .site-footer a, .footer-brand p, .legal, .event-detail .raw-desc{
+  font-weight:500;
+}
+.hero h1,.hero-copy p,.page-hero h1,.page-hero.compact p,.engineering-hero h1,.engineering-hero p,.project-page-hero h1,.project-page-hero p,.band:not(.light) h2,.band:not(.light) p,.callout h2,.callout p,.calendar-current-week h2,.calendar-current-week p,.calendar-current-week .mini-stats strong,.calendar-current-week .mini-stats span,.announcement-inner,.hero-showcase-head h3,.hero-showcase-head p,.topline,.status-card h2,.engineering-seal-card strong,.capstone-seal strong{
+  text-shadow:0 1px 2px rgba(0,0,0,.28);
+}
+.brand-name,.section-heading h2,.split h2,.band h2,.feature-panel h2,.feature-resource h2,.project-hero h2,.callout h2,.page-hero h1,.service-card h2,.document-card h3,.portal-card h3,.plain-card h3,.timeline-step h3,.hero h1,.engineering-hero h1,.project-page-hero h1{
+  text-wrap:balance;
+}
+.topline,.brand-sub,.eyebrow,.status-label,.service-kicker,.week-number,.event-kicker,.event-badge,.doc-type,.note-ribbon,.summary-chip,.path-label{
+  letter-spacing:.11em;
+}
+.nav-links a,.button,.period-button,.view-button,.nav-more-button{
+  font-weight:800;
+}
+.portal-card,.plain-card,.document-card,.service-card,.resource-card,.preview-event,.week-dashboard-card,.week-dashboard-primary,.notice-card,.phase-card,.artifact-grid article,.evidence-gallery div,.study-material-workspace,.study-concept-card,.study-media-card,.study-reference-columns>div,.study-weak-grid article,.vocab-session,.vocab-card,.glossary-entry{
+  box-shadow:0 10px 28px rgba(15,36,28,.06);
+}

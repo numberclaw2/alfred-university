@@ -89,3 +89,18 @@ body.focus-mode #study-library-section,body.focus-mode #active-recall-section{di
 .study-media-card[hidden]{display:none!important}
 @media(max-width:980px){.study-media-filters{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.study-media-filters{grid-template-columns:1fr}}
+
+
+/* v16.3.67 — Study readability polish */
+.study-stage-intro,.study-week-help,.study-view-intro p,.study-review-sheet header p,.study-builds-on p,.study-hold-on p,.study-quick-read p,.study-repetition-cue li,.study-full-read p,.study-review-figure figcaption span,.study-review-figure>p,.study-term-list span,.study-resource-list span,.study-reference-knowledge article p,.study-media-card p,.study-media-card small,.study-reached-summary span,.study-library-empty p,.diagnosis-card p,.event-detail .raw-desc{
+  color:#32403b;
+}
+.study-view-intro h3,.study-review-sheet h3,.study-subhead>span,.study-concept-card h3,.study-media-card h4,.study-reference-columns h4,.study-reference-knowledge>h4,.study-weak-grid h4,.study-library-head h2{
+  text-shadow:0 1px 0 rgba(255,255,255,.7);
+}
+.study-full-read p,.flash-front,.flash-back p,.study-reference-knowledge article p,.study-media-card p,.study-weak-grid p{
+  font-weight:500;
+}
+.study-builds-on,.study-hold-on,.study-quick-read,.study-repetition-cue,.study-review-figure,.study-full-read,.study-media-card,.study-reference-columns>div,.study-weak-grid article,.study-concept-card{
+  box-shadow:0 8px 24px rgba(15,36,28,.05);
+}
