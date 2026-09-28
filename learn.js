@@ -190,7 +190,20 @@
     return (mod?.integration?.media || []).find(item => item.source === sourceId) || null;
   }
   function retainedMediaItems(){
-    const removed=resourceIntegration().removedByAssignment||{},items=(moduleData?.integration?.media || []).filter(item=>!removed[assignmentKey(item.source,week)]&&classroomAssignment(item.source,week)),seen=new Set();
+    const removed=resourceIntegration().removedByAssignment||{};
+    let items=(moduleData?.integration?.media || []).filter(item=>!removed[assignmentKey(item.source,week)]&&classroomAssignment(item.source,week));
+    // v16.3.68: Week 2 keeps legacy assignment ownership for future-week reuse, but its
+    // Required Path must show only the deliberately curated resources that still have
+    // a live Week 2 instructional placement.
+    if(Number(week)===2){
+      const approved=new Set(resourceIntegration().week2ApprovedSourceIds||[]);
+      items=items.filter(item=>{
+        const a=mediaArchitectureAssignment(item.source,week);
+        return approved.has(item.source)&&a?.destination==='classroom'&&a?.requirement==='required'&&
+          (a.placements||[]).some(pl=>Number(pl.targetWeek)===2);
+      });
+    }
+    const seen=new Set();
     return items.filter(item=>{
       const canonical=canonicalSourceId(item.source);
       if(seen.has(canonical))return false;
@@ -289,7 +302,7 @@
     const first=(record.pageGroups||[])[0]?.[0]||1;
     const privateButtons=`<div class="study-guide-private-controls"><span class="study-guide-private-state" data-private-guide-state>Private copy not connected on this device</span><div><button class="button outline-green" type="button" data-private-guide-choose>Connect private PDF on this device</button><button class="button outline-green" type="button" data-private-guide-open data-printed-page="${first}" hidden>Open private copy to page ↗</button><button class="text-link study-guide-forget" type="button" data-private-guide-forget hidden>Forget private copy on this device</button></div></div>`;
     const authority=record.authorityNote?`<aside class="study-guide-authority"><strong>Current-source note</strong><p>${esc(record.authorityNote)}</p></aside>`:'';
-    const consumption=MC.controlHTML?.({week:record.week,id:MC.guideId?.(record.id),kind:'study-guide',compact})||'';
+    const consumption=record.contextOnly?'':(MC.controlHTML?.({week:record.week,id:MC.guideId?.(record.completionGroup||record.id),kind:'study-guide',compact})||'');
     return `<article class="study-guide-card classification-${esc(classification)}${compact?' compact':''}" data-study-guide-id="${esc(record.id)}"><div class="study-guide-card-top"><span class="study-guide-source">CETa Study Guide · Sixth Edition</span><span class="study-guide-badge">${esc(badge)}</span></div><h4>Chapter ${esc(record.chapter)} · ${esc(studyGuideLabel(record))}</h4>${Number(record.estimatedMinutes)>0?`<p class="study-guide-time"><strong>Estimated time:</strong> ~${esc(record.estimatedMinutes)} min</p>`:''}<p><strong>Why this is here:</strong> ${esc(record.purpose)}</p><p><strong>Focus on:</strong> ${esc(record.focus)}</p>${record.safelySkim?`<p><strong>Safely skim / ignore:</strong> ${esc(record.safelySkim)}</p>`:''}<p><strong>Afterward:</strong> ${esc(record.after)}</p>${authority}${studyGuideErrata(record)}<div class="study-guide-locator"><strong>Book locator:</strong> Associate CET Study Guide, Sixth Edition · Chapter ${esc(record.chapter)} · ${esc(studyGuideLabel(record))}</div>${privateButtons}${consumption}${context!=='lesson'?`<a class="text-link" href="${studyGuidePrimaryHref(record)}">Open mapped Alfred lesson →</a>`:''}</article>`;
   }
   function segmentStudyGuideRecords(lessonIndex,seg){return SG.recordsForSegment?.(week,lessonIndex,seg.id)||[];}
@@ -624,13 +637,22 @@
       return `<article id="media-${esc(item.source)}" class="${isLit?'literature-media-card ':''}teaching-media-card" data-media-filter-card data-media-type="${esc(filterType)}" data-media-requirement="${esc(requirement)}" data-media-track="${esc(track)}"><div class="media-card-top"><span class="media-requirement-status requirement-${esc(requirement)}">${esc(resourceRequirementLabel({requirement}))}</span><span class="media-normalized-type media-type-${esc(filterType)}">${esc(teachingMediaFilterTypeLabel(filterType))}</span></div><h3>${esc(s.title)}</h3><p class="media-org">${isLit&&litSource?.author?`${esc(litSource.author)} · `:''}${esc(s.org)}${isLit&&litSource?.access?` · ${esc(litSource.access)}`:''}</p>${metaBlock(meta)}<p class="media-classification"><strong>${esc(item.role)}</strong> · ${esc(typeLabel)}</p><p><strong>${isLit?'Why this reading is here':'Use it for'}:</strong> ${esc(isLit?(lit.why||item.use):item.use)}</p>${isLit?`<p><strong>Read / use:</strong> ${esc(readUse)}</p><p><strong>Focus on:</strong> ${esc(focus)}</p><p><strong>After reading:</strong> ${esc(after)}</p>`:`<p><strong>${mediaType==='video'?'Watch for':'Read / use for'}:</strong> ${esc(item.watchFor)}</p>`}<p><strong>What Alfred still supplies:</strong> ${esc(isLit?(lit.gap||item.gap):item.gap)}</p>${teachingMediaLessonLinks(item.source)}<div>${s.url?`<a class="button outline-green" href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${isLit?'Open reading':'Open source'} ↗</a>`:'<span class="private-source">Use the exact route/version-specific documentation identified in the task. No generic link is substituted here.</span>'}</div>${consumption}</article>`;
     }).join('');
     const guideCards=guideRequired.map(r=>studyGuideCard(r,{context:'media'})).join('');
-    const trackedIds=[...guideRequired.map(r=>MC.guideId?.(r.id)).filter(Boolean),...rows.map(x=>MC.mediaId?.(week,x.item.source)).filter(Boolean)];
+    const trackedIds=[...guideRequired.map(r=>MC.guideId?.(r.completionGroup||r.id)).filter(Boolean),...rows.map(x=>MC.mediaId?.(week,x.item.source)).filter(Boolean)];
     const checklist=MC.summaryHTML?.(week,trackedIds)||'';
     const arch=C.teachingMediaArchitecture?.assignments||{};
     const weekArch=Object.values(arch).filter(a=>Number(a.studyWeek||a.assignmentWeek)===Number(week)||Number(a.assignmentWeek)===Number(week));
     const destinationCounts=weekArch.reduce((o,a)=>{const k=a.destination||'study';o[k]=(o[k]||0)+1;return o;},{});
     const weeklyGuide=guideAll.map(r=>studyGuideCard(r,{compact:true,context:'media'})).join('');
-    const activeArch=weekArch.filter(a=>a.destination!=='removed');
+    const activeArch=weekArch.filter(a=>{
+      if(a.destination==='removed')return false;
+      if(Number(week)!==2)return true;
+      // Keep Week 2's weekly map aligned to what the learner can actually use this week.
+      // Legacy Week-2-owned Classroom assignments that now exist only for later-week reuse
+      // must not reappear as ghost Week 2 homework.
+      if(a.destination==='classroom')return (a.placements||[]).some(pl=>Number(pl.targetWeek)===2);
+      // User preference: do not surface All About Circuits as an optional Week 2 teacher.
+      const src=source(a.source);return !/all about circuits/i.test(`${src.org||''} ${src.title||''}`);
+    });
     const resourceRows=[...new Map(activeArch.map(a=>[`${a.destination}:${a.source}`,a])).values()].map(a=>{const sm=source(a.source),dest=a.destination==='classroom'?'Required Path':a.destination==='library'?'Engineering Library':'Study',href=a.destination==='library'?'resources.html':a.destination==='study'?`study.html?week=${week}&view=media`:((a.placements||[])[0]?resourceLessonHref((a.placements||[])[0],a.source):`learn.html?week=${week}&stage=media`);return `<li><span class="weekly-resource-destination">${esc(dest)}</span><strong>${esc(sm.title||a.source)}</strong><a href="${esc(href)}">Open ${a.destination==='classroom'?'lesson':'view'} →</a></li>`;}).join('');
     const visualRows=(moduleData.lessons||[]).map((l,i)=>l?.integrated?.visualId?`<li><span class="weekly-resource-destination">Diagram</span><strong>${esc(l.title)}</strong><a href="learn.html?week=${week}&stage=${i===0?'ceta-lesson':'career-lesson'}&lesson=${i}&section=purpose">Open lesson visual →</a></li>`:'').filter(Boolean).join('');
     const resourceMap=`<details class="weekly-resource-map"><summary>Weekly Resource Map · everything connected to Week ${String(week).padStart(2,'0')}</summary><div class="weekly-resource-map-intro"><strong>This is an index, not another homework list.</strong><p>Required Path above is the first-pass obligation. Review/Study and professional references below are available when they help.</p><p>Existing media: ${destinationCounts.classroom||0} Classroom · ${destinationCounts.study||0} Study · ${destinationCounts.library||0} Engineering Library. Study Guide: ${guideAll.length} mapped item${guideAll.length===1?'':'s'}.</p></div>${weeklyGuide?`<div class="weekly-guide-map"><h3>CETa Study Guide map</h3>${weeklyGuide}</div>`:''}${resourceRows||visualRows?`<div class="weekly-existing-map"><h3>Videos, literature, professional references &amp; diagrams</h3><ul>${resourceRows}${visualRows}</ul></div>`:''}<div class="button-row"><a class="button outline-green" href="study.html?week=${week}&view=media">Open Study resources</a><a class="button outline-green" href="resources.html">Open Engineering Library</a></div></details>`;

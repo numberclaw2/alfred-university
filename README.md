@@ -111,3 +111,7 @@ Production Cloud Sync endpoint remains unchanged:
 
 ### Final Week 20 closure
 The final semantic re-audit added direct POTS loop-start instruction for tip/ring, off-hook current, dial tone, and ringing. v16.3.6 is accepted at 31/31 PASS after that correction.
+
+## v16.3.68 — Week 2 Instructional Redesign
+
+Week 2 now teaches one coherent DC-network story: topology → series/parallel → KCL/KVL → mixed-network reduction → voltage-divider loading → prediction-based troubleshooting. The redesign removes unrelated future topics from the Week 2 learner path, replaces repetitive Week 2 media with focused Khan Academy/OpenStax placements, distributes CETa Study Guide pp.27–34 at the exact point of use, and preserves the existing calendar, LAB-002, mastery/progress identities, and Cloud Sync protocol.
