@@ -1,4 +1,4 @@
-const CACHE='alfred-u-v16-3-72-week3-final-acceptance-20260927';
+const CACHE='alfred-u-v16-3-73-global-cloud-sync-status-20260928';
 const CORE=[
   './','index.html','engineering.html','course.html','calendar.html','progress.html','resources.html','projects.html','documents.html','student-services.html','about.html','deployment.html','404.html','offline.html',
   'study.html','learn.html','glossary.html','search.html','week.html','practice.html','labs.html','assessments.html','quiz.html','standards.html','analytics.html','knowledge.html','patch-notes.html','academic-state.js',
@@ -23,7 +23,7 @@ const CORE=[
   'AU-ESET-301-v16.3.42-Final-Independent-Acceptance-Report.md','AU-ESET-301-v16.3.42-Question-Review-Route-Matrix.csv','AU-ESET-301-v16.3.42-Semantic-Task-Review-Route-Matrix.csv','AU-ESET-301-v16.3.42-Career-Standards-Provenance-Matrix.csv','AU-ESET-301-v16.3.42-31-Week-Woven-Curriculum-Map.csv','AU-ESET-301-v16.3.42-Concept-Level-CETa-Career-Dependency-Graph.csv','AU-ESET-301-v16.3.42-Regression-Report.md','AU-ESET-301-v16.3.42-Change-Report.md','AU-ESET-301-v16.3.42-External-Source-Benchmark-Ledger.md','AU-ESET-301-v16.3.41-Final-Acceptance-Verification.md','AU-ESET-301-v16.3.41-Assessment-Route-Reconciliation.md','AU-ESET-301-v16.3.41-Change-Report.md','AU-ESET-301-v16.3.41-Career-Standards-Provenance-Matrix.csv','AU-ESET-301-v16.3.41-31-Week-Woven-Curriculum-Map.csv','AU-ESET-301-v16.3.41-Concept-Level-CETa-Career-Dependency-Graph.csv','AU-ESET-301-v16.3.41-External-Source-Benchmark-Ledger.md',
   'AU-ESET-301-v16.3.40-Independent-Acceptance-Repair-Verification.md','AU-ESET-301-v16.3.40-Final-Beginner-Dependency-Audit.md','AU-ESET-301-v16.3.40-Assessment-Lab-Project-Reconciliation.md','AU-ESET-301-v16.3.40-Change-Report.md','AU-ESET-301-v16.3.40-Career-Standards-Provenance-Matrix.csv','AU-ESET-301-v16.3.40-31-Week-Woven-Curriculum-Map.csv','AU-ESET-301-v16.3.40-Concept-Level-CETa-Career-Dependency-Graph.csv','AU-ESET-301-v16.3.40-External-Source-Benchmark-Ledger.md','AU-ESET-301-v16.3.39-Career-Curriculum-Reconstruction-Verification.md','AU-ESET-301-v16.3.39-Final-Beginner-Dependency-Audit.md','AU-ESET-301-v16.3.39-Change-Report.md','AU-ESET-301-v16.3.39-Career-Standards-Provenance-Matrix.csv','AU-ESET-301-v16.3.39-Career-Standards-Provenance-Matrix.json','AU-ESET-301-v16.3.39-31-Week-Woven-Curriculum-Map.csv','AU-ESET-301-v16.3.39-Shared-CETa-Career-Dependency-Map.csv','AU-ESET-301-v16.3.39-Assessment-Lab-Project-Reconciliation.md','AU-ESET-301-v16.3.39-External-Source-Benchmark-Ledger.md','AU-ESET-301-Release-Notes-Policy.md','AU-ESET-301-v16.3.22-Glossary-Source-Verification.md','AU-ESET-301-v16.3.23-Glossary-UX-Verification.md','AU-ESET-301-v16.3.24-Vocabulary-Study-and-Glossary-Highlighting-Verification.md','AU-ESET-301-v16.3.25-Glossary-Deduplication-Verification.md','AU-ESET-301-v16.3.26-Whole-Site-UX-Audit.md','AU-ESET-301-v16.3.27-Native-Visual-QA-Repair.md','AU-ESET-301-v16.3.28-Native-UX-Round2-Repair.md','AU-ESET-301-v16.3.29-Glossary-Coverage-and-Section-Highlighting-Verification.md','ADHD_AUTISM_AUDIT_REPORT.md','AU-ESET-301-v16.3.30-Executive-Function-Study-Flow-Verification.md','AU-ESET-301-v16.3.31-Lesson-Review-Navigation-and-Question-Backlinks-Verification.md','AU-ESET-301-v16.3.32-Study-Library-and-Week1-Safety-Scaffolding-Verification.md','AU-ESET-301-v16.3.33-Career-Beginner-First-Instructional-Depth-Verification.md','AU-ESET-301-v16.3.34-Authoritative-Visual-Learning-Verification.md','AU-ESET-301-v16.3.35-Calendar-Execution-Modernization-Verification.md','AU-ESET-301-v16.3.36-Split-Resume-Learning-Study-Verification.md','AU-ESET-301-v16.3.37-Focus-Prep-ADHD-Autism-Verification.md','VISUAL-SOURCES.md',
   'Embedded Career Transition Readiness Checklist.pdf',
-  'Alfred University - AU-ESET 301 - Simplified Course Calendar.ics','Associate_CET_Study_Guide_Sixth_Edition.pdf','release-notes-v16.3.61.js','release-notes-v16.3.62.js','release-notes-v16.3.63.js','AU-ESET-301-v16.3.64-Current-Curriculum-and-Instruction-Plan.docx','AU-ESET-301-v16.3.64-Current-Curriculum-and-Instruction-Plan.pdf','AU-ESET-301-v16.3.64-Semantic-Coverage-Matrix.csv','AU-ESET-301-v16.3.64-Semantic-Coverage-Matrix.json','AU-ESET-301-v16.3.64-Document-and-Resource-Verification.md','career-readiness-cover.png','current-curriculum-cover.png','release-notes-v16.3.64.js','release-notes-v16.3.65.js','release-notes-v16.3.66.js','release-notes-v16.3.67.js','release-notes-v16.3.68.js','release-notes-v16.3.69.js','release-notes-v16.3.70.js','release-notes-v16.3.71.js','release-notes-v16.3.72.js','AU-ESET-301-v16.3.70-Week-2-Final-Acceptance-QA.md','UPLOAD_README_v16.3.70.txt','w02-fault-boundary.svg','AU-ESET-301-v16.3.68-Week-2-Instructional-Redesign-QA.md','UPLOAD_README_v16.3.68.txt','AU-ESET-301-v16.3.71-Week-3-Instructional-Redesign-QA.md','UPLOAD_README_v16.3.71.txt','w03-dmm-connections.svg','w03-cv-cc.svg','w03-scope-graticule.svg'
+  'Alfred University - AU-ESET 301 - Simplified Course Calendar.ics','Associate_CET_Study_Guide_Sixth_Edition.pdf','release-notes-v16.3.61.js','release-notes-v16.3.62.js','release-notes-v16.3.63.js','AU-ESET-301-v16.3.64-Current-Curriculum-and-Instruction-Plan.docx','AU-ESET-301-v16.3.64-Current-Curriculum-and-Instruction-Plan.pdf','AU-ESET-301-v16.3.64-Semantic-Coverage-Matrix.csv','AU-ESET-301-v16.3.64-Semantic-Coverage-Matrix.json','AU-ESET-301-v16.3.64-Document-and-Resource-Verification.md','career-readiness-cover.png','current-curriculum-cover.png','release-notes-v16.3.64.js','release-notes-v16.3.65.js','release-notes-v16.3.66.js','release-notes-v16.3.67.js','release-notes-v16.3.68.js','release-notes-v16.3.69.js','release-notes-v16.3.70.js','release-notes-v16.3.71.js','release-notes-v16.3.72.js','release-notes-v16.3.73.js','cloud-sync-status.js','cloud-sync-status.js?v=16.3.73','AU-ESET-301-v16.3.70-Week-2-Final-Acceptance-QA.md','AU-ESET-301-v16.3.73-Global-Cloud-Sync-Status-QA.md','UPLOAD_README_v16.3.73.txt','UPLOAD_README_v16.3.70.txt','w02-fault-boundary.svg','AU-ESET-301-v16.3.68-Week-2-Instructional-Redesign-QA.md','UPLOAD_README_v16.3.68.txt','AU-ESET-301-v16.3.71-Week-3-Instructional-Redesign-QA.md','UPLOAD_README_v16.3.71.txt','w03-dmm-connections.svg','w03-cv-cc.svg','w03-scope-graticule.svg'
 ];
 self.addEventListener('install',event=>{
   event.waitUntil(caches.open(CACHE).then(async cache=>{
@@ -35,6 +35,41 @@ self.addEventListener('install',event=>{
 self.addEventListener('activate',event=>{
   event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('alfred-u-')&&key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim()));
 });
+
+async function decorateNavigationResponse(response,url){
+  if(!response) return response;
+  const type=String(response.headers.get('content-type')||'').toLowerCase();
+  if(!type.includes('text/html')) return response;
+
+  let text=await response.text();
+
+  const statusTag='<script src="cloud-sync-status.js?v=16.3.73"></script>';
+  if(!text.includes('cloud-sync-status.js')){
+    if(/<\/body>/i.test(text)) text=text.replace(/<\/body>/i,statusTag+'</body>');
+    else text+=statusTag;
+  }
+
+  if(url.pathname.endsWith('/patch-notes.html') && !text.includes('release-notes-v16.3.73.js')){
+    const releaseTag='<script src="release-notes-v16.3.73.js"></script>';
+    const ledgerTag='<script src="release-change-ledger.js"></script>';
+    const patchTag='<script src="patch-notes.js"></script>';
+    if(text.includes(ledgerTag)) text=text.replace(ledgerTag,releaseTag+ledgerTag);
+    else if(text.includes(patchTag)) text=text.replace(patchTag,releaseTag+patchTag);
+    else text=text.replace(statusTag,releaseTag+statusTag);
+  }
+
+  const headers=new Headers(response.headers);
+  headers.delete('content-length');
+  headers.delete('content-encoding');
+  headers.delete('etag');
+
+  return new Response(text,{
+    status:response.status,
+    statusText:response.statusText,
+    headers
+  });
+}
+
 self.addEventListener('fetch',event=>{
   if(event.request.method!=='GET') return;
   const url=new URL(event.request.url);
@@ -58,13 +93,21 @@ self.addEventListener('fetch',event=>{
   const cacheKey=isNavigation?new URL(url.pathname,self.location.origin).href:event.request;
   const networkFirst=isNavigation || /\.(?:html|css|js|webmanifest)$/.test(url.pathname);
   if(networkFirst){
-    event.respondWith(fetch(event.request).then(response=>{
+    event.respondWith(fetch(event.request).then(async response=>{
       if(response.status>=500)throw new Error('Temporary host failure');
-      if(response.ok){const copy=response.clone();event.waitUntil(caches.open(CACHE).then(cache=>cache.put(cacheKey,copy)).catch(()=>{}));}
-      return response;
+      const finalResponse=isNavigation?await decorateNavigationResponse(response,url):response;
+      if(finalResponse.ok){
+        const copy=finalResponse.clone();
+        event.waitUntil(caches.open(CACHE).then(cache=>cache.put(cacheKey,copy)).catch(()=>{}));
+      }
+      return finalResponse;
     }).catch(async()=>{
-      const hit=await caches.match(cacheKey);if(hit)return hit;
-      if(isNavigation)return (await caches.match(event.request,{ignoreSearch:true})) || (await caches.match('offline.html')) || Response.error();
+      const hit=await caches.match(cacheKey);
+      if(hit)return isNavigation?await decorateNavigationResponse(hit,url):hit;
+      if(isNavigation){
+        const fallback=(await caches.match(event.request,{ignoreSearch:true})) || (await caches.match('offline.html'));
+        return fallback?await decorateNavigationResponse(fallback,url):Response.error();
+      }
       return Response.error();
     }));
     return;
