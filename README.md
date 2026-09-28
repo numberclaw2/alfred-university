@@ -120,3 +120,8 @@ Week 2 now teaches one coherent DC-network story: topology → series/parallel �
 ## v16.3.69 — Week 2 All About Circuits optional Study shelf
 
 The focused v16.3.68 Week 2 required path remains unchanged. Six All About Circuits resources that the learner found useful are restored only in **Study** as optional/supporting explanations: series, parallel, voltage-divider, KCL/KVL, meter-loading, and troubleshooting material. They do not count as Required Teaching Media and do not gate Week 2 mastery.
+
+
+## v16.3.70 — Week 2 final acceptance
+
+Final Week 2 QA corrected the Chapter 4 p.34 retrieval scope so only questions 2–4 are used; transistor-amplifier Q5–Q7 and maximum-power-transfer Q8–Q9 are explicitly deferred. Optional All About Circuits Study guidance now tells the learner exactly which KCL/KVL or series concepts to use and which unrelated/sign-convention material to ignore. Required Week 2 media remains Khan/OpenStax only.
