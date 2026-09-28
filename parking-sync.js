@@ -2,10 +2,9 @@
   const STUDY_KEY = 'alfred-u-study-v13';
   const PREFIX = 'parking:';
 
-  // Compatibility hotfix: the production protocol-2 Worker currently rejects
-  // parking:* records. Keep parking fully local/offline-safe until the Worker
-  // validator is upgraded, so parking records cannot block normal course sync.
-  const CLOUD_RECORDS_ENABLED = false;
+  // Production Worker 2026-09-27-r3 accepts parking:* protocol-2 records.
+  // Cross-device Parking Lot sync is enabled again.
+  const CLOUD_RECORDS_ENABLED = true;
 
   const nowIso = ms => new Date(ms).toISOString();
   const parseTime = value => {
