@@ -1,4 +1,4 @@
-const CACHE='alfred-u-v16-3-82-week3-final-acceptance-20260929';
+const CACHE='alfred-u-v16-3-83-week3-final-acceptance-context-repair-20260929';
 
 const CORE=[
   './',
@@ -31,6 +31,7 @@ const CORE=[
   'ceta-instructional-authority-v16.3.80.js','ceta-instructional-authority-v16.3.80.js?v=16.3.80',
   'week3-remediation-v16.3.81.js','week3-remediation-v16.3.81.js?v=16.3.81',
   'week3-final-acceptance-v16.3.82.js','week3-final-acceptance-v16.3.82.js?v=16.3.82',
+  'week3-final-acceptance-v16.3.83.js','week3-final-acceptance-v16.3.83.js?v=16.3.83',
   'teaching-media-resource-integration.js','teaching-media-resource-integration.js?v=16.3.57',
   'outside-literature-integration.js','outside-literature-integration.js?v=16.3.48',
   'teaching-media-architecture-repair.js','teaching-media-architecture-repair.js?v=16.3.56',
@@ -61,7 +62,7 @@ const CORE=[
   'release-notes-v16.3.70.js','release-notes-v16.3.71.js','release-notes-v16.3.72.js',
   'release-notes-v16.3.73.js','release-notes-v16.3.74.js','release-notes-v16.3.75.js',
   'release-notes-v16.3.76.js','release-notes-v16.3.77.js','release-notes-v16.3.78.js',
-  'release-notes-v16.3.79.js','release-notes-v16.3.80.js','release-notes-v16.3.81.js','release-notes-v16.3.82.js',
+  'release-notes-v16.3.79.js','release-notes-v16.3.80.js','release-notes-v16.3.81.js','release-notes-v16.3.82.js','release-notes-v16.3.83.js',
   'reading-library-integration.js','reading-library-integration.js?v=16.3.60',
   'release-change-ledger.js','patch-notes.js',
   'cloud-sync-status.js','cloud-sync-status.js?v=16.3.73',
@@ -89,7 +90,7 @@ self.addEventListener('activate',event=>{
   // Preserve the v16.3.80 cache for previously pre-cached documents/reports while
   // v16.3.81 takes control of current runtime assets. Future cleanup can retire it
   // after the new cache has been production-verified.
-  const preserved=new Set(['alfred-u-v16-3-80-ceta-authority-20260929','alfred-u-v16-3-81-week3-remediation-20260929']);
+  const preserved=new Set(['alfred-u-v16-3-80-ceta-authority-20260929','alfred-u-v16-3-81-week3-remediation-20260929','alfred-u-v16-3-82-week3-final-acceptance-20260929']);
   event.waitUntil(
     caches.keys()
       .then(keys=>Promise.all(
@@ -131,12 +132,15 @@ async function decorateNavigationResponse(response,url){
     }
   }
 
-  const final82Tag='<script src="week3-final-acceptance-v16.3.82.js?v=16.3.82"></script>';
-  if(!text.includes('week3-final-acceptance-v16.3.82.js')){
+  // v16.3.83 supersedes the v16.3.82 runtime acceptance script.
+  text=text.replace('<script src="week3-final-acceptance-v16.3.82.js?v=16.3.82"></script>','');
+  text=text.replace('<script src="week3-final-acceptance-v16.3.82.js"></script>','');
+  const final83Tag='<script src="week3-final-acceptance-v16.3.83.js?v=16.3.83"></script>';
+  if(!text.includes('week3-final-acceptance-v16.3.83.js')){
     const overlay81Versioned='<script src="week3-remediation-v16.3.81.js?v=16.3.81"></script>';
     const overlay81Plain='<script src="week3-remediation-v16.3.81.js"></script>';
-    if(text.includes(overlay81Versioned)) text=insertAfter(text,overlay81Versioned,final82Tag);
-    else if(text.includes(overlay81Plain)) text=insertAfter(text,overlay81Plain,final82Tag);
+    if(text.includes(overlay81Versioned)) text=insertAfter(text,overlay81Versioned,final83Tag);
+    else if(text.includes(overlay81Plain)) text=insertAfter(text,overlay81Plain,final83Tag);
   }
 
   if(url.pathname.endsWith('/patch-notes.html') && !text.includes('release-notes-v16.3.81.js')){
@@ -161,6 +165,17 @@ async function decorateNavigationResponse(response,url){
     else text=text.replace(statusTag,release82+statusTag);
   }
 
+  if(url.pathname.endsWith('/patch-notes.html') && !text.includes('release-notes-v16.3.83.js')){
+    const release82='<script src="release-notes-v16.3.82.js"></script>';
+    const ledger='<script src="release-change-ledger.js"></script>';
+    const patch='<script src="patch-notes.js"></script>';
+    const release83='<script src="release-notes-v16.3.83.js"></script>';
+    if(text.includes(release82)) text=insertAfter(text,release82,release83);
+    else if(text.includes(ledger)) text=text.replace(ledger,release83+ledger);
+    else if(text.includes(patch)) text=text.replace(patch,release83+patch);
+    else text=text.replace(statusTag,release83+statusTag);
+  }
+
   const headers=new Headers(response.headers);
   headers.delete('content-length');
   headers.delete('content-encoding');
@@ -177,23 +192,26 @@ async function decorateBuildInfo(response){
   if(!response || !response.ok) return response;
   try{
     const data=await response.clone().json();
-    data.runtimePatch='16.3.82';
-    data.build='v16.3.82-week3-final-acceptance-20260929';
-    data.releaseStatus='week3-final-three-gate-acceptance-repair';
-    data.releaseNotesRevision='2026-09-29-v16.3.82-week3-final-acceptance';
+    data.runtimePatch='16.3.83';
+    data.build='v16.3.83-week3-final-acceptance-context-repair-20260929';
+    data.releaseStatus='week3-final-three-gate-acceptance-verified-context-repair';
+    data.releaseNotesRevision='2026-09-29-v16.3.83-week3-final-acceptance-context-repair';
     data.week3InstructionalRevision='2026-09-29-v16.3.81-week3-three-gate-remediation';
     data.week3ThreeGateStatus='VERIFIED_PASS';
     data.week3CetaAuthorityRepair=['8.1','8.2'];
     data.week3CareerMetrologyStandards=['C15.1','C15.2','C15.3','C15.4','C15.5'];
-    data.week3FinalAcceptanceRevision='2026-09-29-v16.3.82-week3-final-acceptance';
+    data.week3FinalAcceptanceRevision='2026-09-29-v16.3.83-week3-final-acceptance-context-repair';
     data.week3FinalAcceptanceStatus='VERIFIED_PASS';
+    data.week3AcceptanceRuntimeScript='week3-final-acceptance-v16.3.83.js';
+    data.week3AcceptanceRuntimeMode='full-check-on-complete-context; canonical-status-mirror-on-partial-context';
+    data.week3AcceptanceSemanticTaskKey='taskId|id';
     data.cetaVerifiedActiveRouteCount=221;
     data.cetaRouteRehomeRequiredCount=41;
     data.combinedVerifiedWeekCount=2;
     data.careerVerifiedPassWeeks=[2,3];
     data.careerP0RemediationWeeks=[4,12,29];
     data.week3SpecialtyInstrumentRehome='C3.8 removed from unsupported Week 6 claim; Week 20 remains a future remediation target.';
-    data.serviceWorkerRevision='2026-09-29-v16.3.82-week3-final-acceptance';
+    data.serviceWorkerRevision='2026-09-29-v16.3.83-week3-final-acceptance-context-repair';
     const headers=new Headers(response.headers);
     headers.set('content-type','application/json; charset=utf-8');
     headers.set('cache-control','no-store');
