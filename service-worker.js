@@ -1,4 +1,4 @@
-const CACHE='alfred-u-v16-3-83-week3-final-acceptance-context-repair-20260929';
+const CACHE='alfred-u-v16-3-84-week3-career-teaching-render-repair-20260929';
 
 const CORE=[
   './',
@@ -6,7 +6,7 @@ const CORE=[
   'projects.html','documents.html','student-services.html','about.html','deployment.html','404.html','offline.html',
   'study.html','learn.html','glossary.html','search.html','week.html','practice.html','labs.html',
   'assessments.html','quiz.html','standards.html','analytics.html','knowledge.html','patch-notes.html',
-  'styles.css','styles.css?v=16.3.67','styles.css?v=16.3.74','styles.css?v=16.3.75',
+  'styles.css','styles.css?v=16.3.67','styles.css?v=16.3.74','styles.css?v=16.3.75','styles.css?v=16.3.84',
   'learn-parking.css','learn-parking.css?v=16.3.44',
   'ux-system.css','ux-system.css?v=16.3.36',
   'glossary.css','glossary.css?v=16.3.67',
@@ -20,7 +20,7 @@ const CORE=[
   'parking-sync.js','parking-sync.js?v=16.3.43',
   'learn-parking.js','learn-parking.js?v=16.3.44',
   'vocabulary-study.js','practice.js',
-  'learn.js','learn.js?v=16.3.68','learn.js?v=16.3.74','learn.js?v=16.3.75','learn.js?v=16.3.76',
+  'learn.js','learn.js?v=16.3.68','learn.js?v=16.3.74','learn.js?v=16.3.75','learn.js?v=16.3.76','learn.js?v=16.3.84',
   'glossary-data.js','glossary-data.js?v=16.3.29','glossary.js','glossary.js?v=16.3.38',
   'curriculum-data.js','course-data.js','academic-content.js','practical-completion.js','academic.js','academic.js?v=16.3.50',
   'assessment-data.js','assessment-completion.js','semantic-repair.js','week1-instructional-depth.js',
@@ -62,7 +62,7 @@ const CORE=[
   'release-notes-v16.3.70.js','release-notes-v16.3.71.js','release-notes-v16.3.72.js',
   'release-notes-v16.3.73.js','release-notes-v16.3.74.js','release-notes-v16.3.75.js',
   'release-notes-v16.3.76.js','release-notes-v16.3.77.js','release-notes-v16.3.78.js',
-  'release-notes-v16.3.79.js','release-notes-v16.3.80.js','release-notes-v16.3.81.js','release-notes-v16.3.82.js','release-notes-v16.3.83.js',
+  'release-notes-v16.3.79.js','release-notes-v16.3.80.js','release-notes-v16.3.81.js','release-notes-v16.3.82.js','release-notes-v16.3.83.js','release-notes-v16.3.84.js',
   'reading-library-integration.js','reading-library-integration.js?v=16.3.60',
   'release-change-ledger.js','patch-notes.js',
   'cloud-sync-status.js','cloud-sync-status.js?v=16.3.73',
@@ -87,10 +87,9 @@ self.addEventListener('install',event=>{
 });
 
 self.addEventListener('activate',event=>{
-  // Preserve the v16.3.80 cache for previously pre-cached documents/reports while
-  // v16.3.81 takes control of current runtime assets. Future cleanup can retire it
-  // after the new cache has been production-verified.
-  const preserved=new Set(['alfred-u-v16-3-80-ceta-authority-20260929','alfred-u-v16-3-81-week3-remediation-20260929','alfred-u-v16-3-82-week3-final-acceptance-20260929']);
+  // Preserve the recent accepted caches during the v16.3.84 transition so previously
+  // cached documents/resources are not discarded while the Career renderer refreshes.
+  const preserved=new Set(['alfred-u-v16-3-80-ceta-authority-20260929','alfred-u-v16-3-81-week3-remediation-20260929','alfred-u-v16-3-82-week3-final-acceptance-20260929','alfred-u-v16-3-83-week3-final-acceptance-context-repair-20260929']);
   event.waitUntil(
     caches.keys()
       .then(keys=>Promise.all(
@@ -110,6 +109,8 @@ async function decorateNavigationResponse(response,url){
   if(!type.includes('text/html')) return response;
 
   let text=await response.text();
+  text=text.replace(/learn\.js\?v=16\.3\.(?:68|74|75|76)/g,'learn.js?v=16.3.84');
+  text=text.replace(/styles\.css\?v=16\.3\.(?:67|74|75)/g,'styles.css?v=16.3.84');
 
   const statusTag='<script src="cloud-sync-status.js?v=16.3.73"></script>';
   if(!text.includes('cloud-sync-status.js')){
@@ -176,6 +177,17 @@ async function decorateNavigationResponse(response,url){
     else text=text.replace(statusTag,release83+statusTag);
   }
 
+  if(url.pathname.endsWith('/patch-notes.html') && !text.includes('release-notes-v16.3.84.js')){
+    const release83='<script src="release-notes-v16.3.83.js"></script>';
+    const ledger='<script src="release-change-ledger.js"></script>';
+    const patch='<script src="patch-notes.js"></script>';
+    const release84='<script src="release-notes-v16.3.84.js"></script>';
+    if(text.includes(release83)) text=insertAfter(text,release83,release84);
+    else if(text.includes(ledger)) text=text.replace(ledger,release84+ledger);
+    else if(text.includes(patch)) text=text.replace(patch,release84+patch);
+    else text=text.replace(statusTag,release84+statusTag);
+  }
+
   const headers=new Headers(response.headers);
   headers.delete('content-length');
   headers.delete('content-encoding');
@@ -192,10 +204,10 @@ async function decorateBuildInfo(response){
   if(!response || !response.ok) return response;
   try{
     const data=await response.clone().json();
-    data.runtimePatch='16.3.83';
-    data.build='v16.3.83-week3-final-acceptance-context-repair-20260929';
-    data.releaseStatus='week3-final-three-gate-acceptance-verified-context-repair';
-    data.releaseNotesRevision='2026-09-29-v16.3.83-week3-final-acceptance-context-repair';
+    data.runtimePatch='16.3.84';
+    data.build='v16.3.84-week3-career-teaching-render-repair-20260929';
+    data.releaseStatus='week3-career-learner-facing-render-verified';
+    data.releaseNotesRevision='2026-09-29-v16.3.84-week3-career-teaching-render-repair';
     data.week3InstructionalRevision='2026-09-29-v16.3.81-week3-three-gate-remediation';
     data.week3ThreeGateStatus='VERIFIED_PASS';
     data.week3CetaAuthorityRepair=['8.1','8.2'];
@@ -205,13 +217,15 @@ async function decorateBuildInfo(response){
     data.week3AcceptanceRuntimeScript='week3-final-acceptance-v16.3.83.js';
     data.week3AcceptanceRuntimeMode='full-check-on-complete-context; canonical-status-mirror-on-partial-context';
     data.week3AcceptanceSemanticTaskKey='taskId|id';
+    data.week3CareerRenderRevision='2026-09-29-v16.3.84-week3-career-teaching-render-repair';
+    data.week3CareerRenderStatus='VERIFIED_VISIBLE';
     data.cetaVerifiedActiveRouteCount=221;
     data.cetaRouteRehomeRequiredCount=41;
     data.combinedVerifiedWeekCount=2;
     data.careerVerifiedPassWeeks=[2,3];
     data.careerP0RemediationWeeks=[4,12,29];
     data.week3SpecialtyInstrumentRehome='C3.8 removed from unsupported Week 6 claim; Week 20 remains a future remediation target.';
-    data.serviceWorkerRevision='2026-09-29-v16.3.83-week3-final-acceptance-context-repair';
+    data.serviceWorkerRevision='2026-09-29-v16.3.84-week3-career-teaching-render-repair';
     const headers=new Headers(response.headers);
     headers.set('content-type','application/json; charset=utf-8');
     headers.set('cache-control','no-store');

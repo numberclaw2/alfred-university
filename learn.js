@@ -489,20 +489,40 @@
     return `<aside><strong>Source basis:</strong><p>${esc(d.sourceBasisText)}</p>${links?`<p>${links}</p>`:''}</aside>`;
   }
 
+  function renderCareerTask(section){
+    const task=section?.occupationalTask;
+    if(!task)return '';
+    return `<section class="career-page-task"><div class="career-page-kicker">Technician task</div><h4>What you are learning to do on the job</h4><p>${esc(task)}</p></section>`;
+  }
   function renderTrackHandoff(section){
     const h=section?.trackHandoff;
     if(!h)return '';
-    return `<section class="track-handoff-card"><div class="track-handoff-title"><span>${esc(h.label||'CETa ↔ Career handoff')}</span><strong>Pass the same circuit model between theory and technician work</strong></div><div class="track-handoff-grid"><article><span>Received</span><p>${esc(h.received||'')}</p></article><article><span>Pass it back</span><p>${esc(h.passes||'')}</p></article></div></section>`;
+    const fromCodes=Array.isArray(h.fromCeta)?h.fromCeta.filter(Boolean):[];
+    const toCodes=Array.isArray(h.toCareer)?h.toCareer.filter(Boolean):[];
+    const received=h.received||((fromCodes.length)?`CETa ${fromCodes.join(', ')} — the theory/instrument knowledge this Career page is allowed to build on.`:'');
+    const passes=h.passes||((toCodes.length)?`Career ${toCodes.join(', ')} — the technician performance/evidence this page expects you to produce.`:'');
+    if(!received&&!passes&&!h.rule)return '';
+    return `<section class="track-handoff-card"><div class="track-handoff-title"><span>${esc(h.label||'CETa ↔ Career handoff')}</span><strong>Know what is already taught and what changes when you perform the job skill</strong></div><div class="track-handoff-grid"><article><span>Received from CETa</span><p>${esc(received||'No additional CETa prerequisite is claimed on this page.')}</p></article><article><span>Career performance target</span><p>${esc(passes||'Apply the taught concept in an observable technician task.')}</p></article></div>${h.rule?`<aside class="career-handoff-rule"><strong>Handoff rule</strong><p>${esc(h.rule)}</p></aside>`:''}</section>`;
   }
   function renderCareerPageDemo(section){
     const d=section?.careerDemo;
     if(!d)return '';
-    return `<section class="career-page-demo"><div class="career-page-kicker">Technician demonstration</div><h4>${esc(d.title||'Watch the reasoning happen')}</h4><ol>${(d.steps||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ol>${d.notice?`<aside><strong>Watch for this:</strong><p>${esc(d.notice)}</p></aside>`:''}</section>`;
+    const steps=Array.isArray(d.steps)?d.steps.filter(Boolean):[];
+    return `<section class="career-page-demo"><div class="career-page-kicker">Technician demonstration</div><h4>${esc(d.title||'Watch the reasoning happen')}</h4>${d.scenario?`<p class="career-practice-scenario"><strong>Scenario:</strong> ${esc(d.scenario)}</p>`:''}${steps.length?`<ol>${steps.map(x=>`<li>${esc(x)}</li>`).join('')}</ol>`:''}${d.decision?`<aside><strong>Technician decision:</strong><p>${esc(d.decision)}</p></aside>`:(d.notice?`<aside><strong>Watch for this:</strong><p>${esc(d.notice)}</p></aside>`:'')}</section>`;
   }
   function renderCareerPagePractice(section){
     const p=section?.careerPractice;
     if(!p)return '';
-    return `<section class="career-page-practice"><div class="career-page-kicker">Practice now — do not wait for the end of the lesson</div><h4>${esc(p.title||'Career Skill Drill')}</h4>${p.scenario?`<p class="career-practice-scenario"><strong>Scenario:</strong> ${esc(p.scenario)}</p>`:''}<ol>${(p.prompts||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ol>${p.physical?`<aside class="career-physical-boundary"><strong>Physical proficiency boundary</strong><p>${esc(p.physical)}</p></aside>`:''}<details class="career-practice-model"><summary>Check the model reasoning only after you commit to an answer</summary><p>${esc(p.model||'')}</p></details></section>`;
+    const prompts=Array.isArray(p.prompts)?p.prompts.filter(Boolean):[];
+    const required=Array.isArray(p.required)?p.required.filter(Boolean):[];
+    const physical=p.physical||section?.physicalBoundary||'';
+    return `<section class="career-page-practice"><div class="career-page-kicker">Practice now — do not wait for the end of the lesson</div><h4>${esc(p.title||'Career Skill Drill')}</h4>${p.scenario?`<p class="career-practice-scenario"><strong>Scenario:</strong> ${esc(p.scenario)}</p>`:''}${p.prompt?`<p class="career-practice-prompt"><strong>Your task:</strong> ${esc(p.prompt)}</p>`:''}${prompts.length?`<ol>${prompts.map(x=>`<li>${esc(x)}</li>`).join('')}</ol>`:''}${required.length?`<div class="career-required-response"><strong>Your response/evidence must include:</strong><ul>${required.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`:''}${physical?`<aside class="career-physical-boundary"><strong>Physical proficiency boundary</strong><p>${esc(physical)}</p></aside>`:''}${p.model?`<details class="career-practice-model"><summary>Check the model reasoning only after you commit to an answer</summary><p>${esc(p.model)}</p></details>`:''}</section>`;
+  }
+  function renderCareerEvidence(section){
+    const evidence=section?.evidenceSpec;
+    if(!evidence)return '';
+    const benchmarks=Array.isArray(section?.occupationalBenchmarkIds)?section.occupationalBenchmarkIds.filter(Boolean):[];
+    return `<section class="career-page-evidence"><div class="career-page-kicker">Evidence required</div><h4>What proves you can do this skill</h4><p>${esc(evidence)}</p>${benchmarks.length?`<p class="career-benchmark-note"><strong>Occupational alignment:</strong> This skill is mapped to current electronics-technician performance benchmarks used by Alfred's Career standards.</p>`:''}</section>`;
   }
   function renderBoundaryTrainer(section,trainer){
     const challenges=trainer?.challenges||[];
@@ -517,7 +537,7 @@
     if(t.type==='hypothesis')return renderHypothesisTrainer(section,t);
     return '';
   }
-  function renderSectionEnhancements(section){return `${renderTrackHandoff(section)}${renderCareerPageDemo(section)}${renderCareerInteractive(section)}${renderCareerPagePractice(section)}`;}
+  function renderSectionEnhancements(section){return `${renderCareerTask(section)}${renderTrackHandoff(section)}${renderCareerPageDemo(section)}${renderCareerInteractive(section)}${renderCareerPagePractice(section)}${renderCareerEvidence(section)}`;}
   function masteryReviewReturn(index,segmentId){
     if(params.get('from')!=='mastery')return '';
     if(Number(params.get('lesson'))!==Number(index)||String(params.get('section')||'')!==String(segmentId||''))return '';
