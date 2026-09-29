@@ -7,6 +7,13 @@ AU-ESET 301 is a fictional, university-style independent-study environment built
 
 It is not an accredited university, an ETA-endorsed course, an official exam, or a guarantee of certification or employment.
 
+
+## v16.3.78 CETa ↔ Career Tandem Governance
+
+The governing standards universe is now **357 rows: 262 CETa + 95 Career**. CETa certification knowledge and Career occupational performance are co-equal but non-substitutable. Five cross-track relationship types are machine-readable, and every week is governed by three independent gates: **CETa + Career + Tandem**. Only Week 2 is currently `VERIFIED_PASS`; all other weeks remain remediation-required until they earn the strengthened Career and Tandem gates.
+
+## Historical production-state notes
+
 ## Current production state — v16.3.54 Teaching Media consumption checklist
 
 The accepted instructional curriculum remains **v16.3**. Runtime patch **v16.3.54** preserves the accepted v16.3.53 CETa Study Guide integration and adds a shared Teaching Media consumption checklist for watched/read/used/reviewed resources without changing mastery or curriculum gates.
