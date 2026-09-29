@@ -147,3 +147,9 @@ The Week 3 core remains seven CETa pages, six Career pages, four Required extern
 Week 2 Career was reopened after production review showed that its five troubleshooting pages had strong prose but no point-of-use Teaching Media placements. The remediation keeps the five-page sequence and adds a technician demonstration, immediate Career Skill Drill, and CETa↔Career handoff on every page. Three bounded Career resources are Required (Keysight board-troubleshooting context, MIT PCB debugging notes, and RealPars open/short troubleshooting), while four AAC resources remain optional Study but now appear directly on the Career pages where they are useful.
 
 Week 2 mastery is rebalanced to 6 CETa / 6 Career questions. CETa still supplies topology, conservation, and divider-analysis tools, but the Career track independently teaches prediction, fault signatures, boundary isolation, discriminating measurements, repair verification, and technician documentation. Calendar/pacing, Week 2 CETa content, Week 3, Cloud Sync protocol 2, and saved progress keys are unchanged.
+
+## v16.3.75 — Week 2 final Career UX
+
+The final Week 2 remediation closes the two gaps identified after v16.3.74. Career Page 3 now contains a native fault-boundary trainer with measurement counting and a split-half challenge. Career Page 4 now contains a branching Troubleshooting Decision Trainer: a hidden fault generates simulated readings, each measurement eliminates incompatible hypotheses, and Alfred scores how efficiently the diagnosis was reached.
+
+Week 2 mastery feedback now uses exact section routing. Every one of the 12 Week 2 mastery questions has a review target; missed questions can open the precise CETa/Career teaching section and then return to the saved question review. The existing 6 CETa / 6 Career balance, Week 2 media/Study Guide design, LAB-002, Week 3, Cloud Sync protocol 2, and calendar remain unchanged.
