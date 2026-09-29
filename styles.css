@@ -2288,3 +2288,11 @@ small, .site-footer a, .footer-brand p, .legal, .event-detail .raw-desc{
 .portal-card,.plain-card,.document-card,.service-card,.resource-card,.preview-event,.week-dashboard-card,.week-dashboard-primary,.notice-card,.phase-card,.artifact-grid article,.evidence-gallery div,.study-material-workspace,.study-concept-card,.study-media-card,.study-reference-columns>div,.study-weak-grid article,.vocab-session,.vocab-card,.glossary-entry{
   box-shadow:0 10px 28px rgba(15,36,28,.06);
 }
+
+/* v16.3.74 — coequal Career page enhancements */
+.track-handoff-card,.career-page-demo,.career-page-practice{margin:1.1rem 0 0;padding:1rem 1.05rem;border:1px solid var(--border,#d6dfda);border-radius:16px;background:rgba(255,255,255,.035)}
+.track-handoff-title{display:flex;flex-wrap:wrap;gap:.45rem .8rem;align-items:baseline;margin-bottom:.7rem}.track-handoff-title span,.career-page-kicker{font-size:.76rem;font-weight:800;letter-spacing:.055em;text-transform:uppercase;color:var(--gold,#b58a2a)}
+.track-handoff-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}.track-handoff-grid article{padding:.8rem;border-radius:12px;background:rgba(0,0,0,.08)}.track-handoff-grid article>span{display:block;font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.3rem}.track-handoff-grid p{margin:0}
+.career-page-demo h4,.career-page-practice h4{margin:.28rem 0 .7rem}.career-page-demo ol,.career-page-practice ol{margin:.45rem 0 .75rem;padding-left:1.35rem}.career-page-demo li,.career-page-practice li{margin:.38rem 0}.career-page-demo aside,.career-physical-boundary{margin:.8rem 0 0;padding:.75rem .85rem;border-radius:12px;background:rgba(181,138,42,.09)}
+.career-practice-scenario{padding:.72rem .82rem;border-left:4px solid var(--gold,#b58a2a);background:rgba(181,138,42,.07);border-radius:8px}.career-practice-model{margin-top:.8rem;border-top:1px solid var(--border,#d6dfda);padding-top:.65rem}.career-practice-model summary{cursor:pointer;font-weight:750}.career-practice-model p{margin:.65rem 0 0}
+@media(max-width:720px){.track-handoff-grid{grid-template-columns:1fr}.track-handoff-card,.career-page-demo,.career-page-practice{padding:.85rem}}

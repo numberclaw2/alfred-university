@@ -140,3 +140,10 @@ LAB-003 now requires prediction, safe configuration, CV/CC observation, known-wa
 Post-deployment Week 3 acceptance confirms the v16.3.71 redesign and closes two subtle QA gaps. DMM current-mode work now explicitly requires output/source power OFF while inserting or removing the series ammeter connection, with rated input/range verification before energizing and lead reset to V/Ω afterward. The Chapter 19 oscilloscope Study Guide slices now explicitly separate useful scope/loading/probe/trigger concepts from legacy CRT/Z-axis detail and from the old blanket AC-coupling startup instruction; Alfred and current Tektronix guidance remain authoritative for modern setup.
 
 The Week 3 core remains seven CETa pages, six Career pages, four Required external resources, four contextual Study Guide slices, a focused 12-question mastery set, and LAB-003. Calendar dates, pacing, Cloud Sync protocol 2, and other weeks are unchanged.
+
+
+## v16.3.74 — Week 2 Career coequal remediation
+
+Week 2 Career was reopened after production review showed that its five troubleshooting pages had strong prose but no point-of-use Teaching Media placements. The remediation keeps the five-page sequence and adds a technician demonstration, immediate Career Skill Drill, and CETa↔Career handoff on every page. Three bounded Career resources are Required (Keysight board-troubleshooting context, MIT PCB debugging notes, and RealPars open/short troubleshooting), while four AAC resources remain optional Study but now appear directly on the Career pages where they are useful.
+
+Week 2 mastery is rebalanced to 6 CETa / 6 Career questions. CETa still supplies topology, conservation, and divider-analysis tools, but the Career track independently teaches prediction, fault signatures, boundary isolation, discriminating measurements, repair verification, and technician documentation. Calendar/pacing, Week 2 CETa content, Week 3, Cloud Sync protocol 2, and saved progress keys are unchanged.

@@ -1,10 +1,10 @@
 {
   "courseRelease": "16.3",
-  "runtimePatch": "16.3.73",
+  "runtimePatch": "16.3.74",
   "evidenceRevision": "16.2",
   "cloudSyncProtocol": 2,
-  "build": "v16.3.73-global-cloud-sync-status-20260928",
-  "releaseStatus": "global-cloud-sync-status",
+  "build": "v16.3.74-week2-career-coequal-remediation-20260928",
+  "releaseStatus": "week2-career-coequal-remediation",
   "presentationPatch": "sitewide-text-readability-overlay",
   "scheduleRevision": "2026-09-20-current-classroom-stage-and-workload-sync",
   "modulePresentationRevision": "2026-09-18-week1-from-zero-visual-teaching",
@@ -16,7 +16,7 @@
   "week1InstructionRevision": "2026-09-19-beginner-first-safety-scaffolding",
   "week1TeachingMediaRevision": "2026-09-18-beginner-teacher-youtube-layer",
   "teachingMediaBaseRevision": "2026-09-18-final-pots-31-week-standalone-accepted",
-  "releaseNotesRevision": "2026-09-28-v16.3.73-global-cloud-sync-status",
+  "releaseNotesRevision": "2026-09-28-v16.3.74-week2-career-remediation",
   "repositoryLedgerBaseline": "2026-09-18-v16.3.9-63-commits",
   "studyRevision": "2026-09-26-v16.3.66-ahead-of-calendar-reached-week-support",
   "practiceRevision": "2026-09-22-guided-practice-paginated-direct-navigation",
@@ -78,7 +78,7 @@
   "teachingMediaRequirementContradictionCount": 0,
   "teachingMediaMissingBacklinkCount": 0,
   "teachingMediaFinalAcceptanceRevision": "2026-09-23-v16.3.58-direct-file-validation",
-  "teachingMediaFinalAcceptanceVerdict": "PASS — combined multimodal QA removed five phantom Required obligations, aligned two Required assignment schedules, eliminated two Required-placement classification contradictions, and preserved 491-section dual-channel coverage.",
+  "teachingMediaFinalAcceptanceVerdict": "PASS \u2014 combined multimodal QA removed five phantom Required obligations, aligned two Required assignment schedules, eliminated two Required-placement classification contradictions, and preserved 491-section dual-channel coverage.",
   "teachingMediaVideoCanonicalResourceCount": 120,
   "teachingMediaNonVideoCanonicalResourceCount": 131,
   "teachingMediaCanonicalDuplicateGroupCount": 3,
@@ -139,7 +139,7 @@
   "lessonDirectNavigationPreservesResumePoint": true,
   "guidedPracticeDirectNavigationPreservesCompletion": true,
   "directSectionNavigationAcceptanceRevision": "2026-09-22-v16.3.52-state-model-pass",
-  "directSectionNavigationAcceptanceVerdict": "PASS — first-pass lock, prior-pass review compatibility, and Guided Practice state-preservation tests passed",
+  "directSectionNavigationAcceptanceVerdict": "PASS \u2014 first-pass lock, prior-pass review compatibility, and Guided Practice state-preservation tests passed",
   "directSectionNavigationBehaviorTestCount": 3,
   "cetaStudyGuideRevision": "2026-09-26-v16.3.66-current-eta-errata-complete",
   "cetaStudyGuideRequiredPrintedPageCount": 64,
@@ -162,7 +162,7 @@
     "Study Media"
   ],
   "contentPlacementBlueprintRevision": "2026-09-23-31-week-491-live-section-semantic-repaired",
-  "serviceWorkerRevision": "2026-09-28-v16.3.73-global-cloud-status-cache-refresh",
+  "serviceWorkerRevision": "2026-09-28-v16.3.74-week2-career-remediation-cache-refresh",
   "serviceWorkerInstallIntegrityVerdict": "PASS",
   "mediaConsumptionRevision": "2026-09-23-v16.3.57-canonical-source-identity-with-legacy-alias-compatibility",
   "teachingMediaSemanticIntegrityRevision": "2026-09-23-v16.3.58-semantic-media-integrity-final",
@@ -173,7 +173,7 @@
   "centralReadingIndexStudyGuideReviewReferenceRecordCount": 44,
   "centralReadingIndexStudyGuideRequiredPageCount": 64,
   "centralReadingIndexStudyGuideRequiredMinutes": 241,
-  "centralReadingIndexAcceptanceVerdict": "PASS — centralized reading index includes all 152 unique literature assignment sources plus 62 CETa Study Guide records and preserves mixed Required / Study / Reference roles without creating duplicate obligations.",
+  "centralReadingIndexAcceptanceVerdict": "PASS \u2014 centralized reading index includes all 152 unique literature assignment sources plus 62 CETa Study Guide records and preserves mixed Required / Study / Reference roles without creating duplicate obligations.",
   "teachingMediaPhantomRequiredCount": 0,
   "teachingMediaRequiredPlacementClassificationContradictionCount": 0,
   "teachingMediaRequiredWeekMisalignmentCount": 0,
@@ -310,7 +310,7 @@
   "week3CurriculumScope": "Question-first DMM, current-limited bench supply CV/CC, oscilloscope scale/probe/reference/trigger, waveform measurement, and measurement-system limitations.",
   "week3FinalAcceptanceStatus": "PASS",
   "week3FinalAcceptanceRevision": "2026-09-27-v16.3.72-current-mode-and-study-guide-boundaries",
-  "week3FinalAcceptanceVerdict": "PASS — production-verified Week 3 redesign with precise Study Guide legacy-scope boundaries and explicit output-off current-mode insertion/removal safety.",
+  "week3FinalAcceptanceVerdict": "PASS \u2014 production-verified Week 3 redesign with precise Study Guide legacy-scope boundaries and explicit output-off current-mode insertion/removal safety.",
   "week3StudyGuideLegacyScopeBoundaryClarified": true,
   "week3DmmCurrentInsertionRemovalSafetyExplicit": true,
   "cloudSyncStatusRevision": "2026-09-28-v16.3.73-global-navigation-status",
@@ -326,5 +326,23 @@
     "issue"
   ],
   "cloudSyncStatusRecoveryKeyExposure": false,
-  "cloudSyncStatusProgressErrorMirroring": true
+  "cloudSyncStatusProgressErrorMirroring": true,
+  "week2CareerRemediationRevision": "2026-09-28-v16.3.74-coequal-career-instruction",
+  "week2CareerTeachingPageCount": 5,
+  "week2CareerRequiredMediaCount": 3,
+  "week2CareerRequiredMediaSources": [
+    "keysightBoardTroubleshootingW2Career",
+    "mitPcbDebuggingW2Career",
+    "realparsOpenShortW2Career"
+  ],
+  "week2CareerInlineStudyCount": 4,
+  "week2CareerPagePracticeCount": 5,
+  "week2CareerCetaHandoffCount": 7,
+  "week2CareerCareerHandoffCount": 5,
+  "week2CareerMasteryQuestionCount": 12,
+  "week2CareerMasteryMix": {
+    "CETa": 6,
+    "Career": 6
+  },
+  "week2CareerStatus": "COEQUAL \u2014 Career pages now include demonstrations, point-of-use media/literature, immediate practice, two-way handoffs, and balanced mastery."
 }
