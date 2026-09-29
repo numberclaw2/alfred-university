@@ -8,6 +8,11 @@ AU-ESET 301 is a fictional, university-style independent-study environment built
 It is not an accredited university, an ETA-endorsed course, an official exam, or a guarantee of certification or employment.
 
 
+## v16.3.80 CETa Instructional Authority
+
+Post-deployment verification of v16.3.79 found a deeper source-of-truth defect: cross-track timing was still derived from a legacy CETa coverage-week field that survived focused lesson redesigns. v16.3.80 replaces that timing authority with the current live CETa teaching path. The standards universe remains **357 rows: 262 CETa + 95 Career**, but route truth is now explicit: **219 CETa standards currently have an active verified teaching route and 43 remain official requirements awaiting route re-homing/re-audit**. Legacy coverage metadata is preserved for provenance but can no longer establish a Career prerequisite. Week 2 remains the only combined `VERIFIED_PASS`.
+
+
 ## v16.3.79 CETa ↔ Career Timing Integrity
 
 Production verification of v16.3.78 found that 54 later CETa support relationships had been incorrectly classified as Career prerequisites. v16.3.79 derives prerequisite/concurrent/later timing directly from the authoritative CETa week map and strengthens QA across all 95 Career relationships. The standards universe remains **357 rows: 262 CETa + 95 Career**; Week 2 remains the only combined `VERIFIED_PASS`.
@@ -18,7 +23,7 @@ The governing standards universe is now **357 rows: 262 CETa + 95 Career**. CETa
 
 ## Historical production-state notes
 
-## Current production state — v16.3.54 Teaching Media consumption checklist
+## Historical production snapshot — v16.3.54 Teaching Media consumption checklist
 
 The accepted instructional curriculum remains **v16.3**. Runtime patch **v16.3.54** preserves the accepted v16.3.53 CETa Study Guide integration and adds a shared Teaching Media consumption checklist for watched/read/used/reviewed resources without changing mastery or curriculum gates.
 

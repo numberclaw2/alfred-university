@@ -1,0 +1,44 @@
+code,category,officialRequirement,legacyCoverageWeek,firstModuleAssignedWeek,rehomeTargetWeek,rehomeReason
+2.1,2,"Describe atomic structure, the components of the atom, their charges and importance to electronics technology",2,1,1,Atomic/charge foundation belongs with Week 1 electricity fundamentals.
+2.2,2,Describe the principles of electromagnetism,2,7,7,Electromagnetism belongs with Week 7 magnetism and electromechanical devices.
+2.2.1,2,Explain the different types of magnetic fields,2,2,7,Magnetic-field types belong with Week 7 magnetism.
+2.2.2,2,Explain the direct relationship between electricity and magnetism,2,2,7,Electricity–magnetism relationship belongs with Week 7.
+2.3,2,Explain uses for magnetism in electronics technology,2,7,7,Uses of magnetism belong with Week 7 relays/motors/generators.
+2.4,2,Explain basic uses for electricity,2,1,1,Basic uses of electricity belong with Week 1 fundamentals.
+2.5,2,Describe the basic methods of using electricity to operate a motor and how mechanical motion causes a generator to produce electrical current,2,7,7,Motor/generator conversion belongs with Week 7.
+2.5.1,2,Review EM5 competencies for more detail,2,2,7,EM5 cross-reference belongs with the Week 7 magnetics/electromechanical block.
+2.6,2,"Explain the differences between current, voltage and resistance",2,1,1,Current/voltage/resistance foundation belongs with Week 1.
+2.7,2,Differentiate between the types of resistive materials and how resistors are used in electronics,2,2,7,Resistive materials and resistor families belong with Week 7 components.
+2.8,2,Describe the different purposes for capacitors and list common types and construction,2,4,7,Capacitor types/construction belong with Week 7 component families after Week 4 behavior.
+2.9,2,"Explain how inductance relates to magnetism and describe coil construction, cores and usages",2,4,7,Inductor construction/cores/usages belong with Week 7 component families.
+2.10,2,Compare reactance and resistance and describe current/voltage relationships,2,4,6,Reactance vs resistance belongs with Week 6 impedance/reactance.
+2.11,2,"Compare impedance with reactance and resistance and then explain the causes and effects of impedance, combined reactance",2,6,6,Impedance belongs with Week 6.
+2.12,2,"List voltage sources, AC and DC, batteries and natural generation",2,6,7,AC/DC sources and generation belong with Week 7 source/generator context.
+2.12.1,2,"Identify Peak, Peak-to-Peak, and RMS AC sources",2,2,4,Peak/peak-to-peak/RMS belongs with Week 4 waveform language.
+2.12.2,2,Identify Duty Cycle and Pulse Width DC sources,2,2,4,Duty cycle/pulse width belongs with Week 4 waveform language.
+2.13,2,"List Ohm’s law formulas for current, voltage, resistance and power",2,1,1,Ohm-law formulas belong with Week 1.
+2.13.1,2,Explain how to calculate problems utilizing each formula,2,1,1,Ohm-law calculations belong with Week 1.
+2.14,2,Explain how to calculate power consumption and requirements,2,1,1,Power calculations belong with Week 1.
+4.5,4,Explain the purpose of oscillators: crystal use,2,2,11,Oscillator/crystal purpose belongs with Week 11 digital timing.
+4.6,4,Differentiate between oscillators and multivibrators,2,2,11,Oscillator vs multivibrator belongs with Week 11 digital timing.
+4.7,4,"Classify circuits as inductive, capacitive and resistive",2,6,6,R/L/C circuit classification belongs with Week 6.
+4.8,4,Explain resonance and show how to calculate resonant frequency,2,2,6,Resonance belongs with Week 6.
+4.9,4,"Describe polar and rectangular presentations of L, R, C circuits",2,2,6,Polar/rectangular LRC representation belongs with Week 6.
+4.11,4,Explain the purposes and types of differentiator or integrator circuits,2,2,6,Differentiator/integrator behavior belongs with Week 6 filter/response work.
+4.12,4,Describe the sections of a PLL (phase locked loop) circuit and PLL circuit use,2,2,20,PLL use belongs with Week 20 RF/communications.
+4.13,4,"Describe filter circuits, why and how they are used",2,2,6,Filter circuits belong with Week 6.
+4.14,4,Explain wave-shaping circuits and explain their purposes,2,2,10,Wave-shaping belongs with Week 10 amplifier/op-amp signal conditioning.
+4.15,4,Describe the relationships between bandwidth and “Q” in an electronics circuit,2,2,6,Bandwidth/Q belongs with Week 6 resonance/filter work.
+4.16,4,Explain the piezoelectric effect,2,2,7,Piezoelectric effect belongs with Week 7 component/device families.
+8.1,8,Describe how digital and analog meters operate,3,3,3,Analog/digital meter operation belongs with Week 3 instrumentation.
+8.2,8,Explain meter construction and components,3,3,3,Meter construction/components belong with Week 3.
+8.5,8,List the purposes and types of signal generators,3,3,6,Signal-generator purpose belongs with Week 6 response characterization.
+8.7,8,Explain the purposes of frequency counters and list their limitations,3,3,6,Frequency-counter purpose/limits belong with Week 6 frequency-response work.
+8.8,8,Explain what R-C-L substitution equipment is and its purposes,3,3,7,RCL substitution equipment belongs with Week 7 component characterization.
+8.9,8,Explain ESR (Equivalent Series Resistance) capacitance measurement equipment,3,20,9,ESR measurement belongs with Week 9 power-supply/capacitor fault work.
+8.10,8,List the uses and precautions for logic test probes,3,3,11,Logic probes belong with Week 11 digital troubleshooting.
+8.11,8,Explain how logic pulsers are used,3,3,11,Logic pulsers belong with Week 11 digital troubleshooting.
+8.13,8,Describe spectrum analyzer uses and operation,3,3,20,Spectrum analyzers belong with Week 20 RF/spectrum work.
+8.14,8,Define dummy load; show where and why used,3,3,9,Dummy loads belong with Week 9 power-supply/load testing.
+8.15,8,"Explain reasons for using rheostats, isolation transformers and variacs and why size matters",3,3,9,Rheostats/isolation transformers/variacs belong with Week 9 controlled power work.
+8.16,8,Explain how a potentiometer functions and its use as a variable voltage divider,3,3,7,Potentiometers belong with Week 7 component families and variable-divider use.

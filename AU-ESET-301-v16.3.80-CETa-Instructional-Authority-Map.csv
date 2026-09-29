@@ -1,0 +1,263 @@
+code,category,officialRequirement,legacyCoverageWeek,moduleAssignedWeeks,activeSemanticTeachingWeeks,confirmedTeachingWeek,firstModuleAssignedWeek,liveFirstAssignmentWeek,routeAuthorityStatus,rehomeTargetWeek,rehomeReason,legacyWeekMatchesLiveAuthority
+1.1,1,Describe the physiological reactions electrical shock causes,1,1; 3; 5; 21; 22; 23; 31,1,1,1,1,ACTIVE_SEMANTIC_ROUTE,,,true
+1.2,1,Explain the First Aid concepts and its particular importance to workers in electric and electronics fields explaining precautions for the untrained,1,1,1,1,1,1,ACTIVE_SEMANTIC_ROUTE,,,true
+1.3,1,"Explain the National Fire Protection Association (NFPA®) 70 rules described as the National Electrical Code® - NEC®, explaining how technicians comply with safety and installations",1,1,1,1,1,1,ACTIVE_SEMANTIC_ROUTE,,,true
+1.4,1,Describe fusing and circuit breaker rules and reasons for different type of fuses,1,1; 5; 24,1,1,1,1,ACTIVE_SEMANTIC_ROUTE,,,true
+1.5,1,"Explain static causes, electrostatic discharge and CMOS damage prevention straps, mats and grounding",1,1; 3; 12; 24; 29,1,1,1,1,ACTIVE_SEMANTIC_ROUTE,,,true
+1.6,1,List tools hazards which are associated with technician activities in the workplace and in the field,1,12,1,1,12,1,ACTIVE_SEMANTIC_ROUTE,,,true
+1.7,1,Describe lockout/tag out rules for potentially unsafe electrical or mechanical hazards,1,1,1,1,1,1,ACTIVE_SEMANTIC_ROUTE,,,true
+1.8,1,Explain RF transmitter and transmission hazards and precautions including MPE (maximum permissible exposure),1,20,1,1,20,1,ACTIVE_SEMANTIC_ROUTE,,,true
+1.9,1,List optical fibers hazards to skin and eyes,1,19,1,1,19,1,ACTIVE_SEMANTIC_ROUTE,,,true
+1.10,1,Explain personal protection needed by technicians:,1,12,1,1,12,1,ACTIVE_SEMANTIC_ROUTE,,,true
+1.10.1,1,"Describe PPE (personal protection equipment) needs, i.e. NFPA Table 130.5(c)",1,1,1,1,1,1,ACTIVE_SEMANTIC_ROUTE,,,true
+1.10.2,1,Describe MPE in RF Safety (OSHA and ANSI),1,20,1,1,20,1,ACTIVE_SEMANTIC_ROUTE,,,true
+1.10.3,1,Describe other OSHA safety rules,1,1,1,1,1,1,ACTIVE_SEMANTIC_ROUTE,,,true
+1.11,1,List ladder handling and usage (ANSI A14) and OSHA working at heights safety rules,1,1,1,1,1,1,ACTIVE_SEMANTIC_ROUTE,,,true
+1.12,1,"List service vehicle safety concerns such as ladder or transporting security and flying objects, driver screens inside the vehicle",1,1,1,1,1,1,ACTIVE_SEMANTIC_ROUTE,,,true
+1.13,1,"Differentiate the classes of fires (A, B, C, D & K) and the types of extinguishers used to fight them",1,1,1,1,1,1,ACTIVE_SEMANTIC_ROUTE,,,true
+1.14,1,Explain emergency responses/treatments for the above safety issues,1,1,1,1,1,1,ACTIVE_SEMANTIC_ROUTE,,,true
+2.1,2,"Describe atomic structure, the components of the atom, their charges and importance to electronics technology",2,1,,,1,1,ROUTE_REHOME_REQUIRED,1,Atomic/charge foundation belongs with Week 1 electricity fundamentals.,false
+2.2,2,Describe the principles of electromagnetism,2,7,,,7,7,ROUTE_REHOME_REQUIRED,7,Electromagnetism belongs with Week 7 magnetism and electromechanical devices.,false
+2.2.1,2,Explain the different types of magnetic fields,2,2,,,2,2,ROUTE_REHOME_REQUIRED,7,Magnetic-field types belong with Week 7 magnetism.,false
+2.2.2,2,Explain the direct relationship between electricity and magnetism,2,2,,,2,2,ROUTE_REHOME_REQUIRED,7,Electricity–magnetism relationship belongs with Week 7.,false
+2.3,2,Explain uses for magnetism in electronics technology,2,7,,,7,7,ROUTE_REHOME_REQUIRED,7,Uses of magnetism belong with Week 7 relays/motors/generators.,false
+2.4,2,Explain basic uses for electricity,2,1,,,1,1,ROUTE_REHOME_REQUIRED,1,Basic uses of electricity belong with Week 1 fundamentals.,false
+2.5,2,Describe the basic methods of using electricity to operate a motor and how mechanical motion causes a generator to produce electrical current,2,7,,,7,7,ROUTE_REHOME_REQUIRED,7,Motor/generator conversion belongs with Week 7.,false
+2.5.1,2,Review EM5 competencies for more detail,2,2,,,2,2,ROUTE_REHOME_REQUIRED,7,EM5 cross-reference belongs with the Week 7 magnetics/electromechanical block.,false
+2.6,2,"Explain the differences between current, voltage and resistance",2,1; 2; 5; 21; 22,,,1,1,ROUTE_REHOME_REQUIRED,1,Current/voltage/resistance foundation belongs with Week 1.,false
+2.7,2,Differentiate between the types of resistive materials and how resistors are used in electronics,2,2; 7,,,2,2,ROUTE_REHOME_REQUIRED,7,Resistive materials and resistor families belong with Week 7 components.,false
+2.8,2,Describe the different purposes for capacitors and list common types and construction,2,4; 5; 6; 7,,,4,4,ROUTE_REHOME_REQUIRED,7,Capacitor types/construction belong with Week 7 component families after Week 4 behavior.,false
+2.9,2,"Explain how inductance relates to magnetism and describe coil construction, cores and usages",2,4; 5; 6; 7,,,4,4,ROUTE_REHOME_REQUIRED,7,Inductor construction/cores/usages belong with Week 7 component families.,false
+2.10,2,Compare reactance and resistance and describe current/voltage relationships,2,4; 6,,,4,4,ROUTE_REHOME_REQUIRED,6,Reactance vs resistance belongs with Week 6 impedance/reactance.,false
+2.11,2,"Compare impedance with reactance and resistance and then explain the causes and effects of impedance, combined reactance",2,6,,,6,6,ROUTE_REHOME_REQUIRED,6,Impedance belongs with Week 6.,false
+2.12,2,"List voltage sources, AC and DC, batteries and natural generation",2,6,,,6,6,ROUTE_REHOME_REQUIRED,7,AC/DC sources and generation belong with Week 7 source/generator context.,false
+2.12.1,2,"Identify Peak, Peak-to-Peak, and RMS AC sources",2,2,,,2,2,ROUTE_REHOME_REQUIRED,4,Peak/peak-to-peak/RMS belongs with Week 4 waveform language.,false
+2.12.2,2,Identify Duty Cycle and Pulse Width DC sources,2,2,,,2,2,ROUTE_REHOME_REQUIRED,4,Duty cycle/pulse width belongs with Week 4 waveform language.,false
+2.13,2,"List Ohm’s law formulas for current, voltage, resistance and power",2,1; 4,,,1,1,ROUTE_REHOME_REQUIRED,1,Ohm-law formulas belong with Week 1.,false
+2.13.1,2,Explain how to calculate problems utilizing each formula,2,1,,,1,1,ROUTE_REHOME_REQUIRED,1,Ohm-law calculations belong with Week 1.,false
+2.14,2,Explain how to calculate power consumption and requirements,2,1,,,1,1,ROUTE_REHOME_REQUIRED,1,Power calculations belong with Week 1.,false
+3.1,3,Identify resistors as to type and applications,7,7; 12,7,7,7,7,ACTIVE_SEMANTIC_ROUTE,,,true
+3.1.1,3,"Describe the following type of resistors: carbon film, fixed value, metal film, potentiometer, rheostats, thermistors, and wire wound",7,7,7,7,7,7,ACTIVE_SEMANTIC_ROUTE,,,true
+3.1.2,3,Identify resistor values from color code or other marks and list composition,7,7,7,7,7,7,ACTIVE_SEMANTIC_ROUTE,,,true
+3.1.3,3,Explain how thermally sensitive components are used,7,7,7,7,7,7,ACTIVE_SEMANTIC_ROUTE,,,true
+3.1.4,3,Calculate voltage division on a potentiometer,7,7,7,7,7,7,ACTIVE_SEMANTIC_ROUTE,,,true
+3.2,3,Identify capacitor types and list common usages,7,4; 6; 7,7,7,4,4,ACTIVE_SEMANTIC_ROUTE,,,true
+3.2.1,3,Identify methods of varying capacitance,7,7,7,7,7,7,ACTIVE_SEMANTIC_ROUTE,,,true
+3.2.2,3,Explain the terms charge and coulomb,7,7,7,7,7,7,ACTIVE_SEMANTIC_ROUTE,,,true
+3.3,3,Identify inductor types and reasons for various core materials,7,4; 6; 7,7,7,4,4,ACTIVE_SEMANTIC_ROUTE,,,true
+3.3.1,3,Explain how diameter and wire size affects these values,7,7,7,7,7,7,ACTIVE_SEMANTIC_ROUTE,,,true
+3.4,3,Identify common types of transformers and list uses for each,7,6; 7; 19; 25,7,7,6,6,ACTIVE_SEMANTIC_ROUTE,,,true
+3.4.1,3,Explain step up/down voltage methods,7,7,7,7,7,7,ACTIVE_SEMANTIC_ROUTE,,,true
+3.4.2,3,Explain why laminations are used,7,7,7,7,7,7,ACTIVE_SEMANTIC_ROUTE,,,true
+3.5,3,"Identify transistors as to type, usage, biasing and applications:",7,7; 8,7,7,7,7,ACTIVE_SEMANTIC_ROUTE,,,true
+3.5.1,3,"Describe MOS, CMOS, FET, IGBT and Darlington Pair operation and applications",7,8,7,7,8,7,ACTIVE_SEMANTIC_ROUTE,,,true
+3.5.2,3,"Analyze biasing voltages for NPN & PNP bipolar transistors, BJTs, JFETs, and MOSFETs",7,8,7,7,8,7,ACTIVE_SEMANTIC_ROUTE,,,true
+3.5.3,3,"Explain beta and alpha, enhance/depletion mode",7,8,7,7,8,7,ACTIVE_SEMANTIC_ROUTE,,,true
+3.6,3,Identify multi-junction semiconductors as to type and applications:,7,8; 21,7,7,8,7,ACTIVE_SEMANTIC_ROUTE,,,true
+3.6.1,3,"Identify Diacs, Triacs and SCRs (silicon-controlled rectifiers) and explain their operation",7,8,7,7,8,7,ACTIVE_SEMANTIC_ROUTE,,,true
+3.6.2,3,Compare SCRs with other semiconductors,7,8,7,7,8,7,ACTIVE_SEMANTIC_ROUTE,,,true
+3.7,3,"Identify various diode types: Silicon, Schottky, Germanium, LED, photo, Zener",7,8; 9,7,7,8,7,ACTIVE_SEMANTIC_ROUTE,,,true
+3.7.1,3,"Describe Silicon, Schottky, Germanium, LED, Photo, and Zener operations and applications",7,8; 9,7,7,8,7,ACTIVE_SEMANTIC_ROUTE,,,true
+3.7.2,3,"Analyze voltage bias, current, and power consumption in a circuit for Silicon and Germanium diodes",7,8,7,7,8,7,ACTIVE_SEMANTIC_ROUTE,,,true
+3.7.3,3,Explain Zener diode ratings; describe usage in regulator circuits,7,8; 9,7,7,8,7,ACTIVE_SEMANTIC_ROUTE,,,true
+3.8,3,"Describe types of integrated circuits (I.C.), such as microprocessors, identifying the basic components and pin-outs",7,7,7,7,7,7,ACTIVE_SEMANTIC_ROUTE,,,true
+3.9,3,Describe various relay types,7,7,7,7,7,7,ACTIVE_SEMANTIC_ROUTE,,,true
+3.9.1,3,Identify normally-open and normally-closed contacts and their operation,7,7,7,7,7,7,ACTIVE_SEMANTIC_ROUTE,,,true
+3.9.2,3,Identify the coil of a relay,7,7,7,7,7,7,ACTIVE_SEMANTIC_ROUTE,,,true
+3.9.3,3,Compare the operation of a solid-state relay to a mechanical relay,7,7,7,7,7,7,ACTIVE_SEMANTIC_ROUTE,,,true
+4.1,4,Identify and describe the operation of common DC circuits,2,2; 5; 21; 22,2,2,2,2,ACTIVE_SEMANTIC_ROUTE,,,true
+4.2,4,Identify and describe the operation of common AC circuits,2,2; 5,2,2,2,2,ACTIVE_SEMANTIC_ROUTE,,,true
+4.3,4,"Explain how series circuits, R, L, C are used in electronics equipment",2,2; 5,2,2,2,2,ACTIVE_SEMANTIC_ROUTE,,,true
+4.4,4,"Explain how parallel circuits, R, L, C are used in electronics equipment, loads",2,2,2,2,2,2,ACTIVE_SEMANTIC_ROUTE,,,true
+4.5,4,Explain the purpose of oscillators: crystal use,2,2,,,2,2,ROUTE_REHOME_REQUIRED,11,Oscillator/crystal purpose belongs with Week 11 digital timing.,false
+4.6,4,Differentiate between oscillators and multivibrators,2,2,,,2,2,ROUTE_REHOME_REQUIRED,11,Oscillator vs multivibrator belongs with Week 11 digital timing.,false
+4.7,4,"Classify circuits as inductive, capacitive and resistive",2,6,,,6,6,ROUTE_REHOME_REQUIRED,6,R/L/C circuit classification belongs with Week 6.,false
+4.8,4,Explain resonance and show how to calculate resonant frequency,2,2,,,2,2,ROUTE_REHOME_REQUIRED,6,Resonance belongs with Week 6.,false
+4.9,4,"Describe polar and rectangular presentations of L, R, C circuits",2,2,,,2,2,ROUTE_REHOME_REQUIRED,6,Polar/rectangular LRC representation belongs with Week 6.,false
+4.10,4,Explain Kirchhoff’s law and its importance to electronics technicians,2,2,2,2,2,2,ACTIVE_SEMANTIC_ROUTE,,,true
+4.11,4,Explain the purposes and types of differentiator or integrator circuits,2,2; 6,,,2,2,ROUTE_REHOME_REQUIRED,6,Differentiator/integrator behavior belongs with Week 6 filter/response work.,false
+4.12,4,Describe the sections of a PLL (phase locked loop) circuit and PLL circuit use,2,2,,,2,2,ROUTE_REHOME_REQUIRED,20,PLL use belongs with Week 20 RF/communications.,false
+4.13,4,"Describe filter circuits, why and how they are used",2,2,,,2,2,ROUTE_REHOME_REQUIRED,6,Filter circuits belong with Week 6.,false
+4.14,4,Explain wave-shaping circuits and explain their purposes,2,2,,,2,2,ROUTE_REHOME_REQUIRED,10,Wave-shaping belongs with Week 10 amplifier/op-amp signal conditioning.,false
+4.15,4,Describe the relationships between bandwidth and “Q” in an electronics circuit,2,2,,,2,2,ROUTE_REHOME_REQUIRED,6,Bandwidth/Q belongs with Week 6 resonance/filter work.,false
+4.16,4,Explain the piezoelectric effect,2,2,,,2,2,ROUTE_REHOME_REQUIRED,7,Piezoelectric effect belongs with Week 7 component/device families.,false
+4.17,4,"Explain series and parallel calculations for resistive networks; voltage drop, etc",2,2,2,2,2,2,ACTIVE_SEMANTIC_ROUTE,,,true
+5.1,5,Describe solder safety as it pertains to burns and potential fires or damage to facilities or customer products,12,12; 21; 29,12,12,12,12,ACTIVE_SEMANTIC_ROUTE,,,true
+5.2,5,Explain the cause of solder fumes and the effects of lead poisoning,12,12; 29,12,12,12,12,ACTIVE_SEMANTIC_ROUTE,,,true
+5.3,5,List causes and precautions to prevent or reduce solder splatter,12,12; 29,12,12,12,12,ACTIVE_SEMANTIC_ROUTE,,,true
+5.4,5,Explain the reasons for flux usage and describe types,12,12; 29,12,12,12,12,ACTIVE_SEMANTIC_ROUTE,,,true
+5.5,5,List types of solder and reasons for choosing each,12,12,12,12,12,12,ACTIVE_SEMANTIC_ROUTE,,,true
+5.6,5,"Explain heat shunts (clip-on heat sinks), why and how they are used",12,12,12,12,12,12,ACTIVE_SEMANTIC_ROUTE,,,true
+5.7,5,Identify cold solder joints and explain causes,12,12; 29,12,12,12,12,ACTIVE_SEMANTIC_ROUTE,,,true
+5.8,5,Describe the differences between good and bad mechanical and electrical solder connections,12,12,12,12,12,12,ACTIVE_SEMANTIC_ROUTE,,,true
+5.8.1,5,"Explain basic handling procedures of surface mount (SMT), ball grid array (BGA), gold finger contacts on a printed circuit board (PCB)",12,12,12,12,12,12,ACTIVE_SEMANTIC_ROUTE,,,true
+5.8.2,5,"Explain basic procedures for pad repairs (SMT, BGA), plated through hole (PTH), and PCB trace repair",12,12,12,12,12,12,ACTIVE_SEMANTIC_ROUTE,,,true
+5.9,5,Describe proper care of solder and de-solder equipment and aids,12,12,12,12,12,12,ACTIVE_SEMANTIC_ROUTE,,,true
+5.10,5,Explain de-soldering principles,12,12,12,12,12,12,ACTIVE_SEMANTIC_ROUTE,,,true
+5.11,5,Describe various types of de-soldering equipment and how it is used,12,12,12,12,12,12,ACTIVE_SEMANTIC_ROUTE,,,true
+5.12,5,Demonstrate the use of solder-wick,12,12,12,12,12,12,ACTIVE_SEMANTIC_ROUTE,,,true
+6.1,6,Describe common electrical/electronic symbols,13,13,13,13,13,13,ACTIVE_SEMANTIC_ROUTE,,,true
+6.2,6,Explain block diagrams use for troubleshooting and maintenance of electronics products,13,13; 21; 22; 28; 29,13,13,13,13,ACTIVE_SEMANTIC_ROUTE,,,true
+6.3,6,"Explain the differences between wiring diagrams, schematics and block diagrams",13,13,13,13,13,13,ACTIVE_SEMANTIC_ROUTE,,,true
+6.4,6,Describe the purpose and use of test points and indicate their likely placement on schematics,13,13; 28,13,13,13,13,ACTIVE_SEMANTIC_ROUTE,,,true
+6.5,6,Point out common drafting principles used for electronic and electrical drawings,13,13,13,13,13,13,ACTIVE_SEMANTIC_ROUTE,,,true
+6.6,6,Explain methods used for signal tracing,13,13,13,13,13,13,ACTIVE_SEMANTIC_ROUTE,,,true
+6.7,6,Describe basic building and house wiring concepts and explain why technicians need to be familiar with them,13,13,13,13,13,13,ACTIVE_SEMANTIC_ROUTE,,,true
+6.8,6,Explain use of schematics to locate component and wiring failures in electronics products,13,13,13,13,13,13,ACTIVE_SEMANTIC_ROUTE,,,true
+6.9,6,Explain the methods of using flow diagrams/charts,13,13,13,13,13,13,ACTIVE_SEMANTIC_ROUTE,,,true
+6.10,6,Describe basic wiring concepts for I.C. types and pinouts,13,13,13,13,13,13,ACTIVE_SEMANTIC_ROUTE,,,true
+7.1,7,List wire types and construction,19,19; 29,19,19,19,19,ACTIVE_SEMANTIC_ROUTE,,,true
+7.2,7,List wire gauges used for various purposes,19,19; 20; 21,19,19,19,19,ACTIVE_SEMANTIC_ROUTE,,,true
+7.3,7,Explain construction of coaxial cable and the impedance characteristics,19,19; 29,19,19,19,19,ACTIVE_SEMANTIC_ROUTE,,,true
+7.4,7,"List common identifications for copper cables in standards, such as #18 and #24 diameter in the American Wire Gauge (AWG) and UTP cable in ANSI/TIA 568",19,19,19,19,19,19,ACTIVE_SEMANTIC_ROUTE,,,true
+7.5,7,"Explain major differences between copper, coaxial and fiber optic cables",19,19,19,19,19,19,ACTIVE_SEMANTIC_ROUTE,,,true
+7.6,7,Describe impedance and its causes:,19,19,19,19,19,19,ACTIVE_SEMANTIC_ROUTE,,,true
+7.6.1,7,Explain reasons for maintaining a cable’s characteristics,19,19,19,19,19,19,ACTIVE_SEMANTIC_ROUTE,,,true
+7.7,7,Explain the effects of proper and improper termination,19,19,19,19,19,19,ACTIVE_SEMANTIC_ROUTE,,,true
+7.8,7,Explain the purposes and types of cabling grounding (bonding) and common conventions used in electrical / electronic work,19,19,19,19,19,19,ACTIVE_SEMANTIC_ROUTE,,,true
+7.9,7,Describe splicing knowledge and ability of coaxial and copper cable,19,19,19,19,19,19,ACTIVE_SEMANTIC_ROUTE,,,true
+7.9.1,7,Explain types of fiber splices,19,19,19,19,19,19,ACTIVE_SEMANTIC_ROUTE,,,true
+7.10,7,Briefly explain testing methods for all three types of cables and compare decibel (dB) loss measurements and techniques,19,19,19,19,19,19,ACTIVE_SEMANTIC_ROUTE,,,true
+7.11,7,Compare the fittings and connectors used in cabling and list potential defects a technician may encounter,19,19,19,19,19,19,ACTIVE_SEMANTIC_ROUTE,,,true
+7.12,7,Describe proper crimping of communications wiring connectors,19,19,19,19,19,19,ACTIVE_SEMANTIC_ROUTE,,,true
+7.13,7,Explain how cable prep tools are used and demonstrate proper and improper crimp applications,19,19,19,19,19,19,ACTIVE_SEMANTIC_ROUTE,,,true
+8.1,8,Describe how digital and analog meters operate,3,3,,,3,3,ROUTE_REHOME_REQUIRED,3,Analog/digital meter operation belongs with Week 3 instrumentation.,false
+8.2,8,Explain meter construction and components,3,3,,,3,3,ROUTE_REHOME_REQUIRED,3,Meter construction/components belong with Week 3.,false
+8.3,8,"Identify meter protection, safety and usage",3,1; 3; 5; 13; 21; 22; 23; 24; 28; 29; 30; 31,3,3,1,1,ACTIVE_SEMANTIC_ROUTE,,,true
+8.4,8,Explain care of equipment and test leads,3,3,3,3,3,3,ACTIVE_SEMANTIC_ROUTE,,,true
+8.5,8,List the purposes and types of signal generators,3,3,,,3,3,ROUTE_REHOME_REQUIRED,6,Signal-generator purpose belongs with Week 6 response characterization.,false
+8.6,8,Describe meter loading and precautions,3,3; 5; 13; 18; 24; 25; 28; 29,3,3,3,3,ACTIVE_SEMANTIC_ROUTE,,,true
+8.7,8,Explain the purposes of frequency counters and list their limitations,3,3,,,3,3,ROUTE_REHOME_REQUIRED,6,Frequency-counter purpose/limits belong with Week 6 frequency-response work.,false
+8.8,8,Explain what R-C-L substitution equipment is and its purposes,3,3,,,3,3,ROUTE_REHOME_REQUIRED,7,RCL substitution equipment belongs with Week 7 component characterization.,false
+8.9,8,Explain ESR (Equivalent Series Resistance) capacitance measurement equipment,3,20,,,20,20,ROUTE_REHOME_REQUIRED,9,ESR measurement belongs with Week 9 power-supply/capacitor fault work.,false
+8.10,8,List the uses and precautions for logic test probes,3,3,,,3,3,ROUTE_REHOME_REQUIRED,11,Logic probes belong with Week 11 digital troubleshooting.,false
+8.11,8,Explain how logic pulsers are used,3,3,,,3,3,ROUTE_REHOME_REQUIRED,11,Logic pulsers belong with Week 11 digital troubleshooting.,false
+8.12,8,Describe oscilloscope uses:,3,3,3,3,3,3,ACTIVE_SEMANTIC_ROUTE,,,true
+8.12.1,8,Explain the purposes of each front panel control,3,3,3,3,3,3,ACTIVE_SEMANTIC_ROUTE,,,true
+8.13,8,Describe spectrum analyzer uses and operation,3,3; 5; 24; 29,,,3,3,ROUTE_REHOME_REQUIRED,20,Spectrum analyzers belong with Week 20 RF/spectrum work.,false
+8.14,8,Define dummy load; show where and why used,3,3,,,3,3,ROUTE_REHOME_REQUIRED,9,Dummy loads belong with Week 9 power-supply/load testing.,false
+8.15,8,"Explain reasons for using rheostats, isolation transformers and variacs and why size matters",3,3,,,3,3,ROUTE_REHOME_REQUIRED,9,Rheostats/isolation transformers/variacs belong with Week 9 controlled power work.,false
+8.16,8,Explain how a potentiometer functions and its use as a variable voltage divider,3,3,,,3,3,ROUTE_REHOME_REQUIRED,7,Potentiometers belong with Week 7 component families and variable-divider use.,false
+9.1,9,"Quote Ohm’s law formulas for power, voltage, current and resistance and solve for circuit values",4,1; 2; 4; 5; 21; 22; 23; 24; 27; 30; 31,2; 4,2,1,1,ACTIVE_SEMANTIC_ROUTE,,,false
+9.2,9,List other common basic electronic formulas,4,1,4,4,1,1,ACTIVE_SEMANTIC_ROUTE,,,true
+9.3,9,"Explain how to calculate wavelength, frequency and power values",4,1; 2; 4; 5; 27,2; 4,2,1,1,ACTIVE_SEMANTIC_ROUTE,,,false
+9.4,9,"Convert binary, decimal, octal, hexadecimal numbers",4,4; 5; 6; 10,4,4,4,4,ACTIVE_SEMANTIC_ROUTE,,,true
+9.5,9,Explain Boolean algebra and its use in digital circuitry,4,11; 15,4,4,11,4,ACTIVE_SEMANTIC_ROUTE,,,true
+9.6,9,"Explain decibels (dB) and show reasons for using dBs in signal level, power and audio calculations",4,4; 6; 10,4,4,4,4,ACTIVE_SEMANTIC_ROUTE,,,true
+9.7,9,Explain how graphs are used to demonstrate electronics functions,4,20,4,4,20,4,ACTIVE_SEMANTIC_ROUTE,,,true
+9.8,9,Explain the International System of Units (SI) prefixes (metric) and conversions,4,1,4,4,1,1,ACTIVE_SEMANTIC_ROUTE,,,true
+9.8.1,9,"Describe the NIST.gov Special Publication 811, 9.3: unit name with SI prefix exceptions, (i.e. kilohm and megohm)",4,4,4,4,4,4,ACTIVE_SEMANTIC_ROUTE,,,true
+9.9,9,Define exponents (powers of 10) and their calculations,4,1,4,4,1,1,ACTIVE_SEMANTIC_ROUTE,,,true
+10.1,10,Explain shock hazards when servicing power supplies in electronic equipment,9,9; 21; 24,9,9,9,9,ACTIVE_SEMANTIC_ROUTE,,,true
+10.2,10,Describe the differences between transformer powered supplies and line-connected supplies,9,9,9,9,9,9,ACTIVE_SEMANTIC_ROUTE,,,true
+10.3,10,Describe battery supplies and list common usages:,9,9,9,9,9,9,ACTIVE_SEMANTIC_ROUTE,,,true
+10.3.1,10,Explain battery recharging principles,9,9,9,9,9,9,ACTIVE_SEMANTIC_ROUTE,,,true
+10.4,10,"Explain the reasons for filtering, describe hum, and identify common filter types:",9,9,9,9,9,9,ACTIVE_SEMANTIC_ROUTE,,,true
+10.4.1,10,"“L” (L-section, choke or inductor) filter – an inductor in series with a capacitor in parallel",9,9,9,9,9,9,ACTIVE_SEMANTIC_ROUTE,,,true
+10.4.2,10,"“T” filter –add a second choke on output side, taking the output across the capacitor",9,9,9,9,9,9,ACTIVE_SEMANTIC_ROUTE,,,true
+10.4.3,10,“Pi” filter – a single inductor with a capacitor at each end to common,9,9,9,9,9,9,ACTIVE_SEMANTIC_ROUTE,,,true
+10.5,10,Explain the reasons for power supply regulation and list common components used in regulated supplies,9,9; 24,9,9,9,9,ACTIVE_SEMANTIC_ROUTE,,,true
+10.6,10,Explain the term ‘Integrated high voltage transformer’ supply and explain how it differs from direct or other power supply types,9,9,9,9,9,9,ACTIVE_SEMANTIC_ROUTE,,,true
+10.7,10,Explain how multiple output supplies can supply more than one voltage,9,9,9,9,9,9,ACTIVE_SEMANTIC_ROUTE,,,true
+10.8,10,Explain where fuses and circuit breakers are commonly and electrically located in circuits; approximate fuse sizes for common circuits; common fuses and circuit breaker configuration and precautions for replacement in a house service box,9,9,9,9,9,9,ACTIVE_SEMANTIC_ROUTE,,,true
+10.9,10,Explain how to calculate DC voltages from power supply circuits,9,9,9,9,9,9,ACTIVE_SEMANTIC_ROUTE,,,true
+10.10,10,Identify and analyze rectifier circuits,9,9,9,9,9,9,ACTIVE_SEMANTIC_ROUTE,,,true
+10.11,10,Describe switch mode power supply operation,9,9,9,9,9,9,ACTIVE_SEMANTIC_ROUTE,,,true
+11.1,11,"List common amplifier devices: such as power amps, audio preamps, video amps",10,10,10,10,10,10,ACTIVE_SEMANTIC_ROUTE,,,true
+11.2,11,Describe the purpose of each component in an amplifier circuit,10,10,10,10,10,10,ACTIVE_SEMANTIC_ROUTE,,,true
+11.3,11,List the usages and classes of amplifiers,10,10,10,10,10,10,ACTIVE_SEMANTIC_ROUTE,,,true
+11.3.1,11,Analyze BJT amplifier circuits for gain and power,10,10,10,10,10,10,ACTIVE_SEMANTIC_ROUTE,,,true
+11.3.2,11,Analyze FET based amplifier circuits for gain and power,10,10,10,10,10,10,ACTIVE_SEMANTIC_ROUTE,,,true
+11.4,11,Explain frequency response of an amplifier circuit and why it is important,10,10; 21,10,10,10,10,ACTIVE_SEMANTIC_ROUTE,,,true
+11.5,11,Explain the words ‘preamplifier’ and ‘line amplifier’ and where these units are commonly used,10,10,10,10,10,10,ACTIVE_SEMANTIC_ROUTE,,,true
+11.6,11,Explain the uses of operational amplifiers and how they differ from other amplifiers,10,10,10,10,10,10,ACTIVE_SEMANTIC_ROUTE,,,true
+11.6.1,11,Analyze op-amp circuits to determine gain and power,10,10,10,10,10,10,ACTIVE_SEMANTIC_ROUTE,,,true
+11.7,11,Explain how distortion occurs in amplifiers and list ways to reduce or eliminate it,10,10,10,10,10,10,ACTIVE_SEMANTIC_ROUTE,,,true
+11.8,11,Explain how inaccurate measurements can be experienced due to meter or scope loading,10,10,10,10,10,10,ACTIVE_SEMANTIC_ROUTE,,,true
+11.8.1,11,List ways to overcome loading problems,10,10,10,10,10,10,ACTIVE_SEMANTIC_ROUTE,,,true
+11.9,11,Describe specifications for broadband amplifiers as compared with common narrow band units,10,10,10,10,10,10,ACTIVE_SEMANTIC_ROUTE,,,true
+12.1,12,List input circuit signal levels which may be expected for various common electronics products or test equipment,18,17; 18; 21; 25; 27,18,18,17,17,ACTIVE_SEMANTIC_ROUTE,,,true
+12.2,12,Explain the purposes of plugs and connectors and why it is necessary to use the proper ones per application,18,17; 18; 25,18,18,17,17,ACTIVE_SEMANTIC_ROUTE,,,true
+12.3,12,"Explain grounding, proper and improper methods, and the results of power source mismatch",18,18; 25,18,18,18,18,ACTIVE_SEMANTIC_ROUTE,,,true
+12.4,12,List potential signal conflict symptoms,18,18; 25,18,18,18,18,ACTIVE_SEMANTIC_ROUTE,,,true
+12.5,12,"Describe other electronic interfacing such as USB, Zigbee, I2C (inter-integrated circuit)",18,18; 25,18,18,18,18,ACTIVE_SEMANTIC_ROUTE,,,true
+13.1,13,Identify each of the basic digital gate(s) and devices,11,11; 14,11,11,11,11,ACTIVE_SEMANTIC_ROUTE,,,true
+13.2,13,Construct truth tables for common gates,11,11; 15; 21; 26,11,11,11,11,ACTIVE_SEMANTIC_ROUTE,,,true
+13.3,13,Explain how electronic counters operate,11,11; 15; 26,11,11,11,11,ACTIVE_SEMANTIC_ROUTE,,,true
+13.4,13,Explain the purpose of flip-flops and list common types,11,11; 15; 26,11,11,11,11,ACTIVE_SEMANTIC_ROUTE,,,true
+13.5,13,Explain the purpose of a digital electronic circuitry bus and show how it’s connected to various sections of a product,11,11,11,11,11,11,ACTIVE_SEMANTIC_ROUTE,,,true
+13.6,13,List types of display circuitry and describe how numbers and letters are activated digitally,11,11,11,11,11,11,ACTIVE_SEMANTIC_ROUTE,,,true
+13.7,13,Distinguish how pulsers are used for digital signal tracing,11,11,11,11,11,11,ACTIVE_SEMANTIC_ROUTE,,,true
+13.8,13,Describe how logic probes are used to verify states in digital equipment,11,11,11,11,11,11,ACTIVE_SEMANTIC_ROUTE,,,true
+13.9,13,Explain how to troubleshoot digital signals,11,11,11,11,11,11,ACTIVE_SEMANTIC_ROUTE,,,true
+13.10,13,Describe digital clock(s) usage and circuitry,11,11,11,11,11,11,ACTIVE_SEMANTIC_ROUTE,,,true
+13.11,13,"Explain voltages and logic families (TTL, CMOS)",11,11; 14; 16; 18; 26,11,11,11,11,ACTIVE_SEMANTIC_ROUTE,,,true
+13.12,13,Define microcontrollers and simple programming commands,11,11,11,11,11,11,ACTIVE_SEMANTIC_ROUTE,,,true
+15.1,15,Describe the major sections of a computer,14,14; 16; 26,14,14,14,14,ACTIVE_SEMANTIC_ROUTE,,,true
+15.2,15,Differentiate how the computer block diagram and flow charts are utilized,14,14; 16,14,14,14,14,ACTIVE_SEMANTIC_ROUTE,,,true
+15.3,15,Describe the major blocks contained in a microprocessor chip and describe the purpose of each block,14,14; 15; 16; 21; 26,14,14,14,14,ACTIVE_SEMANTIC_ROUTE,,,true
+15.4,15,Describe different types of computer memory and how storage is accomplished,14,14; 15; 16; 17; 18; 26; 27,14,14,14,14,ACTIVE_SEMANTIC_ROUTE,,,true
+15.5,15,Explain programmable logic controls (PLCs) and list usages,14,14; 15; 16; 26,14,14,14,14,ACTIVE_SEMANTIC_ROUTE,,,true
+15.6,15,Describe basic programming concepts,14,14; 15; 16; 26,14,14,14,14,ACTIVE_SEMANTIC_ROUTE,,,true
+15.7,15,Describe the reasons for different computer languages and their relationships,14,15,14,14,15,14,ACTIVE_SEMANTIC_ROUTE,,,true
+15.8,15,Define a ‘peripheral’ and list various types,14,16,14,14,16,14,ACTIVE_SEMANTIC_ROUTE,,,true
+15.9,15,Explain the reasons for using interface devices/chips/cards and name common types,14,14,14,14,14,14,ACTIVE_SEMANTIC_ROUTE,,,true
+16.1,16,Explain knowledge of basic computer operation,17,14; 17; 27,17,17,14,14,ACTIVE_SEMANTIC_ROUTE,,,true
+16.2,16,Explain steps in installation/set up of a computer,17,14; 17; 27,17,17,14,14,ACTIVE_SEMANTIC_ROUTE,,,true
+16.3,16,Explain the reasons and choices used in configuring a computer,17,14; 15; 16; 17; 21; 27,17,17,14,14,ACTIVE_SEMANTIC_ROUTE,,,true
+16.4,16,Describe proper loading and storage of common programs and applications,17,17,17,17,17,17,ACTIVE_SEMANTIC_ROUTE,,,true
+16.5,16,Explain basic common utilities software and list reasons for their use,17,17,17,17,17,17,ACTIVE_SEMANTIC_ROUTE,,,true
+16.6,16,List ways to backup data and the vital importance of doing so,17,17; 27,17,17,17,17,ACTIVE_SEMANTIC_ROUTE,,,true
+16.7,16,Explain the causes of line surges and viruses and protection procedures against each,17,17; 27,17,17,17,17,ACTIVE_SEMANTIC_ROUTE,,,true
+16.8,16,"Explain how to access the Internet, cybersecurity best practices and common applications",17,17; 27,17,17,17,17,ACTIVE_SEMANTIC_ROUTE,,,true
+16.9,16,"Describe how to download a service or application, data or software",17,17; 27,17,17,17,17,ACTIVE_SEMANTIC_ROUTE,,,true
+16.10,16,Explain the differences between an individual stand-alone computer and basic networking,17,27,17,17,27,17,ACTIVE_SEMANTIC_ROUTE,,,true
+17.1,17,Explain major components of the most common home entertainment products,19,10; 19,19,19,10,10,ACTIVE_SEMANTIC_ROUTE,,,true
+17.2,17,Describe microphone technology usage,19,10; 19; 21,19,19,10,10,ACTIVE_SEMANTIC_ROUTE,,,true
+17.3,17,Explain speaker construction and precautions,19,19,19,19,19,19,ACTIVE_SEMANTIC_ROUTE,,,true
+17.4,17,Explain basic recording and playback technology,19,19,19,19,19,19,ACTIVE_SEMANTIC_ROUTE,,,true
+17.5,17,Explain how alarm-security systems may be interfaced with entertainment/information products,19,19,19,19,19,19,ACTIVE_SEMANTIC_ROUTE,,,true
+17.6,17,"Differentiate between good quality sound output and distorted sound, then the electronic/acoustical reasons for each",19,19,19,19,19,19,ACTIVE_SEMANTIC_ROUTE,,,true
+17.7,17,Explain how signals may conflict and the symptoms that conflict may produce,19,19,19,19,19,19,ACTIVE_SEMANTIC_ROUTE,,,true
+17.8,17,Explain how to isolate faults/glitches between discrete equipment units,19,19,19,19,19,19,ACTIVE_SEMANTIC_ROUTE,,,true
+17.9,17,List anticipated signal or voltage levels for output circuits in audio and video equipment,19,19,19,19,19,19,ACTIVE_SEMANTIC_ROUTE,,,true
+18.1,18,List common electronics display devices,19,19,19,19,19,19,ACTIVE_SEMANTIC_ROUTE,,,true
+18.1.1,18,"Explain how displays operate, their advantages and disadvantages",19,19,19,19,19,19,ACTIVE_SEMANTIC_ROUTE,,,true
+18.2,18,List common optical devices as to type and applications:,19,19; 25,19,19,19,19,ACTIVE_SEMANTIC_ROUTE,,,true
+18.2.1,18,Describe operation and application of component LEDs and Seven-Segment displays,19,19,19,19,19,19,ACTIVE_SEMANTIC_ROUTE,,,true
+18.2.2,18,"Describe operation and application of LCDs and OLEDs, other display types",19,19,19,19,19,19,ACTIVE_SEMANTIC_ROUTE,,,true
+18.3,18,Describe how photo-electronic components operate:,19,19; 21,19,19,19,19,ACTIVE_SEMANTIC_ROUTE,,,true
+18.3.1,18,Explain how photovoltaic cells are activated,19,19,19,19,19,19,ACTIVE_SEMANTIC_ROUTE,,,true
+18.3.2,18,Identify materials from which these devices are made,19,19,19,19,19,19,ACTIVE_SEMANTIC_ROUTE,,,true
+18.4,18,Explain the basics of electronic cameras and sensors,19,19,19,19,19,19,ACTIVE_SEMANTIC_ROUTE,,,true
+18.5,18,Explain why opto-isolators are used,19,19,19,19,19,19,ACTIVE_SEMANTIC_ROUTE,,,true
+18.5.1,18,List some locations or circuits in which opto-isolators are used,19,19,19,19,19,19,ACTIVE_SEMANTIC_ROUTE,,,true
+18.6,18,List uses for light activated controls and how photo devices are incorporated,19,19,19,19,19,19,ACTIVE_SEMANTIC_ROUTE,,,true
+18.6.1,18,"Identify symbols for photo-resistors, photodiodes and photo-transistors",19,19,19,19,19,19,ACTIVE_SEMANTIC_ROUTE,,,true
+18.7,18,Describe how broadband signal RF and optical links are used,19,19,19,19,19,19,ACTIVE_SEMANTIC_ROUTE,,,true
+19.1,19,Explain basic wave propagation and its importance to wireless communications,20,20,20,20,20,20,ACTIVE_SEMANTIC_ROUTE,,,true
+19.2,19,Describe the basic theory of how antennas work,20,20,20,20,20,20,ACTIVE_SEMANTIC_ROUTE,,,true
+19.2.1,19,List the types of transmission lines (feedline) used between antennas and RF equipment,20,20,20,20,20,20,ACTIVE_SEMANTIC_ROUTE,,,true
+19.3,19,"Define polarization, electromagnetic and electro-static fields and their relationships to each other",20,20; 21,20,20,20,20,ACTIVE_SEMANTIC_ROUTE,,,true
+19.4,19,"Differentiate between the signals/signaling of AM, FM radio/TV, LMR including CDMA, GSM, LTE, 5G (i.e., modulation)",20,20,20,20,20,20,ACTIVE_SEMANTIC_ROUTE,,,true
+19.5,19,Differentiate usage of communications radios and commercial broadcast receivers,20,20,20,20,20,20,ACTIVE_SEMANTIC_ROUTE,,,true
+19.6,19,Describe the major radio receiver circuitry sections,20,20,20,20,20,20,ACTIVE_SEMANTIC_ROUTE,,,true
+19.7,19,List common frequency bands (spectrum),20,20,20,20,20,20,ACTIVE_SEMANTIC_ROUTE,,,true
+19.8,19,Explain radio circuit tuning and adjustments,20,20,20,20,20,20,ACTIVE_SEMANTIC_ROUTE,,,true
+19.9,19,Explain Standing Wave Ratios (SWR) and measuring voltage standing wave ratios (VSWR),20,20,20,20,20,20,ACTIVE_SEMANTIC_ROUTE,,,true
+19.10,19,Explain the relationships between frequency and wavelength,20,20,20,20,20,20,ACTIVE_SEMANTIC_ROUTE,,,true
+19.11,19,Explain the importance of impedance matching; list causes of mismatches,20,20,20,20,20,20,ACTIVE_SEMANTIC_ROUTE,,,true
+20.1,20,"Describe major types of two-way radio communications (avionics, land mobile, maritime, etc.)",20,20; 21,20,20,20,20,ACTIVE_SEMANTIC_ROUTE,,,true
+20.2,20,"Describe wireless telephone/video/data technology basics, list applicable ANSI/TIA standard",20,20,20,20,20,20,ACTIVE_SEMANTIC_ROUTE,,,true
+20.3,20,Describe satellite communications principles,20,20,20,20,20,20,ACTIVE_SEMANTIC_ROUTE,,,true
+20.4,20,Describe wired data and voice communications network technology,20,20,20,20,20,20,ACTIVE_SEMANTIC_ROUTE,,,true
+20.5,20,Describe a basic telephone (POTS) circuit with the common wiring and splicing conventions,20,20,20,20,20,20,ACTIVE_SEMANTIC_ROUTE,,,true
+21.1,21,Explain major invoice and billing concepts for service businesses,28,20; 23; 28; 30,28,28,20,20,ACTIVE_SEMANTIC_ROUTE,,,true
+21.2,21,Describe ways to procure service literature,28,13; 20; 21; 22; 23; 28; 29; 30; 31,28,28,13,13,ACTIVE_SEMANTIC_ROUTE,,,true
+21.3,21,Describe locations/cross referencing of parts and products,28,20; 28; 30,28,28,20,20,ACTIVE_SEMANTIC_ROUTE,,,true
+21.4,21,"Explain the purposes and requirements for proper record keeping, report generation",28,13; 20; 22; 23; 28; 30; 31,28,28,13,13,ACTIVE_SEMANTIC_ROUTE,,,true
+21.5,21,Explain how to calculate individual and department productivity for a specific period,28,20; 28; 30,28,28,20,20,ACTIVE_SEMANTIC_ROUTE,,,true
+21.6,21,Describe contacting product maker help desks and service departments,28,20; 28; 30,28,28,20,20,ACTIVE_SEMANTIC_ROUTE,,,true
+21.7,21,Explain estimate concepts for service work including test planning,28,20; 23; 28; 30; 31,28,28,20,20,ACTIVE_SEMANTIC_ROUTE,,,true
+21.8,21,Describe field technician work procedures that may differ from in-shop routines,28,20; 28; 30,28,28,20,20,ACTIVE_SEMANTIC_ROUTE,,,true
+21.9,21,Explain project management and list steps to follow to achieve maximum results,28,20; 28; 30,28,28,20,20,ACTIVE_SEMANTIC_ROUTE,,,true
