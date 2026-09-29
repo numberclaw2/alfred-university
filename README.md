@@ -153,3 +153,8 @@ Week 2 mastery is rebalanced to 6 CETa / 6 Career questions. CETa still supplies
 The final Week 2 remediation closes the two gaps identified after v16.3.74. Career Page 3 now contains a native fault-boundary trainer with measurement counting and a split-half challenge. Career Page 4 now contains a branching Troubleshooting Decision Trainer: a hidden fault generates simulated readings, each measurement eliminates incompatible hypotheses, and Alfred scores how efficiently the diagnosis was reached.
 
 Week 2 mastery feedback now uses exact section routing. Every one of the 12 Week 2 mastery questions has a review target; missed questions can open the precise CETa/Career teaching section and then return to the saved question review. The existing 6 CETa / 6 Career balance, Week 2 media/Study Guide design, LAB-002, Week 3, Cloud Sync protocol 2, and calendar remain unchanged.
+
+
+## v16.3.76 — Week 2 trainer evidence-gate hotfix
+
+Production verification of v16.3.75 found two final logic defects: the interactive trainers could accept a lucky guess before enough measurements were collected, and cumulative DMM question CQ1088 still pointed to a retired Week 1 generated section ID. v16.3.76 closes both gaps. The boundary trainer now requires the configured minimum evidence count plus measurement of both claimed boundary points; the decision trainer requires exactly one evidence-supported hypothesis before diagnosis; and all 12 Week 2 mastery repair routes now resolve to current teaching sections. Week 2 curriculum/media/mastery balance, Week 3, calendar, Cloud Sync, and formal labs are unchanged.
