@@ -51,3 +51,36 @@ The accepted Week 1 OpenStax/UCF figures remain under their existing source attr
 ## Retired legacy visuals
 
 The 62 legacy files named `w01-*.svg` through `w31-*.svg` are no longer part of the active learner path in v16.3.34. The new runtime clears their `integrated.visualId` hooks, and the service worker no longer pre-caches them. They may remain in repository history/files until a later repository-cleanup release, but they are not current instructional evidence.
+
+---
+
+## v16.3.85 — Source-authentic-first visual policy
+
+Effective with the Week 2 visual upgrade, Alfred no longer treats an internally redrawn/source-grounded diagram as the default visual solution.
+
+### Permanent sourcing order
+
+1. **Public-domain or CC0 source-authentic visual** that directly teaches the concept.
+2. **Permissively licensed source-authentic visual** when no equally strong public-domain/CC0 visual is available.
+3. **Official manufacturer/university/government visual as an outbound reference** when redistribution rights are not sufficiently clear.
+4. **Alfred-created visual only for a course-specific workflow/reasoning aid or genuine last-resort gap.**
+
+Licensing/provenance and technical correctness are separate checks. A reusable image is not automatically authoritative; the technical meaning must also be verified against a credible source.
+
+Alfred-created process aids must be labeled as **Alfred reasoning aid / Alfred documentation aid** rather than presented as source-authentic technical figures.
+
+### Week 2 source-authentic visual set
+
+| Week 2 concept | Hosted visual | Reuse status | Technical verification |
+|---|---|---|---|
+| Series vs parallel topology | `Resistors in Series and Parallel.svg` — Jjbeard / Wikimedia Commons | Public domain | OpenStax University Physics Vol. 2 §10.2 |
+| Series resistors | `Resistors in Series.svg` — Inductiveload / Wikimedia Commons | Public domain | OpenStax University Physics Vol. 2 §10.2 |
+| Parallel resistors | `Resistors in Parallel.svg` — Inductiveload / Wikimedia Commons | Public domain | OpenStax University Physics Vol. 2 §10.2 |
+| Kirchhoff Current Law | `Kirchhoff's Current Law.svg` — Inductiveload / Wikimedia Commons | Public domain | OpenStax University Physics Vol. 2 §10.3 |
+| Kirchhoff Voltage Law | `KVL.svg` — Steen919 / Wikimedia Commons | Public domain | OpenStax University Physics Vol. 2 §10.3 |
+| Mixed series/parallel network | `Combo3.png` — Drjenncash / Wikimedia Commons | CC0 1.0 | OpenStax University Physics Vol. 2 §10.2 |
+| Ideal voltage divider | `Voltage divider.svg` — Wikimedia Commons contributors | Public domain | MIT OCW 6.071J resistive circuit analysis |
+| Loaded-divider equivalent | `Voltage divider-loaded eq.svg` — Forthommel / Wikimedia Commons | Public domain | MIT OCW Practical Electronics divider-loading lab |
+
+The Week 2 Career decision matrix and repair-record table remain because they are **Alfred-specific reasoning/documentation structures**, not attempts to recreate a physical circuit or instrument. v16.3.85 labels them accordingly.
+

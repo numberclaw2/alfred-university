@@ -1,10 +1,10 @@
 {
   "courseRelease": "16.3",
-  "runtimePatch": "16.3.84",
+  "runtimePatch": "16.3.85",
   "evidenceRevision": "16.2",
   "cloudSyncProtocol": 2,
-  "build": "v16.3.84-week3-career-teaching-render-repair-20260929",
-  "releaseStatus": "week3-career-learner-facing-render-verified",
+  "build": "v16.3.85-week2-source-authentic-visuals-20260929",
+  "releaseStatus": "week2-source-authentic-visuals-verified",
   "presentationPatch": "sitewide-text-readability-overlay",
   "scheduleRevision": "2026-09-20-current-classroom-stage-and-workload-sync",
   "modulePresentationRevision": "2026-09-18-week1-from-zero-visual-teaching",
@@ -16,7 +16,7 @@
   "week1InstructionRevision": "2026-09-19-beginner-first-safety-scaffolding",
   "week1TeachingMediaRevision": "2026-09-18-beginner-teacher-youtube-layer",
   "teachingMediaBaseRevision": "2026-09-18-final-pots-31-week-standalone-accepted",
-  "releaseNotesRevision": "2026-09-29-v16.3.84-week3-career-teaching-render-repair",
+  "releaseNotesRevision": "2026-09-29-v16.3.85-week2-source-authentic-visuals",
   "repositoryLedgerBaseline": "2026-09-18-v16.3.9-63-commits",
   "studyRevision": "2026-09-26-v16.3.66-ahead-of-calendar-reached-week-support",
   "practiceRevision": "2026-09-22-guided-practice-paginated-direct-navigation",
@@ -41,8 +41,8 @@
   "studyLibraryRevision": "2026-09-19-reached-material-review-flashcards-media-reference",
   "safetyScaffoldingRevision": "2026-09-19-week1-future-concept-context-before-safety-questions",
   "careerInstructionalDepthRevision": "2026-09-29-v16.3.84-week3-career-teaching-render-repair",
-  "visualInstructionRevision": "2026-09-19-source-provenance-legacy-svg-retirement",
-  "visualSourceRevision": "2026-09-19-open-license-real-media-and-authoritative-source-grounding",
+  "visualInstructionRevision": "2026-09-29-week2-source-authentic-public-domain-visuals",
+  "visualSourceRevision": "2026-09-29-source-authentic-first-public-domain-preferred",
   "calendarRevision": "2026-09-20-125-event-stage-routing-workload-status-modernization",
   "resumeNavigationRevision": "2026-09-20-learning-and-study-independent-resume-points",
   "focusPrepRevision": "2026-09-20-context-aware-pre-study-environment-checklist",
@@ -402,5 +402,11 @@
     "immediate-practice",
     "physical-proficiency-boundary",
     "evidence-required"
-  ]
+  ],
+  "week2VisualRevision": "2026-09-29-v16.3.85-week2-source-authentic-visuals",
+  "week2VisualStatus": "SOURCE_AUTHENTIC_PASS",
+  "week2SourceAuthenticConceptVisualCount": 7,
+  "week2PublicDomainVisualItemCount": 7,
+  "week2CC0VisualItemCount": 1,
+  "visualSourcePolicy": "source-authentic first; public domain/CC0 preferred; licensing and technical verification checked separately; Alfred visuals only for course-specific workflow or last resort"
 }
