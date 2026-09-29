@@ -8,6 +8,10 @@ AU-ESET 301 is a fictional, university-style independent-study environment built
 It is not an accredited university, an ETA-endorsed course, an official exam, or a guarantee of certification or employment.
 
 
+## v16.3.79 CETa ↔ Career Timing Integrity
+
+Production verification of v16.3.78 found that 54 later CETa support relationships had been incorrectly classified as Career prerequisites. v16.3.79 derives prerequisite/concurrent/later timing directly from the authoritative CETa week map and strengthens QA across all 95 Career relationships. The standards universe remains **357 rows: 262 CETa + 95 Career**; Week 2 remains the only combined `VERIFIED_PASS`.
+
 ## v16.3.78 CETa ↔ Career Tandem Governance
 
 The governing standards universe is now **357 rows: 262 CETa + 95 Career**. CETa certification knowledge and Career occupational performance are co-equal but non-substitutable. Five cross-track relationship types are machine-readable, and every week is governed by three independent gates: **CETa + Career + Tandem**. Only Week 2 is currently `VERIFIED_PASS`; all other weeks remain remediation-required until they earn the strengthened Career and Tandem gates.
