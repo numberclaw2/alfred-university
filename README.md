@@ -158,3 +158,7 @@ Week 2 mastery feedback now uses exact section routing. Every one of the 12 Week
 ## v16.3.76 — Week 2 trainer evidence-gate hotfix
 
 Production verification of v16.3.75 found two final logic defects: the interactive trainers could accept a lucky guess before enough measurements were collected, and cumulative DMM question CQ1088 still pointed to a retired Week 1 generated section ID. v16.3.76 closes both gaps. The boundary trainer now requires the configured minimum evidence count plus measurement of both claimed boundary points; the decision trainer requires exactly one evidence-supported hypothesis before diagnosis; and all 12 Week 2 mastery repair routes now resolve to current teaching sections. Week 2 curriculum/media/mastery balance, Week 3, calendar, Cloud Sync, and formal labs are unchanged.
+
+
+## v16.3.77 — Career Occupational Governance Reconstruction
+The Career curriculum is now governed by 95 observable performance standards across 15 domains, an L0–L4 proficiency model, hard page/week acceptance rules, explicit evidence requirements, separate CETa Ready and Technician Ready claims, and a 31-week remediation/progression map. Week 2 is the only initial VERIFIED_PASS week under this stricter standard; all other weeks remain remediation-required until upgraded and re-audited.

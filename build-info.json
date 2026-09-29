@@ -1,10 +1,10 @@
 {
   "courseRelease": "16.3",
-  "runtimePatch": "16.3.76",
+  "runtimePatch": "16.3.77",
   "evidenceRevision": "16.2",
   "cloudSyncProtocol": 2,
-  "build": "v16.3.76-week2-trainer-evidence-gate-20260929",
-  "releaseStatus": "week2-trainer-evidence-gate",
+  "build": "v16.3.77-career-occupational-governance-reconstruction-20260929",
+  "releaseStatus": "career-occupational-governance-reconstruction",
   "presentationPatch": "sitewide-text-readability-overlay",
   "scheduleRevision": "2026-09-20-current-classroom-stage-and-workload-sync",
   "modulePresentationRevision": "2026-09-18-week1-from-zero-visual-teaching",
@@ -16,7 +16,7 @@
   "week1InstructionRevision": "2026-09-19-beginner-first-safety-scaffolding",
   "week1TeachingMediaRevision": "2026-09-18-beginner-teacher-youtube-layer",
   "teachingMediaBaseRevision": "2026-09-18-final-pots-31-week-standalone-accepted",
-  "releaseNotesRevision": "2026-09-29-v16.3.76-week2-trainer-evidence-gate",
+  "releaseNotesRevision": "2026-09-29-v16.3.77-career-governance",
   "repositoryLedgerBaseline": "2026-09-18-v16.3.9-63-commits",
   "studyRevision": "2026-09-26-v16.3.66-ahead-of-calendar-reached-week-support",
   "practiceRevision": "2026-09-22-guided-practice-paginated-direct-navigation",
@@ -46,10 +46,10 @@
   "calendarRevision": "2026-09-20-125-event-stage-routing-workload-status-modernization",
   "resumeNavigationRevision": "2026-09-20-learning-and-study-independent-resume-points",
   "focusPrepRevision": "2026-09-20-context-aware-pre-study-environment-checklist",
-  "careerStandardsRevision": "2026-09-21-v16.3.42-81-standard-authoritative-instructional-timeline",
+  "careerStandardsRevision": "2026-09-29-v16.3.77-occupational-performance-and-evidence",
   "curriculumProvenanceRevision": "2026-09-21-v16.3.42-runtime-reconciled-first-use-provenance",
   "crossTrackCurriculumRevision": "2026-09-21-v16.3.42-woven-ceta-career-traceability-reconciled",
-  "careerStandardCount": 81,
+  "careerStandardCount": 95,
   "semanticTaskCount": 91,
   "nativeAcceptanceRepair": "2026-09-21-v16.3.42-31-of-31-chromium-lessons-93-of-93-question-routes-43-of-43-semantic-review-buttons",
   "careerStableTeachingSectionCount": 219,
@@ -162,7 +162,7 @@
     "Study Media"
   ],
   "contentPlacementBlueprintRevision": "2026-09-23-31-week-491-live-section-semantic-repaired",
-  "serviceWorkerRevision": "2026-09-29-v16.3.76-week2-trainer-evidence-gate-cache-refresh",
+  "serviceWorkerRevision": "2026-09-29-v16.3.77-career-governance-cache-refresh",
   "serviceWorkerInstallIntegrityVerdict": "PASS",
   "mediaConsumptionRevision": "2026-09-23-v16.3.57-canonical-source-identity-with-legacy-alias-compatibility",
   "teachingMediaSemanticIntegrityRevision": "2026-09-23-v16.3.58-semantic-media-integrity-final",
@@ -355,5 +355,19 @@
   "week2CareerFinalUXStatus": "PASS after v16.3.76 evidence-gate + exact-route hotfix.",
   "week2CareerBoundaryTrainerEvidenceGate": true,
   "week2CareerDecisionTrainerEvidenceGate": true,
-  "week2MasteryReviewRouteRevision": "2026-09-29-v16.3.76-stable-week1-dmm-route"
+  "week2MasteryReviewRouteRevision": "2026-09-29-v16.3.76-stable-week1-dmm-route",
+  "careerDomainCount": 15,
+  "careerProficiencyModel": "L0 Awareness \u2192 L1 Guided \u2192 L2 Independent \u2192 L3 Diagnostic/Changed-Context \u2192 L4 Role-Proof Evidence",
+  "careerReadyClaimStatus": "WITHHELD \u2014 course-wide remediation required under v16.3.77 hard gate",
+  "careerVerifiedPassWeeks": [
+    2
+  ],
+  "careerP0RemediationWeeks": [
+    3,
+    4,
+    12,
+    29
+  ],
+  "careerGovernanceHardRuleCount": 10,
+  "careerGovernanceProceduralGateCount": 11
 }

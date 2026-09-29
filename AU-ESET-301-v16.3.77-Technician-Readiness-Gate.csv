@@ -1,0 +1,14 @@
+Artifact,Required for Technician Ready,Notes
+safe bench/pre-power record,YES,Must be authentic physical/software/test evidence appropriate to the task; objective questions alone do not satisfy.
+DMM measurement record,YES,Must be authentic physical/software/test evidence appropriate to the task; objective questions alone do not satisfy.
+bench-supply/current-limit record,YES,Must be authentic physical/software/test evidence appropriate to the task; objective questions alone do not satisfy.
+oscilloscope capture with documented setup,YES,Must be authentic physical/software/test evidence appropriate to the task; objective questions alone do not satisfy.
+schematic/test-point plan,YES,Must be authentic physical/software/test evidence appropriate to the task; objective questions alone do not satisfy.
+component-level fault-isolation case,YES,Must be authentic physical/software/test evidence appropriate to the task; objective questions alone do not satisfy.
+solder/rework inspection and verification,YES,Must be authentic physical/software/test evidence appropriate to the task; objective questions alone do not satisfy.
+harness/crimp/continuity evidence,YES,Must be authentic physical/software/test evidence appropriate to the task; objective questions alone do not satisfy.
+controlled test procedure with PASS/FAIL result,YES,Must be authentic physical/software/test evidence appropriate to the task; objective questions alone do not satisfy.
+quality/nonconformance/traceability record,YES,Must be authentic physical/software/test evidence appropriate to the task; objective questions alone do not satisfy.
+calibration/status/pre-use instrument record,YES,Must be authentic physical/software/test evidence appropriate to the task; objective questions alone do not satisfy.
+DUT-vs-fixture/test-system isolation case,YES,Must be authentic physical/software/test evidence appropriate to the task; objective questions alone do not satisfy.
+technical test/repair report,YES,Must be authentic physical/software/test evidence appropriate to the task; objective questions alone do not satisfy.

@@ -1,0 +1,26 @@
+Gate Type,Requirement,Hard Fail If Missing
+Procedural page,occupational task,YES
+Procedural page,beginner-first prerequisite teaching,YES
+Procedural page,technician demonstration,YES
+Procedural page,immediate learner action,YES
+Procedural page,tool/equipment context when applicable,YES
+Procedural page,failure/fault exposure when applicable,YES
+Procedural page,physical-vs-simulation boundary,YES
+Procedural page,required evidence artifact,YES
+Procedural page,assessment/repair route,YES
+Procedural page,occupational benchmark,YES
+Procedural page,CETa/theory handoff,YES
+Diagnostic extra,competing hypotheses or bounded failure set,YES when applicable
+Diagnostic extra,measurement/test chosen for information value,YES when applicable
+Diagnostic extra,evidence must constrain diagnosis before answer accepted,YES when applicable
+Diagnostic extra,repair/verification or explicit next-step handoff,YES when applicable
+Quality/workmanship extra,named acceptance criteria/source,YES when applicable
+Quality/workmanship extra,accept/rework/reject/inconclusive decision,YES when applicable
+Quality/workmanship extra,traceability fields,YES when applicable
+Quality/workmanship extra,authority/escalation boundary,YES when applicable
+Instrument extra,instrument/setup choice justified,YES when applicable
+Instrument extra,pre-use validity/status check,YES when applicable
+Instrument extra,reference/range/rating/configuration stated,YES when applicable
+Instrument extra,known-reference or reasonableness check when applicable,YES when applicable
+Instrument extra,raw evidence preserved,YES when applicable
+Instrument extra,limitations/uncertainty acknowledged,YES when applicable
