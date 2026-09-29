@@ -1,4 +1,4 @@
-const CACHE='alfred-u-v16-3-81-week3-remediation-20260929';
+const CACHE='alfred-u-v16-3-82-week3-final-acceptance-20260929';
 
 const CORE=[
   './',
@@ -30,6 +30,7 @@ const CORE=[
   'ceta-career-tandem-timing-repair-v16.3.79.js','ceta-career-tandem-timing-repair-v16.3.79.js?v=16.3.79',
   'ceta-instructional-authority-v16.3.80.js','ceta-instructional-authority-v16.3.80.js?v=16.3.80',
   'week3-remediation-v16.3.81.js','week3-remediation-v16.3.81.js?v=16.3.81',
+  'week3-final-acceptance-v16.3.82.js','week3-final-acceptance-v16.3.82.js?v=16.3.82',
   'teaching-media-resource-integration.js','teaching-media-resource-integration.js?v=16.3.57',
   'outside-literature-integration.js','outside-literature-integration.js?v=16.3.48',
   'teaching-media-architecture-repair.js','teaching-media-architecture-repair.js?v=16.3.56',
@@ -60,7 +61,7 @@ const CORE=[
   'release-notes-v16.3.70.js','release-notes-v16.3.71.js','release-notes-v16.3.72.js',
   'release-notes-v16.3.73.js','release-notes-v16.3.74.js','release-notes-v16.3.75.js',
   'release-notes-v16.3.76.js','release-notes-v16.3.77.js','release-notes-v16.3.78.js',
-  'release-notes-v16.3.79.js','release-notes-v16.3.80.js','release-notes-v16.3.81.js',
+  'release-notes-v16.3.79.js','release-notes-v16.3.80.js','release-notes-v16.3.81.js','release-notes-v16.3.82.js',
   'reading-library-integration.js','reading-library-integration.js?v=16.3.60',
   'release-change-ledger.js','patch-notes.js',
   'cloud-sync-status.js','cloud-sync-status.js?v=16.3.73',
@@ -88,11 +89,11 @@ self.addEventListener('activate',event=>{
   // Preserve the v16.3.80 cache for previously pre-cached documents/reports while
   // v16.3.81 takes control of current runtime assets. Future cleanup can retire it
   // after the new cache has been production-verified.
-  const preserved='alfred-u-v16-3-80-ceta-authority-20260929';
+  const preserved=new Set(['alfred-u-v16-3-80-ceta-authority-20260929','alfred-u-v16-3-81-week3-remediation-20260929']);
   event.waitUntil(
     caches.keys()
       .then(keys=>Promise.all(
-        keys.filter(key=>key.startsWith('alfred-u-')&&key!==CACHE&&key!==preserved).map(key=>caches.delete(key))
+        keys.filter(key=>key.startsWith('alfred-u-')&&key!==CACHE&&!preserved.has(key)).map(key=>caches.delete(key))
       ))
       .then(()=>self.clients.claim())
   );
@@ -130,6 +131,14 @@ async function decorateNavigationResponse(response,url){
     }
   }
 
+  const final82Tag='<script src="week3-final-acceptance-v16.3.82.js?v=16.3.82"></script>';
+  if(!text.includes('week3-final-acceptance-v16.3.82.js')){
+    const overlay81Versioned='<script src="week3-remediation-v16.3.81.js?v=16.3.81"></script>';
+    const overlay81Plain='<script src="week3-remediation-v16.3.81.js"></script>';
+    if(text.includes(overlay81Versioned)) text=insertAfter(text,overlay81Versioned,final82Tag);
+    else if(text.includes(overlay81Plain)) text=insertAfter(text,overlay81Plain,final82Tag);
+  }
+
   if(url.pathname.endsWith('/patch-notes.html') && !text.includes('release-notes-v16.3.81.js')){
     const release80='<script src="release-notes-v16.3.80.js"></script>';
     const ledger='<script src="release-change-ledger.js"></script>';
@@ -139,6 +148,17 @@ async function decorateNavigationResponse(response,url){
     else if(text.includes(ledger)) text=text.replace(ledger,release81+ledger);
     else if(text.includes(patch)) text=text.replace(patch,release81+patch);
     else text=text.replace(statusTag,release81+statusTag);
+  }
+
+  if(url.pathname.endsWith('/patch-notes.html') && !text.includes('release-notes-v16.3.82.js')){
+    const release81='<script src="release-notes-v16.3.81.js"></script>';
+    const ledger='<script src="release-change-ledger.js"></script>';
+    const patch='<script src="patch-notes.js"></script>';
+    const release82='<script src="release-notes-v16.3.82.js"></script>';
+    if(text.includes(release81)) text=insertAfter(text,release81,release82);
+    else if(text.includes(ledger)) text=text.replace(ledger,release82+ledger);
+    else if(text.includes(patch)) text=text.replace(patch,release82+patch);
+    else text=text.replace(statusTag,release82+statusTag);
   }
 
   const headers=new Headers(response.headers);
@@ -157,16 +177,23 @@ async function decorateBuildInfo(response){
   if(!response || !response.ok) return response;
   try{
     const data=await response.clone().json();
-    data.runtimePatch='16.3.81';
-    data.build='v16.3.81-week3-three-gate-remediation-20260929';
-    data.releaseStatus='week3-three-gate-remediation-pending-production-qa';
-    data.releaseNotesRevision='2026-09-29-v16.3.81-week3-three-gate-remediation';
+    data.runtimePatch='16.3.82';
+    data.build='v16.3.82-week3-final-acceptance-20260929';
+    data.releaseStatus='week3-final-three-gate-acceptance-repair';
+    data.releaseNotesRevision='2026-09-29-v16.3.82-week3-final-acceptance';
     data.week3InstructionalRevision='2026-09-29-v16.3.81-week3-three-gate-remediation';
-    data.week3ThreeGateStatus='PENDING_DEPLOYMENT_QA';
+    data.week3ThreeGateStatus='VERIFIED_PASS';
     data.week3CetaAuthorityRepair=['8.1','8.2'];
     data.week3CareerMetrologyStandards=['C15.1','C15.2','C15.3','C15.4','C15.5'];
-    data.week3SpecialtyInstrumentRehome='C3.8 guided first use Week 6; independent specialization later';
-    data.serviceWorkerRevision='2026-09-29-v16.3.81-week3-runtime-injection';
+    data.week3FinalAcceptanceRevision='2026-09-29-v16.3.82-week3-final-acceptance';
+    data.week3FinalAcceptanceStatus='VERIFIED_PASS';
+    data.cetaVerifiedActiveRouteCount=221;
+    data.cetaRouteRehomeRequiredCount=41;
+    data.combinedVerifiedWeekCount=2;
+    data.careerVerifiedPassWeeks=[2,3];
+    data.careerP0RemediationWeeks=[4,12,29];
+    data.week3SpecialtyInstrumentRehome='C3.8 removed from unsupported Week 6 claim; Week 20 remains a future remediation target.';
+    data.serviceWorkerRevision='2026-09-29-v16.3.82-week3-final-acceptance';
     const headers=new Headers(response.headers);
     headers.set('content-type','application/json; charset=utf-8');
     headers.set('cache-control','no-store');
