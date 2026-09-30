@@ -1,4 +1,23 @@
-(()=>{const entry={
+(()=>{
+const hotfix={
+version:'v16.3.90-H1',
+date:'September 30, 2026',
+title:'Mobile Cloud Progress Truth Hotfix',
+type:'Cloud Sync / Mobile / Home Progress',
+request:'Repair the mobile site showing stale 0% completion when the synchronized student record is already at a higher current completion percentage.',
+changes:[
+'Identified that global cloud-sync-status.js only verified server health; actual protocol-2 progress pull/merge ran only after opening Student Progress.',
+'Adds protocol-2 progress pull/merge to the global Cloud Sync runtime on connected non-Progress pages while preserving per-record timestamps so newer local work cannot be overwritten by older cloud data.',
+'Prevents untouched/default local shells from being uploaded as progress records.',
+'Rerenders the Home progress summary immediately after a successful cloud merge and when synchronized progress changes.',
+'Corrects the Home “Course Completion” percentage to use the same 31-week classroom completion model as Student Progress instead of calendar-event completion percentage.',
+'Preserves the existing Student Progress sync owner on progress.html, Cloud Sync protocol 2, student recovery key, event/week IDs, assessment history, calendar, and all accepted Week 2 runtime behavior.'
+],
+filesAdded:['AU-ESET-301-v16.3.90-H1-Mobile-Cloud-Sync-QA.md','UPLOAD README v16.3.90-H1.txt'],
+filesModified:['cloud-sync-status.js','release-notes-v16.3.90.js','ALFRED PROJECT GOVERNANCE.md'],
+filesRemoved:[]
+};
+const entry={
 version:'v16.3.90',
 date:'September 30, 2026',
 title:'Week 2 Canonical Six-Question Assessment Repair',
@@ -16,4 +35,7 @@ changes:[
 filesAdded:['week2-career-assessment-canonical-v16.3.90.js','release-notes-v16.3.90.js','AU-ESET-301-v16.3.90-Week-2-Canonical-Assessment-QA.md'],
 filesModified:['quiz.js','quiz.html','assessments.html','service-worker.js','build-info.json','patch-notes.html','ALFRED PROJECT GOVERNANCE.md','SHA256SUMS.txt'],
 filesRemoved:[]
-};const existing=Array.isArray(window.ALFRED_RELEASES)?window.ALFRED_RELEASES:[];window.ALFRED_RELEASES=[entry,...existing.filter(x=>x&&x.version!==entry.version)];})();
+};
+const existing=Array.isArray(window.ALFRED_RELEASES)?window.ALFRED_RELEASES:[];
+window.ALFRED_RELEASES=[hotfix,entry,...existing.filter(x=>x&&x.version!==hotfix.version&&x.version!==entry.version)];
+})();

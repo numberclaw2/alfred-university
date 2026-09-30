@@ -5,7 +5,7 @@
 **Audience:** Primarily ChatGPT / future project sessions. Human readability is secondary to completeness and retrieval efficiency.  
 **Update rule:** Every future website update package must include the current version of this exact file, with any new user requirements, reversals, complaints, accepted decisions, or future ideas added before handoff.  
 **Filename:** `ALFRED PROJECT GOVERNANCE.md`  
-**Current governance compilation date:** 2026-09-30  
+**Current governance compilation date:** 2026-09-29  
 **Current site runtime at compilation:** v16.3.90  
 **Repository:** `numberclaw2/alfred-university`  
 **GitHub Pages:** `https://numberclaw2.github.io/alfred-university/`  
@@ -1143,6 +1143,7 @@ Do not:
 - present information instead of teaching it
 - use external resources to patch weak Alfred instruction
 - dump links/media without context
+- render printable study-math as plain ASCII-style expressions when true typeset notation is available; printed formulas should visually match the clean textbook-style math used in chat
 - over-audit trivial polish after a clear GO
 - claim deployment without checking deployment
 - assume GitHub upload means live site
@@ -1209,19 +1210,6 @@ All five Week 2 Career pages received source-authentic occupational/equipment im
 Alfred decision/documentation aids were preserved where they teach reasoning rather than physical appearance.
 
 Week 2 is considered visually complete only because **both tracks** passed.
-
-## v16.3.90 — Week 2 assessment runtime acceptance
-
-The Week 2 mastery assessment repair is accepted only after all of the following were true:
-- exact `main` commit and GitHub Pages deployment verified
-- published Pages artifact verified
-- deployed full `quiz.html` script order executed
-- CQ1204–CQ1209 all present and fully eligible as Career mastery questions
-- 10/10 selector attempts assembled **12 total = 6 CETa + 6 Career**
-- Cloud Sync protocol 2 preserved
-- **user's real browser successfully opened Week 2 Practice** on 2026-09-30
-
-Accepted runtime baseline: **v16.3.90 — VERIFIED_PASS, browser-confirmed**.
 
 ---
 
@@ -1357,7 +1345,9 @@ This keeps Git history as the change log while this file remains the current com
 
 # 32. GOVERNANCE CHANGE LOG
 
+2026-09-30 | MOBILE CLOUD SYNC TRUTH | ADD | A connected mobile/non-Progress page must pull and merge protocol-2 cloud progress before presenting synced completion as current; server-health status alone is not proof that learner progress is synchronized. Home Course Completion must use the same classroom completion truth as Student Progress, not calendar-event status percentage.  
 2026-09-30 | WEEK 2 ASSESSMENT RUNTIME | ACCEPT | v16.3.90 accepted only after deployed full-script selector verification and successful user-browser confirmation; 12-question weekly mastery form = 6 CETa + 6 Career.  
+2026-09-30 | PRINT STUDY MATERIAL MATH TYPOGRAPHY | ADD | Printable Alfred study notes/PDFs must typeset equations like the chat/textbook view using real fractions, subscripts, Greek symbols, operators, and centered display math; do not degrade equations into ASCII-like inline strings unless unavoidable.  
 2026-09-30 | GOVERNANCE MERGE INTEGRITY | REPAIR | v16.3.90 governance must preserve all v16.3.89 client-runtime/cache acceptance rules while adding the v16.3.90 full assessment-eligibility and adversarial-hotfix rules; new governance updates are cumulative, not replacements.  
 2026-09-30 | ASSESSMENT ELIGIBILITY CONTRACT | ADD | A repaired question is not considered eligible based on review status alone; validate/reconstruct presence, track, canonical review status, masteryEvidence, minWeek, and containing test definition together.  
 2026-09-30 | HOTFIX ADVERSARIAL QA | ADD | Assessment compatibility repairs must be tested against individually missing/corrupted target items, not only the healthy current artifact.  
