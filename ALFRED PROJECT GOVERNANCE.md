@@ -12,6 +12,10 @@
 **Cloud Sync:** protocol 2  
 **Current operating principle:** Treat this file as read-before-write project law. Do not make substantive Alfred decisions without consulting it plus the latest accepted runtime/QA artifacts.
 
+**Mandatory invocation rule:** For **every request related to the Alfred website/course**, before analysis, recommendations, audits, code changes, file generation, acceptance decisions, or troubleshooting, first read the current `ALFRED PROJECT GOVERNANCE.md`. This is not optional and does not depend on whether the assistant believes it remembers the project.
+
+**Proactive memory-capture responsibility:** The assistant is responsible for noticing when the user says something that materially changes or clarifies the project rubric. When that happens, the assistant should proactively say that the point is governance-worthy and update this file without waiting for the user to ask. The user does not expect perfect recall of every conversation, but does expect important durable requirements to be captured here when recognized.
+
 ---
 
 # 0. AUTHORITY / PRECEDENCE
@@ -495,18 +499,18 @@ Study Guide handling has changed historically:
 
 This rule was materially revised on 2026-09-29.
 
-## 10.1 Source-authentic first
+## 10.1 Source-authentic first — Alfred creation is a true last resort
 
-Do not default to researching a topic and drawing Alfred’s own version of the technical diagram.
+Do not default to researching a topic and drawing Alfred’s own version of the technical diagram. Before creating any new instructional visual, make a serious, broad search for an existing visual that is at least equal in educational value and comes from a credible source. Search as widely as reasonably useful across universities, manufacturers, government/technical training material, standards/industry organizations, open textbooks/OER, public-domain archives, Wikimedia Commons with independent technical verification, and other reputable technical educators.
 
 Priority:
 
 1. public-domain or CC0 source-authentic visual
 2. permissively licensed source-authentic visual
-3. official manufacturer / university / government visual as outbound reference when redistribution is unclear
-4. Alfred-created visual only for:
-   - course-specific reasoning/workflow
-   - a genuine last-resort visual gap
+3. official manufacturer / university / government / credible technical-training visual as an outbound or embedded reference when reuse terms permit
+4. only after the search above fails to find an equally useful or better credible visual, an Alfred-created visual may be used as the last resort
+
+The purpose of this rule is not to ban Alfred-created visuals absolutely. If the best available online visuals are materially worse for teaching the exact concept, an Alfred-created visual is acceptable. But the burden is on Alfred to search first, not create first.
 
 ## 10.2 Separate provenance from technical authority
 
@@ -545,7 +549,7 @@ No new AI-generated educational diagrams as the default.
 
 ## 10.4 Alfred-created visuals that may remain
 
-Alfred-created visuals are appropriate when they teach a distinct course-specific reasoning process, such as:
+Alfred-created visuals are permitted only after a good-faith search fails to find an existing credible visual that is equal or better for the teaching goal. This applies even to reasoning/workflow concepts such as:
 - hypothesis matrix
 - question → prediction → measurement → conclusion
 - last-good / first-bad workflow
@@ -554,7 +558,7 @@ Alfred-created visuals are appropriate when they teach a distinct course-specifi
 - evidence checklist
 - documentation template
 
-These must be transparently labeled as Alfred reasoning/workflow aids, not presented as source-authentic technical figures.
+Do not assume these categories automatically justify an Alfred-made figure. Search for published technician-training, university, manufacturer, government, or other credible visuals first. If a strong existing visual teaches the same idea, use it. If no comparable source visual exists, the Alfred-created version may remain and must be transparently labeled as an Alfred reasoning/workflow aid.
 
 ## 10.5 Visual captions must teach
 
@@ -1257,6 +1261,50 @@ After user upload:
 
 This file is a living project artifact.
 
+## 31.1 Mandatory read-before-anything rule
+
+For **every Alfred-related user request**, the first project action is to read the current governance file.
+
+This includes requests to:
+- discuss an idea,
+- audit a week,
+- fix a bug,
+- change a visual,
+- answer a question about the current site,
+- generate replacement files,
+- review content,
+- inspect deployment,
+- recommend a future feature,
+- continue prior work.
+
+Do not skip this because the current chat is long, because the assistant believes the rules are already remembered, or because the request appears small. The file is the rubric for what the assistant is and is not allowed to do.
+
+The user explicitly authorizes and encourages frequent back-reference to this file.
+
+## 31.2 Proactive governance capture
+
+The user has delegated responsibility to the assistant to identify governance-worthy statements during normal conversation.
+
+When the user states something that materially affects:
+- project purpose,
+- pedagogy,
+- Career/CETa priorities,
+- UX behavior,
+- visual/media rules,
+- workflow,
+- QA,
+- acceptance criteria,
+- future plans,
+- dislikes/failure modes,
+- durable preferences,
+
+the assistant should proactively flag it and update this file.
+
+The assistant may say, in substance: “That is important enough to preserve in governance; I’m updating the file.”
+
+The user does **not** require perfect capture of every incidental sentence. The standard is to preserve durable requirements and decisions that would matter in a future chat.
+
+
 Every future Alfred update package must include **this exact filename**:
 `ALFRED PROJECT GOVERNANCE.md`
 
@@ -1284,9 +1332,13 @@ This keeps Git history as the change log while this file remains the current com
 
 # 32. GOVERNANCE CHANGE LOG
 
+2026-09-29 | GOVERNANCE INVOCATION | ADD | Every Alfred-related request must begin by reading the current governance file before analysis or action.  
+2026-09-29 | PROACTIVE MEMORY CAPTURE | ADD | Assistant owns responsibility for identifying governance-worthy user statements and updating the file without waiting to be prompted.  
+2026-09-29 | MEMORY EXPECTATION | CLARIFY | User does not require perfect recall of every past conversation; durable project requirements should be captured in governance when recognized.  
 2026-09-29 | CAREER PARITY | ADD | No week can be accepted/frozen without separate CETa and Career results.  
 2026-09-29 | CONTINUITY | ADD | Do not rely on chat memory alone; governance file + latest runtime/QA are required sources.  
 2026-09-29 | VISUALS | SUPERSEDE | Source-authentic public-domain/CC0/permissive visuals now preferred over Alfred technical redraws.  
+2026-09-29 | VISUAL LAST-RESORT RULE | MODIFY | Alfred-created instructional visuals are allowed only after a serious search fails to find an equally useful or better credible source visual; search first, create last.  
 2026-09-29 | CAREER VISUALS | ADD | Source-authentic visual standard applies equally to Career; real occupational/equipment context is required where educationally useful.  
 2026-09-29 | GOVERNANCE FILE | ADD | Every future update package must include the updated canonical governance file.  
 2026-09-26 | PACING | ADD | Jan 31, 2027 is an acceleration goal; do not rewrite official calendar.  
