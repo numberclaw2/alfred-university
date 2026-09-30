@@ -6,7 +6,7 @@
 **Update rule:** Every future website update package must include the current version of this exact file, with any new user requirements, reversals, complaints, accepted decisions, or future ideas added before handoff.  
 **Filename:** `ALFRED PROJECT GOVERNANCE.md`  
 **Current governance compilation date:** 2026-09-29  
-**Current site runtime at compilation:** v16.3.87  
+**Current site runtime at compilation:** v16.3.88  
 **Repository:** `numberclaw2/alfred-university`  
 **GitHub Pages:** `https://numberclaw2.github.io/alfred-university/`  
 **Cloud Sync:** protocol 2  
@@ -995,6 +995,7 @@ Required post-upload verification where tools allow:
 - preserved Cloud Sync protocol
 - relevant internal Node/static harness
 - for any change touching Learn/stage routing, execute the affected stage transition and destination renderer in a runtime smoke harness; syntax-only checks are insufficient
+- for any assessment/quiz definition, question-bank, review-status, or selector change, execute the affected assessment selector/launch route with the real runtime data; matching question IDs, counts, or declared track mix alone do not prove the form can assemble
 - browser runtime when environment allows
 
 If graphical browser access is blocked by environment:
@@ -1108,7 +1109,7 @@ Use this section to prevent old instructions from contaminating current decision
 ## 26.2 Runtime versions
 - v16.3.2 was once frozen runtime baseline
 - many accepted updates superseded it
-- current runtime at this governance compile = v16.3.87
+- current runtime at this governance compile = v16.3.88
 
 ## 26.3 Media minimum model
 - older “20 universal + 7 conditional” Required-media strategy = superseded
@@ -1147,6 +1148,7 @@ Do not:
 - assume GitHub upload means live site
 - hand off files that were not internally tested
 - treat JavaScript syntax success as proof that an interactive stage transition works; destination renderers must actually execute
+- treat an assessment definition’s listed question IDs or declared CETa/Career mix as proof that the assessment can launch; the selector’s eligibility contract (including canonical review status) must be executed
 - silently omit Release Notes
 - redesign unrelated UX during a targeted content update
 - make AI/redrawn diagrams when a better real/source-authentic visual exists
@@ -1239,6 +1241,7 @@ Before handoff:
 - [ ] Data/load-order checks.
 - [ ] relevant runtime/static harness.
 - [ ] if Learn/stage routing changed, execute the affected stage transition and destination renderer (not only syntax-check it).
+- [ ] if assessment data/selector/review status changed, execute the affected quiz selector and confirm the requested form assembles with the intended CETa/Career mix.
 - [ ] regression check.
 - [ ] build-info/service-worker revision.
 - [ ] Cloud Sync protocol preserved.
@@ -1335,6 +1338,8 @@ This keeps Git history as the change log while this file remains the current com
 
 # 32. GOVERNANCE CHANGE LOG
 
+2026-09-29 | WEEK 2 ASSESSMENT RUNTIME | REPAIR | Restore CQ1204–CQ1209 to the canonical `editorially-reviewed` selector status so the intended 12-question Week 2 mastery form assembles as 6 CETa + 6 Career.  
+2026-09-29 | QA / ASSESSMENT LAUNCH | ADD | Any assessment-bank, review-status, definition, or selector change must execute the affected selector/launch route with real runtime data; IDs/counts/declared mix alone are not acceptance evidence.  
 2026-09-29 | GUIDED PRACTICE RUNTIME | REPAIR | Restore the missing `practiceSectionPlan()` and `practiceViewRecord()` helpers so Continue to Practice renders Stage 5 reliably; derive Practice pages from current CETa + Career lesson data and preserve saved Practice state.  
 2026-09-29 | QA / STAGE TRANSITIONS | ADD | Any release touching Learn/stage routing must execute the affected transition and destination renderer in a runtime smoke test; syntax-only JavaScript checks are insufficient.  
 2026-09-29 | GOVERNANCE INVOCATION | ADD | Every Alfred-related request must begin by reading the current governance file before analysis or action.  

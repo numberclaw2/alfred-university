@@ -1,4 +1,4 @@
-const CACHE='alfred-u-v16-3-87-guided-practice-runtime-repair-20260929';
+const CACHE='alfred-u-v16-3-88-week2-assessment-runtime-repair-20260929';
 
 const CORE=[
   './',
@@ -48,6 +48,7 @@ const CORE=[
   'week2-source-visuals-v16.3.85.js','week2-source-visuals-v16.3.85.js?v=16.3.85',
   'week2-career-source-visuals-v16.3.86.js','week2-career-source-visuals-v16.3.86.js?v=16.3.86',
   'week2-career-assessment-v16.3.74.js','week2-career-assessment-v16.3.74.js?v=16.3.74',
+  'week2-career-assessment-runtime-repair-v16.3.88.js','week2-career-assessment-runtime-repair-v16.3.88.js?v=16.3.88',
   'ceta-study-guide-private.js','ceta-study-guide-private.js?v=16.3.65',
   'media-consumption.js','media-consumption.js?v=16.3.57',
   'teaching-media-overrides.js','teaching-media-self-reliance.js','teaching-media-content-completion.js',
@@ -64,7 +65,7 @@ const CORE=[
   'release-notes-v16.3.70.js','release-notes-v16.3.71.js','release-notes-v16.3.72.js',
   'release-notes-v16.3.73.js','release-notes-v16.3.74.js','release-notes-v16.3.75.js',
   'release-notes-v16.3.76.js','release-notes-v16.3.77.js','release-notes-v16.3.78.js',
-  'release-notes-v16.3.79.js','release-notes-v16.3.80.js','release-notes-v16.3.81.js','release-notes-v16.3.82.js','release-notes-v16.3.83.js','release-notes-v16.3.84.js','release-notes-v16.3.85.js','release-notes-v16.3.86.js','release-notes-v16.3.87.js',
+  'release-notes-v16.3.79.js','release-notes-v16.3.80.js','release-notes-v16.3.81.js','release-notes-v16.3.82.js','release-notes-v16.3.83.js','release-notes-v16.3.84.js','release-notes-v16.3.85.js','release-notes-v16.3.86.js','release-notes-v16.3.87.js','release-notes-v16.3.88.js',
   'reading-library-integration.js','reading-library-integration.js?v=16.3.60',
   'release-change-ledger.js','patch-notes.js',
   'cloud-sync-status.js','cloud-sync-status.js?v=16.3.73',
@@ -91,7 +92,7 @@ self.addEventListener('install',event=>{
 self.addEventListener('activate',event=>{
   // Preserve recent accepted caches during the v16.3.87 transition so previously
   // cached documents/resources are not discarded while the Career renderer refreshes.
-  const preserved=new Set(['alfred-u-v16-3-80-ceta-authority-20260929','alfred-u-v16-3-81-week3-remediation-20260929','alfred-u-v16-3-82-week3-final-acceptance-20260929','alfred-u-v16-3-83-week3-final-acceptance-context-repair-20260929','alfred-u-v16-3-84-week3-career-teaching-render-repair-20260929','alfred-u-v16-3-85-week2-source-authentic-visuals-20260929','alfred-u-v16-3-86-week2-career-source-authentic-visuals-20260929']);
+  const preserved=new Set(['alfred-u-v16-3-80-ceta-authority-20260929','alfred-u-v16-3-81-week3-remediation-20260929','alfred-u-v16-3-82-week3-final-acceptance-20260929','alfred-u-v16-3-83-week3-final-acceptance-context-repair-20260929','alfred-u-v16-3-84-week3-career-teaching-render-repair-20260929','alfred-u-v16-3-85-week2-source-authentic-visuals-20260929','alfred-u-v16-3-86-week2-career-source-authentic-visuals-20260929','alfred-u-v16-3-87-guided-practice-runtime-repair-20260929']);
   event.waitUntil(
     caches.keys()
       .then(keys=>Promise.all(
@@ -118,6 +119,18 @@ async function decorateNavigationResponse(response,url){
   if(!text.includes('cloud-sync-status.js')){
     if(/<\/body>/i.test(text)) text=text.replace(/<\/body>/i,statusTag+'</body>');
     else text+=statusTag;
+  }
+
+  const week2Assessment88='<script src="week2-career-assessment-runtime-repair-v16.3.88.js?v=16.3.88"></script>';
+  if((url.pathname.endsWith('/quiz.html')||url.pathname.endsWith('/assessments.html')) && !text.includes('week2-career-assessment-runtime-repair-v16.3.88.js')){
+    const trainer76='<script src="week2-trainer-evidence-gate-v16.3.76.js?v=16.3.76"></script>';
+    const trainer76Plain='<script src="week2-trainer-evidence-gate-v16.3.76.js"></script>';
+    const assessment74='<script src="week2-career-assessment-v16.3.74.js?v=16.3.74"></script>';
+    const assessment74Plain='<script src="week2-career-assessment-v16.3.74.js"></script>';
+    if(text.includes(trainer76)) text=insertAfter(text,trainer76,week2Assessment88);
+    else if(text.includes(trainer76Plain)) text=insertAfter(text,trainer76Plain,week2Assessment88);
+    else if(text.includes(assessment74)) text=insertAfter(text,assessment74,week2Assessment88);
+    else if(text.includes(assessment74Plain)) text=insertAfter(text,assessment74Plain,week2Assessment88);
   }
 
   const week2Visual85='<script src="week2-source-visuals-v16.3.85.js?v=16.3.85"></script>';
@@ -239,6 +252,17 @@ async function decorateNavigationResponse(response,url){
     else text=text.replace(statusTag,release87+statusTag);
   }
 
+  if(url.pathname.endsWith('/patch-notes.html') && !text.includes('release-notes-v16.3.88.js')){
+    const release87='<script src="release-notes-v16.3.87.js"></script>';
+    const ledger='<script src="release-change-ledger.js"></script>';
+    const patch='<script src="patch-notes.js"></script>';
+    const release88='<script src="release-notes-v16.3.88.js"></script>';
+    if(text.includes(release87)) text=insertAfter(text,release87,release88);
+    else if(text.includes(ledger)) text=text.replace(ledger,release88+ledger);
+    else if(text.includes(patch)) text=text.replace(patch,release88+patch);
+    else text=text.replace(statusTag,release88+statusTag);
+  }
+
   const headers=new Headers(response.headers);
   headers.delete('content-length');
   headers.delete('content-encoding');
@@ -255,10 +279,10 @@ async function decorateBuildInfo(response){
   if(!response || !response.ok) return response;
   try{
     const data=await response.clone().json();
-    data.runtimePatch='16.3.87';
-    data.build='v16.3.87-guided-practice-runtime-repair-20260929';
-    data.releaseStatus='guided-practice-stage-transition-runtime-repaired';
-    data.releaseNotesRevision='2026-09-29-v16.3.87-guided-practice-runtime-repair';
+    data.runtimePatch='16.3.88';
+    data.build='v16.3.88-week2-assessment-runtime-repair-20260929';
+    data.releaseStatus='week2-balanced-assessment-runtime-repaired';
+    data.releaseNotesRevision='2026-09-29-v16.3.88-week2-assessment-runtime-repair';
     data.week3InstructionalRevision='2026-09-29-v16.3.81-week3-three-gate-remediation';
     data.week3ThreeGateStatus='VERIFIED_PASS';
     data.week3CetaAuthorityRepair=['8.1','8.2'];
@@ -292,7 +316,13 @@ async function decorateBuildInfo(response){
     data.guidedPracticeRuntimeStatus='VERIFIED_RENDERABLE';
     data.guidedPracticeRuntimeHelpers=['practiceSectionPlan','practiceViewRecord'];
     data.stageTransitionSmokeTestRevision='2026-09-29-v16.3.87-destination-render-smoke-test';
-    data.serviceWorkerRevision='2026-09-29-v16.3.87-guided-practice-runtime-repair';
+    data.week2AssessmentRuntimeRepairRevision='2026-09-29-v16.3.88-week2-career-selector-status-repair';
+    data.week2WeeklyMasteryRuntimeStatus='VERIFIED_PASS';
+    data.week2WeeklyMasteryQuestionCount=12;
+    data.week2WeeklyMasteryMix={CETa:6,Career:6};
+    data.week2CareerAssessmentCanonicalReviewStatusCount=6;
+    data.assessmentLaunchSmokeTestRevision='2026-09-29-v16.3.88-week2-selector-launch-smoke-test';
+    data.serviceWorkerRevision='2026-09-29-v16.3.88-week2-assessment-runtime-repair';
     const headers=new Headers(response.headers);
     headers.set('content-type','application/json; charset=utf-8');
     headers.set('cache-control','no-store');
