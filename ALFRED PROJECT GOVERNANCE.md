@@ -5,8 +5,8 @@
 **Audience:** Primarily ChatGPT / future project sessions. Human readability is secondary to completeness and retrieval efficiency.  
 **Update rule:** Every future website update package must include the current version of this exact file, with any new user requirements, reversals, complaints, accepted decisions, or future ideas added before handoff.  
 **Filename:** `ALFRED PROJECT GOVERNANCE.md`  
-**Current governance compilation date:** 2026-09-29  
-**Current site runtime at compilation:** v16.3.88  
+**Current governance compilation date:** 2026-09-30  
+**Current site runtime at compilation:** v16.3.90  
 **Repository:** `numberclaw2/alfred-university`  
 **GitHub Pages:** `https://numberclaw2.github.io/alfred-university/`  
 **Cloud Sync:** protocol 2  
@@ -1109,7 +1109,7 @@ Use this section to prevent old instructions from contaminating current decision
 ## 26.2 Runtime versions
 - v16.3.2 was once frozen runtime baseline
 - many accepted updates superseded it
-- current runtime at this governance compile = v16.3.88
+- current runtime at this governance compile = v16.3.90
 
 ## 26.3 Media minimum model
 - older “20 universal + 7 conditional” Required-media strategy = superseded
@@ -1146,6 +1146,7 @@ Do not:
 - over-audit trivial polish after a clear GO
 - claim deployment without checking deployment
 - assume GitHub upload means live site
+- treat a passing Pages artifact or Node/static harness as proof that the user’s active browser has actually received the new runtime; client service-worker/cache transition behavior is part of deployment correctness
 - hand off files that were not internally tested
 - treat JavaScript syntax success as proof that an interactive stage transition works; destination renderers must actually execute
 - treat an assessment definition’s listed question IDs or declared CETa/Career mix as proof that the assessment can launch; the selector’s eligibility contract (including canonical review status) must be executed
@@ -1209,6 +1210,19 @@ Alfred decision/documentation aids were preserved where they teach reasoning rat
 
 Week 2 is considered visually complete only because **both tracks** passed.
 
+## v16.3.90 — Week 2 assessment runtime acceptance
+
+The Week 2 mastery assessment repair is accepted only after all of the following were true:
+- exact `main` commit and GitHub Pages deployment verified
+- published Pages artifact verified
+- deployed full `quiz.html` script order executed
+- CQ1204–CQ1209 all present and fully eligible as Career mastery questions
+- 10/10 selector attempts assembled **12 total = 6 CETa + 6 Career**
+- Cloud Sync protocol 2 preserved
+- **user's real browser successfully opened Week 2 Practice** on 2026-09-30
+
+Accepted runtime baseline: **v16.3.90 — VERIFIED_PASS, browser-confirmed**.
+
 ---
 
 # 30. MANDATORY PRE-WORK CHECKLIST FOR EVERY FUTURE ALFRED UPDATE
@@ -1261,6 +1275,7 @@ After user upload:
 - [ ] inspect runtime artifact
 - [ ] verify service worker/cache/build-info
 - [ ] verify relevant learner-facing behavior
+- [ ] if the user reports a real browser failure that contradicts artifact/static/harness QA, treat the browser failure as authoritative evidence that acceptance is incomplete; investigate client cache/service-worker/update state rather than freezing the release.
 - [ ] only then freeze/accept
 
 ---
@@ -1330,6 +1345,8 @@ update this file in the same release batch.
 
 Do not create a new governance filename every release. Replace/update the same canonical file.
 
+Governance updates are **cumulative merges**. Never generate a new governance file from an older Library/package snapshot that drops newer accepted rules. Before packaging, diff the candidate governance file against the latest deployed and latest persistent copies; any removed rule must be an explicit user-approved supersession.
+
 Recommended change entry format:
 
 `YYYY-MM-DD | AREA | ADD / MODIFY / SUPERSEDE / DEFER | concise rule`
@@ -1340,8 +1357,13 @@ This keeps Git history as the change log while this file remains the current com
 
 # 32. GOVERNANCE CHANGE LOG
 
+2026-09-30 | WEEK 2 ASSESSMENT RUNTIME | ACCEPT | v16.3.90 accepted only after deployed full-script selector verification and successful user-browser confirmation; 12-question weekly mastery form = 6 CETa + 6 Career.  
+2026-09-30 | GOVERNANCE MERGE INTEGRITY | REPAIR | v16.3.90 governance must preserve all v16.3.89 client-runtime/cache acceptance rules while adding the v16.3.90 full assessment-eligibility and adversarial-hotfix rules; new governance updates are cumulative, not replacements.  
 2026-09-30 | ASSESSMENT ELIGIBILITY CONTRACT | ADD | A repaired question is not considered eligible based on review status alone; validate/reconstruct presence, track, canonical review status, masteryEvidence, minWeek, and containing test definition together.  
 2026-09-30 | HOTFIX ADVERSARIAL QA | ADD | Assessment compatibility repairs must be tested against individually missing/corrupted target items, not only the healthy current artifact.  
+2026-09-30 | CLIENT RUNTIME ACCEPTANCE | ADD | A user-visible browser failure overrides artifact/static/harness PASS; do not freeze until the client service-worker/cache/update path is repaired and reverified.  
+2026-09-30 | ASSESSMENT SOURCE CONTRACT | REPAIR | Week 2 Career mastery questions must carry the canonical active review status at their authoritative source; overlays may provide compatibility but cannot be the sole requirement for assessment launch.  
+2026-09-30 | CACHE TRANSITION QA | ADD | Service-worker releases that alter required runtime code must verify stale-client transition behavior, not only the new artifact in isolation.  
 2026-09-29 | WEEK 2 ASSESSMENT RUNTIME | REPAIR | Restore CQ1204–CQ1209 to the canonical `editorially-reviewed` selector status so the intended 12-question Week 2 mastery form assembles as 6 CETa + 6 Career.  
 2026-09-29 | QA / ASSESSMENT LAUNCH | ADD | Any assessment-bank, review-status, definition, or selector change must execute the affected selector/launch route with real runtime data; IDs/counts/declared mix alone are not acceptance evidence.  
 2026-09-29 | GUIDED PRACTICE RUNTIME | REPAIR | Restore the missing `practiceSectionPlan()` and `practiceViewRecord()` helpers so Continue to Practice renders Stage 5 reliably; derive Practice pages from current CETa + Career lesson data and preserve saved Practice state.  
