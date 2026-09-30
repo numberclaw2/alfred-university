@@ -6,7 +6,7 @@
 **Update rule:** Every future website update package must include the current version of this exact file, with any new user requirements, reversals, complaints, accepted decisions, or future ideas added before handoff.  
 **Filename:** `ALFRED PROJECT GOVERNANCE.md`  
 **Current governance compilation date:** 2026-09-29  
-**Current site runtime at compilation:** v16.3.86  
+**Current site runtime at compilation:** v16.3.87  
 **Repository:** `numberclaw2/alfred-university`  
 **GitHub Pages:** `https://numberclaw2.github.io/alfred-university/`  
 **Cloud Sync:** protocol 2  
@@ -994,6 +994,7 @@ Required post-upload verification where tools allow:
 - runtime load order
 - preserved Cloud Sync protocol
 - relevant internal Node/static harness
+- for any change touching Learn/stage routing, execute the affected stage transition and destination renderer in a runtime smoke harness; syntax-only checks are insufficient
 - browser runtime when environment allows
 
 If graphical browser access is blocked by environment:
@@ -1107,7 +1108,7 @@ Use this section to prevent old instructions from contaminating current decision
 ## 26.2 Runtime versions
 - v16.3.2 was once frozen runtime baseline
 - many accepted updates superseded it
-- current runtime at this governance compile = v16.3.86
+- current runtime at this governance compile = v16.3.87
 
 ## 26.3 Media minimum model
 - older “20 universal + 7 conditional” Required-media strategy = superseded
@@ -1145,6 +1146,7 @@ Do not:
 - claim deployment without checking deployment
 - assume GitHub upload means live site
 - hand off files that were not internally tested
+- treat JavaScript syntax success as proof that an interactive stage transition works; destination renderers must actually execute
 - silently omit Release Notes
 - redesign unrelated UX during a targeted content update
 - make AI/redrawn diagrams when a better real/source-authentic visual exists
@@ -1236,6 +1238,7 @@ Before handoff:
 - [ ] JS syntax checks.
 - [ ] Data/load-order checks.
 - [ ] relevant runtime/static harness.
+- [ ] if Learn/stage routing changed, execute the affected stage transition and destination renderer (not only syntax-check it).
 - [ ] regression check.
 - [ ] build-info/service-worker revision.
 - [ ] Cloud Sync protocol preserved.
@@ -1332,6 +1335,8 @@ This keeps Git history as the change log while this file remains the current com
 
 # 32. GOVERNANCE CHANGE LOG
 
+2026-09-29 | GUIDED PRACTICE RUNTIME | REPAIR | Restore the missing `practiceSectionPlan()` and `practiceViewRecord()` helpers so Continue to Practice renders Stage 5 reliably; derive Practice pages from current CETa + Career lesson data and preserve saved Practice state.  
+2026-09-29 | QA / STAGE TRANSITIONS | ADD | Any release touching Learn/stage routing must execute the affected transition and destination renderer in a runtime smoke test; syntax-only JavaScript checks are insufficient.  
 2026-09-29 | GOVERNANCE INVOCATION | ADD | Every Alfred-related request must begin by reading the current governance file before analysis or action.  
 2026-09-29 | PROACTIVE MEMORY CAPTURE | ADD | Assistant owns responsibility for identifying governance-worthy user statements and updating the file without waiting to be prompted.  
 2026-09-29 | MEMORY EXPECTATION | CLARIFY | User does not require perfect recall of every past conversation; durable project requirements should be captured in governance when recognized.  

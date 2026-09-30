@@ -725,6 +725,64 @@
     return `<div class="classroom-stage-head"><div><span class="stage-count">Stage 4 of ${STAGES.length} · Required Path</span><h2>Use the smallest outside resource that adds something Alfred cannot</h2><p>${totalRequired} universal Required item${totalRequired===1?'':'s'}${conditionalCount?` · ${conditionalCount} route-specific source${conditionalCount===1?'':'s'}`:''}. Study Guide readings are bounded to exact printed pages and share the same assignment across lessons, Teaching Media, Study, and remediation.</p></div>${trackBadge('CETa + Career')}</div><div class="media-policy"><strong>Classroom = Required Path only.</strong><p>Finish the Required Study Guide and universal media, plus any route-specific card that actually matches your route. Study/Reference items in the Weekly Resource Map are not additional obligations.</p></div>${checklist}${guideCards?`<section class="required-study-guide-path"><div class="lesson-resource-group-heading"><strong>Required CETa Study Guide</strong><span>${guideRequired.length} bounded assignment${guideRequired.length===1?'':'s'}</span></div>${guideCards}</section>`:''}${cards?`<div class="teaching-media-list">${cards}</div>`:''}${resourceMap}<section class="media-reflection"><label for="media-connection"><strong>One-sentence connection</strong><span>What did the Required source or reading make clearer, demonstrate, or document?</span></label><textarea id="media-connection" rows="3" maxlength="1200" placeholder="Example: The Study Guide figure gave me another way to see the same relationship Alfred taught.">${esc(learningState().l.responses?.media||'')}</textarea><p class="small-note">Opening a Study Guide page does not count as mastery. Practice, application, and weekly mastery provide the evidence.</p><button class="button green" id="complete-media" type="button">${stageComplete('media')?'✓ Required path complete':`Confirm Required path complete (${totalRequired} universal${conditionalCount?` + ${conditionalCount} route-specific if applicable`:''})`}</button></section>`;
   }
 
+  // v16.3.87 — Guided Practice runtime repair.
+  // v16.3.52 introduced paginated Guided Practice, but its two state-model helpers
+  // were omitted from the shipped learner runtime. Keep the plan derived from the
+  // two current lesson records so every week uses its actual worked, guided, and
+  // independent practice content without duplicating curriculum data here.
+  function practiceSectionPlan(){
+    const lessons=Array.isArray(moduleData?.lessons)?moduleData.lessons.slice(0,2):[];
+    const plan=[];
+    const trackName=(lesson,index)=>String(lesson?.track||(index===0?'CETa':'Career'));
+    const lessonTitle=lesson=>String(lesson?.title||'lesson');
+    const joined=(items,mapper)=>items.map(mapper).filter(Boolean).join(' ');
+
+    lessons.forEach((lesson,index)=>{
+      const d=lesson?.integrated||{},examples=Array.isArray(d.workedExamples)?d.workedExamples.filter(Boolean):[];
+      if(!examples.length)return;
+      const track=trackName(lesson,index);
+      plan.push({
+        id:`lesson-${index}-worked-review`,kind:'review',kicker:`${track} · Worked-example review`,
+        label:`${track} worked-example review`,
+        text:`Reconstruct the reasoning from ${lessonTitle(lesson)} before looking back. ${joined(examples,(x,i)=>`${i+1}) ${x?.problem||x?.known||x?.reasoning||x?.answer||'Rebuild the example from its givens and governing relationship.'}`)}`
+      });
+    });
+
+    lessons.forEach((lesson,index)=>{
+      const d=lesson?.integrated||{},items=Array.isArray(d.guidedPractice)?d.guidedPractice.filter(Boolean):[];
+      if(!items.length)return;
+      const track=trackName(lesson,index);
+      plan.push({
+        id:`lesson-${index}-guided`,kind:'guided',kicker:`${track} · Guided practice`,
+        label:`${track} guided tasks`,
+        text:joined(items,(x,i)=>`${i+1}) ${x}`)
+      });
+    });
+
+    lessons.forEach((lesson,index)=>{
+      const d=lesson?.integrated||{},scenario=String(d.independentScenario||'').trim();
+      if(!scenario)return;
+      const track=trackName(lesson,index);
+      plan.push({
+        id:`lesson-${index}-independent`,kind:'independent',kicker:`${track} · Independent transfer`,
+        label:`${track} independent transfer`,text:scenario
+      });
+    });
+
+    const checkpoint=String(moduleData?.integration?.practiceCheck||moduleData?.integration?.independent||'Explain the most important prediction, measurement, or decision from this week without reopening the lesson.').trim();
+    plan.push({id:'oral-checkpoint',kind:'checkpoint',kicker:'Retrieval checkpoint',label:'Oral checkpoint & finish',text:checkpoint});
+    return plan;
+  }
+
+  function practiceViewRecord(plan){
+    const safePlan=Array.isArray(plan)&&plan.length?plan:practiceSectionPlan();
+    const total=Math.max(1,safePlan.length),raw=learningState().l.practiceNavigation||{};
+    let current=Number(raw.current);
+    if(!Number.isFinite(current))current=0;
+    current=Math.max(0,Math.min(total-1,Math.round(current)));
+    return {current,total,section:safePlan[current]||safePlan[0]};
+  }
+
   function renderPracticeNavigator(plan,state){
     const options=plan.map((section,i)=>`<option value="${i}"${i===state.current?' selected':''}>${i+1}. ${esc(section.label)}</option>`).join('');
     return `<nav class="practice-page-navigator" aria-label="Guided practice page navigation"><div class="practice-page-count"><span>Page</span><strong>${state.current+1}</strong><span>of ${state.total}</span></div><div class="practice-page-arrows"><button class="button outline-green" type="button" data-practice-page-prev ${state.current===0?'disabled':''} aria-label="Previous practice page">←</button><button class="button outline-green" type="button" data-practice-page-next ${state.current===state.total-1?'disabled':''} aria-label="Next practice page">→</button></div><label class="practice-page-select"><span>Select section</span><select data-practice-page-select aria-label="Select guided practice section">${options}</select></label><div class="practice-page-number"><label for="practice-page-number">Go to page</label><div><input id="practice-page-number" data-practice-page-input type="number" inputmode="numeric" min="1" max="${state.total}" value="${state.current+1}" aria-label="Guided practice page number"><button class="button outline-green" type="button" data-practice-page-go>Go</button></div></div><p>All Guided Practice pages are available once you reach this stage. Jumping between them never erases your written response or completion status.</p></nav>`;

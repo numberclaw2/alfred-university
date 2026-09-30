@@ -1,10 +1,10 @@
 {
   "courseRelease": "16.3",
-  "runtimePatch": "16.3.86",
+  "runtimePatch": "16.3.87",
   "evidenceRevision": "16.2",
   "cloudSyncProtocol": 2,
-  "build": "v16.3.86-week2-career-source-authentic-visuals-20260929",
-  "releaseStatus": "week2-career-source-authentic-visuals-verified",
+  "build": "v16.3.87-guided-practice-runtime-repair-20260929",
+  "releaseStatus": "guided-practice-stage-transition-runtime-repaired",
   "presentationPatch": "sitewide-text-readability-overlay",
   "scheduleRevision": "2026-09-20-current-classroom-stage-and-workload-sync",
   "modulePresentationRevision": "2026-09-18-week1-from-zero-visual-teaching",
@@ -16,10 +16,10 @@
   "week1InstructionRevision": "2026-09-19-beginner-first-safety-scaffolding",
   "week1TeachingMediaRevision": "2026-09-18-beginner-teacher-youtube-layer",
   "teachingMediaBaseRevision": "2026-09-18-final-pots-31-week-standalone-accepted",
-  "releaseNotesRevision": "2026-09-29-v16.3.86-week2-career-source-authentic-visuals",
+  "releaseNotesRevision": "2026-09-29-v16.3.87-guided-practice-runtime-repair",
   "repositoryLedgerBaseline": "2026-09-18-v16.3.9-63-commits",
   "studyRevision": "2026-09-26-v16.3.66-ahead-of-calendar-reached-week-support",
-  "practiceRevision": "2026-09-22-guided-practice-paginated-direct-navigation",
+  "practiceRevision": "2026-09-29-v16.3.87-guided-practice-state-model-runtime-repair",
   "weekOverviewRevision": "2026-09-18-retired-compatibility-route",
   "engineeringPageRevision": "2026-09-18-retired-compatibility-route",
   "knowledgeBaseRevision": "2026-09-18-retired-search-concept-reference-owner",
@@ -162,7 +162,7 @@
     "Study Media"
   ],
   "contentPlacementBlueprintRevision": "2026-09-23-31-week-491-live-section-semantic-repaired",
-  "serviceWorkerRevision": "2026-09-29-v16.3.80-ceta-authority-cache-refresh",
+  "serviceWorkerRevision": "2026-09-29-v16.3.87-guided-practice-runtime-repair",
   "serviceWorkerInstallIntegrityVerdict": "PASS",
   "mediaConsumptionRevision": "2026-09-23-v16.3.57-canonical-source-identity-with-legacy-alias-compatibility",
   "teachingMediaSemanticIntegrityRevision": "2026-09-23-v16.3.58-semantic-media-integrity-final",
@@ -414,5 +414,11 @@
   "week2CareerSourceAuthenticPageCount": 5,
   "week2CareerSourceAuthenticImageCount": 6,
   "week2CareerPublicDomainImageCount": 6,
-  "week2CareerAlfredReasoningAidsPreserved": 2
+  "week2CareerAlfredReasoningAidsPreserved": 2,
+  "guidedPracticeRuntimeStatus": "VERIFIED_RENDERABLE",
+  "guidedPracticeRuntimeHelpers": [
+    "practiceSectionPlan",
+    "practiceViewRecord"
+  ],
+  "stageTransitionSmokeTestRevision": "2026-09-29-v16.3.87-destination-render-smoke-test"
 }
