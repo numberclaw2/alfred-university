@@ -1,10 +1,10 @@
 {
   "courseRelease": "16.3",
-  "runtimePatch": "16.3.88",
+  "runtimePatch": "16.3.89",
   "evidenceRevision": "16.2",
   "cloudSyncProtocol": 2,
-  "build": "v16.3.88-week2-assessment-runtime-repair-20260929",
-  "releaseStatus": "week2-balanced-assessment-runtime-repaired",
+  "build": "v16.3.89-browser-assessment-cache-repair-20260930",
+  "releaseStatus": "browser-assessment-cache-path-repaired",
   "presentationPatch": "sitewide-text-readability-overlay",
   "scheduleRevision": "2026-09-20-current-classroom-stage-and-workload-sync",
   "modulePresentationRevision": "2026-09-18-week1-from-zero-visual-teaching",
@@ -16,7 +16,7 @@
   "week1InstructionRevision": "2026-09-19-beginner-first-safety-scaffolding",
   "week1TeachingMediaRevision": "2026-09-18-beginner-teacher-youtube-layer",
   "teachingMediaBaseRevision": "2026-09-18-final-pots-31-week-standalone-accepted",
-  "releaseNotesRevision": "2026-09-29-v16.3.88-week2-assessment-runtime-repair",
+  "releaseNotesRevision": "2026-09-30-v16.3.89-browser-assessment-cache-repair",
   "repositoryLedgerBaseline": "2026-09-18-v16.3.9-63-commits",
   "studyRevision": "2026-09-26-v16.3.66-ahead-of-calendar-reached-week-support",
   "practiceRevision": "2026-09-29-v16.3.87-guided-practice-state-model-runtime-repair",
@@ -162,7 +162,7 @@
     "Study Media"
   ],
   "contentPlacementBlueprintRevision": "2026-09-23-31-week-491-live-section-semantic-repaired",
-  "serviceWorkerRevision": "2026-09-29-v16.3.88-week2-assessment-runtime-repair",
+  "serviceWorkerRevision": "2026-09-30-v16.3.89-browser-assessment-cache-repair",
   "serviceWorkerInstallIntegrityVerdict": "PASS",
   "mediaConsumptionRevision": "2026-09-23-v16.3.57-canonical-source-identity-with-legacy-alias-compatibility",
   "teachingMediaSemanticIntegrityRevision": "2026-09-23-v16.3.58-semantic-media-integrity-final",
@@ -429,5 +429,8 @@
     "Career": 6
   },
   "week2CareerAssessmentCanonicalReviewStatusCount": 6,
-  "assessmentLaunchSmokeTestRevision": "2026-09-29-v16.3.88-week2-selector-launch-smoke-test"
+  "assessmentLaunchSmokeTestRevision": "2026-09-29-v16.3.88-week2-selector-launch-smoke-test",
+  "assessmentBrowserRecoveryRevision": "2026-09-30-v16.3.89-cache-path-and-source-contract-repair",
+  "assessmentSourceContractStatus": "CANONICAL_AT_SOURCE",
+  "staleAssessmentCachePolicy": "DELETE_OLD_ALFRED_CACHES_AND_RELOAD_NETWORK"
 }

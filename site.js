@@ -907,6 +907,17 @@
   }
 
   if('serviceWorker' in navigator && location.protocol.startsWith('http')){
+    const assessmentHotfixPage=/\/(?:quiz|assessments)\.html$/i.test(location.pathname);
+    const assessmentHotfixReloadKey='alfred-v16.3.89-assessment-controller-reload';
+    if(assessmentHotfixPage){
+      navigator.serviceWorker.addEventListener('controllerchange',()=>{
+        try{
+          if(sessionStorage.getItem(assessmentHotfixReloadKey)==='1')return;
+          sessionStorage.setItem(assessmentHotfixReloadKey,'1');
+        }catch{}
+        location.reload();
+      },{once:true});
+    }
     navigator.serviceWorker
       .register('service-worker.js',{updateViaCache:'none'})
       .then(registration=>registration.update())

@@ -6,7 +6,7 @@
 **Update rule:** Every future website update package must include the current version of this exact file, with any new user requirements, reversals, complaints, accepted decisions, or future ideas added before handoff.  
 **Filename:** `ALFRED PROJECT GOVERNANCE.md`  
 **Current governance compilation date:** 2026-09-29  
-**Current site runtime at compilation:** v16.3.88  
+**Current site runtime at compilation:** v16.3.89  
 **Repository:** `numberclaw2/alfred-university`  
 **GitHub Pages:** `https://numberclaw2.github.io/alfred-university/`  
 **Cloud Sync:** protocol 2  
@@ -1109,7 +1109,7 @@ Use this section to prevent old instructions from contaminating current decision
 ## 26.2 Runtime versions
 - v16.3.2 was once frozen runtime baseline
 - many accepted updates superseded it
-- current runtime at this governance compile = v16.3.88
+- current runtime at this governance compile = v16.3.89
 
 ## 26.3 Media minimum model
 - older “20 universal + 7 conditional” Required-media strategy = superseded
@@ -1146,6 +1146,7 @@ Do not:
 - over-audit trivial polish after a clear GO
 - claim deployment without checking deployment
 - assume GitHub upload means live site
+- treat a passing Pages artifact or Node/static harness as proof that the user’s active browser has actually received the new runtime; client service-worker/cache transition behavior is part of deployment correctness
 - hand off files that were not internally tested
 - treat JavaScript syntax success as proof that an interactive stage transition works; destination renderers must actually execute
 - treat an assessment definition’s listed question IDs or declared CETa/Career mix as proof that the assessment can launch; the selector’s eligibility contract (including canonical review status) must be executed
@@ -1259,6 +1260,7 @@ After user upload:
 - [ ] inspect runtime artifact
 - [ ] verify service worker/cache/build-info
 - [ ] verify relevant learner-facing behavior
+- [ ] if the user reports a real browser failure that contradicts artifact/static/harness QA, treat the browser failure as authoritative evidence that acceptance is incomplete; investigate client cache/service-worker/update state rather than freezing the release.
 - [ ] only then freeze/accept
 
 ---
@@ -1338,6 +1340,9 @@ This keeps Git history as the change log while this file remains the current com
 
 # 32. GOVERNANCE CHANGE LOG
 
+2026-09-30 | CLIENT RUNTIME ACCEPTANCE | ADD | A user-visible browser failure overrides artifact/static/harness PASS; do not freeze until the client service-worker/cache/update path is repaired and reverified.  
+2026-09-30 | ASSESSMENT SOURCE CONTRACT | REPAIR | Week 2 Career mastery questions must carry the canonical active review status at their authoritative source; overlays may provide compatibility but cannot be the sole requirement for assessment launch.  
+2026-09-30 | CACHE TRANSITION QA | ADD | Service-worker releases that alter required runtime code must verify stale-client transition behavior, not only the new artifact in isolation.  
 2026-09-29 | WEEK 2 ASSESSMENT RUNTIME | REPAIR | Restore CQ1204–CQ1209 to the canonical `editorially-reviewed` selector status so the intended 12-question Week 2 mastery form assembles as 6 CETa + 6 Career.  
 2026-09-29 | QA / ASSESSMENT LAUNCH | ADD | Any assessment-bank, review-status, definition, or selector change must execute the affected selector/launch route with real runtime data; IDs/counts/declared mix alone are not acceptance evidence.  
 2026-09-29 | GUIDED PRACTICE RUNTIME | REPAIR | Restore the missing `practiceSectionPlan()` and `practiceViewRecord()` helpers so Continue to Practice renders Stage 5 reliably; derive Practice pages from current CETa + Career lesson data and preserve saved Practice state.  

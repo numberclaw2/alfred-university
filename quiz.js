@@ -18,8 +18,32 @@ function priorAssessment(){const p=normalize(load());if(type==='lesson')return p
 const prior=priorAssessment();
 const attemptNo=Math.max(Number(prior.attemptCount||0),...(prior.attempts||[]).map(x=>Number(x.form||0)),(prior.attempts||[]).length)+1;
 function evidenceQuestion(q){return q?.masteryEvidence!==false&&q?.difficulty!=='Orientation'}
+function repairKnownWeek2CareerSelectorStatus(){
+  const ids=new Set(['CQ1204','CQ1205','CQ1206','CQ1207','CQ1208','CQ1209']);
+  if(Number(A?.week)!==2 && String(A?.id)!=='2' && !((A?.questionIds||[]).some(id=>ids.has(id)))) return 0;
+  let repaired=0;
+  for(const q of (D.questions||[])){
+    if(!ids.has(q.id))continue;
+    q.audit=q.audit||{};
+    if(q.audit.status!=='editorially-reviewed'){
+      q.audit.previousStatus=q.audit.status||q.audit.previousStatus||'';
+      q.audit.status='editorially-reviewed';
+      repaired++;
+    }
+    q.audit.reviewRevision='2026-09-30-v16.3.89-quiz-defensive-selector-repair';
+  }
+  return repaired;
+}
+const week2SelectorRepairCount=repairKnownWeek2CareerSelectorStatus();
 let questions=[];
-try{questions=window.AlfredAssessmentEngine.select(D,A,attemptNo)}catch(error){document.querySelector('main').innerHTML='<section class="section shell"><h1>Practice could not load</h1><p>The release files may be incomplete. Refresh after uploading the complete v16.3 release.</p><a href="assessments.html">Return to assessments</a></section>';return}
+try{
+  questions=window.AlfredAssessmentEngine.select(D,A,attemptNo);
+}catch(error){
+  console.error('Alfred assessment selector failed', {type,id,week:A?.week,attemptNo,error,week2SelectorRepairCount});
+  const reason=error?.message?String(error.message):'Unknown selector error';
+  document.querySelector('main').innerHTML=`<section class="section shell"><h1>Practice could not load</h1><p>The assessment runtime could not assemble this form.</p><p><strong>Diagnostic:</strong> ${esc(reason)}</p><p><strong>Runtime repair:</strong> v16.3.89 · Week 2 repair count ${week2SelectorRepairCount}</p><a href="assessments.html">Return to assessments</a></section>`;
+  return;
+}
 const answers={};let started=Date.now(),submitted=false;
 const actualMix={CETa:questions.filter(q=>q.track==='CETa').length,Career:questions.filter(q=>q.track==='Career').length};
 const shortForm=questions.length<A.count;
