@@ -1,4 +1,4 @@
-const CACHE='alfred-u-v16-3-85-week2-source-authentic-visuals-20260929';
+const CACHE='alfred-u-v16-3-86-week2-career-source-authentic-visuals-20260929';
 
 const CORE=[
   './',
@@ -20,7 +20,7 @@ const CORE=[
   'parking-sync.js','parking-sync.js?v=16.3.43',
   'learn-parking.js','learn-parking.js?v=16.3.44',
   'vocabulary-study.js','practice.js',
-  'learn.js','learn.js?v=16.3.68','learn.js?v=16.3.74','learn.js?v=16.3.75','learn.js?v=16.3.76','learn.js?v=16.3.84',
+  'learn.js','learn.js?v=16.3.68','learn.js?v=16.3.74','learn.js?v=16.3.75','learn.js?v=16.3.76','learn.js?v=16.3.84','learn.js?v=16.3.86',
   'glossary-data.js','glossary-data.js?v=16.3.29','glossary.js','glossary.js?v=16.3.38',
   'curriculum-data.js','course-data.js','academic-content.js','practical-completion.js','academic.js','academic.js?v=16.3.50',
   'assessment-data.js','assessment-completion.js','semantic-repair.js','week1-instructional-depth.js',
@@ -46,6 +46,7 @@ const CORE=[
   'week2-final-career-ux-v16.3.75.js','week2-final-career-ux-v16.3.75.js?v=16.3.75',
   'week2-trainer-evidence-gate-v16.3.76.js','week2-trainer-evidence-gate-v16.3.76.js?v=16.3.76',
   'week2-source-visuals-v16.3.85.js','week2-source-visuals-v16.3.85.js?v=16.3.85',
+  'week2-career-source-visuals-v16.3.86.js','week2-career-source-visuals-v16.3.86.js?v=16.3.86',
   'week2-career-assessment-v16.3.74.js','week2-career-assessment-v16.3.74.js?v=16.3.74',
   'ceta-study-guide-private.js','ceta-study-guide-private.js?v=16.3.65',
   'media-consumption.js','media-consumption.js?v=16.3.57',
@@ -63,7 +64,7 @@ const CORE=[
   'release-notes-v16.3.70.js','release-notes-v16.3.71.js','release-notes-v16.3.72.js',
   'release-notes-v16.3.73.js','release-notes-v16.3.74.js','release-notes-v16.3.75.js',
   'release-notes-v16.3.76.js','release-notes-v16.3.77.js','release-notes-v16.3.78.js',
-  'release-notes-v16.3.79.js','release-notes-v16.3.80.js','release-notes-v16.3.81.js','release-notes-v16.3.82.js','release-notes-v16.3.83.js','release-notes-v16.3.84.js','release-notes-v16.3.85.js',
+  'release-notes-v16.3.79.js','release-notes-v16.3.80.js','release-notes-v16.3.81.js','release-notes-v16.3.82.js','release-notes-v16.3.83.js','release-notes-v16.3.84.js','release-notes-v16.3.85.js','release-notes-v16.3.86.js',
   'reading-library-integration.js','reading-library-integration.js?v=16.3.60',
   'release-change-ledger.js','patch-notes.js',
   'cloud-sync-status.js','cloud-sync-status.js?v=16.3.73',
@@ -88,9 +89,9 @@ self.addEventListener('install',event=>{
 });
 
 self.addEventListener('activate',event=>{
-  // Preserve the recent accepted caches during the v16.3.84 transition so previously
+  // Preserve recent accepted caches during the v16.3.86 transition so previously
   // cached documents/resources are not discarded while the Career renderer refreshes.
-  const preserved=new Set(['alfred-u-v16-3-80-ceta-authority-20260929','alfred-u-v16-3-81-week3-remediation-20260929','alfred-u-v16-3-82-week3-final-acceptance-20260929','alfred-u-v16-3-83-week3-final-acceptance-context-repair-20260929','alfred-u-v16-3-84-week3-career-teaching-render-repair-20260929']);
+  const preserved=new Set(['alfred-u-v16-3-80-ceta-authority-20260929','alfred-u-v16-3-81-week3-remediation-20260929','alfred-u-v16-3-82-week3-final-acceptance-20260929','alfred-u-v16-3-83-week3-final-acceptance-context-repair-20260929','alfred-u-v16-3-84-week3-career-teaching-render-repair-20260929','alfred-u-v16-3-85-week2-source-authentic-visuals-20260929']);
   event.waitUntil(
     caches.keys()
       .then(keys=>Promise.all(
@@ -110,7 +111,7 @@ async function decorateNavigationResponse(response,url){
   if(!type.includes('text/html')) return response;
 
   let text=await response.text();
-  text=text.replace(/learn\.js\?v=16\.3\.(?:68|74|75|76)/g,'learn.js?v=16.3.84');
+  text=text.replace(/learn\.js\?v=16\.3\.(?:68|74|75|76|84)/g,'learn.js?v=16.3.86');
   text=text.replace(/styles\.css\?v=16\.3\.(?:67|74|75)/g,'styles.css?v=16.3.84');
 
   const statusTag='<script src="cloud-sync-status.js?v=16.3.73"></script>';
@@ -125,6 +126,14 @@ async function decorateNavigationResponse(response,url){
     const week2TrainerPlain='<script src="week2-trainer-evidence-gate-v16.3.76.js"></script>';
     if(text.includes(week2Trainer)) text=insertAfter(text,week2Trainer,week2Visual85);
     else if(text.includes(week2TrainerPlain)) text=insertAfter(text,week2TrainerPlain,week2Visual85);
+  }
+
+  const week2CareerVisual86='<script src="week2-career-source-visuals-v16.3.86.js?v=16.3.86"></script>';
+  if(url.pathname.endsWith('/learn.html') && !text.includes('week2-career-source-visuals-v16.3.86.js')){
+    const week2Visual85Versioned='<script src="week2-source-visuals-v16.3.85.js?v=16.3.85"></script>';
+    const week2Visual85Plain='<script src="week2-source-visuals-v16.3.85.js"></script>';
+    if(text.includes(week2Visual85Versioned)) text=insertAfter(text,week2Visual85Versioned,week2CareerVisual86);
+    else if(text.includes(week2Visual85Plain)) text=insertAfter(text,week2Visual85Plain,week2CareerVisual86);
   }
 
   const overlayTag='<script src="week3-remediation-v16.3.81.js?v=16.3.81"></script>';
@@ -208,6 +217,17 @@ async function decorateNavigationResponse(response,url){
     else text=text.replace(statusTag,release85+statusTag);
   }
 
+  if(url.pathname.endsWith('/patch-notes.html') && !text.includes('release-notes-v16.3.86.js')){
+    const release85='<script src="release-notes-v16.3.85.js"></script>';
+    const ledger='<script src="release-change-ledger.js"></script>';
+    const patch='<script src="patch-notes.js"></script>';
+    const release86='<script src="release-notes-v16.3.86.js"></script>';
+    if(text.includes(release85)) text=insertAfter(text,release85,release86);
+    else if(text.includes(ledger)) text=text.replace(ledger,release86+ledger);
+    else if(text.includes(patch)) text=text.replace(patch,release86+patch);
+    else text=text.replace(statusTag,release86+statusTag);
+  }
+
   const headers=new Headers(response.headers);
   headers.delete('content-length');
   headers.delete('content-encoding');
@@ -224,10 +244,10 @@ async function decorateBuildInfo(response){
   if(!response || !response.ok) return response;
   try{
     const data=await response.clone().json();
-    data.runtimePatch='16.3.85';
-    data.build='v16.3.85-week2-source-authentic-visuals-20260929';
-    data.releaseStatus='week2-source-authentic-visuals-verified';
-    data.releaseNotesRevision='2026-09-29-v16.3.85-week2-source-authentic-visuals';
+    data.runtimePatch='16.3.86';
+    data.build='v16.3.86-week2-career-source-authentic-visuals-20260929';
+    data.releaseStatus='week2-career-source-authentic-visuals-verified';
+    data.releaseNotesRevision='2026-09-29-v16.3.86-week2-career-source-authentic-visuals';
     data.week3InstructionalRevision='2026-09-29-v16.3.81-week3-three-gate-remediation';
     data.week3ThreeGateStatus='VERIFIED_PASS';
     data.week3CetaAuthorityRepair=['8.1','8.2'];
@@ -244,6 +264,12 @@ async function decorateBuildInfo(response){
     data.week2SourceAuthenticConceptVisualCount=7;
     data.week2PublicDomainVisualItemCount=7;
     data.week2CC0VisualItemCount=1;
+    data.week2CareerVisualRevision='2026-09-29-v16.3.86-week2-career-source-authentic-visuals';
+    data.week2CareerVisualStatus='SOURCE_AUTHENTIC_PASS';
+    data.week2CareerSourceAuthenticPageCount=5;
+    data.week2CareerSourceAuthenticImageCount=6;
+    data.week2CareerPublicDomainImageCount=6;
+    data.week2CareerAlfredReasoningAidsPreserved=2;
     data.visualSourcePolicyRevision='2026-09-29-source-authentic-first-public-domain-preferred';
     data.cetaVerifiedActiveRouteCount=221;
     data.cetaRouteRehomeRequiredCount=41;
@@ -251,7 +277,7 @@ async function decorateBuildInfo(response){
     data.careerVerifiedPassWeeks=[2,3];
     data.careerP0RemediationWeeks=[4,12,29];
     data.week3SpecialtyInstrumentRehome='C3.8 removed from unsupported Week 6 claim; Week 20 remains a future remediation target.';
-    data.serviceWorkerRevision='2026-09-29-v16.3.85-week2-source-authentic-visuals';
+    data.serviceWorkerRevision='2026-09-29-v16.3.86-week2-career-source-authentic-visuals';
     const headers=new Headers(response.headers);
     headers.set('content-type','application/json; charset=utf-8');
     headers.set('cache-control','no-store');

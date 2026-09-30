@@ -504,6 +504,9 @@
     if(!received&&!passes&&!h.rule)return '';
     return `<section class="track-handoff-card"><div class="track-handoff-title"><span>${esc(h.label||'CETa ↔ Career handoff')}</span><strong>Know what is already taught and what changes when you perform the job skill</strong></div><div class="track-handoff-grid"><article><span>Received from CETa</span><p>${esc(received||'No additional CETa prerequisite is claimed on this page.')}</p></article><article><span>Career performance target</span><p>${esc(passes||'Apply the taught concept in an observable technician task.')}</p></article></div>${h.rule?`<aside class="career-handoff-rule"><strong>Handoff rule</strong><p>${esc(h.rule)}</p></aside>`:''}</section>`;
   }
+  function renderCareerSourceVisual(section){
+    return renderSourceFigure(section?.careerSourceVisual);
+  }
   function renderCareerPageDemo(section){
     const d=section?.careerDemo;
     if(!d)return '';
@@ -537,7 +540,7 @@
     if(t.type==='hypothesis')return renderHypothesisTrainer(section,t);
     return '';
   }
-  function renderSectionEnhancements(section){return `${renderCareerTask(section)}${renderTrackHandoff(section)}${renderCareerPageDemo(section)}${renderCareerInteractive(section)}${renderCareerPagePractice(section)}${renderCareerEvidence(section)}`;}
+  function renderSectionEnhancements(section){return `${renderCareerTask(section)}${renderTrackHandoff(section)}${renderCareerSourceVisual(section)}${renderCareerPageDemo(section)}${renderCareerInteractive(section)}${renderCareerPagePractice(section)}${renderCareerEvidence(section)}`;}
   function masteryReviewReturn(index,segmentId){
     if(params.get('from')!=='mastery')return '';
     if(Number(params.get('lesson'))!==Number(index)||String(params.get('section')||'')!==String(segmentId||''))return '';

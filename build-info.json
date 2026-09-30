@@ -1,10 +1,10 @@
 {
   "courseRelease": "16.3",
-  "runtimePatch": "16.3.85",
+  "runtimePatch": "16.3.86",
   "evidenceRevision": "16.2",
   "cloudSyncProtocol": 2,
-  "build": "v16.3.85-week2-source-authentic-visuals-20260929",
-  "releaseStatus": "week2-source-authentic-visuals-verified",
+  "build": "v16.3.86-week2-career-source-authentic-visuals-20260929",
+  "releaseStatus": "week2-career-source-authentic-visuals-verified",
   "presentationPatch": "sitewide-text-readability-overlay",
   "scheduleRevision": "2026-09-20-current-classroom-stage-and-workload-sync",
   "modulePresentationRevision": "2026-09-18-week1-from-zero-visual-teaching",
@@ -16,7 +16,7 @@
   "week1InstructionRevision": "2026-09-19-beginner-first-safety-scaffolding",
   "week1TeachingMediaRevision": "2026-09-18-beginner-teacher-youtube-layer",
   "teachingMediaBaseRevision": "2026-09-18-final-pots-31-week-standalone-accepted",
-  "releaseNotesRevision": "2026-09-29-v16.3.85-week2-source-authentic-visuals",
+  "releaseNotesRevision": "2026-09-29-v16.3.86-week2-career-source-authentic-visuals",
   "repositoryLedgerBaseline": "2026-09-18-v16.3.9-63-commits",
   "studyRevision": "2026-09-26-v16.3.66-ahead-of-calendar-reached-week-support",
   "practiceRevision": "2026-09-22-guided-practice-paginated-direct-navigation",
@@ -408,5 +408,11 @@
   "week2SourceAuthenticConceptVisualCount": 7,
   "week2PublicDomainVisualItemCount": 7,
   "week2CC0VisualItemCount": 1,
-  "visualSourcePolicy": "source-authentic first; public domain/CC0 preferred; licensing and technical verification checked separately; Alfred visuals only for course-specific workflow or last resort"
+  "visualSourcePolicy": "source-authentic first; public domain/CC0 preferred; licensing and technical verification checked separately; Alfred visuals only for course-specific workflow or last resort",
+  "week2CareerVisualRevision": "2026-09-29-v16.3.86-week2-career-source-authentic-visuals",
+  "week2CareerVisualStatus": "SOURCE_AUTHENTIC_PASS",
+  "week2CareerSourceAuthenticPageCount": 5,
+  "week2CareerSourceAuthenticImageCount": 6,
+  "week2CareerPublicDomainImageCount": 6,
+  "week2CareerAlfredReasoningAidsPreserved": 2
 }

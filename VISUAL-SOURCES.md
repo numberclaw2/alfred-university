@@ -84,3 +84,25 @@ Alfred-created process aids must be labeled as **Alfred reasoning aid / Alfred d
 
 The Week 2 Career decision matrix and repair-record table remain because they are **Alfred-specific reasoning/documentation structures**, not attempts to recreate a physical circuit or instrument. v16.3.85 labels them accordingly.
 
+---
+
+## v16.3.86 — Week 2 Career source-authentic visual set
+
+Week 2 Career now uses real/source-authentic occupational and equipment imagery in addition to its Alfred-specific reasoning aids.
+
+The photographs are **context evidence**, not a claim that the learner has personally demonstrated hands-on proficiency. Physical proficiency still requires the course's separate real-equipment/evidence route.
+
+| Career page | Source-authentic visual | Reuse status | Technical interpretation / why it belongs |
+|---|---|---|---|
+| Predict before measuring | U.S. Navy aviation electronics technician troubleshooting communications hardware with a multimeter | Public domain — U.S. Navy | MIT PCB debugging + Fluke DC-voltage guidance: define the expected condition/test point and use the meter reading to make a decision |
+| Fault signatures | Real solderless-breadboard circuit | Public domain — copyright holder dedication | MIT PCB debugging + Fluke resistance guidance: physical layout can obscure topology; reversible faults should be predicted before testing |
+| Last-good / first-bad | U.S. Navy electronics technician testing circuit-board connectivity | Public domain — U.S. Navy | MIT PCB debugging/test-point instruction: purposeful sequential checks reduce the suspect region |
+| Discriminating measurement | U.S. Navy aviation electronics technician testing resistors on a circuit card | Public domain — U.S. Navy | Fluke resistance + DC-voltage guidance: powered voltage and unpowered resistance/continuity answer different hypotheses |
+| Change one / verify | U.S. Navy component-level board repair + U.S. Navy continuity verification | Public domain — U.S. Navy | MIT debugging + Fluke resistance guidance: repair action and verification are distinct; repeat the original failure test and perform a regression check |
+
+### Career visual design rule
+
+Real occupational photographs should answer **“what does this work actually look like?”** while Alfred's diagrams/tables should be retained only when they answer a different instructional question, such as **“what reasoning process should I follow?”**
+
+For Week 2, the discriminating-measurement matrix and technician repair-record table remain because they are Alfred-specific reasoning/documentation structures, not recreations of physical equipment or circuitry.
+
