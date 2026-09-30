@@ -18,30 +18,50 @@ function priorAssessment(){const p=normalize(load());if(type==='lesson')return p
 const prior=priorAssessment();
 const attemptNo=Math.max(Number(prior.attemptCount||0),...(prior.attempts||[]).map(x=>Number(x.form||0)),(prior.attempts||[]).length)+1;
 function evidenceQuestion(q){return q?.masteryEvidence!==false&&q?.difficulty!=='Orientation'}
-function repairKnownWeek2CareerSelectorStatus(){
-  const ids=new Set(['CQ1204','CQ1205','CQ1206','CQ1207','CQ1208','CQ1209']);
-  if(Number(A?.week)!==2 && String(A?.id)!=='2' && !((A?.questionIds||[]).some(id=>ids.has(id)))) return 0;
-  let repaired=0;
-  for(const q of (D.questions||[])){
-    if(!ids.has(q.id))continue;
-    q.audit=q.audit||{};
-    if(q.audit.status!=='editorially-reviewed'){
-      q.audit.previousStatus=q.audit.status||q.audit.previousStatus||'';
-      q.audit.status='editorially-reviewed';
-      repaired++;
-    }
-    q.audit.reviewRevision='2026-09-30-v16.3.89-quiz-defensive-selector-repair';
-  }
-  return repaired;
+function week2CareerEligibilitySnapshot(){
+  const ids=['CQ1204','CQ1205','CQ1206','CQ1207','CQ1208','CQ1209'];
+  return ids.map(id=>{
+    const q=(D.questions||[]).find(x=>x.id===id);
+    return {
+      id,
+      present:!!q,
+      track:q?.track||'',
+      status:q?.audit?.status||'',
+      masteryEvidence:q?.masteryEvidence,
+      minWeek:q?.minWeek
+    };
+  });
 }
-const week2SelectorRepairCount=repairKnownWeek2CareerSelectorStatus();
+function week2CareerEligible(row){
+  return row.present &&
+    row.track==='Career' &&
+    row.status==='editorially-reviewed' &&
+    row.masteryEvidence!==false &&
+    Number(row.minWeek)<=2;
+}
+function ensureWeek2CareerCanonical(){
+  const ids=new Set(['CQ1204','CQ1205','CQ1206','CQ1207','CQ1208','CQ1209']);
+  const relevant=Number(A?.week)===2 || String(A?.id)==='2' || ((A?.questionIds||[]).some(x=>ids.has(x)));
+  if(!relevant)return {applied:false,before:[],after:[]};
+
+  const before=week2CareerEligibilitySnapshot();
+  if(before.every(week2CareerEligible))return {applied:false,before,after:before};
+
+  const repair=window.ALFRED_WEEK2_CANONICAL_ASSESSMENT_16390;
+  if(repair?.apply)repair.apply();
+
+  const after=week2CareerEligibilitySnapshot();
+  return {applied:true,before,after};
+}
+const week2CanonicalRepair=ensureWeek2CareerCanonical();
 let questions=[];
 try{
   questions=window.AlfredAssessmentEngine.select(D,A,attemptNo);
 }catch(error){
-  console.error('Alfred assessment selector failed', {type,id,week:A?.week,attemptNo,error,week2SelectorRepairCount});
+  console.error('Alfred assessment selector failed', {type,id,week:A?.week,attemptNo,error,week2CanonicalRepair});
   const reason=error?.message?String(error.message):'Unknown selector error';
-  document.querySelector('main').innerHTML=`<section class="section shell"><h1>Practice could not load</h1><p>The assessment runtime could not assemble this form.</p><p><strong>Diagnostic:</strong> ${esc(reason)}</p><p><strong>Runtime repair:</strong> v16.3.89 · Week 2 repair count ${week2SelectorRepairCount}</p><a href="assessments.html">Return to assessments</a></section>`;
+  const eligibility=(week2CanonicalRepair.after||week2CanonicalRepair.before||[]).map(r=>`${r.id}: ${r.present?'present':'missing'}, ${r.track||'no-track'}, ${r.status||'no-status'}, mastery=${String(r.masteryEvidence)}, minWeek=${String(r.minWeek)}`).join(' | ');
+  document.querySelector('main').innerHTML=`<section class="section shell"><h1>Practice could not load</h1><p>The assessment runtime could not assemble this form.</p><p><strong>Diagnostic:</strong> ${esc(reason)}</p><p><strong>Runtime repair:</strong> v16.3.90 · canonical reconstruction ${week2CanonicalRepair.applied?'ran':'not needed'}</p><p><strong>Week 2 Career eligibility:</strong> ${esc(eligibility||'not applicable')}</p><a href="assessments.html">Return to assessments</a></section>`;
   return;
 }
 const answers={};let started=Date.now(),submitted=false;

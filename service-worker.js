@@ -1,4 +1,4 @@
-const CACHE='alfred-u-v16-3-89-browser-assessment-cache-repair-20260930';
+const CACHE='alfred-u-v16-3-90-week2-canonical-assessment-repair-20260930';
 
 const CORE=[
   './',
@@ -49,12 +49,13 @@ const CORE=[
   'week2-career-source-visuals-v16.3.86.js','week2-career-source-visuals-v16.3.86.js?v=16.3.86',
   'week2-career-assessment-v16.3.74.js','week2-career-assessment-v16.3.74.js?v=16.3.74','week2-career-assessment-v16.3.74.js?v=16.3.89',
   'week2-career-assessment-runtime-repair-v16.3.88.js','week2-career-assessment-runtime-repair-v16.3.88.js?v=16.3.88',
+  'week2-career-assessment-canonical-v16.3.90.js','week2-career-assessment-canonical-v16.3.90.js?v=16.3.90',
   'ceta-study-guide-private.js','ceta-study-guide-private.js?v=16.3.65',
   'media-consumption.js','media-consumption.js?v=16.3.57',
   'teaching-media-overrides.js','teaching-media-self-reliance.js','teaching-media-content-completion.js',
   'week1-beginner-teaching-media.js',
   'assessment-policy.js','assessment-engine.js','readiness.js','assessment.js',
-  'quiz.js','quiz.js?v=16.3.75','quiz.js?v=16.3.89',
+  'quiz.js','quiz.js?v=16.3.75','quiz.js?v=16.3.89','quiz.js?v=16.3.90',
   'standards.js','standards.js?v=16.3.77','standards.js?v=16.3.78',
   'analytics.js','search.js','search.js?v=16.3.53',
   'release-notes.js','release-notes-current.js',
@@ -65,7 +66,7 @@ const CORE=[
   'release-notes-v16.3.70.js','release-notes-v16.3.71.js','release-notes-v16.3.72.js',
   'release-notes-v16.3.73.js','release-notes-v16.3.74.js','release-notes-v16.3.75.js',
   'release-notes-v16.3.76.js','release-notes-v16.3.77.js','release-notes-v16.3.78.js',
-  'release-notes-v16.3.79.js','release-notes-v16.3.80.js','release-notes-v16.3.81.js','release-notes-v16.3.82.js','release-notes-v16.3.83.js','release-notes-v16.3.84.js','release-notes-v16.3.85.js','release-notes-v16.3.86.js','release-notes-v16.3.87.js','release-notes-v16.3.88.js','release-notes-v16.3.89.js',
+  'release-notes-v16.3.79.js','release-notes-v16.3.80.js','release-notes-v16.3.81.js','release-notes-v16.3.82.js','release-notes-v16.3.83.js','release-notes-v16.3.84.js','release-notes-v16.3.85.js','release-notes-v16.3.86.js','release-notes-v16.3.87.js','release-notes-v16.3.88.js','release-notes-v16.3.89.js','release-notes-v16.3.90.js',
   'reading-library-integration.js','reading-library-integration.js?v=16.3.60',
   'release-change-ledger.js','patch-notes.js',
   'cloud-sync-status.js','cloud-sync-status.js?v=16.3.73',
@@ -113,7 +114,7 @@ async function decorateNavigationResponse(response,url){
 
   let text=await response.text();
   text=text.replace(/week2-career-assessment-v16\.3\.74\.js\?v=[^"'<>\s]+/g,'week2-career-assessment-v16.3.74.js?v=16.3.89');
-  text=text.replace(/quiz\.js\?v=[^"'<>\s]+/g,'quiz.js?v=16.3.89');
+  text=text.replace(/quiz\.js\?v=[^"'<>\s]+/g,'quiz.js?v=16.3.90');
   text=text.replace(/learn\.js\?v=16\.3\.(?:68|74|75|76|84|86)/g,'learn.js?v=16.3.87');
   text=text.replace(/styles\.css\?v=16\.3\.(?:67|74|75)/g,'styles.css?v=16.3.84');
 
@@ -121,6 +122,12 @@ async function decorateNavigationResponse(response,url){
   if(!text.includes('cloud-sync-status.js')){
     if(/<\/body>/i.test(text)) text=text.replace(/<\/body>/i,statusTag+'</body>');
     else text+=statusTag;
+  }
+
+  const week2Canonical90='<script src="week2-career-assessment-canonical-v16.3.90.js?v=16.3.90"></script>';
+  if((url.pathname.endsWith('/quiz.html')||url.pathname.endsWith('/assessments.html')) && !text.includes('week2-career-assessment-canonical-v16.3.90.js')){
+    const policy='<script src="assessment-policy.js"></script>';
+    if(text.includes(policy)) text=text.replace(policy,week2Canonical90+policy);
   }
 
   const week2Assessment88='<script src="week2-career-assessment-runtime-repair-v16.3.88.js?v=16.3.88"></script>';
@@ -277,6 +284,18 @@ async function decorateNavigationResponse(response,url){
     else text=text.replace(statusTag,release89+statusTag);
   }
 
+
+  if(url.pathname.endsWith('/patch-notes.html') && !text.includes('release-notes-v16.3.90.js')){
+    const release89='<script src="release-notes-v16.3.89.js"></script>';
+    const ledger='<script src="release-change-ledger.js"></script>';
+    const patch='<script src="patch-notes.js"></script>';
+    const release90='<script src="release-notes-v16.3.90.js"></script>';
+    if(text.includes(release89)) text=insertAfter(text,release89,release90);
+    else if(text.includes(ledger)) text=text.replace(ledger,release90+ledger);
+    else if(text.includes(patch)) text=text.replace(patch,release90+patch);
+    else text=text.replace(statusTag,release90+statusTag);
+  }
+
   const headers=new Headers(response.headers);
   headers.delete('content-length');
   headers.delete('content-encoding');
@@ -293,10 +312,10 @@ async function decorateBuildInfo(response){
   if(!response || !response.ok) return response;
   try{
     const data=await response.clone().json();
-    data.runtimePatch='16.3.89';
-    data.build='v16.3.89-browser-assessment-cache-repair-20260930';
-    data.releaseStatus='browser-assessment-cache-path-repaired';
-    data.releaseNotesRevision='2026-09-30-v16.3.89-browser-assessment-cache-repair';
+    data.runtimePatch='16.3.90';
+    data.build='v16.3.90-week2-canonical-assessment-repair-20260930';
+    data.releaseStatus='week2-canonical-six-question-contract-repaired';
+    data.releaseNotesRevision='2026-09-30-v16.3.90-week2-canonical-assessment-repair';
     data.week3InstructionalRevision='2026-09-29-v16.3.81-week3-three-gate-remediation';
     data.week3ThreeGateStatus='VERIFIED_PASS';
     data.week3CetaAuthorityRepair=['8.1','8.2'];
@@ -339,7 +358,10 @@ async function decorateBuildInfo(response){
     data.assessmentBrowserRecoveryRevision='2026-09-30-v16.3.89-cache-path-and-source-contract-repair';
     data.assessmentSourceContractStatus='CANONICAL_AT_SOURCE';
     data.staleAssessmentCachePolicy='DELETE_OLD_ALFRED_CACHES_AND_RELOAD_NETWORK';
-    data.serviceWorkerRevision='2026-09-30-v16.3.89-browser-assessment-cache-repair';
+    data.assessmentCanonicalSixRevision='2026-09-30-v16.3.90-full-question-contract-reconstruction';
+    data.week2CareerCanonicalEligibilityCount=6;
+    data.week2CareerCanonicalRepairStatus='FULL_OBJECT_REBUILD_BEFORE_SELECTOR';
+    data.serviceWorkerRevision='2026-09-30-v16.3.90-week2-canonical-assessment-repair';
     const headers=new Headers(response.headers);
     headers.set('content-type','application/json; charset=utf-8');
     headers.set('cache-control','no-store');
