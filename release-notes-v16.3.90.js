@@ -1,4 +1,23 @@
 (()=>{
+const hotfixH4={
+version:'v16.3.90-H4',
+date:'October 1, 2026',
+title:'Week 3 Multimodal Content Quality Pass',
+type:'Week 3 / CETa-Career Content / Teaching Media / Reading',
+request:'Prioritize Week 3 content quality over cosmetic UX and give every CETa and Career teaching page a purposeful mix of Alfred instruction, visuals, video/demonstration, reading/reference, and retrieval/application.',
+changes:[
+'Adds a dedicated Week 3 H4 content layer after the accepted H3 runtime layer without changing Week 3 assessment identities, lab identities, saved progress, calendar identities, or Cloud Sync protocol 2.',
+'Gives all 8 CETa pages and all 8 Career pages exactly one deliberate point-of-use video/demonstration plus one deliberate written reading/reference in addition to the existing substantive Alfred teaching and source-authentic visual layer.',
+'Replaces the prior uneven Week 3 external-media distribution—where most point-of-use media sat on CETa—with 32 explicit section-level placements: 16 video/demonstration and 16 reading/reference placements across 16 pages.',
+'Reuses strong accepted Fluke, Tektronix, Keysight, All About Circuits, Afrotechmods, and U.S. Navy sources where they are semantically exact instead of adding filler resources.',
+'Adds focused Tektronix probe-compensation and probe-loading sources, Keysight CV/CC and metrology/calibration sources, and NIST measurement-uncertainty/traceability references for the Career metrology pages.',
+'Keeps specialist-instrument breadth such as spectrum analyzers, ESR/LCR meters, signal generators, decade boxes, electronic loads, and variable line-level AC out of the Week 3 core learner path.',
+'Preserves Week 3 mastery at 14 questions (7 CETa + 7 Career), LAB-003 at 6 questions (3+3) with 10 evidence checkpoints, Week 2 mastery at 12 questions (6+6), H3 static direct-entry integrity, and Cloud Sync protocol 2.'
+],
+filesAdded:['week3-media-quality-v16.3.90-h4.js','AU-ESET-301-v16.3.90-H4-Week-3-Multimodal-Content-QA.md','UPLOAD README v16.3.90-H4.txt','PACKAGE_SHA256SUMS.txt'],
+filesModified:['learn.html','service-worker.js','build-info.json','release-notes-v16.3.90.js','ALFRED PROJECT GOVERNANCE.md','SHA256SUMS.txt'],
+filesRemoved:[]
+};
 const hotfixH3={
 version:'v16.3.90-H3',
 date:'October 1, 2026',
@@ -79,6 +98,6 @@ filesModified:['quiz.js','quiz.html','assessments.html','service-worker.js','bui
 filesRemoved:[]
 };
 const existing=Array.isArray(window.ALFRED_RELEASES)?window.ALFRED_RELEASES:[];
-const versions=new Set([hotfixH3.version,hotfixH2.version,hotfixH1.version,entry.version]);
-window.ALFRED_RELEASES=[hotfixH3,hotfixH2,hotfixH1,entry,...existing.filter(x=>x&&!versions.has(x.version))];
+const versions=new Set([hotfixH4.version,hotfixH3.version,hotfixH2.version,hotfixH1.version,entry.version]);
+window.ALFRED_RELEASES=[hotfixH4,hotfixH3,hotfixH2,hotfixH1,entry,...existing.filter(x=>x&&!versions.has(x.version))];
 })();

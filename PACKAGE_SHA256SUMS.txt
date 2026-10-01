@@ -1,11 +1,8 @@
-76b4a27506b46990c14b5c12dfe6e37132d635711be7eb12b3fc07b882feb090  AU-ESET-301-v16.3.64-Current-Curriculum-and-Instruction-Plan.docx
-36793c5e26d2aa07689481094d44c8a0e9386a9fe5fb8395438f3b83447bff72  AU-ESET-301-v16.3.64-Current-Curriculum-and-Instruction-Plan.pdf
-8ba1d2593fc6269cd8abb02a9dcb74ef48c584aeee726007e178378bfdc6ce3f  AU-ESET-301-v16.3.64-Document-and-Resource-Verification.md
-8a03200251af3b3c67dbfe351d930609377b7d8a56a99c652f0276405db197e4  Alfred University - AU-ESET 301 - Academic System Guide.pdf
-88ec868bae5622d9694a98e290c8ed0272467b0e82441b12f76de1de23d91966  Alfred University - AU-ESET 301 - Learning Resource Manual.pdf
-3c4e87b1607e7e5ca4bbf853710e017f5d2c5426650870f2fc2735d84f3cf803  Alfred University - AU-ESET 301 - Syllabus and Student Handbook.pdf
-b0113a05ecb84109859acdadd26ad5bcc1f798b7bf0030a79cf54892a1784b73  Associate_CET_Study_Guide_Sixth_Edition.pdf
-124728ecdf6f716e799df6daacc484fa32e6bc3444ead38010c539fee0f27812  UPLOAD_README_v16.3.65.txt
-90b0d11b1ca252c3dc96588f89bc2bbd07fb9cec576de9351fb8ddc107a18585  ceta-study-guide-private.js
-f2688a29e6e0a214fab2b305119069d4ff3911501e1833954c508ffea459d21e  patch-notes.html
-84c2b24a01fe07fd5ba39ef893ba2b20c436f9a883274167f5cf6a0091e07f4e  release-notes-v16.3.65.js
+b8b77b83fbfc26f035798ed03d25120200158b0824286e96cbc9fbc861dfc2e3  week3-media-quality-v16.3.90-h4.js
+ad9f930cbd8767c9c7623a8f3baa27e1e82f26c6d4ec92dd54e8dea5e26ba1a7  learn.html
+f0c3f50f02806ad56c432c07ca04685c6ea39a1cfeece04f2718792c6600ebbe  service-worker.js
+feea0f3dcf0db64168d3e8b5a70bb1d1601f6f6c51805a2f93510e90e879cdcb  build-info.json
+fe3dae4a6d3fee3616a6a26c8285de50638023dd104adefc788a4d4591c09445  release-notes-v16.3.90.js
+2e2e17ac22b6b344727fb278887154dd8ea63ef94acc7351a75da2c372a57d6d  ALFRED PROJECT GOVERNANCE.md
+b9d0db1828145d2b4f25b42babe76446e4771ac7a9f6c9b6c9c01e2f9125676d  AU-ESET-301-v16.3.90-H4-Week-3-Multimodal-Content-QA.md
+1d7e6ebffb43469719da4a194d3eabf0f9f7c24cd08fe7615561be5b6df3178e  UPLOAD README v16.3.90-H4.txt

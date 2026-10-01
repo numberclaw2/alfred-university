@@ -821,6 +821,16 @@ v16.3.90-H3 Week 3 direct-entry integrity repair (internal runtime/source QA PAS
 - LAB-003 ten-checkpoint evidence gate and physical-vs-simulation truth boundary remain unchanged
 - H2 deployment/artifact was verified at commit `8f6f23232804eb84af547262bb7d6f035bcbfc1e`; H3 was then required after internal direct-entry execution exposed that quiz/assessment/lab pages still depended on service-worker injection for canonical Week 3 state. H3 makes those routes statically self-sufficient and must be deployed/reverified before Week 3 may be frozen.
 
+
+v16.3.90-H4 Week 3 multimodal content-quality candidate (internal data/runtime QA PASS; deployment + real-client content acceptance still required):
+- preserves the accepted H3 Week 3 instructional structure, source-authentic visual layer, assessment balance, evidence boundary, and Cloud Sync protocol 2
+- every one of the 16 Week 3 teaching pages (8 CETa + 8 Career) now has a purposeful page-level mix of substantive Alfred teaching, source-authentic visual/diagram, bounded video/demonstration, bounded written reading/reference, and retrieval/application
+- exact Week 3 point-of-use external-resource placements = 32: 16 video/demonstration + 16 reading/reference
+- Career is no longer allowed to pass with strong Alfred text/visuals but zero point-of-use media; H4 gives all 8 Career pages the same multimodal-quality scrutiny as the 8 CETa pages
+- strong existing sources are deliberately reused when semantically exact; new sources are limited to focused manufacturer/government material from Tektronix, Keysight, and NIST rather than count-padding
+- specialist-instrument breadth remains outside the Week 3 core; H4 does not reintroduce premature spectrum/ESR/LCR/variable-line-AC/signal-generator/decade-box/electronic-load instruction
+- H4 must not be called frozen/accepted until the uploaded Pages artifact and real learner browser confirm the content layer actually loads as intended
+
 The prior instruction “Future Week 3 visual work must apply the new Week 2 source-authentic visual standard to both tracks” is now implemented at source-package level by H2; do not call the retrofit finally accepted until deployment/client QA passes.
 
 ---
@@ -1369,6 +1379,7 @@ Required assessment, lab, and completion behavior must not depend solely on serv
 
 # 32. GOVERNANCE CHANGE LOG
 
+2026-10-01 | WEEK 3 H4 MULTIMODAL CONTENT | IMPLEMENT | Internal H4 candidate gives all 16 Week 3 CETa/Career teaching pages a purposeful page-level combination of Alfred teaching, source-authentic visual/diagram, bounded video/demonstration, bounded reading/reference, and retrieval/application. Exact point-of-use media = 32 placements (16 video + 16 reading); Career receives full parity. Specialist-tool breadth remains deferred. Deployment/artifact + real-client content acceptance remain required before freeze.  
 2026-10-01 | WEEK 3 H3 DIRECT ENTRY | REPAIR | Internal execution of the deployed H2 artifact found that fresh/uncontrolled `quiz.html`, `assessments.html`, and `labs.html` still exposed pre-H2 Week 3 state until service-worker injection. H3 statically loads the Week 3 remediation/H2 compatibility layers on those critical routes, bumps cache/build metadata, and requires redeployment/client verification before freeze.  
 2026-10-01 | STATIC DIRECT-ENTRY SELF-SUFFICIENCY | ADD | Critical assessment/lab/completion routes must be canonical from their static HTML/script stack on a fresh direct load; service-worker injection may be fallback compatibility but not the sole runtime owner.  
 2026-10-01 | CHECKSUM SCOPE INTEGRITY | REPAIR | Root `SHA256SUMS.txt` is repository-wide and must never be replaced by package-only hashes. Package-only checksum manifests use a distinct package filename; root checksum updates must be fully regenerated and validated.  
