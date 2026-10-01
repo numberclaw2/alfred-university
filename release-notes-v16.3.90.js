@@ -1,4 +1,23 @@
 (()=>{
+const hotfixH3={
+version:'v16.3.90-H3',
+date:'October 1, 2026',
+title:'Week 3 Direct-Entry Runtime Integrity Repair',
+type:'Week 3 / Direct Navigation / Assessment / Lab / Cache Integrity',
+request:'Run the deployed Week 3 code internally and verify it is actually self-sufficient, not merely correct after service-worker injection.',
+changes:[
+'Internal execution of the exact deployed artifact confirmed the H2 data model itself passes, but also exposed a direct-entry gap: quiz.html and assessments.html still assembled the old Week 3 9 CETa / 3 Career form, and LAB-003 still exposed the old 4/1 knowledge form until the service worker injected H2.',
+'Adds the Week 3 remediation and H2 compatibility layer directly to quiz.html and assessments.html before assessment selection, so a fresh/direct page load is canonical without requiring prior service-worker control.',
+'Adds the Week 3 remediation and H2 compatibility layer directly to labs.html before lab rendering, so the 10-checkpoint evidence gate and physical-versus-simulation boundary are present on a fresh/direct lab load.',
+'Bumps the service-worker cache identity and normalizes the Week 3 compatibility-script query to the H3 cache-busted route while retaining network-first behavior and Cloud Sync protocol 2.',
+'Restores repository checksum integrity by regenerating the full repository SHA256SUMS.txt; package-only hashes are no longer allowed to replace the repository-wide checksum ledger.',
+'Updates build metadata so the deployed runtime identifies the H3 Week 3 direct-entry integrity repair.',
+'Preserves H2 Week 3 content, 8/8 CETa visuals, 8/8 Career visuals, 14-question 7/7 weekly mastery, 6-question 3/3 LAB-003 knowledge gate, Week 2 12-question 6/6 form, stable progress/event identities, and Cloud Sync protocol 2.'
+],
+filesAdded:['AU-ESET-301-v16.3.90-H3-Week-3-Direct-Entry-QA.md','UPLOAD README v16.3.90-H3.txt'],
+filesModified:['quiz.html','assessments.html','labs.html','service-worker.js','build-info.json','release-notes-v16.3.90.js','ALFRED PROJECT GOVERNANCE.md','SHA256SUMS.txt'],
+filesRemoved:[]
+};
 const hotfixH2={
 version:'v16.3.90-H2',
 date:'September 30, 2026',
@@ -60,6 +79,6 @@ filesModified:['quiz.js','quiz.html','assessments.html','service-worker.js','bui
 filesRemoved:[]
 };
 const existing=Array.isArray(window.ALFRED_RELEASES)?window.ALFRED_RELEASES:[];
-const versions=new Set([hotfixH2.version,hotfixH1.version,entry.version]);
-window.ALFRED_RELEASES=[hotfixH2,hotfixH1,entry,...existing.filter(x=>x&&!versions.has(x.version))];
+const versions=new Set([hotfixH3.version,hotfixH2.version,hotfixH1.version,entry.version]);
+window.ALFRED_RELEASES=[hotfixH3,hotfixH2,hotfixH1,entry,...existing.filter(x=>x&&!versions.has(x.version))];
 })();

@@ -1,4 +1,4 @@
-const CACHE='alfred-u-v16-3-90-week2-canonical-assessment-repair-20260930';
+const CACHE='alfred-u-v16-3-90-h3-week3-direct-loader-integrity-20261001';
 
 const CORE=[
   './',
@@ -31,7 +31,7 @@ const CORE=[
   'ceta-instructional-authority-v16.3.80.js','ceta-instructional-authority-v16.3.80.js?v=16.3.80',
   'week3-remediation-v16.3.81.js','week3-remediation-v16.3.81.js?v=16.3.81',
   'week3-final-acceptance-v16.3.82.js','week3-final-acceptance-v16.3.82.js?v=16.3.82',
-  'week3-final-acceptance-v16.3.83.js','week3-final-acceptance-v16.3.83.js?v=16.3.83',
+  'week3-final-acceptance-v16.3.83.js','week3-final-acceptance-v16.3.83.js?v=16.3.83','week3-final-acceptance-v16.3.83.js?v=16.3.90-H3',
   'teaching-media-resource-integration.js','teaching-media-resource-integration.js?v=16.3.57',
   'outside-literature-integration.js','outside-literature-integration.js?v=16.3.48',
   'teaching-media-architecture-repair.js','teaching-media-architecture-repair.js?v=16.3.56',
@@ -117,6 +117,7 @@ async function decorateNavigationResponse(response,url){
   text=text.replace(/quiz\.js\?v=[^"'<>\s]+/g,'quiz.js?v=16.3.90');
   text=text.replace(/learn\.js\?v=16\.3\.(?:68|74|75|76|84|86)/g,'learn.js?v=16.3.87');
   text=text.replace(/styles\.css\?v=16\.3\.(?:67|74|75)/g,'styles.css?v=16.3.84');
+  text=text.replace(/week3-final-acceptance-v16\.3\.83\.js\?v=[^"'<>\s]+/g,'week3-final-acceptance-v16.3.83.js?v=16.3.90-H3');
 
   const statusTag='<script src="cloud-sync-status.js?v=16.3.73"></script>';
   if(!text.includes('cloud-sync-status.js')){
@@ -176,7 +177,7 @@ async function decorateNavigationResponse(response,url){
   // v16.3.83 supersedes the v16.3.82 runtime acceptance script.
   text=text.replace('<script src="week3-final-acceptance-v16.3.82.js?v=16.3.82"></script>','');
   text=text.replace('<script src="week3-final-acceptance-v16.3.82.js"></script>','');
-  const final83Tag='<script src="week3-final-acceptance-v16.3.83.js?v=16.3.83"></script>';
+  const final83Tag='<script src="week3-final-acceptance-v16.3.83.js?v=16.3.90-H3"></script>';
   if(!text.includes('week3-final-acceptance-v16.3.83.js')){
     const overlay81Versioned='<script src="week3-remediation-v16.3.81.js?v=16.3.81"></script>';
     const overlay81Plain='<script src="week3-remediation-v16.3.81.js"></script>';
@@ -313,9 +314,9 @@ async function decorateBuildInfo(response){
   try{
     const data=await response.clone().json();
     data.runtimePatch='16.3.90';
-    data.build='v16.3.90-week2-canonical-assessment-repair-20260930';
-    data.releaseStatus='week2-canonical-six-question-contract-repaired';
-    data.releaseNotesRevision='2026-09-30-v16.3.90-week2-canonical-assessment-repair';
+    data.build='v16.3.90-H3-week3-direct-loader-integrity-20261001';
+    data.releaseStatus='week3-h3-direct-entry-runtime-integrity-repaired';
+    data.releaseNotesRevision='2026-10-01-v16.3.90-H3-week3-direct-loader-integrity';
     data.week3InstructionalRevision='2026-09-29-v16.3.81-week3-three-gate-remediation';
     data.week3ThreeGateStatus='VERIFIED_PASS';
     data.week3CetaAuthorityRepair=['8.1','8.2'];
@@ -361,7 +362,11 @@ async function decorateBuildInfo(response){
     data.assessmentCanonicalSixRevision='2026-09-30-v16.3.90-full-question-contract-reconstruction';
     data.week2CareerCanonicalEligibilityCount=6;
     data.week2CareerCanonicalRepairStatus='FULL_OBJECT_REBUILD_BEFORE_SELECTOR';
-    data.serviceWorkerRevision='2026-09-30-v16.3.90-week2-canonical-assessment-repair';
+    data.serviceWorkerRevision='2026-10-01-v16.3.90-H3-week3-direct-loader-integrity';
+    data.week3ReadinessRevision='2026-10-01-v16.3.90-H3-direct-entry-runtime-integrity';
+    data.week3StaticDirectEntryStatus='SELF_SUFFICIENT';
+    data.week3WeeklyMasteryRuntime={count:14,CETa:7,Career:7};
+    data.week3Lab003Runtime={count:6,CETa:3,Career:3,evidenceCheckpoints:10};
     const headers=new Headers(response.headers);
     headers.set('content-type','application/json; charset=utf-8');
     headers.set('cache-control','no-store');

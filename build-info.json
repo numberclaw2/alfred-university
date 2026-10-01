@@ -3,8 +3,8 @@
   "runtimePatch": "16.3.90",
   "evidenceRevision": "16.2",
   "cloudSyncProtocol": 2,
-  "build": "v16.3.90-week2-canonical-assessment-repair-20260930",
-  "releaseStatus": "week2-canonical-six-question-contract-repaired",
+  "build": "v16.3.90-H3-week3-direct-loader-integrity-20261001",
+  "releaseStatus": "week3-h3-direct-entry-runtime-integrity-repaired",
   "presentationPatch": "sitewide-text-readability-overlay",
   "scheduleRevision": "2026-09-20-current-classroom-stage-and-workload-sync",
   "modulePresentationRevision": "2026-09-18-week1-from-zero-visual-teaching",
@@ -16,7 +16,7 @@
   "week1InstructionRevision": "2026-09-19-beginner-first-safety-scaffolding",
   "week1TeachingMediaRevision": "2026-09-18-beginner-teacher-youtube-layer",
   "teachingMediaBaseRevision": "2026-09-18-final-pots-31-week-standalone-accepted",
-  "releaseNotesRevision": "2026-09-30-v16.3.90-week2-canonical-assessment-repair",
+  "releaseNotesRevision": "2026-10-01-v16.3.90-H3-week3-direct-loader-integrity",
   "repositoryLedgerBaseline": "2026-09-18-v16.3.9-63-commits",
   "studyRevision": "2026-09-26-v16.3.66-ahead-of-calendar-reached-week-support",
   "practiceRevision": "2026-09-29-v16.3.87-guided-practice-state-model-runtime-repair",
@@ -78,7 +78,7 @@
   "teachingMediaRequirementContradictionCount": 0,
   "teachingMediaMissingBacklinkCount": 0,
   "teachingMediaFinalAcceptanceRevision": "2026-09-23-v16.3.58-direct-file-validation",
-  "teachingMediaFinalAcceptanceVerdict": "PASS \u2014 combined multimodal QA removed five phantom Required obligations, aligned two Required assignment schedules, eliminated two Required-placement classification contradictions, and preserved 491-section dual-channel coverage.",
+  "teachingMediaFinalAcceptanceVerdict": "PASS — combined multimodal QA removed five phantom Required obligations, aligned two Required assignment schedules, eliminated two Required-placement classification contradictions, and preserved 491-section dual-channel coverage.",
   "teachingMediaVideoCanonicalResourceCount": 120,
   "teachingMediaNonVideoCanonicalResourceCount": 131,
   "teachingMediaCanonicalDuplicateGroupCount": 3,
@@ -139,7 +139,7 @@
   "lessonDirectNavigationPreservesResumePoint": true,
   "guidedPracticeDirectNavigationPreservesCompletion": true,
   "directSectionNavigationAcceptanceRevision": "2026-09-22-v16.3.52-state-model-pass",
-  "directSectionNavigationAcceptanceVerdict": "PASS \u2014 first-pass lock, prior-pass review compatibility, and Guided Practice state-preservation tests passed",
+  "directSectionNavigationAcceptanceVerdict": "PASS — first-pass lock, prior-pass review compatibility, and Guided Practice state-preservation tests passed",
   "directSectionNavigationBehaviorTestCount": 3,
   "cetaStudyGuideRevision": "2026-09-26-v16.3.66-current-eta-errata-complete",
   "cetaStudyGuideRequiredPrintedPageCount": 64,
@@ -162,7 +162,7 @@
     "Study Media"
   ],
   "contentPlacementBlueprintRevision": "2026-09-23-31-week-491-live-section-semantic-repaired",
-  "serviceWorkerRevision": "2026-09-30-v16.3.90-week2-canonical-assessment-repair",
+  "serviceWorkerRevision": "2026-10-01-v16.3.90-H3-week3-direct-loader-integrity",
   "serviceWorkerInstallIntegrityVerdict": "PASS",
   "mediaConsumptionRevision": "2026-09-23-v16.3.57-canonical-source-identity-with-legacy-alias-compatibility",
   "teachingMediaSemanticIntegrityRevision": "2026-09-23-v16.3.58-semantic-media-integrity-final",
@@ -173,7 +173,7 @@
   "centralReadingIndexStudyGuideReviewReferenceRecordCount": 44,
   "centralReadingIndexStudyGuideRequiredPageCount": 64,
   "centralReadingIndexStudyGuideRequiredMinutes": 241,
-  "centralReadingIndexAcceptanceVerdict": "PASS \u2014 centralized reading index includes all 152 unique literature assignment sources plus 62 CETa Study Guide records and preserves mixed Required / Study / Reference roles without creating duplicate obligations.",
+  "centralReadingIndexAcceptanceVerdict": "PASS — centralized reading index includes all 152 unique literature assignment sources plus 62 CETa Study Guide records and preserves mixed Required / Study / Reference roles without creating duplicate obligations.",
   "teachingMediaPhantomRequiredCount": 0,
   "teachingMediaRequiredPlacementClassificationContradictionCount": 0,
   "teachingMediaRequiredWeekMisalignmentCount": 0,
@@ -310,7 +310,7 @@
   "week3CurriculumScope": "Question-first DMM, current-limited bench supply CV/CC, oscilloscope scale/probe/reference/trigger, waveform measurement, and measurement-system limitations.",
   "week3FinalAcceptanceStatus": "VERIFIED_PASS",
   "week3FinalAcceptanceRevision": "2026-09-29-v16.3.83-week3-final-acceptance-context-repair",
-  "week3FinalAcceptanceVerdict": "PASS \u2014 production-verified Week 3 redesign with precise Study Guide legacy-scope boundaries and explicit output-off current-mode insertion/removal safety.",
+  "week3FinalAcceptanceVerdict": "PASS — production-verified Week 3 redesign with precise Study Guide legacy-scope boundaries and explicit output-off current-mode insertion/removal safety.",
   "week3StudyGuideLegacyScopeBoundaryClarified": true,
   "week3DmmCurrentInsertionRemovalSafetyExplicit": true,
   "cloudSyncStatusRevision": "2026-09-28-v16.3.73-global-navigation-status",
@@ -344,7 +344,7 @@
     "CETa": 6,
     "Career": 6
   },
-  "week2CareerStatus": "COEQUAL + INTERACTIVE \u2014 Career pages include demonstrations, point-of-use media/literature, immediate practice, two-way handoffs, native troubleshooting trainers, and balanced mastery.",
+  "week2CareerStatus": "COEQUAL + INTERACTIVE — Career pages include demonstrations, point-of-use media/literature, immediate practice, two-way handoffs, native troubleshooting trainers, and balanced mastery.",
   "week2CareerInteractiveRevision": "2026-09-29-v16.3.76-no-guess-evidence-gate",
   "week2CareerInteractiveTrainerCount": 2,
   "week2CareerBoundaryTrainerChallengeCount": 2,
@@ -357,8 +357,8 @@
   "week2CareerDecisionTrainerEvidenceGate": true,
   "week2MasteryReviewRouteRevision": "2026-09-29-v16.3.76-stable-week1-dmm-route",
   "careerDomainCount": 15,
-  "careerProficiencyModel": "L0 Awareness \u2192 L1 Guided \u2192 L2 Independent \u2192 L3 Diagnostic/Changed-Context \u2192 L4 Role-Proof Evidence",
-  "careerReadyClaimStatus": "WITHHELD \u2014 course-wide remediation required under v16.3.77 hard gate",
+  "careerProficiencyModel": "L0 Awareness → L1 Guided → L2 Independent → L3 Diagnostic/Changed-Context → L4 Role-Proof Evidence",
+  "careerReadyClaimStatus": "WITHHELD — course-wide remediation required under v16.3.77 hard gate",
   "careerVerifiedPassWeeks": [
     2
   ],
@@ -435,5 +435,18 @@
   "staleAssessmentCachePolicy": "DELETE_OLD_ALFRED_CACHES_AND_RELOAD_NETWORK",
   "assessmentCanonicalSixRevision": "2026-09-30-v16.3.90-full-question-contract-reconstruction",
   "week2CareerCanonicalEligibilityCount": 6,
-  "week2CareerCanonicalRepairStatus": "FULL_OBJECT_REBUILD_BEFORE_SELECTOR"
+  "week2CareerCanonicalRepairStatus": "FULL_OBJECT_REBUILD_BEFORE_SELECTOR",
+  "week3ReadinessRevision": "2026-10-01-v16.3.90-H3-direct-entry-runtime-integrity",
+  "week3StaticDirectEntryStatus": "SELF_SUFFICIENT",
+  "week3WeeklyMasteryRuntime": {
+    "count": 14,
+    "CETa": 7,
+    "Career": 7
+  },
+  "week3Lab003Runtime": {
+    "count": 6,
+    "CETa": 3,
+    "Career": 3,
+    "evidenceCheckpoints": 10
+  }
 }

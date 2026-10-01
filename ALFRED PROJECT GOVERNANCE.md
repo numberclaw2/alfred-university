@@ -5,7 +5,7 @@
 **Audience:** Primarily ChatGPT / future project sessions. Human readability is secondary to completeness and retrieval efficiency.  
 **Update rule:** Every future website update package must include the current version of this exact file, with any new user requirements, reversals, complaints, accepted decisions, or future ideas added before handoff.  
 **Filename:** `ALFRED PROJECT GOVERNANCE.md`  
-**Current governance compilation date:** 2026-09-30  
+**Current governance compilation date:** 2026-10-01  
 **Current site runtime at compilation:** v16.3.90  
 **Repository:** `numberclaw2/alfred-university`  
 **GitHub Pages:** `https://numberclaw2.github.io/alfred-university/`  
@@ -810,7 +810,7 @@ Week 3 accepted state before visual-policy retrofit:
 - Week overall VERIFIED_PASS
 - Career learner-facing teaching VERIFIED_VISIBLE
 
-v16.3.90-H2 Week 3 readiness retrofit (package built; deployment QA still required):
+v16.3.90-H3 Week 3 direct-entry integrity repair (internal runtime/source QA PASS; deployment/client QA required after upload):
 - source-authentic-first visuals applied to all 8 CETa teaching pages
 - source-authentic occupational/equipment visuals applied separately to all 8 Career teaching pages
 - exact CV/CC transition drawing retained only as a transparently labeled Alfred reasoning aid after source search
@@ -819,7 +819,7 @@ v16.3.90-H2 Week 3 readiness retrofit (package built; deployment QA still requir
 - Week 3 weekly mastery is defined as 14 questions with an actual 7 CETa / 7 Career mix
 - LAB-003 knowledge gate is defined as 6 questions with an actual 3 CETa / 3 Career mix
 - LAB-003 ten-checkpoint evidence gate and physical-vs-simulation truth boundary remain unchanged
-- package status is PENDING_DEPLOYMENT_QA until the uploaded GitHub Pages artifact and client runtime are verified
+- H2 deployment/artifact was verified at commit `8f6f23232804eb84af547262bb7d6f035bcbfc1e`; H3 was then required after internal direct-entry execution exposed that quiz/assessment/lab pages still depended on service-worker injection for canonical Week 3 state. H3 makes those routes statically self-sufficient and must be deployed/reverified before Week 3 may be frozen.
 
 The prior instruction “Future Week 3 visual work must apply the new Week 2 source-authentic visual standard to both tracks” is now implemented at source-package level by H2; do not call the retrofit finally accepted until deployment/client QA passes.
 
@@ -1357,8 +1357,22 @@ This keeps Git history as the change log while this file remains the current com
 
 ---
 
+## 31.4 Static direct-entry self-sufficiency
+
+Required assessment, lab, and completion behavior must not depend solely on service-worker HTML injection. If a learner directly opens a critical route on a fresh/uncontrolled client, the static HTML/script stack must still load the canonical current runtime contract. Service-worker injection may remain as compatibility/fallback support, but it is not the sole owner of required Week/Career/CETa assessment or lab state.
+
+## 31.5 Checksum scope integrity
+
+`SHA256SUMS.txt` at repository root is the repository-wide checksum ledger. Never overwrite it with hashes for only the files in an update package. Package-only hashes must use a package-specific filename such as `PACKAGE_SHA256SUMS.txt`. When a release changes the repository checksum ledger, regenerate the complete root ledger from the final candidate tree and validate every listed digest.
+
+---
+
 # 32. GOVERNANCE CHANGE LOG
 
+2026-10-01 | WEEK 3 H3 DIRECT ENTRY | REPAIR | Internal execution of the deployed H2 artifact found that fresh/uncontrolled `quiz.html`, `assessments.html`, and `labs.html` still exposed pre-H2 Week 3 state until service-worker injection. H3 statically loads the Week 3 remediation/H2 compatibility layers on those critical routes, bumps cache/build metadata, and requires redeployment/client verification before freeze.  
+2026-10-01 | STATIC DIRECT-ENTRY SELF-SUFFICIENCY | ADD | Critical assessment/lab/completion routes must be canonical from their static HTML/script stack on a fresh direct load; service-worker injection may be fallback compatibility but not the sole runtime owner.  
+2026-10-01 | CHECKSUM SCOPE INTEGRITY | REPAIR | Root `SHA256SUMS.txt` is repository-wide and must never be replaced by package-only hashes. Package-only checksum manifests use a distinct package filename; root checksum updates must be fully regenerated and validated.  
+2026-10-01 | WEEK 3 H2 DEPLOYMENT | VERIFY | Main commit `8f6f23232804eb84af547262bb7d6f035bcbfc1e` deployed successfully in GitHub Pages run `36819589355`. The generated Pages artifact matches the H2 package SHA-256 hashes for `week3-final-acceptance-v16.3.83.js`, `release-notes-v16.3.90.js`, `ALFRED PROJECT GOVERNANCE.md`, the H2 QA report, and the upload README. Deployment/artifact gate = PASS; real-client fresh/stale runtime acceptance remains PENDING, so Week 3 is not frozen yet.  
 2026-09-30 | WEEK 3 READINESS H2 | REPAIR | Apply source-authentic visuals to both Week 3 tracks, repair the Week 2/Week 3 question-ID collision, define Week 3 mastery as actual 7 CETa / 7 Career, and define LAB-003 knowledge as actual 3 CETa / 3 Career while preserving the ten-checkpoint evidence gate. Package remains pending deployment/client QA.  
 2026-09-30 | ASSESSMENT ID UNIQUENESS | ADD | Assessment IDs are course-global identities. No two different active question objects may reuse one ID; acceptance must validate the actual object behind every selected ID and reconcile declared track mix against actual question tracks.  
 2026-09-30 | MOBILE CLOUD SYNC TRUTH | ADD | A connected mobile/non-Progress page must pull and merge protocol-2 cloud progress before presenting synced completion as current; server-health status alone is not proof that learner progress is synchronized. Home Course Completion must use the same classroom completion truth as Student Progress, not calendar-event status percentage.  
