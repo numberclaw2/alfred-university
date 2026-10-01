@@ -1,5 +1,28 @@
 (()=>{
-const hotfix={
+const hotfixH2={
+version:'v16.3.90-H2',
+date:'September 30, 2026',
+title:'Week 3 Readiness — Source Visuals + Assessment Identity Repair',
+type:'Week 3 / CETa-Career Parity / Assessment Runtime / Visual Teaching',
+request:'Bring Week 3 up to the current post-Week-2 governance standard without rebuilding already-accepted instruction.',
+changes:[
+'Applies the current source-authentic-first visual policy to all eight Week 3 CETa teaching pages and all eight Week 3 Career teaching pages; Career receives its own occupational/equipment visuals instead of being treated as a CETa afterthought.',
+'Replaces default Alfred technical redraws with public-domain/CC0 real equipment, real waveform, probe, and technician/metrology visuals where an equal-or-better reusable source was found.',
+'Retains the exact CV/CC transition model only as a transparently labeled Alfred reasoning aid after source search, paired with a real CC0 bench-power-supply photograph and Keysight technical authority.',
+'Repairs a course-global assessment-ID collision: Week 3 v16.3.81 had reused CQ1204–CQ1208, IDs now canonically owned by Week 2 Career. Week 2 keeps CQ1204–CQ1209; Week 3 meter/metrology additions now use unique CQ1210–CQ1214.',
+'Reconstructs Week 3 questions CQ1196–CQ1203 on assessment-only surfaces so the real browser selector no longer depends on learn-only week3-redesign-v16.3.71.js for those question objects.',
+'Corrects the Week 3 weekly mastery declaration to the actual balanced form: 14 questions, 7 CETa + 7 Career, 80% target.',
+'Corrects the LAB-003 knowledge-gate declaration to the actual balanced form: 6 questions, 3 CETa + 3 Career, 80% target.',
+'Preserves the stronger LAB-003 evidence gate: 10 evidence checkpoints, known-reference validation, measurement-capability decision, DUT-vs-test-system isolation, and the physical-versus-simulation proficiency truth boundary.',
+'Preserves C3.8 outside Week 3/6 with Week 20 as its future specialization target.',
+'Uses the already-loaded week3-final-acceptance-v16.3.83.js filename as an explicit compatibility hook so the current Learn static loader and current service-worker injection path both receive the repair without an HTML or service-worker migration.',
+'Cloud Sync protocol 2, calendar identities, saved progress identities, Week 1/2 teaching, and Week 2 canonical 6/6 assessment remain unchanged.'
+],
+filesAdded:['AU-ESET-301-v16.3.90-H2-Week-3-Readiness-QA.md','UPLOAD README v16.3.90-H2.txt'],
+filesModified:['week3-final-acceptance-v16.3.83.js','release-notes-v16.3.90.js','ALFRED PROJECT GOVERNANCE.md'],
+filesRemoved:[]
+};
+const hotfixH1={
 version:'v16.3.90-H1',
 date:'September 30, 2026',
 title:'Mobile Cloud Progress Truth Hotfix',
@@ -37,5 +60,6 @@ filesModified:['quiz.js','quiz.html','assessments.html','service-worker.js','bui
 filesRemoved:[]
 };
 const existing=Array.isArray(window.ALFRED_RELEASES)?window.ALFRED_RELEASES:[];
-window.ALFRED_RELEASES=[hotfix,entry,...existing.filter(x=>x&&x.version!==hotfix.version&&x.version!==entry.version)];
+const versions=new Set([hotfixH2.version,hotfixH1.version,entry.version]);
+window.ALFRED_RELEASES=[hotfixH2,hotfixH1,entry,...existing.filter(x=>x&&!versions.has(x.version))];
 })();

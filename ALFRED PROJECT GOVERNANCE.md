@@ -5,7 +5,7 @@
 **Audience:** Primarily ChatGPT / future project sessions. Human readability is secondary to completeness and retrieval efficiency.  
 **Update rule:** Every future website update package must include the current version of this exact file, with any new user requirements, reversals, complaints, accepted decisions, or future ideas added before handoff.  
 **Filename:** `ALFRED PROJECT GOVERNANCE.md`  
-**Current governance compilation date:** 2026-09-29  
+**Current governance compilation date:** 2026-09-30  
 **Current site runtime at compilation:** v16.3.90  
 **Repository:** `numberclaw2/alfred-university`  
 **GitHub Pages:** `https://numberclaw2.github.io/alfred-university/`  
@@ -750,6 +750,9 @@ Assessment integrity:
 - semantic response should require substantive subject-specific evidence
 - practical claims need practical artifacts
 - CETa mock/readiness should not be falsely independent if question overlap undermines independence
+- assessment IDs are course-global stable identities; two different weeks/standards must never claim the same active question ID
+- acceptance must validate the question object behind every selected ID (presence, track, review status, masteryEvidence, minWeek, and intended teaching route), not merely the declared ID list/count
+- a declared CETa/Career mix must be reconciled against the actual tracks of the selected question objects before acceptance
 
 Projects:
 - Project identities have been repaired historically; use current canonical project records
@@ -807,7 +810,18 @@ Week 3 accepted state before visual-policy retrofit:
 - Week overall VERIFIED_PASS
 - Career learner-facing teaching VERIFIED_VISIBLE
 
-Future Week 3 visual work must apply the new Week 2 source-authentic visual standard to both tracks.
+v16.3.90-H2 Week 3 readiness retrofit (package built; deployment QA still required):
+- source-authentic-first visuals applied to all 8 CETa teaching pages
+- source-authentic occupational/equipment visuals applied separately to all 8 Career teaching pages
+- exact CV/CC transition drawing retained only as a transparently labeled Alfred reasoning aid after source search
+- assessment-ID collision discovered and repaired: Week 2 retains canonical CQ1204–CQ1209; Week 3 v16.3.81 items no longer reuse CQ1204–CQ1208
+- Week 3 meter/metrology additions use unique CQ1210–CQ1214
+- Week 3 weekly mastery is defined as 14 questions with an actual 7 CETa / 7 Career mix
+- LAB-003 knowledge gate is defined as 6 questions with an actual 3 CETa / 3 Career mix
+- LAB-003 ten-checkpoint evidence gate and physical-vs-simulation truth boundary remain unchanged
+- package status is PENDING_DEPLOYMENT_QA until the uploaded GitHub Pages artifact and client runtime are verified
+
+The prior instruction “Future Week 3 visual work must apply the new Week 2 source-authentic visual standard to both tracks” is now implemented at source-package level by H2; do not call the retrofit finally accepted until deployment/client QA passes.
 
 ---
 
@@ -1345,6 +1359,8 @@ This keeps Git history as the change log while this file remains the current com
 
 # 32. GOVERNANCE CHANGE LOG
 
+2026-09-30 | WEEK 3 READINESS H2 | REPAIR | Apply source-authentic visuals to both Week 3 tracks, repair the Week 2/Week 3 question-ID collision, define Week 3 mastery as actual 7 CETa / 7 Career, and define LAB-003 knowledge as actual 3 CETa / 3 Career while preserving the ten-checkpoint evidence gate. Package remains pending deployment/client QA.  
+2026-09-30 | ASSESSMENT ID UNIQUENESS | ADD | Assessment IDs are course-global identities. No two different active question objects may reuse one ID; acceptance must validate the actual object behind every selected ID and reconcile declared track mix against actual question tracks.  
 2026-09-30 | MOBILE CLOUD SYNC TRUTH | ADD | A connected mobile/non-Progress page must pull and merge protocol-2 cloud progress before presenting synced completion as current; server-health status alone is not proof that learner progress is synchronized. Home Course Completion must use the same classroom completion truth as Student Progress, not calendar-event status percentage.  
 2026-09-30 | WEEK 2 ASSESSMENT RUNTIME | ACCEPT | v16.3.90 accepted only after deployed full-script selector verification and successful user-browser confirmation; 12-question weekly mastery form = 6 CETa + 6 Career.  
 2026-09-30 | PRINT STUDY MATERIAL MATH TYPOGRAPHY | ADD | Printable Alfred study notes/PDFs must typeset equations like the chat/textbook view using real fractions, subscripts, Greek symbols, operators, and centered display math; do not degrade equations into ASCII-like inline strings unless unavoidable.  
