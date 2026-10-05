@@ -3,8 +3,8 @@
   "runtimePatch": "16.3.90",
   "evidenceRevision": "16.2",
   "cloudSyncProtocol": 2,
-  "build": "v16.3.90-H4-week3-multimodal-content-20261001",
-  "releaseStatus": "week3-h4-multimodal-content-quality-candidate",
+  "build": "v16.3.90-H5.2-week3-media-integrity-20261005",
+  "releaseStatus": "week3-h5-2-media-integrity-candidate",
   "presentationPatch": "sitewide-text-readability-overlay",
   "scheduleRevision": "2026-09-20-current-classroom-stage-and-workload-sync",
   "modulePresentationRevision": "2026-09-18-week1-from-zero-visual-teaching",
@@ -16,7 +16,7 @@
   "week1InstructionRevision": "2026-09-19-beginner-first-safety-scaffolding",
   "week1TeachingMediaRevision": "2026-09-18-beginner-teacher-youtube-layer",
   "teachingMediaBaseRevision": "2026-09-18-final-pots-31-week-standalone-accepted",
-  "releaseNotesRevision": "2026-10-01-v16.3.90-H4-week3-multimodal-content-quality",
+  "releaseNotesRevision": "2026-10-05-v16.3.90-H5.2-week3-media-link-integrity",
   "repositoryLedgerBaseline": "2026-09-18-v16.3.9-63-commits",
   "studyRevision": "2026-09-26-v16.3.66-ahead-of-calendar-reached-week-support",
   "practiceRevision": "2026-09-29-v16.3.87-guided-practice-state-model-runtime-repair",
@@ -162,7 +162,7 @@
     "Study Media"
   ],
   "contentPlacementBlueprintRevision": "2026-09-23-31-week-491-live-section-semantic-repaired",
-  "serviceWorkerRevision": "2026-10-01-v16.3.90-H4-week3-multimodal-content-quality",
+  "serviceWorkerRevision": "2026-10-05-v16.3.90-H5.2-week3-media-integrity",
   "serviceWorkerInstallIntegrityVerdict": "PASS",
   "mediaConsumptionRevision": "2026-09-23-v16.3.57-canonical-source-identity-with-legacy-alias-compatibility",
   "teachingMediaSemanticIntegrityRevision": "2026-09-23-v16.3.58-semantic-media-integrity-final",
@@ -436,7 +436,7 @@
   "assessmentCanonicalSixRevision": "2026-09-30-v16.3.90-full-question-contract-reconstruction",
   "week2CareerCanonicalEligibilityCount": 6,
   "week2CareerCanonicalRepairStatus": "FULL_OBJECT_REBUILD_BEFORE_SELECTOR",
-  "week3ReadinessRevision": "2026-10-01-v16.3.90-H4-multimodal-content-quality",
+  "week3ReadinessRevision": "2026-10-05-v16.3.90-H5.2-media-integrity",
   "week3StaticDirectEntryStatus": "SELF_SUFFICIENT",
   "week3WeeklyMasteryRuntime": {
     "count": 14,
@@ -449,8 +449,8 @@
     "Career": 3,
     "evidenceCheckpoints": 10
   },
-  "week3MediaQualityRevision": "2026-10-01-v16.3.90-H4-week3-multimodal-content-quality",
-  "week3MediaQualityStatus": "INTERNAL_VERIFIED_DEPLOYMENT_PENDING",
+  "week3MediaQualityRevision": "2026-10-05-v16.3.90-H5.2-week3-media-link-integrity-repair",
+  "week3MediaQualityStatus": "VERIFIED_CONTENT_STRUCTURE_UPLOAD_PENDING",
   "week3MediaQualityPages": {
     "CETa": 8,
     "Career": 8,
@@ -460,7 +460,10 @@
     "total": 32,
     "video": 16,
     "reading": 16,
-    "uniqueSources": 19
+    "uniqueSources": 32
   },
-  "week3SpecialistInstrumentCoreExpansion": false
+  "week3SpecialistInstrumentCoreExpansion": false,
+  "week3StudyGuideRequiredRecordCount": 4,
+  "week3StudyGuideRequiredPrintedPageCount": 73,
+  "week3RequiredLinkTargetsGood": true
 }

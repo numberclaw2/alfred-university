@@ -1,4 +1,21 @@
 (()=>{
+const hotfixH52={
+version:'v16.3.90-H5.2',
+date:'October 5, 2026',
+title:'Week 3 Required-Media Link Integrity Repair',
+type:'Week 3 / Teaching Media / Required Link Integrity',
+request:'Audit the uploaded H5.1 Week 3 repair and make sure the required teaching media actually resolve to the intended content.',
+changes:[
+'Confirms the deployed H5.1 media structure is otherwise correct: 16 distinct page-specific videos, 16 Required external readings, four Required Week 3 Study Guide slices with later reuse behavior, and 32 total point-of-use placements.',
+'Corrects the required Keysight Out-of-Cal Instruments Cause Bad Pass/Fail Decisions video URL. H5/H5.1 used an ID that does not match the intended Keysight calibration-series source; H5.2 uses the verified Keysight YouTube video ID UsIZx00HJmE.',
+'Adds a machine-readable required-link integrity guard covering both the corrected Keysight out-of-cal video and the repaired NEETS Module 16 NAVEDTRA 14188A reading.',
+'Aligns Learn cache-busting, service-worker cache identity/injection, and build metadata to H5.2 so the deployed release no longer identifies the current Week 3 media layer as H4.',
+'Preserves all Week 3 Alfred teaching, media placement choices, Study Guide requirements, visuals, assessments, LAB-003 evidence, stable learner IDs, and Cloud Sync protocol 2.'
+],
+filesAdded:['AU-ESET-301-v16.3.90-H5.2-Week-3-Media-Link-Integrity-QA.md','UPLOAD README v16.3.90-H5.2.txt'],
+filesModified:['week3-media-quality-v16.3.90-h4.js','learn.html','service-worker.js','build-info.json','release-notes-v16.3.90.js','ALFRED PROJECT GOVERNANCE.md','SHA256SUMS.txt','PACKAGE_SHA256SUMS.txt'],
+filesRemoved:[]
+};
 const hotfixH51={
 version:'v16.3.90-H5.1',
 date:'October 5, 2026',
@@ -117,6 +134,6 @@ filesModified:['quiz.js','quiz.html','assessments.html','service-worker.js','bui
 filesRemoved:[]
 };
 const existing=Array.isArray(window.ALFRED_RELEASES)?window.ALFRED_RELEASES:[];
-const versions=new Set([hotfixH51.version,hotfixH4.version,hotfixH3.version,hotfixH2.version,hotfixH1.version,entry.version]);
-window.ALFRED_RELEASES=[hotfixH51,hotfixH4,hotfixH3,hotfixH2,hotfixH1,entry,...existing.filter(x=>x&&!versions.has(x.version))];
+const versions=new Set([hotfixH52.version,hotfixH51.version,hotfixH4.version,hotfixH3.version,hotfixH2.version,hotfixH1.version,entry.version]);
+window.ALFRED_RELEASES=[hotfixH52,hotfixH51,hotfixH4,hotfixH3,hotfixH2,hotfixH1,entry,...existing.filter(x=>x&&!versions.has(x.version))];
 })();

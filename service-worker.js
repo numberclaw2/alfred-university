@@ -1,4 +1,4 @@
-const CACHE='alfred-u-v16-3-90-h4-week3-multimodal-content-20261001';
+const CACHE='alfred-u-v16-3-90-h5-2-week3-media-integrity-20261005';
 
 const CORE=[
   './',
@@ -32,7 +32,7 @@ const CORE=[
   'week3-remediation-v16.3.81.js','week3-remediation-v16.3.81.js?v=16.3.81',
   'week3-final-acceptance-v16.3.82.js','week3-final-acceptance-v16.3.82.js?v=16.3.82',
   'week3-final-acceptance-v16.3.83.js','week3-final-acceptance-v16.3.83.js?v=16.3.83','week3-final-acceptance-v16.3.83.js?v=16.3.90-H3',
-  'week3-media-quality-v16.3.90-h4.js','week3-media-quality-v16.3.90-h4.js?v=16.3.90-H4',
+  'week3-media-quality-v16.3.90-h4.js','week3-media-quality-v16.3.90-h4.js?v=16.3.90-H5.2',
   'teaching-media-resource-integration.js','teaching-media-resource-integration.js?v=16.3.57',
   'outside-literature-integration.js','outside-literature-integration.js?v=16.3.48',
   'teaching-media-architecture-repair.js','teaching-media-architecture-repair.js?v=16.3.56',
@@ -119,7 +119,7 @@ async function decorateNavigationResponse(response,url){
   text=text.replace(/learn\.js\?v=16\.3\.(?:68|74|75|76|84|86)/g,'learn.js?v=16.3.87');
   text=text.replace(/styles\.css\?v=16\.3\.(?:67|74|75)/g,'styles.css?v=16.3.84');
   text=text.replace(/week3-final-acceptance-v16\.3\.83\.js\?v=[^"'<>\s]+/g,'week3-final-acceptance-v16.3.83.js?v=16.3.90-H3');
-  text=text.replace(/week3-media-quality-v16\.3\.90-h4\.js\?v=[^"'<>\s]+/g,'week3-media-quality-v16.3.90-h4.js?v=16.3.90-H4');
+  text=text.replace(/week3-media-quality-v16\.3\.90-h4\.js\?v=[^"'<>\s]+/g,'week3-media-quality-v16.3.90-h4.js?v=16.3.90-H5.2');
 
   const statusTag='<script src="cloud-sync-status.js?v=16.3.73"></script>';
   if(!text.includes('cloud-sync-status.js')){
@@ -187,14 +187,14 @@ async function decorateNavigationResponse(response,url){
     else if(text.includes(overlay81Plain)) text=insertAfter(text,overlay81Plain,final83Tag);
   }
 
-  // H4 is a Learn-only instructional-content layer. Keep one copy immediately after
-  // the H3 Week 3 canonical layer so old cached Learn HTML cannot miss the content mix.
-  const week3H4Tag='<script src="week3-media-quality-v16.3.90-h4.js?v=16.3.90-H4"></script>';
+  // H5.2 is the current Week 3 Learn-only instructional-content/media layer. Keep one copy immediately after
+  // the H3 Week 3 canonical layer so stale Learn HTML cannot miss the current content/media contract.
+  const week3H52Tag='<script src="week3-media-quality-v16.3.90-h4.js?v=16.3.90-H5.2"></script>';
   if(url.pathname.endsWith('/learn.html') && !text.includes('week3-media-quality-v16.3.90-h4.js')){
-    if(text.includes(final83Tag)) text=insertAfter(text,final83Tag,week3H4Tag);
+    if(text.includes(final83Tag)) text=insertAfter(text,final83Tag,week3H52Tag);
     else {
       const final83Plain='<script src="week3-final-acceptance-v16.3.83.js"></script>';
-      if(text.includes(final83Plain)) text=insertAfter(text,final83Plain,week3H4Tag);
+      if(text.includes(final83Plain)) text=insertAfter(text,final83Plain,week3H52Tag);
     }
   }
 
@@ -327,9 +327,9 @@ async function decorateBuildInfo(response){
   try{
     const data=await response.clone().json();
     data.runtimePatch='16.3.90';
-    data.build='v16.3.90-H4-week3-multimodal-content-20261001';
-    data.releaseStatus='week3-h4-multimodal-content-quality-candidate';
-    data.releaseNotesRevision='2026-10-01-v16.3.90-H4-week3-multimodal-content-quality';
+    data.build='v16.3.90-H5.2-week3-media-integrity-20261005';
+    data.releaseStatus='week3-h5-2-media-integrity-candidate';
+    data.releaseNotesRevision='2026-10-05-v16.3.90-H5.2-week3-media-link-integrity';
     data.week3InstructionalRevision='2026-09-29-v16.3.81-week3-three-gate-remediation';
     data.week3ThreeGateStatus='VERIFIED_PASS';
     data.week3CetaAuthorityRepair=['8.1','8.2'];
@@ -375,15 +375,18 @@ async function decorateBuildInfo(response){
     data.assessmentCanonicalSixRevision='2026-09-30-v16.3.90-full-question-contract-reconstruction';
     data.week2CareerCanonicalEligibilityCount=6;
     data.week2CareerCanonicalRepairStatus='FULL_OBJECT_REBUILD_BEFORE_SELECTOR';
-    data.serviceWorkerRevision='2026-10-01-v16.3.90-H4-week3-multimodal-content-quality';
-    data.week3ReadinessRevision='2026-10-01-v16.3.90-H4-multimodal-content-quality';
+    data.serviceWorkerRevision='2026-10-05-v16.3.90-H5.2-week3-media-integrity';
+    data.week3ReadinessRevision='2026-10-05-v16.3.90-H5.2-media-integrity';
     data.week3StaticDirectEntryStatus='SELF_SUFFICIENT';
     data.week3WeeklyMasteryRuntime={count:14,CETa:7,Career:7};
     data.week3Lab003Runtime={count:6,CETa:3,Career:3,evidenceCheckpoints:10};
-    data.week3MediaQualityRevision='2026-10-01-v16.3.90-H4-week3-multimodal-content-quality';
-    data.week3MediaQualityStatus='INTERNAL_VERIFIED_DEPLOYMENT_PENDING';
+    data.week3MediaQualityRevision='2026-10-05-v16.3.90-H5.2-week3-media-link-integrity-repair';
+    data.week3MediaQualityStatus='VERIFIED_CONTENT_STRUCTURE_UPLOAD_PENDING';
     data.week3MediaQualityPages={CETa:8,Career:8,total:16};
-    data.week3PointOfUseMedia={total:32,video:16,reading:16,uniqueSources:19};
+    data.week3PointOfUseMedia={total:32,video:16,reading:16,uniqueSources:32};
+    data.week3StudyGuideRequiredRecordCount=4;
+    data.week3StudyGuideRequiredPrintedPageCount=73;
+    data.week3RequiredLinkTargetsGood=true;
     const headers=new Headers(response.headers);
     headers.set('content-type','application/json; charset=utf-8');
     headers.set('cache-control','no-store');

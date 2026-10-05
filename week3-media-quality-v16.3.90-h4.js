@@ -1,4 +1,4 @@
-/* AU-ESET 301 — v16.3.90-H5.1 Week 3 teaching-media audit repair
+/* AU-ESET 301 — v16.3.90-H5.2 Week 3 teaching-media link integrity repair
    COMPATIBILITY NOTE: the historical H4 filename is intentionally retained because
    learn.html already loads it. The contents below are the H5 corrective layer.
 
@@ -20,7 +20,7 @@
   const W=C.modules.find(m=>Number(m.week)===3);
   if(!W?.lessons?.length) return;
 
-  const REV='2026-10-05-v16.3.90-H5.1-week3-media-audit-repair';
+  const REV='2026-10-05-v16.3.90-H5.2-week3-media-link-integrity-repair';
   const ceta=W.lessons.find(l=>l.track==='CETa')||W.lessons[0];
   const career=W.lessons.find(l=>l.track==='Career')||W.lessons[1];
   const expectedCeta=[
@@ -147,7 +147,7 @@
     h5TekProbeLoadingVideo:{title:'Probe Loading Affects Your Measurement',org:'Tektronix',kind:'Manufacturer demonstration video · 9:38',url:'https://www.tek.com/en/video/industry-comparison/probe-loading-affects-your-measurement'},
     h5MethodicalFaultFindingVideo:{title:'The Art Of Methodical Fault Finding — A Practical Example',org:'Learn Electronics Repair',kind:'Electronics repair educator video · sliced assignment',url:'https://www.youtube.com/watch?v=3vP0YEsBeE4'},
     h5KeysightUncertaintyVideo:{title:'Measurement Uncertainty: How Accurate?',org:'Keysight Technologies',kind:'Manufacturer calibration/metrology video · 12:32',url:'https://www.youtube.com/watch?v=p_BHEWzP11A'},
-    h5KeysightOutOfCalVideo:{title:'Out-of-Cal Instruments Cause Bad Pass/Fail Decisions',org:'Keysight Technologies',kind:'Manufacturer calibration case-study video · 6:24',url:'https://www.youtube.com/watch?v=wGss-Elbf8E'},
+    h5KeysightOutOfCalVideo:{title:'Out-of-Cal Instruments Cause Bad Pass/Fail Decisions',org:'Keysight Technologies',kind:'Manufacturer calibration case-study video · 6:24',url:'https://www.youtube.com/watch?v=UsIZx00HJmE'},
     h5KeysightTraceabilityVideo:{title:'Traceability: Why Is It Important?',org:'Keysight Technologies',kind:'Manufacturer calibration/metrology video · 8:32',url:'https://www.youtube.com/watch?v=fvb2lDAjXTI'},
 
     // ---------- Career required readings: eight distinct resources ----------
@@ -362,6 +362,9 @@
   const duplicateIds=[...new Set(videoIds.filter((id,i,a)=>a.indexOf(id)!==i))];
   const duplicateUrls=[...new Set(videoUrls.filter((url,i,a)=>a.indexOf(url)!==i))];
   const allReadingsRequired=readings.every(p=>p.requirement==='required');
+  const requiredLinkTargetsGood=
+    C.sources.h5KeysightOutOfCalVideo?.url==='https://www.youtube.com/watch?v=UsIZx00HJmE'&&
+    C.sources.h5NeetsTestEquipmentReading?.url==='https://casperarc.net/library/NEETS/14188A.pdf';
   const requiredGuideRecords=week3GuideIds.map(id=>SG?.records?.find(r=>r?.id===id)).filter(Boolean);
   const allMappedGuideRequired=requiredGuideRecords.length===4&&requiredGuideRecords.every(r=>r.classification==='required'&&r.role==='required'&&r.contextOnly===false);
   const guideSegmentChecks=[
@@ -382,7 +385,7 @@
   });
   const structurallyGood=placements.length===32&&videos.length===16&&readings.length===16&&
     new Set(videoIds).size===16&&new Set(videoUrls).size===16&&duplicateIds.length===0&&duplicateUrls.length===0&&
-    allReadingsRequired&&allMappedGuideRequired&&guidePlacementPolicyGood&&
+    allReadingsRequired&&requiredLinkTargetsGood&&allMappedGuideRequired&&guidePlacementPolicyGood&&
     perPage.every(p=>p.videoSources.length===1&&p.readingSources.length===1);
 
   C.week3MediaQuality={
@@ -394,6 +397,7 @@
     uniqueVideoSourceCount:new Set(videoIds).size,uniqueVideoUrlCount:new Set(videoUrls).size,
     duplicateVideoSourceIds:duplicateIds,duplicateVideoUrls:duplicateUrls,
     allLessonReadingsRequired:allReadingsRequired,
+    requiredLinkTargetsGood,
     studyGuideRequiredRecordCount:requiredGuideRecords.length,
     allMappedStudyGuideRequired:allMappedGuideRequired,
     studyGuidePlacementPolicyGood:guidePlacementPolicyGood,
