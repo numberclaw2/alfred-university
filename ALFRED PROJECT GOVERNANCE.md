@@ -895,6 +895,15 @@ Week 3 is reopened specifically for the H5 media-placement repair. H5 must:
 
 Do not treat Week 3 as content-frozen again until this repair is placed into the files. Under the content-first workflow, browser acceptance is not a default freeze gate; later user-reported defects remain authoritative triggers for repair.
 
+### Week 3 H5.1 audit repair — 2026-10-05
+
+A targeted post-upload audit of H5 confirmed the page-specific media repair itself worked, but found three defects that prevent H5 from being the final Week 3 content baseline:
+- H5's Study Guide wrapper filtered the four mapped Chapter 19 records out because they were still classified as Study; it did **not** promote them to Required as the user explicitly required.
+- the required Career NEETS Module 16 reading still pointed to a `maritime.org` PDF URL that returns 404; H5.1 replaces it with the accessible NAVEDTRA 14188A public PDF at `https://casperarc.net/library/NEETS/14188A.pdf`.
+- H5 changed governed repository files without regenerating the repository-wide `SHA256SUMS.txt`, leaving three stale checksum entries. H5.1 regenerates the ledger.
+
+H5.1 repairs only those audit findings. It preserves the H5 page-specific media map: 16 distinct Week 3 video source IDs/URLs, 16 Required written sources, and no whole-video repetition. The four bounded Study Guide records become Required on their first mapped page; the existing Learn renderer then labels later placements of the same record as **Previously assigned · reuse if needed**. Week 3 remains reopened until H5.1 is placed into the repository.
+
 The prior instruction “Future Week 3 visual work must apply the new Week 2 source-authentic visual standard to both tracks” is satisfied at content level by the deployed H4 source-authentic CETa + Career visual layer.
 
 ---
@@ -1465,6 +1474,7 @@ Required assessment, lab, and completion behavior must not depend solely on serv
 
 # 32. GOVERNANCE CHANGE LOG
 
+2026-10-05 | WEEK 3 H5 AUDIT | REPAIR | Targeted audit confirmed H5 fixed duplicate videos (16 distinct video IDs/URLs + 16 Required written sources) but found that mapped Chapter 19 Study Guide slices were being hidden instead of promoted to Required, the required NEETS Module 16 `maritime.org` URL returned 404, and the root SHA256SUMS ledger was stale after H5. H5.1 promotes all four mapped Week 3 Study Guide slices to Required on first assignment with later reuse/backlink behavior, replaces NEETS with the accessible NAVEDTRA 14188A PDF, and regenerates the repository checksum ledger.  
 2026-10-05 | WEEK 3 H5 MEDIA PLACEMENT REPAIR | IMPLEMENT | Rebuild Week 3 lesson media across both CETa and Career after the H4 freeze failure. H5 uses 16 distinct page-specific video sources across the 16 teaching pages (no repeated whole-video source/URL), 16 page-specific Required written readings, explicit chapter/time slicing for the one long methodical-fault-finding video, and a structural duplicate-video guard. It also filters lesson Study Guide cards to Required records only; an already-Required record may reappear later only as review/backlink. Week 3 remains reopened until the H5 replacement is uploaded/accepted; this is a content repair, not a cosmetic change.  
 2026-10-04 | WEEK 3 CONTENT FREEZE | SUPERSEDE / REOPEN | The 2026-10-01 Week 3 CONTENT_FROZEN decision is superseded after the user found repeated whole-video placements on adjacent CETa pages and similar H4 reuse across Career. Week 3 is reopened for H5 teaching-media placement repair; H5 must use page-specific sufficient media across both tracks and preserve existing teaching/assessment/lab architecture.  
 2026-10-04 | TEACHING MEDIA / VIDEO REPETITION | ADD | A lesson-page video must directly support that page's exact topic. Do not repeat the same whole short/general video across pages. A long/structured video may be reused only when each placement specifies a different exact timestamp/chapter/segment; audit duplicate video source IDs/URLs before content freeze.  

@@ -1,4 +1,23 @@
 (()=>{
+const hotfixH51={
+version:'v16.3.90-H5.1',
+date:'October 5, 2026',
+title:'Week 3 Media Audit Repair — Required Study Guide + Live NEETS Source',
+type:'Week 3 / Teaching Media / Required Reading / Resource Integrity',
+request:'Audit the uploaded H5 Week 3 media repair and make sure it actually enforces page-specific media and required-reading policy.',
+changes:[
+'A targeted audit confirmed the H5 duplicate-video repair itself is structurally correct: 16 Week 3 pages use 16 distinct video source IDs/URLs plus 16 Required written sources.',
+'Repairs a Study Guide policy defect found by executing the actual Learn script order: H5 filtered the four mapped Chapter 19 slices out of lessons instead of promoting them to Required.',
+'Promotes all four bounded Week 3 Study Guide records to Required on first assignment. The two records reused later automatically render through existing Learn logic as “Previously assigned · reuse if needed” rather than creating a second reading obligation.',
+'Updates Week 3 Study Guide required-week/page metadata so Week 3 is no longer listed as a zero-new-required-reading week.',
+'Replaces the broken maritime.org NEETS Module 16 URL with the accessible NAVEDTRA 14188A public PDF mirror at casperarc.net.',
+'Restores the repository-wide SHA256SUMS.txt after the H5 upload changed files without regenerating the root checksum ledger.',
+'Preserves all H5 page-specific video/reading selections, Week 3 teaching/visuals/assessments/LAB-003, stable learner identities, and Cloud Sync protocol 2.'
+],
+filesAdded:['AU-ESET-301-v16.3.90-H5.1-Week-3-Media-Audit-Repair.md','UPLOAD README v16.3.90-H5.1.txt'],
+filesModified:['week3-media-quality-v16.3.90-h4.js','ALFRED PROJECT GOVERNANCE.md','release-notes-v16.3.90.js','PACKAGE_SHA256SUMS.txt','SHA256SUMS.txt'],
+filesRemoved:[]
+};
 const hotfixH4={
 version:'v16.3.90-H4',
 date:'October 1, 2026',
@@ -98,6 +117,6 @@ filesModified:['quiz.js','quiz.html','assessments.html','service-worker.js','bui
 filesRemoved:[]
 };
 const existing=Array.isArray(window.ALFRED_RELEASES)?window.ALFRED_RELEASES:[];
-const versions=new Set([hotfixH4.version,hotfixH3.version,hotfixH2.version,hotfixH1.version,entry.version]);
-window.ALFRED_RELEASES=[hotfixH4,hotfixH3,hotfixH2,hotfixH1,entry,...existing.filter(x=>x&&!versions.has(x.version))];
+const versions=new Set([hotfixH51.version,hotfixH4.version,hotfixH3.version,hotfixH2.version,hotfixH1.version,entry.version]);
+window.ALFRED_RELEASES=[hotfixH51,hotfixH4,hotfixH3,hotfixH2,hotfixH1,entry,...existing.filter(x=>x&&!versions.has(x.version))];
 })();

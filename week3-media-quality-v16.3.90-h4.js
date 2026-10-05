@@ -1,4 +1,4 @@
-/* AU-ESET 301 — v16.3.90-H5 Week 3 teaching-media placement repair
+/* AU-ESET 301 — v16.3.90-H5.1 Week 3 teaching-media audit repair
    COMPATIBILITY NOTE: the historical H4 filename is intentionally retained because
    learn.html already loads it. The contents below are the H5 corrective layer.
 
@@ -12,15 +12,15 @@
 */
 (()=>{
   'use strict';
-  if(window.__ALFRED_WEEK3_MEDIA_QUALITY_16390_H5__) return;
-  window.__ALFRED_WEEK3_MEDIA_QUALITY_16390_H5__=true;
+  if(window.__ALFRED_WEEK3_MEDIA_QUALITY_16390_H51__) return;
+  window.__ALFRED_WEEK3_MEDIA_QUALITY_16390_H51__=true;
 
   const C=window.ALFRED_CURRICULUM;
   if(!C?.modules?.length) return;
   const W=C.modules.find(m=>Number(m.week)===3);
   if(!W?.lessons?.length) return;
 
-  const REV='2026-10-05-v16.3.90-H5-week3-media-placement-repair';
+  const REV='2026-10-05-v16.3.90-H5.1-week3-media-audit-repair';
   const ceta=W.lessons.find(l=>l.track==='CETa')||W.lessons[0];
   const career=W.lessons.find(l=>l.track==='Career')||W.lessons[1];
   const expectedCeta=[
@@ -50,13 +50,72 @@
     return;
   }
 
-  // Study Guide lesson rule: lesson Related Learning may only receive records whose
-  // FIRST assignment is Required. Required records may still be reused later as review.
+  // H5.1 Study Guide repair. H5 filtered non-required lesson records out, but the
+  // user's rule is stronger: any exact Study Guide slice mapped to Week 3 lesson content
+  // must be Required on its FIRST assignment. Later placements of that exact same record
+  // are review/backlinks. Promote the four existing bounded Week 3 slices in-place so the
+  // current learn.js renderer naturally shows primary Required cards and later reuse cards.
   const SG=window.ALFRED_CETA_STUDY_GUIDE;
-  if(SG?.recordsForSegment&&!SG.__ALFRED_REQUIRED_ONLY_LESSON_POLICY_20261005__){
-    const original=SG.recordsForSegment.bind(SG);
-    SG.recordsForSegment=(week,lesson,segment)=>(original(week,lesson,segment)||[]).filter(r=>r?.classification==='required');
-    SG.__ALFRED_REQUIRED_ONLY_LESSON_POLICY_20261005__=true;
+  const week3GuideIds=[
+    'sg-w03-v16371-p165-purpose',
+    'sg-w03-v16371-p167-169-dmm',
+    'sg-w03-v16371-p172-173-scope',
+    'sg-w03-v16371-p173-probe-trigger'
+  ];
+  if(SG?.records){
+    const promoted=week3GuideIds.map(id=>SG.records.find(r=>r?.id===id)).filter(Boolean);
+    for(const r of promoted){
+      r.classification='required';
+      r.role='required';
+      r.contextOnly=false;
+      r.studyCategory='Required CETa Reading';
+      r.notes='v16.3.90-H5.1: lesson-mapped Week 3 Study Guide slice promoted to Required on first assignment; later mapped placement is reuse/review only.';
+      r.completionEvidence=SG.completionEvidenceByWeek?.[3]||'Complete the bounded reading, then perform the mapped Alfred retrieval/application action.';
+      r.completionPolicy='Required reading is complete only after the bounded slice is read and its mapped Alfred retrieval/application action is performed; later reuse does not create a second reading obligation.';
+    }
+    SG.completionEvidenceByWeek=SG.completionEvidenceByWeek||{};
+    SG.completionEvidenceByWeek[3]='Bounded Chapter 19 reading + mapped Week 3 instrument-selection / DMM / scope / probe-trigger retrieval or application.';
+    SG.requiredWeeks=[...new Set([...(SG.requiredWeeks||[]),3])].sort((a,b)=>Number(a)-Number(b));
+    SG.zeroNewRequiredWeeks=(SG.zeroNewRequiredWeeks||[]).filter(w=>Number(w)!==3);
+
+    // Keep summary metadata consistent with the promoted records. Unique printed-page
+    // count avoids double-counting p.173, which supports two different bounded concepts.
+    const requiredRecords=(SG.records||[]).filter(r=>r?.classification==='required');
+    const requiredPages=new Set();
+    for(const r of requiredRecords){
+      for(const g of (r.pageGroups||[])) for(let n=Number(g[0]);n<=Number(g[1]);n++) requiredPages.add(n);
+    }
+    if(typeof SG.pageCount==='function') SG.requiredPageCount=requiredRecords.reduce((n,r)=>n+SG.pageCount(r),0);
+    SG.counts=SG.counts||{};
+    SG.counts.requiredPrintedPages=requiredPages.size;
+    SG.counts.studyReviewPrintedPages=Math.max(0,Number(SG.counts.totalPrintedPages||224)-Number(SG.counts.referenceHistoricalPrintedPages||27)-requiredPages.size);
+    SG.counts.requiredWeeks=SG.requiredWeeks.length;
+    SG.counts.zeroNewRequiredWeeks=SG.zeroNewRequiredWeeks.length;
+    // Existing accepted required-time range plus the four bounded Week 3 tasks (27 min).
+    SG.counts.requiredMinutesMin=248;
+    SG.counts.requiredMinutesMax=287;
+    SG.dispositionCounts={required:requiredPages.size,study:SG.counts.studyReviewPrintedPages,reference:Number(SG.counts.referenceHistoricalPrintedPages||27)};
+
+    // Page-disposition metadata originally classifies Chapter 19 as Study. Override only
+    // the six printed pages actually promoted, leaving the rest of Chapter 19 optional.
+    const week3RequiredPages=new Set([165,167,168,169,172,173]);
+    const oldDisposition=SG.dispositionForPage?.bind(SG);
+    if(oldDisposition&&!SG.__ALFRED_WEEK3_REQUIRED_DISPOSITION_20261005__){
+      SG.dispositionForPage=page=>week3RequiredPages.has(Number(page))
+        ? {start:Number(page),end:Number(page),classification:'required',note:'Week 3 required contextual Study Guide slice'}
+        : oldDisposition(page);
+      SG.__ALFRED_WEEK3_REQUIRED_DISPOSITION_20261005__=true;
+    }
+
+    // Lesson Related Learning is required-only for Study Guide records. Because the
+    // promoted records are now Required, the first placement appears as Required while
+    // learn.js automatically labels later placements “Previously assigned · reuse if needed”.
+    if(SG.recordsForSegment&&!SG.__ALFRED_REQUIRED_ONLY_LESSON_POLICY_20261005_H51__){
+      const original=SG.recordsForSegment.bind(SG);
+      SG.recordsForSegment=(week,lesson,segment)=>(original(week,lesson,segment)||[]).filter(r=>r?.classification==='required');
+      SG.__ALFRED_REQUIRED_ONLY_LESSON_POLICY_20261005_H51__=true;
+    }
+    SG.week3RequiredReadingRevision=REV;
   }
 
   C.sources=C.sources||{};
@@ -96,7 +155,7 @@
     h5KeysightBenchSupplyReading:{title:'An In-Depth Guide to Bench Power Supplies',org:'Keysight Technologies',kind:'Manufacturer educational article',url:'https://www.keysight.com/blogs/en/tech/educ/2023/bench-power-supply'},
     h5TekScopeSetupReading:{title:'How to Use an Oscilloscope and Probe: A Step-by-Step Tutorial',org:'Tektronix',kind:'Manufacturer setup primer',url:'https://www.tek.com/en/documents/primer/setting-and-using-oscilloscope'},
     h5TekProbeLoadingReading:{title:'How Oscilloscope Probes Affect Your Measurement',org:'Tektronix',kind:'Manufacturer application note',url:'https://www.tek.com/en/documents/application-note/how-oscilloscope-probes-affect-your-measurement'},
-    h5NeetsTestEquipmentReading:{title:'NEETS Module 16 — Introduction to Test Equipment',org:'U.S. Navy Electricity and Electronics Training Series',kind:'Technician self-study manual',url:'https://maritime.org/doc/neets/mod16.pdf'},
+    h5NeetsTestEquipmentReading:{title:'NEETS Module 16 — Introduction to Test Equipment',org:'U.S. Navy Electricity and Electronics Training Series',kind:'Technician self-study manual',url:'https://casperarc.net/library/NEETS/14188A.pdf'},
     h5NistUncertaintyReading:{title:'Measurement Uncertainty',org:'National Institute of Standards and Technology (NIST)',kind:'Government measurement-science reference',url:'https://www.nist.gov/itl/sed/topic-areas/measurement-uncertainty'},
     h5NistTraceabilityReading:{title:'Metrological Traceability — Frequently Asked Questions and NIST Policy',org:'National Institute of Standards and Technology (NIST)',kind:'Government metrology reference',url:'https://www.nist.gov/metrology/metrological-traceability'},
     h5NistDecisionRulesReading:{title:'Assessment of Conformity, Decision Rules and Risk Analysis',org:'National Institute of Standards and Technology (NIST)',kind:'Government conformity/decision-rule publication',url:'https://www.nist.gov/publications/assessment-conformity-decision-rules-and-risk-analysis'}
@@ -170,7 +229,7 @@
     presentationRole:extra.presentationRole||'core',
     display:extra.display||'primary',inline:true,
     requirement:'required',mediaType,afterAction,
-    reason:'v16.3.90-H5 Week 3 page-specific media repair — exact subject fit; whole-video repetition prohibited.'
+    reason:'v16.3.90-H5.1 Week 3 page-specific media audit repair — exact subject fit; whole-video repetition prohibited; mapped Study Guide reading required.'
   });
 
   // PART 1 — CETa: eight distinct videos + eight distinct required readings.
@@ -303,6 +362,17 @@
   const duplicateIds=[...new Set(videoIds.filter((id,i,a)=>a.indexOf(id)!==i))];
   const duplicateUrls=[...new Set(videoUrls.filter((url,i,a)=>a.indexOf(url)!==i))];
   const allReadingsRequired=readings.every(p=>p.requirement==='required');
+  const requiredGuideRecords=week3GuideIds.map(id=>SG?.records?.find(r=>r?.id===id)).filter(Boolean);
+  const allMappedGuideRequired=requiredGuideRecords.length===4&&requiredGuideRecords.every(r=>r.classification==='required'&&r.role==='required'&&r.contextOnly===false);
+  const guideSegmentChecks=[
+    ['w03-question-before-instrument','sg-w03-v16371-p165-purpose'],
+    ['w03-dmm-modes-connections','sg-w03-v16371-p167-169-dmm'],
+    ['w03-measurement-limits','sg-w03-v16371-p167-169-dmm'],
+    ['w03-scope-voltage-over-time','sg-w03-v16371-p172-173-scope'],
+    ['w03-probe-reference-discipline','sg-w03-v16371-p173-probe-trigger'],
+    ['w03-trigger-stable-display','sg-w03-v16371-p173-probe-trigger']
+  ];
+  const guidePlacementPolicyGood=guideSegmentChecks.every(([segment,id])=>(SG?.recordsForSegment?.(3,0,segment)||[]).some(r=>r?.id===id&&r?.classification==='required'));
   const perPage=[
     ...expectedCeta.map(id=>({track:'CETa',lesson:0,id})),
     ...expectedCareer.map(id=>({track:'Career',lesson:1,id}))
@@ -312,7 +382,8 @@
   });
   const structurallyGood=placements.length===32&&videos.length===16&&readings.length===16&&
     new Set(videoIds).size===16&&new Set(videoUrls).size===16&&duplicateIds.length===0&&duplicateUrls.length===0&&
-    allReadingsRequired&&perPage.every(p=>p.videoSources.length===1&&p.readingSources.length===1);
+    allReadingsRequired&&allMappedGuideRequired&&guidePlacementPolicyGood&&
+    perPage.every(p=>p.videoSources.length===1&&p.readingSources.length===1);
 
   C.week3MediaQuality={
     revision:REV,
@@ -323,7 +394,11 @@
     uniqueVideoSourceCount:new Set(videoIds).size,uniqueVideoUrlCount:new Set(videoUrls).size,
     duplicateVideoSourceIds:duplicateIds,duplicateVideoUrls:duplicateUrls,
     allLessonReadingsRequired:allReadingsRequired,
-    studyGuideLessonPolicy:'required-only; an already-required record may reappear later as review/backlink',
+    studyGuideRequiredRecordCount:requiredGuideRecords.length,
+    allMappedStudyGuideRequired:allMappedGuideRequired,
+    studyGuidePlacementPolicyGood:guidePlacementPolicyGood,
+    studyGuideRequiredPrintedPages:SG?.counts?.requiredPrintedPages,
+    studyGuideLessonPolicy:'lesson-mapped Week 3 slices are Required on first assignment; an already-required record may reappear later as review/backlink',
     pages:perPage,
     specialistToolCoreExpansion:false,cloudSyncProtocol:2
   };
