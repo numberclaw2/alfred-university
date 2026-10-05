@@ -417,6 +417,19 @@ Avoid:
 - redundant repeated resources
 - prestige over teaching clarity
 
+## 7.6 Section-level media fit and repetition rule
+
+Every lesson-page media placement must directly and sufficiently support the **specific subject being taught on that page**. A resource that is merely broadly related to the week or instrument family is not good enough. Do not fill a page with a generic resource simply to satisfy a media count.
+
+Video repetition is tightly controlled:
+- do **not** place the same whole short/general video on multiple lesson pages;
+- do **not** repeat a video on adjacent pages simply because it mentions both topics;
+- a long or deliberately structured video may be reused only when each placement assigns a **different exact timestamp/chapter/lesson segment** and tells the learner precisely what to watch there;
+- if distinct pages teach distinct concepts and a suitable page-specific video exists, use distinct videos;
+- before freezing a week, audit duplicate video source IDs/URLs across both CETa and Career and justify every duplicate by explicit segment slicing.
+
+The governing standard is **topic fit + sufficient coverage + low redundancy**, not one-card-per-page count compliance.
+
 ## 7.4 Video slicing
 
 One long high-quality video may be reused as multiple lesson segments by assigning exact timestamps when that creates clearer concept-level instruction.
@@ -465,6 +478,16 @@ Rules:
 - canonical source records
 - no literature merely to increase counts
 
+## 8.1 Lesson-level written reading is Required
+
+As of 2026-10-05, any written source that Alfred places **inside a lesson / Related Learning for the concept being taught is Required reading**. Do not place a newly assigned lesson-related article, manufacturer note, textbook section, government reference, or other reading under an optional “Need another explanation or reference?” bucket.
+
+Rules:
+- if a written source is important enough to support the lesson page, assign it as Required and bound it to the exact section/pages needed;
+- optional/supporting reading belongs in Study or the Engineering Library, not in the lesson Related Learning panel;
+- a reading already completed as Required may be linked again later as a clearly labeled reuse/review without creating a second obligation;
+- do not add written sources merely to satisfy a count; the Required reading must directly and sufficiently reinforce that page’s subject.
+
 ---
 
 # 9. CETa STUDY GUIDE
@@ -485,6 +508,16 @@ Current integrated model:
 - 17 weeks had no new Required Study Guide reading
 
 Do not use the Study Guide as a loophole for missing Alfred instruction.
+
+## 9.1 Lesson-mapped Study Guide reading is Required
+
+As of 2026-10-04, if exact Associate CET Study Guide pages are mapped to a lesson topic because they are relevant to what the learner is being taught, those pages are **Required reading**. Do not place newly assigned, lesson-related Study Guide pages under “Need another explanation or reference?”, optional Study, or a similar secondary bucket.
+
+The only allowed exception is **secondary reuse after Required assignment**: if the exact same Study Guide pages have already been assigned as Required earlier in the learning path, they may appear again later as “previously assigned / reuse if needed” when revisiting them is pedagogically useful. That secondary appearance does not create a new reading obligation.
+
+Non-required Study Guide records must **never** be surfaced inside the lesson’s “Need another explanation or reference?” section. That secondary section may show Study Guide material only when the exact same record was already assigned as Required and is now being intentionally revisited.
+
+If a Study Guide section is not useful enough to be Required for the current lesson, do not map it to the lesson merely to increase coverage. Broad chapter maps may remain reference-only when they have no lesson placement.
 
 Study Guide handling has changed historically:
 - upload/private IndexedDB model existed
@@ -829,9 +862,40 @@ v16.3.90-H4 Week 3 multimodal content-quality candidate (internal data/runtime Q
 - Career is no longer allowed to pass with strong Alfred text/visuals but zero point-of-use media; H4 gives all 8 Career pages the same multimodal-quality scrutiny as the 8 CETa pages
 - strong existing sources are deliberately reused when semantically exact; new sources are limited to focused manufacturer/government material from Tektronix, Keysight, and NIST rather than count-padding
 - specialist-instrument breadth remains outside the Week 3 core; H4 does not reintroduce premature spectrum/ESR/LCR/variable-line-AC/signal-generator/decade-box/electronic-load instruction
-- H4 must not be called frozen/accepted until the uploaded Pages artifact and real learner browser confirm the content layer actually loads as intended
+- Historical H4 acceptance language originally held final freeze open for user-browser confirmation. That verification-first gate is superseded for normal content/file work by the 2026-10-01 content-first workflow; browser confirmation is required only when making a browser/runtime verification claim or troubleshooting a reported defect.
 
-The prior instruction “Future Week 3 visual work must apply the new Week 2 source-authentic visual standard to both tracks” is now implemented at source-package level by H2; do not call the retrofit finally accepted until deployment/client QA passes.
+### Week 3 content freeze — 2026-10-01
+
+Week 3 is **CONTENT_FROZEN** after a final major-issues-only instructional audit under the user's current content-first workflow.
+
+Separate content results:
+- **CETa instructional content: PASS.** Eight teaching pages cover question-first instrument selection, analog/digital meter operation and construction, DMM connection modes, CV/CC bench-supply behavior, oscilloscope voltage-versus-time interpretation, probe/reference discipline, triggering, and measurement limits. The lesson includes worked examples, guided practice, independent application, teach-back, semantic tasks, retrieval checks, and assessment routing.
+- **Career instructional content: PASS.** Eight teaching pages convert the same instrument knowledge into technician planning, baseline/static evidence, known-waveform validation, loading/bandwidth awareness, discriminating measurements, reproducible records, test-asset validity, and measurement-capability decisions.
+- **CETa↔Career handoff/timing: PASS for content.** Career uses only the core instruments and concepts taught in the Week 3 CETa path; specialist-instrument breadth remains deferred.
+- **Teaching-media placement: PASS for major-issue threshold.** All 16 teaching pages have substantive Alfred teaching, a source-authentic visual/diagram, one bounded video/demonstration, one bounded written source, and a retrieval/application action. Reused resources are assigned for distinct page purposes rather than count padding.
+- **Teaching-method mix: PASS.** Across the week the course uses explanation, source-authentic visualization, demonstration/video, written reinforcement, worked examples, I-do/we-do/you-do guided practice, prediction/retrieval, independent troubleshooting scenarios, teach-back, semantic response, LAB-003 application/evidence, and mastery assessment/repair routing.
+- **Evidence/practical boundary: PASS for content.** LAB-003 retains the ten-checkpoint evidence packet and clearly distinguishes academic/simulation evidence from physical DMM lead/jack handling, supply-control handling, probe/reference handling, compensation, accessory inspection, and real status/calibration evidence.
+- **Minor/non-blocking observations:** some reused external media could be sliced even more tightly with timestamps/subsections, and a few pages use adjacent rather than perfectly one-to-one supplemental media. These do not materially weaken the Alfred teaching path or leave a Week 3 concept untaught, so they do not reopen the week.
+
+Freeze rule:
+- Do not reopen Week 3 for cosmetic polish, alternate media preferences, or minor wording refinements.
+- Reopen only for a later user-reported defect, a newly discovered **major** instructional omission/error, a broken/missing required resource that materially harms the lesson, or an explicit user request.
+- `CONTENT_FROZEN` does not mean every browser/runtime path has been personally reverified by the user. Runtime defects may be repaired later without reopening the instructional design unless the repair changes content.
+
+### Week 3 content freeze REOPENED — 2026-10-04
+
+The 2026-10-01 `CONTENT_FROZEN` decision is **superseded**. During actual study, the user found a material Teaching Media defect: the same Afrotechmods multimeter video was repeated across adjacent CETa pages without distinct timestamps/segments, and the H4 design contained similar cross-page video reuse in Career. This violates the page-specific media-fit standard and means H4 should not have been frozen.
+
+Week 3 is reopened specifically for the H5 media-placement repair. H5 must:
+- replace redundant whole-video reuse with page-specific videos across all 8 CETa + 8 Career teaching pages;
+- permit video reuse only with explicit, non-overlapping timestamp/chapter assignments;
+- make every lesson-related written resource Required;
+- promote all lesson-mapped Week 3 Study Guide slices to Required on first assignment, with optional/reference appearance allowed only as secondary reuse of already-required pages;
+- preserve existing Week 3 teaching, visuals, assessments, LAB-003 evidence, stable IDs, and Cloud Sync protocol 2.
+
+Do not treat Week 3 as content-frozen again until this repair is placed into the files. Under the content-first workflow, browser acceptance is not a default freeze gate; later user-reported defects remain authoritative triggers for repair.
+
+The prior instruction “Future Week 3 visual work must apply the new Week 2 source-authentic visual standard to both tracks” is satisfied at content level by the deployed H4 source-authentic CETa + Career visual layer.
 
 ---
 
@@ -1023,10 +1087,23 @@ Required post-upload verification where tools allow:
 - browser runtime when environment allows
 
 If graphical browser access is blocked by environment:
-- state that limitation
+- state that limitation when graphical QA was explicitly requested
 - do not infer the website is broken
-- use artifact/static/runtime harness instead
+- use artifact/static/runtime harness instead when an audit/verification was requested
 - do not falsely certify graphical QA
+
+## 22.1 Default verification priority — content/file-first unless audit is requested
+
+As of 2026-10-01, the user's default workflow is **content-first and file-first, not verification-first**. Unless the user explicitly asks to audit the code, verify deployment/runtime behavior, or reports that something is not working:
+- the assistant's primary responsibility is to put the requested instructional/content changes correctly into the files to the best of its ability;
+- do not spend the majority of the task on GitHub Pages, artifact, service-worker, cache, browser, or live-runtime verification;
+- do not ask the user to open pages, inspect the browser, confirm visuals, or perform acceptance checks after delivery;
+- do not automatically run a full post-upload audit merely because files were uploaded;
+- lightweight file-integrity checks that directly prevent malformed handoffs (for example syntax/parse checks, obvious missing-file checks, or package-filename checks) are still appropriate, but they must stay proportionate and secondary to content completion;
+- if the user later encounters a defect, treat that report as the trigger to troubleshoot and repair it;
+- if the user explicitly requests an audit/verification, then the deeper deployment/runtime/browser rules in this section become active for that audit.
+
+This supersedes the former default assumption that every content update must be held open pending user-browser confirmation. A release may be described as **content-complete / files delivered** without browser confirmation, but do not mislabel untested runtime behavior as browser-verified.
 
 `.nojekyll` is important to GitHub Pages root behavior and must not be omitted when required.
 
@@ -1060,16 +1137,14 @@ Historical dotfile note:
 - there was an earlier temporary rule against filenames beginning with `.`, then user corrected that `.nojekyll` is allowed/needed
 - current rule: preserve required dotfiles such as `.nojekyll`
 
-Before handoff:
-- build
-- syntax check
-- functional/static harness
-- regression check
-- package
-- integrity check
-- disclose unverified environment limits
+Before handoff, default priority is:
+- requested content is actually present in the correct files;
+- canonical filenames and package shape are correct;
+- basic syntax/parse/integrity checks are performed where quick and directly useful;
+- Release Notes / governance updates required by scope are included;
+- deeper functional/static harnesses, regression suites, deployment checks, and browser checks are **not default gates** unless the user explicitly asks for an audit/verification or the task itself is a runtime repair where a minimal focused check is necessary.
 
-Never knowingly hand off a fixable defect.
+Never knowingly hand off an obvious fixable defect, but do not let broad QA work crowd out the requested content work.
 
 ---
 
@@ -1085,8 +1160,9 @@ When the user asks for an audit:
 When the user says “make the changes”:
 - implement only the accepted scope
 - preserve unrelated architecture
-- verify regressions
+- prioritize putting the requested content/changes into the files correctly
 - provide replacement files/package
+- do **not** automatically convert change mode into a full code/runtime/deployment audit; run deeper regression/runtime verification only when explicitly requested or when the user has reported a failure that is being repaired
 
 When user says content-only / placement-only:
 - do not redesign UX, layout, aesthetic, branding, navigation, or mobile system
@@ -1153,6 +1229,12 @@ Use this section to prevent old instructions from contaminating current decision
 - later user wanted a repo-hosted copy/no upload button
 - treat current deployed state as source of truth while respecting copyright/distribution constraints
 
+## 26.7 Verification-first workflow
+- older governance treated post-upload deployment/artifact/runtime/browser verification as a default acceptance gate for every update
+- as of 2026-10-01, that is superseded as the default workflow
+- current default is content/file-first; full code/runtime/deployment/browser verification occurs when the user explicitly asks for an audit/verification or when troubleshooting a reported failure
+- do not ask the user to perform routine browser acceptance checks after each update
+
 ---
 
 # 27. USER COMPLAINTS / FAILURE MODES TO REMEMBER
@@ -1167,9 +1249,14 @@ Do not:
 - present information instead of teaching it
 - use external resources to patch weak Alfred instruction
 - dump links/media without context
+- repeat the same whole short/general video across multiple lesson pages without distinct exact timestamp/chapter slicing; this is a material media-placement defect, not harmless redundancy
+- place a video/read on a page because it is merely related to the week; the source must directly and sufficiently support that page's subject
+- place newly assigned lesson-related Study Guide pages under optional “another explanation/reference”; lesson-mapped Study Guide pages are Required on first assignment
 - render printable study-math as plain ASCII-style expressions when true typeset notation is available; printed formulas should visually match the clean textbook-style math used in chat
 - over-audit trivial polish after a clear GO
-- claim deployment without checking deployment
+- make verification/testing the main task when the user asked for content/file changes
+- routinely ask the user to open pages or confirm browser behavior after delivery; the user will report defects when encountered
+- claim deployment without checking deployment when a deployment claim is actually being made
 - assume GitHub upload means live site
 - treat a passing Pages artifact or Node/static harness as proof that the user’s active browser has actually received the new runtime; client service-worker/cache transition behavior is part of deployment correctness
 - hand off files that were not internally tested
@@ -1262,33 +1349,32 @@ During implementation:
 - [ ] No unrelated redesign.
 - [ ] Release Notes updated.
 
-Before handoff:
+Before handoff — **default content/file mode**:
 
+- [ ] requested content/changes are present in the correct canonical files.
+- [ ] CETa + Career content parity is respected where scope is broad.
+- [ ] current `ALFRED PROJECT GOVERNANCE.md` included in package when the package scope requires it.
+- [ ] package contains correct root filenames.
+- [ ] basic syntax/parse/integrity checks are run where quick and directly useful.
+- [ ] Cloud Sync protocol / stable IDs / protected architecture are not knowingly altered outside scope.
+- [ ] no routine user-browser acceptance request is made.
+
+Only when the user explicitly asks to **audit / verify / make sure it works**, or when troubleshooting a reported failure, activate the deeper QA checklist as relevant:
 - [ ] JS syntax checks.
 - [ ] Data/load-order checks.
 - [ ] relevant runtime/static harness.
-- [ ] if Learn/stage routing changed, execute the affected stage transition and destination renderer (not only syntax-check it).
-- [ ] if assessment data/selector/review status changed, execute the affected quiz selector and confirm the requested form assembles with the intended CETa/Career mix.
-- [ ] for compatibility/hotfix assessment repairs, adversarially corrupt or remove each repaired item/field and verify the full eligibility contract self-heals before selector execution.
+- [ ] if Learn/stage routing changed, execute the affected stage transition and destination renderer.
+- [ ] if assessment data/selector/review status changed, execute the affected selector/launch route.
+- [ ] for compatibility/hotfix assessment repairs, adversarially test the repaired eligibility contract when warranted.
 - [ ] regression check.
-- [ ] build-info/service-worker revision.
-- [ ] Cloud Sync protocol preserved.
-- [ ] current `ALFRED PROJECT GOVERNANCE.md` included in package.
-- [ ] package contains correct root filenames.
-- [ ] disclose environment-limited graphical/runtime checks.
-- [ ] do not call accepted until CETa + Career both pass.
+- [ ] build-info/service-worker/cache checks.
+- [ ] deployment/artifact/live-runtime checks if deployment verification was requested.
+- [ ] user-browser behavior is authoritative if the user reports a real failure.
 
-After user upload:
-
-- [ ] verify latest main commit
-- [ ] verify exact files
-- [ ] verify Pages run for exact commit
-- [ ] verify artifact
-- [ ] inspect runtime artifact
-- [ ] verify service worker/cache/build-info
-- [ ] verify relevant learner-facing behavior
-- [ ] if the user reports a real browser failure that contradicts artifact/static/harness QA, treat the browser failure as authoritative evidence that acceptance is incomplete; investigate client cache/service-worker/update state rather than freezing the release.
-- [ ] only then freeze/accept
+After user upload in normal content/file mode:
+- [ ] do not automatically start a deployment/runtime/browser audit.
+- [ ] do not ask the user to test or visually confirm the update.
+- [ ] move on unless the user requests verification or later reports a defect.
 
 ---
 
@@ -1379,6 +1465,13 @@ Required assessment, lab, and completion behavior must not depend solely on serv
 
 # 32. GOVERNANCE CHANGE LOG
 
+2026-10-05 | WEEK 3 H5 MEDIA PLACEMENT REPAIR | IMPLEMENT | Rebuild Week 3 lesson media across both CETa and Career after the H4 freeze failure. H5 uses 16 distinct page-specific video sources across the 16 teaching pages (no repeated whole-video source/URL), 16 page-specific Required written readings, explicit chapter/time slicing for the one long methodical-fault-finding video, and a structural duplicate-video guard. It also filters lesson Study Guide cards to Required records only; an already-Required record may reappear later only as review/backlink. Week 3 remains reopened until the H5 replacement is uploaded/accepted; this is a content repair, not a cosmetic change.  
+2026-10-04 | WEEK 3 CONTENT FREEZE | SUPERSEDE / REOPEN | The 2026-10-01 Week 3 CONTENT_FROZEN decision is superseded after the user found repeated whole-video placements on adjacent CETa pages and similar H4 reuse across Career. Week 3 is reopened for H5 teaching-media placement repair; H5 must use page-specific sufficient media across both tracks and preserve existing teaching/assessment/lab architecture.  
+2026-10-04 | TEACHING MEDIA / VIDEO REPETITION | ADD | A lesson-page video must directly support that page's exact topic. Do not repeat the same whole short/general video across pages. A long/structured video may be reused only when each placement specifies a different exact timestamp/chapter/segment; audit duplicate video source IDs/URLs before content freeze.  
+2026-10-04 | STUDY GUIDE PLACEMENT | MODIFY | Any exact Study Guide pages mapped to lesson content are Required reading on first assignment. They may appear under optional “another explanation/reference” only as a clearly labeled secondary reuse after those exact pages were already Required. Do not map book pages merely to increase coverage.  
+2026-10-01 | WEEK 3 CONTENT FREEZE | ACCEPT | Final major-issues-only content audit = PASS. Week 3 is CONTENT_FROZEN under the current content/file-first workflow: CETa PASS, Career PASS, CETa↔Career timing PASS, teaching-media placement PASS, teaching-method mix PASS, and LAB-003 evidence/practical boundary PASS. All 16 teaching pages have Alfred teaching + source-authentic visual + bounded video/demo + bounded written reinforcement + retrieval/application; the week also includes worked examples, guided practice, independent scenarios, teach-back, semantic tasks, lab evidence, and mastery/repair. Minor media-slicing or wording polish does not reopen the week. Reopen only for a later major instructional defect, materially broken/missing required resource, reported runtime defect requiring targeted repair, or explicit user request.  
+2026-10-01 | WORKFLOW / QA PRIORITY | SUPERSEDE | Default Alfred work is now content-first/file-first. Unless the user explicitly requests a code/runtime/deployment audit or reports a failure, prioritize putting the requested content correctly into the files, keep verification proportionate and secondary, do not automatically perform full post-upload Pages/artifact/browser QA, and do not ask the user to open pages or confirm behavior. The user will report defects when encountered; deeper verification is explicit audit/troubleshooting mode.  
+2026-10-01 | WEEK 3 H4 DEPLOYMENT | VERIFY | Main commit `e0d98390cc9e3ef1c9151c6cd2985b3766fbf00d` deployed successfully in GitHub Pages run `36879502211`. The generated Pages artifact matches all 10 H4 package files exactly; 110/110 top-level JavaScript syntax checks pass; repository checksum ledger verifies 454/454; deployed H4 runtime = `VERIFIED_PASS`; all 16 Week 3 teaching pages resolve exactly 1 video/demonstration + 1 written reading/reference with 16/16 source-authentic visuals; Week 3 mastery remains 14 = 7 CETa + 7 Career; LAB-003 remains 6 = 3+3 with 10 evidence checkpoints; Week 2 remains 12 = 6+6; H4 service-worker/cache transition passes with 208/208 precache targets and Cloud Sync protocol 2 preserved. Deployment/artifact/runtime gate = PASS; real-client Week 3 CETa + Career content-card confirmation remains required before final freeze.  
 2026-10-01 | WEEK 3 H4 MULTIMODAL CONTENT | IMPLEMENT | Internal H4 candidate gives all 16 Week 3 CETa/Career teaching pages a purposeful page-level combination of Alfred teaching, source-authentic visual/diagram, bounded video/demonstration, bounded reading/reference, and retrieval/application. Exact point-of-use media = 32 placements (16 video + 16 reading); Career receives full parity. Specialist-tool breadth remains deferred. Deployment/artifact + real-client content acceptance remain required before freeze.  
 2026-10-01 | WEEK 3 H3 DIRECT ENTRY | REPAIR | Internal execution of the deployed H2 artifact found that fresh/uncontrolled `quiz.html`, `assessments.html`, and `labs.html` still exposed pre-H2 Week 3 state until service-worker injection. H3 statically loads the Week 3 remediation/H2 compatibility layers on those critical routes, bumps cache/build metadata, and requires redeployment/client verification before freeze.  
 2026-10-01 | STATIC DIRECT-ENTRY SELF-SUFFICIENCY | ADD | Critical assessment/lab/completion routes must be canonical from their static HTML/script stack on a fresh direct load; service-worker injection may be fallback compatibility but not the sole runtime owner.  
@@ -1465,4 +1558,4 @@ If later conversations expose an older requirement that is missing here, add it 
 
 # 34. ONE-SENTENCE PROJECT LAW
 
-**Alfred must function like a real beginner-first electronics university course that teaches both CETa knowledge and technician job performance with equal seriousness, authentic evidence, strong source-grounded media/visuals, stable learner UX, and rigorously verified releases—without making the user repeatedly re-explain the project.**
+**Alfred must function like a real beginner-first electronics university course that teaches both CETa knowledge and technician job performance with equal seriousness, authentic evidence, and strong source-grounded media/visuals; default development is content/file-first, with deep runtime/deployment verification performed when the user explicitly requests an audit or reports a failure, and the user should not be made to repeatedly re-explain the project.**
