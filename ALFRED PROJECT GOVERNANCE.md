@@ -5,8 +5,8 @@
 **Audience:** Primarily ChatGPT / future project sessions. Human readability is secondary to completeness and retrieval efficiency.  
 **Update rule:** Every future website update package must include the current version of this exact file, with any new user requirements, reversals, complaints, accepted decisions, or future ideas added before handoff.  
 **Filename:** `ALFRED PROJECT GOVERNANCE.md`  
-**Current governance compilation date:** 2026-10-01  
-**Current site runtime at compilation:** v16.3.90  
+**Current governance compilation date:** 2026-10-07  
+**Current site runtime at compilation:** v16.3.91-H1 candidate (Week 4 governance-integrity repair; deployment pending user upload)  
 **Repository:** `numberclaw2/alfred-university`  
 **GitHub Pages:** `https://numberclaw2.github.io/alfred-university/`  
 **Cloud Sync:** protocol 2  
@@ -1165,6 +1165,20 @@ Never knowingly hand off an obvious fixable defect, but do not let broad QA work
 
 ---
 
+
+## 23.1 Controlled incremental-update workflow — quality without full-site rebuild cost
+
+As of 2026-10-07, routine weekly/module updates use a controlled delta workflow:
+- freeze previously accepted weeks/modules unless the requested change directly touches them;
+- inspect and modify only the active week plus shared dependencies actually affected;
+- preserve stable IDs, saved progress, Cloud Sync protocol, calendar/event identities, and unrelated routes;
+- perform full instructional QA on the changed week, but use targeted regression on adjacent/shared behavior rather than re-auditing the entire 31-week course;
+- separate content QA from application/runtime QA so a content update does not automatically become a whole-site reconstruction;
+- use broader full-course/runtime audits only for architecture/governance changes, explicit audit requests, or reported regressions;
+- larger coherent edits plus one repair pass are preferred over many tiny patches.
+
+This workflow is an efficiency rule, **not a quality reduction**. Governance quality, CETa/Career parity, source quality, evidence boundaries, assessment integrity, and release/reference documentation remain mandatory.
+
 # 24. AUDIT MODE VS CHANGE MODE
 
 When the user asks for an audit:
@@ -1481,6 +1495,11 @@ Required assessment, lab, and completion behavior must not depend solely on serv
 ---
 
 # 32. GOVERNANCE CHANGE LOG
+
+2026-10-07 | WEEK 4 H1 GOVERNANCE AUDIT | REPAIR | Explicit post-upload governance audit rejected a premature freeze despite successful Pages deployment. The deployed v16.3.91 teaching/media structure passed, but CQ1215–CQ1226 were discovered to be retired historical question identities, Week 4 standards/test metadata still carried stale or rehomed claims, and release/governance/build reference state had not been updated. H1 preserves historical CQ1215–CQ1226, moves Week 4 to new permanent CQ1227–CQ1238, corrects standards metadata, strengthens identity/standards self-audits, completes source-authentic visual parity with a public-domain RC charging curve on the capacitor page, updates release/reference notes and build/service-worker metadata, and requires final redeployment verification before freeze.
+2026-10-07 | WEEK 4 CONTROLLED REDESIGN | IMPLEMENT | Week 4 learner path redesigned as 4 CETa + 4 Career pages with page-specific source-grounded visuals, 8 unique videos, 8 Required readings, required Study Guide pp.19–22 with later reuse semantics, strengthened LAB-004 evidence, explicit Week 6 frequency-domain boundary and Week 11 digital-logic boundary, while preserving Week 3 and Cloud Sync protocol 2.
+2026-10-07 | UPDATE WORKFLOW | ADD | Routine Alfred development now uses a frozen-baseline, delta-scope, targeted-regression workflow to reduce update time/timeouts without lowering instructional or governance quality. Full-site audits are reserved for architecture/governance changes, explicit audits, or reported regressions.
+2026-10-07 | REFERENCE / RELEASE NOTES | REAFFIRM | Every substantive Alfred release must update the human-readable Release Notes/reference history and canonical governance change log before it can be called final/frozen. A code-only upload may be content-complete but is not full governance acceptance.
 
 2026-10-05 | WEEK 3 H5.2 MEDIA LINK INTEGRITY | REPAIR | Explicit post-upload audit confirmed H5.1 structure/placement behavior but found the required Keysight Out-of-Cal pass/fail video pointed to the wrong/unverified YouTube ID and the Learn/service-worker/build metadata still identified the active media layer as H4. H5.2 switches the video to Keysight's verified `UsIZx00HJmE` source, adds a required-link integrity guard for that video plus the NEETS NAVEDTRA 14188A reading, and aligns Learn cache-busting, service-worker cache identity/injection, and build-info to H5.2. No teaching sequence, Study Guide assignment, assessment, lab, stable-ID, or Cloud Sync change. Week 3 may refreeze after H5.2 is uploaded.  
 2026-10-05 | WEEK 3 H5 AUDIT | REPAIR | Targeted audit confirmed H5 fixed duplicate videos (16 distinct video IDs/URLs + 16 Required written sources) but found that mapped Chapter 19 Study Guide slices were being hidden instead of promoted to Required, the required NEETS Module 16 `maritime.org` URL returned 404, and the root SHA256SUMS ledger was stale after H5. H5.1 promotes all four mapped Week 3 Study Guide slices to Required on first assignment with later reuse/backlink behavior, replaces NEETS with the accessible NAVEDTRA 14188A PDF, and regenerates the repository checksum ledger.  

@@ -1,4 +1,4 @@
-const CACHE='alfred-u-v16-3-90-h5-2-week3-media-integrity-20261005';
+const CACHE='alfred-u-v16-3-91-h1-week4-governance-integrity-20261007';
 
 const CORE=[
   './',
@@ -326,10 +326,10 @@ async function decorateBuildInfo(response){
   if(!response || !response.ok) return response;
   try{
     const data=await response.clone().json();
-    data.runtimePatch='16.3.90';
-    data.build='v16.3.90-H5.2-week3-media-integrity-20261005';
-    data.releaseStatus='week3-h5-2-media-integrity-candidate';
-    data.releaseNotesRevision='2026-10-05-v16.3.90-H5.2-week3-media-link-integrity';
+    data.runtimePatch='16.3.91-H1';
+    data.build='v16.3.91-H1-week4-governance-integrity-20261007';
+    data.releaseStatus='week4-v16-3-91-h1-governance-audited-candidate';
+    data.releaseNotesRevision='2026-10-07-v16.3.91-H1-week4-governance-integrity';
     data.week3InstructionalRevision='2026-09-29-v16.3.81-week3-three-gate-remediation';
     data.week3ThreeGateStatus='VERIFIED_PASS';
     data.week3CetaAuthorityRepair=['8.1','8.2'];
@@ -375,7 +375,7 @@ async function decorateBuildInfo(response){
     data.assessmentCanonicalSixRevision='2026-09-30-v16.3.90-full-question-contract-reconstruction';
     data.week2CareerCanonicalEligibilityCount=6;
     data.week2CareerCanonicalRepairStatus='FULL_OBJECT_REBUILD_BEFORE_SELECTOR';
-    data.serviceWorkerRevision='2026-10-05-v16.3.90-H5.2-week3-media-integrity';
+    data.serviceWorkerRevision='2026-10-07-v16.3.91-H1-week4-governance-integrity';
     data.week3ReadinessRevision='2026-10-05-v16.3.90-H5.2-media-integrity';
     data.week3StaticDirectEntryStatus='SELF_SUFFICIENT';
     data.week3WeeklyMasteryRuntime={count:14,CETa:7,Career:7};
@@ -386,6 +386,16 @@ async function decorateBuildInfo(response){
     data.week3PointOfUseMedia={total:32,video:16,reading:16,uniqueSources:32};
     data.week3StudyGuideRequiredRecordCount=4;
     data.week3StudyGuideRequiredPrintedPageCount=73;
+    data.week4InstructionalRevision='2026-10-07-v16.3.91-H1-week4-governance-integrity-repair';
+    data.week4ContentQualityStatus='VERIFIED_STATIC_RUNTIME_HARNESS';
+    data.week4Pages={CETa:4,Career:4,total:8};
+    data.week4PointOfUseMedia={video:8,reading:8,total:16,allLessonReadingsRequired:true};
+    data.week4AssessmentRuntime={count:12,CETa:6,Career:6,ids:'CQ1227-CQ1238'};
+    data.week4Lab004Runtime={count:6,CETa:3,Career:3};
+    data.week4StudyGuideRequiredRecord='sg-w04-ch03-p019-022';
+    data.week4AssessmentIdentityRepair='CQ1215-CQ1226 preserved as historical identities; Week 4 uses new CQ1227-CQ1238.';
+    data.week4StandardsBoundary={CETa:['2.12.1','2.12.2','9.3','9.7'],Career:['C3.3','C3.4','C3.6','C5.1','C5.2','C5.3'],Week6Deferred:'reactance/impedance/resonance/deeper filter math',Week11Deferred:'binary/hex/Boolean/digital logic'};
+    data.week4GraphicalBrowserQA='NOT_CLAIMED_IN_TOOL_ENVIRONMENT';
     data.week3RequiredLinkTargetsGood=true;
     const headers=new Headers(response.headers);
     headers.set('content-type','application/json; charset=utf-8');

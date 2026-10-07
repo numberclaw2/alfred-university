@@ -1,10 +1,10 @@
 {
   "courseRelease": "16.3",
-  "runtimePatch": "16.3.90",
+  "runtimePatch": "16.3.91-H1",
   "evidenceRevision": "16.2",
   "cloudSyncProtocol": 2,
-  "build": "v16.3.90-H5.2-week3-media-integrity-20261005",
-  "releaseStatus": "week3-h5-2-media-integrity-candidate",
+  "build": "v16.3.91-H1-week4-governance-integrity-20261007",
+  "releaseStatus": "week4-v16-3-91-h1-governance-audited-candidate",
   "presentationPatch": "sitewide-text-readability-overlay",
   "scheduleRevision": "2026-09-20-current-classroom-stage-and-workload-sync",
   "modulePresentationRevision": "2026-09-18-week1-from-zero-visual-teaching",
@@ -16,7 +16,7 @@
   "week1InstructionRevision": "2026-09-19-beginner-first-safety-scaffolding",
   "week1TeachingMediaRevision": "2026-09-18-beginner-teacher-youtube-layer",
   "teachingMediaBaseRevision": "2026-09-18-final-pots-31-week-standalone-accepted",
-  "releaseNotesRevision": "2026-10-05-v16.3.90-H5.2-week3-media-link-integrity",
+  "releaseNotesRevision": "2026-10-07-v16.3.91-H1-week4-governance-integrity",
   "repositoryLedgerBaseline": "2026-09-18-v16.3.9-63-commits",
   "studyRevision": "2026-09-26-v16.3.66-ahead-of-calendar-reached-week-support",
   "practiceRevision": "2026-09-29-v16.3.87-guided-practice-state-model-runtime-repair",
@@ -162,7 +162,7 @@
     "Study Media"
   ],
   "contentPlacementBlueprintRevision": "2026-09-23-31-week-491-live-section-semantic-repaired",
-  "serviceWorkerRevision": "2026-10-05-v16.3.90-H5.2-week3-media-integrity",
+  "serviceWorkerRevision": "2026-10-07-v16.3.91-H1-week4-governance-integrity",
   "serviceWorkerInstallIntegrityVerdict": "PASS",
   "mediaConsumptionRevision": "2026-09-23-v16.3.57-canonical-source-identity-with-legacy-alias-compatibility",
   "teachingMediaSemanticIntegrityRevision": "2026-09-23-v16.3.58-semantic-media-integrity-final",
@@ -465,5 +465,57 @@
   "week3SpecialistInstrumentCoreExpansion": false,
   "week3StudyGuideRequiredRecordCount": 4,
   "week3StudyGuideRequiredPrintedPageCount": 73,
-  "week3RequiredLinkTargetsGood": true
+  "week3RequiredLinkTargetsGood": true,
+  "week4InstructionalRevision": "2026-10-07-v16.3.91-H1-week4-governance-integrity-repair",
+  "week4ContentQualityStatus": "VERIFIED_STATIC_RUNTIME_HARNESS",
+  "week4Pages": {
+    "CETa": 4,
+    "Career": 4,
+    "total": 8
+  },
+  "week4PointOfUseMedia": {
+    "video": 8,
+    "reading": 8,
+    "total": 16,
+    "allLessonReadingsRequired": true
+  },
+  "week4AssessmentRuntime": {
+    "count": 12,
+    "CETa": 6,
+    "Career": 6,
+    "ids": "CQ1227-CQ1238"
+  },
+  "week4Lab004Runtime": {
+    "count": 6,
+    "CETa": 3,
+    "Career": 3
+  },
+  "week4StudyGuideRequiredRecord": "sg-w04-ch03-p019-022",
+  "week4AssessmentIdentityRepair": "CQ1215-CQ1226 preserved as historical identities; Week 4 uses new CQ1227-CQ1238.",
+  "week4StandardsBoundary": {
+    "CETa": [
+      "2.12.1",
+      "2.12.2",
+      "9.3",
+      "9.7"
+    ],
+    "Career": [
+      "C3.3",
+      "C3.4",
+      "C3.6",
+      "C5.1",
+      "C5.2",
+      "C5.3"
+    ],
+    "Week6Deferred": "reactance/impedance/resonance/deeper filter math",
+    "Week11Deferred": "binary/hex/Boolean/digital logic"
+  },
+  "week4GraphicalBrowserQA": "NOT_CLAIMED_IN_TOOL_ENVIRONMENT",
+  "week4VisualStatus": "SOURCE_AUTHENTIC_PASS_BOTH_TRACKS",
+  "week4VisualPages": {
+    "CETa": 4,
+    "Career": 4,
+    "total": 8,
+    "allSourceAuthentic": true
+  }
 }

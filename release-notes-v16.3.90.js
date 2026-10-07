@@ -1,4 +1,40 @@
 (()=>{
+const week4H1={
+version:'v16.3.91-H1',
+date:'October 7, 2026',
+title:'Week 4 Governance Integrity Repair',
+type:'Week 4 / Governance / Assessment Identity / Standards / Reference Notes',
+request:'Audit the uploaded Week 4 redesign against the canonical governance file without rubber-stamping it, and keep the release/reference notes current.',
+changes:[
+'Preserves the v16.3.91 Week 4 instructional redesign: four CETa pages, four Career pages, eight page-specific videos, eight Required readings, required Study Guide pp.19–22, and the strengthened LAB-004 artifact.',
+'Repairs a governance-breaking assessment identity collision discovered by executing the deployed artifact: CQ1215–CQ1226 already existed as retired historical identities, so Week 4 now uses new permanent IDs CQ1227–CQ1238 and leaves the historical objects untouched.',
+'Repairs Week 4 standards metadata so rehomed capacitor/inductor construction, reactance/impedance, Boolean, dB, and unrelated standards are not silently claimed as Week 4 mastery. Current CETa Week 4 claims are 2.12.1, 2.12.2, 9.3, and 9.7; deeper frequency-domain work remains Week 6 and digital logic remains Week 11.',
+'Corrects weekly mastery and LAB-004 standards labels to match the actual current questions and Career evidence route.',
+'Adds stronger self-audit checks for global question-ID uniqueness and exact Week 4 standards metadata.',
+'Completes the source-authentic visual pass by using a public-domain RC capacitor charging curve on the capacitor page, alongside the already source-authentic oscilloscope, inductor, filter, and technician-context visuals on both tracks.',
+'Updates build/service-worker metadata, release/reference notes, governance, QA evidence, and repository-wide checksums while preserving Cloud Sync protocol 2 and all stable learner progress identities.'
+],
+filesAdded:['AU-ESET-301-v16.3.91-H1-Week-4-Governance-Audit.md','PACKAGE_SHA256SUMS.txt'],
+filesModified:['academic-state.js','service-worker.js','build-info.json','release-notes-v16.3.90.js','ALFRED PROJECT GOVERNANCE.md','SHA256SUMS.txt'],
+filesRemoved:[]
+};
+const week4={
+version:'v16.3.91',
+date:'October 7, 2026',
+title:'Week 4 Controlled Instructional Redesign',
+type:'Week 4 / CETa-Career Instruction / Teaching Media / LAB-004',
+request:'Finish Week 4 with the same governance-level quality as the accepted course while making updates faster through a controlled, Week-4-only delta.',
+changes:[
+'Replaces the old broad Week 4 learner path with four substantive CETa pages and four substantive Career pages centered on waveform language, capacitor/inductor stored-state behavior, first-order RC/RL time response, filter evidence, and fault isolation.',
+'Gives every Week 4 page one page-specific video and one Required written reading, with eight unique videos and eight unique readings across the two tracks.',
+'Keeps the bounded Associate CET Study Guide pp.19–22 assignment Required on first use and treats later placements as reuse rather than duplicate homework.',
+'Strengthens LAB-004 into a prediction-to-measurement-to-fault-isolation artifact with a 3 CETa / 3 Career knowledge gate and explicit physical-versus-simulation boundary.',
+'Keeps reactance/impedance/resonance/deeper filter mathematics in Week 6 and binary/hex/Boolean/digital logic in Week 11.',
+'Uses a controlled delta through the already-loaded academic-state.js runtime path so Week 3 stays frozen and unrelated weeks are not rebuilt.'
+],
+filesModified:['academic-state.js'],
+filesRemoved:[]
+};
 const hotfixH52={
 version:'v16.3.90-H5.2',
 date:'October 5, 2026',
@@ -134,6 +170,6 @@ filesModified:['quiz.js','quiz.html','assessments.html','service-worker.js','bui
 filesRemoved:[]
 };
 const existing=Array.isArray(window.ALFRED_RELEASES)?window.ALFRED_RELEASES:[];
-const versions=new Set([hotfixH52.version,hotfixH51.version,hotfixH4.version,hotfixH3.version,hotfixH2.version,hotfixH1.version,entry.version]);
-window.ALFRED_RELEASES=[hotfixH52,hotfixH51,hotfixH4,hotfixH3,hotfixH2,hotfixH1,entry,...existing.filter(x=>x&&!versions.has(x.version))];
+const versions=new Set([week4H1.version,week4.version,hotfixH52.version,hotfixH51.version,hotfixH4.version,hotfixH3.version,hotfixH2.version,hotfixH1.version,entry.version]);
+window.ALFRED_RELEASES=[week4H1,week4,hotfixH52,hotfixH51,hotfixH4,hotfixH3,hotfixH2,hotfixH1,entry,...existing.filter(x=>x&&!versions.has(x.version))];
 })();
