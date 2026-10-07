@@ -3,15 +3,15 @@
 **Audit date:** 2026-10-07  
 **Scope:** Week 4 only, plus the shared runtime/reference surfaces directly affected by the Week 4 release.  
 **Governance authority:** `ALFRED PROJECT GOVERNANCE.md` as read from current `main` before audit.  
-**Current deployed upload audited:** commit `9370299be50c6b4bbf27cbf0e4b6a8dd4a65906d` / Pages run `37602480781`.  
-**Corrected candidate:** v16.3.91-H1 — Week 4 Governance Integrity Repair.  
+**Final deployed H1 audited:** commit `08706b44639c026e712b99279184354d9344069b` / Pages run `37604778181` / artifact `11474366998`.  
+**Accepted runtime:** v16.3.91-H1 — Week 4 Governance Integrity Repair.  
 
 ## Executive verdict
 
 The uploaded v16.3.91 Week 4 release was **not eligible to freeze** even though its instructional/media structure and Pages deployment succeeded. The audit found three material governance defects: (1) CQ1215–CQ1226 were retired historical assessment identities and had been reused, (2) Week 4 standards/test metadata still carried stale or rehomed claims, and (3) release/reference/governance/build state had not been updated with the code-only upload. H1 repairs all three issues and additionally completes the source-authentic visual pass on the capacitor page.
 
-**H1 candidate verdict:** **GO FOR REDEPLOYMENT / FINAL DEPLOYMENT VERIFICATION.**  
-**Freeze status:** **NOT YET FROZEN** until the H1 files are uploaded and the exact resulting Pages deployment/artifact is verified.
+**Final H1 verdict:** **GOVERNANCE PASS / FROZEN.**  
+**Freeze status:** **WEEK 4 FROZEN** under the current governance baseline. Reopen only for a reported material defect or explicit user request.
 
 ## Uploaded v16.3.91 deployment evidence
 
@@ -20,6 +20,21 @@ The uploaded v16.3.91 Week 4 release was **not eligible to freeze** even though 
 - GitHub Pages run `37602480781`: build = success; deploy = success; report-build-status = success.
 - Pages artifact ID `11473482900`, digest `sha256:c0ad6f8a72e16fd047aa4ccb71cc25f81ae2713a93ab63d55faecfff0256443f`.
 - Uploaded `academic-state.js` deployed artifact SHA-256: `912d53e4786888d8e18c88ddd3094801f8bfcb426372ca950f384a658e6d0adf`.
+
+## Final H1 deployment / artifact verification
+
+- Main commit: `08706b44639c026e712b99279184354d9344069b`.
+- GitHub Pages run: `37604778181` — build, deploy, and report-build-status all completed successfully.
+- Pages artifact: `11474366998`.
+- Artifact digest: `sha256:2c20977235f41ae8f764e8311621c45924ddba5bd50dc5792ec2a60f01469994`.
+- Root checksum ledger: 461/461 files verified; zero failures.
+- Top-level JavaScript syntax: 110/110 pass.
+- Service-worker CORE: 208 effective targets resolve; zero missing file targets.
+- Real Week 4 weekly selector: 12 questions = 6 CETa + 6 Career using CQ1227–CQ1238.
+- Real LAB-004 selector: 6 questions = 3 CETa + 3 Career.
+- External Required media/reading links: 16/16 resolved during final web verification on 2026-10-07.
+- Learn renderer inspection confirms CETa `section.figure` and Career `careerSourceVisual` source galleries render through the active learner-facing renderer.
+- Graphical GitHub Pages browser QA is not claimed because this tool environment cannot open those routes; static/deployed-artifact/runtime verification is the governing evidence available here.
 
 ## Governance defect findings and H1 repairs
 
@@ -180,14 +195,16 @@ The current tool environment cannot directly open the public GitHub Pages learne
 **CETa:** PASS  
 **Career:** PASS  
 **CETa↔Career handoff/timing:** PASS  
-**Media/literature/Study Guide:** PASS  
-**Source-authentic visuals:** PASS  
-**Assessment integrity/selector:** PASS AFTER H1  
-**LAB/evidence boundary:** PASS AFTER H1  
-**Reference/release/governance notes:** PASS AFTER H1  
-**Targeted regressions:** PASS; three pre-existing Quiz dependency warnings documented  
-**Graphical browser H1 QA:** NOT CLAIMED — tool environment cannot open the Pages route  
-**Deployment of H1:** PENDING USER UPLOAD  
-**Week 4 freeze:** PENDING H1 DEPLOYMENT/ARTIFACT VERIFICATION
+**Learner-facing rendering:** PASS by active static renderer + deployed runtime/artifact inspection; graphical browser rendering not claimed in this tool environment  
+**Media/literature/Study Guide:** PASS; 16/16 Required external URLs resolved in final verification  
+**Source-authentic visuals:** PASS both tracks  
+**Assessment integrity/selector:** PASS — 12 = 6+6, CQ1227–CQ1238, no duplicate active IDs  
+**LAB/evidence boundary:** PASS — 6 = 3+3 plus prediction/measurement/fault/verification artifact  
+**Reference/release/governance notes:** PASS after final acceptance metadata update  
+**Targeted regressions:** PASS; three pre-existing Quiz dependency warnings remain documented and do not prevent selection  
+**Deployment:** PASS — commit `08706b44639c026e712b99279184354d9344069b`, Pages run `37604778181`, artifact `11474366998`  
+**Repository checksum integrity:** PASS — 461/461  
+**Cloud Sync / stable learner identities:** preserved  
+**Week 4 freeze:** **FROZEN**
 
-The correct next action is to upload the H1 replacement files, then verify the exact resulting `main` commit, Pages run, Pages artifact, H1 runtime markers, and Week 4 selector/lab contract. If those post-upload checks match this candidate, Week 4 is eligible to be frozen and work can move to Week 5.
+Week 4 now meets the governance acceptance standard. It should not be reopened for optional polish; reopen only for a material defect encountered by the learner, a broken Required resource, or an explicit user request.

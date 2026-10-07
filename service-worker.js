@@ -1,4 +1,4 @@
-const CACHE='alfred-u-v16-3-91-h1-week4-governance-integrity-20261007';
+const CACHE='alfred-u-v16-3-91-h1-final-acceptance-20261007';
 
 const CORE=[
   './',
@@ -328,8 +328,8 @@ async function decorateBuildInfo(response){
     const data=await response.clone().json();
     data.runtimePatch='16.3.91-H1';
     data.build='v16.3.91-H1-week4-governance-integrity-20261007';
-    data.releaseStatus='week4-v16-3-91-h1-governance-audited-candidate';
-    data.releaseNotesRevision='2026-10-07-v16.3.91-H1-week4-governance-integrity';
+    data.releaseStatus='week4-v16-3-91-h1-governance-accepted-frozen';
+    data.releaseNotesRevision='2026-10-07-v16.3.91-H1-final-acceptance';
     data.week3InstructionalRevision='2026-09-29-v16.3.81-week3-three-gate-remediation';
     data.week3ThreeGateStatus='VERIFIED_PASS';
     data.week3CetaAuthorityRepair=['8.1','8.2'];
@@ -355,9 +355,9 @@ async function decorateBuildInfo(response){
     data.visualSourcePolicyRevision='2026-09-29-source-authentic-first-public-domain-preferred';
     data.cetaVerifiedActiveRouteCount=221;
     data.cetaRouteRehomeRequiredCount=41;
-    data.combinedVerifiedWeekCount=2;
-    data.careerVerifiedPassWeeks=[2,3];
-    data.careerP0RemediationWeeks=[4,12,29];
+    data.combinedVerifiedWeekCount=3;
+    data.careerVerifiedPassWeeks=[2,3,4];
+    data.careerP0RemediationWeeks=[12,29];
     data.week3SpecialtyInstrumentRehome='C3.8 removed from unsupported Week 6 claim; Week 20 remains a future remediation target.';
     data.practiceRevision='2026-09-29-v16.3.87-guided-practice-state-model-runtime-repair';
     data.guidedPracticeRuntimeStatus='VERIFIED_RENDERABLE';
@@ -375,7 +375,7 @@ async function decorateBuildInfo(response){
     data.assessmentCanonicalSixRevision='2026-09-30-v16.3.90-full-question-contract-reconstruction';
     data.week2CareerCanonicalEligibilityCount=6;
     data.week2CareerCanonicalRepairStatus='FULL_OBJECT_REBUILD_BEFORE_SELECTOR';
-    data.serviceWorkerRevision='2026-10-07-v16.3.91-H1-week4-governance-integrity';
+    data.serviceWorkerRevision='2026-10-07-v16.3.91-H1-final-acceptance-metadata';
     data.week3ReadinessRevision='2026-10-05-v16.3.90-H5.2-media-integrity';
     data.week3StaticDirectEntryStatus='SELF_SUFFICIENT';
     data.week3WeeklyMasteryRuntime={count:14,CETa:7,Career:7};
@@ -387,7 +387,7 @@ async function decorateBuildInfo(response){
     data.week3StudyGuideRequiredRecordCount=4;
     data.week3StudyGuideRequiredPrintedPageCount=73;
     data.week4InstructionalRevision='2026-10-07-v16.3.91-H1-week4-governance-integrity-repair';
-    data.week4ContentQualityStatus='VERIFIED_STATIC_RUNTIME_HARNESS';
+    data.week4ContentQualityStatus='VERIFIED_DEPLOYED_GOVERNANCE_PASS';
     data.week4Pages={CETa:4,Career:4,total:8};
     data.week4PointOfUseMedia={video:8,reading:8,total:16,allLessonReadingsRequired:true};
     data.week4AssessmentRuntime={count:12,CETa:6,Career:6,ids:'CQ1227-CQ1238'};
@@ -395,7 +395,16 @@ async function decorateBuildInfo(response){
     data.week4StudyGuideRequiredRecord='sg-w04-ch03-p019-022';
     data.week4AssessmentIdentityRepair='CQ1215-CQ1226 preserved as historical identities; Week 4 uses new CQ1227-CQ1238.';
     data.week4StandardsBoundary={CETa:['2.12.1','2.12.2','9.3','9.7'],Career:['C3.3','C3.4','C3.6','C5.1','C5.2','C5.3'],Week6Deferred:'reactance/impedance/resonance/deeper filter math',Week11Deferred:'binary/hex/Boolean/digital logic'};
-    data.week4GraphicalBrowserQA='NOT_CLAIMED_IN_TOOL_ENVIRONMENT';
+    data.week4FinalAcceptanceStatus='FROZEN_GOVERNANCE_PASS';
+    data.week4FinalAcceptanceCommit='08706b44639c026e712b99279184354d9344069b';
+    data.week4FinalPagesRun=37604778181;
+    data.week4FinalPagesArtifactId=11474366998;
+    data.week4FinalPagesArtifactDigest='sha256:2c20977235f41ae8f764e8311621c45924ddba5bd50dc5792ec2a60f01469994';
+    data.week4RepositoryChecksum='461/461 PASS';
+    data.week4JavascriptSyntax='110/110 PASS';
+    data.week4ExternalRequiredResourceVerification='16/16 resolved on 2026-10-07';
+    data.week4LearnerFacingRendering='STATIC_RENDERER_AND_DEPLOYED_RUNTIME_PASS; graphical browser not claimed in tool environment';
+    data.week4GraphicalBrowserQA='NOT_CLAIMED_TOOL_ENVIRONMENT; static/deployed-artifact/runtime acceptance PASS';
     data.week3RequiredLinkTargetsGood=true;
     const headers=new Headers(response.headers);
     headers.set('content-type','application/json; charset=utf-8');
