@@ -1,49 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport">
-<meta content="#0b3d2e" name="theme-color">
-<meta content="AU-ESET 301 Practice Hub: current-week guided practice, lab/application work, repair priorities, and required mastery gates in one prioritized view." name="description">
-<link href="icon-192.png" rel="icon">
-<link href="icon-180.png" rel="apple-touch-icon">
-<link href="manifest.webmanifest" rel="manifest">
-<link href="styles.css?v=16.3.67" rel="stylesheet">
-<link href="practice-v2.css" rel="stylesheet">
-<title>Practice Hub | Alfred University</title>
-</head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#123f34"><meta name="description" content="Alfred University AU-ESET 301: complete, self-paced ETA Associate CET preparation with guided teaching, practice, labs, and mastery."><title>Practice · Alfred University</title><link rel="icon" href="icon-192.png"><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="ceta.css"></head>
 <body data-page="practice">
-<header class="site-header">
-<div class="topline"><div class="shell topline-inner"><span>School of Engineering and Applied Technology</span><span class="desktop-only">Established 1998 · Home of the Grizzlies</span></div></div>
-<div class="shell brand-row"><a class="brand" href="index.html"><img alt="Alfred University grizzly crest" src="crest.webp"><div><span class="brand-name">ALFRED UNIVERSITY</span><span class="brand-sub">Discere · Aedificare · Servire</span></div></a><button aria-controls="primary-navigation" aria-expanded="false" aria-label="Open navigation" class="nav-toggle" type="button">☰</button></div>
-<nav aria-label="Primary navigation" class="main-nav" id="primary-navigation"><div class="shell nav-links"><a href="index.html">Home</a><a href="study.html">Study</a><a href="learn.html">Learn</a><a href="calendar.html">Calendar</a><a class="active" aria-current="page" href="practice.html">Practice</a><a href="progress.html">Progress</a><a href="analytics.html">Mastery</a><div class="nav-more"><button aria-expanded="false" aria-haspopup="true" class="nav-more-button" type="button">More <span aria-hidden="true">⌄</span></button><div class="nav-more-menu"><a href="course.html">Course Overview</a><a href="resources.html">Engineering Library</a><a href="projects.html">Projects</a><a href="search.html">Search Everything</a><a href="labs.html">Lab Center</a><a href="assessments.html">Assessment Center</a><a href="standards.html">Standards &amp; Retention</a><a href="documents.html">Documents</a><a href="about.html">About</a><a href="deployment.html">Deployment</a><a href="patch-notes.html">Release Notes</a></div></div></div></nav>
-</header>
-<main>
-<section class="practice-hero"><div class="shell practice-hero-grid"><div><div class="eyebrow">AU-ESET 301 · Deliberate Practice</div><h1>Practice the right thing, not everything.</h1><p>Practice reads your current week and existing progress, then points you to the next useful problem, lab, repair, or evidence gate. It does not duplicate the Classroom, Lab Center, or Assessment Center.</p></div><div class="practice-week-control"><label for="practice-week">Practice week</label><select id="practice-week" aria-label="Choose practice week"></select><p id="practice-week-topic">Loading current week…</p></div></div></section>
-
-<section class="section shell practice-now-section"><div class="section-heading"><div><div class="eyebrow green">Do this next</div><h2>Your highest-value practice move.</h2></div><p>Required work stays ahead of optional drills. If teaching is incomplete, Practice will send you back instead of letting you test material you have not learned yet.</p></div><div id="practice-priority" class="practice-priority" aria-live="polite"></div></section>
-
-<section class="showcase-band practice-queue-band"><div class="shell"><div class="section-heading light"><div><div class="eyebrow">Current Week</div><h2>Your practice ladder</h2></div><p>These are different jobs: guided practice builds the skill, application produces evidence, mastery tests it, and repair targets misses.</p></div><div id="practice-ladder" class="practice-ladder"></div></div></section>
-
-<section class="section shell"><div class="section-heading"><div><div class="eyebrow green">Repair Queue</div><h2>Weak or due material rises here.</h2></div><p>Practice does not invent weakness. It reads the existing Study review queue and assessment results. Retrieval repair belongs in Study; retesting belongs in Assessments.</p></div><div id="practice-repair" class="practice-repair"></div></section>
-
-<section class="section shell"><div class="section-heading"><div><div class="eyebrow green">Choose by practice job</div><h2>Go straight to the system that owns the evidence.</h2></div></div><div class="practice-job-grid">
-<a class="practice-job-card" id="practice-guided-link" href="learn.html"><span>01</span><h3>Guided problem solving</h3><p>Use Classroom practice when you still need structure, hints, worked examples, or a bridge to independent work.</p><strong>Open guided practice →</strong></a>
-<a class="practice-job-card" id="practice-lab-link" href="labs.html"><span>02</span><h3>Build / measure / troubleshoot</h3><p>Use the Lab Center when the skill needs a circuit, simulator, measurement, fault, or physical evidence.</p><strong>Open current lab →</strong></a>
-<a class="practice-job-card" id="practice-assessment-link" href="assessments.html"><span>03</span><h3>Prove it closed-note</h3><p>Use required lab and weekly checks only when the prerequisite practice/application work is ready.</p><strong>Open assessment route →</strong></a>
-<a class="practice-job-card" id="practice-study-link" href="study.html"><span>04</span><h3>Repair a weak concept</h3><p>Use Study when recall is weak. Diagnose the concept, repair only the gap, then return for a fresh attempt.</p><strong>Open targeted Study →</strong></a>
-</div></section>
-
-<section class="section shell practice-extra-section"><div class="practice-extra"><div><div class="eyebrow green">Optional only</div><h2>Need one more example after required work?</h2><p>The Assessment Center keeps a supplemental practice bank for extra repetitions. It never substitutes for Classroom guided practice, lab evidence, or weekly mastery.</p></div><a class="button outline-green" id="practice-extra-link" href="assessments.html#lesson-assessments">Open supplemental practice</a></div></section>
-</main>
-<footer class="site-footer"><div class="shell footer-grid"><div class="footer-brand"><img alt="" aria-hidden="true" src="seal.webp"><div><strong>Alfred University</strong><p>School of Engineering and Applied Technology</p><p>Department of Applied Electronics and Embedded Technology</p></div></div><div><h3>Learning &amp; Practice</h3><a href="study.html">Study</a><a href="learn.html">Classroom</a><a href="calendar.html">Calendar</a><a href="practice.html">Practice</a><a href="progress.html">Student Progress</a><a href="analytics.html">Mastery</a><a href="labs.html">Lab Center</a><a href="assessments.html">Assessment Center</a></div><div><h3>Course &amp; Administration</h3><a href="course.html">Course Overview</a><a href="resources.html">Engineering Library</a><a href="projects.html">Projects</a><a href="search.html">Search Everything</a><a href="standards.html">Standards &amp; Retention</a><a href="documents.html">Documents</a><a href="about.html">About</a><a href="deployment.html">Deployment Notes</a><a href="patch-notes.html">Release Notes</a></div></div><div class="shell legal"><span>© 2026 Alfred University · EST. 1998</span><span>Fictional independent-study environment for personal learning. Not an accredited institution and no academic credit is awarded.</span></div></footer>
-<script src="course-data.js"></script>
-<script src="academic-content.js"></script>
-<script src="curriculum-data.js"></script>
-<script src="career-curriculum-reconstruction.js?v=16.3.42"></script>
-  <script src="career-traceability-routing.js?v=16.3.42"></script>
-<script src="week2-redesign-v16.3.68.js?v=16.3.68"></script><script src="week2-study-aac-v16.3.69.js?v=16.3.69"></script><script src="week2-final-acceptance-v16.3.70.js?v=16.3.70"></script><script src="week3-redesign-v16.3.71.js?v=16.3.71"></script><script src="week3-final-acceptance-v16.3.72.js?v=16.3.72"></script><script src="week2-career-remediation-v16.3.74.js?v=16.3.74"></script><script src="week2-final-career-ux-v16.3.75.js?v=16.3.75"></script><script src="week2-trainer-evidence-gate-v16.3.76.js?v=16.3.76"></script><script src="career-occupational-governance-v16.3.77.js?v=16.3.77"></script><script src="ceta-career-tandem-governance-v16.3.78.js?v=16.3.78"></script><script src="ceta-career-tandem-timing-repair-v16.3.79.js?v=16.3.79"></script><script src="ceta-instructional-authority-v16.3.80.js?v=16.3.80"></script><script src="academic-state.js"></script>
-<script src="site.js"></script>
-<script src="practice.js"></script>
-</body>
-</html>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="header-inner"><a class="brand" href="index.html"><img src="alfred-university-crest.png" alt="" loading="eager"><span><strong>ALFRED UNIVERSITY</strong><small>AU-ESET 301 · Associate CET Preparation</small></span></a><button id="menu-toggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">☰</button><nav id="primary-nav" aria-label="Primary navigation"><a href="index.html" class="nav-link">Home</a><a href="learn.html" class="nav-link">Learn</a><a href="study.html" class="nav-link">Study</a><a href="practice.html" class="nav-link active" aria-current="page">Practice</a><a href="labs.html" class="nav-link">Labs</a><a href="progress.html" class="nav-link">Progress</a><a href="standards.html" class="nav-link">CETa Coverage</a><a href="resources.html" class="nav-link">Library</a><a class="nav-more" href="search.html" aria-label="Search">⌕</a></nav></div></header>
+<main id="main" class="page-main"><div id="app" class="app-root" aria-live="polite"><section class="loading-card"><div class="loading-circle"></div><p>Opening Practice…</p></section></div></main>
+<footer class="site-footer"><div><strong>ALFRED UNIVERSITY</strong> <span>Discere · Aedificare · Servire</span></div><div>Independent learning platform · ETA Associate CET preparation · <a href="about.html">About</a> · <a href="documents.html">Documents</a> · <a href="analytics.html">Mastery</a> · <a href="calendar.html">Calendar</a></div><small>Not affiliated with ETA International. Official exam standards and publisher resources remain authoritative.</small></footer>
+<script src="course.js"></script><script src="ceta.js" defer></script></body></html>
