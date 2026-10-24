@@ -19,9 +19,70 @@ const trunc=(s,n=110)=>String(s||'').length>n?String(s).slice(0,n-1)+'…':Strin
 const mUrl=(id,stage='learn',page=0)=>`learn.html?module=${id}&stage=${stage}${page?'&page='+page:''}`;
 function day(){return new Date().toISOString().slice(0,10)}
 function fresh(){return {schemaVersion:1,started:day(),modules:{},review:{},lastModule:'M01',lastStage:'learn',lastPage:0,legacyDetected:!!localStorage.getItem(LEGACY),legacySnapshotNotCopied:true,history:[],independentPractice:null,studySessions:[],session:{}}}
-function load(){try{const x=JSON.parse(localStorage.getItem(KEY)||'null');if(x&&x.schemaVersion===1&&typeof x.modules==='object')return x;}catch{}return fresh()}
+function load(){try{const x=JSON.parse(localStorage.getItem(KEY)||'null');if(validStoredState(x)){
+ const loaded={...fresh(),...x,modules:{...x.modules},review:validObject(x.review)?x.review:{},history:Array.isArray(x.history)?x.history:[],session:validObject(x.session)?x.session:{},studySessions:Array.isArray(x.studySessions)?x.studySessions:[]};
+ for(const m of D.course)if(validObject(loaded.modules[m.id]))loaded.modules[m.id]=mergeSavedModules(m.id,loaded.modules[m.id],{});
+ return loaded;
+ }}catch{}return fresh()}
+function validStoredState(x){return x&&x.schemaVersion===1&&validObject(x.modules)}
 function persist(quiet=false){try{localStorage.setItem(KEY,JSON.stringify(state));if(!quiet)notice('Saved on this device');}catch(e){notice('Could not save. Check browser storage space.',true)}}
 function modRec(id=moduleId){return state.modules[id]||(state.modules[id]={started:false,seen:[],practice:[],apply:null,master:[],updated:day()})}
+// v4.0: Treat backup and Cloud Sync snapshots as independently edited records. Merge
+// additive learner evidence instead of letting a newly-created empty local record
+// overwrite a completed record from another device.
+function validObject(x){return !!x&&typeof x==='object'&&!Array.isArray(x)}
+function mergeAttemptRecords(a,b){
+ const candidates=[...(Array.isArray(a)?a:[]),...(Array.isArray(b)?b:[])];
+ const seen=new Set(),out=[];
+ for(const entry of candidates){
+  if(!validObject(entry)||!Number.isFinite(entry.score)||entry.score<0||entry.score>100)continue;
+  const key=JSON.stringify([entry.date||'',entry.score,entry.evidenceType||'',entry.bank||'',entry.questionCount||'',entry.type||'']);
+  if(seen.has(key))continue;
+  seen.add(key);out.push(entry);
+ }
+ return out;
+}
+function mergeSavedModules(id,remote,local){
+ const incoming=validObject(remote)?remote:{},ours=validObject(local)?local:{};
+ const m=D.course.find(x=>x.id===id);const limit=m?.pages.length||0;
+ const allSeen=[...(Array.isArray(incoming.seen)?incoming.seen:[]),...(Array.isArray(ours.seen)?ours.seen:[])];
+ const evidence={...(validObject(incoming.objectiveEvidence)?incoming.objectiveEvidence:{})};
+ for(const [key,entry] of Object.entries(validObject(ours.objectiveEvidence)?ours.objectiveEvidence:{})){
+  const prior=evidence[key];if(!validObject(prior)||String(entry?.checkedAt||'')>=String(prior?.checkedAt||''))evidence[key]=entry;
+ }
+ const pickedApply=ours.apply?.done===true?ours.apply:incoming.apply?.done===true?incoming.apply:ours.apply||incoming.apply||null;
+ return {...incoming,...ours,
+  started:!!(incoming.started||ours.started),
+  seen:[...new Set(allSeen.filter(i=>Number.isInteger(i)&&i>=0&&i<limit))].sort((a,b)=>a-b),
+  practice:mergeAttemptRecords(incoming.practice,ours.practice),
+  master:mergeAttemptRecords(incoming.master,ours.master),
+  apply:pickedApply,
+  objectiveEvidence:evidence,
+  updated:[incoming.updated,ours.updated].filter(v=>typeof v==='string').sort().pop()||day()
+ };
+}
+function mergeExamDrafts(imported,local){
+ const result={...(validObject(local)?local:{})};
+ if(!validObject(imported))return result;
+ for(const [key,remote] of Object.entries(imported)){
+  if(!/^M(?:29|30):(fresh-v35|master)$/.test(key)||!validObject(remote))continue;
+  const cur=result[key];if(!validObject(cur)){result[key]=remote;continue}
+  const ra=Number.isInteger(remote.attempt)?remote.attempt:1,la=Number.isInteger(cur.attempt)?cur.attempt:1;
+  if(ra>la){result[key]=remote;continue}if(ra<la)continue;
+  const ans={...(validObject(remote.answers)?remote.answers:{}),...(validObject(cur.answers)?cur.answers:{})};
+  const allowed=new Set((D.course.find(m=>m.id===key.slice(0,3))?.[key.endsWith('fresh-v35')?'freshExamQuestions':'questions']||[]).map(q=>q.id));
+  const answers=Object.fromEntries(Object.entries(ans).filter(([id,v])=>allowed.has(id)&&Number.isInteger(Number(v))&&Number(v)>=0&&Number(v)<4));
+  const completed=Math.min(9,Math.floor(Object.keys(answers).length/10));
+  result[key]={attempt:la,answers,part:Math.max(0,Math.min(9,Math.max(Number.isInteger(cur.part)?cur.part:0,Number.isInteger(remote.part)?remote.part:0,completed)))};
+ }
+ return result;
+}
+function mergeSavedHistory(incoming,local){
+ const items=[...(Array.isArray(incoming)?incoming:[]),...(Array.isArray(local)?local:[])],out=[],seen=new Set();
+ for(const v of items){if(!validObject(v)||!D.course.some(m=>m.id===v.moduleId)||!Number.isFinite(v.score)||v.score<0||v.score>100)continue;
+  const key=JSON.stringify([v.moduleId,v.type||'',v.date||'',v.score,v.evidenceType||'',v.bank||'']);if(seen.has(key))continue;seen.add(key);out.push(v)}
+ return out;
+} 
 function checkMod(id=moduleId){const m=D.course.find(x=>x.id===id);if(!m)return [false,false,false,false,false];const r=modRec(id);return [!!r.started,m.pages.length>0&&m.pages.every((_,i)=>r.seen.includes(i)),r.practice.some(x=>x.score>=60),(m.labs.length?r.apply?.done===true:!!r.apply?.done),(id==='M29'||id==='M30')?false:r.master.some(x=>x.score>=(m.masteryTarget||80))]}
 function progressPct(){const vals=D.course.map(m=>checkMod(m.id));return Math.round(vals.reduce((n,v)=>n+v.filter(Boolean).length,0)/(vals.length*5)*100)}
 function masteredCount(){return D.course.filter(m=>checkMod(m.id)[4]).length}
@@ -102,7 +163,7 @@ function examSessionKey(){return module.id+':'+examSessionMode()}
 function activeExamQuestions(){return (moduleId==='M29'||moduleId==='M30')&&!examArchiveMode()?(module.freshExamQuestions||[]):module.questions}
 function masterStage(){let r=modRec();const exam=moduleId==='M29'||moduleId==='M30',newExam=exam&&!examArchiveMode(),bank=activeExamQuestions(),n=bank.length,sessionKey=examSessionKey();
  let ses=state.session[sessionKey]||{attempt:1,answers:{},part:0};state.session[sessionKey]=ses;const per=exam?10:Math.max(1,n),part=Math.min(Math.max(0,Math.floor((n-1)/per)),Math.max(0,ses.part||0)),from=Math.max(0,part*per),qs=bank.slice(from,from+per);const filtered=r.master.filter(x=>exam?x.evidenceType===(newExam?'fresh-editorial-mock':'practice-rehearsal'):true);const score=filtered.length?Math.max(...filtered.map(x=>x.score)):null;
- return `<article class="card"><div class="eyebrow">Stage 5 · ${exam?'100-question CETa assessment':'Module mastery'}</div><h2>${newExam?'New original practice exam · form '+(moduleId==='M29'?'A':'B'):exam?'Archived rehearsal · previously exposed items':'Show what you can do independently'}</h2><p>${newExam?'This form contains 100 newly authored item scenarios linked to ETA 2025 competency requirements. Form A and Form B have different question IDs and prompts, unlike the archived rehearsals. Both require full independent technical and psychometric review before their scores can justify a verified readiness pass. The exam is practice for study, not an ETA exam.':exam?'This is the archived recycled instructional bank. It is provided for continuity with previous attempts only and cannot establish validated readiness.':module.safetyCritical?'Safety-critical Module 1: internal target is 100%; the questions are not a workplace safety qualification.':'Aim for 80% or above. Explanation and remediation are available after grading.'}</p>${exam?`<p><a class="btn outline mini" href="${mUrl(moduleId,'master')}${newExam?'&bank=archive':''}">${newExam?'Open previous rehearsal bank instead':'Switch back to the new form'}</a></p>`:''}${score!==null?`<div class="note">Best score in this ${newExam?'new editorial form':exam?'archived rehearsal':'module'}: <strong>${score}%</strong>. ${exam?'Recorded study evidence; independent readiness validation still pending.':(score>=(module.masteryTarget||80)?'Internal module threshold reached.':'Review and try again.')}</div>`:''}${exam?`<div class="progress-track" style="margin:17px 0"><div class="progress-fill" style="width:${Math.round(from/n*100)}%"></div></div><p class="small">Questions ${from+1}–${Math.min(from+per,n)} of ${n}. Responses save automatically; you can go backward without losing prior pages.</p>`:''}<form id="master-form">${formatQuestions(qs,examSessionMode(),exam?from:0,exam?n:qs.length)}<button type="submit" id="grade-master" class="btn">${exam&&from+per<n?'Save answers & next 10':'Grade this assessment'}</button></form><div id="master-result" aria-live="polite"></div><div class="inline-buttons" style="margin-top:19px"><a class="btn outline" href="${mUrl(moduleId,'learn')}">Review lesson</a>${exam&&part>0?button('Previous 10 questions',{id:'exam-prev',cls:'outline'}):''}${score!==null?button('Start a new attempt',{id:'restart-exam',cls:'ghost'}):''}</div></article>${moduleId==='M30'?independentStage():''}`}
+ return `<article class="card"><div class="eyebrow">Stage 5 · ${exam?'100-question CETa assessment':'Module mastery'}</div><h2>${newExam?'New original practice exam · form '+(moduleId==='M29'?'A':'B'):exam?'Archived rehearsal · previously exposed items':'Show what you can do independently'}</h2><p>${newExam?'This form contains 100 newly authored item scenarios linked to ETA 2025 competency requirements. Form A and Form B have different question IDs and prompts, unlike the archived rehearsals. Both require full independent technical and psychometric review before their scores can justify a verified readiness pass. The exam is practice for study, not an ETA exam.':exam?'This is the archived recycled instructional bank. It is provided for continuity with previous attempts only and cannot establish validated readiness.':module.safetyCritical?'Safety-critical Module 1: internal target is 100%; the questions are not a workplace safety qualification.':'Aim for 80% or above. Explanation and remediation are available after grading.'}</p>${exam?`<p><a class="btn outline mini" href="${mUrl(moduleId,'master')}${newExam?'&bank=archive':''}">${newExam?'Open previous rehearsal bank instead':'Switch back to the new form'}</a></p>`:''}${score!==null?`<div class="note">Best score in this ${newExam?'new editorial form':exam?'archived rehearsal':'module'}: <strong>${score}%</strong>. ${exam?'Recorded study evidence; independent readiness validation still pending.':(score>=(module.masteryTarget||80)?'Internal module threshold reached.':'Review and try again.')}</div>`:''}${exam?`<div class="progress-track" style="margin:17px 0"><div class="progress-fill" style="width:${Math.round(from/n*100)}%"></div></div><p class="small">Questions ${from+1}–${Math.min(from+per,n)} of ${n}. Responses save automatically; you can go backward without losing prior pages.</p>`:''}<form id="master-form">${formatQuestions(qs,examSessionMode(),exam?from:0,exam?n:qs.length)}<button type="submit" id="grade-master" class="btn">${exam&&from+per<n?'Save answers & next 10':'Grade this assessment'}</button></form><div id="master-result" aria-live="polite"></div><div class="inline-buttons" style="margin-top:19px"><a class="btn outline" href="${mUrl(moduleId,'learn')}">Review lesson</a>${exam&&part>0?button('Previous 10 questions',{id:'exam-prev',cls:'outline'}):''}${(score!==null||exam&&Object.keys(ses.answers||{}).length)?button('Start a new attempt',{id:'restart-exam',cls:'ghost'}):''}</div></article>${moduleId==='M30'?independentStage():''}`}
 function independentStage(){let ind=state.independentPractice;return `<article class="card"><div class="eyebrow">Personal study record · Self-reported</div><h2>Optional outside practice history</h2><p>Use this optional form to record outside practice for your personal study history. The entered score is self-reported and cannot establish validated independent readiness. This Master stage remains pending until an independent assessment process is reviewed.</p><div class="note warn"><strong>Internal recommendation:</strong> at least 85% on Alfred's practice rehearsal (Module 29), plus a genuinely independent, verified assessment. This site has not validated either readiness form. ETA's published 75% passing threshold is different.</div><div class="hr-space"></div><label class="field-label" for="independent-score">Independent assessment score (%)</label><input id="independent-score" type="number" class="field" min="0" max="100" step="1" value="${ind?.score??''}" style="max-width:180px"><div class="hr-space"></div><label class="field-label" for="independent-source">Independent assessment source</label><input id="independent-source" class="field" placeholder="Publisher/provider and assessment title" value="${esc(ind?.source||'')}"><div class="hr-space"></div>${button('Save outside practice record',{id:'save-independent'})}${ind?`<p class="note" style="margin-top:16px">Recorded: ${ind.score}% from ${esc(ind.source)}. ${ind.score>=85?'Score saved for personal study only; independent readiness validation is pending.':'Additional independent practice recommended.'}</p>`:''}<div class="hr-space"></div><a class="btn outline" href="assessments.html">View readiness evidence →</a></article>`}
 function classroom(){return `<div class="academic-breadcrumb"><a href="index.html">Course home</a><span aria-hidden="true">/</span><a href="course.html">AU–ESET 301</a><span aria-hidden="true">/</span><span>${esc(module.id)} · ${esc(module.title)}</span></div>`+shell(stage==='start'?startStage():stage==='learn'?learnStage():stage==='practice'?practiceStage():stage==='apply'?applyStage():masterStage())}
 function moduleListCards(limit=30){return `<div class="module-cards">${D.course.slice(0,limit).map(m=>`<a class="module-card" href="${mUrl(m.id)}"><span class="eyebrow">${m.id} · ${m.plannedHoursLabel||'Flexible'} hours planned</span><strong>${esc(m.title)}</strong><p>${m.pages.length} lesson pages · ${m.objectives.length} mapped competencies</p><div class="progress-track"><div class="progress-fill" style="width:${checkMod(m.id).filter(Boolean).length*20}%"></div></div></a>`).join('')}</div>`}
@@ -137,8 +198,7 @@ async function syncNow(){
   const uploads=[],timestamp=Date.now();let pulled=0;
   for(const m of D.course){const id=m.id,cloudRec=cloud.get('week:'+m.number),cloudValue=cloudRec?.value||{},localValue=legacy.weeks?.[String(m.number)]||{};
    const remoteNew=cloudValue.cetaOnlyV1;if(remoteNew&&typeof remoteNew==='object'){
-    const cur=state.modules[id];if(!cur){state.modules[id]=remoteNew;pulled++}
-    else{state.modules[id]={...remoteNew,...cur,seen:[...new Set([...(remoteNew.seen||[]),...(cur.seen||[])])],practice:[...(remoteNew.practice||[]),...(cur.practice||[])].slice(-30),master:[...(remoteNew.master||[]),...(cur.master||[])].slice(-30),apply:cur.apply||remoteNew.apply};pulled++}}
+     state.modules[id]=mergeSavedModules(id,remoteNew,state.modules[id]);pulled++}
    const ours=state.modules[id];if(!ours)continue;
    // Prefer the latest server-side complete legacy record; append CETa-only data without deleting it.
    const original=cloudRec?cloudValue:(typeof localValue==='object'&&!Array.isArray(localValue)?localValue:{});
@@ -187,7 +247,7 @@ by('save-application')?.addEventListener('click',()=>{const notes=(by('applicati
 by('master-form')?.addEventListener('change',e=>{if(!(moduleId==='M29'||moduleId==='M30')||!e.target.matches('input[type="radio"]'))return;const name=e.target.name||'';if(!name.startsWith('answer-'))return;const key=examSessionKey(),ses=state.session[key]||{attempt:1,answers:{},part:0};ses.answers=ses.answers||{};ses.answers[name.slice(7)]=e.target.value;state.session[key]=ses;persist(true)});
 by('exam-prev')?.addEventListener('click',()=>{if(!(moduleId==='M29'||moduleId==='M30'))return;const key=examSessionKey(),ses=state.session[key];if(!ses)return;ses.part=Math.max(0,(ses.part||0)-1);persist(true);render();window.scrollTo(0,0)});
 by('master-form')?.addEventListener('submit',e=>{e.preventDefault();const exam=moduleId==='M29'||moduleId==='M30',all=activeExamQuestions(),key=examSessionKey(),ses=state.session[key]||{attempt:1,answers:{},part:0},per=exam?10:all.length,start=(ses.part||0)*per,qs=all.slice(start,start+per),result=gradeQuestions(e.target,qs,examSessionMode());if(result.answered<qs.length){notice('Answer every question on this page before continuing.',true);return}if(exam){Object.assign(ses.answers,result.answers);if(start+per<all.length){ses.part++;state.session[key]=ses;persist(true);render();window.scrollTo(0,0);return}const correct=all.filter(q=>Number(ses.answers[q.id])===q.answer).length,score=Math.round(correct/all.length*100),newForm=!examArchiveMode(),type=newForm?'fresh-editorial-mock':'practice-rehearsal';recordScore('master',score,{evidenceType:type,bank:module.id+(newForm?'-AV35-new-original':'-v2.0-reused-instructional'),readinessEligible:false,questionCount:all.length});delete state.session[key];persist(true);const misses=all.filter(q=>Number(ses.answers[q.id])!==q.answer);by('master-result').innerHTML=`<div class="note ${score>=85?'':'warn'}" style="margin-top:16px">${newForm?'New editorial practice form':'Archived rehearsal'}: ${score}% (${correct}/${all.length}). This is scored personal practice; independent certification-readiness validation remains PENDING. <a href="${mUrl('M30','master')}">Review other assessment options →</a></div>${misses.length?`<details class="card" style="margin-top:14px"><summary><strong>Review ${misses.length} missed questions by teaching location</strong></summary><ul>${misses.map(q=>`<li><strong>${esc(q.id)}:</strong> ${esc(trunc(q.prompt,120))} <a href="${remediationUrl(q)}">Review the related lesson →</a></li>`).join('')}</ul></details>`:''}`;}else{recordScore('master',result.score);showFeedback(result.feedback);by('master-result').innerHTML=`<div class="note ${result.score>=80?'':'warn'}" style="margin-top:16px">Mastery score: <strong>${result.score}%</strong>. ${result.score>=(module.masteryTarget||80)?'Internal module target achieved.':'Review mistakes and attempt a new form.'} <a href="${result.score>=(module.masteryTarget||80)?mUrl('M'+String(Math.min(30,module.number+1)).padStart(2,'0'),'start'):mUrl(moduleId,'learn')}">Continue →</a></div>`}});
-by('restart-exam')?.addEventListener('click',()=>{let k=examSessionKey(),old=state.session[k];state.session[k]={attempt:(old?.attempt||0)+1,answers:{},part:0};persist(true);render()});
+by('restart-exam')?.addEventListener('click',()=>{let k=examSessionKey(),old=state.session[k];if(Object.keys(old?.answers||{}).length&& !window.confirm('Start a new attempt? Saved answers for this unfinished attempt will be cleared. Recorded completed scores will be retained.'))return;state.session[k]={attempt:(old?.attempt||0)+1,answers:{},part:0};persist(true);render()});
 by('save-independent')?.addEventListener('click',()=>{let raw=by('independent-score')?.value;let score=raw===''?NaN:Number(raw),source=(by('independent-source')?.value||'').trim();if(!Number.isInteger(score)||score<0||score>100||source.length<4){notice('Enter a score from 0–100 and identify the independent source.',true);return}state.independentPractice={score,source,date:new Date().toISOString(),selfReported:true,readinessEligible:false,provenance:'learner-entered'};persist();render()});
 by('study-module')?.addEventListener('change',e=>location.href='study.html?module='+e.target.value);
 by('reveal-card')?.addEventListener('click',()=>by('flash-answer').classList.remove('hidden'));
@@ -196,7 +256,21 @@ by('standard-module')?.addEventListener('change',e=>location.href='standards.htm
 by('calendar-hours')?.addEventListener('change',e=>{localStorage.setItem('alfred-ceta-weekly-hours',e.target.value);render()});
 by('export-progress')?.addEventListener('click',()=>download('Alfred_CETa_Progress_'+day()+'.json',{format:'alfred-ceta-only-progress-v1',state}));
 by('export-legacy')?.addEventListener('click',()=>{let raw=localStorage.getItem(LEGACY);if(raw)download('Alfred_Original_v2_Backup_'+day()+'.json',{format:'alfred-u-progress-v2',data:JSON.parse(raw)})});
-by('import-file')?.addEventListener('change',async e=>{const file=e.target.files?.[0];if(!file)return;try{const b=JSON.parse(await file.text());if(b.format!=='alfred-ceta-only-progress-v1'||b.state?.schemaVersion!==1)throw new Error('Not a valid CETa progress backup.');for(const [id,remote] of Object.entries(b.state.modules||{})){if(!D.course.some(m=>m.id===id)||!remote||typeof remote!=='object')continue;let cur=modRec(id);state.modules[id]={...remote,...cur,seen:[...new Set([...(remote.seen||[]),...(cur.seen||[])])],master:[...(remote.master||[]),...(cur.master||[])].slice(-30),practice:[...(remote.practice||[]),...(cur.practice||[])].slice(-30),apply:cur.apply||remote.apply}}state.review={...b.state.review,...state.review};state.history=[...(b.state.history||[]),...state.history].slice(-300);persist();render()}catch(err){notice('Could not import: '+err.message,true)}});
+by('import-file')?.addEventListener('change',async e=>{const file=e.target.files?.[0];if(!file)return;try{
+ if(file.size>12*1024*1024)throw new Error('Backup is unusually large. Review the file before import.');
+ const b=JSON.parse(await file.text());if(b.format!=='alfred-ceta-only-progress-v1'||b.state?.schemaVersion!==1||!validObject(b.state.modules))throw new Error('Not a valid CETa progress backup.');
+ // Merge entirely in memory; a failed validation must never partially change saved progress.
+ const incoming=b.state,next={...state,modules:{...state.modules},review:{...state.review}};
+ for(const [id,remote] of Object.entries(incoming.modules)){if(!D.course.some(m=>m.id===id)||!validObject(remote))continue;next.modules[id]=mergeSavedModules(id,remote,next.modules[id])}
+ for(const [key,v] of Object.entries(validObject(incoming.review)?incoming.review:{})){if(!next.review[key]||String(v?.last||'')>String(next.review[key]?.last||''))next.review[key]=v}
+ next.history=mergeSavedHistory(incoming.history,state.history);
+ next.session=mergeExamDrafts(incoming.session,state.session);
+ const priorSessions=Array.isArray(incoming.studySessions)?incoming.studySessions:[];
+ next.studySessions=[...new Map([...priorSessions,...(Array.isArray(state.studySessions)?state.studySessions:[])].filter(validObject).map((v,i)=>[JSON.stringify([v.id,v.date,v.rating,v.module]),v])).values()];
+ next.independentPractice=state.independentPractice||incoming.independentPractice||null;
+ if(!state.history?.length&&D.course.some(m=>m.id===incoming.lastModule)){next.lastModule=incoming.lastModule;next.lastStage=STAGES.includes(incoming.lastStage)?incoming.lastStage:'learn';next.lastPage=Math.max(0,Number(incoming.lastPage)||0)}
+ state=next;persist();render();
+ }catch(err){notice('Could not import: '+err.message,true)}});
 by('sync-progress')?.addEventListener('click',syncNow);
 by('open-personal-guide')?.addEventListener('click',()=>openPersonalGuideAt('7'));
 by('guide-file')?.addEventListener('change',async e=>{try{await setGuide(e.target.files[0]);notice('Your study guide is connected privately on this device.');const el=by('guide-state');if(el)el.textContent='Private study guide connected.'}catch(err){notice('Could not connect the guide: '+err.message,true)}});
