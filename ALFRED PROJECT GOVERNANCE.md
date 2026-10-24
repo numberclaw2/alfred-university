@@ -64,6 +64,12 @@ Newest explicit user instructions govern; then this 2026-10-23 amendment; then s
 - The Library also exposes source-verified book practice exams, index, schematic appendix and answer key separately; publisher practice does not qualify as independent readiness evidence.
 - Keep full historical student scores, page IDs, source question records, Cloud Sync protocol 2, Grizzlies design and owned publisher scan untouched. The book remains subject to rights/access-control limits.
 
+### 2026-10-24 · v3.4 printed-passage topic audit
+- All 20 inherited ETA Sixth Edition required-reading assignments were reviewed against scanned printed-page topics and annotated with limitations, source-content summaries and retrieval tasks. This is not a complete sentence-by-sentence or safety/technical SME approval of the textbook.
+- Correct incorrect Module 22 Ch.13 inherited pp.108–109 citation to pp.109–110 (coax/shielding); move reading placement to a coax lesson without changing the legacy reading ID. Relocate the M07 capacitance/reactance, M14 amplifier class/dB, and M26 radio-receiver chapters to matching teaching pages. No earned score/read marks are interpreted as revalidation.
+- Keep old book content subordinate to modern ETA requirements and relevant professional safety guidance, and do not treat historical telecom, vacuum-tube or older semiconductor pages as proof of current competency coverage.
+- No score-bearing exam change, progress schema change, independent readiness unlock, or proprietary study-guide PDF redistribution in v3.4; the existing user-supplied book is unchanged.
+
 ### Recent drift and mandatory repair priorities
 
 See `ALFRED_GOVERNANCE_RECONCILIATION_2026-10-23.md` for independently scoped findings. Most urgent: restore governance in repository; reconstruct instructional depth; reintegrate exact-lesson source-authentic figures/Required media/literature/guide; restore glossary and study-support interactions; verify objective-level assessment readiness and preserved progress. The v1.3 Grizzly restoration is **confirmed uploaded to GitHub `main`** at commit `69c3cd7ff19fb8eab97812e008b0649d3a95da5f`; live browser acceptance remains separate. No site modification is authorized by this review.

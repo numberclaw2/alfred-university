@@ -1,5 +1,5 @@
 {
-  "release": "Alfred v3.3",
+  "release": "v3.4 passage-topic corrections, October 24 2026",
   "book": "Associate CET Study Guide Sixth Edition",
   "officialCurriculum": "ETA 2025 Associate CETa competency requirements",
   "publisherBookPdfPages": 234,
@@ -402,7 +402,7 @@
         "printedEnd": 24,
         "pdfStart": 25,
         "pdfEnd": 33,
-        "pageIndex": 2,
+        "pageIndex": 8,
         "studyTask": "Review RC time constants and reactive component calculations already introduced in Chapter 3.",
         "relevance": "supporting",
         "tocVerified": true,
@@ -570,7 +570,7 @@
         "printedEnd": 103,
         "pdfStart": 100,
         "pdfEnd": 112,
-        "pageIndex": 6,
+        "pageIndex": 11,
         "studyTask": "Practice amplifier gain, decibel and coupling examples with units and explicit ratios.",
         "relevance": "direct",
         "tocVerified": true,
@@ -740,7 +740,7 @@
         "printedEnd": 112,
         "pdfStart": 113,
         "pdfEnd": 121,
-        "pageIndex": 4,
+        "pageIndex": 1,
         "studyTask": "Review coaxial feedline principles and cable loss in RF applications.",
         "relevance": "partial",
         "tocVerified": true,
@@ -832,7 +832,7 @@
         "printedEnd": 112,
         "pdfStart": 113,
         "pdfEnd": 121,
-        "pageIndex": 0,
+        "pageIndex": 3,
         "studyTask": "Study RF generation, tuning, antenna and impedance fundamentals.",
         "relevance": "direct",
         "tocVerified": true,
@@ -938,7 +938,10 @@
       "printedPageWithinChapter": true,
       "chapterRange": "7–15",
       "status": "TOC_BOUNDARY_CHECK_PASS",
-      "passageVerified": false
+      "passageVerified": false,
+      "topicFitStatus": "HISTORICAL_SAFETY_CAUTION",
+      "sourceAuditLevel": "printed-page topic review only",
+      "pageReferenceCorrected": false
     },
     {
       "module": "M02",
@@ -948,7 +951,10 @@
       "printedPageWithinChapter": true,
       "chapterRange": "16–24",
       "status": "TOC_BOUNDARY_CHECK_PASS",
-      "passageVerified": false
+      "passageVerified": false,
+      "topicFitStatus": "TOPIC_MATCH",
+      "sourceAuditLevel": "printed-page topic review only",
+      "pageReferenceCorrected": false
     },
     {
       "module": "M03",
@@ -958,7 +964,10 @@
       "printedPageWithinChapter": true,
       "chapterRange": "25–35",
       "status": "TOC_BOUNDARY_CHECK_PASS",
-      "passageVerified": false
+      "passageVerified": false,
+      "topicFitStatus": "TOPIC_MATCH",
+      "sourceAuditLevel": "printed-page topic review only",
+      "pageReferenceCorrected": false
     },
     {
       "module": "M04",
@@ -968,7 +977,10 @@
       "printedPageWithinChapter": true,
       "chapterRange": "25–35",
       "status": "TOC_BOUNDARY_CHECK_PASS",
-      "passageVerified": false
+      "passageVerified": false,
+      "topicFitStatus": "PARTIAL_TOPIC_MATCH",
+      "sourceAuditLevel": "printed-page topic review only",
+      "pageReferenceCorrected": false
     },
     {
       "module": "M05",
@@ -978,7 +990,10 @@
       "printedPageWithinChapter": true,
       "chapterRange": "159–164",
       "status": "TOC_BOUNDARY_CHECK_PASS",
-      "passageVerified": false
+      "passageVerified": false,
+      "topicFitStatus": "TOPIC_MATCH",
+      "sourceAuditLevel": "printed-page topic review only",
+      "pageReferenceCorrected": false
     },
     {
       "module": "M07",
@@ -988,7 +1003,10 @@
       "printedPageWithinChapter": true,
       "chapterRange": "16–24",
       "status": "TOC_BOUNDARY_CHECK_PASS",
-      "passageVerified": false
+      "passageVerified": false,
+      "topicFitStatus": "PARTIAL_TOPIC_MATCH",
+      "sourceAuditLevel": "printed-page topic review only",
+      "pageReferenceCorrected": false
     },
     {
       "module": "M08",
@@ -998,7 +1016,10 @@
       "printedPageWithinChapter": true,
       "chapterRange": "45–52",
       "status": "TOC_BOUNDARY_CHECK_PASS",
-      "passageVerified": false
+      "passageVerified": false,
+      "topicFitStatus": "TOPIC_MATCH",
+      "sourceAuditLevel": "printed-page topic review only",
+      "pageReferenceCorrected": false
     },
     {
       "module": "M09",
@@ -1010,7 +1031,10 @@
       "status": "TOC_BOUNDARY_CHECK_PASS",
       "passageVerified": false,
       "placementRevisedFrom": 3,
-      "placementRevisedTo": 2
+      "placementRevisedTo": 2,
+      "topicFitStatus": "TOPIC_MATCH_WITH_PROMPT_REPAIR",
+      "sourceAuditLevel": "printed-page topic review only",
+      "pageReferenceCorrected": false
     },
     {
       "module": "M11",
@@ -1020,7 +1044,10 @@
       "printedPageWithinChapter": true,
       "chapterRange": "70–78",
       "status": "TOC_BOUNDARY_CHECK_PASS",
-      "passageVerified": false
+      "passageVerified": false,
+      "topicFitStatus": "PARTIAL_TOPIC_MATCH",
+      "sourceAuditLevel": "printed-page topic review only",
+      "pageReferenceCorrected": false
     },
     {
       "module": "M13",
@@ -1030,7 +1057,10 @@
       "printedPageWithinChapter": true,
       "chapterRange": "85–90",
       "status": "TOC_BOUNDARY_CHECK_PASS",
-      "passageVerified": false
+      "passageVerified": false,
+      "topicFitStatus": "TOPIC_MATCH",
+      "sourceAuditLevel": "printed-page topic review only",
+      "pageReferenceCorrected": false
     },
     {
       "module": "M14",
@@ -1040,7 +1070,10 @@
       "printedPageWithinChapter": true,
       "chapterRange": "91–103",
       "status": "TOC_BOUNDARY_CHECK_PASS",
-      "passageVerified": false
+      "passageVerified": false,
+      "topicFitStatus": "PARTIAL_TOPIC_MATCH",
+      "sourceAuditLevel": "printed-page topic review only",
+      "pageReferenceCorrected": false
     },
     {
       "module": "M16",
@@ -1052,7 +1085,10 @@
       "status": "TOC_BOUNDARY_CHECK_PASS",
       "passageVerified": false,
       "placementRevisedFrom": 4,
-      "placementRevisedTo": 0
+      "placementRevisedTo": 0,
+      "topicFitStatus": "TOPIC_MATCH",
+      "sourceAuditLevel": "printed-page topic review only",
+      "pageReferenceCorrected": false
     },
     {
       "module": "M20",
@@ -1064,17 +1100,23 @@
       "status": "TOC_BOUNDARY_CHECK_PASS",
       "passageVerified": false,
       "placementRevisedFrom": 10,
-      "placementRevisedTo": 1
+      "placementRevisedTo": 1,
+      "topicFitStatus": "TOPIC_MATCH",
+      "sourceAuditLevel": "printed-page topic review only",
+      "pageReferenceCorrected": false
     },
     {
       "module": "M22",
       "readingId": "sg-w19-ch13-p108-109",
       "chapter": 13,
-      "pages": "108–109",
+      "pages": "109–110",
       "printedPageWithinChapter": true,
       "chapterRange": "104–112",
       "status": "TOC_BOUNDARY_CHECK_PASS",
-      "passageVerified": false
+      "passageVerified": false,
+      "topicFitStatus": "MISALIGNED_PAGES_CORRECTED",
+      "sourceAuditLevel": "printed-page topic review only",
+      "pageReferenceCorrected": true
     },
     {
       "module": "M25",
@@ -1084,7 +1126,10 @@
       "printedPageWithinChapter": true,
       "chapterRange": "70–78",
       "status": "TOC_BOUNDARY_CHECK_PASS",
-      "passageVerified": false
+      "passageVerified": false,
+      "topicFitStatus": "TOPIC_MATCH",
+      "sourceAuditLevel": "printed-page topic review only",
+      "pageReferenceCorrected": false
     },
     {
       "module": "M26",
@@ -1096,7 +1141,10 @@
       "status": "TOC_BOUNDARY_CHECK_PASS",
       "passageVerified": false,
       "placementRevisedFrom": 1,
-      "placementRevisedTo": 0
+      "placementRevisedTo": 0,
+      "topicFitStatus": "MISPLACED_CHECKPOINT_CORRECTED",
+      "sourceAuditLevel": "printed-page topic review only",
+      "pageReferenceCorrected": false
     },
     {
       "module": "M26",
@@ -1106,7 +1154,10 @@
       "printedPageWithinChapter": true,
       "chapterRange": "113–119",
       "status": "TOC_BOUNDARY_CHECK_PASS",
-      "passageVerified": false
+      "passageVerified": false,
+      "topicFitStatus": "TOPIC_MATCH",
+      "sourceAuditLevel": "printed-page topic review only",
+      "pageReferenceCorrected": false
     },
     {
       "module": "M27",
@@ -1118,7 +1169,10 @@
       "status": "TOC_BOUNDARY_CHECK_PASS",
       "passageVerified": false,
       "placementRevisedFrom": 5,
-      "placementRevisedTo": 4
+      "placementRevisedTo": 4,
+      "topicFitStatus": "HISTORICAL_PARTIAL_COVERAGE",
+      "sourceAuditLevel": "printed-page topic review only",
+      "pageReferenceCorrected": false
     },
     {
       "module": "M28",
@@ -1130,7 +1184,10 @@
       "status": "TOC_BOUNDARY_CHECK_PASS",
       "passageVerified": false,
       "placementRevisedFrom": 3,
-      "placementRevisedTo": 1
+      "placementRevisedTo": 1,
+      "topicFitStatus": "TOPIC_MATCH",
+      "sourceAuditLevel": "printed-page topic review only",
+      "pageReferenceCorrected": false
     },
     {
       "module": "M28",
@@ -1142,7 +1199,10 @@
       "status": "TOC_BOUNDARY_CHECK_PASS",
       "passageVerified": false,
       "placementRevisedFrom": 10,
-      "placementRevisedTo": 9
+      "placementRevisedTo": 9,
+      "topicFitStatus": "TOPIC_MATCH",
+      "sourceAuditLevel": "printed-page topic review only",
+      "pageReferenceCorrected": false
     }
   ],
   "objectives": [
@@ -5598,5 +5658,348 @@
       "pdfStart": 232,
       "status": "open only after attempting publisher problems; apply publisher errata"
     }
-  ]
+  ],
+  "readingPassageTopicReview": [
+    {
+      "module": "M01",
+      "readingId": "sg-w01-ch02-p007-015",
+      "chapter": 2,
+      "currentPrintedPages": "7–15",
+      "previousPrintedPages": null,
+      "oldLessonPage": 4,
+      "currentLessonPage": 4,
+      "currentLessonTitle": "Lockout, stored energy and verification",
+      "auditStatus": "HISTORICAL_SAFETY_CAUTION",
+      "sourceEvidence": "Safety, electric shock, bench equipment and vintage devices are discussed; the old first-aid and energized-work recommendations must not substitute for modern professional guidance.",
+      "guidedRetrievalTask": "After studying Alfred safety protocols, identify two unsafe assumptions in vintage bench or first-aid discussions. Apply current qualified procedures, not book-era examples.",
+      "topicPagesChecked": true,
+      "technicalClaimsFullyReviewed": false,
+      "currentETARequirementFullyCovered": false,
+      "verifiedFullPassage": false
+    },
+    {
+      "module": "M02",
+      "readingId": "sg-w01-ch03-p016-018",
+      "chapter": 3,
+      "currentPrintedPages": "16–18",
+      "previousPrintedPages": null,
+      "oldLessonPage": 4,
+      "currentLessonPage": 4,
+      "currentLessonTitle": "SI prefixes: communicating scale without losing units",
+      "auditStatus": "TOPIC_MATCH",
+      "sourceEvidence": "The assigned pages cover math, engineering prefixes and electrical formulas; the opening page contains introduction as well as examples.",
+      "guidedRetrievalTask": "Convert three quantities between SI prefixes, write each result with its unit and check one power/Ohm-law relationship.",
+      "topicPagesChecked": true,
+      "technicalClaimsFullyReviewed": false,
+      "currentETARequirementFullyCovered": false,
+      "verifiedFullPassage": false
+    },
+    {
+      "module": "M03",
+      "readingId": "alf-v15-m03-ch04-p027",
+      "chapter": 4,
+      "currentPrintedPages": "27",
+      "previousPrintedPages": null,
+      "oldLessonPage": 7,
+      "currentLessonPage": 7,
+      "currentLessonTitle": "Comparing P = VI, I²R and V²/R",
+      "auditStatus": "TOPIC_MATCH",
+      "sourceEvidence": "Printed page 27 explicitly discusses power changes with resistance and current and DC circuit relationships.",
+      "guidedRetrievalTask": "From P = I²R and P = V²/R, explain what is held constant before predicting how power changes.",
+      "topicPagesChecked": true,
+      "technicalClaimsFullyReviewed": false,
+      "currentETARequirementFullyCovered": false,
+      "verifiedFullPassage": false
+    },
+    {
+      "module": "M04",
+      "readingId": "sg-w02-ch04-p027-031",
+      "chapter": 4,
+      "currentPrintedPages": "27–31",
+      "previousPrintedPages": null,
+      "oldLessonPage": 6,
+      "currentLessonPage": 6,
+      "currentLessonTitle": "Loaded divider: why a measurement or circuit changes Vout",
+      "auditStatus": "PARTIAL_TOPIC_MATCH",
+      "sourceEvidence": "Printed pages 27–31 present DC series/parallel resistor networks and a classic tube B+ voltage divider; a modern loaded-divider model needs additional Alfred instruction.",
+      "guidedRetrievalTask": "Compute the book series/parallel reduction, then use Alfred to include the loading resistance of a measured divider.",
+      "topicPagesChecked": true,
+      "technicalClaimsFullyReviewed": false,
+      "currentETARequirementFullyCovered": false,
+      "verifiedFullPassage": false
+    },
+    {
+      "module": "M05",
+      "readingId": "sg-w13-ch18-p161-162",
+      "chapter": 18,
+      "currentPrintedPages": "161–162",
+      "previousPrintedPages": null,
+      "oldLessonPage": 4,
+      "currentLessonPage": 4,
+      "currentLessonTitle": "Schematic, wiring and layout: practice moving between views",
+      "auditStatus": "TOPIC_MATCH",
+      "sourceEvidence": "Printed pages 161–162 concern schematic drawings, service information and symbolic circuit tracing.",
+      "guidedRetrievalTask": "Follow an input-to-output path using both a schematic and block diagram; identify where you would measure.",
+      "topicPagesChecked": true,
+      "technicalClaimsFullyReviewed": false,
+      "currentETARequirementFullyCovered": false,
+      "verifiedFullPassage": false
+    },
+    {
+      "module": "M07",
+      "readingId": "sg-w04-ch03-p019-022",
+      "chapter": 3,
+      "currentPrintedPages": "19–22",
+      "previousPrintedPages": null,
+      "oldLessonPage": 3,
+      "currentLessonPage": 9,
+      "currentLessonTitle": "Capacitive and inductive reactance",
+      "auditStatus": "PARTIAL_TOPIC_MATCH",
+      "sourceEvidence": "Printed pages 19–22 contain capacitor calculations, time constants and reactive circuit reasoning, not a comprehensive modern capacitor construction/polarity survey.",
+      "guidedRetrievalTask": "Solve the book capacitor/reactance exercise. Revisit Alfred separately for polarized-device safety and component selection.",
+      "topicPagesChecked": true,
+      "technicalClaimsFullyReviewed": false,
+      "currentETARequirementFullyCovered": false,
+      "verifiedFullPassage": false
+    },
+    {
+      "module": "M08",
+      "readingId": "sg-w06-ch06-p045-049",
+      "chapter": 6,
+      "currentPrintedPages": "45–49",
+      "previousPrintedPages": null,
+      "oldLessonPage": 8,
+      "currentLessonPage": 8,
+      "currentLessonTitle": "From impedance to an equivalent circuit",
+      "auditStatus": "TOPIC_MATCH",
+      "sourceEvidence": "Printed pages 45–49 discuss AC behavior, reactance and series/parallel circuit relationships. Official errata apply to some pages.",
+      "guidedRetrievalTask": "Identify the resistive and reactive contributions to impedance and predict how frequency alters current.",
+      "topicPagesChecked": true,
+      "technicalClaimsFullyReviewed": false,
+      "currentETARequirementFullyCovered": false,
+      "verifiedFullPassage": false
+    },
+    {
+      "module": "M09",
+      "readingId": "sg-w07-ch07-p053-057",
+      "chapter": 7,
+      "currentPrintedPages": "53–57",
+      "previousPrintedPages": null,
+      "oldLessonPage": 3,
+      "currentLessonPage": 3,
+      "currentLessonTitle": "Motor and generator: opposite energy directions",
+      "auditStatus": "TOPIC_MATCH_WITH_PROMPT_REPAIR",
+      "sourceEvidence": "Chapter 7 printed pages 53–57 address generator, alternator and motor machines. This is not a first-use primer on transformer primary/secondary operation.",
+      "guidedRetrievalTask": "Compare a motor and a generator; explain how field and conductor motion affect the direction of energy conversion.",
+      "topicPagesChecked": true,
+      "technicalClaimsFullyReviewed": false,
+      "currentETARequirementFullyCovered": false,
+      "verifiedFullPassage": false
+    },
+    {
+      "module": "M11",
+      "readingId": "sg-w08-ch09-p072-076",
+      "chapter": 9,
+      "currentPrintedPages": "72–73;75–76",
+      "previousPrintedPages": null,
+      "oldLessonPage": 4,
+      "currentLessonPage": 4,
+      "currentLessonTitle": "Zener operation in reverse breakdown",
+      "auditStatus": "PARTIAL_TOPIC_MATCH",
+      "sourceEvidence": "Printed pages 72–73 and 75–76 cover semiconductor junctions and device families, with a brief treatment of specialty diodes. They cannot alone establish full Zener and SCR competence.",
+      "guidedRetrievalTask": "Identify the role of the junction and distinguish a regulator diode from a switching/controlled device; use Alfred for datasheet limits.",
+      "topicPagesChecked": true,
+      "technicalClaimsFullyReviewed": false,
+      "currentETARequirementFullyCovered": false,
+      "verifiedFullPassage": false
+    },
+    {
+      "module": "M13",
+      "readingId": "sg-w09-ch11-p085-089",
+      "chapter": 11,
+      "currentPrintedPages": "85–89",
+      "previousPrintedPages": null,
+      "oldLessonPage": 5,
+      "currentLessonPage": 5,
+      "currentLessonTitle": "Linear regulators and headroom",
+      "auditStatus": "TOPIC_MATCH",
+      "sourceEvidence": "Printed pages 85–89 cover transformer and rectifier supply blocks, filtering, ripple and regulation.",
+      "guidedRetrievalTask": "Sketch rectifier → filter → regulator and identify how a poor capacitor or regulator changes output ripple.",
+      "topicPagesChecked": true,
+      "technicalClaimsFullyReviewed": false,
+      "currentETARequirementFullyCovered": false,
+      "verifiedFullPassage": false
+    },
+    {
+      "module": "M14",
+      "readingId": "sg-w10-ch12-selected",
+      "chapter": 12,
+      "currentPrintedPages": "91;95–96;98",
+      "previousPrintedPages": null,
+      "oldLessonPage": 7,
+      "currentLessonPage": 12,
+      "currentLessonTitle": "Measuring gain without fooling yourself",
+      "auditStatus": "PARTIAL_TOPIC_MATCH",
+      "sourceEvidence": "The selected pages discuss amplifier classes, push-pull operation and decibel power ratios; they are not a direct step-by-step treatment of modern op-amp inverting gain.",
+      "guidedRetrievalTask": "Compare amplifier class behavior and solve the book dB gain example; then use Alfred for the inverting op-amp formula.",
+      "topicPagesChecked": true,
+      "technicalClaimsFullyReviewed": false,
+      "currentETARequirementFullyCovered": false,
+      "verifiedFullPassage": false
+    },
+    {
+      "module": "M16",
+      "readingId": "sg-w11-ch16-p132-140",
+      "chapter": 16,
+      "currentPrintedPages": "132–136;138–140",
+      "previousPrintedPages": null,
+      "oldLessonPage": 1,
+      "currentLessonPage": 1,
+      "currentLessonTitle": "Place value: one quantity, different bases",
+      "auditStatus": "TOPIC_MATCH",
+      "sourceEvidence": "Printed pages 132–140 introduce base conversions, logic gates, binary operations and sequential logic. This broad selection spans several lessons.",
+      "guidedRetrievalTask": "Convert a number in binary/octal/hex, then explain one truth table and one sequential behavior without looking.",
+      "topicPagesChecked": true,
+      "technicalClaimsFullyReviewed": false,
+      "currentETARequirementFullyCovered": false,
+      "verifiedFullPassage": false
+    },
+    {
+      "module": "M20",
+      "readingId": "sg-w14-ch17-p149-150",
+      "chapter": 17,
+      "currentPrintedPages": "149–150",
+      "previousPrintedPages": null,
+      "oldLessonPage": 2,
+      "currentLessonPage": 2,
+      "currentLessonTitle": "CPU blocks and control flow",
+      "auditStatus": "TOPIC_MATCH",
+      "sourceEvidence": "Printed pages 149–150 describe computer architecture, processor operations, instructions and memory addressing.",
+      "guidedRetrievalTask": "Trace a basic instruction fetch/decode/execute sequence and identify what changes in memory or registers.",
+      "topicPagesChecked": true,
+      "technicalClaimsFullyReviewed": false,
+      "currentETARequirementFullyCovered": false,
+      "verifiedFullPassage": false
+    },
+    {
+      "module": "M22",
+      "readingId": "sg-w19-ch13-p108-109",
+      "chapter": 13,
+      "currentPrintedPages": "109–110",
+      "previousPrintedPages": "108–109",
+      "oldLessonPage": 5,
+      "currentLessonPage": 2,
+      "currentLessonTitle": "Copper pair, coaxial and optical signal paths",
+      "auditStatus": "MISALIGNED_PAGES_CORRECTED",
+      "sourceEvidence": "The inherited pp.108–109 emphasize antennas and the ionosphere; pp.109–110 directly introduce coax cable charts, shields, center conductors and characteristic signal-path properties. The corrected selection is still only partial cabling coverage.",
+      "guidedRetrievalTask": "Using pp.109–110, explain the center conductor, dielectric and shield. Use Alfred and current cable standards for crimp, bonding and fiber practice.",
+      "topicPagesChecked": true,
+      "technicalClaimsFullyReviewed": false,
+      "currentETARequirementFullyCovered": false,
+      "verifiedFullPassage": false
+    },
+    {
+      "module": "M25",
+      "readingId": "sg-w19-ch09-p077",
+      "chapter": 9,
+      "currentPrintedPages": "77",
+      "previousPrintedPages": null,
+      "oldLessonPage": 3,
+      "currentLessonPage": 3,
+      "currentLessonTitle": "Photocells, photodiodes and photovoltaic sources",
+      "auditStatus": "TOPIC_MATCH",
+      "sourceEvidence": "Printed page 77 discusses light-responsive semiconductor devices including phototransistors. This does not fully cover modern LCD/OLED displays or optical sensors.",
+      "guidedRetrievalTask": "Distinguish photodiode, phototransistor and photovoltaic functions; separately review modern displays in Alfred.",
+      "topicPagesChecked": true,
+      "technicalClaimsFullyReviewed": false,
+      "currentETARequirementFullyCovered": false,
+      "verifiedFullPassage": false
+    },
+    {
+      "module": "M26",
+      "readingId": "sg-w20-ch13-p104-107",
+      "chapter": 13,
+      "currentPrintedPages": "104–107",
+      "previousPrintedPages": null,
+      "oldLessonPage": 1,
+      "currentLessonPage": 4,
+      "currentLessonTitle": "Receiver blocks: antenna to intelligible output",
+      "auditStatus": "MISPLACED_CHECKPOINT_CORRECTED",
+      "sourceEvidence": "Printed pages 104–107 focus on radio receiver sections: antenna/RF amplification, local oscillator/mixer, IF, detection and AGC. They better match the receiver-block lesson than the introductory electromagnetic-propagation page.",
+      "guidedRetrievalTask": "Trace a received radio signal through antenna, RF stage, local oscillator/mixer, IF stage, detection and AGC.",
+      "topicPagesChecked": true,
+      "technicalClaimsFullyReviewed": false,
+      "currentETARequirementFullyCovered": false,
+      "verifiedFullPassage": false
+    },
+    {
+      "module": "M26",
+      "readingId": "sg-w20-ch14-p113-114",
+      "chapter": 14,
+      "currentPrintedPages": "113–114",
+      "previousPrintedPages": null,
+      "oldLessonPage": 3,
+      "currentLessonPage": 3,
+      "currentLessonTitle": "Modulation: how a message rides on a carrier",
+      "auditStatus": "TOPIC_MATCH",
+      "sourceEvidence": "Printed pages 113–114 describe modulation mechanisms and communication system examples.",
+      "guidedRetrievalTask": "Explain which carrier characteristic changes for AM versus FM and identify the information signal.",
+      "topicPagesChecked": true,
+      "technicalClaimsFullyReviewed": false,
+      "currentETARequirementFullyCovered": false,
+      "verifiedFullPassage": false
+    },
+    {
+      "module": "M27",
+      "readingId": "sg-w20-ch15-p120-121",
+      "chapter": 15,
+      "currentPrintedPages": "120–121",
+      "previousPrintedPages": null,
+      "oldLessonPage": 5,
+      "currentLessonPage": 5,
+      "currentLessonTitle": "Simplex, duplex and repeaters",
+      "auditStatus": "HISTORICAL_PARTIAL_COVERAGE",
+      "sourceEvidence": "Printed pages 120–121 explain historic telephone systems and simplex/duplex terms. Modern packet, VoIP, cellular and fiber topics go beyond this limited old-textbook excerpt.",
+      "guidedRetrievalTask": "Define simplex, half-duplex and full-duplex. Contrast analog voice switching with packet-network transport taught in Alfred.",
+      "topicPagesChecked": true,
+      "technicalClaimsFullyReviewed": false,
+      "currentETARequirementFullyCovered": false,
+      "verifiedFullPassage": false
+    },
+    {
+      "module": "M28",
+      "readingId": "sg-w28-ch21-p182-184",
+      "chapter": 21,
+      "currentPrintedPages": "182–184",
+      "previousPrintedPages": null,
+      "oldLessonPage": 2,
+      "currentLessonPage": 2,
+      "currentLessonTitle": "Handoffs prevent repeat mistakes",
+      "auditStatus": "TOPIC_MATCH",
+      "sourceEvidence": "Printed pages 182–184 discuss record keeping, technician handoffs and time or service documentation.",
+      "guidedRetrievalTask": "Draft a service handoff with observed symptoms, measurements, work completed and next action.",
+      "topicPagesChecked": true,
+      "technicalClaimsFullyReviewed": false,
+      "currentETARequirementFullyCovered": false,
+      "verifiedFullPassage": false
+    },
+    {
+      "module": "M28",
+      "readingId": "sg-w28-ch22-p188-190",
+      "chapter": 22,
+      "currentPrintedPages": "188–190",
+      "previousPrintedPages": null,
+      "oldLessonPage": 10,
+      "currentLessonPage": 10,
+      "currentLessonTitle": "Traceable reports tie evidence to work",
+      "auditStatus": "TOPIC_MATCH",
+      "sourceEvidence": "Printed pages 188–190 introduce technical writing and structured reports.",
+      "guidedRetrievalTask": "Prepare a concise troubleshooting report with method, evidence, conclusion and remaining uncertainty.",
+      "topicPagesChecked": true,
+      "technicalClaimsFullyReviewed": false,
+      "currentETARequirementFullyCovered": false,
+      "verifiedFullPassage": false
+    }
+  ],
+  "statementOfLimit": "Printed-page topic fit reviewed for 20 inherited reading assignments; not all 234 book pages sentence-audited, nor technical claims or 2025 objective coverage certified. The correct book does not itself supersede contemporary ETA competency documents."
 }

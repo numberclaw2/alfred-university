@@ -1,0 +1,1547 @@
+{
+  "summary": {
+    "examObjectivesUnique": 262,
+    "scoredTagCoverageIDs": 202,
+    "unscoredCandidateOnlyIDs": 60,
+    "newlyApprovedScoreBearingItems": 0,
+    "independentM29M30Validated": false
+  },
+  "limitations": "Question tags and unscored candidates are not technically approved mastery evidence. Chapter route is a reference to publisher book, not proof of specific passage coverage.",
+  "gaps": [
+    {
+      "objectiveId": "2.4",
+      "officialCompetencyAsRecorded": "Explain basic uses for electricity",
+      "module": "M02",
+      "moduleTitle": "Electrical quantities and mathematical language",
+      "sectionId": "M02.S02",
+      "teachingPageId": "L01-0-08",
+      "teachingPageTitle": "What voltage measures—and why one probe is not enough",
+      "sourceChapterRoutes": [
+        3,
+        4
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-2-4"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "2.13",
+      "officialCompetencyAsRecorded": "List Ohm’s law formulas for current, voltage, resistance and power",
+      "module": "M03",
+      "moduleTitle": "Resistors, Ohm's law, power and component identification",
+      "sectionId": "M03.S02",
+      "teachingPageId": "L01-0-01",
+      "teachingPageTitle": "Deriving Ohm’s law rather than memorizing triangles",
+      "sourceChapterRoutes": [
+        3,
+        8
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-2-13"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "8.16",
+      "officialCompetencyAsRecorded": "Explain how a potentiometer functions and its use as a variable voltage divider",
+      "module": "M04",
+      "moduleTitle": "DC networks and circuit reasoning",
+      "sectionId": "M04.S03",
+      "teachingPageId": "L02-0-02",
+      "teachingPageTitle": "Unloaded divider: calculating a predictable reference",
+      "sourceChapterRoutes": [
+        4
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-8-16"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "6.1",
+      "officialCompetencyAsRecorded": "Describe common electrical/electronic symbols",
+      "module": "M05",
+      "moduleTitle": "Schematics and meter fundamentals",
+      "sectionId": "M05.S01",
+      "teachingPageId": "L13-0-00",
+      "teachingPageTitle": "Circuit drawings serve different engineering questions",
+      "sourceChapterRoutes": [
+        18,
+        19
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-6-1"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "6.5",
+      "officialCompetencyAsRecorded": "Point out common drafting principles used for electronic and electrical drawings",
+      "module": "M05",
+      "moduleTitle": "Schematics and meter fundamentals",
+      "sectionId": "M05.S01",
+      "teachingPageId": "L13-0-00",
+      "teachingPageTitle": "Circuit drawings serve different engineering questions",
+      "sourceChapterRoutes": [
+        18,
+        19
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-6-5"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "6.7",
+      "officialCompetencyAsRecorded": "Describe basic building and house wiring concepts and explain why technicians need to be familiar with them",
+      "module": "M05",
+      "moduleTitle": "Schematics and meter fundamentals",
+      "sectionId": "M05.S01",
+      "teachingPageId": "L13-0-00",
+      "teachingPageTitle": "Circuit drawings serve different engineering questions",
+      "sourceChapterRoutes": [
+        18,
+        19
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-6-7"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "6.9",
+      "officialCompetencyAsRecorded": "Explain the methods of using flow diagrams/charts",
+      "module": "M05",
+      "moduleTitle": "Schematics and meter fundamentals",
+      "sectionId": "M05.S02",
+      "teachingPageId": "L13-0-04",
+      "teachingPageTitle": "Block diagrams, test points and tracing a missing signal",
+      "sourceChapterRoutes": [
+        18,
+        19
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-6-9"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "8.1",
+      "officialCompetencyAsRecorded": "Describe how digital and analog meters operate",
+      "module": "M05",
+      "moduleTitle": "Schematics and meter fundamentals",
+      "sectionId": "M05.S03",
+      "teachingPageId": "L03-0-00",
+      "teachingPageTitle": "A digital multimeter is several different measurement systems",
+      "sourceChapterRoutes": [
+        18,
+        19
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-8-1"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "8.2",
+      "officialCompetencyAsRecorded": "Explain meter construction and components",
+      "module": "M05",
+      "moduleTitle": "Schematics and meter fundamentals",
+      "sectionId": "M05.S03",
+      "teachingPageId": "L03-0-00",
+      "teachingPageTitle": "A digital multimeter is several different measurement systems",
+      "sourceChapterRoutes": [
+        18,
+        19
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-8-2"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "3.2.1",
+      "officialCompetencyAsRecorded": "Identify methods of varying capacitance",
+      "module": "M07",
+      "moduleTitle": "Capacitors and inductors",
+      "sectionId": "M07.S01",
+      "teachingPageId": "L04-0-01",
+      "teachingPageTitle": "A capacitor stores separated charge and electric-field energy",
+      "sourceChapterRoutes": [
+        3,
+        5
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-3-2-1"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "3.3.1",
+      "officialCompetencyAsRecorded": "Explain how diameter and wire size affects these values",
+      "module": "M07",
+      "moduleTitle": "Capacitors and inductors",
+      "sectionId": "M07.S02",
+      "teachingPageId": "L04-0-02",
+      "teachingPageTitle": "Inductance stores magnetic-field energy",
+      "sourceChapterRoutes": [
+        3,
+        5
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-3-3-1"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "4.2",
+      "officialCompetencyAsRecorded": "Identify and describe the operation of common AC circuits",
+      "module": "M08",
+      "moduleTitle": "AC networks, filters, resonance and impedance",
+      "sectionId": "M08.S01",
+      "teachingPageId": "L06-0-00",
+      "teachingPageTitle": "From resistance to frequency-dependent opposition",
+      "sourceChapterRoutes": [
+        5,
+        6
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-4-2"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "4.3",
+      "officialCompetencyAsRecorded": "Explain how series circuits, R, L, C are used in electronics equipment",
+      "module": "M08",
+      "moduleTitle": "AC networks, filters, resonance and impedance",
+      "sectionId": "M08.S01",
+      "teachingPageId": "L06-0-00",
+      "teachingPageTitle": "From resistance to frequency-dependent opposition",
+      "sourceChapterRoutes": [
+        5,
+        6
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-4-3"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "4.4",
+      "officialCompetencyAsRecorded": "Explain how parallel circuits, R, L, C are used in electronics equipment, loads",
+      "module": "M08",
+      "moduleTitle": "AC networks, filters, resonance and impedance",
+      "sectionId": "M08.S01",
+      "teachingPageId": "L06-0-00",
+      "teachingPageTitle": "From resistance to frequency-dependent opposition",
+      "sourceChapterRoutes": [
+        5,
+        6
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-4-4"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "2.2.1",
+      "officialCompetencyAsRecorded": "Explain the different types of magnetic fields",
+      "module": "M09",
+      "moduleTitle": "Magnetism, transformers, motors, generators and relays",
+      "sectionId": "M09.S01",
+      "teachingPageId": "L07-0-10",
+      "teachingPageTitle": "Current creates magnetic field",
+      "sourceChapterRoutes": [
+        5,
+        7
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-2-2-1"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "2.2.2",
+      "officialCompetencyAsRecorded": "Explain the direct relationship between electricity and magnetism",
+      "module": "M09",
+      "moduleTitle": "Magnetism, transformers, motors, generators and relays",
+      "sectionId": "M09.S01",
+      "teachingPageId": "L07-0-10",
+      "teachingPageTitle": "Current creates magnetic field",
+      "sourceChapterRoutes": [
+        5,
+        7
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-2-2-2"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "2.3",
+      "officialCompetencyAsRecorded": "Explain uses for magnetism in electronics technology",
+      "module": "M09",
+      "moduleTitle": "Magnetism, transformers, motors, generators and relays",
+      "sectionId": "M09.S01",
+      "teachingPageId": "L07-0-10",
+      "teachingPageTitle": "Current creates magnetic field",
+      "sourceChapterRoutes": [
+        5,
+        7
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-2-3"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "2.5.1",
+      "officialCompetencyAsRecorded": "Review EM5 competencies for more detail",
+      "module": "M09",
+      "moduleTitle": "Magnetism, transformers, motors, generators and relays",
+      "sectionId": "M09.S02",
+      "teachingPageId": "L07-0-11",
+      "teachingPageTitle": "Transformer action begins with changing flux",
+      "sourceChapterRoutes": [
+        5,
+        7
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-2-5-1"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "3.4",
+      "officialCompetencyAsRecorded": "Identify common types of transformers and list uses for each",
+      "module": "M09",
+      "moduleTitle": "Magnetism, transformers, motors, generators and relays",
+      "sectionId": "M09.S02",
+      "teachingPageId": "L07-0-11",
+      "teachingPageTitle": "Transformer action begins with changing flux",
+      "sourceChapterRoutes": [
+        5,
+        7
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-3-4"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "3.9",
+      "officialCompetencyAsRecorded": "Describe various relay types",
+      "module": "M09",
+      "moduleTitle": "Magnetism, transformers, motors, generators and relays",
+      "sectionId": "M09.S03",
+      "teachingPageId": "L07-0-02",
+      "teachingPageTitle": "Relay coils and contacts are different circuits",
+      "sourceChapterRoutes": [
+        5,
+        7
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-3-9"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "3.6",
+      "officialCompetencyAsRecorded": "Identify multi-junction semiconductors as to type and applications:",
+      "module": "M11",
+      "moduleTitle": "Diodes and controlled semiconductors",
+      "sectionId": "M11.S03",
+      "teachingPageId": "L08-0-05",
+      "teachingPageTitle": "Zener operation in reverse breakdown",
+      "sourceChapterRoutes": [
+        9
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-3-6"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "10.2",
+      "officialCompetencyAsRecorded": "Describe the differences between transformer powered supplies and line-connected supplies",
+      "module": "M13",
+      "moduleTitle": "Power supplies",
+      "sectionId": "M13.S01",
+      "teachingPageId": "L08-0-00",
+      "teachingPageTitle": "Reservoir capacitors and safe polarity",
+      "sourceChapterRoutes": [
+        11
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-10-2"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "10.3",
+      "officialCompetencyAsRecorded": "Describe battery supplies and list common usages:",
+      "module": "M13",
+      "moduleTitle": "Power supplies",
+      "sectionId": "M13.S01",
+      "teachingPageId": "L08-0-00",
+      "teachingPageTitle": "Reservoir capacitors and safe polarity",
+      "sourceChapterRoutes": [
+        11
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-10-3"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "10.4.3",
+      "officialCompetencyAsRecorded": "“Pi” filter – a single inductor with a capacitor at each end to common",
+      "module": "M13",
+      "moduleTitle": "Power supplies",
+      "sectionId": "M13.S03",
+      "teachingPageId": "L09-0-01",
+      "teachingPageTitle": "Power-supply blocks from source to load",
+      "sourceChapterRoutes": [
+        11
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-10-4-3"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "10.6",
+      "officialCompetencyAsRecorded": "Explain the term ‘Integrated high voltage transformer’ supply and explain how it differs from direct or other power supply types",
+      "module": "M13",
+      "moduleTitle": "Power supplies",
+      "sectionId": "M13.S01",
+      "teachingPageId": "L08-0-00",
+      "teachingPageTitle": "Reservoir capacitors and safe polarity",
+      "sourceChapterRoutes": [
+        11
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-10-6"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "10.8",
+      "officialCompetencyAsRecorded": "Explain where fuses and circuit breakers are commonly and electrically located in circuits; approximate fuse sizes for common circuits; common fuses and circuit breaker configuration and precautions for replacement in a house service box",
+      "module": "M13",
+      "moduleTitle": "Power supplies",
+      "sectionId": "M13.S03",
+      "teachingPageId": "L09-0-01",
+      "teachingPageTitle": "Power-supply blocks from source to load",
+      "sourceChapterRoutes": [
+        11
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-10-8"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "11.1",
+      "officialCompetencyAsRecorded": "List common amplifier devices: such as power amps, audio preamps, video amps",
+      "module": "M14",
+      "moduleTitle": "Amplifiers and gain",
+      "sectionId": "M14.S01",
+      "teachingPageId": "L10-0-00",
+      "teachingPageTitle": "An amplifier transfers supply energy to a signal",
+      "sourceChapterRoutes": [
+        12
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-11-1"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "11.3.1",
+      "officialCompetencyAsRecorded": "Analyze BJT amplifier circuits for gain and power",
+      "module": "M14",
+      "moduleTitle": "Amplifiers and gain",
+      "sectionId": "M14.S01",
+      "teachingPageId": "L10-0-00",
+      "teachingPageTitle": "An amplifier transfers supply energy to a signal",
+      "sourceChapterRoutes": [
+        12
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-11-3-1"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "11.3.2",
+      "officialCompetencyAsRecorded": "Analyze FET based amplifier circuits for gain and power",
+      "module": "M14",
+      "moduleTitle": "Amplifiers and gain",
+      "sectionId": "M14.S01",
+      "teachingPageId": "L10-0-00",
+      "teachingPageTitle": "An amplifier transfers supply energy to a signal",
+      "sourceChapterRoutes": [
+        12
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-11-3-2"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "11.5",
+      "officialCompetencyAsRecorded": "Explain the words ‘preamplifier’ and ‘line amplifier’ and where these units are commonly used",
+      "module": "M14",
+      "moduleTitle": "Amplifiers and gain",
+      "sectionId": "M14.S01",
+      "teachingPageId": "L10-0-00",
+      "teachingPageTitle": "An amplifier transfers supply energy to a signal",
+      "sourceChapterRoutes": [
+        12
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-11-5"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "11.8.1",
+      "officialCompetencyAsRecorded": "List ways to overcome loading problems",
+      "module": "M14",
+      "moduleTitle": "Amplifiers and gain",
+      "sectionId": "M14.S03",
+      "teachingPageId": "L10-0-02",
+      "teachingPageTitle": "Op-amp inputs, supplies and open-loop action",
+      "sourceChapterRoutes": [
+        12
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-11-8-1"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "5.6",
+      "officialCompetencyAsRecorded": "Explain heat shunts (clip-on heat sinks), why and how they are used",
+      "module": "M15",
+      "moduleTitle": "PCB handling, soldering and desoldering",
+      "sectionId": "M15.S02",
+      "teachingPageId": "L12-0-03",
+      "teachingPageTitle": "Heat flow, iron tips and thermal recovery",
+      "sourceChapterRoutes": [
+        20
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-5-6"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "5.8",
+      "officialCompetencyAsRecorded": "Describe the differences between good and bad mechanical and electrical solder connections",
+      "module": "M15",
+      "moduleTitle": "PCB handling, soldering and desoldering",
+      "sectionId": "M15.S02",
+      "teachingPageId": "L12-0-03",
+      "teachingPageTitle": "Heat flow, iron tips and thermal recovery",
+      "sourceChapterRoutes": [
+        20
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-5-8"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "5.9",
+      "officialCompetencyAsRecorded": "Describe proper care of solder and de-solder equipment and aids",
+      "module": "M15",
+      "moduleTitle": "PCB handling, soldering and desoldering",
+      "sectionId": "M15.S01",
+      "teachingPageId": "L29-0-02",
+      "teachingPageTitle": "Solder alloys, melting and application",
+      "sourceChapterRoutes": [
+        20
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-5-9"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "5.11",
+      "officialCompetencyAsRecorded": "Describe various types of de-soldering equipment and how it is used",
+      "module": "M15",
+      "moduleTitle": "PCB handling, soldering and desoldering",
+      "sectionId": "M15.S03",
+      "teachingPageId": "L12-0-06",
+      "teachingPageTitle": "Flux and solder wetting",
+      "sourceChapterRoutes": [
+        20
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-5-11"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "13.5",
+      "officialCompetencyAsRecorded": "Explain the purpose of a digital electronic circuitry bus and show how it’s connected to various sections of a product",
+      "module": "M17",
+      "moduleTitle": "Digital logic and sequential circuits",
+      "sectionId": "M17.S03",
+      "teachingPageId": "L11-1-03",
+      "teachingPageTitle": "Logic families and valid voltage margins",
+      "sourceChapterRoutes": [
+        16
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-13-5"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "15.1",
+      "officialCompetencyAsRecorded": "Describe the major sections of a computer",
+      "module": "M20",
+      "moduleTitle": "Microprocessors, microcontrollers and PLC concepts",
+      "sectionId": "M20.S01",
+      "teachingPageId": "L14-0-00",
+      "teachingPageTitle": "Computers process instructions and information",
+      "sourceChapterRoutes": [
+        17
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-15-1"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "16.9",
+      "officialCompetencyAsRecorded": "Describe how to download a service or application, data or software",
+      "module": "M21",
+      "moduleTitle": "Computer software, setup and network basics",
+      "sectionId": "M21.S03",
+      "teachingPageId": "L17-0-02",
+      "teachingPageTitle": "Network symptoms identify their failing layer",
+      "sourceChapterRoutes": [
+        17,
+        18
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-16-9"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "7.1",
+      "officialCompetencyAsRecorded": "List wire types and construction",
+      "module": "M22",
+      "moduleTitle": "Cabling and terminations",
+      "sectionId": "M22.S01",
+      "teachingPageId": "L19-0-03",
+      "teachingPageTitle": "Wire construction, insulation and AWG",
+      "sourceChapterRoutes": [
+        13,
+        14
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-7-1"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "7.4",
+      "officialCompetencyAsRecorded": "List common identifications for copper cables in standards, such as #18 and #24 diameter in the American Wire Gauge (AWG) and UTP cable in ANSI/TIA 568",
+      "module": "M22",
+      "moduleTitle": "Cabling and terminations",
+      "sectionId": "M22.S01",
+      "teachingPageId": "L19-0-03",
+      "teachingPageTitle": "Wire construction, insulation and AWG",
+      "sourceChapterRoutes": [
+        13,
+        14
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-7-4"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "7.6",
+      "officialCompetencyAsRecorded": "Describe impedance and its causes:",
+      "module": "M22",
+      "moduleTitle": "Cabling and terminations",
+      "sectionId": "M22.S02",
+      "teachingPageId": "L19-0-13",
+      "teachingPageTitle": "Connector geometry and signal integrity",
+      "sourceChapterRoutes": [
+        13,
+        14
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-7-6"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "7.8",
+      "officialCompetencyAsRecorded": "Explain the purposes and types of cabling grounding (bonding) and common conventions used in electrical / electronic work",
+      "module": "M22",
+      "moduleTitle": "Cabling and terminations",
+      "sectionId": "M22.S02",
+      "teachingPageId": "L19-0-13",
+      "teachingPageTitle": "Connector geometry and signal integrity",
+      "sourceChapterRoutes": [
+        13,
+        14
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-7-8"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "7.9",
+      "officialCompetencyAsRecorded": "Describe splicing knowledge and ability of coaxial and copper cable",
+      "module": "M22",
+      "moduleTitle": "Cabling and terminations",
+      "sectionId": "M22.S03",
+      "teachingPageId": "L19-1-04",
+      "teachingPageTitle": "Find faults with end-to-end and sectional testing",
+      "sourceChapterRoutes": [
+        13,
+        14
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-7-9"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "7.9.1",
+      "officialCompetencyAsRecorded": "Explain types of fiber splices",
+      "module": "M22",
+      "moduleTitle": "Cabling and terminations",
+      "sectionId": "M22.S03",
+      "teachingPageId": "L19-1-04",
+      "teachingPageTitle": "Find faults with end-to-end and sectional testing",
+      "sourceChapterRoutes": [
+        13,
+        14
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-7-9-1"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "7.13",
+      "officialCompetencyAsRecorded": "Explain how cable prep tools are used and demonstrate proper and improper crimp applications",
+      "module": "M22",
+      "moduleTitle": "Cabling and terminations",
+      "sectionId": "M22.S03",
+      "teachingPageId": "L19-1-04",
+      "teachingPageTitle": "Find faults with end-to-end and sectional testing",
+      "sourceChapterRoutes": [
+        13,
+        14
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-7-13"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "8.5",
+      "officialCompetencyAsRecorded": "List the purposes and types of signal generators",
+      "module": "M23",
+      "moduleTitle": "Specialized instruments and measurement choice",
+      "sectionId": "M23.S01",
+      "teachingPageId": "L03-0-02",
+      "teachingPageTitle": "Time-domain versus frequency-domain instruments",
+      "sourceChapterRoutes": [
+        19
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-8-5"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "8.8",
+      "officialCompetencyAsRecorded": "Explain what R-C-L substitution equipment is and its purposes",
+      "module": "M23",
+      "moduleTitle": "Specialized instruments and measurement choice",
+      "sectionId": "M23.S02",
+      "teachingPageId": "L03-0-08",
+      "teachingPageTitle": "Why an instrument affects the circuit",
+      "sourceChapterRoutes": [
+        19
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-8-8"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "8.9",
+      "officialCompetencyAsRecorded": "Explain ESR (Equivalent Series Resistance) capacitance measurement equipment",
+      "module": "M23",
+      "moduleTitle": "Specialized instruments and measurement choice",
+      "sectionId": "M23.S02",
+      "teachingPageId": "L03-0-08",
+      "teachingPageTitle": "Why an instrument affects the circuit",
+      "sourceChapterRoutes": [
+        19
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-8-9"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "17.4",
+      "officialCompetencyAsRecorded": "Explain basic recording and playback technology",
+      "module": "M24",
+      "moduleTitle": "Audio and video systems",
+      "sectionId": "M24.S02",
+      "teachingPageId": "L19-0-07",
+      "teachingPageTitle": "Microphones, speakers and recording",
+      "sourceChapterRoutes": [
+        12,
+        15
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-17-4"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "17.5",
+      "officialCompetencyAsRecorded": "Explain how alarm-security systems may be interfaced with entertainment/information products",
+      "module": "M24",
+      "moduleTitle": "Audio and video systems",
+      "sectionId": "M24.S01",
+      "teachingPageId": "L19-0-01",
+      "teachingPageTitle": "Trace an audio/video chain from end to end",
+      "sourceChapterRoutes": [
+        12,
+        15
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-17-5"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "18.1",
+      "officialCompetencyAsRecorded": "List common electronics display devices",
+      "module": "M25",
+      "moduleTitle": "Optical electronics",
+      "sectionId": "M25.S01",
+      "teachingPageId": "L19-0-14",
+      "teachingPageTitle": "Light and electronics exchange energy",
+      "sourceChapterRoutes": [
+        9
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-18-1"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "18.2",
+      "officialCompetencyAsRecorded": "List common optical devices as to type and applications:",
+      "module": "M25",
+      "moduleTitle": "Optical electronics",
+      "sectionId": "M25.S01",
+      "teachingPageId": "L19-0-14",
+      "teachingPageTitle": "Light and electronics exchange energy",
+      "sourceChapterRoutes": [
+        9
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-18-2"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "18.3.2",
+      "officialCompetencyAsRecorded": "Identify materials from which these devices are made",
+      "module": "M25",
+      "moduleTitle": "Optical electronics",
+      "sectionId": "M25.S02",
+      "teachingPageId": "L19-0-10",
+      "teachingPageTitle": "Photocells, photodiodes and photovoltaic sources",
+      "sourceChapterRoutes": [
+        9
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-18-3-2"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "18.4",
+      "officialCompetencyAsRecorded": "Explain the basics of electronic cameras and sensors",
+      "module": "M25",
+      "moduleTitle": "Optical electronics",
+      "sectionId": "M25.S02",
+      "teachingPageId": "L19-0-10",
+      "teachingPageTitle": "Photocells, photodiodes and photovoltaic sources",
+      "sourceChapterRoutes": [
+        9
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-18-4"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "18.5.1",
+      "officialCompetencyAsRecorded": "List some locations or circuits in which opto-isolators are used",
+      "module": "M25",
+      "moduleTitle": "Optical electronics",
+      "sectionId": "M25.S03",
+      "teachingPageId": "L19-0-02",
+      "teachingPageTitle": "Fiber-optic information transfer",
+      "sourceChapterRoutes": [
+        9
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-18-5-1"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "19.2",
+      "officialCompetencyAsRecorded": "Describe the basic theory of how antennas work",
+      "module": "M26",
+      "moduleTitle": "Radio-frequency fundamentals",
+      "sectionId": "M26.S02",
+      "teachingPageId": "L20-0-04",
+      "teachingPageTitle": "Coaxial feedlines and their characteristic impedance",
+      "sourceChapterRoutes": [
+        13,
+        14
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-19-2"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "19.2.1",
+      "officialCompetencyAsRecorded": "List the types of transmission lines (feedline) used between antennas and RF equipment",
+      "module": "M26",
+      "moduleTitle": "Radio-frequency fundamentals",
+      "sectionId": "M26.S02",
+      "teachingPageId": "L20-0-04",
+      "teachingPageTitle": "Coaxial feedlines and their characteristic impedance",
+      "sourceChapterRoutes": [
+        13,
+        14
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-19-2-1"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "19.7",
+      "officialCompetencyAsRecorded": "List common frequency bands (spectrum)",
+      "module": "M26",
+      "moduleTitle": "Radio-frequency fundamentals",
+      "sectionId": "M26.S03",
+      "teachingPageId": "L20-0-01",
+      "teachingPageTitle": "Modulation: how a message rides on a carrier",
+      "sourceChapterRoutes": [
+        13,
+        14
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-19-7"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "19.11",
+      "officialCompetencyAsRecorded": "Explain the importance of impedance matching; list causes of mismatches",
+      "module": "M26",
+      "moduleTitle": "Radio-frequency fundamentals",
+      "sectionId": "M26.S02",
+      "teachingPageId": "L20-0-04",
+      "teachingPageTitle": "Coaxial feedlines and their characteristic impedance",
+      "sourceChapterRoutes": [
+        13,
+        14
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-19-11"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    },
+    {
+      "objectiveId": "21.6",
+      "officialCompetencyAsRecorded": "Describe contacting product maker help desks and service departments",
+      "module": "M28",
+      "moduleTitle": "Technician work procedures and integrated troubleshooting",
+      "sectionId": "M28.S01",
+      "teachingPageId": "L28-0-04",
+      "teachingPageTitle": "Use service manuals before improvising",
+      "sourceChapterRoutes": [
+        18,
+        21,
+        22
+      ],
+      "sourceChapterRouteIsOnlyTopicBackground": true,
+      "currentlyScoredQuestionCount": 0,
+      "existingUnscoredCandidateIDs": [
+        "ALFRED-V3-OBJ-21-6"
+      ],
+      "validationStatus": "GAP: not independently scored/validated",
+      "mustBeforeReadiness": [
+        "review first-principles instruction",
+        "verify technical content against 2025 ETA competence",
+        "write and review valid source-original scored item",
+        "audit distractors and answer explanation",
+        "test student remediation route"
+      ]
+    }
+  ]
+}
