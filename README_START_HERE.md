@@ -1,11 +1,16 @@
-# Alfred v1.7 — Six Files Only (No Folders)
+# Alfred CETa v1.8 — Modules 16–20 · Six Files Only
 
-Upload **only these six extracted files** to the existing `numberclaw2/alfred-university` GitHub repository root: `course.js`, `course.json`, `service-worker.js`, `ALFRED PROJECT GOVERNANCE.md`, `ALFRED_RELEASE_NOTES_v1.7.md` and `README_START_HERE.md`.
+This flat ZIP contains six replacement files for the **root** of `numberclaw2/alfred-university`, without folders:
 
-1. Save a copy of the current repository and export/backup learner progress before updates.
-2. In Chrome, extract the ZIP. Upload all six **files**, not the ZIP, using GitHub → Add file → Upload files, on `main`.
-3. Confirm you are updating the existing paths and do not delete any other files.
-4. Commit changes. Allow GitHub Pages deployment to complete before testing.
-5. If the site still shows older content, hard-refresh or use the site's normal service-worker update path; **do not delete site data** to force a new build (that could erase local progress).
+- `course.js`
+- `course.json`
+- `service-worker.js`
+- `ALFRED PROJECT GOVERNANCE.md`
+- `ALFRED_RELEASE_NOTES_v1.8.md`
+- `README_START_HERE.md`
 
-This release changes only modules M11–M15. The rest of the learning data remains byte-identical at the JSON object level. New questions are provisional internal study questions pending independent technical/editorial review. External figures are linked to their original publisher pages; a full visual-media audit remains outstanding. Official study-guide PDF is not distributed.
+**Install:** Extract the ZIP; do **not** upload the ZIP itself. In GitHub open `main`, choose Add file → Upload files, select the six **extracted files** and commit. Do not delete other files. The existing Grizzly design, scripts and your personal progress storage are not replaced.
+
+**Safety and learner state:** Make a backup of existing progress where possible. Do not clear website/browser data or unregister everything to force an update; use normal site refresh/update. A GitHub commit does not immediately guarantee Pages deployment or cache refresh.
+
+**What changed:** 63 instructional pages in Modules 16–20, 39 additional *provisional* practice questions, contextual primary-publisher references, and governance/release notes. Official Study Guide owned PDF remains private. New questions are internal study only pending independent technical review. Non-target modules and assessment objects remain unchanged.
