@@ -1,0 +1,133 @@
+{
+  "count": 16,
+  "repairs": [
+    {
+      "module": "M02",
+      "pageId": "L04-0-03",
+      "pageIndex": 3,
+      "title": "SI prefixes: communicating scale without losing units",
+      "addition": "Dimensional checks prevent factor-of-one-thousand errors",
+      "sourceType": "original Alfred teaching (not copied from guide)"
+    },
+    {
+      "module": "M05",
+      "pageId": "L03-0-03",
+      "pageIndex": 5,
+      "title": "Analog and digital meters: accuracy, burden and protection",
+      "addition": "Measurement loading is a real circuit change",
+      "sourceType": "original Alfred teaching (not copied from guide)"
+    },
+    {
+      "module": "M08",
+      "pageId": "L06-0-05",
+      "pageIndex": 3,
+      "title": "Resonance is cancellation, not zero impedance everywhere",
+      "addition": "Calculate resonance with units and the book errata",
+      "sourceType": "original Alfred teaching (not copied from guide)"
+    },
+    {
+      "module": "M10",
+      "pageId": "L11-0-05",
+      "pageIndex": 6,
+      "title": "Phase-locked loops: follow a reference",
+      "addition": "A PLL must be understood as a closed-loop system",
+      "sourceType": "original Alfred teaching (not copied from guide)"
+    },
+    {
+      "module": "M11",
+      "pageId": "L08-0-02",
+      "pageIndex": 5,
+      "title": "Controlled rectifiers and gate triggering",
+      "addition": "Latching distinguishes thyristors from ordinary diodes",
+      "sourceType": "original Alfred teaching (not copied from guide)"
+    },
+    {
+      "module": "M12",
+      "pageId": "L10-0-02",
+      "pageIndex": 9,
+      "title": "Integrated circuits and functional blocks",
+      "addition": "IC package fit is not electrical interchangeability",
+      "sourceType": "original Alfred teaching (not copied from guide)"
+    },
+    {
+      "module": "M15",
+      "pageId": "L12-0-02",
+      "pageIndex": 6,
+      "title": "Cold joints, bridges and lifted pads",
+      "addition": "Inspect function as well as solder appearance",
+      "sourceType": "original Alfred teaching (not copied from guide)"
+    },
+    {
+      "module": "M16",
+      "pageId": "L11-0-09",
+      "pageIndex": 6,
+      "title": "Karnaugh thinking and Boolean simplification",
+      "addition": "Verify simplification with all input combinations",
+      "sourceType": "original Alfred teaching (not copied from guide)"
+    },
+    {
+      "module": "M17",
+      "pageId": "L11-0-02",
+      "pageIndex": 7,
+      "title": "Sequential circuits remember past conditions",
+      "addition": "Sequential circuits must remember prior inputs",
+      "sourceType": "original Alfred teaching (not copied from guide)"
+    },
+    {
+      "module": "M20",
+      "pageId": "L16-0-03",
+      "pageIndex": 2,
+      "title": "Microcontroller integration and purpose",
+      "addition": "Follow one sample through a microcontroller",
+      "sourceType": "original Alfred teaching (not copied from guide)"
+    },
+    {
+      "module": "M21",
+      "pageId": "L17-0-05",
+      "pageIndex": 2,
+      "title": "Backup, restore and recovery are different operations",
+      "addition": "A backup is not proven until restoration works",
+      "sourceType": "original Alfred teaching (not copied from guide)"
+    },
+    {
+      "module": "M22",
+      "pageId": "L19-1-03",
+      "pageIndex": 7,
+      "title": "Termination preserves the transmission-line model",
+      "addition": "Distinguish DC continuity from high-speed transmission quality",
+      "sourceType": "original Alfred teaching (not copied from guide)"
+    },
+    {
+      "module": "M23",
+      "pageId": "L03-0-08",
+      "pageIndex": 6,
+      "title": "Why an instrument affects the circuit",
+      "addition": "Instrument readings require a loading and bandwidth model",
+      "sourceType": "original Alfred teaching (not copied from guide)"
+    },
+    {
+      "module": "M25",
+      "pageId": "L19-0-11",
+      "pageIndex": 4,
+      "title": "Cameras, photodetectors and opto-isolators",
+      "addition": "Isolation ratings are not optional optocoupler details",
+      "sourceType": "original Alfred teaching (not copied from guide)"
+    },
+    {
+      "module": "M26",
+      "pageId": "L20-0-10",
+      "pageIndex": 5,
+      "title": "SWR and reflected power explained",
+      "addition": "Forward and reflected power quantify mismatch",
+      "sourceType": "original Alfred teaching (not copied from guide)"
+    },
+    {
+      "module": "M28",
+      "pageId": "L28-0-02",
+      "pageIndex": 9,
+      "title": "Traceable reports tie evidence to work",
+      "addition": "Turn observations into a defendable service record",
+      "sourceType": "original Alfred teaching (not copied from guide)"
+    }
+  ]
+}

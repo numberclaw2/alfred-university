@@ -1,0 +1,1412 @@
+{
+  "status": "NEW_EDITORIAL_ITEMS_NOT_SME_APPROVED",
+  "source": "ETA 2025 CETa objectives",
+  "forms": {
+    "M29": [
+      {
+        "id": "AV35-A-001",
+        "module": "M01",
+        "objective": "1.1",
+        "lesson": "L01-0-03",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-002",
+        "module": "M01",
+        "objective": "1.4",
+        "lesson": "L01-0-05",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-003",
+        "module": "M01",
+        "objective": "1.5",
+        "lesson": "L01-0-05",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-004",
+        "module": "M01",
+        "objective": "1.7",
+        "lesson": "L01-0-05",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-005",
+        "module": "M02",
+        "objective": "2.1",
+        "lesson": "L02-0-03",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-006",
+        "module": "M02",
+        "objective": "2.6",
+        "lesson": "L01-0-08",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-007",
+        "module": "M02",
+        "objective": "9.8",
+        "lesson": "L04-0-03",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-008",
+        "module": "M02",
+        "objective": "9.9",
+        "lesson": "L04-0-03",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-009",
+        "module": "M03",
+        "objective": "2.13.1",
+        "lesson": "L01-0-01",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-010",
+        "module": "M03",
+        "objective": "2.14",
+        "lesson": "L02-0-07",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-011",
+        "module": "M03",
+        "objective": "3.1.3",
+        "lesson": "L07-0-03",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-012",
+        "module": "M03",
+        "objective": "3.1.2",
+        "lesson": "L07-0-03",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-013",
+        "module": "M04",
+        "objective": "4.17",
+        "lesson": "L02-0-01",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-014",
+        "module": "M04",
+        "objective": "4.10",
+        "lesson": "L02-0-01",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-015",
+        "module": "M04",
+        "objective": "8.16",
+        "lesson": "L02-0-02",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-016",
+        "module": "M05",
+        "objective": "6.3",
+        "lesson": "L13-0-00",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-017",
+        "module": "M05",
+        "objective": "8.3",
+        "lesson": "L03-0-00",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-018",
+        "module": "M05",
+        "objective": "8.6",
+        "lesson": "L03-0-00",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-019",
+        "module": "M05",
+        "objective": "6.9",
+        "lesson": "L13-0-04",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-020",
+        "module": "M06",
+        "objective": "2.12.1",
+        "lesson": "L04-0-00",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-021",
+        "module": "M06",
+        "objective": "2.12.2",
+        "lesson": "L04-0-00",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-022",
+        "module": "M06",
+        "objective": "8.12",
+        "lesson": "L03-0-00",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-023",
+        "module": "M07",
+        "objective": "2.8",
+        "lesson": "L04-0-01",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-024",
+        "module": "M07",
+        "objective": "2.9",
+        "lesson": "L04-0-02",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-025",
+        "module": "M07",
+        "objective": "3.2.1",
+        "lesson": "L04-0-01",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-026",
+        "module": "M08",
+        "objective": "2.10",
+        "lesson": "L06-0-00",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-027",
+        "module": "M08",
+        "objective": "4.8",
+        "lesson": "L06-0-05",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-028",
+        "module": "M08",
+        "objective": "4.13",
+        "lesson": "L06-0-05",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-029",
+        "module": "M08",
+        "objective": "4.9",
+        "lesson": "L06-0-04",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-030",
+        "module": "M09",
+        "objective": "3.4.1",
+        "lesson": "L07-0-11",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-031",
+        "module": "M09",
+        "objective": "3.4.2",
+        "lesson": "L07-0-11",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-032",
+        "module": "M09",
+        "objective": "3.9.1",
+        "lesson": "L07-0-02",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-033",
+        "module": "M09",
+        "objective": "2.5",
+        "lesson": "L07-0-11",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-034",
+        "module": "M10",
+        "objective": "4.5",
+        "lesson": "L04-0-00",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-035",
+        "module": "M10",
+        "objective": "4.6",
+        "lesson": "L04-0-00",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-036",
+        "module": "M10",
+        "objective": "4.12",
+        "lesson": "L11-0-05",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-037",
+        "module": "M11",
+        "objective": "3.7.1",
+        "lesson": "L07-0-07",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-038",
+        "module": "M11",
+        "objective": "3.7.2",
+        "lesson": "L08-0-03",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-039",
+        "module": "M11",
+        "objective": "3.7.3",
+        "lesson": "L08-0-03",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-040",
+        "module": "M11",
+        "objective": "3.6.1",
+        "lesson": "L08-0-05",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-041",
+        "module": "M12",
+        "objective": "3.5.2",
+        "lesson": "L10-0-04",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-042",
+        "module": "M12",
+        "objective": "3.5.3",
+        "lesson": "L10-0-04",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-043",
+        "module": "M12",
+        "objective": "3.5.1",
+        "lesson": "L10-0-04",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-044",
+        "module": "M12",
+        "objective": "3.8",
+        "lesson": "L10-0-02",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-045",
+        "module": "M13",
+        "objective": "10.10",
+        "lesson": "L09-0-05",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-046",
+        "module": "M13",
+        "objective": "10.4",
+        "lesson": "L09-0-05",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-047",
+        "module": "M13",
+        "objective": "10.11",
+        "lesson": "L09-0-01",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-048",
+        "module": "M13",
+        "objective": "10.9",
+        "lesson": "L09-0-05",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-049",
+        "module": "M14",
+        "objective": "9.6",
+        "lesson": "L10-0-02",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-050",
+        "module": "M14",
+        "objective": "11.6.1",
+        "lesson": "L10-0-05",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-051",
+        "module": "M14",
+        "objective": "11.4",
+        "lesson": "L10-0-02",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-052",
+        "module": "M14",
+        "objective": "11.7",
+        "lesson": "L10-0-02",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-053",
+        "module": "M15",
+        "objective": "5.4",
+        "lesson": "L12-0-03",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-054",
+        "module": "M15",
+        "objective": "5.7",
+        "lesson": "L12-0-03",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-055",
+        "module": "M15",
+        "objective": "5.11",
+        "lesson": "L12-0-06",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-056",
+        "module": "M16",
+        "objective": "9.4",
+        "lesson": "L11-0-00",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-057",
+        "module": "M16",
+        "objective": "9.5",
+        "lesson": "L11-0-01",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-058",
+        "module": "M17",
+        "objective": "13.1",
+        "lesson": "L11-0-01",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-059",
+        "module": "M17",
+        "objective": "13.2",
+        "lesson": "L11-0-01",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-060",
+        "module": "M17",
+        "objective": "13.3",
+        "lesson": "L11-0-02",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-061",
+        "module": "M17",
+        "objective": "13.4",
+        "lesson": "L11-0-02",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-062",
+        "module": "M18",
+        "objective": "8.10",
+        "lesson": "L03-1-00",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-063",
+        "module": "M18",
+        "objective": "8.11",
+        "lesson": "L03-1-00",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-064",
+        "module": "M18",
+        "objective": "13.9",
+        "lesson": "L13-1-00",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-065",
+        "module": "M19",
+        "objective": "12.1",
+        "lesson": "L18-0-04",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-066",
+        "module": "M19",
+        "objective": "12.3",
+        "lesson": "L18-0-03",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-067",
+        "module": "M19",
+        "objective": "12.4",
+        "lesson": "L18-0-04",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-068",
+        "module": "M19",
+        "objective": "12.5",
+        "lesson": "L17-0-07",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-069",
+        "module": "M20",
+        "objective": "13.12",
+        "lesson": "L16-0-03",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-070",
+        "module": "M20",
+        "objective": "15.1",
+        "lesson": "L14-0-00",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-071",
+        "module": "M20",
+        "objective": "15.5",
+        "lesson": "L16-0-03",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-072",
+        "module": "M21",
+        "objective": "16.6",
+        "lesson": "L17-0-05",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-073",
+        "module": "M21",
+        "objective": "16.7",
+        "lesson": "L17-0-05",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-074",
+        "module": "M21",
+        "objective": "16.9",
+        "lesson": "L17-0-02",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-075",
+        "module": "M21",
+        "objective": "16.10",
+        "lesson": "L17-0-02",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-076",
+        "module": "M22",
+        "objective": "7.3",
+        "lesson": "L19-0-03",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-077",
+        "module": "M22",
+        "objective": "7.6.1",
+        "lesson": "L19-0-13",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-078",
+        "module": "M22",
+        "objective": "7.9.1",
+        "lesson": "L19-1-04",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-079",
+        "module": "M22",
+        "objective": "7.10",
+        "lesson": "L19-1-04",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-080",
+        "module": "M23",
+        "objective": "8.5",
+        "lesson": "L03-0-02",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-081",
+        "module": "M23",
+        "objective": "8.9",
+        "lesson": "L03-0-08",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-082",
+        "module": "M23",
+        "objective": "8.13",
+        "lesson": "L03-0-07",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-083",
+        "module": "M24",
+        "objective": "17.2",
+        "lesson": "L19-0-07",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-084",
+        "module": "M24",
+        "objective": "17.3",
+        "lesson": "L19-0-07",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-085",
+        "module": "M24",
+        "objective": "17.4",
+        "lesson": "L19-0-07",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-086",
+        "module": "M25",
+        "objective": "18.1.1",
+        "lesson": "L19-0-14",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-087",
+        "module": "M25",
+        "objective": "18.3.1",
+        "lesson": "L19-0-10",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-088",
+        "module": "M25",
+        "objective": "18.4",
+        "lesson": "L19-0-10",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-089",
+        "module": "M25",
+        "objective": "18.5",
+        "lesson": "L19-0-02",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-090",
+        "module": "M26",
+        "objective": "9.3",
+        "lesson": "L20-0-09",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-091",
+        "module": "M26",
+        "objective": "19.6",
+        "lesson": "L20-0-01",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-092",
+        "module": "M26",
+        "objective": "19.9",
+        "lesson": "L20-0-04",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-093",
+        "module": "M27",
+        "objective": "20.1",
+        "lesson": "L20-0-02",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-094",
+        "module": "M27",
+        "objective": "20.2",
+        "lesson": "L20-0-08",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-095",
+        "module": "M27",
+        "objective": "20.3",
+        "lesson": "L20-0-08",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-096",
+        "module": "M27",
+        "objective": "20.5",
+        "lesson": "L19-0-02",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-097",
+        "module": "M28",
+        "objective": "21.1",
+        "lesson": "L22-0-00",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-098",
+        "module": "M28",
+        "objective": "21.4",
+        "lesson": "L28-0-04",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-099",
+        "module": "M28",
+        "objective": "21.6",
+        "lesson": "L28-0-04",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-A-100",
+        "module": "M28",
+        "objective": "21.7",
+        "lesson": "L22-0-00",
+        "review": "INTERNAL_ONLY"
+      }
+    ],
+    "M30": [
+      {
+        "id": "AV35-B-001",
+        "module": "M01",
+        "objective": "1.1",
+        "lesson": "L01-0-03",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-002",
+        "module": "M01",
+        "objective": "1.4",
+        "lesson": "L01-0-05",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-003",
+        "module": "M01",
+        "objective": "1.5",
+        "lesson": "L01-0-05",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-004",
+        "module": "M01",
+        "objective": "1.7",
+        "lesson": "L01-0-05",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-005",
+        "module": "M02",
+        "objective": "2.1",
+        "lesson": "L02-0-03",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-006",
+        "module": "M02",
+        "objective": "2.6",
+        "lesson": "L01-0-08",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-007",
+        "module": "M02",
+        "objective": "9.8",
+        "lesson": "L04-0-03",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-008",
+        "module": "M02",
+        "objective": "9.9",
+        "lesson": "L04-0-03",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-009",
+        "module": "M03",
+        "objective": "2.13.1",
+        "lesson": "L01-0-01",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-010",
+        "module": "M03",
+        "objective": "2.14",
+        "lesson": "L02-0-07",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-011",
+        "module": "M03",
+        "objective": "3.1.3",
+        "lesson": "L07-0-03",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-012",
+        "module": "M03",
+        "objective": "3.1.2",
+        "lesson": "L07-0-03",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-013",
+        "module": "M04",
+        "objective": "4.17",
+        "lesson": "L02-0-01",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-014",
+        "module": "M04",
+        "objective": "4.10",
+        "lesson": "L02-0-01",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-015",
+        "module": "M04",
+        "objective": "8.16",
+        "lesson": "L02-0-02",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-016",
+        "module": "M05",
+        "objective": "6.3",
+        "lesson": "L13-0-00",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-017",
+        "module": "M05",
+        "objective": "8.3",
+        "lesson": "L03-0-00",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-018",
+        "module": "M05",
+        "objective": "8.6",
+        "lesson": "L03-0-00",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-019",
+        "module": "M05",
+        "objective": "6.9",
+        "lesson": "L13-0-04",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-020",
+        "module": "M06",
+        "objective": "2.12.1",
+        "lesson": "L04-0-00",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-021",
+        "module": "M06",
+        "objective": "2.12.2",
+        "lesson": "L04-0-00",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-022",
+        "module": "M06",
+        "objective": "8.12",
+        "lesson": "L03-0-00",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-023",
+        "module": "M07",
+        "objective": "2.8",
+        "lesson": "L04-0-01",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-024",
+        "module": "M07",
+        "objective": "2.9",
+        "lesson": "L04-0-02",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-025",
+        "module": "M07",
+        "objective": "3.2.1",
+        "lesson": "L04-0-01",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-026",
+        "module": "M08",
+        "objective": "2.10",
+        "lesson": "L06-0-00",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-027",
+        "module": "M08",
+        "objective": "4.8",
+        "lesson": "L06-0-05",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-028",
+        "module": "M08",
+        "objective": "4.13",
+        "lesson": "L06-0-05",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-029",
+        "module": "M08",
+        "objective": "4.9",
+        "lesson": "L06-0-04",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-030",
+        "module": "M09",
+        "objective": "3.4.1",
+        "lesson": "L07-0-11",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-031",
+        "module": "M09",
+        "objective": "3.4.2",
+        "lesson": "L07-0-11",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-032",
+        "module": "M09",
+        "objective": "3.9.1",
+        "lesson": "L07-0-02",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-033",
+        "module": "M09",
+        "objective": "2.5",
+        "lesson": "L07-0-11",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-034",
+        "module": "M10",
+        "objective": "4.5",
+        "lesson": "L04-0-00",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-035",
+        "module": "M10",
+        "objective": "4.6",
+        "lesson": "L04-0-00",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-036",
+        "module": "M10",
+        "objective": "4.12",
+        "lesson": "L11-0-05",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-037",
+        "module": "M11",
+        "objective": "3.7.1",
+        "lesson": "L07-0-07",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-038",
+        "module": "M11",
+        "objective": "3.7.2",
+        "lesson": "L08-0-03",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-039",
+        "module": "M11",
+        "objective": "3.7.3",
+        "lesson": "L08-0-03",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-040",
+        "module": "M11",
+        "objective": "3.6.1",
+        "lesson": "L08-0-05",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-041",
+        "module": "M12",
+        "objective": "3.5.2",
+        "lesson": "L10-0-04",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-042",
+        "module": "M12",
+        "objective": "3.5.3",
+        "lesson": "L10-0-04",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-043",
+        "module": "M12",
+        "objective": "3.5.1",
+        "lesson": "L10-0-04",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-044",
+        "module": "M12",
+        "objective": "3.8",
+        "lesson": "L10-0-02",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-045",
+        "module": "M13",
+        "objective": "10.10",
+        "lesson": "L09-0-05",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-046",
+        "module": "M13",
+        "objective": "10.4",
+        "lesson": "L09-0-05",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-047",
+        "module": "M13",
+        "objective": "10.11",
+        "lesson": "L09-0-01",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-048",
+        "module": "M13",
+        "objective": "10.9",
+        "lesson": "L09-0-05",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-049",
+        "module": "M14",
+        "objective": "9.6",
+        "lesson": "L10-0-02",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-050",
+        "module": "M14",
+        "objective": "11.6.1",
+        "lesson": "L10-0-05",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-051",
+        "module": "M14",
+        "objective": "11.4",
+        "lesson": "L10-0-02",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-052",
+        "module": "M14",
+        "objective": "11.7",
+        "lesson": "L10-0-02",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-053",
+        "module": "M15",
+        "objective": "5.4",
+        "lesson": "L12-0-03",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-054",
+        "module": "M15",
+        "objective": "5.7",
+        "lesson": "L12-0-03",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-055",
+        "module": "M15",
+        "objective": "5.11",
+        "lesson": "L12-0-06",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-056",
+        "module": "M16",
+        "objective": "9.4",
+        "lesson": "L11-0-00",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-057",
+        "module": "M16",
+        "objective": "9.5",
+        "lesson": "L11-0-01",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-058",
+        "module": "M17",
+        "objective": "13.1",
+        "lesson": "L11-0-01",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-059",
+        "module": "M17",
+        "objective": "13.2",
+        "lesson": "L11-0-01",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-060",
+        "module": "M17",
+        "objective": "13.3",
+        "lesson": "L11-0-02",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-061",
+        "module": "M17",
+        "objective": "13.4",
+        "lesson": "L11-0-02",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-062",
+        "module": "M18",
+        "objective": "8.10",
+        "lesson": "L03-1-00",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-063",
+        "module": "M18",
+        "objective": "8.11",
+        "lesson": "L03-1-00",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-064",
+        "module": "M18",
+        "objective": "13.9",
+        "lesson": "L13-1-00",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-065",
+        "module": "M19",
+        "objective": "12.1",
+        "lesson": "L18-0-04",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-066",
+        "module": "M19",
+        "objective": "12.3",
+        "lesson": "L18-0-03",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-067",
+        "module": "M19",
+        "objective": "12.4",
+        "lesson": "L18-0-04",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-068",
+        "module": "M19",
+        "objective": "12.5",
+        "lesson": "L17-0-07",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-069",
+        "module": "M20",
+        "objective": "13.12",
+        "lesson": "L16-0-03",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-070",
+        "module": "M20",
+        "objective": "15.1",
+        "lesson": "L14-0-00",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-071",
+        "module": "M20",
+        "objective": "15.5",
+        "lesson": "L16-0-03",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-072",
+        "module": "M21",
+        "objective": "16.6",
+        "lesson": "L17-0-05",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-073",
+        "module": "M21",
+        "objective": "16.7",
+        "lesson": "L17-0-05",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-074",
+        "module": "M21",
+        "objective": "16.9",
+        "lesson": "L17-0-02",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-075",
+        "module": "M21",
+        "objective": "16.10",
+        "lesson": "L17-0-02",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-076",
+        "module": "M22",
+        "objective": "7.3",
+        "lesson": "L19-0-03",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-077",
+        "module": "M22",
+        "objective": "7.6.1",
+        "lesson": "L19-0-13",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-078",
+        "module": "M22",
+        "objective": "7.9.1",
+        "lesson": "L19-1-04",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-079",
+        "module": "M22",
+        "objective": "7.10",
+        "lesson": "L19-1-04",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-080",
+        "module": "M23",
+        "objective": "8.5",
+        "lesson": "L03-0-02",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-081",
+        "module": "M23",
+        "objective": "8.9",
+        "lesson": "L03-0-08",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-082",
+        "module": "M23",
+        "objective": "8.13",
+        "lesson": "L03-0-07",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-083",
+        "module": "M24",
+        "objective": "17.2",
+        "lesson": "L19-0-07",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-084",
+        "module": "M24",
+        "objective": "17.3",
+        "lesson": "L19-0-07",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-085",
+        "module": "M24",
+        "objective": "17.4",
+        "lesson": "L19-0-07",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-086",
+        "module": "M25",
+        "objective": "18.1.1",
+        "lesson": "L19-0-14",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-087",
+        "module": "M25",
+        "objective": "18.3.1",
+        "lesson": "L19-0-10",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-088",
+        "module": "M25",
+        "objective": "18.4",
+        "lesson": "L19-0-10",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-089",
+        "module": "M25",
+        "objective": "18.5",
+        "lesson": "L19-0-02",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-090",
+        "module": "M26",
+        "objective": "9.3",
+        "lesson": "L20-0-09",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-091",
+        "module": "M26",
+        "objective": "19.6",
+        "lesson": "L20-0-01",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-092",
+        "module": "M26",
+        "objective": "19.9",
+        "lesson": "L20-0-04",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-093",
+        "module": "M27",
+        "objective": "20.1",
+        "lesson": "L20-0-02",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-094",
+        "module": "M27",
+        "objective": "20.2",
+        "lesson": "L20-0-08",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-095",
+        "module": "M27",
+        "objective": "20.3",
+        "lesson": "L20-0-08",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-096",
+        "module": "M27",
+        "objective": "20.5",
+        "lesson": "L19-0-02",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-097",
+        "module": "M28",
+        "objective": "21.1",
+        "lesson": "L22-0-00",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-098",
+        "module": "M28",
+        "objective": "21.4",
+        "lesson": "L28-0-04",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-099",
+        "module": "M28",
+        "objective": "21.6",
+        "lesson": "L28-0-04",
+        "review": "INTERNAL_ONLY"
+      },
+      {
+        "id": "AV35-B-100",
+        "module": "M28",
+        "objective": "21.7",
+        "lesson": "L22-0-00",
+        "review": "INTERNAL_ONLY"
+      }
+    ]
+  },
+  "formOverlapQuestionIds": [],
+  "readinessEligible": false
+}
