@@ -1,5 +1,5 @@
 /* Alfred CETa-only PWA cache. One cache version; do not rewrite educational HTML responses. */
-const CACHE='alfred-ceta-gold-batch-v1-5-20261023';
+const CACHE='alfred-ceta-gold-batch-v1-6-20261023';
 const STATIC=['./','index.html','learn.html','study.html','practice.html','labs.html','assessments.html','progress.html','analytics.html','standards.html','resources.html','glossary.html','calendar.html','search.html','course.html','documents.html','about.html','week.html','quiz.html','engineering.html','projects.html','student-services.html','knowledge.html','deployment.html','patch-notes.html','offline.html','404.html','ceta.css','ceta.js','course.js','icon-192.png','icon-512.png','alfred-university-crest.png','crest.webp','seal.webp','manifest.webmanifest'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(STATIC)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('alfred-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));

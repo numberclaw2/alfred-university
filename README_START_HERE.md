@@ -1,24 +1,20 @@
-# Alfred University CETa v1.5 · Files-only update
+# Alfred University — v1.6 Modules 6–10 Update
 
-This ZIP is a **root-level incremental update** to the existing functional Grizzlies v1.4 site, not an entire replacement website.
+**Flat files only; no folders.** This is a targeted update to the live v1.5 Grizzlies site, **not** a site replacement or new course branch.
 
-## Upload in Chrome
+## Upload from Chrome
 
-1. Keep a ZIP backup of your current GitHub repository and export your current Alfred learning progress as desired.
-2. Extract this ZIP on your computer.
-3. On `numberclaw2/alfred-university` **main**, use **Add file → Upload files**.
-4. Upload the **eight** root-level files in this archive. Confirm the replacements for `course.js`, `course.json`, `ceta.js`, `ceta.css` and `service-worker.js` are at the root, and the governance/release notes are included.
-5. Commit. Wait for GitHub Pages deployment to finish. Use a hard reload if cached old lessons still appear.
-6. Do not remove other files, clear browser data, or upload your personally owned sixth-edition guide PDF.
+1. Back up your current repository ZIP if desired. Do not clear Alfred's browser storage or delete course files.
+2. Extract the ZIP. Select **all six files** inside (not the ZIP archive).
+3. Visit [your GitHub repository](https://github.com/numberclaw2/alfred-university), choose **Add file → Upload files** on `main`, upload the six files to the **repository root**, and commit. Do not delete the other files.
+4. GitHub Pages deploys after the commit. If a stale version appears, reload. Do not remove saved progress/site storage just to force an update.
 
-## Why these files are all necessary
+## Exact files
 
-- `course.js` and `course.json`: same expanded M02–M05 content for runtime and structured course export.
-- `ceta.js`: reusable lesson renderer, read/reveal interaction, source-purpose notes and exact module/page remediation links; repairs glossary display escaping.
-- `ceta.css`: new recall block styling while retaining Grizzlies design.
-- `service-worker.js`: updated asset-cache identity for the release.
-- `ALFRED PROJECT GOVERNANCE.md`: cumulative current rules, original archived law, newest v1.5 batch record.
-- `ALFRED_RELEASE_NOTES_v1.5.md`: transparency and history.
-- `README_START_HERE.md`: root-only instructions.
+- `course.js` and `course.json`: identical revised course data in browser and structured-export forms.
+- `service-worker.js`: new PWA cache name; unchanged fetch strategy.
+- `ALFRED PROJECT GOVERNANCE.md`: cumulative project law with v1.6 amendment and archived original history intact.
+- `ALFRED_RELEASE_NOTES_v1.6.md`: change log and candid pending items.
+- `README_START_HERE.md`: this upload/limitations guide.
 
-New questions are **not** independently validated ETA assessment items. Completing a written/virtual exercise never certifies hands-on practical qualification. Study-guide source PDF is private and deliberately omitted.
+Modules M01–M05 and M11–M30, the existing styling, app/assessment runtime, and personal progress have not been modified. New M06–M10 questions are **provisional Alfred practice only**. Private publisher study-guide PDF is deliberately not included. M06 and M10 require first-use guide assignment review.
