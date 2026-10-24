@@ -1,0 +1,82 @@
+[
+  {
+    "module": "M03",
+    "page": 9,
+    "pageTitle": "Potentiometers and loaded voltage dividers",
+    "file": "Voltage divider-loaded.svg",
+    "credit": "Zedh \u00b7 CC BY-SA 2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Voltage_divider-loaded.svg"
+  },
+  {
+    "module": "M04",
+    "page": 4,
+    "pageTitle": "Unloaded divider: calculating a predictable reference",
+    "file": "Voltage divider.svg",
+    "credit": "Aflafla1 \u00b7 public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Voltage_divider.svg"
+  },
+  {
+    "module": "M06",
+    "page": 3,
+    "pageTitle": "Volts per division and seconds per division",
+    "file": "Oscilloscope screen.jpg",
+    "credit": "Peterglen \u00b7 public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Oscilloscope_screen.jpg"
+  },
+  {
+    "module": "M07",
+    "page": 1,
+    "pageTitle": "Why capacitors do not pass steady DC through the dielectric",
+    "file": "RC switch.svg",
+    "credit": "PureCore \u00b7 CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:RC_switch.svg"
+  },
+  {
+    "module": "M10",
+    "page": 8,
+    "pageTitle": "Monostable, astable and bistable multivibrators",
+    "file": "555 Pinout.svg",
+    "credit": "Inductiveload \u00b7 public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:555_Pinout.svg"
+  },
+  {
+    "module": "M11",
+    "page": 0,
+    "pageTitle": "A semiconductor junction creates a directional barrier",
+    "file": "PN Junction.svg",
+    "credit": "Inductiveload \u00b7 public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:PN_Junction.svg"
+  },
+  {
+    "module": "M13",
+    "page": 3,
+    "pageTitle": "Reservoir capacitors and safe polarity",
+    "file": "Rectifier with reservoir.svg",
+    "credit": "Spinningspark \u00b7 CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Rectifier_with_reservoir.svg"
+  },
+  {
+    "module": "M14",
+    "page": 5,
+    "pageTitle": "Op-amp inputs, supplies and open-loop action",
+    "file": "Op-amp symbol simplified.svg",
+    "credit": "Rob Kam \u00b7 CC0 1.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Op-amp_symbol_simplified.svg"
+  },
+  {
+    "module": "M17",
+    "page": 1,
+    "pageTitle": "Truth tables as a test plan",
+    "file": "LogicGates.jpg",
+    "credit": "Wikitikitaka \u00b7 public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:LogicGates.jpg"
+  },
+  {
+    "module": "M25",
+    "page": 1,
+    "pageTitle": "Seven-segment, LCD and OLED displays",
+    "file": "7 Segment Display with Labeled Segments.svg",
+    "credit": "Uln2003 \u00b7 CC0 1.0",
+    "source": "https://commons.wikimedia.org/wiki/File:7_Segment_Display_with_Labeled_Segments.svg"
+  }
+]
