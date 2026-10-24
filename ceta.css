@@ -409,3 +409,15 @@ h1,h2,h3,h4,.serif{font-family:Georgia,'Iowan Old Style',Cambria,serif;letter-sp
 .eta-errata{background:#fff8eb;border-left:4px solid #a67728}.eta-errata h3{font-size:1.13rem;margin-bottom:8px}.eta-errata-item{margin:12px 0}.eta-errata-item p{margin-bottom:4px}
 .eta-companion{border-left:4px solid var(--gold)}.eta-companion h3{font-size:1.15rem}.eta-companion .btn{white-space:normal;margin:5px 5px 7px 0}
 @media(max-width:650px){.eta-primary-panel,.eta-errata,.eta-lesson-ribbon{padding:12px}.eta-primary-panel h3{font-size:1rem}}
+
+/* v3.3 verified publisher table-of-contents chapter navigation */
+.eta-toc-panel,.eta-book-checkpoint{border:1px solid var(--line);background:var(--white);padding:1.1rem 1.25rem;border-radius:var(--radius);margin:1rem 0}
+.eta-toc-panel h3,.eta-book-checkpoint h3{margin:.4rem 0}
+.eta-book-checkpoint{border-left:4px solid var(--gold);background:var(--gold-light)}
+.eta-toc-items{display:grid;gap:.55rem}
+.eta-toc-item{display:flex;justify-content:space-between;align-items:center;gap:1rem;border-top:1px solid var(--line);padding:.55rem 0}
+.eta-toc-item p{margin:0}
+.eta-toc-library{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,310px),1fr));gap:.5rem;margin:1rem 0}
+.eta-toc-library-row{display:flex;flex-direction:column;gap:.3rem;padding:.85rem 1rem;background:var(--white);border:1px solid var(--line);border-radius:11px;text-decoration:none}
+.eta-toc-library-row span{font-size:.85rem}
+@media(max-width:640px){.eta-toc-item{align-items:flex-start;flex-direction:column}.eta-toc-item .btn{width:100%;text-align:center}}
