@@ -1,20 +1,15 @@
-# ALFRED CETa-ONLY — ROOT-ONLY GITHUB UPLOAD (NO FOLDERS)
+# Alfred University — CETa Module 1 Gold Standard v1.4
 
-This is the no-folder variant of the CETa-only v1.0.1 package. It is designed to be **uploaded into the existing `ceta-only-remodel` branch**, which already has 34 base files. You do not need to delete or reupload other files outside this ZIP. Files with the same names update those currently on your branch.
+**Files-only GitHub upload — no folders.** This package is not a whole website replacement. **Do not delete anything.**
 
-## Steps in Chrome
+1. Extract the zip.
+2. On github.com/numberclaw2/alfred-university, upload the eight root-level replacement/new files using **Add file → Upload files**.
+3. Commit to the appropriate branch, and publish in the way you normally use. The assistant has not changed GitHub.
+4. Preserve user progress and any original legacy export. If the page appears old, refresh; **do not clear browser site data**.
 
-1. **Extract** `Alfred_CETa_Flat_Files_Only_GitHub_Upload.zip` to a folder on your laptop.
-2. Open the GitHub `ceta-only-remodel` branch (do NOT choose `main`).
-3. Select **Add file > Upload files**. In Windows File Explorer, open the extracted folder.
-4. Select all the files inside (Ctrl+A), then drag the selected **files** into the browser. Do not upload the ZIP itself. All files in this bundle have visible names; there are no hidden dotfiles or folders.
-5. Commit directly to `ceta-only-remodel`.
-6. Verify GitHub now lists `course.js`, `course.json`, `AUDIT_START_HERE.md`, `AUDIT_EVIDENCE.zip`, and the updated HTML/JS pages **at the repository root**. Confirm the app works on a preview before merging into `main`.
+Replaced: `ceta.js`, `ceta.css`, `course.js`, `course.json`, `service-worker.js`, `README_START_HERE.md`.
+Added: `ALFRED PROJECT GOVERNANCE.md`, `ALFRED_RELEASE_NOTES_v1.4.md`.
 
-## Why there are updated existing files
+The 12 M01 page IDs and M02–M30 source content are preserved, but Module 1 teaching, retrieval prompts, and new internal question set have changed. The old reading history remains; it must not be interpreted as proof of mastery of the new teaching.
 
-The original package required `data/course.js` and `audit/AUDIT_START_HERE.md`. A no-folder deployment cannot load those paths, so the 16 relevant HTML pages, `ceta.js` and `service-worker.js` have been updated to use root-level paths. This is required, not duplicate clutter.
-
-The `AUDIT_EVIDENCE.zip` contains the original QA and source-mapping reports for download, not for website runtime. This layout has **not** passed the original full browser/production validation suite. The locally run file/structure checks only verify that the flat references resolve. Before going live, test all 30 modules, practice scoring, PWA offline behavior, and personal progress backups.
-
-GitHub branch rules and Pages config determine publishing; uploading to a branch doesn't automatically switch the live site.
+Editorial proof is incomplete: other guide mappings and book safety-content expert verification, human-reviewed question accuracy/quality, live-host testing, remote media availability, independent CETa coverage, and Cloud Sync remain outstanding.
