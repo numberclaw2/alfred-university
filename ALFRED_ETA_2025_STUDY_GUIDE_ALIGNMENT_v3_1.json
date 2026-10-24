@@ -1,0 +1,2982 @@
+{
+  "description": "Alfred CETa v3.1 editorial crosswalk; not ETA approved and not evidence of examination validity",
+  "officialAuthorities": {
+    "competencies": {
+      "issuer": "ETA International",
+      "revision": "©2025",
+      "url": "https://www.etai.org/comps/CETa_comps.pdf",
+      "governs": "Learning scope, required competence and exam preparation"
+    },
+    "studyGuide": {
+      "issuer": "ETA International",
+      "edition": "Associate CET Study Guide, Sixth Edition; Fifth Printing 2024 cited in 2025 requirements",
+      "copyrighted": true,
+      "localOnly": true,
+      "governs": "Publisher explanation, chapter quizzes and study examples; book-page crosswalk remains unverified"
+    },
+    "errata": {
+      "issuer": "ETA International",
+      "url": "https://www.etai.org/6thEdASTErrataSheet.pdf",
+      "verified": "Public publisher errata source inspected 2026-10-24",
+      "governs": "Corrections to specific Sixth Edition passages, equations, labels and answer keys"
+    },
+    "formulaSheet": {
+      "issuer": "ETA International",
+      "url": "https://www.etai.org/Common_Formulas.pdf",
+      "governs": "Official formula aid; confirm the current sheet with ETA"
+    },
+    "examInfo": {
+      "issuer": "ETA International",
+      "url": "https://www.etai.org/electronics.html",
+      "questions": 100,
+      "minutes": 120,
+      "passingPercent": 75,
+      "internalAlfredTwoMockGoalPercent": 85
+    }
+  },
+  "learnerProgressUnchanged": true,
+  "course": [
+    {
+      "moduleId": "M01",
+      "moduleTitle": "Electronics safety and electrical matter",
+      "instructional": true,
+      "objectiveCount": 17,
+      "objectives": [
+        {
+          "id": "1.1",
+          "title": "Describe the physiological reactions electrical shock causes",
+          "sectionId": "M01.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "1.2",
+          "title": "Explain the First Aid concepts and its particular importance to workers in electric and electronics fields explaining precautions for the untrained",
+          "sectionId": "M01.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "1.3",
+          "title": "Explain the National Fire Protection Association (NFPA®) 70 rules described as the National Electrical Code® - NEC®, explaining how technicians comply with safety and installations",
+          "sectionId": "M01.S02",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "1.4",
+          "title": "Describe fusing and circuit breaker rules and reasons for different type of fuses",
+          "sectionId": "M01.S02",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "1.5",
+          "title": "Explain static causes, electrostatic discharge and CMOS damage prevention straps, mats and grounding",
+          "sectionId": "M01.S02",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "1.6",
+          "title": "List tools hazards which are associated with technician activities in the workplace and in the field",
+          "sectionId": "M01.S02",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "1.7",
+          "title": "Describe lockout/tag out rules for potentially unsafe electrical or mechanical hazards",
+          "sectionId": "M01.S02",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "1.8",
+          "title": "Explain RF transmitter and transmission hazards and precautions including MPE (maximum permissible exposure)",
+          "sectionId": "M01.S03",
+          "teachingPage": 10,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "1.9",
+          "title": "List optical fibers hazards to skin and eyes",
+          "sectionId": "M01.S03",
+          "teachingPage": 10,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "1.10",
+          "title": "Explain personal protection needed by technicians:",
+          "sectionId": "M01.S02",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "1.10.1",
+          "title": "Describe PPE (personal protection equipment) needs, i.e. NFPA Table 130.5(c)",
+          "sectionId": "M01.S02",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "1.10.2",
+          "title": "Describe MPE in RF Safety (OSHA and ANSI)",
+          "sectionId": "M01.S03",
+          "teachingPage": 10,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "1.10.3",
+          "title": "Describe other OSHA safety rules",
+          "sectionId": "M01.S02",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "1.11",
+          "title": "List ladder handling and usage (ANSI A14) and OSHA working at heights safety rules",
+          "sectionId": "M01.S04",
+          "teachingPage": 4,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "1.12",
+          "title": "List service vehicle safety concerns such as ladder or transporting security and flying objects, driver screens inside the vehicle",
+          "sectionId": "M01.S04",
+          "teachingPage": 4,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "1.13",
+          "title": "Differentiate the classes of fires (A, B, C, D & K) and the types of extinguishers used to fight them",
+          "sectionId": "M01.S04",
+          "teachingPage": 4,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "1.14",
+          "title": "Explain emergency responses/treatments for the above safety issues",
+          "sectionId": "M01.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        }
+      ],
+      "bookReadingPlan": {
+        "inheritedRequiredProvisional": [
+          {
+            "chapter": "2",
+            "pages": "7–15",
+            "afterPageIndex": 3,
+            "passageVerified": false
+          }
+        ],
+        "archivedCompanion": {
+          "status": "PROVISIONAL_EXISTING_ASSIGNMENT",
+          "required": true,
+          "passageVerified": false,
+          "sourceAuthority": "Owned Sixth Edition needed for verification"
+        }
+      },
+      "publisherErrata": []
+    },
+    {
+      "moduleId": "M02",
+      "moduleTitle": "Electrical quantities and mathematical language",
+      "instructional": true,
+      "objectiveCount": 9,
+      "objectives": [
+        {
+          "id": "2.1",
+          "title": "Describe atomic structure, the components of the atom, their charges and importance to electronics technology",
+          "sectionId": "M02.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "2.4",
+          "title": "Explain basic uses for electricity",
+          "sectionId": "M02.S02",
+          "teachingPage": 1,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "2.6",
+          "title": "Explain the differences between current, voltage and resistance",
+          "sectionId": "M02.S02",
+          "teachingPage": 1,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "2.12",
+          "title": "List voltage sources, AC and DC, batteries and natural generation",
+          "sectionId": "M02.S02",
+          "teachingPage": 1,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "3.2.2",
+          "title": "Explain the terms charge and coulomb",
+          "sectionId": "M02.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "9.7",
+          "title": "Explain how graphs are used to demonstrate electronics functions",
+          "sectionId": "M02.S03",
+          "teachingPage": 3,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "9.8",
+          "title": "Explain the International System of Units (SI) prefixes (metric) and conversions",
+          "sectionId": "M02.S03",
+          "teachingPage": 3,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "9.8.1",
+          "title": "Describe the NIST.gov Special Publication 811, 9.3: unit name with SI prefix exceptions, (i.e. kilohm and megohm)",
+          "sectionId": "M02.S03",
+          "teachingPage": 3,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "9.9",
+          "title": "Define exponents (powers of 10) and their calculations",
+          "sectionId": "M02.S03",
+          "teachingPage": 3,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        }
+      ],
+      "bookReadingPlan": {
+        "inheritedRequiredProvisional": [
+          {
+            "chapter": "3",
+            "pages": "16–18",
+            "afterPageIndex": 3,
+            "passageVerified": false
+          }
+        ],
+        "archivedCompanion": {
+          "status": "PROVISIONAL_EXISTING_ASSIGNMENT",
+          "required": true,
+          "passageVerified": false,
+          "sourceAuthority": "Owned Sixth Edition needed for verification"
+        }
+      },
+      "publisherErrata": []
+    },
+    {
+      "moduleId": "M03",
+      "moduleTitle": "Resistors, Ohm's law, power and component identification",
+      "instructional": true,
+      "objectiveCount": 10,
+      "objectives": [
+        {
+          "id": "2.7",
+          "title": "Differentiate between the types of resistive materials and how resistors are used in electronics",
+          "sectionId": "M03.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "2.13",
+          "title": "List Ohm’s law formulas for current, voltage, resistance and power",
+          "sectionId": "M03.S02",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "2.13.1",
+          "title": "Explain how to calculate problems utilizing each formula",
+          "sectionId": "M03.S02",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "2.14",
+          "title": "Explain how to calculate power consumption and requirements",
+          "sectionId": "M03.S03",
+          "teachingPage": 4,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "3.1",
+          "title": "Identify resistors as to type and applications",
+          "sectionId": "M03.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "3.1.1",
+          "title": "Describe the following type of resistors: carbon film, fixed value, metal film, potentiometer, rheostats, thermistors, and wire wound",
+          "sectionId": "M03.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "3.1.2",
+          "title": "Identify resistor values from color code or other marks and list composition",
+          "sectionId": "M03.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "3.1.3",
+          "title": "Explain how thermally sensitive components are used",
+          "sectionId": "M03.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "9.1",
+          "title": "Quote Ohm’s law formulas for power, voltage, current and resistance and solve for circuit values",
+          "sectionId": "M03.S02",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "9.2",
+          "title": "List other common basic electronic formulas",
+          "sectionId": "M03.S02",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        }
+      ],
+      "bookReadingPlan": {
+        "inheritedRequiredProvisional": [
+          {
+            "chapter": "4",
+            "pages": "27",
+            "afterPageIndex": 6,
+            "passageVerified": false
+          }
+        ],
+        "archivedCompanion": {
+          "status": "PROVISIONAL_EXISTING_ASSIGNMENT",
+          "required": true,
+          "passageVerified": false,
+          "sourceAuthority": "Owned Sixth Edition needed for verification"
+        }
+      },
+      "publisherErrata": [
+        {
+          "id": "eta-err-202-resistance",
+          "printedPage": 202,
+          "chapter": "Practice exam 2",
+          "moduleId": "M03",
+          "pageIndex": 6,
+          "sheetPage": 2,
+          "label": "Practice-exam question 24",
+          "note": "Calculate resistance using R = V²/P; 12 V squared divided by 50 W gives 2.88 Ω, approximately 2.9 Ω."
+        }
+      ]
+    },
+    {
+      "moduleId": "M04",
+      "moduleTitle": "DC networks and circuit reasoning",
+      "instructional": true,
+      "objectiveCount": 5,
+      "objectives": [
+        {
+          "id": "3.1.4",
+          "title": "Calculate voltage division on a potentiometer",
+          "sectionId": "M04.S03",
+          "teachingPage": 4,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "4.1",
+          "title": "Identify and describe the operation of common DC circuits",
+          "sectionId": "M04.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "4.10",
+          "title": "Explain Kirchhoff’s law and its importance to electronics technicians",
+          "sectionId": "M04.S02",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "4.17",
+          "title": "Explain series and parallel calculations for resistive networks; voltage drop, etc",
+          "sectionId": "M04.S02",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "8.16",
+          "title": "Explain how a potentiometer functions and its use as a variable voltage divider",
+          "sectionId": "M04.S03",
+          "teachingPage": 4,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        }
+      ],
+      "bookReadingPlan": {
+        "inheritedRequiredProvisional": [
+          {
+            "chapter": "4",
+            "pages": "27–31",
+            "afterPageIndex": 5,
+            "passageVerified": false
+          }
+        ],
+        "archivedCompanion": {
+          "status": "PROVISIONAL_EXISTING_ASSIGNMENT",
+          "required": true,
+          "passageVerified": false,
+          "sourceAuthority": "Owned Sixth Edition needed for verification"
+        }
+      },
+      "publisherErrata": []
+    },
+    {
+      "moduleId": "M05",
+      "moduleTitle": "Schematics and meter fundamentals",
+      "instructional": true,
+      "objectiveCount": 15,
+      "objectives": [
+        {
+          "id": "6.1",
+          "title": "Describe common electrical/electronic symbols",
+          "sectionId": "M05.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "6.2",
+          "title": "Explain block diagrams use for troubleshooting and maintenance of electronics products",
+          "sectionId": "M05.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "6.3",
+          "title": "Explain the differences between wiring diagrams, schematics and block diagrams",
+          "sectionId": "M05.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "6.4",
+          "title": "Describe the purpose and use of test points and indicate their likely placement on schematics",
+          "sectionId": "M05.S02",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "6.5",
+          "title": "Point out common drafting principles used for electronic and electrical drawings",
+          "sectionId": "M05.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "6.6",
+          "title": "Explain methods used for signal tracing",
+          "sectionId": "M05.S02",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "6.7",
+          "title": "Describe basic building and house wiring concepts and explain why technicians need to be familiar with them",
+          "sectionId": "M05.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "6.8",
+          "title": "Explain use of schematics to locate component and wiring failures in electronics products",
+          "sectionId": "M05.S02",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "6.9",
+          "title": "Explain the methods of using flow diagrams/charts",
+          "sectionId": "M05.S02",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "6.10",
+          "title": "Describe basic wiring concepts for I.C. types and pinouts",
+          "sectionId": "M05.S02",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "8.1",
+          "title": "Describe how digital and analog meters operate",
+          "sectionId": "M05.S03",
+          "teachingPage": 4,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "8.2",
+          "title": "Explain meter construction and components",
+          "sectionId": "M05.S03",
+          "teachingPage": 4,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "8.3",
+          "title": "Identify meter protection, safety and usage",
+          "sectionId": "M05.S03",
+          "teachingPage": 4,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "8.4",
+          "title": "Explain care of equipment and test leads",
+          "sectionId": "M05.S03",
+          "teachingPage": 4,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "8.6",
+          "title": "Describe meter loading and precautions",
+          "sectionId": "M05.S03",
+          "teachingPage": 4,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        }
+      ],
+      "bookReadingPlan": {
+        "inheritedRequiredProvisional": [
+          {
+            "chapter": "18",
+            "pages": "161–162",
+            "afterPageIndex": 3,
+            "passageVerified": false
+          }
+        ],
+        "archivedCompanion": {
+          "status": "PROVISIONAL_EXISTING_ASSIGNMENT",
+          "required": true,
+          "passageVerified": false,
+          "sourceAuthority": "Owned Sixth Edition needed for verification"
+        }
+      },
+      "publisherErrata": []
+    },
+    {
+      "moduleId": "M06",
+      "moduleTitle": "AC waveforms and oscilloscope foundations",
+      "instructional": true,
+      "objectiveCount": 4,
+      "objectives": [
+        {
+          "id": "2.12.1",
+          "title": "Identify Peak, Peak-to-Peak, and RMS AC sources",
+          "sectionId": "M06.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "2.12.2",
+          "title": "Identify Duty Cycle and Pulse Width DC sources",
+          "sectionId": "M06.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "8.12",
+          "title": "Describe oscilloscope uses:",
+          "sectionId": "M06.S02",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "8.12.1",
+          "title": "Explain the purposes of each front panel control",
+          "sectionId": "M06.S02",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        }
+      ],
+      "bookReadingPlan": {
+        "inheritedRequiredProvisional": [],
+        "archivedCompanion": {
+          "chapter": "3",
+          "pages": "19–22",
+          "pageIndex": 1,
+          "archiveId": "sg-w04-ch03-p019-022",
+          "topic": "AC waveform quantities and reactive behavior",
+          "task": "Locate the peak/RMS discussion in your own copy; compare its definitions with a labeled AC waveform and correct your notebook if the edition differs.",
+          "status": "PROVISIONAL_ARCHIVE_CROSS_REFERENCE",
+          "required": false,
+          "passageVerified": false,
+          "sourceAuthority": "Owned Sixth Edition needed for verification"
+        }
+      },
+      "publisherErrata": []
+    },
+    {
+      "moduleId": "M07",
+      "moduleTitle": "Capacitors and inductors",
+      "instructional": true,
+      "objectiveCount": 6,
+      "objectives": [
+        {
+          "id": "2.8",
+          "title": "Describe the different purposes for capacitors and list common types and construction",
+          "sectionId": "M07.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "2.9",
+          "title": "Explain how inductance relates to magnetism and describe coil construction, cores and usages",
+          "sectionId": "M07.S02",
+          "teachingPage": 3,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "3.2",
+          "title": "Identify capacitor types and list common usages",
+          "sectionId": "M07.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "3.2.1",
+          "title": "Identify methods of varying capacitance",
+          "sectionId": "M07.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "3.3",
+          "title": "Identify inductor types and reasons for various core materials",
+          "sectionId": "M07.S02",
+          "teachingPage": 3,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "3.3.1",
+          "title": "Explain how diameter and wire size affects these values",
+          "sectionId": "M07.S02",
+          "teachingPage": 3,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        }
+      ],
+      "bookReadingPlan": {
+        "inheritedRequiredProvisional": [
+          {
+            "chapter": "3",
+            "pages": "19–22",
+            "afterPageIndex": 2,
+            "passageVerified": false
+          }
+        ],
+        "archivedCompanion": {
+          "status": "PROVISIONAL_EXISTING_ASSIGNMENT",
+          "required": true,
+          "passageVerified": false,
+          "sourceAuthority": "Owned Sixth Edition needed for verification"
+        }
+      },
+      "publisherErrata": [
+        {
+          "id": "eta-err-224-inductor",
+          "printedPage": 224,
+          "chapter": "Common formula sheet",
+          "moduleId": "M07",
+          "pageIndex": 3,
+          "sheetPage": 2,
+          "label": "Series/parallel inductors",
+          "note": "The guide swapped the headings. For uncoupled inductors in series, add inductances; for uncoupled parallel inductors, add reciprocals."
+        }
+      ]
+    },
+    {
+      "moduleId": "M08",
+      "moduleTitle": "AC networks, filters, resonance and impedance",
+      "instructional": true,
+      "objectiveCount": 10,
+      "objectives": [
+        {
+          "id": "2.10",
+          "title": "Compare reactance and resistance and describe current/voltage relationships",
+          "sectionId": "M08.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "2.11",
+          "title": "Compare impedance with reactance and resistance and then explain the causes and effects of impedance, combined reactance",
+          "sectionId": "M08.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "4.2",
+          "title": "Identify and describe the operation of common AC circuits",
+          "sectionId": "M08.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "4.3",
+          "title": "Explain how series circuits, R, L, C are used in electronics equipment",
+          "sectionId": "M08.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "4.4",
+          "title": "Explain how parallel circuits, R, L, C are used in electronics equipment, loads",
+          "sectionId": "M08.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "4.7",
+          "title": "Classify circuits as inductive, capacitive and resistive",
+          "sectionId": "M08.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "4.8",
+          "title": "Explain resonance and show how to calculate resonant frequency",
+          "sectionId": "M08.S02",
+          "teachingPage": 3,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "4.9",
+          "title": "Describe polar and rectangular presentations of L, R, C circuits",
+          "sectionId": "M08.S03",
+          "teachingPage": 4,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "4.13",
+          "title": "Describe filter circuits, why and how they are used",
+          "sectionId": "M08.S02",
+          "teachingPage": 3,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "4.15",
+          "title": "Describe the relationships between bandwidth and “Q” in an electronics circuit",
+          "sectionId": "M08.S02",
+          "teachingPage": 3,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        }
+      ],
+      "bookReadingPlan": {
+        "inheritedRequiredProvisional": [
+          {
+            "chapter": "6",
+            "pages": "45–49",
+            "afterPageIndex": 7,
+            "passageVerified": false
+          }
+        ],
+        "archivedCompanion": {
+          "status": "PROVISIONAL_EXISTING_ASSIGNMENT",
+          "required": true,
+          "passageVerified": false,
+          "sourceAuthority": "Owned Sixth Edition needed for verification"
+        }
+      },
+      "publisherErrata": [
+        {
+          "id": "eta-err-23-resonance",
+          "printedPage": 23,
+          "chapter": "3",
+          "moduleId": "M08",
+          "pageIndex": 3,
+          "sheetPage": 1,
+          "label": "Resonance example",
+          "note": "Use the corrected factor 0.159, not 0.0159; the publisher also removes an extra square-root step. Rework the numerical example from units."
+        },
+        {
+          "id": "eta-err-47-ac",
+          "printedPage": 47,
+          "chapter": "6",
+          "moduleId": "M08",
+          "pageIndex": 2,
+          "sheetPage": 1,
+          "label": "AC calculation",
+          "note": "The indicated impedance value should be 132.6 kΩ rather than 13.2 kΩ. Check intermediate units and factor-of-ten errors."
+        },
+        {
+          "id": "eta-err-48-ac",
+          "printedPage": 48,
+          "chapter": "6",
+          "moduleId": "M08",
+          "pageIndex": 2,
+          "sheetPage": 1,
+          "label": "AC labeling",
+          "note": "Impedance and reactance use the ohm symbol Ω, not the letter W. Check the publisher’s corrected AC example."
+        }
+      ]
+    },
+    {
+      "moduleId": "M09",
+      "moduleTitle": "Magnetism, transformers, motors, generators and relays",
+      "instructional": true,
+      "objectiveCount": 13,
+      "objectives": [
+        {
+          "id": "2.2",
+          "title": "Describe the principles of electromagnetism",
+          "sectionId": "M09.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "2.2.1",
+          "title": "Explain the different types of magnetic fields",
+          "sectionId": "M09.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "2.2.2",
+          "title": "Explain the direct relationship between electricity and magnetism",
+          "sectionId": "M09.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "2.3",
+          "title": "Explain uses for magnetism in electronics technology",
+          "sectionId": "M09.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "2.5",
+          "title": "Describe the basic methods of using electricity to operate a motor and how mechanical motion causes a generator to produce electrical current",
+          "sectionId": "M09.S02",
+          "teachingPage": 1,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "2.5.1",
+          "title": "Review EM5 competencies for more detail",
+          "sectionId": "M09.S02",
+          "teachingPage": 1,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "3.4",
+          "title": "Identify common types of transformers and list uses for each",
+          "sectionId": "M09.S02",
+          "teachingPage": 1,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "3.4.1",
+          "title": "Explain step up/down voltage methods",
+          "sectionId": "M09.S02",
+          "teachingPage": 1,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "3.4.2",
+          "title": "Explain why laminations are used",
+          "sectionId": "M09.S02",
+          "teachingPage": 1,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "3.9",
+          "title": "Describe various relay types",
+          "sectionId": "M09.S03",
+          "teachingPage": 4,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "3.9.1",
+          "title": "Identify normally-open and normally-closed contacts and their operation",
+          "sectionId": "M09.S03",
+          "teachingPage": 4,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "3.9.2",
+          "title": "Identify the coil of a relay",
+          "sectionId": "M09.S03",
+          "teachingPage": 4,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "3.9.3",
+          "title": "Compare the operation of a solid-state relay to a mechanical relay",
+          "sectionId": "M09.S03",
+          "teachingPage": 4,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        }
+      ],
+      "bookReadingPlan": {
+        "inheritedRequiredProvisional": [
+          {
+            "chapter": "7",
+            "pages": "53–57",
+            "afterPageIndex": 3,
+            "passageVerified": false
+          }
+        ],
+        "archivedCompanion": {
+          "status": "PROVISIONAL_EXISTING_ASSIGNMENT",
+          "required": true,
+          "passageVerified": false,
+          "sourceAuthority": "Owned Sixth Edition needed for verification"
+        }
+      },
+      "publisherErrata": []
+    },
+    {
+      "moduleId": "M10",
+      "moduleTitle": "Timing, wave-shaping and specialized circuits",
+      "instructional": true,
+      "objectiveCount": 6,
+      "objectives": [
+        {
+          "id": "4.5",
+          "title": "Explain the purpose of oscillators: crystal use",
+          "sectionId": "M10.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "4.6",
+          "title": "Differentiate between oscillators and multivibrators",
+          "sectionId": "M10.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "4.11",
+          "title": "Explain the purposes and types of differentiator or integrator circuits",
+          "sectionId": "M10.S02",
+          "teachingPage": 1,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "4.12",
+          "title": "Describe the sections of a PLL (phase locked loop) circuit and PLL circuit use",
+          "sectionId": "M10.S03",
+          "teachingPage": 6,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "4.14",
+          "title": "Explain wave-shaping circuits and explain their purposes",
+          "sectionId": "M10.S02",
+          "teachingPage": 1,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "4.16",
+          "title": "Explain the piezoelectric effect",
+          "sectionId": "M10.S03",
+          "teachingPage": 6,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        }
+      ],
+      "bookReadingPlan": {
+        "inheritedRequiredProvisional": [],
+        "archivedCompanion": {
+          "chapter": null,
+          "pages": null,
+          "pageIndex": 0,
+          "archiveId": null,
+          "topic": "Oscillators, multivibrators, PLLs, and waveform shaping",
+          "task": "Use the Sixth Edition index to search oscillator, timing, crystal, and phase-locked loop. Record the real chapter and printed page before relying on any cross-reference.",
+          "status": "PROVISIONAL_ARCHIVE_CROSS_REFERENCE",
+          "required": false,
+          "passageVerified": false,
+          "sourceAuthority": "Owned Sixth Edition needed for verification"
+        }
+      },
+      "publisherErrata": []
+    },
+    {
+      "moduleId": "M11",
+      "moduleTitle": "Diodes and controlled semiconductors",
+      "instructional": true,
+      "objectiveCount": 7,
+      "objectives": [
+        {
+          "id": "3.6",
+          "title": "Identify multi-junction semiconductors as to type and applications:",
+          "sectionId": "M11.S03",
+          "teachingPage": 3,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "3.6.1",
+          "title": "Identify Diacs, Triacs and SCRs (silicon-controlled rectifiers) and explain their operation",
+          "sectionId": "M11.S03",
+          "teachingPage": 3,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "3.6.2",
+          "title": "Compare SCRs with other semiconductors",
+          "sectionId": "M11.S03",
+          "teachingPage": 3,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "3.7",
+          "title": "Identify various diode types: Silicon, Schottky, Germanium, LED, photo, Zener",
+          "sectionId": "M11.S01",
+          "teachingPage": 1,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "3.7.1",
+          "title": "Describe Silicon, Schottky, Germanium, LED, Photo, and Zener operations and applications",
+          "sectionId": "M11.S01",
+          "teachingPage": 1,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "3.7.2",
+          "title": "Analyze voltage bias, current, and power consumption in a circuit for Silicon and Germanium diodes",
+          "sectionId": "M11.S02",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "3.7.3",
+          "title": "Explain Zener diode ratings; describe usage in regulator circuits",
+          "sectionId": "M11.S02",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        }
+      ],
+      "bookReadingPlan": {
+        "inheritedRequiredProvisional": [
+          {
+            "chapter": "9",
+            "pages": "72–73;75–76",
+            "afterPageIndex": 3,
+            "passageVerified": false
+          }
+        ],
+        "archivedCompanion": {
+          "status": "PROVISIONAL_EXISTING_ASSIGNMENT",
+          "required": true,
+          "passageVerified": false,
+          "sourceAuthority": "Owned Sixth Edition needed for verification"
+        }
+      },
+      "publisherErrata": [
+        {
+          "id": "eta-err-68-thermocouple",
+          "printedPage": 68,
+          "chapter": "8",
+          "moduleId": "M11",
+          "pageIndex": 7,
+          "sheetPage": 2,
+          "label": "Component terminology",
+          "note": "The publisher corrects a spelling error in the thermocouple passage; do not confuse a thermocouple with a semiconductor junction."
+        }
+      ]
+    },
+    {
+      "moduleId": "M12",
+      "moduleTitle": "Transistors and integrated electronics",
+      "instructional": true,
+      "objectiveCount": 5,
+      "objectives": [
+        {
+          "id": "3.5",
+          "title": "Identify transistors as to type, usage, biasing and applications:",
+          "sectionId": "M12.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "3.5.1",
+          "title": "Describe MOS, CMOS, FET, IGBT and Darlington Pair operation and applications",
+          "sectionId": "M12.S02",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "3.5.2",
+          "title": "Analyze biasing voltages for NPN & PNP bipolar transistors, BJTs, JFETs, and MOSFETs",
+          "sectionId": "M12.S02",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "3.5.3",
+          "title": "Explain beta and alpha, enhance/depletion mode",
+          "sectionId": "M12.S02",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "3.8",
+          "title": "Describe types of integrated circuits (I.C.), such as microprocessors, identifying the basic components and pin-outs",
+          "sectionId": "M12.S03",
+          "teachingPage": null,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        }
+      ],
+      "bookReadingPlan": {
+        "inheritedRequiredProvisional": [],
+        "archivedCompanion": {
+          "chapter": "9",
+          "pages": "72–76",
+          "pageIndex": 6,
+          "archiveId": "sg-w08-ch09-p072-076",
+          "topic": "Transistors and semiconductor amplifier configurations",
+          "task": "Compare transistor bias and the common-collector/common-base diagrams with Alfred. Revisit Chapter 9 even if you saw related pages in M11; avoid counting rereading as a second required assignment.",
+          "status": "PROVISIONAL_ARCHIVE_CROSS_REFERENCE",
+          "required": false,
+          "passageVerified": false,
+          "sourceAuthority": "Owned Sixth Edition needed for verification"
+        }
+      },
+      "publisherErrata": [
+        {
+          "id": "eta-err-74-amplifiers",
+          "printedPage": 74,
+          "chapter": "9",
+          "moduleId": "M12",
+          "pageIndex": 8,
+          "sheetPage": 1,
+          "label": "Transistor amplifier configurations",
+          "note": "The common-base maximum voltage-gain annotation is repositioned, and the common-collector description refers to low output impedance."
+        },
+        {
+          "id": "eta-err-78-quiz",
+          "printedPage": 78,
+          "chapter": "9",
+          "moduleId": "M12",
+          "pageIndex": 13,
+          "sheetPage": 1,
+          "label": "Chapter 9 quiz",
+          "note": "Publisher key correction: item 9 should be C. Verify the underlying transistor reasoning before accepting the letter."
+        }
+      ]
+    },
+    {
+      "moduleId": "M13",
+      "moduleTitle": "Power supplies",
+      "instructional": true,
+      "objectiveCount": 15,
+      "objectives": [
+        {
+          "id": "10.1",
+          "title": "Explain shock hazards when servicing power supplies in electronic equipment",
+          "sectionId": "M13.S01",
+          "teachingPage": 3,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "10.2",
+          "title": "Describe the differences between transformer powered supplies and line-connected supplies",
+          "sectionId": "M13.S01",
+          "teachingPage": 3,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "10.3",
+          "title": "Describe battery supplies and list common usages:",
+          "sectionId": "M13.S01",
+          "teachingPage": 3,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "10.3.1",
+          "title": "Explain battery recharging principles",
+          "sectionId": "M13.S03",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "10.4",
+          "title": "Explain the reasons for filtering, describe hum, and identify common filter types:",
+          "sectionId": "M13.S02",
+          "teachingPage": 1,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "10.4.1",
+          "title": "“L” (L-section, choke or inductor) filter – an inductor in series with a capacitor in parallel",
+          "sectionId": "M13.S03",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "10.4.2",
+          "title": "“T” filter –add a second choke on output side, taking the output across the capacitor",
+          "sectionId": "M13.S03",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "10.4.3",
+          "title": "“Pi” filter – a single inductor with a capacitor at each end to common",
+          "sectionId": "M13.S03",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "10.5",
+          "title": "Explain the reasons for power supply regulation and list common components used in regulated supplies",
+          "sectionId": "M13.S03",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "10.6",
+          "title": "Explain the term ‘Integrated high voltage transformer’ supply and explain how it differs from direct or other power supply types",
+          "sectionId": "M13.S01",
+          "teachingPage": 3,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "10.7",
+          "title": "Explain how multiple output supplies can supply more than one voltage",
+          "sectionId": "M13.S01",
+          "teachingPage": 3,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "10.8",
+          "title": "Explain where fuses and circuit breakers are commonly and electrically located in circuits; approximate fuse sizes for common circuits; common fuses and circuit breaker configuration and precautions for replacement in a house service box",
+          "sectionId": "M13.S03",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "10.9",
+          "title": "Explain how to calculate DC voltages from power supply circuits",
+          "sectionId": "M13.S02",
+          "teachingPage": 1,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "10.10",
+          "title": "Identify and analyze rectifier circuits",
+          "sectionId": "M13.S02",
+          "teachingPage": 1,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "10.11",
+          "title": "Describe switch mode power supply operation",
+          "sectionId": "M13.S03",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        }
+      ],
+      "bookReadingPlan": {
+        "inheritedRequiredProvisional": [
+          {
+            "chapter": "11",
+            "pages": "85–89",
+            "afterPageIndex": 4,
+            "passageVerified": false
+          }
+        ],
+        "archivedCompanion": {
+          "status": "PROVISIONAL_EXISTING_ASSIGNMENT",
+          "required": true,
+          "passageVerified": false,
+          "sourceAuthority": "Owned Sixth Edition needed for verification"
+        }
+      },
+      "publisherErrata": []
+    },
+    {
+      "moduleId": "M14",
+      "moduleTitle": "Amplifiers and gain",
+      "instructional": true,
+      "objectiveCount": 14,
+      "objectives": [
+        {
+          "id": "9.6",
+          "title": "Explain decibels (dB) and show reasons for using dBs in signal level, power and audio calculations",
+          "sectionId": "M14.S03",
+          "teachingPage": 5,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "11.1",
+          "title": "List common amplifier devices: such as power amps, audio preamps, video amps",
+          "sectionId": "M14.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "11.2",
+          "title": "Describe the purpose of each component in an amplifier circuit",
+          "sectionId": "M14.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "11.3",
+          "title": "List the usages and classes of amplifiers",
+          "sectionId": "M14.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "11.3.1",
+          "title": "Analyze BJT amplifier circuits for gain and power",
+          "sectionId": "M14.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "11.3.2",
+          "title": "Analyze FET based amplifier circuits for gain and power",
+          "sectionId": "M14.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "11.4",
+          "title": "Explain frequency response of an amplifier circuit and why it is important",
+          "sectionId": "M14.S03",
+          "teachingPage": 5,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "11.5",
+          "title": "Explain the words ‘preamplifier’ and ‘line amplifier’ and where these units are commonly used",
+          "sectionId": "M14.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "11.6",
+          "title": "Explain the uses of operational amplifiers and how they differ from other amplifiers",
+          "sectionId": "M14.S02",
+          "teachingPage": 3,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "11.6.1",
+          "title": "Analyze op-amp circuits to determine gain and power",
+          "sectionId": "M14.S02",
+          "teachingPage": 3,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "11.7",
+          "title": "Explain how distortion occurs in amplifiers and list ways to reduce or eliminate it",
+          "sectionId": "M14.S03",
+          "teachingPage": 5,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "11.8",
+          "title": "Explain how inaccurate measurements can be experienced due to meter or scope loading",
+          "sectionId": "M14.S03",
+          "teachingPage": 5,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "11.8.1",
+          "title": "List ways to overcome loading problems",
+          "sectionId": "M14.S03",
+          "teachingPage": 5,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "11.9",
+          "title": "Describe specifications for broadband amplifiers as compared with common narrow band units",
+          "sectionId": "M14.S03",
+          "teachingPage": 5,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        }
+      ],
+      "bookReadingPlan": {
+        "inheritedRequiredProvisional": [
+          {
+            "chapter": "12",
+            "pages": "91;95–96;98",
+            "afterPageIndex": 6,
+            "passageVerified": false
+          }
+        ],
+        "archivedCompanion": {
+          "status": "PROVISIONAL_EXISTING_ASSIGNMENT",
+          "required": true,
+          "passageVerified": false,
+          "sourceAuthority": "Owned Sixth Edition needed for verification"
+        }
+      },
+      "publisherErrata": [
+        {
+          "id": "eta-err-102-opamp",
+          "printedPage": 102,
+          "chapter": "12",
+          "moduleId": "M14",
+          "pageIndex": 7,
+          "sheetPage": 2,
+          "label": "Op-amp review question",
+          "note": "For Unit 5 question 6, the correct non-inverting gain expression is 1 + Rf/Ri (option C in that printing)."
+        }
+      ]
+    },
+    {
+      "moduleId": "M15",
+      "moduleTitle": "PCB handling, soldering and desoldering",
+      "instructional": true,
+      "objectiveCount": 14,
+      "objectives": [
+        {
+          "id": "5.1",
+          "title": "Describe solder safety as it pertains to burns and potential fires or damage to facilities or customer products",
+          "sectionId": "M15.S01",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "5.2",
+          "title": "Explain the cause of solder fumes and the effects of lead poisoning",
+          "sectionId": "M15.S01",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "5.3",
+          "title": "List causes and precautions to prevent or reduce solder splatter",
+          "sectionId": "M15.S01",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "5.4",
+          "title": "Explain the reasons for flux usage and describe types",
+          "sectionId": "M15.S02",
+          "teachingPage": 3,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "5.5",
+          "title": "List types of solder and reasons for choosing each",
+          "sectionId": "M15.S02",
+          "teachingPage": 3,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "5.6",
+          "title": "Explain heat shunts (clip-on heat sinks), why and how they are used",
+          "sectionId": "M15.S02",
+          "teachingPage": 3,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "5.7",
+          "title": "Identify cold solder joints and explain causes",
+          "sectionId": "M15.S02",
+          "teachingPage": 3,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "5.8",
+          "title": "Describe the differences between good and bad mechanical and electrical solder connections",
+          "sectionId": "M15.S02",
+          "teachingPage": 3,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "5.8.1",
+          "title": "Explain basic handling procedures of surface mount (SMT), ball grid array (BGA), gold finger contacts on a printed circuit board (PCB)",
+          "sectionId": "M15.S04",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "5.8.2",
+          "title": "Explain basic procedures for pad repairs (SMT, BGA), plated through hole (PTH), and PCB trace repair",
+          "sectionId": "M15.S04",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "5.9",
+          "title": "Describe proper care of solder and de-solder equipment and aids",
+          "sectionId": "M15.S01",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "5.10",
+          "title": "Explain de-soldering principles",
+          "sectionId": "M15.S03",
+          "teachingPage": 4,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "5.11",
+          "title": "Describe various types of de-soldering equipment and how it is used",
+          "sectionId": "M15.S03",
+          "teachingPage": 4,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "5.12",
+          "title": "Demonstrate the use of solder-wick",
+          "sectionId": "M15.S03",
+          "teachingPage": 4,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        }
+      ],
+      "bookReadingPlan": {
+        "inheritedRequiredProvisional": [],
+        "archivedCompanion": {
+          "chapter": "20",
+          "pages": "176–181",
+          "pageIndex": 4,
+          "archiveId": "sg-w12-ch20-p176-181",
+          "topic": "Soldering, desoldering, ESD-aware rework, and safe workmanship",
+          "task": "Check solder joint quality, the role of flux, and de-soldering equipment. Treat physical-skill competence as separate from reading or paper quizzes.",
+          "status": "PROVISIONAL_ARCHIVE_CROSS_REFERENCE",
+          "required": false,
+          "passageVerified": false,
+          "sourceAuthority": "Owned Sixth Edition needed for verification"
+        }
+      },
+      "publisherErrata": []
+    },
+    {
+      "moduleId": "M16",
+      "moduleTitle": "Number systems and Boolean algebra",
+      "instructional": true,
+      "objectiveCount": 2,
+      "objectives": [
+        {
+          "id": "9.4",
+          "title": "Convert binary, decimal, octal, hexadecimal numbers",
+          "sectionId": "M16.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "9.5",
+          "title": "Explain Boolean algebra and its use in digital circuitry",
+          "sectionId": "M16.S02",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        }
+      ],
+      "bookReadingPlan": {
+        "inheritedRequiredProvisional": [
+          {
+            "chapter": "16",
+            "pages": "132–136;138–140",
+            "afterPageIndex": 4,
+            "passageVerified": false
+          }
+        ],
+        "archivedCompanion": {
+          "status": "PROVISIONAL_EXISTING_ASSIGNMENT",
+          "required": true,
+          "passageVerified": false,
+          "sourceAuthority": "Owned Sixth Edition needed for verification"
+        }
+      },
+      "publisherErrata": []
+    },
+    {
+      "moduleId": "M17",
+      "moduleTitle": "Digital logic and sequential circuits",
+      "instructional": true,
+      "objectiveCount": 8,
+      "objectives": [
+        {
+          "id": "13.1",
+          "title": "Identify each of the basic digital gate(s) and devices",
+          "sectionId": "M17.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "13.2",
+          "title": "Construct truth tables for common gates",
+          "sectionId": "M17.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "13.3",
+          "title": "Explain how electronic counters operate",
+          "sectionId": "M17.S02",
+          "teachingPage": 7,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "13.4",
+          "title": "Explain the purpose of flip-flops and list common types",
+          "sectionId": "M17.S02",
+          "teachingPage": 7,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "13.5",
+          "title": "Explain the purpose of a digital electronic circuitry bus and show how it’s connected to various sections of a product",
+          "sectionId": "M17.S03",
+          "teachingPage": 3,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "13.6",
+          "title": "List types of display circuitry and describe how numbers and letters are activated digitally",
+          "sectionId": "M17.S03",
+          "teachingPage": 3,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "13.10",
+          "title": "Describe digital clock(s) usage and circuitry",
+          "sectionId": "M17.S02",
+          "teachingPage": 7,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "13.11",
+          "title": "Explain voltages and logic families (TTL, CMOS)",
+          "sectionId": "M17.S03",
+          "teachingPage": 3,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        }
+      ],
+      "bookReadingPlan": {
+        "inheritedRequiredProvisional": [],
+        "archivedCompanion": {
+          "chapter": "16",
+          "pages": "137–144",
+          "pageIndex": 7,
+          "archiveId": "sg-w11-ch16-p141-144",
+          "topic": "Sequential logic, flip-flops, counters and digital buses",
+          "task": "Build and verify an R–S NOR latch truth table on paper. Apply the publisher’s page-138 diagram correction before reading its explanation.",
+          "status": "PROVISIONAL_ARCHIVE_CROSS_REFERENCE",
+          "required": false,
+          "passageVerified": false,
+          "sourceAuthority": "Owned Sixth Edition needed for verification"
+        }
+      },
+      "publisherErrata": [
+        {
+          "id": "eta-err-138-rs",
+          "printedPage": 138,
+          "chapter": "16",
+          "moduleId": "M17",
+          "pageIndex": 7,
+          "sheetPage": 2,
+          "label": "R–S latch diagram",
+          "note": "The publisher’s corrected gate example uses NOR gates. Read the control input as R=0; with S=1, Q becomes high in the stated state."
+        }
+      ]
+    },
+    {
+      "moduleId": "M18",
+      "moduleTitle": "Digital testing and signal fault isolation",
+      "instructional": true,
+      "objectiveCount": 5,
+      "objectives": [
+        {
+          "id": "8.10",
+          "title": "List the uses and precautions for logic test probes",
+          "sectionId": "M18.S01",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "8.11",
+          "title": "Explain how logic pulsers are used",
+          "sectionId": "M18.S01",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "13.7",
+          "title": "Distinguish how pulsers are used for digital signal tracing",
+          "sectionId": "M18.S01",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "13.8",
+          "title": "Describe how logic probes are used to verify states in digital equipment",
+          "sectionId": "M18.S01",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "13.9",
+          "title": "Explain how to troubleshoot digital signals",
+          "sectionId": "M18.S02",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        }
+      ],
+      "bookReadingPlan": {
+        "inheritedRequiredProvisional": [],
+        "archivedCompanion": {
+          "chapter": "19",
+          "pages": "165–175",
+          "pageIndex": 2,
+          "archiveId": "sg-w03-ch19-p165-175",
+          "topic": "Test instruments, logic probes and systematic measurement",
+          "task": "Identify the measurement limitations of a probe, meter, and oscilloscope; specify the reference and expected signal before simulating a fault.",
+          "status": "PROVISIONAL_ARCHIVE_CROSS_REFERENCE",
+          "required": false,
+          "passageVerified": false,
+          "sourceAuthority": "Owned Sixth Edition needed for verification"
+        }
+      },
+      "publisherErrata": []
+    },
+    {
+      "moduleId": "M19",
+      "moduleTitle": "Interfaces and signal compatibility",
+      "instructional": true,
+      "objectiveCount": 5,
+      "objectives": [
+        {
+          "id": "12.1",
+          "title": "List input circuit signal levels which may be expected for various common electronics products or test equipment",
+          "sectionId": "M19.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "12.2",
+          "title": "Explain the purposes of plugs and connectors and why it is necessary to use the proper ones per application",
+          "sectionId": "M19.S03",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "12.3",
+          "title": "Explain grounding, proper and improper methods, and the results of power source mismatch",
+          "sectionId": "M19.S03",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "12.4",
+          "title": "List potential signal conflict symptoms",
+          "sectionId": "M19.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "12.5",
+          "title": "Describe other electronic interfacing such as USB, Zigbee, I2C (inter-integrated circuit)",
+          "sectionId": "M19.S02",
+          "teachingPage": 4,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        }
+      ],
+      "bookReadingPlan": {
+        "inheritedRequiredProvisional": [],
+        "archivedCompanion": {
+          "chapter": null,
+          "pages": null,
+          "pageIndex": 0,
+          "archiveId": null,
+          "topic": "Interface compatibility, I²C/SPI/UART, return paths and signaling",
+          "task": "Look up interface, grounding, data communications and serial bus in your copy. The newer 2025 competencies include topics that an older book may not cover in adequate depth; prioritize the official competencies and Alfred’s first-principles lessons.",
+          "status": "PROVISIONAL_ARCHIVE_CROSS_REFERENCE",
+          "required": false,
+          "passageVerified": false,
+          "sourceAuthority": "Owned Sixth Edition needed for verification"
+        }
+      },
+      "publisherErrata": []
+    },
+    {
+      "moduleId": "M20",
+      "moduleTitle": "Microprocessors, microcontrollers and PLC concepts",
+      "instructional": true,
+      "objectiveCount": 10,
+      "objectives": [
+        {
+          "id": "13.12",
+          "title": "Define microcontrollers and simple programming commands",
+          "sectionId": "M20.S03",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "15.1",
+          "title": "Describe the major sections of a computer",
+          "sectionId": "M20.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "15.2",
+          "title": "Differentiate how the computer block diagram and flow charts are utilized",
+          "sectionId": "M20.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "15.3",
+          "title": "Describe the major blocks contained in a microprocessor chip and describe the purpose of each block",
+          "sectionId": "M20.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "15.4",
+          "title": "Describe different types of computer memory and how storage is accomplished",
+          "sectionId": "M20.S02",
+          "teachingPage": 6,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "15.5",
+          "title": "Explain programmable logic controls (PLCs) and list usages",
+          "sectionId": "M20.S03",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "15.6",
+          "title": "Describe basic programming concepts",
+          "sectionId": "M20.S03",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "15.7",
+          "title": "Describe the reasons for different computer languages and their relationships",
+          "sectionId": "M20.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "15.8",
+          "title": "Define a ‘peripheral’ and list various types",
+          "sectionId": "M20.S02",
+          "teachingPage": 6,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "15.9",
+          "title": "Explain the reasons for using interface devices/chips/cards and name common types",
+          "sectionId": "M20.S02",
+          "teachingPage": 6,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        }
+      ],
+      "bookReadingPlan": {
+        "inheritedRequiredProvisional": [
+          {
+            "chapter": "17",
+            "pages": "149–150",
+            "afterPageIndex": 10,
+            "passageVerified": false
+          }
+        ],
+        "archivedCompanion": {
+          "status": "PROVISIONAL_EXISTING_ASSIGNMENT",
+          "required": true,
+          "passageVerified": false,
+          "sourceAuthority": "Owned Sixth Edition needed for verification"
+        }
+      },
+      "publisherErrata": []
+    },
+    {
+      "moduleId": "M21",
+      "moduleTitle": "Computer software, setup and network basics",
+      "instructional": true,
+      "objectiveCount": 10,
+      "objectives": [
+        {
+          "id": "16.1",
+          "title": "Explain knowledge of basic computer operation",
+          "sectionId": "M21.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "16.2",
+          "title": "Explain steps in installation/set up of a computer",
+          "sectionId": "M21.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "16.3",
+          "title": "Explain the reasons and choices used in configuring a computer",
+          "sectionId": "M21.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "16.4",
+          "title": "Describe proper loading and storage of common programs and applications",
+          "sectionId": "M21.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "16.5",
+          "title": "Explain basic common utilities software and list reasons for their use",
+          "sectionId": "M21.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "16.6",
+          "title": "List ways to backup data and the vital importance of doing so",
+          "sectionId": "M21.S02",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "16.7",
+          "title": "Explain the causes of line surges and viruses and protection procedures against each",
+          "sectionId": "M21.S02",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "16.8",
+          "title": "Explain how to access the Internet, cybersecurity best practices and common applications",
+          "sectionId": "M21.S03",
+          "teachingPage": 9,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "16.9",
+          "title": "Describe how to download a service or application, data or software",
+          "sectionId": "M21.S03",
+          "teachingPage": 9,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "16.10",
+          "title": "Explain the differences between an individual stand-alone computer and basic networking",
+          "sectionId": "M21.S03",
+          "teachingPage": 9,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        }
+      ],
+      "bookReadingPlan": {
+        "inheritedRequiredProvisional": [],
+        "archivedCompanion": {
+          "chapter": "17",
+          "pages": "151–158",
+          "pageIndex": 1,
+          "archiveId": "sg-w14-ch17-p151-153",
+          "topic": "Computers, software installation, memory and backup",
+          "task": "Identify the machine resources and software setup procedures described by the guide; contrast outdated steps with contemporary safe downloading and backup practices.",
+          "status": "PROVISIONAL_ARCHIVE_CROSS_REFERENCE",
+          "required": false,
+          "passageVerified": false,
+          "sourceAuthority": "Owned Sixth Edition needed for verification"
+        }
+      },
+      "publisherErrata": [
+        {
+          "id": "eta-err-202-cache",
+          "printedPage": 202,
+          "chapter": "Practice exam 2",
+          "moduleId": "M21",
+          "pageIndex": 4,
+          "sheetPage": 2,
+          "label": "Practice-exam question 2",
+          "note": "Publisher answer correction: internal cache memory is the intended answer, not external tape storage."
+        }
+      ]
+    },
+    {
+      "moduleId": "M22",
+      "moduleTitle": "Cabling and terminations",
+      "instructional": true,
+      "objectiveCount": 15,
+      "objectives": [
+        {
+          "id": "7.1",
+          "title": "List wire types and construction",
+          "sectionId": "M22.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "7.2",
+          "title": "List wire gauges used for various purposes",
+          "sectionId": "M22.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "7.3",
+          "title": "Explain construction of coaxial cable and the impedance characteristics",
+          "sectionId": "M22.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "7.4",
+          "title": "List common identifications for copper cables in standards, such as #18 and #24 diameter in the American Wire Gauge (AWG) and UTP cable in ANSI/TIA 568",
+          "sectionId": "M22.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "7.5",
+          "title": "Explain major differences between copper, coaxial and fiber optic cables",
+          "sectionId": "M22.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "7.6",
+          "title": "Describe impedance and its causes:",
+          "sectionId": "M22.S02",
+          "teachingPage": 5,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "7.6.1",
+          "title": "Explain reasons for maintaining a cable’s characteristics",
+          "sectionId": "M22.S02",
+          "teachingPage": 5,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "7.7",
+          "title": "Explain the effects of proper and improper termination",
+          "sectionId": "M22.S02",
+          "teachingPage": 5,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "7.8",
+          "title": "Explain the purposes and types of cabling grounding (bonding) and common conventions used in electrical / electronic work",
+          "sectionId": "M22.S02",
+          "teachingPage": 5,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "7.9",
+          "title": "Describe splicing knowledge and ability of coaxial and copper cable",
+          "sectionId": "M22.S03",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "7.9.1",
+          "title": "Explain types of fiber splices",
+          "sectionId": "M22.S03",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "7.10",
+          "title": "Briefly explain testing methods for all three types of cables and compare decibel (dB) loss measurements and techniques",
+          "sectionId": "M22.S03",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "7.11",
+          "title": "Compare the fittings and connectors used in cabling and list potential defects a technician may encounter",
+          "sectionId": "M22.S03",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "7.12",
+          "title": "Describe proper crimping of communications wiring connectors",
+          "sectionId": "M22.S03",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "7.13",
+          "title": "Explain how cable prep tools are used and demonstrate proper and improper crimp applications",
+          "sectionId": "M22.S03",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        }
+      ],
+      "bookReadingPlan": {
+        "inheritedRequiredProvisional": [
+          {
+            "chapter": "13",
+            "pages": "108–109",
+            "afterPageIndex": 4,
+            "passageVerified": false
+          }
+        ],
+        "archivedCompanion": {
+          "status": "PROVISIONAL_EXISTING_ASSIGNMENT",
+          "required": true,
+          "passageVerified": false,
+          "sourceAuthority": "Owned Sixth Edition needed for verification"
+        }
+      },
+      "publisherErrata": []
+    },
+    {
+      "moduleId": "M23",
+      "moduleTitle": "Specialized instruments and measurement choice",
+      "instructional": true,
+      "objectiveCount": 7,
+      "objectives": [
+        {
+          "id": "8.5",
+          "title": "List the purposes and types of signal generators",
+          "sectionId": "M23.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "8.7",
+          "title": "Explain the purposes of frequency counters and list their limitations",
+          "sectionId": "M23.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "8.8",
+          "title": "Explain what R-C-L substitution equipment is and its purposes",
+          "sectionId": "M23.S02",
+          "teachingPage": 6,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "8.9",
+          "title": "Explain ESR (Equivalent Series Resistance) capacitance measurement equipment",
+          "sectionId": "M23.S02",
+          "teachingPage": 6,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "8.13",
+          "title": "Describe spectrum analyzer uses and operation",
+          "sectionId": "M23.S03",
+          "teachingPage": 5,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "8.14",
+          "title": "Define dummy load; show where and why used",
+          "sectionId": "M23.S03",
+          "teachingPage": 5,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "8.15",
+          "title": "Explain reasons for using rheostats, isolation transformers and variacs and why size matters",
+          "sectionId": "M23.S03",
+          "teachingPage": 5,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        }
+      ],
+      "bookReadingPlan": {
+        "inheritedRequiredProvisional": [],
+        "archivedCompanion": {
+          "chapter": "19",
+          "pages": "165–175",
+          "pageIndex": 2,
+          "archiveId": "sg-w03-ch19-p165-175",
+          "topic": "Test equipment and measurement selection",
+          "task": "Choose the least risky instrument for a given low-voltage signal and explain loading and accuracy. This overlaps M18; prior reading is review, not a new mandatory first use.",
+          "status": "PROVISIONAL_ARCHIVE_CROSS_REFERENCE",
+          "required": false,
+          "passageVerified": false,
+          "sourceAuthority": "Owned Sixth Edition needed for verification"
+        }
+      },
+      "publisherErrata": []
+    },
+    {
+      "moduleId": "M24",
+      "moduleTitle": "Audio and video systems",
+      "instructional": true,
+      "objectiveCount": 9,
+      "objectives": [
+        {
+          "id": "17.1",
+          "title": "Explain major components of the most common home entertainment products",
+          "sectionId": "M24.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "17.2",
+          "title": "Describe microphone technology usage",
+          "sectionId": "M24.S02",
+          "teachingPage": 1,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "17.3",
+          "title": "Explain speaker construction and precautions",
+          "sectionId": "M24.S02",
+          "teachingPage": 1,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "17.4",
+          "title": "Explain basic recording and playback technology",
+          "sectionId": "M24.S02",
+          "teachingPage": 1,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "17.5",
+          "title": "Explain how alarm-security systems may be interfaced with entertainment/information products",
+          "sectionId": "M24.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "17.6",
+          "title": "Differentiate between good quality sound output and distorted sound, then the electronic/acoustical reasons for each",
+          "sectionId": "M24.S03",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "17.7",
+          "title": "Explain how signals may conflict and the symptoms that conflict may produce",
+          "sectionId": "M24.S03",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "17.8",
+          "title": "Explain how to isolate faults/glitches between discrete equipment units",
+          "sectionId": "M24.S03",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "17.9",
+          "title": "List anticipated signal or voltage levels for output circuits in audio and video equipment",
+          "sectionId": "M24.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        }
+      ],
+      "bookReadingPlan": {
+        "inheritedRequiredProvisional": [],
+        "archivedCompanion": {
+          "chapter": null,
+          "pages": null,
+          "pageIndex": 0,
+          "archiveId": null,
+          "topic": "Audio/video signal paths, transducers and recording",
+          "task": "Search your copy’s index for microphone, speaker, amplifier, recording, and display. If the guide lacks a relevant passage, use the ETA competencies and Alfred instruction; do not invent a printed page.",
+          "status": "PROVISIONAL_ARCHIVE_CROSS_REFERENCE",
+          "required": false,
+          "passageVerified": false,
+          "sourceAuthority": "Owned Sixth Edition needed for verification"
+        }
+      },
+      "publisherErrata": []
+    },
+    {
+      "moduleId": "M25",
+      "moduleTitle": "Optical electronics",
+      "instructional": true,
+      "objectiveCount": 14,
+      "objectives": [
+        {
+          "id": "18.1",
+          "title": "List common electronics display devices",
+          "sectionId": "M25.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "18.1.1",
+          "title": "Explain how displays operate, their advantages and disadvantages",
+          "sectionId": "M25.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "18.2",
+          "title": "List common optical devices as to type and applications:",
+          "sectionId": "M25.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "18.2.1",
+          "title": "Describe operation and application of component LEDs and Seven-Segment displays",
+          "sectionId": "M25.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "18.2.2",
+          "title": "Describe operation and application of LCDs and OLEDs, other display types",
+          "sectionId": "M25.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "18.3",
+          "title": "Describe how photo-electronic components operate:",
+          "sectionId": "M25.S02",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "18.3.1",
+          "title": "Explain how photovoltaic cells are activated",
+          "sectionId": "M25.S02",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "18.3.2",
+          "title": "Identify materials from which these devices are made",
+          "sectionId": "M25.S02",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "18.4",
+          "title": "Explain the basics of electronic cameras and sensors",
+          "sectionId": "M25.S02",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "18.5",
+          "title": "Explain why opto-isolators are used",
+          "sectionId": "M25.S03",
+          "teachingPage": 3,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "18.5.1",
+          "title": "List some locations or circuits in which opto-isolators are used",
+          "sectionId": "M25.S03",
+          "teachingPage": 3,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "18.6",
+          "title": "List uses for light activated controls and how photo devices are incorporated",
+          "sectionId": "M25.S02",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "18.6.1",
+          "title": "Identify symbols for photo-resistors, photodiodes and photo-transistors",
+          "sectionId": "M25.S02",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "18.7",
+          "title": "Describe how broadband signal RF and optical links are used",
+          "sectionId": "M25.S03",
+          "teachingPage": 3,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        }
+      ],
+      "bookReadingPlan": {
+        "inheritedRequiredProvisional": [
+          {
+            "chapter": "9",
+            "pages": "77",
+            "afterPageIndex": 2,
+            "passageVerified": false
+          }
+        ],
+        "archivedCompanion": {
+          "status": "PROVISIONAL_EXISTING_ASSIGNMENT",
+          "required": true,
+          "passageVerified": false,
+          "sourceAuthority": "Owned Sixth Edition needed for verification"
+        }
+      },
+      "publisherErrata": []
+    },
+    {
+      "moduleId": "M26",
+      "moduleTitle": "Radio-frequency fundamentals",
+      "instructional": true,
+      "objectiveCount": 13,
+      "objectives": [
+        {
+          "id": "9.3",
+          "title": "Explain how to calculate wavelength, frequency and power values",
+          "sectionId": "M26.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "19.1",
+          "title": "Explain basic wave propagation and its importance to wireless communications",
+          "sectionId": "M26.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "19.2",
+          "title": "Describe the basic theory of how antennas work",
+          "sectionId": "M26.S02",
+          "teachingPage": 1,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "19.2.1",
+          "title": "List the types of transmission lines (feedline) used between antennas and RF equipment",
+          "sectionId": "M26.S02",
+          "teachingPage": 1,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "19.3",
+          "title": "Define polarization, electromagnetic and electro-static fields and their relationships to each other",
+          "sectionId": "M26.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "19.4",
+          "title": "Differentiate between the signals/signaling of AM, FM radio/TV, LMR including CDMA, GSM, LTE, 5G (i.e., modulation)",
+          "sectionId": "M26.S03",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "19.5",
+          "title": "Differentiate usage of communications radios and commercial broadcast receivers",
+          "sectionId": "M26.S03",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "19.6",
+          "title": "Describe the major radio receiver circuitry sections",
+          "sectionId": "M26.S03",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "19.7",
+          "title": "List common frequency bands (spectrum)",
+          "sectionId": "M26.S03",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "19.8",
+          "title": "Explain radio circuit tuning and adjustments",
+          "sectionId": "M26.S03",
+          "teachingPage": 2,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "19.9",
+          "title": "Explain Standing Wave Ratios (SWR) and measuring voltage standing wave ratios (VSWR)",
+          "sectionId": "M26.S02",
+          "teachingPage": 1,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "19.10",
+          "title": "Explain the relationships between frequency and wavelength",
+          "sectionId": "M26.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "19.11",
+          "title": "Explain the importance of impedance matching; list causes of mismatches",
+          "sectionId": "M26.S02",
+          "teachingPage": 1,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        }
+      ],
+      "bookReadingPlan": {
+        "inheritedRequiredProvisional": [
+          {
+            "chapter": "13",
+            "pages": "104–107",
+            "afterPageIndex": 1,
+            "passageVerified": false
+          },
+          {
+            "chapter": "14",
+            "pages": "113–114",
+            "afterPageIndex": 2,
+            "passageVerified": false
+          }
+        ],
+        "archivedCompanion": {
+          "status": "PROVISIONAL_EXISTING_ASSIGNMENT",
+          "required": true,
+          "passageVerified": false,
+          "sourceAuthority": "Owned Sixth Edition needed for verification"
+        }
+      },
+      "publisherErrata": []
+    },
+    {
+      "moduleId": "M27",
+      "moduleTitle": "Telecommunications",
+      "instructional": true,
+      "objectiveCount": 5,
+      "objectives": [
+        {
+          "id": "20.1",
+          "title": "Describe major types of two-way radio communications (avionics, land mobile, maritime, etc.)",
+          "sectionId": "M27.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "20.2",
+          "title": "Describe wireless telephone/video/data technology basics, list applicable ANSI/TIA standard",
+          "sectionId": "M27.S02",
+          "teachingPage": 5,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "20.3",
+          "title": "Describe satellite communications principles",
+          "sectionId": "M27.S02",
+          "teachingPage": 5,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "20.4",
+          "title": "Describe wired data and voice communications network technology",
+          "sectionId": "M27.S03",
+          "teachingPage": 6,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "20.5",
+          "title": "Describe a basic telephone (POTS) circuit with the common wiring and splicing conventions",
+          "sectionId": "M27.S03",
+          "teachingPage": 6,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        }
+      ],
+      "bookReadingPlan": {
+        "inheritedRequiredProvisional": [
+          {
+            "chapter": "15",
+            "pages": "120–121",
+            "afterPageIndex": 5,
+            "passageVerified": false
+          }
+        ],
+        "archivedCompanion": {
+          "status": "PROVISIONAL_EXISTING_ASSIGNMENT",
+          "required": true,
+          "passageVerified": false,
+          "sourceAuthority": "Owned Sixth Edition needed for verification"
+        }
+      },
+      "publisherErrata": []
+    },
+    {
+      "moduleId": "M28",
+      "moduleTitle": "Technician work procedures and integrated troubleshooting",
+      "instructional": true,
+      "objectiveCount": 9,
+      "objectives": [
+        {
+          "id": "21.1",
+          "title": "Explain major invoice and billing concepts for service businesses",
+          "sectionId": "M28.S02",
+          "teachingPage": 5,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "21.2",
+          "title": "Describe ways to procure service literature",
+          "sectionId": "M28.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "21.3",
+          "title": "Describe locations/cross referencing of parts and products",
+          "sectionId": "M28.S02",
+          "teachingPage": 5,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "21.4",
+          "title": "Explain the purposes and requirements for proper record keeping, report generation",
+          "sectionId": "M28.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "21.5",
+          "title": "Explain how to calculate individual and department productivity for a specific period",
+          "sectionId": "M28.S02",
+          "teachingPage": 5,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "21.6",
+          "title": "Describe contacting product maker help desks and service departments",
+          "sectionId": "M28.S01",
+          "teachingPage": 0,
+          "hasHistoricalScoredQuestionTag": false,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "21.7",
+          "title": "Explain estimate concepts for service work including test planning",
+          "sectionId": "M28.S02",
+          "teachingPage": 5,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "21.8",
+          "title": "Describe field technician work procedures that may differ from in-shop routines",
+          "sectionId": "M28.S03",
+          "teachingPage": 3,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        },
+        {
+          "id": "21.9",
+          "title": "Explain project management and list steps to follow to achieve maximum results",
+          "sectionId": "M28.S03",
+          "teachingPage": 3,
+          "hasHistoricalScoredQuestionTag": true,
+          "needsIndependentValidityReview": true
+        }
+      ],
+      "bookReadingPlan": {
+        "inheritedRequiredProvisional": [
+          {
+            "chapter": "21",
+            "pages": "182–184",
+            "afterPageIndex": 3,
+            "passageVerified": false
+          },
+          {
+            "chapter": "22",
+            "pages": "188–190",
+            "afterPageIndex": 10,
+            "passageVerified": false
+          }
+        ],
+        "archivedCompanion": {
+          "status": "PROVISIONAL_EXISTING_ASSIGNMENT",
+          "required": true,
+          "passageVerified": false,
+          "sourceAuthority": "Owned Sixth Edition needed for verification"
+        }
+      },
+      "publisherErrata": []
+    },
+    {
+      "moduleId": "M29",
+      "moduleTitle": "First complete CETa mock and competence repair",
+      "instructional": false,
+      "objectiveCount": 0,
+      "objectives": [],
+      "bookReadingPlan": {
+        "inheritedRequiredProvisional": [],
+        "archivedCompanion": {}
+      },
+      "publisherErrata": []
+    },
+    {
+      "moduleId": "M30",
+      "moduleTitle": "Independent practice and exam decision",
+      "instructional": false,
+      "objectiveCount": 0,
+      "objectives": [],
+      "bookReadingPlan": {
+        "inheritedRequiredProvisional": [],
+        "archivedCompanion": {}
+      },
+      "publisherErrata": []
+    }
+  ],
+  "unverifiedBookPages": 20,
+  "unverifiedSourceMappings": "All local competency titles/IDs require full line-by-line audit against ETA ©2025 PDF before being labeled verified."
+}

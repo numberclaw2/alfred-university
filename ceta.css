@@ -401,3 +401,11 @@ h1,h2,h3,h4,.serif{font-family:Georgia,'Iowan Old Style',Cambria,serif;letter-sp
 
 /* CETa v3.0 P2: illustrated and accessible guide calibration controls */
 .guide-calibration{margin-top:1.2rem;border-top:1px solid rgba(20,66,52,.15);padding-top:1rem}.gold-visual img{display:block;max-width:100%;max-height:360px;object-fit:contain;margin-inline:auto;background:#fff;border:1px solid rgba(20,66,52,.1);padding:1rem;border-radius:.5rem}.gold-visual figcaption{line-height:1.5}.gold-visual figcaption.image-unavailable:before{content:"Image preview unavailable. Open the source and license link below. ";font-weight:700}.pending-guide{border-left:3px solid #a6812c}.gold-guide a,.gold-visual a{overflow-wrap:anywhere}@media(max-width:600px){.gold-visual img{max-height:290px;padding:.4rem}}
+
+/* v3.1: ETA and publisher guide authority, readable and low-noise across devices */
+.eta-primary-panel,.eta-errata,.eta-lesson-ribbon{border:1px solid var(--line);border-radius:12px;padding:15px 17px;margin:14px 0;background:#f5f5ee;color:var(--ink)}
+.eta-primary-panel{border-left:4px solid var(--green)}.eta-primary-panel h3{margin:4px 0 10px;font-size:1.1rem}.eta-primary-panel p{margin:7px 0;font-size:.94rem}
+.eta-lesson-ribbon{font-size:.87rem;border-left:3px solid var(--gold);background:#fcf8ef}.eta-lesson-ribbon a{margin-left:10px}
+.eta-errata{background:#fff8eb;border-left:4px solid #a67728}.eta-errata h3{font-size:1.13rem;margin-bottom:8px}.eta-errata-item{margin:12px 0}.eta-errata-item p{margin-bottom:4px}
+.eta-companion{border-left:4px solid var(--gold)}.eta-companion h3{font-size:1.15rem}.eta-companion .btn{white-space:normal;margin:5px 5px 7px 0}
+@media(max-width:650px){.eta-primary-panel,.eta-errata,.eta-lesson-ribbon{padding:12px}.eta-primary-panel h3{font-size:1rem}}
