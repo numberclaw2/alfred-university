@@ -1,20 +1,11 @@
-# Alfred University — v1.6 Modules 6–10 Update
+# Alfred v1.7 — Six Files Only (No Folders)
 
-**Flat files only; no folders.** This is a targeted update to the live v1.5 Grizzlies site, **not** a site replacement or new course branch.
+Upload **only these six extracted files** to the existing `numberclaw2/alfred-university` GitHub repository root: `course.js`, `course.json`, `service-worker.js`, `ALFRED PROJECT GOVERNANCE.md`, `ALFRED_RELEASE_NOTES_v1.7.md` and `README_START_HERE.md`.
 
-## Upload from Chrome
+1. Save a copy of the current repository and export/backup learner progress before updates.
+2. In Chrome, extract the ZIP. Upload all six **files**, not the ZIP, using GitHub → Add file → Upload files, on `main`.
+3. Confirm you are updating the existing paths and do not delete any other files.
+4. Commit changes. Allow GitHub Pages deployment to complete before testing.
+5. If the site still shows older content, hard-refresh or use the site's normal service-worker update path; **do not delete site data** to force a new build (that could erase local progress).
 
-1. Back up your current repository ZIP if desired. Do not clear Alfred's browser storage or delete course files.
-2. Extract the ZIP. Select **all six files** inside (not the ZIP archive).
-3. Visit [your GitHub repository](https://github.com/numberclaw2/alfred-university), choose **Add file → Upload files** on `main`, upload the six files to the **repository root**, and commit. Do not delete the other files.
-4. GitHub Pages deploys after the commit. If a stale version appears, reload. Do not remove saved progress/site storage just to force an update.
-
-## Exact files
-
-- `course.js` and `course.json`: identical revised course data in browser and structured-export forms.
-- `service-worker.js`: new PWA cache name; unchanged fetch strategy.
-- `ALFRED PROJECT GOVERNANCE.md`: cumulative project law with v1.6 amendment and archived original history intact.
-- `ALFRED_RELEASE_NOTES_v1.6.md`: change log and candid pending items.
-- `README_START_HERE.md`: this upload/limitations guide.
-
-Modules M01–M05 and M11–M30, the existing styling, app/assessment runtime, and personal progress have not been modified. New M06–M10 questions are **provisional Alfred practice only**. Private publisher study-guide PDF is deliberately not included. M06 and M10 require first-use guide assignment review.
+This release changes only modules M11–M15. The rest of the learning data remains byte-identical at the JSON object level. New questions are provisional internal study questions pending independent technical/editorial review. External figures are linked to their original publisher pages; a full visual-media audit remains outstanding. Official study-guide PDF is not distributed.
