@@ -421,3 +421,24 @@ h1,h2,h3,h4,.serif{font-family:Georgia,'Iowan Old Style',Cambria,serif;letter-sp
 .eta-toc-library-row{display:flex;flex-direction:column;gap:.3rem;padding:.85rem 1rem;background:var(--white);border:1px solid var(--line);border-radius:11px;text-decoration:none}
 .eta-toc-library-row span{font-size:.85rem}
 @media(max-width:640px){.eta-toc-item{align-items:flex-start;flex-direction:column}.eta-toc-item .btn{width:100%;text-align:center}}
+
+/* Alfred v4.1 persistent Cloud Sync monitor: server + key must authenticate for green. */
+.alfred-cloud-status{display:flex;gap:9px;align-items:center;justify-content:center;min-height:30px;padding:5px 16px;text-decoration:none;background:#183f35;color:#f3faf6;font:650 .76rem/1.3 system-ui,-apple-system,sans-serif;border-top:1px solid #ffffff22;max-width:100%;text-align:center;}
+.alfred-cloud-status:hover,.alfred-cloud-status:focus{color:white;background:#225242;}
+.alfred-cloud-dot{width:9px;height:9px;min-width:9px;border-radius:50%;background:#aebcb5;box-shadow:0 0 0 2px #ffffff20;}
+.alfred-cloud-status[data-state="connected"] .alfred-cloud-dot{background:#72e6a7;box-shadow:0 0 0 2px #72e6a735;}
+.alfred-cloud-status[data-state="auth"] .alfred-cloud-dot,.alfred-cloud-status[data-state="error"] .alfred-cloud-dot{background:#ff9c82;}
+.alfred-cloud-status[data-state="offline"] .alfred-cloud-dot,.alfred-cloud-status[data-state="checking"] .alfred-cloud-dot{background:#f1c36b;}
+.alfred-cloud-detail{font-size:.69rem;opacity:.77;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;max-width:min(55vw,550px);}
+.alfred-cloud-open{font-size:.69rem;color:#f3dfb1;white-space:nowrap;}
+.cloud-connection-setup{margin-top:16px;border-top:1px solid var(--line);padding-top:14px;}
+.cloud-connection-setup summary{cursor:pointer;color:var(--green);font-weight:750;}
+.cloud-connection-setup p{margin-top:10px;}
+.cloud-connection-form{display:flex;flex-direction:column;gap:7px;max-width:730px;}
+.cloud-connection-form .field{width:100%;min-width:0;}
+#cloud-sync{scroll-margin-top:160px;}
+@media(max-width:650px){.alfred-cloud-status{justify-content:flex-start;padding:5px 12px;gap:7px;font-size:.71rem;}.alfred-cloud-detail{flex:1;max-width:unset;min-width:0;text-align:right;font-size:.66rem;}.alfred-cloud-open{display:none;}}
+@media(max-width:360px){.alfred-cloud-detail{display:none;}}
+
+/* Mobile navigation previously disabled sticky headers below 1120px; preserve the always-visible connection indicator. */
+.site-header{position:sticky;top:0;z-index:70;}

@@ -1781,3 +1781,12 @@ If later conversations expose an older requirement that is missing here, add it 
 # 34. ONE-SENTENCE PROJECT LAW
 
 **Alfred must function like a real beginner-first electronics university course that teaches both CETa knowledge and technician job performance with equal seriousness, authentic evidence, and strong source-grounded media/visuals; default development is content/file-first, with deep runtime/deployment verification performed when the user explicitly requests an audit or reports a failure, and the user should not be made to repeatedly re-explain the project.**
+
+
+---
+
+## Addendum — v4.1 persistent authenticated cloud status (2026-10-24)
+
+This additive release preserves all previously published course, learning and assessment data. On all pages a compact sticky header monitor must visually distinguish: unconfigured, actively checking, authenticated server reachable, unauthorized credentials, offline browser, and server/network failure. Never display **connected** merely because an old `connected:true` browser flag exists. The only positive signal is successful authentication of a read-only, zero-record protocol-2 `/sync` exchange with a valid `records` array. Never use a background probe to overwrite progress. Rechecking is opt-in after a browser comes back online/into focus and at a modest approximately two-minute interval while visible. Cloud Sync remains a manual explicit action in this release.
+
+Learners may reuse their original Cloudflare Worker URL and private student sync key in the Learning Record. Validate via read-only exchange before saving configuration. Do not silently generate a new recovery key, change backend databases, upload credentials to the GitHub repository, include the key in exported backups, or describe credential validation as confirmation that every study record has synchronized. Preserve the separation between academic readiness and site functionality. See `ALFRED_RELEASE_NOTES_v4.1.md` and `ALFRED_v4_1_MONITOR_QA_REPORT.md`.
