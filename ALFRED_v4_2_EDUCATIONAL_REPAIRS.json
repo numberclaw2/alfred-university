@@ -1,0 +1,728 @@
+{
+  "name": "Alfred v4.2 substantive teaching revisions",
+  "source": "Current ETA 2025 competencies, official ETA Sixth Edition errata, and inspected original publisher book scans",
+  "sourcePolicy": "Cited references are relevant sources but do not constitute a completed 234-page textbook review",
+  "revisedTeachingPages": [
+    {
+      "module": "M01",
+      "pageIndex": 4,
+      "pageId": "L01-0-07",
+      "title": "Field safety: fire, ladders and service vehicles",
+      "addedHeading": "Fire classes are not interchangeable",
+      "objectiveIDs": [
+        "1.11",
+        "1.12",
+        "1.13"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M01",
+      "pageIndex": 7,
+      "pageId": "L01-1-06",
+      "title": "Digital multimeters: ports, modes and common mistakes",
+      "addedHeading": "An ammeter connection can create the fault",
+      "objectiveIDs": [
+        "1.3",
+        "1.4",
+        "1.5",
+        "1.6",
+        "1.7",
+        "1.10",
+        "1.10.1",
+        "1.10.3"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M02",
+      "pageIndex": 3,
+      "pageId": "L04-0-03",
+      "title": "SI prefixes: communicating scale without losing units",
+      "addedHeading": "Conversion drill: prefix and exponent",
+      "objectiveIDs": [
+        "9.7",
+        "9.8",
+        "9.8.1",
+        "9.9"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M03",
+      "pageIndex": 2,
+      "pageId": "L01-0-01",
+      "title": "Deriving Ohm’s law rather than memorizing triangles",
+      "addedHeading": "Transfer problem: a change in both voltage and resistance",
+      "objectiveIDs": [
+        "2.13",
+        "2.13.1",
+        "9.1",
+        "9.2"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M03",
+      "pageIndex": 6,
+      "pageId": "L01-0-10",
+      "title": "Comparing P = VI, I²R and V²/R",
+      "addedHeading": "Power is a cross-check, not three unrelated equations",
+      "objectiveIDs": [
+        "2.14"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M04",
+      "pageIndex": 5,
+      "pageId": "L02-0-15",
+      "title": "Loaded divider: why a measurement or circuit changes Vout",
+      "addedHeading": "Solve a loaded divider by reducing the correct branch",
+      "objectiveIDs": [
+        "3.1.4",
+        "8.16"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M05",
+      "pageIndex": 4,
+      "pageId": "L03-0-00",
+      "title": "A digital multimeter is several different measurement systems",
+      "addedHeading": "Why meter loading changes the truth you think you measured",
+      "objectiveIDs": [
+        "8.1",
+        "8.2",
+        "8.3",
+        "8.4",
+        "8.6"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M06",
+      "pageIndex": 1,
+      "pageId": "L04-0-08",
+      "title": "Peak, peak-to-peak, average and RMS are different",
+      "addedHeading": "RMS is waveform-dependent: calculate before guessing",
+      "objectiveIDs": [
+        "2.12.1",
+        "2.12.2"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M07",
+      "pageIndex": 8,
+      "pageId": "L06-0-00",
+      "title": "Capacitive and inductive reactance",
+      "addedHeading": "Reactive formulas: units, direction and frequency",
+      "objectiveIDs": [
+        "2.9",
+        "3.3",
+        "3.3.1"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M08",
+      "pageIndex": 2,
+      "pageId": "L06-0-03",
+      "title": "Series RLC response changes with frequency",
+      "addedHeading": "Series versus parallel AC: currents and voltages obey different rules",
+      "objectiveIDs": [
+        "2.10",
+        "2.11",
+        "4.2",
+        "4.3",
+        "4.4",
+        "4.7"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M08",
+      "pageIndex": 3,
+      "pageId": "L06-0-05",
+      "title": "Resonance is cancellation, not zero impedance everywhere",
+      "addedHeading": "Publisher accuracy checkpoint: resonance and bandwidth",
+      "objectiveIDs": [
+        "4.8",
+        "4.13",
+        "4.15"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M09",
+      "pageIndex": 5,
+      "pageId": "L07-1-04",
+      "title": "Relay coil release transients and suppression",
+      "addedHeading": "Inductive switch-off must have an energy path",
+      "objectiveIDs": [
+        "3.9",
+        "3.9.1",
+        "3.9.2",
+        "3.9.3"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M10",
+      "pageIndex": 3,
+      "pageId": "L04-0-08",
+      "title": "Pulse width, duty cycle and shaping",
+      "addedHeading": "Pulse timing: frequency, duty cycle and average are distinct",
+      "objectiveIDs": [
+        "4.11",
+        "4.14"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M11",
+      "pageIndex": 1,
+      "pageId": "L07-0-07",
+      "title": "Forward drop and diode-test interpretation",
+      "addedHeading": "Diode-test reasoning needs polarity and context",
+      "objectiveIDs": [
+        "3.7",
+        "3.7.1"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M12",
+      "pageIndex": 7,
+      "pageId": "L10-0-00",
+      "title": "Common-emitter and source amplifiers",
+      "addedHeading": "Transistor configurations: understand what is being held common",
+      "objectiveIDs": [
+        "3.5.1",
+        "3.5.2",
+        "3.5.3"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M13",
+      "pageIndex": 1,
+      "pageId": "L09-0-05",
+      "title": "Rectification and peak-voltage reasoning",
+      "addedHeading": "From RMS secondary voltage to a filtered DC estimate",
+      "objectiveIDs": [
+        "10.4",
+        "10.9",
+        "10.10"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M14",
+      "pageIndex": 1,
+      "pageId": "L10-1-02",
+      "title": "Decibels and voltage gain",
+      "addedHeading": "Decibels describe a ratio, not an absolute signal level",
+      "objectiveIDs": [
+        "11.1",
+        "11.2",
+        "11.3",
+        "11.3.1",
+        "11.3.2",
+        "11.5"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M14",
+      "pageIndex": 7,
+      "pageId": "L10-0-06",
+      "title": "Non-inverting gain and follower",
+      "addedHeading": "Feedback formula check and saturation limits",
+      "objectiveIDs": [
+        "9.6",
+        "11.4",
+        "11.7",
+        "11.8",
+        "11.8.1",
+        "11.9"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M15",
+      "pageIndex": 6,
+      "pageId": "L12-0-02",
+      "title": "Cold joints, bridges and lifted pads",
+      "addedHeading": "Solder defect diagnosis must separate appearance from proof",
+      "objectiveIDs": [
+        "5.4",
+        "5.5",
+        "5.6",
+        "5.7",
+        "5.8"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M16",
+      "pageIndex": 3,
+      "pageId": "L11-0-03",
+      "title": "Complement, AND, OR and precedence",
+      "addedHeading": "Boolean precedence prevents a correct table from being misread",
+      "objectiveIDs": [
+        "9.5"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M17",
+      "pageIndex": 7,
+      "pageId": "L11-0-02",
+      "title": "Sequential circuits remember past conditions",
+      "addedHeading": "Corrected publisher flip-flop diagram: NOR set/reset truth",
+      "objectiveIDs": [
+        "13.3",
+        "13.4",
+        "13.10"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M18",
+      "pageIndex": 8,
+      "pageId": "L18-1-02",
+      "title": "Analyzer decoding, timing and false confidence",
+      "addedHeading": "A decoder label does not replace voltage-and-time evidence",
+      "objectiveIDs": [
+        "8.10",
+        "8.11",
+        "13.7",
+        "13.8"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M19",
+      "pageIndex": 1,
+      "pageId": "L18-0-05",
+      "title": "Logic-level compatibility and translator selection",
+      "addedHeading": "Logic compatibility is two separate questions",
+      "objectiveIDs": [
+        "12.1",
+        "12.4"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M20",
+      "pageIndex": 1,
+      "pageId": "L14-0-06",
+      "title": "CPU blocks and control flow",
+      "addedHeading": "Inside a processor: follow one instruction end to end",
+      "objectiveIDs": [
+        "15.1",
+        "15.2",
+        "15.3",
+        "15.7"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M21",
+      "pageIndex": 2,
+      "pageId": "L17-0-05",
+      "title": "Backup, restore and recovery are different operations",
+      "addedHeading": "A backup is useful only if recovery can be demonstrated",
+      "objectiveIDs": [
+        "16.6",
+        "16.7"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M22",
+      "pageIndex": 4,
+      "pageId": "L19-0-06",
+      "title": "Cable test instruments and decibel loss",
+      "addedHeading": "A loss measurement requires a reference and frequency",
+      "objectiveIDs": [
+        "7.9",
+        "7.9.1",
+        "7.10",
+        "7.11",
+        "7.12",
+        "7.13"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M23",
+      "pageIndex": 3,
+      "pageId": "L03-0-03",
+      "title": "Meters, loading and measurement category",
+      "addedHeading": "CAT rating is an energy-environment specification",
+      "objectiveIDs": [
+        "8.5",
+        "8.7"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M24",
+      "pageIndex": 3,
+      "pageId": "L10-0-06",
+      "title": "Recognize clipping versus noise",
+      "addedHeading": "Distortion symptoms can isolate the stage causing trouble",
+      "objectiveIDs": [
+        "17.6",
+        "17.7",
+        "17.8"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M25",
+      "pageIndex": 4,
+      "pageId": "L19-0-11",
+      "title": "Cameras, photodetectors and opto-isolators",
+      "addedHeading": "An optocoupler transfers information, not a shared wire",
+      "objectiveIDs": [
+        "18.5",
+        "18.5.1",
+        "18.7"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M26",
+      "pageIndex": 11,
+      "pageId": "L06-0-05",
+      "title": "Resonance versus accidental peaking",
+      "addedHeading": "A frequency answer must survive a units check",
+      "objectiveIDs": [
+        "19.2",
+        "19.2.1",
+        "19.9",
+        "19.11"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M27",
+      "pageIndex": 4,
+      "pageId": "L20-0-07",
+      "title": "Simplex, duplex and repeaters",
+      "addedHeading": "Direction, simultaneity and repeater action are independent",
+      "objectiveIDs": [
+        "20.1"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M28",
+      "pageIndex": 9,
+      "pageId": "L28-0-02",
+      "title": "Traceable reports tie evidence to work",
+      "addedHeading": "Traceability checklist: evidence is not an opinion",
+      "objectiveIDs": [
+        "21.2",
+        "21.4",
+        "21.6"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M09",
+      "pageIndex": 3,
+      "pageId": "L07-0-05",
+      "title": "Core materials, turns and magnetic loss",
+      "addedHeading": "Why power-frequency cores are laminated",
+      "objectiveIDs": [
+        "2.5",
+        "2.5.1",
+        "3.4",
+        "3.4.1",
+        "3.4.2"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M11",
+      "pageIndex": 3,
+      "pageId": "L08-0-05",
+      "title": "Zener operation in reverse breakdown",
+      "addedHeading": "Multilayer controlled semiconductors: SCR, TRIAC and DIAC",
+      "objectiveIDs": [
+        "3.6",
+        "3.6.1",
+        "3.6.2"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M13",
+      "pageIndex": 0,
+      "pageId": "L09-0-01",
+      "title": "Power-supply blocks from source to load",
+      "addedHeading": "Fuse location and ratings are functional safety decisions",
+      "objectiveIDs": [
+        "10.3.1",
+        "10.4.1",
+        "10.4.2",
+        "10.4.3",
+        "10.5",
+        "10.8",
+        "10.11"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M13",
+      "pageIndex": 2,
+      "pageId": "L09-1-04",
+      "title": "Half-wave and full-wave ripple frequency",
+      "addedHeading": "Rectifier topology changes the ripple frequency and peak conduction",
+      "objectiveIDs": [
+        "10.4",
+        "10.9",
+        "10.10"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M13",
+      "pageIndex": 4,
+      "pageId": "L08-0-02",
+      "title": "Linear regulators and headroom",
+      "addedHeading": "Battery charging is regulated energy transfer, not a power-supply shortcut",
+      "objectiveIDs": [
+        "10.3.1",
+        "10.4.1",
+        "10.4.2",
+        "10.4.3",
+        "10.5",
+        "10.8",
+        "10.11"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M14",
+      "pageIndex": 5,
+      "pageId": "L10-0-02",
+      "title": "Op-amp inputs, supplies and open-loop action",
+      "addedHeading": "Amplifier distortion, bandwidth and loading need separate checks",
+      "objectiveIDs": [
+        "9.6",
+        "11.4",
+        "11.7",
+        "11.8",
+        "11.8.1",
+        "11.9"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M14",
+      "pageIndex": 10,
+      "pageId": "L10-1-01",
+      "title": "Clipping, slew limiting and distortion",
+      "addedHeading": "Recognize distortion with a deliberate three-test comparison",
+      "objectiveIDs": [
+        "11.6",
+        "11.6.1"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M24",
+      "pageIndex": 0,
+      "pageId": "L19-0-01",
+      "title": "Trace an audio/video chain from end to end",
+      "addedHeading": "Entertainment and security systems are chains of blocks",
+      "objectiveIDs": [
+        "17.1",
+        "17.5",
+        "17.9"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M25",
+      "pageIndex": 2,
+      "pageId": "L19-0-10",
+      "title": "Photocells, photodiodes and photovoltaic sources",
+      "addedHeading": "Photo-device construction influences its behavior",
+      "objectiveIDs": [
+        "18.3",
+        "18.3.1",
+        "18.3.2",
+        "18.4",
+        "18.6",
+        "18.6.1"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M26",
+      "pageIndex": 3,
+      "pageId": "L20-0-05",
+      "title": "Receiver blocks: antenna to intelligible output",
+      "addedHeading": "Communications transceiver versus broadcast receiver",
+      "objectiveIDs": [
+        "19.4",
+        "19.5",
+        "19.6",
+        "19.7",
+        "19.8"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M26",
+      "pageIndex": 4,
+      "pageId": "L20-0-11",
+      "title": "Received strength, noise and selectivity",
+      "addedHeading": "Radio alignment requires the manufacturer procedure",
+      "objectiveIDs": [
+        "19.4",
+        "19.5",
+        "19.6",
+        "19.7",
+        "19.8"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M08",
+      "pageIndex": 4,
+      "pageId": "L06-0-04",
+      "title": "Voltage/current phase diagrams are physical evidence",
+      "addedHeading": "Rectangular and polar impedance are two notations of one result",
+      "objectiveIDs": [
+        "4.9"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M27",
+      "pageIndex": 5,
+      "pageId": "L20-0-08",
+      "title": "Cellular and satellite service boundaries",
+      "addedHeading": "Wireless standards depend on the particular system",
+      "objectiveIDs": [
+        "20.2",
+        "20.3"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M28",
+      "pageIndex": 10,
+      "pageId": "L28-0-03",
+      "title": "Estimates and material planning quantify uncertainty",
+      "addedHeading": "Service billing: cost, labor, materials and approval",
+      "objectiveIDs": [
+        "21.1",
+        "21.3",
+        "21.5",
+        "21.7"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M28",
+      "pageIndex": 0,
+      "pageId": "L28-0-04",
+      "title": "Use service manuals before improvising",
+      "addedHeading": "Obtaining current service literature is a technical step",
+      "objectiveIDs": [
+        "21.2",
+        "21.4",
+        "21.6"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M28",
+      "pageIndex": 3,
+      "pageId": "L28-0-05",
+      "title": "Field planning versus laboratory planning",
+      "addedHeading": "Project management turns a repair into accountable steps",
+      "objectiveIDs": [
+        "21.8",
+        "21.9"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M15",
+      "pageIndex": 2,
+      "pageId": "L29-0-02",
+      "title": "Solder alloys, melting and application",
+      "addedHeading": "Why solder splatter occurs and how to avoid it",
+      "objectiveIDs": [
+        "5.1",
+        "5.2",
+        "5.3",
+        "5.9"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M19",
+      "pageIndex": 13,
+      "pageId": "L19-0-03",
+      "title": "Interface acceptance and documentation",
+      "addedHeading": "A connector is specified by more than the shell shape",
+      "objectiveIDs": [
+        "12.2",
+        "12.3"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M21",
+      "pageIndex": 9,
+      "pageId": "L17-0-02",
+      "title": "Network symptoms identify their failing layer",
+      "addedHeading": "Distinguish standalone software faults from network faults",
+      "objectiveIDs": [
+        "16.8",
+        "16.9",
+        "16.10"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M22",
+      "pageIndex": 1,
+      "pageId": "L19-0-04",
+      "title": "Copper pair, coaxial and optical signal paths",
+      "addedHeading": "Copper-pair, coax and fiber have different failure signatures",
+      "objectiveIDs": [
+        "7.1",
+        "7.2",
+        "7.3",
+        "7.4",
+        "7.5"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    },
+    {
+      "module": "M17",
+      "pageIndex": 10,
+      "pageId": "L11-1-00",
+      "title": "Input thresholds, hysteresis and undefined levels",
+      "addedHeading": "Undefined digital levels are not a third reliable logic state",
+      "objectiveIDs": [
+        "13.5",
+        "13.6",
+        "13.11"
+      ],
+      "notes": "An editorially reasoned transfer exercise or safety/errata clarification; not externally SME approved."
+    }
+  ]
+}
