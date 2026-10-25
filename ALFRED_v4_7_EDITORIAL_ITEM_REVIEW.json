@@ -1,0 +1,1620 @@
+{
+  "version": "v4.7",
+  "baseline": "deployed v4.6 commit 0d918615309dfbe7b1882d4c9fdbc3f1155eb669",
+  "authorities": [
+    "https://www.etai.org/comps/CETa_comps.pdf",
+    "https://www.etai.org/6thEdASTErrataSheet.pdf",
+    "https://www.etai.org/Common_Formulas.pdf",
+    "bundled Sixth Edition guide; no claim of exhaustive page validation"
+  ],
+  "scope": {
+    "editedInstructionalQuestionInstances": 62,
+    "distinctEditedIds": 61,
+    "teachingPageAdditions": 20,
+    "freshMockQuestionsModified": 0,
+    "historicalScoreStorageModified": false,
+    "coursePagesBeforeAndAfter": 373,
+    "mappedCompetencyCount": 262,
+    "standaloneQuestionTaggedEntries": 261,
+    "remainingFullBookReviewOpen": true
+  },
+  "heuristicWarning": {
+    "description": "A rule counting two or more obviously irrelevant/extreme words in wrong answers is only a rough editorial triage signal, not a calibrated difficulty score or proof of technical correctness.",
+    "flaggedInstancesBefore": 54,
+    "flaggedInstancesAfter": 31,
+    "stillNeedManualReview": true
+  },
+  "questionRepairs": [
+    {
+      "module": "M01",
+      "questionId": "CQ1049",
+      "objectiveIds": [
+        "1.1"
+      ],
+      "prompt": "Why can a shock prevent someone from releasing a live conductor?",
+      "correctAnswer": "Current can trigger involuntary muscle contraction.",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "The skin always becomes a perfect insulator.",
+        "The conductor loses all voltage on contact.",
+        "Only the person's conscious grip can hold the conductor."
+      ],
+      "replacementDistractors": [
+        "Shock normally reduces grip because motor neurons are inhibited.",
+        "A high-frequency shock always produces painless muscle relaxation.",
+        "A person can necessarily release any energized conductor voluntarily."
+      ],
+      "oldExplanation": "Shock can disrupt muscle control as well as breathing and heart rhythm. Never approach a live contact as a safe experiment.",
+      "newExplanation": "Current through the body can produce involuntary muscle contraction, including a sustained grip. The effect depends on path, magnitude, duration and frequency; loss of voluntary control is a danger, not a safe diagnostic sign.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M01",
+      "questionId": "CQ1050",
+      "objectiveIds": [
+        "1.4"
+      ],
+      "prompt": "A device specifies a particular fuse type and current rating. What is the appropriate replacement approach?",
+      "correctAnswer": "Use the specified type and ratings, including adequate voltage and interrupting ratings.",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "Use any fuse that fits if its current rating is higher.",
+        "Bridge the holder with wire during normal use.",
+        "Choose by glass color alone."
+      ],
+      "replacementDistractors": [
+        "Match the current rating and physical size, but ignore the voltage rating.",
+        "Use a fast-acting fuse whenever the specified part is time-delay.",
+        "Select a higher breaking-capacity value but freely change the current rating."
+      ],
+      "oldExplanation": "Physical fit is insufficient. Current, operating characteristic, voltage and interrupting capability are part of fuse selection.",
+      "newExplanation": "Fuse replacement must follow the equipment specification: current, speed/time-current characteristic, voltage and interrupting rating are separate requirements. A part that fits mechanically is not automatically electrically compatible.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M01",
+      "questionId": "CQ1052",
+      "objectiveIds": [
+        "1.7"
+      ],
+      "prompt": "A machine is switched off before service. Why is its ordinary Stop button insufficient proof of energy isolation?",
+      "correctAnswer": "Power could return, and stored or other energy sources may remain.",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "A Stop button always physically disconnects every energy source.",
+        "Stored energy disappears instantly when motion stops.",
+        "Lockout is only about labeling the repair date."
+      ],
+      "replacementDistractors": [
+        "A Stop button isolates the incoming source but not stored energy, so no verification is needed.",
+        "A stopped machine is isolated if its control indicator lamp is dark.",
+        "The disconnect need only be opened; controlling other stored or mechanical energy is unnecessary."
+      ],
+      "oldExplanation": "Follow the applicable authorized isolation and verification procedure. A control command is different from verified isolation.",
+      "newExplanation": "A control stop is not verified energy isolation. Authorized servicing follows the applicable lockout/tagout process, addresses all relevant sources and stored energy, and verifies a safe state before work.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M03",
+      "questionId": "CQ1060",
+      "objectiveIds": [
+        "3.1.3"
+      ],
+      "prompt": "An NTC thermistor warms within its operating range. What typically happens to its resistance?",
+      "correctAnswer": "It decreases.",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "It increases by definition.",
+        "It becomes exactly zero at room temperature.",
+        "It stays constant regardless of temperature."
+      ],
+      "replacementDistractors": [
+        "It increases, as in a common PTC temperature sensor.",
+        "It remains constant until the temperature reaches a single switching threshold.",
+        "It depends on applied current alone and not on temperature."
+      ],
+      "oldExplanation": "NTC means negative temperature coefficient. A PTC device has the opposite sign over its specified region.",
+      "newExplanation": "An NTC thermistor has a negative resistance-versus-temperature slope within its specified operating region. A PTC material changes in the opposite direction; resistance may be nonlinear.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M03",
+      "questionId": "ALF-M03-V15-Q06",
+      "objectiveIds": [
+        "3.1.1"
+      ],
+      "prompt": "Why is a 100 Ω wirewound part not always interchangeable with a 100 Ω film resistor?",
+      "correctAnswer": "Winding can add inductance and thermal ratings differ",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "All wirewound resistors are diodes",
+        "100 Ω means infinite power capacity",
+        "Resistor construction never affects operation"
+      ],
+      "replacementDistractors": [
+        "Equal marked resistance guarantees equal behavior at every frequency.",
+        "Only the tolerance band matters; both power rating and parasitics are identical.",
+        "A film resistor necessarily has more winding inductance than a wirewound part."
+      ],
+      "oldExplanation": "Equal DC resistance does not guarantee equal inductance, frequency response or power rating.",
+      "newExplanation": "DC resistance does not fully specify resistor behavior. A wound element may introduce appreciable inductance, while film and wirewound parts differ in pulse, temperature and power ratings.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M05",
+      "questionId": "CQ1078",
+      "objectiveIds": [
+        "6.3"
+      ],
+      "prompt": "Which drawing most directly shows electrical connections and component functions rather than physical wire routing?",
+      "correctAnswer": "Schematic",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "Shipping label",
+        "Mechanical packing drawing",
+        "Inventory invoice"
+      ],
+      "replacementDistractors": [
+        "Wiring diagram emphasizing point-to-point physical interconnections.",
+        "Functional block diagram emphasizing major stages and signal flow.",
+        "PCB assembly drawing emphasizing component placement and reference designators."
+      ],
+      "oldExplanation": "A schematic represents circuit relationships. A wiring diagram is more directly concerned with physical connections and routing.",
+      "newExplanation": "A schematic uses symbols to depict component-level electrical relationships. Wiring diagrams focus on physical interconnections, block diagrams show functional stages, and assembly drawings show placement. Compare the document to the actual troubleshooting task.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M05",
+      "questionId": "CQ1079",
+      "objectiveIds": [
+        "6.2"
+      ],
+      "prompt": "You need to isolate which major stage of a product fails. Which document is a useful starting overview?",
+      "correctAnswer": "Functional block diagram",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "Solder alloy certificate alone",
+        "A list of purchase prices",
+        "An unrelated component datasheet"
+      ],
+      "replacementDistractors": [
+        "Detailed wiring harness drawing that shows connector cavity numbering.",
+        "PCB assembly diagram that shows the location of individual components.",
+        "Component datasheet for one amplifier IC, before identifying the failing subsystem."
+      ],
+      "oldExplanation": "A block diagram helps localize a stage before detailed schematic tracing.",
+      "newExplanation": "A block diagram is the most efficient starting map of major signal and power stages. A schematic, wiring diagram and datasheet become useful after the defective functional region is localized.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M05",
+      "questionId": "CQ1080",
+      "objectiveIds": [
+        "6.4"
+      ],
+      "prompt": "Why identify test points and expected values before probing?",
+      "correctAnswer": "To compare a specific circuit prediction with a measurement",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "To avoid reading the schematic at all",
+        "To guarantee every accessible node is safe",
+        "To replace the instrument manual"
+      ],
+      "replacementDistractors": [
+        "To guarantee that voltage readings alone identify the failed component.",
+        "To avoid having to establish the reference node and probe category.",
+        "To choose the highest-range current jack as the default test input."
+      ],
+      "oldExplanation": "A planned test point connects a hypothesis to evidence; its safe accessibility and reference still need checking.",
+      "newExplanation": "A meaningful test checks a predicted value at a deliberately selected, safe test point. It still requires the correct reference and instrument rating; a mismatch narrows hypotheses rather than proving one failed part.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M05",
+      "questionId": "CQ1081",
+      "objectiveIds": [
+        "6.6"
+      ],
+      "prompt": "A signal is correct at an amplifier input but absent at its output. What is a useful next investigation?",
+      "correctAnswer": "Check that stage's supply, bias and connections against its schematic.",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "Replace every component in the product at once.",
+        "Assume the source is faulty despite the input measurement.",
+        "Increase input voltage beyond rated limits."
+      ],
+      "replacementDistractors": [
+        "Replace the amplifier IC immediately because the input measurement proves it failed.",
+        "Increase drive until the stage output appears, without checking its input and ratings.",
+        "Diagnose the upstream signal source first despite the confirmed signal at the amplifier input."
+      ],
+      "oldExplanation": "The measurements localize the problem to the stage or its loading and support circuitry; they do not prove one component has failed.",
+      "newExplanation": "A good input and missing output localize investigation to this stage and its supply, bias, connections or load. They do not distinguish those causes without further tests.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M05",
+      "questionId": "CQ1082",
+      "objectiveIds": [
+        "6.10"
+      ],
+      "prompt": "Before connecting an IC in a different package, what must be checked?",
+      "correctAnswer": "The pinout and orientation for that exact package",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "Only whether the package color matches",
+        "Whether the part name has the same number of letters",
+        "Only the supplier's shipping country"
+      ],
+      "replacementDistractors": [
+        "Check only the logical function and ignore the package pin map.",
+        "Use the first-page datasheet symbol as the physical pin numbering.",
+        "Assume equal pin counts imply identical power and ground locations."
+      ],
+      "oldExplanation": "Related ICs and different packages can have different pin assignments. Read the exact datasheet and orientation marks.",
+      "newExplanation": "The exact manufacturer datasheet, package-specific pinout and orientation are decisive. The same circuit function can appear in packages with different physical pin assignments.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M05",
+      "questionId": "CQ1088",
+      "objectiveIds": [
+        "8.3"
+      ],
+      "prompt": "How should a DMM normally be connected to measure DC voltage across a resistor?",
+      "correctAnswer": "In parallel, using the voltage input and suitable range",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "In parallel with the lead left in the high-current jack",
+        "In series in resistance mode",
+        "Across the source in current mode"
+      ],
+      "replacementDistractors": [
+        "In series with the resistor using the meter current input.",
+        "In parallel but with the meter in low-resistance/continuity mode.",
+        "Across the resistor using a high-current input with meter set to voltage."
+      ],
+      "oldExplanation": "A voltmeter samples potential difference with high input resistance. A current input across a source can create a short.",
+      "newExplanation": "A DMM measures voltage across two nodes, normally in parallel with a high-impedance voltage input. Current and resistance modes use different input circuits; connecting current mode across a source can be hazardous.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M05",
+      "questionId": "CQ1089",
+      "objectiveIds": [
+        "8.6"
+      ],
+      "prompt": "A voltmeter's input resistance is comparable to the resistance being measured across. What error is likely?",
+      "correctAnswer": "The meter loads the circuit and changes the voltage.",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "The meter becomes an ideal open circuit.",
+        "The circuit voltage is guaranteed unchanged.",
+        "The meter measures only frequency instead."
+      ],
+      "replacementDistractors": [
+        "The meter makes the load resistance effectively infinite.",
+        "The meter draws no current because it is digital.",
+        "The meter always raises the measured voltage by adding resistance in series."
+      ],
+      "oldExplanation": "The meter input forms part of the circuit. Use suitable input impedance and account for loading.",
+      "newExplanation": "Finite meter input resistance creates an extra parallel load on the measured nodes. This changes the divider or source loading. Use an instrument whose input impedance is sufficiently high for the circuit.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M05",
+      "questionId": "ALF-M05-V15-Q01",
+      "objectiveIds": [
+        "6.2"
+      ],
+      "prompt": "Which drawing primarily communicates functional blocks rather than every individual resistor connection?",
+      "correctAnswer": "Block diagram",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "PCB assembly photograph",
+        "Shipping manifest",
+        "Mechanical dimension table"
+      ],
+      "replacementDistractors": [
+        "Electrical schematic showing resistor and IC pin connectivity.",
+        "Wiring diagram showing connector and wire routing.",
+        "PCB layout drawing showing copper traces and footprints."
+      ],
+      "oldExplanation": "Block diagrams show stages and signal flow; schematics show element-level connectivity.",
+      "newExplanation": "A block diagram reduces a system to functional stages and signal paths. Schematics, wiring diagrams and PCB layouts provide different levels of electrical or physical detail.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M06",
+      "questionId": "CQ1090",
+      "objectiveIds": [
+        "8.12.1"
+      ],
+      "prompt": "A periodic oscilloscope trace drifts horizontally. Which control usually helps stabilize its display?",
+      "correctAnswer": "Trigger source, level and slope",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "Printer paper size",
+        "Display language",
+        "USB file name"
+      ],
+      "replacementDistractors": [
+        "Horizontal timebase position, which shifts but does not synchronize acquisitions.",
+        "Vertical volts-per-division, which changes displayed amplitude scale.",
+        "AC/DC coupling, which changes input components but not acquisition timing."
+      ],
+      "oldExplanation": "Trigger settings align successive acquisitions to an appropriate event in the signal.",
+      "newExplanation": "A suitable trigger source, edge and level align each acquisition to repeatable waveform events. Timebase and coupling affect the view but do not by themselves establish a stable trigger.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M07",
+      "questionId": "ALF-M07-V16-Q03",
+      "objectiveIds": [
+        "3.2"
+      ],
+      "prompt": "A nominal 10 µF ceramic capacitor exhibits lower effective capacitance at DC bias. A plausible cause?",
+      "correctAnswer": "DC bias characteristic of its dielectric",
+      "originalAnswerIndex": 1,
+      "oldDistractors": [
+        "It is always shorted",
+        "It contains no dielectric",
+        "All capacitors increase in capacitance with voltage"
+      ],
+      "replacementDistractors": [
+        "Its ripple-current rating varies with ambient temperature.",
+        "Its lead inductance increases under steady DC bias.",
+        "Its equivalent series resistance necessarily drops to zero as DC voltage rises."
+      ],
+      "oldExplanation": "Certain ceramic dielectrics show significant DC-bias capacitance reduction.",
+      "newExplanation": "Many high-permittivity ceramic dielectrics (for example some class-II MLCCs) lose effective capacitance with applied DC bias. Consult manufacturer capacitance-versus-bias curves; not all ceramic types behave identically.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M07",
+      "questionId": "ALF-M07-V16-Q06",
+      "objectiveIds": [
+        "3.3"
+      ],
+      "prompt": "Two 22 µH inductors have differing saturation-current ratings. Which criterion is essential for a 1 A converter?",
+      "correctAnswer": "Rated saturation/current performance at 1 A",
+      "originalAnswerIndex": 3,
+      "oldDistractors": [
+        "Same paint color",
+        "Same printed inductance only",
+        "Core shape alone"
+      ],
+      "replacementDistractors": [
+        "Only its nominal inductance measured at very small test current.",
+        "Only its DC resistance, without checking thermal or core effects.",
+        "Only the maximum frequency shown in a small-signal test."
+      ],
+      "oldExplanation": "Effective L can collapse near saturation; actual operating current matters.",
+      "newExplanation": "Inductor suitability depends on saturation behavior and RMS/thermal current rating at the actual waveform, not the nominal inductance alone. Excess peak current can collapse effective inductance.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M08",
+      "questionId": "CQ1056",
+      "objectiveIds": [
+        "2.10"
+      ],
+      "prompt": "For an ideal capacitor driven by a sinusoidal voltage, how does its current relate to voltage?",
+      "correctAnswer": "Current leads voltage by 90 degrees.",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "Current lags voltage by 90 degrees.",
+        "They are always in phase.",
+        "The capacitor permits only DC current."
+      ],
+      "replacementDistractors": [
+        "Current lags voltage by 90 degrees, as for an ideal inductor.",
+        "Current and voltage are in phase, as for a resistor.",
+        "Current leads voltage by 45 degrees, as in a generic RC network."
+      ],
+      "oldExplanation": "Capacitor current is proportional to the rate of change of its voltage. An ideal inductor has the opposite phase relation.",
+      "newExplanation": "For a sinusoid through an ideal capacitor, i=C dv/dt, so current leads the capacitor voltage by 90°. The direction reverses for an ideal inductor; a resistor has zero phase difference.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M08",
+      "questionId": "CQ1069",
+      "objectiveIds": [
+        "4.13"
+      ],
+      "prompt": "A first-order RC low-pass filter is used to smooth a signal. Which components of the input are attenuated more strongly?",
+      "correctAnswer": "Frequencies well above its cutoff",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "All DC components only",
+        "Frequencies well below cutoff only",
+        "Every frequency by exactly the same ratio"
+      ],
+      "replacementDistractors": [
+        "Frequencies well below cutoff, while higher frequencies pass.",
+        "Both DC and all AC frequencies by the same factor.",
+        "Frequencies exactly at the cutoff only, leaving other frequencies unchanged."
+      ],
+      "oldExplanation": "A low-pass passes lower frequencies more readily and increasingly attenuates higher ones.",
+      "newExplanation": "An RC low-pass preferentially passes low frequency and attenuates the output more as frequency rises. Its cutoff is not a hard on/off boundary: a first-order stage is about -3 dB at cutoff.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M08",
+      "questionId": "ALF-M08-V16-Q08",
+      "objectiveIds": [
+        "4.13"
+      ],
+      "prompt": "The measured RC filter cutoff is a decade lower than expected; likely first check?",
+      "correctAnswer": "Any tenfold R or C value/prefix discrepancy",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "Replace all active ICs",
+        "Ignore measured values",
+        "Change the PCB color"
+      ],
+      "replacementDistractors": [
+        "A tenfold decrease in either measured R or C value.",
+        "Replacing the resistor with one having the same value but a tighter tolerance.",
+        "A timebase change on the oscilloscope that preserves the actual waveform period."
+      ],
+      "oldExplanation": "fc inversely scales with RC, so a tenfold shift suggests value/units/loading checks.",
+      "newExplanation": "For an unloaded first-order RC low-pass, f_c=1/(2πRC). A measured cutoff ten times lower suggests RC is ten times larger, loading is altering the response, or values/units were misread.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M09",
+      "questionId": "CQ1058",
+      "objectiveIds": [
+        "2.2"
+      ],
+      "prompt": "A coil has a voltage induced across it when nearby magnetic flux changes. Which principle explains this?",
+      "correctAnswer": "Electromagnetic induction",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "Electrostatic shielding only",
+        "Ohmic heating only",
+        "Digital quantization"
+      ],
+      "replacementDistractors": [
+        "Electrostatic induction due to a stationary electric field.",
+        "Joule heating due solely to winding DC resistance.",
+        "A Hall voltage produced without field change or current."
+      ],
+      "oldExplanation": "Changing flux linked with a coil induces voltage. A constant flux alone does not sustain transformer action.",
+      "newExplanation": "Faraday induction associates changing magnetic flux linkage with induced emf. Static flux in a motionless winding does not produce a sustained transformer output.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M09",
+      "questionId": "CQ1066",
+      "objectiveIds": [
+        "3.9.1"
+      ],
+      "prompt": "A normally-open relay contact is described in which condition?",
+      "correctAnswer": "The relay's unenergized state",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "The highest possible coil current state",
+        "Any state where its load is an AC circuit",
+        "Only the instant its contacts first touch"
+      ],
+      "replacementDistractors": [
+        "The state after rated coil voltage has operated the relay.",
+        "The condition when line voltage is first applied to the contact load.",
+        "The state of an arbitrary solid-state output after power is removed."
+      ],
+      "oldExplanation": "NO and NC describe the normal unenergized condition; check the specific contact diagram.",
+      "newExplanation": "Normally open or normally closed describes the contact state with the relay in its normal unoperated condition, typically with the coil not energized. Never infer physical wiring from the label alone.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M09",
+      "questionId": "ALF-M09-V16-Q02",
+      "objectiveIds": [
+        "2.2"
+      ],
+      "prompt": "Which condition is needed to induce a sustained voltage in a motionless secondary coil?",
+      "correctAnswer": "Changing flux linking the winding",
+      "originalAnswerIndex": 2,
+      "oldDistractors": [
+        "Static nearby magnet only",
+        "A resistor label",
+        "Zero input energy"
+      ],
+      "replacementDistractors": [
+        "A constant DC flux with no relative motion or change.",
+        "A continuously energized primary that has reached steady DC state.",
+        "A shorted secondary with no linked flux change."
+      ],
+      "oldExplanation": "Induced emf depends on time-varying flux.",
+      "newExplanation": "Faraday’s law requires time-varying linked flux for sustained induced voltage in a stationary secondary. A DC primary produces only transient induced voltage while its current changes.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M09",
+      "questionId": "ALF-M09-V16-Q04",
+      "objectiveIds": [
+        "3.4.2"
+      ],
+      "prompt": "A transformer driven with equal RMS voltage but lower than rated frequency may risk:",
+      "correctAnswer": "Excess flux and core saturation",
+      "originalAnswerIndex": 3,
+      "oldDistractors": [
+        "Higher rated output automatically",
+        "Reduced core flux always",
+        "No change ever"
+      ],
+      "replacementDistractors": [
+        "A decrease in flux density because each cycle lasts longer.",
+        "Unchanged magnetizing current whenever RMS input voltage is fixed.",
+        "A lower V/f ratio even though voltage is held constant."
+      ],
+      "oldExplanation": "Flux swing roughly scales with V/f under relevant winding conditions.",
+      "newExplanation": "Approximately, core flux swing scales with V/f for comparable sinusoidal conditions. Holding RMS voltage fixed while reducing frequency raises flux demand and may drive the core toward saturation and overheating.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M12",
+      "questionId": "ALF-M12-V17-Q05",
+      "objectiveIds": [
+        "3.5.1"
+      ],
+      "prompt": "Which can normally conduct at zero gate bias?",
+      "correctAnswer": "Typical JFET",
+      "originalAnswerIndex": 2,
+      "oldDistractors": [
+        "Typical enhancement NMOS only",
+        "Any LED",
+        "Any diode bridge"
+      ],
+      "replacementDistractors": [
+        "An enhancement-mode MOSFET with VGS well below threshold.",
+        "A conventional silicon PN diode without forward bias.",
+        "An SCR that has never received triggering current or breakover conditions."
+      ],
+      "oldExplanation": "Many JFETs are depletion devices and conduct at VGS=0.",
+      "newExplanation": "A typical depletion-mode JFET conducts with gate-source voltage near zero; a suitable reverse gate bias reduces current. Enhancement MOSFETs are ordinarily off below threshold.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M13",
+      "questionId": "CQ1098",
+      "objectiveIds": [
+        "10.1"
+      ],
+      "prompt": "Why can an unplugged power supply remain hazardous?",
+      "correctAnswer": "Its capacitors may retain charge.",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "Unplugging always removes all stored energy instantly.",
+        "A disconnected supply cannot contain voltage.",
+        "Only its display can retain energy."
+      ],
+      "replacementDistractors": [
+        "A line-frequency transformer cannot conduct DC, so the output is safe immediately.",
+        "A bleeder resistor, if fitted, necessarily discharges every capacitor instantly.",
+        "Switching the wall outlet off removes charge already stored inside filter capacitors."
+      ],
+      "oldExplanation": "Stored energy must be handled under the relevant safe procedure. These course labs use approved low-voltage sources, not mains repair.",
+      "newExplanation": "Disconnected supplies can retain substantial capacitor energy. Follow qualified isolation, discharge and measurement procedures rather than guessing from the plug state. No mains work is part of Alfred’s physical labs.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M13",
+      "questionId": "CQ1100",
+      "objectiveIds": [
+        "10.4"
+      ],
+      "prompt": "In a basic rectifier supply, what does a reservoir capacitor do between charging peaks?",
+      "correctAnswer": "Supplies load current while its voltage falls",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "Generates unlimited energy",
+        "Blocks all DC load current by definition",
+        "Changes the mains frequency itself"
+      ],
+      "replacementDistractors": [
+        "Converts rectified pulses into a constant current without voltage ripple.",
+        "Raises the AC mains frequency before rectification.",
+        "Guarantees a fixed regulated voltage regardless of load or supply."
+      ],
+      "oldExplanation": "Its stored energy supports the load between peaks. More load current or less capacitance generally increases ripple.",
+      "newExplanation": "The capacitor charges near rectifier peaks and supplies the load between peaks, allowing its voltage to droop. Ripple depends on load current, capacitance and charging frequency; a reservoir alone is not a voltage regulator.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M13",
+      "questionId": "CQ1101",
+      "objectiveIds": [
+        "10.5"
+      ],
+      "prompt": "What is a regulator intended to maintain within specified limits?",
+      "correctAnswer": "Output voltage as input or load changes",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "Exactly zero input power",
+        "Infinite output current",
+        "The same temperature under every condition"
+      ],
+      "replacementDistractors": [
+        "Eliminate all ripple at any output frequency and load.",
+        "Maintain input power unchanged even as the load varies.",
+        "Keep the supply within rating even when input headroom is insufficient."
+      ],
+      "oldExplanation": "Regulation has operating limits, including input headroom, load capability and thermal constraints.",
+      "newExplanation": "A voltage regulator maintains output within a specified load/input operating envelope. Dropout/headroom, maximum current, thermal limits and ripple rejection remain relevant.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M13",
+      "questionId": "CQ1102",
+      "objectiveIds": [
+        "10.11"
+      ],
+      "prompt": "Which description best matches a switch-mode power supply?",
+      "correctAnswer": "It switches a power device and transfers energy through reactive components.",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "It relies only on a series resistor for all regulation.",
+        "It never produces switching ripple.",
+        "It needs no feedback or control under any circumstances."
+      ],
+      "replacementDistractors": [
+        "Linear pass-device control without high-frequency switching or magnetic energy transfer.",
+        "An unregulated diode-capacitor rectifier with no switching control.",
+        "A fixed resistor divider that sets the load voltage independent of load current."
+      ],
+      "oldExplanation": "Switching converters use controlled energy transfer. Filtering, regulation and layout still matter.",
+      "newExplanation": "An SMPS periodically switches a power device and uses capacitors/inductors or transformer energy transfer. Feedback and filtering shape regulation; switching ripple and EMI require management.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M14",
+      "questionId": "CQ1103",
+      "objectiveIds": [
+        "11.7"
+      ],
+      "prompt": "An amplifier's output flattens near its voltage limits as input amplitude increases. What is happening?",
+      "correctAnswer": "Clipping",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "Perfect linear amplification",
+        "A reduction in the source frequency to zero",
+        "An increase in ADC bit count"
+      ],
+      "replacementDistractors": [
+        "Crossover distortion near the zero crossing of a push-pull stage.",
+        "Slew-rate limitation causing a triangular response to high-frequency input.",
+        "A gain change that keeps the entire output waveform sinusoidal."
+      ],
+      "oldExplanation": "The demanded output exceeds available swing. Reduce amplitude or redesign within device limits.",
+      "newExplanation": "Clipping flattens the signal at its amplitude limits when the demanded output exceeds allowable swing. Crossover and slew distortion have different waveforms and mechanisms.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M14",
+      "questionId": "CQ1105",
+      "objectiveIds": [
+        "11.3"
+      ],
+      "prompt": "An idealized class A output device conducts for how much of a full signal cycle?",
+      "correctAnswer": "The entire cycle",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "Exactly one quarter",
+        "Less than half by definition",
+        "Only when the power is switched off"
+      ],
+      "replacementDistractors": [
+        "Approximately half the cycle, as in an idealized class B stage.",
+        "More than half but less than a full cycle, as in class AB.",
+        "Less than half the cycle, as in a class C stage."
+      ],
+      "oldExplanation": "Class A operation uses conduction throughout the cycle; other classes trade conduction angle, efficiency and distortion.",
+      "newExplanation": "An ideal class A output device conducts for 360° of the signal cycle, unlike B (180°), AB (between 180° and 360°) or C (under 180°).",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M14",
+      "questionId": "CQ1107",
+      "objectiveIds": [
+        "11.4"
+      ],
+      "prompt": "What does an amplifier's frequency response describe?",
+      "correctAnswer": "How its gain and phase vary with frequency",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "Only the maximum DC supply voltage",
+        "Only its physical dimensions",
+        "The exact resistance of every cable connected to it"
+      ],
+      "replacementDistractors": [
+        "The maximum linear output power at one test frequency only.",
+        "The ratio of input and output impedances as DC resistance.",
+        "Only the device thermal response over time, not its signal behavior."
+      ],
+      "oldExplanation": "Frequency response helps determine whether the amplifier can reproduce the intended signal band.",
+      "newExplanation": "Frequency response describes changes in amplifier gain and often phase across frequency. A nominal single-frequency gain does not establish bandwidth, roll-off or stability.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M15",
+      "questionId": "CQ1073",
+      "objectiveIds": [
+        "5.4"
+      ],
+      "prompt": "What is the main purpose of suitable solder flux?",
+      "correctAnswer": "Remove or limit surface oxides so solder can wet the joint",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "Replace the electrical conductor",
+        "Make every solder alloy melt at room temperature",
+        "Provide permanent mechanical strength by itself"
+      ],
+      "replacementDistractors": [
+        "Add solder mass so the joint can form without reaching wetting temperature.",
+        "Act as the primary structural bonding metal in place of solder.",
+        "Increase the melting point of every solder alloy during heating."
+      ],
+      "oldExplanation": "Flux assists wetting; it does not replace proper heat, compatible materials, or a sound joint.",
+      "newExplanation": "Flux chemically helps remove or inhibit oxides and promotes wetting; appropriate alloy, temperature, cleanliness and joint geometry remain necessary. Flux does not substitute for solder or safe processing.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M15",
+      "questionId": "ALF-M15-V17-Q03",
+      "objectiveIds": [
+        "5.4"
+      ],
+      "prompt": "Solder beads on a pad rather than wetting it. Best explanation?",
+      "correctAnswer": "Oxides/heat/flux conditions may be wrong",
+      "originalAnswerIndex": 1,
+      "oldDistractors": [
+        "Joint must be excellent",
+        "More solder always fixes it",
+        "It is always a diode fault"
+      ],
+      "replacementDistractors": [
+        "The solder reached the specified melting point, proving wetting.",
+        "The component lead is too long but all metallurgical surfaces are clean.",
+        "Flux residue alone certifies that the pad has fully wetted."
+      ],
+      "oldExplanation": "A ball of solder alone is not proof of proper metallurgical wetting.",
+      "newExplanation": "Solder beading rather than spreading suggests inadequate wetting from contamination/oxides, insufficient heating or unsuitable flux/materials. Inspect the actual fillet and bonding surfaces.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M17",
+      "questionId": "CQ1117",
+      "objectiveIds": [
+        "13.11"
+      ],
+      "prompt": "What must be compared before connecting outputs and inputs from different logic families?",
+      "correctAnswer": "Guaranteed output levels, input thresholds and allowed voltages",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "Only package color",
+        "Only the number of gates on a chip",
+        "Only whether both use binary symbols"
+      ],
+      "replacementDistractors": [
+        "Only the output logic-high typical voltage, ignoring worst-case input-high threshold.",
+        "Only whether both families use the same supply voltage, ignoring input limits.",
+        "Only their switching speeds, because noise margins cannot affect compatibility."
+      ],
+      "oldExplanation": "Binary names do not guarantee electrical compatibility. Datasheet limits control interfacing.",
+      "newExplanation": "Compare worst-case VOH/VOL against VIH/VIL, absolute maximum inputs and common reference conditions. Binary labels alone do not prove voltage-level compatibility or adequate noise margin.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M19",
+      "questionId": "CQ1108",
+      "objectiveIds": [
+        "12.5"
+      ],
+      "prompt": "In ordinary I²C communication, which two signal lines are used?",
+      "correctAnswer": "SDA and SCL",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "MOSI and MISO only",
+        "TX and RX only",
+        "Line and neutral"
+      ],
+      "replacementDistractors": [
+        "SCLK and MOSI, which are conventional SPI signals.",
+        "TXD and RXD, which are conventional asynchronous UART lines.",
+        "CAN_H and CAN_L, which are CAN differential-bus signals."
+      ],
+      "oldExplanation": "I²C uses serial data and serial clock. It also needs compatible levels and a suitable reference connection.",
+      "newExplanation": "I²C uses SDA (serial data) and SCL (serial clock), typically open-drain lines with appropriate pull-ups. SPI, UART and CAN use different signal arrangements.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M19",
+      "questionId": "CQ1110",
+      "objectiveIds": [
+        "12.1"
+      ],
+      "prompt": "A 3.3 V microcontroller input is not rated for 5 V. What must be checked before attaching a 5 V output?",
+      "correctAnswer": "A suitable level conversion or otherwise compatible interface",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "Only that the connectors physically fit",
+        "Only whether the signals have the same name",
+        "Whether both boards have green solder mask"
+      ],
+      "replacementDistractors": [
+        "Connect the 5 V push-pull output directly because a logic-high name implies compatibility.",
+        "Use only a common-ground connection and ignore the maximum rated input voltage.",
+        "Add a pull-up to 5 V on the 3.3 V input without checking tolerance."
+      ],
+      "oldExplanation": "Logic levels and absolute maximum limits matter. A matching connector does not establish electrical compatibility.",
+      "newExplanation": "Before interfacing, check absolute-maximum voltage and logic thresholds. Use a compatible level shifter, appropriate divider where suitable, or a specifically 5 V-tolerant input; pin fit is insufficient.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M19",
+      "questionId": "CQ1111",
+      "objectiveIds": [
+        "12.3"
+      ],
+      "prompt": "Two low-voltage, nonisolated UART devices need which reference relationship?",
+      "correctAnswer": "A compatible common signal reference established safely",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "No reference connection under any conditions",
+        "A direct connection of every power rail together",
+        "An arbitrary mains-earth connection to a signal pin"
+      ],
+      "replacementDistractors": [
+        "A differential RS-485 pair alone with no UART ground/reference consideration.",
+        "Tie the two separate positive supply rails together to force equal voltages.",
+        "Reference each UART logic level to its own unrelated floating ground without isolation."
+      ],
+      "oldExplanation": "Nonisolated logic voltage is measured relative to a reference. Check the equipment grounding and power arrangement before joining devices.",
+      "newExplanation": "Standard nonisolated logic-level UART links need a compatible signal reference and allowable levels. Ground connections require assessing the power/grounding scheme; galvanic isolation is an alternative when grounds cannot safely be shared.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M20",
+      "questionId": "ALF-M20-V18-Q04",
+      "objectiveIds": [
+        "15.5"
+      ],
+      "prompt": "A 1 ms sensor pulse can be missed by a typical 10 ms PLC input scan. Why?",
+      "correctAnswer": "The pulse can occur entirely between input reads",
+      "originalAnswerIndex": 1,
+      "oldDistractors": [
+        "All PLCs are broken",
+        "PLC outputs have no voltage",
+        "Memory always resets"
+      ],
+      "replacementDistractors": [
+        "The PLC always latches every pulse regardless of scan period.",
+        "The input is sampled faster than the pulse by definition.",
+        "Input filtering necessarily stretches every brief pulse until the next scan."
+      ],
+      "oldExplanation": "Normal cyclic sampling can miss shorter pulses unless input capture is designed appropriately.",
+      "newExplanation": "With ordinary cyclic input sampling, a 1 ms pulse may start and end between 10 ms scans. High-speed inputs, pulse stretching, or interrupts are needed when guaranteed capture is required.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M21",
+      "questionId": "CQ1123",
+      "objectiveIds": [
+        "16.6"
+      ],
+      "prompt": "Which check makes a backup more trustworthy?",
+      "correctAnswer": "Restoring a test copy and verifying the files are usable",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "Renaming the original file without copying it",
+        "Keeping the only copy on the failing drive",
+        "Deleting version information from all copies"
+      ],
+      "replacementDistractors": [
+        "A successful file-copy dialog without opening any restored file.",
+        "A second backup stored on the same failing physical drive.",
+        "A checksum match against a copy with the same undetected corruption."
+      ],
+      "oldExplanation": "A backup must be recoverable. A restore test checks that the saved material can actually be used.",
+      "newExplanation": "Restoring a test copy confirms that the backup is recoverable and its contents usable. File presence alone, one storage device, or a checksum of already-corrupt material is not enough.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M21",
+      "questionId": "CQ1124",
+      "objectiveIds": [
+        "16.8"
+      ],
+      "prompt": "An unexpected message asks for your password to download a board driver. What is the appropriate response?",
+      "correctAnswer": "Verify the source independently and use the manufacturer's trusted download route.",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "Send the password to make installation faster.",
+        "Disable all security protections permanently.",
+        "Reuse a colleague's credentials."
+      ],
+      "replacementDistractors": [
+        "Enter the password only if the sender displays a familiar company logo.",
+        "Reuse a coworker’s credentials while checking the request.",
+        "Install the driver first and decide whether the source was trusted afterward."
+      ],
+      "oldExplanation": "Source verification reduces phishing and malicious software risk; unsolicited requests are not proof of authenticity.",
+      "newExplanation": "Unsolicited password prompts and download links require independent source verification. Official manufacturer/support distribution and least privilege reduce credential theft and malicious installation.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M21",
+      "questionId": "CQ1125",
+      "objectiveIds": [
+        "16.3"
+      ],
+      "prompt": "A USB instrument is connected but not recognized. What is a useful first software check?",
+      "correctAnswer": "Check the operating system's device status and the correct driver requirements.",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "Reinstall unrelated games.",
+        "Change the oscilloscope trace color.",
+        "Delete all measurement records."
+      ],
+      "replacementDistractors": [
+        "Replace the USB cable immediately without checking the operating system enumeration.",
+        "Reinstall all instrument software without recording the device status.",
+        "Assume an unknown-device entry proves permanent instrument hardware failure."
+      ],
+      "oldExplanation": "Device status and supported drivers help isolate a host configuration problem before replacing hardware.",
+      "newExplanation": "Inspect host detection, enumerated device information and recommended drivers first. Distinguish cable/power faults from driver/permission errors before changing hardware.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M22",
+      "questionId": "CQ1085",
+      "objectiveIds": [
+        "7.7"
+      ],
+      "prompt": "A transmission line has an improperly matched termination. What may result?",
+      "correctAnswer": "Reflections that distort the received waveform",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "Guaranteed elimination of all noise",
+        "The same behavior at every possible frequency and length",
+        "Automatic conversion to an optical signal"
+      ],
+      "replacementDistractors": [
+        "The transmission line’s characteristic impedance becomes equal to its DC wire resistance.",
+        "The termination prevents propagation delay but preserves amplitude and phase.",
+        "A pure decrease in conductor resistance with no frequency-dependent response."
+      ],
+      "oldExplanation": "Impedance discontinuities reflect part of a traveling signal. Connector and cable choices matter as well as DC continuity.",
+      "newExplanation": "A mismatch reflects part of a traveling wave. Reflections can distort pulses or produce standing waves; the impact depends on line length, frequency, source and load impedance.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M22",
+      "questionId": "CQ1087",
+      "objectiveIds": [
+        "7.12"
+      ],
+      "prompt": "Which check is appropriate for a newly crimped low-voltage harness?",
+      "correctAnswer": "Inspect the specified crimp and verify pin-to-pin continuity and unintended shorts.",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "Accept it solely because the insulation color looks right.",
+        "Assume a connector latch proves every pin is correct.",
+        "Test by exceeding its current rating."
+      ],
+      "replacementDistractors": [
+        "Verify continuity only between the first and last pins; leave the interior pins untested.",
+        "Accept a mechanical pull test as proof there are no swapped conductors.",
+        "Check conductor colors only, without a pin map or shorts test."
+      ],
+      "oldExplanation": "Mechanical workmanship and electrical pin mapping are separate checks; use the connector and tool manufacturer's criteria.",
+      "newExplanation": "Correct termination requires both mechanical inspection and electrical verification of every intended pin map plus unintended shorts. Pull strength alone cannot prove a harness is wired correctly.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M23",
+      "questionId": "KC20-0",
+      "objectiveIds": [],
+      "prompt": "What does a spectrum analyzer primarily display?",
+      "correctAnswer": "Signal magnitude versus frequency",
+      "originalAnswerIndex": 1,
+      "oldDistractors": [
+        "Voltage versus time only",
+        "Resistance versus temperature",
+        "Source code versus memory"
+      ],
+      "replacementDistractors": [
+        "Voltage amplitude versus time in a time-domain oscilloscope trace.",
+        "Phase versus time without selecting a frequency bin.",
+        "Frequency versus time only, as in a spectrogram."
+      ],
+      "oldExplanation": "Correct. It separates signal energy by frequency, subject to span, bandwidth, detector, and amplitude settings.",
+      "newExplanation": "A spectrum analyzer primarily represents the signal amplitude/power as a function of frequency, subject to resolution bandwidth, detector and display settings. An oscilloscope represents voltage versus time; a spectrogram adds a time dimension.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M24",
+      "questionId": "CQ1128",
+      "objectiveIds": [
+        "17.2"
+      ],
+      "prompt": "A microphone performs which conversion?",
+      "correctAnswer": "Sound pressure variations into an electrical signal",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "An electrical signal into a visual image",
+        "DC power into radio frequency by definition",
+        "A stored file directly into mechanical cable strain"
+      ],
+      "replacementDistractors": [
+        "Electrical sound-frequency power into diaphragm motion, as in a loudspeaker.",
+        "A digital audio bit stream directly into light, as in an optical transmitter.",
+        "Electrical signal amplitude directly into sound pressure, as in a headphone driver."
+      ],
+      "oldExplanation": "Microphones are acoustic input transducers; speakers perform the opposite audio conversion.",
+      "newExplanation": "A microphone converts acoustic pressure/motion into an electrical representation; speakers and headphones perform the reverse. Some microphones include internal electronics or digital interfaces, but the sensing transduction remains acoustic to electrical.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M24",
+      "questionId": "CQ1130",
+      "objectiveIds": [
+        "17.6"
+      ],
+      "prompt": "A clean audio input becomes visibly clipped at the amplifier output. Which cause should be checked?",
+      "correctAnswer": "The output is being driven beyond available signal swing.",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "The amplifier has infinite headroom.",
+        "The speaker cable converts every signal into DC.",
+        "The output is proven distortion-free."
+      ],
+      "replacementDistractors": [
+        "A crossover notch caused by improperly biased push-pull output devices.",
+        "Insufficient high-frequency slew rate that causes primarily slope-limited waveforms.",
+        "A low-frequency response roll-off that attenuates amplitude without rail flattening."
+      ],
+      "oldExplanation": "Clipping is a nonlinear limit. Check levels, supply conditions, load and device limits.",
+      "newExplanation": "Flat-topped output peaks with a clean input indicate overdrive/clipping near stage voltage or current limits. Distinguish from crossover distortion at zero crossing and slew-limiting distortion on fast transitions.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M24",
+      "questionId": "CQ1132",
+      "objectiveIds": [
+        "17.9"
+      ],
+      "prompt": "Why should a speaker-level output not be assumed safe for a microphone input?",
+      "correctAnswer": "Its level and power capability may exceed the input's limits.",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "All audio connectors use identical levels.",
+        "A microphone input always accepts any power.",
+        "Audio frequency alone guarantees voltage compatibility."
+      ],
+      "replacementDistractors": [
+        "The signal frequency is within the human hearing range, so its voltage is acceptable.",
+        "The connectors use a common 1/4-inch or XLR physical format, proving identical level.",
+        "The microphone input normally has high impedance, so the speaker output voltage is automatically safe."
+      ],
+      "oldExplanation": "Signal-level compatibility must be checked even when connectors or signal content appear similar.",
+      "newExplanation": "Speaker-level outputs can deliver much higher voltage/current than microphone inputs tolerate. Connectors and audio-band frequency do not establish level, grounding or power compatibility.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M24",
+      "questionId": "KC20-0",
+      "objectiveIds": [],
+      "prompt": "What does a spectrum analyzer primarily display?",
+      "correctAnswer": "Signal magnitude versus frequency",
+      "originalAnswerIndex": 1,
+      "oldDistractors": [
+        "Voltage versus time only",
+        "Resistance versus temperature",
+        "Source code versus memory"
+      ],
+      "replacementDistractors": [
+        "Voltage amplitude versus time in a time-domain oscilloscope trace.",
+        "Phase versus time without selecting a frequency bin.",
+        "Frequency versus time only, as in a spectrogram."
+      ],
+      "oldExplanation": "Correct. It separates signal energy by frequency, subject to span, bandwidth, detector, and amplitude settings.",
+      "newExplanation": "A spectrum analyzer primarily represents the signal amplitude/power as a function of frequency, subject to resolution bandwidth, detector and display settings. An oscilloscope represents voltage versus time; a spectrogram adds a time dimension.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M25",
+      "questionId": "CQ1133",
+      "objectiveIds": [
+        "18.5"
+      ],
+      "prompt": "What is the main purpose of an optocoupler in a suitable isolation circuit?",
+      "correctAnswer": "Transfer a signal optically across an electrical isolation barrier",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "Connect both grounds with a low-resistance wire",
+        "Increase a fuse's current rating",
+        "Provide unlimited output power"
+      ],
+      "replacementDistractors": [
+        "Transfer electrical power across a barrier with no other power supply required.",
+        "Guarantee safe mains isolation regardless of device insulation ratings or PCB spacing.",
+        "Provide DC continuity between two grounds to reduce signal noise."
+      ],
+      "oldExplanation": "The optical path transfers information while a specified barrier separates circuits. Isolation ratings and layout still apply.",
+      "newExplanation": "An optocoupler couples information through light while providing a rated galvanic-isolation barrier. It does not by itself guarantee a safe installation: insulation class, creepage, clearance and component ratings still matter.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M25",
+      "questionId": "CQ1135",
+      "objectiveIds": [
+        "18.2.2"
+      ],
+      "prompt": "How does a conventional LCD differ from an OLED display?",
+      "correctAnswer": "An LCD modulates light; OLED pixels emit light.",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "LCD pixels always generate light without another source.",
+        "OLED pixels require a liquid-crystal shutter by definition.",
+        "Both are mechanical ink printers."
+      ],
+      "replacementDistractors": [
+        "An LCD uses self-emissive subpixels while OLED requires an LED backlight.",
+        "Both displays use liquid-crystal shutters; the distinction is driver timing only.",
+        "OLED pixels modulate a common polarized backlight rather than emitting light."
+      ],
+      "oldExplanation": "Display technologies use different mechanisms. Backlighting and pixel emission affect power, contrast and viewing behavior.",
+      "newExplanation": "Conventional LCD pixels modulate illumination (typically from a backlight). OLED elements emit light directly, affecting contrast, black levels, response and lifetime characteristics.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M25",
+      "questionId": "CQ1137",
+      "objectiveIds": [
+        "18.2.1"
+      ],
+      "prompt": "Why is an LED normally operated with controlled current?",
+      "correctAnswer": "Its steep current-voltage behavior can allow damaging current without limitation.",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "It has infinite internal resistance at every voltage.",
+        "It automatically regulates current at any supply voltage.",
+        "Its color alone sets a safe current for every circuit."
+      ],
+      "replacementDistractors": [
+        "An LED is a linear resistor whose current is set directly by a fixed resistance.",
+        "An LED’s forward voltage is exactly constant across every current and temperature.",
+        "A constant-voltage source without current limiting necessarily maintains rated LED current."
+      ],
+      "oldExplanation": "Use an appropriate resistor or driver based on supply, forward voltage and current ratings.",
+      "newExplanation": "The forward I–V relation is strongly nonlinear and changes with temperature. A series resistor or constant-current driver is selected from supply range, forward-voltage spread and allowable operating current.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M26",
+      "questionId": "CQ1138",
+      "objectiveIds": [
+        "19.4"
+      ],
+      "prompt": "Which carrier property changes in ideal frequency modulation?",
+      "correctAnswer": "Instantaneous frequency",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "Only average DC supply current",
+        "Only the cable length",
+        "Only the speaker impedance"
+      ],
+      "replacementDistractors": [
+        "The carrier’s envelope amplitude only, as in ideal AM.",
+        "The phase changes only by switching between two discrete fixed symbols.",
+        "The carrier frequency stays fixed while modulation moves only the antenna impedance."
+      ],
+      "oldExplanation": "FM encodes information through frequency variation; AM uses amplitude variation.",
+      "newExplanation": "In FM, instantaneous carrier frequency changes with the modulating signal, ideally at constant amplitude. AM varies envelope amplitude; digital phase modulation is a separate mechanism.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M26",
+      "questionId": "CQ1139",
+      "objectiveIds": [
+        "19.6"
+      ],
+      "prompt": "In a superheterodyne receiver, what does the mixer help produce?",
+      "correctAnswer": "An intermediate-frequency signal by frequency conversion",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "Only a mechanical tuning force",
+        "A guaranteed zero-noise output",
+        "An isolated battery supply"
+      ],
+      "replacementDistractors": [
+        "A baseband signal directly from the antenna without local-oscillator conversion.",
+        "An RF gain stage that only changes amplitude, leaving frequencies unchanged.",
+        "A detector that removes all IF filtering by converting directly to DC."
+      ],
+      "oldExplanation": "Mixing the received signal with a local oscillator produces sum and difference components; filtering selects the intended IF.",
+      "newExplanation": "A superheterodyne mixer combines incoming RF with an LO to generate sum/difference components; an IF filter selects a useful difference or sum product. Gain-only amplification does not change frequency.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M26",
+      "questionId": "CQ1141",
+      "objectiveIds": [
+        "19.9"
+      ],
+      "prompt": "What does a high VSWR usually indicate on a transmission line?",
+      "correctAnswer": "A significant impedance mismatch and reflected wave",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "Perfect matching by definition",
+        "Exactly zero reflected energy",
+        "The absence of any transmitted frequency"
+      ],
+      "replacementDistractors": [
+        "Very low reflected energy and nearly ideal impedance matching.",
+        "Excessive attenuation in the line with no impedance discontinuity whatsoever.",
+        "Good DC continuity and therefore a guaranteed 1:1 match at RF."
+      ],
+      "oldExplanation": "Standing waves result from forward and reflected waves. A match minimizes reflection under the stated conditions.",
+      "newExplanation": "High VSWR indicates significant reflected power from a mismatch. It does not alone identify which component caused the mismatch, and ordinary DC continuity cannot verify RF impedance matching.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M26",
+      "questionId": "CQ1142",
+      "objectiveIds": [
+        "19.3"
+      ],
+      "prompt": "For a linearly polarized radio wave, polarization is defined by which orientation?",
+      "correctAnswer": "The electric field orientation",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "The battery's positive terminal position",
+        "The enclosure's longest edge in every case",
+        "The color of the feed cable"
+      ],
+      "replacementDistractors": [
+        "The orientation of the magnetic field vector rather than the electric field.",
+        "The physical direction of the feed cable even when the radiated field differs.",
+        "The direction of propagation of energy, which is perpendicular to both fields."
+      ],
+      "oldExplanation": "Polarization concerns the electric field and affects coupling between transmit and receive antennas.",
+      "newExplanation": "Linear polarization is defined by the electric-field direction; a receiving antenna’s polarization relative to it controls coupling. It is distinct from propagation direction.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M27",
+      "questionId": "CQ1145",
+      "objectiveIds": [
+        "20.4"
+      ],
+      "prompt": "Time-division multiplexing separates channels principally by what?",
+      "correctAnswer": "Assigning different time slots",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "Assigning each channel a separate building",
+        "Making every channel use the same data at once",
+        "Removing the need for timing synchronization"
+      ],
+      "replacementDistractors": [
+        "Assigning simultaneous nonoverlapping frequency bands, as in FDM.",
+        "Assigning distinct spreading codes in the same time interval.",
+        "Sending all users simultaneously on one unframed channel without separation."
+      ],
+      "oldExplanation": "TDM shares a transmission resource in time; frequency-division multiplexing separates channels by frequency.",
+      "newExplanation": "TDM assigns different time slots to separate channels on a shared link. FDM uses frequencies, and code-division schemes use distinguishing codes.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M27",
+      "questionId": "CQ1146",
+      "objectiveIds": [
+        "20.2"
+      ],
+      "prompt": "What is a core reason cellular systems use multiple coverage cells?",
+      "correctAnswer": "Reuse radio resources across an area with interference management",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "Eliminate all need for antennas",
+        "Make every phone a wired landline",
+        "Require all calls to use a single global channel"
+      ],
+      "replacementDistractors": [
+        "Guarantee unlimited capacity from one frequency used in every adjacent cell.",
+        "Eliminate the need for handoff as a user moves between coverage regions.",
+        "Use an individual physical cable from each handset to a central switching office."
+      ],
+      "oldExplanation": "Cellular architecture divides coverage and coordinates radio resources; detailed implementation varies by generation.",
+      "newExplanation": "Cellular networks split geographic coverage into cells so spectrum and infrastructure can be reused with appropriate interference management, channel allocation and handoff. Reuse is not unlimited.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M27",
+      "questionId": "CQ1147",
+      "objectiveIds": [
+        "20.1"
+      ],
+      "prompt": "Half-duplex two-way radio generally allows which behavior?",
+      "correctAnswer": "Either party can transmit, but not both simultaneously on the shared channel.",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "Neither party can transmit.",
+        "Both directions always transmit simultaneously on one undivided channel.",
+        "Only text messages can be sent."
+      ],
+      "replacementDistractors": [
+        "Both sides can transmit and receive simultaneously on separate directions.",
+        "Only one endpoint can ever transmit and the other is receive-only.",
+        "Each endpoint transmits continuously even when the other has the channel."
+      ],
+      "oldExplanation": "Half-duplex supports two directions with turn-taking; full-duplex permits simultaneous two-way communication.",
+      "newExplanation": "Half-duplex permits two-way communication but alternates transmission direction in a shared channel or resource. Full-duplex allows simultaneous transmission and reception.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M28",
+      "questionId": "CQ1148",
+      "objectiveIds": [
+        "21.4"
+      ],
+      "prompt": "Which service record best supports later troubleshooting?",
+      "correctAnswer": "Device ID, revision, symptom, measurements, action and retest result",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "Only the technician's first name",
+        "Only a statement that it seems better",
+        "Only the replacement part's price"
+      ],
+      "replacementDistractors": [
+        "A device model and serial number plus an unqualified declaration of success.",
+        "The replacement part number without the original fault or retest results.",
+        "A symptom summary and technician name but no test setup, readings or corrective actions."
+      ],
+      "oldExplanation": "A useful record permits another person to reconstruct the work and see the basis for the conclusion.",
+      "newExplanation": "Traceable records identify the exact unit and revision, symptoms, test conditions/readings, intervention and retest. They permit subsequent technicians to reproduce and review the diagnosis.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M28",
+      "questionId": "CQ1149",
+      "objectiveIds": [
+        "21.2"
+      ],
+      "prompt": "Where should you first seek a device-specific service procedure?",
+      "correctAnswer": "The manufacturer's appropriate current service documentation",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "An unrelated product's instruction sheet",
+        "An unlabeled diagram from an unknown upload",
+        "A guessed sequence based only on case appearance"
+      ],
+      "replacementDistractors": [
+        "The manufacturer’s service manual for a different board revision.",
+        "An internally archived procedure without verifying it applies to this model.",
+        "A general component tutorial instead of a product-specific service instruction."
+      ],
+      "oldExplanation": "Confirm the exact model and revision and the authority of the documentation before applying it.",
+      "newExplanation": "Begin with authorized, current manufacturer instructions for the exact model and revision. Generic knowledge or an older revision may help interpret but cannot substitute for approved device-specific procedures.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M28",
+      "questionId": "CQ1150",
+      "objectiveIds": [
+        "21.7"
+      ],
+      "prompt": "What belongs in a service estimate before work begins?",
+      "correctAnswer": "Scope, assumptions, anticipated parts and labor, and approval terms",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "A guarantee that hidden faults cannot exist",
+        "Only a final invoice number",
+        "A promise to replace every part regardless of diagnosis"
+      ],
+      "replacementDistractors": [
+        "A parts total only, without assumptions or authorization.",
+        "A fixed guarantee that diagnosis will uncover no additional faults.",
+        "A labor-hour estimate without defining which work is authorized."
+      ],
+      "oldExplanation": "An estimate communicates expected work and uncertainty so scope and authorization are clear.",
+      "newExplanation": "A defensible estimate states intended work, assumptions, labor/parts, uncertainty, authorization, and scope boundaries. Unknown faults should be communicated rather than guaranteed away.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    },
+    {
+      "module": "M28",
+      "questionId": "CQ1152",
+      "objectiveIds": [
+        "21.9"
+      ],
+      "prompt": "Why define acceptance criteria at the start of a technical project?",
+      "correctAnswer": "To make completion measurable and guide testing",
+      "originalAnswerIndex": 0,
+      "oldDistractors": [
+        "To eliminate the need for testing",
+        "To guarantee no requirements ever change",
+        "To replace all documentation with opinions"
+      ],
+      "replacementDistractors": [
+        "To record requirements only after testing, so failures cannot be identified.",
+        "To specify the brand of every component while leaving performance unmeasurable.",
+        "To replace verification testing with a designer’s personal judgment."
+      ],
+      "oldExplanation": "Acceptance criteria connect requirements to observable results and help control scope.",
+      "newExplanation": "Acceptance criteria turn requirements into observable, measurable pass/fail conditions and guide verification. They must be decided early enough to prevent subjective completion.",
+      "reviewStatus": "INTERNAL_EDITORIAL_REWRITE_NOT_INDEPENDENTLY_SME_VALIDATED"
+    }
+  ],
+  "lessonCheckpoints": [
+    {
+      "module": "M01",
+      "pageId": "L01-0-06",
+      "title": "Lockout, stored energy and verification",
+      "checkpointTitle": "Distinguish a stop command from an electrically safe condition",
+      "checkpointText": "If a conveyor stops when its control switch is opened, you only know motion stopped. A motor contactor could remain energized, a second feed could exist, or a spring/capacitor could still store energy. For any service task, the authorized procedure identifies and isolates each energy source, controls stored energy, secures the state where required, and verifies zero/absence of hazardous energy with an appropriate method. Do not use the trainee course as permission for live electrical servicing.",
+      "reviewStatus": "INTERNAL_TEACHING_REPAIR_TECHNICAL_REVIEW_OPEN"
+    },
+    {
+      "module": "M03",
+      "pageId": "L07-0-03",
+      "title": "Resistor families and why construction matters",
+      "checkpointTitle": "Resistor interchangeability is not just ohms",
+      "checkpointText": "Two resistors marked 100 Ω may agree on an unpowered DC ohmmeter while behaving differently in a pulsed or high-frequency circuit. A wirewound unit may carry appreciable parasitic inductance; a thin-film part may have different pulse and dissipation limits. For a substitute part, compare tolerance, rated power, voltage, temperature coefficient, pulse handling and frequency behavior as appropriate to the design. A matching number on the schematic is a starting point, not proof of interchangeability.",
+      "reviewStatus": "INTERNAL_TEACHING_REPAIR_TECHNICAL_REVIEW_OPEN"
+    },
+    {
+      "module": "M05",
+      "pageId": "L13-0-00",
+      "title": "Circuit drawings serve different engineering questions",
+      "checkpointTitle": "Test the four drawing types against a real fault",
+      "checkpointText": "Suppose a device has no audio at the speaker. A block diagram identifies source → amplifier → output as the likely stages; a schematic reveals whether the amplifier output is DC-coupled or capacitor-coupled; a wiring diagram identifies speaker-terminal assignments; and a PCB layout helps locate a physical pad for approved low-voltage probing. If an exam offers all four, decide whether it asks about functional sequence, circuit relationships, physical wiring or component placement. A shipping document is not a meaningful alternative.",
+      "reviewStatus": "INTERNAL_TEACHING_REPAIR_TECHNICAL_REVIEW_OPEN"
+    },
+    {
+      "module": "M05",
+      "pageId": "L03-0-00",
+      "title": "A digital multimeter is several different measurement systems",
+      "checkpointTitle": "Voltage, current and resistance modes are different connections",
+      "checkpointText": "Imagine a 10 kΩ resistor with 5 V across it: in voltage mode the DMM measures between its two nodes with a high-impedance input. In current mode, the meter belongs in a properly designed series path; placing its low-resistance current input across a source risks a short. Resistance mode is normally used only on safely de-energized and appropriately isolated circuits. A meter with finite 10 MΩ input also alters very high-impedance sensor dividers: calculate its parallel equivalent before trusting a measurement.",
+      "reviewStatus": "INTERNAL_TEACHING_REPAIR_TECHNICAL_REVIEW_OPEN"
+    },
+    {
+      "module": "M06",
+      "pageId": "L03-0-06",
+      "title": "Triggering, coupling, bandwidth and probe setup",
+      "checkpointTitle": "Trigger choice versus amplitude and timebase",
+      "checkpointText": "If a 1 kHz sine wave appears to drift sideways, first select a correct trigger source, rising/falling edge and threshold within the waveform amplitude. Volts/div only changes vertical scaling and seconds/div only changes the horizontal display window; neither ensures acquisitions begin at the same phase. Verify that the probe attenuation and channel compensation are correct before inferring amplitude or distortion from the trace.",
+      "reviewStatus": "INTERNAL_TEACHING_REPAIR_TECHNICAL_REVIEW_OPEN"
+    },
+    {
+      "module": "M07",
+      "pageId": "L07-0-04",
+      "title": "Capacitor types, construction and polarity",
+      "checkpointTitle": "Capacitance versus DC bias: check the actual component",
+      "checkpointText": "A 10 µF label is a nominal specification measured under stated conditions, not a guarantee of 10 µF in circuit. Many class-II ceramic multilayer capacitors lose appreciable effective capacitance with DC bias. Compare the voltage-bias plot and tolerance for the specific dielectric, package and manufacturer; compare the required minimum capacitance under the highest expected bias. Film and class-I ceramic families behave differently, so avoid treating all capacitor technologies as interchangeable.",
+      "reviewStatus": "INTERNAL_TEACHING_REPAIR_TECHNICAL_REVIEW_OPEN"
+    },
+    {
+      "module": "M08",
+      "pageId": "L04-0-02",
+      "title": "From impedance to an equivalent circuit",
+      "checkpointTitle": "Phase is a derivative relationship",
+      "checkpointText": "With a sinusoidal voltage across an ideal capacitor, i=C·dv/dt, so the current reaches its positive peak a quarter cycle before the voltage: current leads by 90°. For an ideal inductor, v=L·di/dt, so the current lags the voltage by 90°. For an ideal resistor v=iR and the phases coincide. In mixed RLC circuits the net phase depends on the actual impedance, not one component slogan.",
+      "reviewStatus": "INTERNAL_TEACHING_REPAIR_TECHNICAL_REVIEW_OPEN"
+    },
+    {
+      "module": "M08",
+      "pageId": "L06-1-01",
+      "title": "A decade error has a recognizable signature",
+      "checkpointTitle": "Use ratios to diagnose a decade error",
+      "checkpointText": "For an ideal, lightly loaded RC low-pass, f_c=1/(2πRC). With R=1 kΩ and C=100 nF, f_c is about 1.59 kHz. If the measured result is approximately 159 Hz, check whether the installed R or C is ten times nominal, the prefix was misread, or the load adds effective impedance/capacitance. Changing the oscilloscope timebase may change the picture but cannot shift the physical cutoff.",
+      "reviewStatus": "INTERNAL_TEACHING_REPAIR_TECHNICAL_REVIEW_OPEN"
+    },
+    {
+      "module": "M09",
+      "pageId": "L07-0-11",
+      "title": "Transformer action begins with changing flux",
+      "checkpointTitle": "Changing magnetic flux is the essential condition",
+      "checkpointText": "A stationary transformer with a 1,000-turn secondary does not generate ongoing secondary voltage from a steady DC flux. A changing linked flux induces voltage according to Faraday’s law. For an idealized sinusoidal transformer, approximate flux swing rises as V/f; keeping applied RMS voltage constant while decreasing frequency can drive saturation and high magnetizing current. Turns ratio alone is not a safe substitute for frequency and core ratings.",
+      "reviewStatus": "INTERNAL_TEACHING_REPAIR_TECHNICAL_REVIEW_OPEN"
+    },
+    {
+      "module": "M13",
+      "pageId": "L09-0-00",
+      "title": "Adjustable regulator feedback examples",
+      "checkpointTitle": "Separate filtering from regulation",
+      "checkpointText": "A bridge rectifier followed by a reservoir capacitor can produce smoother DC but does not regulate to a fixed voltage. At fixed ripple frequency, an approximate small-ripple relation is ΔV≈I_load/(f_ripple C), with limitations due to diode conduction and transformer impedance. Double the load current and the droop roughly doubles; double C and it roughly halves. A regulator separately controls output within dropout, current and thermal limits; an SMPS instead transfers energy in switching cycles and needs its own feedback and ripple checks.",
+      "reviewStatus": "INTERNAL_TEACHING_REPAIR_TECHNICAL_REVIEW_OPEN"
+    },
+    {
+      "module": "M14",
+      "pageId": "L10-1-01",
+      "title": "Clipping, slew limiting and distortion",
+      "checkpointTitle": "Three output distortions are not the same",
+      "checkpointText": "A sine wave whose positive and negative peaks flatten near the supply limits is clipping from inadequate available output swing. A notch near the zero crossing can instead indicate crossover distortion in a push-pull stage. At high frequency a nominally sinusoidal output becoming slope-limited or triangular may indicate inadequate slew rate. Observe shape at a controlled input, verify probe settings, check supply/load, and do not diagnose all distorted waveforms as overdrive.",
+      "reviewStatus": "INTERNAL_TEACHING_REPAIR_TECHNICAL_REVIEW_OPEN"
+    },
+    {
+      "module": "M15",
+      "pageId": "L12-0-06",
+      "title": "Flux and solder wetting",
+      "checkpointTitle": "Wetting is not identical to visible solder volume",
+      "checkpointText": "A bead of solder on a pad may appear shiny while failing to wet the actual copper or component lead. Flux removes or limits surface oxides, but it cannot replace correct heat transfer, clean compatible surfaces and a proper fillet. Compare the joint to the assembly’s applicable workmanship criteria; excessive solder can conceal defects rather than improve the joint. Practice only with a suitably ventilated, de-energized training board.",
+      "reviewStatus": "INTERNAL_TEACHING_REPAIR_TECHNICAL_REVIEW_OPEN"
+    },
+    {
+      "module": "M17",
+      "pageId": "L11-1-03",
+      "title": "Logic families and valid voltage margins",
+      "checkpointTitle": "Logic-family compatibility requires worst-case limits",
+      "checkpointText": "For a driver with guaranteed VOH≥2.4 V and a receiver requiring VIH≥2.0 V, the guaranteed HIGH margin is at least 0.4 V. This calculation is not sufficient if the receiver input is exposed above its absolute maximum voltage or ground references differ. Also check VOL versus VIL, fan-out/load currents and transition times. Two signals both labeled HIGH may still be electrically incompatible.",
+      "reviewStatus": "INTERNAL_TEACHING_REPAIR_TECHNICAL_REVIEW_OPEN"
+    },
+    {
+      "module": "M19",
+      "pageId": "L18-0-05",
+      "title": "Logic-level compatibility and translator selection",
+      "checkpointTitle": "Separate logic thresholds from electrical damage limits",
+      "checkpointText": "A nominal 3.3 V microcontroller input cannot be driven directly from every nominal 5 V push-pull output: check both maximum permitted input voltage and VIH/VIL thresholds. If the input is not 5 V tolerant, use an appropriately designed level translator or suitable resistor network where signal type/speed allow. Open-drain I²C with pull-ups is not interchangeable with push-pull UART and SPI lines; pull-up voltage, bus capacitance and common reference must be reviewed.",
+      "reviewStatus": "INTERNAL_TEACHING_REPAIR_TECHNICAL_REVIEW_OPEN"
+    },
+    {
+      "module": "M22",
+      "pageId": "L19-1-03",
+      "title": "Termination preserves the transmission-line model",
+      "checkpointTitle": "Continuity does not establish transmission-line behavior",
+      "checkpointText": "A cable can pass an ohmmeter check yet produce severe reflections at fast edge rates when the load does not match its characteristic impedance. A signal step that reaches an open or mismatched termination launches a reflection; timing and amplitude depend on line propagation delay and termination. For a newly crimped harness, confirm each pin and short, then separately evaluate mechanical workmanship and any impedance/high-frequency criteria required by the interface.",
+      "reviewStatus": "INTERNAL_TEACHING_REPAIR_TECHNICAL_REVIEW_OPEN"
+    },
+    {
+      "module": "M24",
+      "pageId": "L19-0-07",
+      "title": "Microphones, speakers and recording",
+      "checkpointTitle": "Electrical audio levels matter more than plug shape",
+      "checkpointText": "A microphone converts acoustic pressure into an electrical signal; a speaker performs the reverse. A speaker output can produce much greater voltage and power than a microphone input tolerates, even if a passive plug adapter physically fits. Diagnose a clipped amplifier by comparing a clean source trace with the output at modest level; distinguish the flat voltage-limited peaks of clipping from a cable fault or an input overdrive.",
+      "reviewStatus": "INTERNAL_TEACHING_REPAIR_TECHNICAL_REVIEW_OPEN"
+    },
+    {
+      "module": "M25",
+      "pageId": "L19-0-09",
+      "title": "Seven-segment, LCD and OLED displays",
+      "checkpointTitle": "Display technology and current limits",
+      "checkpointText": "LCDs control light from an external illumination source (typically a backlight); OLED pixels are individually light-emitting. A conventional LED is not a constant-voltage component: a small voltage increase can produce a substantial forward-current increase. Estimate a series resistor as R=(V_supply−V_F)/I for a simple low-voltage LED circuit, then check resistor power and the LED current rating over component tolerances and temperatures.",
+      "reviewStatus": "INTERNAL_TEACHING_REPAIR_TECHNICAL_REVIEW_OPEN"
+    },
+    {
+      "module": "M26",
+      "pageId": "L20-0-10",
+      "title": "SWR and reflected power explained",
+      "checkpointTitle": "What VSWR does and does not tell you",
+      "checkpointText": "Reflections occur when the RF line is not terminated in its characteristic impedance. For a lossless single-interface model, |Γ|=(VSWR−1)/(VSWR+1): VSWR=3 corresponds to |Γ|=0.5, or 25% reflected power locally under that model. High VSWR does not alone identify the bad connector or load; DC continuity and frequency matching are different measurements. Use approved, rated equipment and avoid live RF exposure.",
+      "reviewStatus": "INTERNAL_TEACHING_REPAIR_TECHNICAL_REVIEW_OPEN"
+    },
+    {
+      "module": "M27",
+      "pageId": "L20-0-07",
+      "title": "Simplex, duplex and repeaters",
+      "checkpointTitle": "Time slots, duplex, and cellular reuse solve different problems",
+      "checkpointText": "Time-division multiplexing shares a medium by allocating different time slots. Half-duplex links exchange information both ways but not simultaneously; full-duplex supports simultaneous directions. Cellular reuse divides coverage into geographic cells and coordinates channels/interference; it is neither identical to time-slot multiplexing nor a promise of unlimited capacity. When troubleshooting, ask whether the failure is timing, frequency, modulation, channel access or RF propagation.",
+      "reviewStatus": "INTERNAL_TEACHING_REPAIR_TECHNICAL_REVIEW_OPEN"
+    },
+    {
+      "module": "M28",
+      "pageId": "L28-0-02",
+      "title": "Traceable reports tie evidence to work",
+      "checkpointTitle": "A report is an engineering handoff, not a conclusion alone",
+      "checkpointText": "A useful service report captures unit model/serial/revision, observed symptom, setup, predicted and actual measurements, work performed, and repeatable post-repair acceptance criteria. “Replaced fuse, now works” is weaker than “input 12.1 V under 0.5 A load, output 5.02 V under specified test load, no recurrence after three power cycles,” assuming those are the defined conditions. The purpose is to let another technician verify the conclusion without guessing what was tested.",
+      "reviewStatus": "INTERNAL_TEACHING_REPAIR_TECHNICAL_REVIEW_OPEN"
+    }
+  ],
+  "reviewLimits": [
+    "Internally authored alternatives: no blind external subject-matter expert review.",
+    "Distractor plausibility and key technical accuracy need item-by-item expert adjudication before final exam validity.",
+    "Other lesson and mock items outside this batch were not exhaustively technically verified.",
+    "Actual live ETA exam weighting and question content are unknown.",
+    "The scanned Sixth Edition guide and its published errata were used as supporting context; exhaustive passage-level review remains open."
+  ]
+}
