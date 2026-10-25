@@ -1,0 +1,475 @@
+{
+  "newItems": [
+    {
+      "id": "AV45-13-5",
+      "prompt": "A controller reads an eight-bit sensor value through eight shared conductors while a separate select line enables the sensor output. What do these conductors represent?",
+      "choices": [
+        "A parallel data bus plus a control/select signal",
+        "A single serial transmit pin carrying eight bits one at a time",
+        "Eight independent power rails and no data paths",
+        "A clock network that cannot carry sensor values"
+      ],
+      "answer": 0,
+      "explanation": "The eight data conductors form a parallel bus; the select signal determines when one device is permitted to drive the shared conductors. Bus design must prevent simultaneous drivers and meet timing and logic-level requirements.",
+      "objectiveIds": [
+        "13.5"
+      ],
+      "origin": "v4.5 original ETA 2025 targeted transfer item",
+      "editorialStatus": "internally reason-checked; independent SME validation pending",
+      "independentlyValidated": false,
+      "assessmentScope": "internal Alfred course mastery, not certification",
+      "sourceModuleId": "M17",
+      "sourcePageId": "L11-0-04"
+    },
+    {
+      "id": "AV45-7-1",
+      "prompt": "A portable measurement lead is repeatedly flexed during use. Which construction is usually more suitable than a single solid copper conductor of the same nominal gauge?",
+      "choices": [
+        "Uninsulated solid conductor",
+        "Fine-stranded conductor with appropriately rated flexible insulation",
+        "Coaxial cable with the shield used as a substitute for an insulation jacket",
+        "Any solid conductor so long as resistance is low"
+      ],
+      "answer": 1,
+      "explanation": "Many small strands improve flex life. Conductor cross-section, insulation temperature/voltage rating, connector type and mechanical strain relief must still match the application.",
+      "objectiveIds": [
+        "7.1"
+      ],
+      "origin": "v4.5 original ETA 2025 targeted transfer item",
+      "editorialStatus": "internally reason-checked; independent SME validation pending",
+      "independentlyValidated": false,
+      "assessmentScope": "internal Alfred course mastery, not certification",
+      "sourceModuleId": "M22",
+      "sourcePageId": "L19-0-03"
+    },
+    {
+      "id": "AV45-7-4",
+      "prompt": "Two copper conductors of equal length and material are labeled 18 AWG and 24 AWG. Which conclusion is correct before considering installation or insulation ratings?",
+      "choices": [
+        "24 AWG has greater copper cross-sectional area",
+        "18 AWG has greater copper area and typically lower DC resistance",
+        "Both have identical conductor diameters because AWG describes insulation only",
+        "AWG numbering directly specifies a universal permissible current independent of temperature"
+      ],
+      "answer": 1,
+      "explanation": "In American Wire Gauge, lower gauge number means larger nominal conductor diameter. The 18 AWG conductor has more area and generally less DC resistance at the same length and temperature; ampacity depends on additional installation conditions.",
+      "objectiveIds": [
+        "7.4"
+      ],
+      "origin": "v4.5 original ETA 2025 targeted transfer item",
+      "editorialStatus": "internally reason-checked; independent SME validation pending",
+      "independentlyValidated": false,
+      "assessmentScope": "internal Alfred course mastery, not certification",
+      "sourceModuleId": "M22",
+      "sourcePageId": "L19-0-03"
+    },
+    {
+      "id": "AV45-7-6",
+      "prompt": "A 50-ohm coaxial transmission line is cut to half its original length but retains the same geometry and dielectric. What happens to its nominal characteristic impedance?",
+      "choices": [
+        "It doubles to 100 ohms",
+        "It falls to 25 ohms",
+        "It remains approximately 50 ohms",
+        "It changes unpredictably whenever length changes"
+      ],
+      "answer": 2,
+      "explanation": "Characteristic impedance is primarily determined by distributed inductance and capacitance per unit length, Z0≈√(L′/C′) for a low-loss line. Length changes total attenuation and phase delay, not the line’s nominal Z0.",
+      "objectiveIds": [
+        "7.6"
+      ],
+      "origin": "v4.5 original ETA 2025 targeted transfer item",
+      "editorialStatus": "internally reason-checked; independent SME validation pending",
+      "independentlyValidated": false,
+      "assessmentScope": "internal Alfred course mastery, not certification",
+      "sourceModuleId": "M22",
+      "sourcePageId": "L19-1-03"
+    },
+    {
+      "id": "AV45-7-8",
+      "prompt": "A shielded cable connects two devices. Why must a technician distinguish protective earthing from signal-reference or shield bonding?",
+      "choices": [
+        "Shield braid is always allowed to replace protective earthing",
+        "Protective earth is a safety fault-current path, while signal/shield bonding serves noise and reference functions and follows equipment specifications",
+        "Any single thin drain wire is always sufficient for mains fault current",
+        "A shield should always be cut at both ends regardless of the product design"
+      ],
+      "answer": 1,
+      "explanation": "Protective earthing is a required safety function for specified equipment. Shield and signal-return design depends on interference frequencies, geometry and grounding scheme; it cannot be substituted for the protective-conductor requirements.",
+      "objectiveIds": [
+        "7.8"
+      ],
+      "origin": "v4.5 original ETA 2025 targeted transfer item",
+      "editorialStatus": "internally reason-checked; independent SME validation pending",
+      "independentlyValidated": false,
+      "assessmentScope": "internal Alfred course mastery, not certification",
+      "sourceModuleId": "M22",
+      "sourcePageId": "L19-0-05"
+    },
+    {
+      "id": "AV45-7-9",
+      "prompt": "A technician splices a coaxial run, and the receiver develops reflections despite a DC continuity pass. What detail is most likely responsible?",
+      "choices": [
+        "The splice restores center conductor only and ignores dielectric geometry and shield continuity",
+        "The center conductor and shield remain separated by intact rated dielectric",
+        "A connector designed for the cable retains its nominal impedance",
+        "The splice maintains shield coverage and strain relief"
+      ],
+      "answer": 0,
+      "explanation": "At RF a coax splice must retain the center conductor, dielectric spacing, coaxial shield continuity and compatible impedance. A continuity test cannot prove low reflection or return loss.",
+      "objectiveIds": [
+        "7.9"
+      ],
+      "origin": "v4.5 original ETA 2025 targeted transfer item",
+      "editorialStatus": "internally reason-checked; independent SME validation pending",
+      "independentlyValidated": false,
+      "assessmentScope": "internal Alfred course mastery, not certification",
+      "sourceModuleId": "M22",
+      "sourcePageId": "L19-0-05"
+    },
+    {
+      "id": "AV45-7-13",
+      "prompt": "A terminated modular communications connector passes a simple continuity test but fails repeatedly after cable movement. Which inspection best addresses likely crimp-preparation error?",
+      "choices": [
+        "Check conductor placement, insulation capture, correct tool/die, and strain relief",
+        "Remove jacket support so only exposed copper grips the plug",
+        "Use solder to fill all connector contacts regardless of terminal type",
+        "Increase pull force until the cable conductors flatten"
+      ],
+      "answer": 0,
+      "explanation": "Correct prep and crimp require compatible connector and cable type, correct strip length, conductor seating, die/tool choice and jacket/strain-relief capture. Continuity alone does not demonstrate mechanical reliability.",
+      "objectiveIds": [
+        "7.13"
+      ],
+      "origin": "v4.5 original ETA 2025 targeted transfer item",
+      "editorialStatus": "internally reason-checked; independent SME validation pending",
+      "independentlyValidated": false,
+      "assessmentScope": "internal Alfred course mastery, not certification",
+      "sourceModuleId": "M22",
+      "sourcePageId": "L19-1-04"
+    },
+    {
+      "id": "AV45-8-8",
+      "prompt": "A maintenance bench has a calibrated decade resistor box, capacitor substitution box and inductor substitution box. What is their principal purpose?",
+      "choices": [
+        "Generate a spectrum analyzer trace without any stimulus",
+        "Insert known R, C or L values into a suitable de-energized/test circuit to localize or evaluate a suspected component or circuit response",
+        "Measure current with zero burden voltage on energized mains",
+        "Automatically identify all component values without any circuit knowledge"
+      ],
+      "answer": 1,
+      "explanation": "R-C-L substitution equipment temporarily introduces known resistance, capacitance or inductance for controlled comparison. Its ratings, frequency behavior and circuit safety limit where it can be used.",
+      "objectiveIds": [
+        "8.8"
+      ],
+      "origin": "v4.5 original ETA 2025 targeted transfer item",
+      "editorialStatus": "internally reason-checked; independent SME validation pending",
+      "independentlyValidated": false,
+      "assessmentScope": "internal Alfred course mastery, not certification",
+      "sourceModuleId": "M23",
+      "sourcePageId": "L03-0-04"
+    },
+    {
+      "id": "AV45-17-5",
+      "prompt": "A home AV processor receives a dry-contact \"alarm active\" output from a security panel. What is the safest and most technically appropriate interface approach?",
+      "choices": [
+        "Wire the alarm panel mains feed directly to an HDMI data pin",
+        "Use a compatible isolated/specified status input and translate the contact event into an approved control action",
+        "Use speaker outputs as alarm-panel power rails",
+        "Tie every signal and safety-ground conductor together without checking ratings"
+      ],
+      "answer": 1,
+      "explanation": "A manufacturer-supported dry-contact or optically isolated interface can convey alarm status to controller logic while maintaining intended electrical separation. Control interfaces must meet each product’s voltage and isolation requirements.",
+      "objectiveIds": [
+        "17.5"
+      ],
+      "origin": "v4.5 original ETA 2025 targeted transfer item",
+      "editorialStatus": "internally reason-checked; independent SME validation pending",
+      "independentlyValidated": false,
+      "assessmentScope": "internal Alfred course mastery, not certification",
+      "sourceModuleId": "M24",
+      "sourcePageId": "L19-0-01"
+    },
+    {
+      "id": "AV45-18-1",
+      "prompt": "Which grouping consists entirely of electronic display technologies rather than optical detectors?",
+      "choices": [
+        "LCD panel, OLED panel and seven-segment LED display",
+        "Photodiode, LDR and phototransistor",
+        "Solar cell, photodiode and image-sensor pixel",
+        "Optocoupler input photodiode, photoresistor and light sensor"
+      ],
+      "answer": 0,
+      "explanation": "LCDs, OLEDs and seven-segment LEDs provide visual output. Photodiodes, phototransistors, photoresistors and solar cells primarily sense or convert incident light.",
+      "objectiveIds": [
+        "18.1"
+      ],
+      "origin": "v4.5 original ETA 2025 targeted transfer item",
+      "editorialStatus": "internally reason-checked; independent SME validation pending",
+      "independentlyValidated": false,
+      "assessmentScope": "internal Alfred course mastery, not certification",
+      "sourceModuleId": "M25",
+      "sourcePageId": "L19-0-09"
+    },
+    {
+      "id": "AV45-18-2",
+      "prompt": "An automatic brightness controller must sense ambient light rather than generate light. Which component is most directly appropriate?",
+      "choices": [
+        "Infrared LED used as emitter",
+        "Photodiode or phototransistor with an appropriate sensing circuit",
+        "Seven-segment LED display",
+        "OLED pixel driven as an indicator"
+      ],
+      "answer": 1,
+      "explanation": "Photodiodes and phototransistors convert incident light into an electrical response. Light-emitting diodes and OLEDs primarily emit light, so they are not the intended ambient-light sensor.",
+      "objectiveIds": [
+        "18.2"
+      ],
+      "origin": "v4.5 original ETA 2025 targeted transfer item",
+      "editorialStatus": "internally reason-checked; independent SME validation pending",
+      "independentlyValidated": false,
+      "assessmentScope": "internal Alfred course mastery, not certification",
+      "sourceModuleId": "M25",
+      "sourcePageId": "L19-0-14"
+    },
+    {
+      "id": "AV45-18-3-2",
+      "prompt": "Why are silicon and compound semiconductors such as GaAs or InGaN used in different photoelectronic devices?",
+      "choices": [
+        "All semiconductors have identical bandgaps, so material choice only affects packaging",
+        "Bandgap and absorption/emission behavior influence which wavelengths can be detected or emitted efficiently",
+        "Only metal conductors can convert light into electron-hole pairs",
+        "GaAs is an insulating plastic and cannot form semiconductor junctions"
+      ],
+      "answer": 1,
+      "explanation": "Semiconductor bandgap and material properties determine photon absorption/emission wavelength and efficiency. Silicon is common in visible/near-IR sensors; compound semiconductor alloys support other detectors and efficient light emitters.",
+      "objectiveIds": [
+        "18.3.2"
+      ],
+      "origin": "v4.5 original ETA 2025 targeted transfer item",
+      "editorialStatus": "internally reason-checked; independent SME validation pending",
+      "independentlyValidated": false,
+      "assessmentScope": "internal Alfred course mastery, not certification",
+      "sourceModuleId": "M25",
+      "sourcePageId": "L19-0-10"
+    },
+    {
+      "id": "AV45-18-5-1",
+      "prompt": "A microcontroller reads the status of a noisy motor-drive stage whose return is not intended to share the logic ground. Which interface is often used for a digital status signal?",
+      "choices": [
+        "An appropriately rated optocoupler with separate grounds on each side",
+        "A copper jumper forcing the grounds together",
+        "An ordinary resistor of arbitrarily low value between grounds",
+        "An LED connected directly to the microcontroller without receiver circuitry"
+      ],
+      "answer": 0,
+      "explanation": "An optocoupler transfers a signal through light between an LED input and a photosensitive output, allowing galvanic isolation within device voltage, spacing, speed and current ratings.",
+      "objectiveIds": [
+        "18.5.1"
+      ],
+      "origin": "v4.5 original ETA 2025 targeted transfer item",
+      "editorialStatus": "internally reason-checked; independent SME validation pending",
+      "independentlyValidated": false,
+      "assessmentScope": "internal Alfred course mastery, not certification",
+      "sourceModuleId": "M25",
+      "sourcePageId": "L19-0-11"
+    },
+    {
+      "id": "AV45-19-2",
+      "prompt": "Why can a correctly fed half-wave dipole antenna radiate electromagnetic energy even though it is not a closed two-wire DC circuit through space?",
+      "choices": [
+        "Accelerating alternating charge produces changing electromagnetic fields that can propagate outward",
+        "Static electric charge alone creates continuously radiating RF power",
+        "DC resistance of the metal sets all radiation efficiency independent of length",
+        "An antenna radiates only if a mechanical conductor connects its tips"
+      ],
+      "answer": 0,
+      "explanation": "Time-varying currents and accelerating charges produce varying electric and magnetic fields; appropriately shaped antennas couple energy from guided RF currents into propagating electromagnetic waves.",
+      "objectiveIds": [
+        "19.2"
+      ],
+      "origin": "v4.5 original ETA 2025 targeted transfer item",
+      "editorialStatus": "internally reason-checked; independent SME validation pending",
+      "independentlyValidated": false,
+      "assessmentScope": "internal Alfred course mastery, not certification",
+      "sourceModuleId": "M26",
+      "sourcePageId": "L20-0-03"
+    },
+    {
+      "id": "AV45-19-2-1",
+      "prompt": "Which feedline pairing correctly identifies two common media used between RF equipment and antennas?",
+      "choices": [
+        "Coaxial cable and balanced twin-lead/ladder line",
+        "USB cable and household extension cord",
+        "Unshielded microphone lead and mains wiring",
+        "Optical fiber exclusively, with no optical/RF conversion equipment"
+      ],
+      "answer": 0,
+      "explanation": "Coaxial cable is commonly an unbalanced shielded RF feedline; twin-lead or ladder line is a balanced two-conductor RF feedline. Waveguide is also used at some microwave frequencies.",
+      "objectiveIds": [
+        "19.2.1"
+      ],
+      "origin": "v4.5 original ETA 2025 targeted transfer item",
+      "editorialStatus": "internally reason-checked; independent SME validation pending",
+      "independentlyValidated": false,
+      "assessmentScope": "internal Alfred course mastery, not certification",
+      "sourceModuleId": "M26",
+      "sourcePageId": "L20-0-04"
+    },
+    {
+      "id": "AV45-19-7",
+      "prompt": "Which ordering correctly goes from the lower to the higher named RF frequency bands?",
+      "choices": [
+        "UHF → HF → VHF",
+        "HF → VHF → UHF",
+        "VHF → UHF → HF",
+        "UHF → VHF → HF"
+      ],
+      "answer": 1,
+      "explanation": "HF is 3–30 MHz, VHF is 30–300 MHz, and UHF is 300–3000 MHz. Each adjacent band in this sequence is roughly a factor of ten higher in frequency.",
+      "objectiveIds": [
+        "19.7"
+      ],
+      "origin": "v4.5 original ETA 2025 targeted transfer item",
+      "editorialStatus": "internally reason-checked; independent SME validation pending",
+      "independentlyValidated": false,
+      "assessmentScope": "internal Alfred course mastery, not certification",
+      "sourceModuleId": "M26",
+      "sourcePageId": "L20-0-00"
+    },
+    {
+      "id": "AV45-19-11",
+      "prompt": "A 50 Ω transmitter feedline is terminated by a purely resistive 200 Ω antenna input. Neglecting loss, what is the magnitude of the voltage reflection coefficient?",
+      "choices": [
+        "0, because all resistive loads are matched",
+        "0.2",
+        "0.6",
+        "4.0"
+      ],
+      "answer": 2,
+      "explanation": "For real impedances, |Γ|=|(ZL−Z0)/(ZL+Z0)|=|(200−50)/(200+50)|=150/250=0.6. Strong mismatch reflects a fraction |Γ|²=0.36 of incident power; ordinary line losses can hide some reflection at the meter.",
+      "objectiveIds": [
+        "19.11"
+      ],
+      "origin": "v4.5 original ETA 2025 targeted transfer item",
+      "editorialStatus": "internally reason-checked; independent SME validation pending",
+      "independentlyValidated": false,
+      "assessmentScope": "internal Alfred course mastery, not certification",
+      "sourceModuleId": "M26",
+      "sourcePageId": "L06-0-02"
+    }
+  ],
+  "teachingPlacement": [
+    {
+      "moduleId": "M17",
+      "pageId": "L11-0-04",
+      "objectives": [
+        "13.5"
+      ]
+    },
+    {
+      "moduleId": "M22",
+      "pageId": "L19-0-03",
+      "objectives": [
+        "7.1",
+        "7.4"
+      ]
+    },
+    {
+      "moduleId": "M22",
+      "pageId": "L19-1-03",
+      "objectives": [
+        "7.6"
+      ]
+    },
+    {
+      "moduleId": "M22",
+      "pageId": "L19-0-05",
+      "objectives": [
+        "7.8",
+        "7.9"
+      ]
+    },
+    {
+      "moduleId": "M22",
+      "pageId": "L19-1-04",
+      "objectives": [
+        "7.13"
+      ]
+    },
+    {
+      "moduleId": "M23",
+      "pageId": "L03-0-04",
+      "objectives": [
+        "8.8"
+      ]
+    },
+    {
+      "moduleId": "M24",
+      "pageId": "L19-0-01",
+      "objectives": [
+        "17.5"
+      ]
+    },
+    {
+      "moduleId": "M25",
+      "pageId": "L19-0-09",
+      "objectives": [
+        "18.1"
+      ]
+    },
+    {
+      "moduleId": "M25",
+      "pageId": "L19-0-14",
+      "objectives": [
+        "18.2"
+      ]
+    },
+    {
+      "moduleId": "M25",
+      "pageId": "L19-0-10",
+      "objectives": [
+        "18.3.2"
+      ]
+    },
+    {
+      "moduleId": "M25",
+      "pageId": "L19-0-11",
+      "objectives": [
+        "18.5.1"
+      ]
+    },
+    {
+      "moduleId": "M26",
+      "pageId": "L20-0-03",
+      "objectives": [
+        "19.2"
+      ]
+    },
+    {
+      "moduleId": "M26",
+      "pageId": "L20-0-04",
+      "objectives": [
+        "19.2.1"
+      ]
+    },
+    {
+      "moduleId": "M26",
+      "pageId": "L20-0-00",
+      "objectives": [
+        "19.7"
+      ]
+    },
+    {
+      "moduleId": "M26",
+      "pageId": "L06-0-02",
+      "objectives": [
+        "19.11"
+      ]
+    }
+  ],
+  "em5CrossReference": {
+    "objective": "2.5.1",
+    "url": "https://www.etai.org/comps/EM5_comps.pdf"
+  },
+  "validation": "Internal; not external review"
+}

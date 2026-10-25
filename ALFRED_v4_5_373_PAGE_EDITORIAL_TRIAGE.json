@@ -1,0 +1,2991 @@
+{
+  "methodology": "Heuristic editorial triage of every teaching page; NOT a technical accuracy judgment or full textbook passage verification",
+  "count": 373,
+  "flagCounts": {},
+  "pages": [
+    {
+      "moduleId": "M01",
+      "pageId": "L01-0-03",
+      "title": "Safety before circuit theory: recognize the energy source",
+      "explanationCharacters": 1423,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M01",
+      "pageId": "L01-0-04",
+      "title": "Shock physiology, emergency response and first-aid boundaries",
+      "explanationCharacters": 2144,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M01",
+      "pageId": "L01-0-05",
+      "title": "Codes, protective devices and the hierarchy of controls",
+      "explanationCharacters": 1407,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M01",
+      "pageId": "L01-0-06",
+      "title": "Lockout, stored energy and verification",
+      "explanationCharacters": 1417,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M01",
+      "pageId": "L01-0-07",
+      "title": "Field safety: fire, ladders and service vehicles",
+      "explanationCharacters": 1989,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M01",
+      "pageId": "L01-0-08",
+      "title": "Electrical matter: charge, current, voltage and power",
+      "explanationCharacters": 1178,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M01",
+      "pageId": "L01-1-00",
+      "title": "A controlled first power-up: inspect, predict, limit, observe",
+      "explanationCharacters": 1147,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M01",
+      "pageId": "L01-1-06",
+      "title": "Digital multimeters: ports, modes and common mistakes",
+      "explanationCharacters": 1815,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M01",
+      "pageId": "L01-1-03",
+      "title": "ESD: protecting CMOS without creating a shock hazard",
+      "explanationCharacters": 1311,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M01",
+      "pageId": "L01-1-05",
+      "title": "The pre-power hazard log and a technician’s report",
+      "explanationCharacters": 1120,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M01",
+      "pageId": "L12-0-00",
+      "title": "Less visible hazards: RF transmitters and optical fiber",
+      "explanationCharacters": 1289,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M01",
+      "pageId": "L12-0-09",
+      "title": "Synthesis: a safe, explained, defensible decision",
+      "explanationCharacters": 1304,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M02",
+      "pageId": "L02-0-03",
+      "title": "Matter, atoms, and the origin of electric charge",
+      "explanationCharacters": 968,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M02",
+      "pageId": "L01-0-08",
+      "title": "What voltage measures—and why one probe is not enough",
+      "explanationCharacters": 745,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M02",
+      "pageId": "L01-0-00",
+      "title": "Current needs a conducting path",
+      "explanationCharacters": 818,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M02",
+      "pageId": "L04-0-03",
+      "title": "SI prefixes: communicating scale without losing units",
+      "explanationCharacters": 2094,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M02",
+      "pageId": "L01-0-09",
+      "title": "Resistance as a measured relationship, not a mysterious force",
+      "explanationCharacters": 668,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M02",
+      "pageId": "L02-0-07",
+      "title": "Sources, DC, AC, and the meaning of a waveform",
+      "explanationCharacters": 1565,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M02",
+      "pageId": "L01-0-02",
+      "title": "Electrical power: when movement of charge becomes heat",
+      "explanationCharacters": 686,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M02",
+      "pageId": "L04-0-05",
+      "title": "Graphs, slopes, and the first look at decibels",
+      "explanationCharacters": 757,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M02",
+      "pageId": "L01-0-10",
+      "title": "Energy, component ratings, and numerical reasonableness",
+      "explanationCharacters": 745,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M03",
+      "pageId": "L07-0-03",
+      "title": "Resistor families and why construction matters",
+      "explanationCharacters": 800,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M03",
+      "pageId": "L07-0-00",
+      "title": "Selecting a resistor: four separate checks",
+      "explanationCharacters": 792,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M03",
+      "pageId": "L01-0-01",
+      "title": "Deriving Ohm’s law rather than memorizing triangles",
+      "explanationCharacters": 1510,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M03",
+      "pageId": "L01-0-09",
+      "title": "When Ohm’s-law predictions can fail",
+      "explanationCharacters": 664,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M03",
+      "pageId": "L02-0-07",
+      "title": "Source, resistor and load form a power budget",
+      "explanationCharacters": 674,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M03",
+      "pageId": "L01-0-02",
+      "title": "Power ratings explain heat, not just math",
+      "explanationCharacters": 667,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M03",
+      "pageId": "L01-0-10",
+      "title": "Comparing P = VI, I²R and V²/R",
+      "explanationCharacters": 1126,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M03",
+      "pageId": "L07-0-09",
+      "title": "Failure clues from resistor type and environment",
+      "explanationCharacters": 666,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M03",
+      "pageId": "L01-0-00",
+      "title": "Measuring resistance without being fooled by the circuit",
+      "explanationCharacters": 698,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M03",
+      "pageId": "L02-0-02",
+      "title": "Potentiometers and loaded voltage dividers",
+      "explanationCharacters": 1177,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M03",
+      "pageId": "L02-0-03",
+      "title": "Reading resistor markings and tolerance bands",
+      "explanationCharacters": 716,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M03",
+      "pageId": "L02-0-06",
+      "title": "Thermistors, variable resistors and component choice",
+      "explanationCharacters": 706,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M04",
+      "pageId": "L02-0-00",
+      "title": "Read the connections before calculating the network",
+      "explanationCharacters": 688,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M04",
+      "pageId": "L02-0-13",
+      "title": "Series and parallel combinations: build a trustworthy shortcut",
+      "explanationCharacters": 690,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M04",
+      "pageId": "L02-0-01",
+      "title": "Kirchhoff’s current law as charge conservation",
+      "explanationCharacters": 1148,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M04",
+      "pageId": "L02-0-14",
+      "title": "Kirchhoff’s voltage law as energy conservation",
+      "explanationCharacters": 645,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M04",
+      "pageId": "L02-0-02",
+      "title": "Unloaded divider: calculating a predictable reference",
+      "explanationCharacters": 572,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M04",
+      "pageId": "L02-0-15",
+      "title": "Loaded divider: why a measurement or circuit changes Vout",
+      "explanationCharacters": 1093,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M04",
+      "pageId": "L02-1-01",
+      "title": "Open-circuit and short-circuit faults produce different signatures",
+      "explanationCharacters": 707,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M04",
+      "pageId": "L02-1-00",
+      "title": "A schematic is a map of predicted voltages",
+      "explanationCharacters": 623,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M04",
+      "pageId": "L02-1-03",
+      "title": "Turn node predictions into a measurement plan",
+      "explanationCharacters": 609,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M04",
+      "pageId": "L02-1-05",
+      "title": "Series faults versus branch faults",
+      "explanationCharacters": 609,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M04",
+      "pageId": "L05-0-00",
+      "title": "Mixed networks: reduce only what truly shares a node pair",
+      "explanationCharacters": 684,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M04",
+      "pageId": "L05-0-01",
+      "title": "Use conservation for an independent numerical check",
+      "explanationCharacters": 712,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M04",
+      "pageId": "L05-0-03",
+      "title": "Interleaving: decide which model fits before computing",
+      "explanationCharacters": 589,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M04",
+      "pageId": "L05-0-04",
+      "title": "Error analysis: repair the reason, not merely the answer",
+      "explanationCharacters": 609,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M05",
+      "pageId": "L13-0-00",
+      "title": "Circuit drawings serve different engineering questions",
+      "explanationCharacters": 740,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M05",
+      "pageId": "L13-0-03",
+      "title": "Symbols, net connections and identifiers",
+      "explanationCharacters": 1330,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M05",
+      "pageId": "L13-0-04",
+      "title": "Block diagrams, test points and tracing a missing signal",
+      "explanationCharacters": 677,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M05",
+      "pageId": "L13-0-06",
+      "title": "Schematic, wiring and layout: practice moving between views",
+      "explanationCharacters": 1176,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M05",
+      "pageId": "L03-0-00",
+      "title": "A digital multimeter is several different measurement systems",
+      "explanationCharacters": 1932,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M05",
+      "pageId": "L03-0-03",
+      "title": "Analog and digital meters: accuracy, burden and protection",
+      "explanationCharacters": 1860,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M05",
+      "pageId": "L03-1-02",
+      "title": "Documenting a measurement so somebody else can repeat it",
+      "explanationCharacters": 644,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M05",
+      "pageId": "L03-1-04",
+      "title": "Turn an unknown reading into a targeted test question",
+      "explanationCharacters": 638,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M05",
+      "pageId": "L13-1-03",
+      "title": "Datasheets connect IC symbols to real pins",
+      "explanationCharacters": 624,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M05",
+      "pageId": "L13-0-05",
+      "title": "Wiring plans, safety boundaries and decision flowcharts",
+      "explanationCharacters": 1413,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M05",
+      "pageId": "L13-0-07",
+      "title": "Reading schematic symbols as predictions",
+      "explanationCharacters": 657,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M05",
+      "pageId": "L13-0-08",
+      "title": "Last-good / first-bad evidence and technical defense",
+      "explanationCharacters": 741,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M06",
+      "pageId": "L04-0-00",
+      "title": "Alternating current as a changing quantity",
+      "explanationCharacters": 833,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M06",
+      "pageId": "L04-0-08",
+      "title": "Peak, peak-to-peak, average and RMS are different",
+      "explanationCharacters": 1656,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M06",
+      "pageId": "L03-0-00",
+      "title": "Meter display versus complete waveform",
+      "explanationCharacters": 785,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M06",
+      "pageId": "L03-0-02",
+      "title": "Volts per division and seconds per division",
+      "explanationCharacters": 739,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M06",
+      "pageId": "L03-0-06",
+      "title": "Triggering, coupling, bandwidth and probe setup",
+      "explanationCharacters": 746,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M06",
+      "pageId": "L03-0-04",
+      "title": "Signal generators, counters and stimulus selection",
+      "explanationCharacters": 748,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M06",
+      "pageId": "L03-0-05",
+      "title": "Logic probes observe; logic pulsers stimulate",
+      "explanationCharacters": 741,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M06",
+      "pageId": "L03-0-09",
+      "title": "Measure a pulse width and duty cycle",
+      "explanationCharacters": 611,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M06",
+      "pageId": "L03-0-10",
+      "title": "Choosing DMM, scope or spectrum measurement",
+      "explanationCharacters": 790,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M06",
+      "pageId": "L04-1-01",
+      "title": "Use a frequency sweep to study a circuit",
+      "explanationCharacters": 704,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M06",
+      "pageId": "L04-0-03",
+      "title": "Units, logarithms and measurement graphs",
+      "explanationCharacters": 702,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M06",
+      "pageId": "L04-1-03",
+      "title": "A filter is a measured transfer behavior",
+      "explanationCharacters": 668,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M06",
+      "pageId": "L04-1-04",
+      "title": "Time-domain and frequency-domain evidence agree",
+      "explanationCharacters": 698,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M06",
+      "pageId": "L04-0-05",
+      "title": "Plan a defensible instrument characterization",
+      "explanationCharacters": 677,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M07",
+      "pageId": "L04-0-01",
+      "title": "A capacitor stores separated charge and electric-field energy",
+      "explanationCharacters": 709,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M07",
+      "pageId": "L04-0-06",
+      "title": "Why capacitors do not pass steady DC through the dielectric",
+      "explanationCharacters": 779,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M07",
+      "pageId": "L07-0-04",
+      "title": "Capacitor types, construction and polarity",
+      "explanationCharacters": 760,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M07",
+      "pageId": "L04-0-02",
+      "title": "Inductance stores magnetic-field energy",
+      "explanationCharacters": 727,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M07",
+      "pageId": "L04-0-07",
+      "title": "RL time constant and magnetic decay",
+      "explanationCharacters": 670,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M07",
+      "pageId": "L07-0-05",
+      "title": "Coils, cores, coupling and saturation",
+      "explanationCharacters": 1412,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M07",
+      "pageId": "L04-0-05",
+      "title": "Compare stored-field energy with dissipation",
+      "explanationCharacters": 636,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M07",
+      "pageId": "L04-0-08",
+      "title": "How a step or square wave reveals reactive behavior",
+      "explanationCharacters": 669,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M07",
+      "pageId": "L06-0-00",
+      "title": "Capacitive and inductive reactance",
+      "explanationCharacters": 1061,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M07",
+      "pageId": "L06-0-03",
+      "title": "Reactance and resistance are not the same quantity",
+      "explanationCharacters": 621,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M07",
+      "pageId": "L06-0-05",
+      "title": "Recognize resonance before calculating it",
+      "explanationCharacters": 616,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M07",
+      "pageId": "L07-0-00",
+      "title": "Select real reactive components from specifications",
+      "explanationCharacters": 654,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M07",
+      "pageId": "L07-0-01",
+      "title": "Magnetic fields lead to motors, relays and transformers",
+      "explanationCharacters": 700,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M07",
+      "pageId": "L07-0-02",
+      "title": "Measure and explain a reactive fault",
+      "explanationCharacters": 715,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M08",
+      "pageId": "L06-0-00",
+      "title": "From resistance to frequency-dependent opposition",
+      "explanationCharacters": 688,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M08",
+      "pageId": "L06-0-01",
+      "title": "Impedance is a magnitude with phase",
+      "explanationCharacters": 675,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M08",
+      "pageId": "L06-0-03",
+      "title": "Series RLC response changes with frequency",
+      "explanationCharacters": 1637,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M08",
+      "pageId": "L06-0-05",
+      "title": "Resonance is cancellation, not zero impedance everywhere",
+      "explanationCharacters": 2331,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M08",
+      "pageId": "L06-0-04",
+      "title": "Voltage/current phase diagrams are physical evidence",
+      "explanationCharacters": 1052,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M08",
+      "pageId": "L06-0-02",
+      "title": "Filters use impedance to choose what passes",
+      "explanationCharacters": 1141,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M08",
+      "pageId": "L04-0-00",
+      "title": "Decibels, cutoff and bandwidth",
+      "explanationCharacters": 667,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M08",
+      "pageId": "L04-0-02",
+      "title": "From impedance to an equivalent circuit",
+      "explanationCharacters": 615,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M08",
+      "pageId": "L04-0-05",
+      "title": "Sinusoidal versus pulsed inputs: interpret with care",
+      "explanationCharacters": 616,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M08",
+      "pageId": "L04-0-08",
+      "title": "Reading a response curve",
+      "explanationCharacters": 623,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M08",
+      "pageId": "L06-1-00",
+      "title": "Loading changes the network under test",
+      "explanationCharacters": 585,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M08",
+      "pageId": "L06-1-01",
+      "title": "A decade error has a recognizable signature",
+      "explanationCharacters": 593,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M08",
+      "pageId": "L06-1-02",
+      "title": "Plan a repeatable RLC characterization",
+      "explanationCharacters": 640,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M08",
+      "pageId": "L06-1-03",
+      "title": "Complete a traceable RLC fault argument",
+      "explanationCharacters": 741,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M09",
+      "pageId": "L07-0-10",
+      "title": "Current creates magnetic field",
+      "explanationCharacters": 1254,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M09",
+      "pageId": "L07-0-11",
+      "title": "Transformer action begins with changing flux",
+      "explanationCharacters": 1361,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M09",
+      "pageId": "L07-0-01",
+      "title": "Motor and generator: opposite energy directions",
+      "explanationCharacters": 1861,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M09",
+      "pageId": "L07-0-05",
+      "title": "Core materials, turns and magnetic loss",
+      "explanationCharacters": 1389,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M09",
+      "pageId": "L07-0-02",
+      "title": "Relay coils and contacts are different circuits",
+      "explanationCharacters": 1366,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M09",
+      "pageId": "L07-1-04",
+      "title": "Relay coil release transients and suppression",
+      "explanationCharacters": 1298,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M09",
+      "pageId": "L07-0-08",
+      "title": "Solid-state relays and integrated driver choices",
+      "explanationCharacters": 752,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M09",
+      "pageId": "L06-0-00",
+      "title": "Magnetic impedance and load behavior",
+      "explanationCharacters": 712,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M09",
+      "pageId": "L06-0-01",
+      "title": "Impedance as a vector in magnetic networks",
+      "explanationCharacters": 585,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M09",
+      "pageId": "L06-0-02",
+      "title": "Resonant coils and practical magnetic coupling",
+      "explanationCharacters": 615,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M09",
+      "pageId": "L06-0-03",
+      "title": "Distinguish ideal and real coil behavior",
+      "explanationCharacters": 704,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M09",
+      "pageId": "L06-0-04",
+      "title": "Select a relay or transformer by ratings",
+      "explanationCharacters": 695,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M09",
+      "pageId": "L07-0-00",
+      "title": "Write a cause-based report about magnetic devices",
+      "explanationCharacters": 727,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M09",
+      "pageId": "L07-1-02",
+      "title": "Synthesize a safe device comparison",
+      "explanationCharacters": 834,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M10",
+      "pageId": "L04-0-00",
+      "title": "From a steady supply to an oscillator",
+      "explanationCharacters": 670,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M10",
+      "pageId": "L04-0-01",
+      "title": "RC timing creates predictable delays",
+      "explanationCharacters": 624,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M10",
+      "pageId": "L04-0-02",
+      "title": "Inductive timing and resonant oscillators",
+      "explanationCharacters": 635,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M10",
+      "pageId": "L04-0-08",
+      "title": "Pulse width, duty cycle and shaping",
+      "explanationCharacters": 1030,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M10",
+      "pageId": "L06-0-03",
+      "title": "Integrators and differentiators shape time behavior",
+      "explanationCharacters": 1132,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M10",
+      "pageId": "L11-0-04",
+      "title": "Counters and clocks follow the timing source",
+      "explanationCharacters": 660,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M10",
+      "pageId": "L11-0-05",
+      "title": "Phase-locked loops: follow a reference",
+      "explanationCharacters": 1447,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M10",
+      "pageId": "L11-0-06",
+      "title": "Piezoelectric crystals: mechanical resonance becomes timing",
+      "explanationCharacters": 826,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M10",
+      "pageId": "L11-0-09",
+      "title": "Monostable, astable and bistable multivibrators",
+      "explanationCharacters": 655,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M11",
+      "pageId": "L08-0-03",
+      "title": "A semiconductor junction creates a directional barrier",
+      "explanationCharacters": 666,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M11",
+      "pageId": "L07-0-07",
+      "title": "Forward drop and diode-test interpretation",
+      "explanationCharacters": 1227,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M11",
+      "pageId": "L08-0-00",
+      "title": "Rectifiers select current direction",
+      "explanationCharacters": 630,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M11",
+      "pageId": "L08-0-05",
+      "title": "Zener operation in reverse breakdown",
+      "explanationCharacters": 1285,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M11",
+      "pageId": "L08-0-01",
+      "title": "LED, photodiode and Schottky uses",
+      "explanationCharacters": 654,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M11",
+      "pageId": "L08-0-02",
+      "title": "Controlled rectifiers and gate triggering",
+      "explanationCharacters": 1632,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M11",
+      "pageId": "L07-0-06",
+      "title": "Reverse recovery and switching behavior",
+      "explanationCharacters": 558,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M11",
+      "pageId": "L08-1-01",
+      "title": "Device ratings and selection from datasheets",
+      "explanationCharacters": 594,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M11",
+      "pageId": "L08-0-04",
+      "title": "Fault isolation in diode networks",
+      "explanationCharacters": 478,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M12",
+      "pageId": "L08-0-01",
+      "title": "NPN transistor switch from first principles",
+      "explanationCharacters": 536,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M12",
+      "pageId": "L08-0-04",
+      "title": "Active, cutoff and saturation regions",
+      "explanationCharacters": 584,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M12",
+      "pageId": "L10-0-04",
+      "title": "PNP topology and sourcing current",
+      "explanationCharacters": 552,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M12",
+      "pageId": "L08-0-02",
+      "title": "MOSFET gates are capacitive controls",
+      "explanationCharacters": 635,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M12",
+      "pageId": "L08-1-00",
+      "title": "MOSFET dissipation and switching losses",
+      "explanationCharacters": 584,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M12",
+      "pageId": "L08-1-04",
+      "title": "JFETs, depletion and enhancement modes",
+      "explanationCharacters": 540,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M12",
+      "pageId": "L08-0-05",
+      "title": "Transistor bias and the DC operating point",
+      "explanationCharacters": 530,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M12",
+      "pageId": "L10-0-00",
+      "title": "Common-emitter and source amplifiers",
+      "explanationCharacters": 1343,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M12",
+      "pageId": "L10-0-01",
+      "title": "Common-collector, source followers and buffering",
+      "explanationCharacters": 559,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M12",
+      "pageId": "L10-0-02",
+      "title": "Integrated circuits and functional blocks",
+      "explanationCharacters": 1241,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M12",
+      "pageId": "L10-0-03",
+      "title": "Thermal management and safe operating area",
+      "explanationCharacters": 511,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M12",
+      "pageId": "L10-0-05",
+      "title": "Diagnosing a transistor-switch fault",
+      "explanationCharacters": 517,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M12",
+      "pageId": "L10-0-06",
+      "title": "Darlington, IGBT and CMOS context",
+      "explanationCharacters": 572,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M12",
+      "pageId": "L10-0-07",
+      "title": "Transistor competency integration case",
+      "explanationCharacters": 521,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M13",
+      "pageId": "L09-0-01",
+      "title": "Power-supply blocks from source to load",
+      "explanationCharacters": 2180,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M13",
+      "pageId": "L09-0-05",
+      "title": "Rectification and peak-voltage reasoning",
+      "explanationCharacters": 1054,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M13",
+      "pageId": "L09-1-04",
+      "title": "Half-wave and full-wave ripple frequency",
+      "explanationCharacters": 1149,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M13",
+      "pageId": "L08-0-00",
+      "title": "Reservoir capacitors and safe polarity",
+      "explanationCharacters": 540,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M13",
+      "pageId": "L08-0-02",
+      "title": "Linear regulators and headroom",
+      "explanationCharacters": 1167,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M13",
+      "pageId": "L09-0-00",
+      "title": "Adjustable regulator feedback examples",
+      "explanationCharacters": 475,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M13",
+      "pageId": "L09-1-00",
+      "title": "Power supplies under changing loads",
+      "explanationCharacters": 526,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M13",
+      "pageId": "L09-0-02",
+      "title": "Switch-mode conversion and energy storage",
+      "explanationCharacters": 1068,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M13",
+      "pageId": "L09-1-02",
+      "title": "Inductors, feedback, protection in switchers",
+      "explanationCharacters": 563,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M13",
+      "pageId": "L09-0-03",
+      "title": "Ripple measurement and oscilloscope setup",
+      "explanationCharacters": 452,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M13",
+      "pageId": "L09-1-03",
+      "title": "Batteries, current limits and protection",
+      "explanationCharacters": 950,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M13",
+      "pageId": "L09-1-05",
+      "title": "Power tree troubleshooting",
+      "explanationCharacters": 531,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M13",
+      "pageId": "L09-0-06",
+      "title": "Thermal budget and regulator selection",
+      "explanationCharacters": 963,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M13",
+      "pageId": "L09-0-07",
+      "title": "Power-supply acceptance checklist",
+      "explanationCharacters": 957,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M14",
+      "pageId": "L10-0-00",
+      "title": "An amplifier transfers supply energy to a signal",
+      "explanationCharacters": 979,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M14",
+      "pageId": "L10-1-02",
+      "title": "Decibels and voltage gain",
+      "explanationCharacters": 901,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M14",
+      "pageId": "L10-0-04",
+      "title": "Signal levels, loading and impedance",
+      "explanationCharacters": 1396,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M14",
+      "pageId": "L10-0-05",
+      "title": "Common-emitter and common-source signal inversion",
+      "explanationCharacters": 1290,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M14",
+      "pageId": "L10-0-07",
+      "title": "Amplifier classes and efficiency tradeoffs",
+      "explanationCharacters": 688,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M14",
+      "pageId": "L10-0-02",
+      "title": "Op-amp inputs, supplies and open-loop action",
+      "explanationCharacters": 1314,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M14",
+      "pageId": "L10-0-09",
+      "title": "Inverting amplifier calculation",
+      "explanationCharacters": 585,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M14",
+      "pageId": "L10-0-06",
+      "title": "Non-inverting gain and follower",
+      "explanationCharacters": 1136,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M14",
+      "pageId": "L10-1-00",
+      "title": "Feedback modifies gain, bandwidth and stability",
+      "explanationCharacters": 610,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M14",
+      "pageId": "L10-0-01",
+      "title": "Bandwidth and gain-bandwidth product",
+      "explanationCharacters": 462,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M14",
+      "pageId": "L10-1-01",
+      "title": "Clipping, slew limiting and distortion",
+      "explanationCharacters": 1079,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M14",
+      "pageId": "L10-0-03",
+      "title": "Measuring gain without fooling yourself",
+      "explanationCharacters": 569,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M14",
+      "pageId": "L10-1-03",
+      "title": "Amplifier fault isolation by waveform signature",
+      "explanationCharacters": 515,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M14",
+      "pageId": "L10-1-04",
+      "title": "Amplifier design-review case",
+      "explanationCharacters": 934,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M15",
+      "pageId": "L12-0-00",
+      "title": "Workshop safety and ESD are separate protections",
+      "explanationCharacters": 565,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M15",
+      "pageId": "L12-0-09",
+      "title": "Reading a PCB before soldering",
+      "explanationCharacters": 555,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M15",
+      "pageId": "L29-0-02",
+      "title": "Solder alloys, melting and application",
+      "explanationCharacters": 1521,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M15",
+      "pageId": "L12-0-03",
+      "title": "Heat flow, iron tips and thermal recovery",
+      "explanationCharacters": 1038,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M15",
+      "pageId": "L12-0-06",
+      "title": "Flux and solder wetting",
+      "explanationCharacters": 518,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M15",
+      "pageId": "L12-0-07",
+      "title": "Through-hole soldering sequence",
+      "explanationCharacters": 654,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M15",
+      "pageId": "L12-0-02",
+      "title": "Cold joints, bridges and lifted pads",
+      "explanationCharacters": 2319,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M15",
+      "pageId": "L12-0-08",
+      "title": "Desoldering wick and suction",
+      "explanationCharacters": 501,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M15",
+      "pageId": "L12-0-01",
+      "title": "Rework heat budget and thermal damage",
+      "explanationCharacters": 526,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M15",
+      "pageId": "L12-0-04",
+      "title": "Surface-mount handling and orientation",
+      "explanationCharacters": 549,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M15",
+      "pageId": "L12-0-05",
+      "title": "ESD packaging and component traceability",
+      "explanationCharacters": 527,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M15",
+      "pageId": "L29-0-00",
+      "title": "Inspecting repaired boards",
+      "explanationCharacters": 612,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M15",
+      "pageId": "L29-0-03",
+      "title": "Harness and crimp workmanship",
+      "explanationCharacters": 559,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M15",
+      "pageId": "L29-0-04",
+      "title": "Workmanship practical case and evidence tiers",
+      "explanationCharacters": 454,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M16",
+      "pageId": "L11-0-00",
+      "title": "Place value: one quantity, different bases",
+      "explanationCharacters": 654,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M16",
+      "pageId": "L11-0-07",
+      "title": "Binary, octal and hexadecimal grouping",
+      "explanationCharacters": 562,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M16",
+      "pageId": "L11-0-01",
+      "title": "Boolean variables and the electrical abstraction",
+      "explanationCharacters": 620,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M16",
+      "pageId": "L11-0-03",
+      "title": "Complement, AND, OR and precedence",
+      "explanationCharacters": 995,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M16",
+      "pageId": "L11-0-08",
+      "title": "XOR, XNOR and parity checking",
+      "explanationCharacters": 522,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M16",
+      "pageId": "L11-0-05",
+      "title": "Combinational equations to logic gates",
+      "explanationCharacters": 586,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M16",
+      "pageId": "L11-0-09",
+      "title": "Karnaugh thinking and Boolean simplification",
+      "explanationCharacters": 1073,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M16",
+      "pageId": "L14-0-01",
+      "title": "Bit width, signed values and masks",
+      "explanationCharacters": 732,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M16",
+      "pageId": "L14-0-04",
+      "title": "Truth-table verification and fault diagnosis",
+      "explanationCharacters": 704,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M17",
+      "pageId": "L11-0-01",
+      "title": "Logic gates as real electronic building blocks",
+      "explanationCharacters": 636,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M17",
+      "pageId": "L11-0-03",
+      "title": "Truth tables as a test plan",
+      "explanationCharacters": 519,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M17",
+      "pageId": "L11-0-08",
+      "title": "Active-low control and gate inversions",
+      "explanationCharacters": 615,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M17",
+      "pageId": "L11-1-03",
+      "title": "Logic families and valid voltage margins",
+      "explanationCharacters": 656,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M17",
+      "pageId": "L11-0-05",
+      "title": "Display drivers and coding output",
+      "explanationCharacters": 721,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M17",
+      "pageId": "L11-0-06",
+      "title": "Logic probes and meaningful signal states",
+      "explanationCharacters": 674,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M17",
+      "pageId": "L15-0-04",
+      "title": "Ports, direction control and register behavior",
+      "explanationCharacters": 681,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M17",
+      "pageId": "L11-0-02",
+      "title": "Sequential circuits remember past conditions",
+      "explanationCharacters": 1831,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M17",
+      "pageId": "L11-0-09",
+      "title": "Counters turn clocks into state sequences",
+      "explanationCharacters": 607,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M17",
+      "pageId": "L11-0-04",
+      "title": "Buses, clocks and digital-system timing",
+      "explanationCharacters": 1213,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M17",
+      "pageId": "L11-1-00",
+      "title": "Input thresholds, hysteresis and undefined levels",
+      "explanationCharacters": 1179,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M17",
+      "pageId": "L11-1-01",
+      "title": "Floating inputs and defined states",
+      "explanationCharacters": 694,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M17",
+      "pageId": "L11-1-02",
+      "title": "Contact bounce as repeated logic edges",
+      "explanationCharacters": 667,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M17",
+      "pageId": "L11-1-05",
+      "title": "Design and troubleshoot a debounced input",
+      "explanationCharacters": 694,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M18",
+      "pageId": "L13-1-00",
+      "title": "Start with a defensible fault model",
+      "explanationCharacters": 672,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M18",
+      "pageId": "L18-1-06",
+      "title": "Trace from last-good to first-bad",
+      "explanationCharacters": 534,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M18",
+      "pageId": "L03-1-00",
+      "title": "DMM, scope, logic probe and analyzer",
+      "explanationCharacters": 519,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M18",
+      "pageId": "L03-1-04",
+      "title": "Measurement reference and a reproducible record",
+      "explanationCharacters": 605,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M18",
+      "pageId": "L13-1-06",
+      "title": "Select a high-information test",
+      "explanationCharacters": 515,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M18",
+      "pageId": "L18-0-00",
+      "title": "Logic probe fundamentals and thresholds",
+      "explanationCharacters": 600,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M18",
+      "pageId": "L18-0-01",
+      "title": "Logic pulser operation and precautions",
+      "explanationCharacters": 697,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M18",
+      "pageId": "L18-1-01",
+      "title": "Pulse tracing and edge capture",
+      "explanationCharacters": 575,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M18",
+      "pageId": "L18-1-02",
+      "title": "Analyzer decoding, timing and false confidence",
+      "explanationCharacters": 1259,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M18",
+      "pageId": "L18-0-03",
+      "title": "Layered fault diagnosis on a serial interface",
+      "explanationCharacters": 720,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M18",
+      "pageId": "L18-0-05",
+      "title": "Signal-level compatibility and contention",
+      "explanationCharacters": 620,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M18",
+      "pageId": "L18-0-07",
+      "title": "Fault report and decision standard",
+      "explanationCharacters": 677,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M19",
+      "pageId": "L18-0-04",
+      "title": "An interface is a complete agreement",
+      "explanationCharacters": 578,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M19",
+      "pageId": "L18-0-05",
+      "title": "Logic-level compatibility and translator selection",
+      "explanationCharacters": 1168,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M19",
+      "pageId": "L18-0-03",
+      "title": "Grounding, isolation and signal return",
+      "explanationCharacters": 712,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M19",
+      "pageId": "L19-0-08",
+      "title": "Signal conflicts and what symptoms mean",
+      "explanationCharacters": 651,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M19",
+      "pageId": "L17-0-07",
+      "title": "UART, RS-232 and USB are not interchangeable",
+      "explanationCharacters": 593,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M19",
+      "pageId": "L18-0-06",
+      "title": "I²C open-drain operation and pull-ups",
+      "explanationCharacters": 604,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M19",
+      "pageId": "L18-0-01",
+      "title": "SPI clock and chip-select timing",
+      "explanationCharacters": 614,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M19",
+      "pageId": "L18-0-07",
+      "title": "Multiple SPI devices and signal ownership",
+      "explanationCharacters": 644,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M19",
+      "pageId": "L17-0-01",
+      "title": "UART crossover, framing and reference",
+      "explanationCharacters": 658,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M19",
+      "pageId": "L17-0-02",
+      "title": "Layered communications troubleshooting",
+      "explanationCharacters": 615,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M19",
+      "pageId": "L17-0-08",
+      "title": "Cable selection, shielding and impedance",
+      "explanationCharacters": 621,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M19",
+      "pageId": "L19-0-00",
+      "title": "Audio/video signal paths as interface examples",
+      "explanationCharacters": 623,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M19",
+      "pageId": "L19-0-01",
+      "title": "Wire construction, gauge and connector choice",
+      "explanationCharacters": 679,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M19",
+      "pageId": "L19-0-03",
+      "title": "Interface acceptance and documentation",
+      "explanationCharacters": 1260,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M20",
+      "pageId": "L14-0-00",
+      "title": "Computers process instructions and information",
+      "explanationCharacters": 680,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M20",
+      "pageId": "L14-0-06",
+      "title": "CPU blocks and control flow",
+      "explanationCharacters": 1379,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M20",
+      "pageId": "L16-0-03",
+      "title": "Microcontroller integration and purpose",
+      "explanationCharacters": 1279,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M20",
+      "pageId": "L14-0-03",
+      "title": "Block diagrams, flowcharts and execution sequence",
+      "explanationCharacters": 547,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M20",
+      "pageId": "L14-0-04",
+      "title": "PLC fundamentals and industrial control",
+      "explanationCharacters": 640,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M20",
+      "pageId": "L14-0-08",
+      "title": "PLC timing, state and troubleshooting",
+      "explanationCharacters": 704,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M20",
+      "pageId": "L14-0-01",
+      "title": "Unsigned, signed and stored-bit interpretation",
+      "explanationCharacters": 605,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M20",
+      "pageId": "L14-0-02",
+      "title": "Programming languages and toolchain stages",
+      "explanationCharacters": 717,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M20",
+      "pageId": "L14-0-05",
+      "title": "Peripherals and external interface chips",
+      "explanationCharacters": 598,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M20",
+      "pageId": "L14-0-07",
+      "title": "Source-to-firmware and debugging workflow",
+      "explanationCharacters": 621,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M20",
+      "pageId": "L15-0-01",
+      "title": "Ports, status registers and configuration",
+      "explanationCharacters": 629,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M20",
+      "pageId": "L15-0-04",
+      "title": "Input/output direction and electrical limits",
+      "explanationCharacters": 594,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M20",
+      "pageId": "L15-0-05",
+      "title": "Memory hierarchy and power loss",
+      "explanationCharacters": 643,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M20",
+      "pageId": "L16-0-00",
+      "title": "MCU clocks, reset, bus and firmware events",
+      "explanationCharacters": 670,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M21",
+      "pageId": "L17-0-03",
+      "title": "From power-on to useful application",
+      "explanationCharacters": 1007,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M21",
+      "pageId": "L17-0-04",
+      "title": "Install software without sacrificing recoverability",
+      "explanationCharacters": 1038,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M21",
+      "pageId": "L17-0-05",
+      "title": "Backup, restore and recovery are different operations",
+      "explanationCharacters": 2301,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M21",
+      "pageId": "L27-0-03",
+      "title": "Document a reproducible computer setup",
+      "explanationCharacters": 1074,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M21",
+      "pageId": "L14-0-00",
+      "title": "CPU, memory, storage and operating system roles",
+      "explanationCharacters": 1019,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M21",
+      "pageId": "L14-0-03",
+      "title": "Trace a computer block diagram",
+      "explanationCharacters": 958,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M21",
+      "pageId": "L14-0-05",
+      "title": "Peripherals and interfaces need drivers and compatible signaling",
+      "explanationCharacters": 909,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M21",
+      "pageId": "L14-0-06",
+      "title": "Processes, files and I/O are coordinated resources",
+      "explanationCharacters": 943,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M21",
+      "pageId": "L14-0-08",
+      "title": "PLCs as specialized computers, not interchangeable PCs",
+      "explanationCharacters": 1021,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M21",
+      "pageId": "L17-0-02",
+      "title": "Network symptoms identify their failing layer",
+      "explanationCharacters": 1457,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M21",
+      "pageId": "L17-0-08",
+      "title": "Classify software and hardware faults by evidence",
+      "explanationCharacters": 904,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M21",
+      "pageId": "L27-0-00",
+      "title": "Applications depend on a service stack",
+      "explanationCharacters": 943,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M21",
+      "pageId": "L27-0-05",
+      "title": "Verify computer-produced calculations",
+      "explanationCharacters": 913,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M22",
+      "pageId": "L19-0-03",
+      "title": "Wire construction, insulation and AWG",
+      "explanationCharacters": 2220,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M22",
+      "pageId": "L19-0-04",
+      "title": "Copper pair, coaxial and optical signal paths",
+      "explanationCharacters": 1744,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M22",
+      "pageId": "L19-1-04",
+      "title": "Find faults with end-to-end and sectional testing",
+      "explanationCharacters": 1649,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M22",
+      "pageId": "L19-0-05",
+      "title": "Bonding, cable preparation, crimping and splicing",
+      "explanationCharacters": 2201,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M22",
+      "pageId": "L19-0-06",
+      "title": "Cable test instruments and decibel loss",
+      "explanationCharacters": 1455,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M22",
+      "pageId": "L19-0-13",
+      "title": "Connector geometry and signal integrity",
+      "explanationCharacters": 921,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M22",
+      "pageId": "L19-0-00",
+      "title": "Choose the medium from the environment",
+      "explanationCharacters": 930,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M22",
+      "pageId": "L19-1-03",
+      "title": "Termination preserves the transmission-line model",
+      "explanationCharacters": 1997,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M22",
+      "pageId": "L19-1-00",
+      "title": "Mechanical quality is part of electrical reliability",
+      "explanationCharacters": 848,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M22",
+      "pageId": "L19-0-01",
+      "title": "Balanced pairs for communications",
+      "explanationCharacters": 881,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M22",
+      "pageId": "L19-0-02",
+      "title": "Fiber connectors and optical hygiene",
+      "explanationCharacters": 841,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M22",
+      "pageId": "L19-1-05",
+      "title": "Document cable orientation and test conditions",
+      "explanationCharacters": 824,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M22",
+      "pageId": "L19-0-08",
+      "title": "Signal-level compatibility on cables",
+      "explanationCharacters": 812,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M22",
+      "pageId": "L19-0-12",
+      "title": "Attenuation and propagation are distinct",
+      "explanationCharacters": 880,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M23",
+      "pageId": "L03-0-02",
+      "title": "Time-domain versus frequency-domain instruments",
+      "explanationCharacters": 1000,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M23",
+      "pageId": "L03-0-06",
+      "title": "Oscilloscope controls and spectrum fundamentals",
+      "explanationCharacters": 905,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M23",
+      "pageId": "L03-0-04",
+      "title": "Generators, counters and substitution boxes",
+      "explanationCharacters": 1621,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M23",
+      "pageId": "L03-0-03",
+      "title": "Meters, loading and measurement category",
+      "explanationCharacters": 1536,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M23",
+      "pageId": "L03-0-05",
+      "title": "Logic probe and pulser roles",
+      "explanationCharacters": 849,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M23",
+      "pageId": "L03-0-07",
+      "title": "Loads, isolation transformers and variable sources",
+      "explanationCharacters": 1087,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M23",
+      "pageId": "L03-0-08",
+      "title": "Why an instrument affects the circuit",
+      "explanationCharacters": 1507,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M23",
+      "pageId": "L03-0-10",
+      "title": "Select instruments by falsifiable hypothesis",
+      "explanationCharacters": 844,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M23",
+      "pageId": "L13-0-01",
+      "title": "Reference rails before tracing signal",
+      "explanationCharacters": 821,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M23",
+      "pageId": "L13-0-02",
+      "title": "Datasheet limits control the test",
+      "explanationCharacters": 903,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M23",
+      "pageId": "L13-0-04",
+      "title": "Test-point maps and signal tracing",
+      "explanationCharacters": 788,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M23",
+      "pageId": "L13-0-05",
+      "title": "Technician flowcharts and safe sequence",
+      "explanationCharacters": 854,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M23",
+      "pageId": "L20-0-04",
+      "title": "RF cables, SWR and instrument selection",
+      "explanationCharacters": 902,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M23",
+      "pageId": "L20-0-06",
+      "title": "Frequency bands, bandwidth and spectral alignment",
+      "explanationCharacters": 957,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M24",
+      "pageId": "L19-0-01",
+      "title": "Trace an audio/video chain from end to end",
+      "explanationCharacters": 2380,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M24",
+      "pageId": "L19-0-07",
+      "title": "Microphones, speakers and recording",
+      "explanationCharacters": 994,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M24",
+      "pageId": "L19-0-08",
+      "title": "Signal conflicts, grounding and interface levels",
+      "explanationCharacters": 847,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M24",
+      "pageId": "L10-0-06",
+      "title": "Recognize clipping versus noise",
+      "explanationCharacters": 1532,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M24",
+      "pageId": "L10-0-07",
+      "title": "Power and gain across audio stages",
+      "explanationCharacters": 888,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M24",
+      "pageId": "L19-0-04",
+      "title": "Audio/video wiring and termination",
+      "explanationCharacters": 930,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M24",
+      "pageId": "L19-0-09",
+      "title": "Displays are downstream parts of the video chain",
+      "explanationCharacters": 810,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M24",
+      "pageId": "L19-0-14",
+      "title": "Output transducers convert energy",
+      "explanationCharacters": 844,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M24",
+      "pageId": "L20-0-05",
+      "title": "Signal recovery and modulation boundaries",
+      "explanationCharacters": 826,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M25",
+      "pageId": "L19-0-14",
+      "title": "Light and electronics exchange energy",
+      "explanationCharacters": 1656,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M25",
+      "pageId": "L19-0-09",
+      "title": "Seven-segment, LCD and OLED displays",
+      "explanationCharacters": 1449,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M25",
+      "pageId": "L19-0-10",
+      "title": "Photocells, photodiodes and photovoltaic sources",
+      "explanationCharacters": 2328,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M25",
+      "pageId": "L19-0-02",
+      "title": "Fiber-optic information transfer",
+      "explanationCharacters": 922,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M25",
+      "pageId": "L19-0-11",
+      "title": "Cameras, photodetectors and opto-isolators",
+      "explanationCharacters": 2867,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M25",
+      "pageId": "L19-0-04",
+      "title": "Coax versus optical cabling at interfaces",
+      "explanationCharacters": 784,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M25",
+      "pageId": "L19-0-07",
+      "title": "Audio and video electro-optic conversion",
+      "explanationCharacters": 787,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M25",
+      "pageId": "L19-0-12",
+      "title": "Light sensors as electronic controls",
+      "explanationCharacters": 772,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M25",
+      "pageId": "L19-0-13",
+      "title": "Optical interface integrity and connector losses",
+      "explanationCharacters": 902,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M26",
+      "pageId": "L20-0-09",
+      "title": "RF from circuits to propagating fields",
+      "explanationCharacters": 1103,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M26",
+      "pageId": "L20-0-04",
+      "title": "Coaxial feedlines and their characteristic impedance",
+      "explanationCharacters": 1673,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M26",
+      "pageId": "L20-0-01",
+      "title": "Modulation: how a message rides on a carrier",
+      "explanationCharacters": 1078,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M26",
+      "pageId": "L20-0-05",
+      "title": "Receiver blocks: antenna to intelligible output",
+      "explanationCharacters": 1694,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M26",
+      "pageId": "L20-0-11",
+      "title": "Received strength, noise and selectivity",
+      "explanationCharacters": 1773,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M26",
+      "pageId": "L20-0-10",
+      "title": "SWR and reflected power explained",
+      "explanationCharacters": 1373,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M26",
+      "pageId": "L06-0-00",
+      "title": "Capacitive reactance changes with frequency",
+      "explanationCharacters": 856,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M26",
+      "pageId": "L06-0-03",
+      "title": "Inductive reactance changes with frequency",
+      "explanationCharacters": 915,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M26",
+      "pageId": "L20-0-00",
+      "title": "Frequency bands and the geometry of RF systems",
+      "explanationCharacters": 1600,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M26",
+      "pageId": "L06-0-01",
+      "title": "Impedance magnitude and phase in RF networks",
+      "explanationCharacters": 865,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M26",
+      "pageId": "L06-0-02",
+      "title": "Matching networks transfer power within conditions",
+      "explanationCharacters": 1610,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M26",
+      "pageId": "L06-0-05",
+      "title": "Resonance versus accidental peaking",
+      "explanationCharacters": 1384,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M26",
+      "pageId": "L20-0-03",
+      "title": "Propagation, polarization and path loss",
+      "explanationCharacters": 1752,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M26",
+      "pageId": "L20-1-05",
+      "title": "RF incident report and safety handoff",
+      "explanationCharacters": 1090,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M27",
+      "pageId": "L20-0-02",
+      "title": "Communications networks as end-to-end systems",
+      "explanationCharacters": 1015,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M27",
+      "pageId": "L20-0-01",
+      "title": "Carrier selection and channel bandwidth",
+      "explanationCharacters": 937,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M27",
+      "pageId": "L20-0-05",
+      "title": "Radio receiver service-chain isolation",
+      "explanationCharacters": 921,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M27",
+      "pageId": "L20-0-11",
+      "title": "Encoding, demodulation and meaningful data",
+      "explanationCharacters": 937,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M27",
+      "pageId": "L20-0-07",
+      "title": "Simplex, duplex and repeaters",
+      "explanationCharacters": 1636,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M27",
+      "pageId": "L20-0-08",
+      "title": "Cellular and satellite service boundaries",
+      "explanationCharacters": 1660,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M27",
+      "pageId": "L19-0-02",
+      "title": "Analog voice service versus packet transport",
+      "explanationCharacters": 920,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M27",
+      "pageId": "L19-0-03",
+      "title": "Copper and fiber link selection",
+      "explanationCharacters": 911,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M27",
+      "pageId": "L20-0-04",
+      "title": "Wiring records identify the correct pair and path",
+      "explanationCharacters": 940,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M27",
+      "pageId": "L20-0-10",
+      "title": "Antenna mismatch and duplex path integrity",
+      "explanationCharacters": 935,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M27",
+      "pageId": "L20-0-12",
+      "title": "RF feedline versus network payload fault",
+      "explanationCharacters": 993,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M28",
+      "pageId": "L28-0-04",
+      "title": "Use service manuals before improvising",
+      "explanationCharacters": 1594,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M28",
+      "pageId": "L20-1-02",
+      "title": "Handoffs prevent repeat mistakes",
+      "explanationCharacters": 848,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M28",
+      "pageId": "L20-1-03",
+      "title": "Measurement procedures are reproducible contracts",
+      "explanationCharacters": 1036,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M28",
+      "pageId": "L28-0-05",
+      "title": "Field planning versus laboratory planning",
+      "explanationCharacters": 1579,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M28",
+      "pageId": "L28-0-06",
+      "title": "Systematic troubleshooting beats parts swapping",
+      "explanationCharacters": 930,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M28",
+      "pageId": "L22-0-00",
+      "title": "Prioritize hazards, cost and likelihood",
+      "explanationCharacters": 1017,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M28",
+      "pageId": "L22-0-02",
+      "title": "Readiness to release an item requires evidence",
+      "explanationCharacters": 888,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M28",
+      "pageId": "L22-0-06",
+      "title": "Repair causes rather than repeated symptoms",
+      "explanationCharacters": 761,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M28",
+      "pageId": "L28-1-00",
+      "title": "Fault injection is controlled evidence",
+      "explanationCharacters": 981,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M28",
+      "pageId": "L28-0-02",
+      "title": "Traceable reports tie evidence to work",
+      "explanationCharacters": 2235,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M28",
+      "pageId": "L28-0-03",
+      "title": "Estimates and material planning quantify uncertainty",
+      "explanationCharacters": 1448,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M28",
+      "pageId": "L28-0-07",
+      "title": "Evidence-based work productivity",
+      "explanationCharacters": 924,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M28",
+      "pageId": "L28-0-08",
+      "title": "Field and shop constraints: write the next safe action",
+      "explanationCharacters": 999,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M29",
+      "pageId": "L21-0-00",
+      "title": "A full mock measures retrieval breadth",
+      "explanationCharacters": 1044,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M29",
+      "pageId": "L22-0-03",
+      "title": "Target gaps by repeated misses",
+      "explanationCharacters": 891,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M29",
+      "pageId": "L22-0-02",
+      "title": "Readiness is a decision with uncertainty",
+      "explanationCharacters": 850,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M29",
+      "pageId": "L23-0-03",
+      "title": "Protect the integrity of the exam gate",
+      "explanationCharacters": 913,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M29",
+      "pageId": "L23-0-06",
+      "title": "External evidence must test transfer",
+      "explanationCharacters": 1009,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M29",
+      "pageId": "L21-0-04",
+      "title": "Scratch-work prevents hidden arithmetic errors",
+      "explanationCharacters": 846,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M29",
+      "pageId": "L21-0-05",
+      "title": "Create an actionable error log",
+      "explanationCharacters": 855,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M29",
+      "pageId": "L23-0-00",
+      "title": "Timing without sacrificing safety reasoning",
+      "explanationCharacters": 962,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M29",
+      "pageId": "L23-0-02",
+      "title": "Interpret results by domain",
+      "explanationCharacters": 812,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M29",
+      "pageId": "L23-0-04",
+      "title": "Why two independent good scores matter",
+      "explanationCharacters": 876,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M29",
+      "pageId": "L23-0-05",
+      "title": "Retention uses spacing and changed contexts",
+      "explanationCharacters": 883,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M29",
+      "pageId": "L30-0-00",
+      "title": "Follow-up after a mock is an explicit plan",
+      "explanationCharacters": 882,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M30",
+      "pageId": "L23-0-06",
+      "title": "Demand fresh evidence for the second gate",
+      "explanationCharacters": 921,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M30",
+      "pageId": "L23-0-03",
+      "title": "Understand sampling error and score variation",
+      "explanationCharacters": 902,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M30",
+      "pageId": "L21-0-05",
+      "title": "Convert mistakes to standards not memorized keys",
+      "explanationCharacters": 865,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M30",
+      "pageId": "L30-0-06",
+      "title": "Retest after purposeful delay",
+      "explanationCharacters": 858,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M30",
+      "pageId": "L31-0-06",
+      "title": "Maintain skills after the initial course",
+      "explanationCharacters": 835,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M30",
+      "pageId": "L21-0-00",
+      "title": "Breadth is more than a good favorite topic",
+      "explanationCharacters": 866,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M30",
+      "pageId": "L22-0-02",
+      "title": "Readiness threshold versus official eligibility",
+      "explanationCharacters": 946,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M30",
+      "pageId": "L22-0-05",
+      "title": "Make a go/no-go decision from evidence",
+      "explanationCharacters": 828,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M30",
+      "pageId": "L23-0-00",
+      "title": "Audit the second form's unseen status",
+      "explanationCharacters": 817,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M30",
+      "pageId": "L23-0-02",
+      "title": "Credentials and transcript language must be accurate",
+      "explanationCharacters": 969,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M30",
+      "pageId": "L30-0-02",
+      "title": "Use correct reasoning rather than answer memory",
+      "explanationCharacters": 810,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    },
+    {
+      "moduleId": "M30",
+      "pageId": "L30-0-03",
+      "title": "Plan sustainable continued review",
+      "explanationCharacters": 909,
+      "triageFlags": [],
+      "requiresTechnicalEditorialReview": true
+    }
+  ]
+}
