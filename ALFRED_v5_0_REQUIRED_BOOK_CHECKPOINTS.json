@@ -1,0 +1,66 @@
+[
+  {
+    "module": "M06",
+    "chapter": 6,
+    "pages": "45–52",
+    "page": 1,
+    "retrievalTask": "Distinguish RMS, instantaneous voltage, reactance and scope interpretation; calculate one sinusoidal measurement with units.",
+    "limits": "Vintage AC examples may omit modern probe or safe-ground guidance; use Alfred safety requirements."
+  },
+  {
+    "module": "M12",
+    "chapter": 9,
+    "pages": "70–78",
+    "page": 6,
+    "retrievalTask": "Compare BJT and FET action, show why transistor bias changes the operating point, then explain an input/output voltage observation.",
+    "limits": "Use publisher correction for common-base/common-collector statements on printed page 74."
+  },
+  {
+    "module": "M15",
+    "chapter": 20,
+    "pages": "176–181",
+    "page": 4,
+    "retrievalTask": "Identify two signs of acceptable wetting and two rework failure mechanisms; define a low-risk inspection plan before repair.",
+    "limits": "Do not treat older solder-handling directions as current lead, ventilation, or ESD safety instructions."
+  },
+  {
+    "module": "M17",
+    "chapter": 16,
+    "pages": "132–148",
+    "page": 7,
+    "retrievalTask": "Construct a D-flip-flop timing table with an active-low asynchronous reset and explain setup/hold risk.",
+    "limits": "Use the publisher corrected flip-flop diagram around printed page 138."
+  },
+  {
+    "module": "M18",
+    "chapter": 18,
+    "pages": "159–164",
+    "page": 1,
+    "retrievalTask": "Draw a last-known-good/first-known-bad troubleshooting trace and state the measurement that would disprove your first theory.",
+    "limits": "Real instrument reference points and safe-work controls outrank book-era bench habits."
+  },
+  {
+    "module": "M21",
+    "chapter": 17,
+    "pages": "149–158",
+    "page": 4,
+    "retrievalTask": "Identify CPU, volatile memory, nonvolatile memory and I/O from a block diagram, then predict the effect of a power interruption.",
+    "limits": "Historical microprocessor examples are conceptual, not a current datasheet for modern microcontrollers."
+  },
+  {
+    "module": "M23",
+    "chapter": 19,
+    "pages": "165–175",
+    "page": 1,
+    "retrievalTask": "Compare a counter, oscilloscope, DMM and spectrum analyzer for one intermittent signal complaint, including loading limits.",
+    "limits": "Actual measurement category, probe ground and instrument bandwidth limits require current rated documentation."
+  },
+  {
+    "module": "M24",
+    "chapter": 12,
+    "pages": "91–103",
+    "page": 4,
+    "retrievalTask": "Explain how audio amplifier gain, bandwidth and clipping affect a signal chain; calculate one gain in decibels.",
+    "limits": "The publisher amplifier chapter does not comprehensively address modern digital video codecs, interfaces, or entertainment systems. Learn those in Alfred."
+  }
+]

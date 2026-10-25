@@ -1,0 +1,186 @@
+[
+  {
+    "chapterFocus": "Certification scope: safety is a decision rule",
+    "module": "M01",
+    "pageIndex": 11,
+    "pageId": "L12-0-09",
+    "title": "Synthesis: a safe, explained, defensible decision",
+    "technicalEditorialState": "authored/checkable; no external independent instructor approval"
+  },
+  {
+    "chapterFocus": "What a code does and does not certify",
+    "module": "M01",
+    "pageIndex": 2,
+    "pageId": "L01-0-05",
+    "title": "Codes, protective devices and the hierarchy of controls",
+    "technicalEditorialState": "authored/checkable; no external independent instructor approval"
+  },
+  {
+    "chapterFocus": "Dimensional analysis as an error detector",
+    "module": "M02",
+    "pageIndex": 3,
+    "pageId": "L04-0-03",
+    "title": "SI prefixes: communicating scale without losing units",
+    "technicalEditorialState": "authored/checkable; no external independent instructor approval"
+  },
+  {
+    "chapterFocus": "Loaded divider: a source is not an ideal reference",
+    "module": "M04",
+    "pageIndex": 5,
+    "pageId": "L02-0-15",
+    "title": "Loaded divider: why a measurement or circuit changes Vout",
+    "technicalEditorialState": "authored/checkable; no external independent instructor approval"
+  },
+  {
+    "chapterFocus": "Choose instruments by both information and risk",
+    "module": "M05",
+    "pageIndex": 4,
+    "pageId": "L03-0-00",
+    "title": "A digital multimeter is several different measurement systems",
+    "technicalEditorialState": "authored/checkable; no external independent instructor approval"
+  },
+  {
+    "chapterFocus": "Stored field energy and release paths",
+    "module": "M07",
+    "pageIndex": 6,
+    "pageId": "L04-0-05",
+    "title": "Compare stored-field energy with dissipation",
+    "technicalEditorialState": "authored/checkable; no external independent instructor approval"
+  },
+  {
+    "chapterFocus": "Impedance needs complex reasoning",
+    "module": "M08",
+    "pageIndex": 1,
+    "pageId": "L06-0-01",
+    "title": "Impedance is a magnitude with phase",
+    "technicalEditorialState": "authored/checkable; no external independent instructor approval"
+  },
+  {
+    "chapterFocus": "Transformer behavior depends on a changing field",
+    "module": "M09",
+    "pageIndex": 1,
+    "pageId": "L07-0-11",
+    "title": "Transformer action begins with changing flux",
+    "technicalEditorialState": "authored/checkable; no external independent instructor approval"
+  },
+  {
+    "chapterFocus": "Relay terminals and suppression are separate decisions",
+    "module": "M09",
+    "pageIndex": 4,
+    "pageId": "L07-0-02",
+    "title": "Relay coils and contacts are different circuits",
+    "technicalEditorialState": "authored/checkable; no external independent instructor approval"
+  },
+  {
+    "chapterFocus": "SCR conduction is a latching state, not a switch button",
+    "module": "M11",
+    "pageIndex": 5,
+    "pageId": "L08-0-02",
+    "title": "Controlled rectifiers and gate triggering",
+    "technicalEditorialState": "authored/checkable; no external independent instructor approval"
+  },
+  {
+    "chapterFocus": "Bias is a prediction of a DC operating point",
+    "module": "M12",
+    "pageIndex": 6,
+    "pageId": "L08-0-05",
+    "title": "Transistor bias and the DC operating point",
+    "technicalEditorialState": "authored/checkable; no external independent instructor approval"
+  },
+  {
+    "chapterFocus": "Rectifier ripple requires the correct cycle interval",
+    "module": "M13",
+    "pageIndex": 3,
+    "pageId": "L08-0-00",
+    "title": "Reservoir capacitors and safe polarity",
+    "technicalEditorialState": "authored/checkable; no external independent instructor approval"
+  },
+  {
+    "chapterFocus": "Bandwidth and gain must be considered together",
+    "module": "M14",
+    "pageIndex": 9,
+    "pageId": "L10-0-01",
+    "title": "Bandwidth and gain-bandwidth product",
+    "technicalEditorialState": "authored/checkable; no external independent instructor approval"
+  },
+  {
+    "chapterFocus": "Decibels use different multipliers for different quantities",
+    "module": "M14",
+    "pageIndex": 1,
+    "pageId": "L10-1-02",
+    "title": "Decibels and voltage gain",
+    "technicalEditorialState": "authored/checkable; no external independent instructor approval"
+  },
+  {
+    "chapterFocus": "Solder inspection distinguishes evidence from appearance",
+    "module": "M15",
+    "pageIndex": 11,
+    "pageId": "L29-0-00",
+    "title": "Inspecting repaired boards",
+    "technicalEditorialState": "authored/checkable; no external independent instructor approval"
+  },
+  {
+    "chapterFocus": "Sequential logic requires a previous state",
+    "module": "M17",
+    "pageIndex": 7,
+    "pageId": "L11-0-02",
+    "title": "Sequential circuits remember past conditions",
+    "technicalEditorialState": "authored/checkable; no external independent instructor approval"
+  },
+  {
+    "chapterFocus": "Memory and state have different power-loss behavior",
+    "module": "M20",
+    "pageIndex": 12,
+    "pageId": "L15-0-05",
+    "title": "Memory hierarchy and power loss",
+    "technicalEditorialState": "authored/checkable; no external independent instructor approval"
+  },
+  {
+    "chapterFocus": "High-information measurements localize causes",
+    "module": "M18",
+    "pageIndex": 1,
+    "pageId": "L18-1-06",
+    "title": "Trace from last-good to first-bad",
+    "technicalEditorialState": "authored/checkable; no external independent instructor approval"
+  },
+  {
+    "chapterFocus": "Instrument limitations change the experiment",
+    "module": "M23",
+    "pageIndex": 1,
+    "pageId": "L03-0-06",
+    "title": "Oscilloscope controls and spectrum fundamentals",
+    "technicalEditorialState": "authored/checkable; no external independent instructor approval"
+  },
+  {
+    "chapterFocus": "Reflection coefficient and VSWR are related but distinct",
+    "module": "M26",
+    "pageIndex": 5,
+    "pageId": "L20-0-10",
+    "title": "SWR and reflected power explained",
+    "technicalEditorialState": "authored/checkable; no external independent instructor approval"
+  },
+  {
+    "chapterFocus": "RF propagation has geometric and environmental limits",
+    "module": "M26",
+    "pageIndex": 12,
+    "pageId": "L20-0-03",
+    "title": "Propagation, polarization and path loss",
+    "technicalEditorialState": "authored/checkable; no external independent instructor approval"
+  },
+  {
+    "chapterFocus": "Simplex, half-duplex and full-duplex describe directions",
+    "module": "M27",
+    "pageIndex": 4,
+    "pageId": "L20-0-07",
+    "title": "Simplex, duplex and repeaters",
+    "technicalEditorialState": "authored/checkable; no external independent instructor approval"
+  },
+  {
+    "chapterFocus": "A traceable report turns evidence into a repeatable decision",
+    "module": "M28",
+    "pageIndex": 9,
+    "pageId": "L28-0-02",
+    "title": "Traceable reports tie evidence to work",
+    "technicalEditorialState": "authored/checkable; no external independent instructor approval"
+  }
+]

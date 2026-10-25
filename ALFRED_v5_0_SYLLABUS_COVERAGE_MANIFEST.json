@@ -1,0 +1,1191 @@
+{
+  "forms": [
+    {
+      "id": "C",
+      "title": "Coverage Rehearsal C",
+      "items": [
+        {
+          "focusObjectiveId": "1.3",
+          "sourceModuleId": "M01",
+          "questionId": "M01-SAFE-02"
+        },
+        {
+          "focusObjectiveId": "3.6.2",
+          "sourceModuleId": "M11",
+          "questionId": "A49-M11-07"
+        },
+        {
+          "focusObjectiveId": "5.9",
+          "sourceModuleId": "M15",
+          "questionId": "AV44-5-9"
+        },
+        {
+          "focusObjectiveId": "7.5",
+          "sourceModuleId": "M22",
+          "questionId": "CQ1086"
+        },
+        {
+          "focusObjectiveId": "9.1",
+          "sourceModuleId": "M03",
+          "questionId": "CQ0302"
+        },
+        {
+          "focusObjectiveId": "11.8.1",
+          "sourceModuleId": "M14",
+          "questionId": "A49-M14-10"
+        },
+        {
+          "focusObjectiveId": "13.7",
+          "sourceModuleId": "M18",
+          "questionId": "ALF-M18-V18-Q05"
+        },
+        {
+          "focusObjectiveId": "16.5",
+          "sourceModuleId": "M21",
+          "questionId": "ALF-M21-V19-Q06"
+        },
+        {
+          "focusObjectiveId": "18.7",
+          "sourceModuleId": "M25",
+          "questionId": "ALF-M25-V19-Q04"
+        },
+        {
+          "focusObjectiveId": "20.4",
+          "sourceModuleId": "M27",
+          "questionId": "CQ1145"
+        },
+        {
+          "focusObjectiveId": "1.10.1",
+          "sourceModuleId": "M01",
+          "questionId": "M01-SAFE-08"
+        },
+        {
+          "focusObjectiveId": "3.9",
+          "sourceModuleId": "M09",
+          "questionId": "AV43-3-9"
+        },
+        {
+          "focusObjectiveId": "5.6",
+          "sourceModuleId": "M15",
+          "questionId": "AV44-5-6"
+        },
+        {
+          "focusObjectiveId": "7.4",
+          "sourceModuleId": "M22",
+          "questionId": "AV45-7-4"
+        },
+        {
+          "focusObjectiveId": "9.7",
+          "sourceModuleId": "M02",
+          "questionId": "CQ1097"
+        },
+        {
+          "focusObjectiveId": "11.5",
+          "sourceModuleId": "M14",
+          "questionId": "AV44-11-5"
+        },
+        {
+          "focusObjectiveId": "15.2",
+          "sourceModuleId": "M20",
+          "questionId": "ALF-M20-V18-Q02"
+        },
+        {
+          "focusObjectiveId": "17.9",
+          "sourceModuleId": "M24",
+          "questionId": "CQ1132"
+        },
+        {
+          "focusObjectiveId": "19.7",
+          "sourceModuleId": "M26",
+          "questionId": "AV45-19-7"
+        },
+        {
+          "focusObjectiveId": "1.10",
+          "sourceModuleId": "M01",
+          "questionId": "M01-SAFE-07"
+        },
+        {
+          "focusObjectiveId": "3.9.2",
+          "sourceModuleId": "M09",
+          "questionId": "ALF-M09-V16-Q06"
+        },
+        {
+          "focusObjectiveId": "5.8.2",
+          "sourceModuleId": "M15",
+          "questionId": "A49-M15-11"
+        },
+        {
+          "focusObjectiveId": "7.2",
+          "sourceModuleId": "M22",
+          "questionId": "CQ1083"
+        },
+        {
+          "focusObjectiveId": "9.8.1",
+          "sourceModuleId": "M02",
+          "questionId": "ALF-M02-V15-Q07"
+        },
+        {
+          "focusObjectiveId": "11.3.1",
+          "sourceModuleId": "M14",
+          "questionId": "AV44-11-3-1"
+        },
+        {
+          "focusObjectiveId": "15.7",
+          "sourceModuleId": "M20",
+          "questionId": "ALF-M20-V18-Q06"
+        },
+        {
+          "focusObjectiveId": "17.6",
+          "sourceModuleId": "M24",
+          "questionId": "CQ1130"
+        },
+        {
+          "focusObjectiveId": "19.8",
+          "sourceModuleId": "M26",
+          "questionId": "ALF-M26-V20-Q03"
+        },
+        {
+          "focusObjectiveId": "1.6",
+          "sourceModuleId": "M01",
+          "questionId": "M01-SAFE-03"
+        },
+        {
+          "focusObjectiveId": "3.1.4",
+          "sourceModuleId": "M04",
+          "questionId": "A49-M04-02"
+        },
+        {
+          "focusObjectiveId": "5.8",
+          "sourceModuleId": "M15",
+          "questionId": "AV44-5-8"
+        },
+        {
+          "focusObjectiveId": "7.13",
+          "sourceModuleId": "M22",
+          "questionId": "AV45-7-13"
+        },
+        {
+          "focusObjectiveId": "9.2",
+          "sourceModuleId": "M03",
+          "questionId": "CQ0323"
+        },
+        {
+          "focusObjectiveId": "11.8",
+          "sourceModuleId": "M14",
+          "questionId": "CQ1104"
+        },
+        {
+          "focusObjectiveId": "15.8",
+          "sourceModuleId": "M20",
+          "questionId": "CQ1120"
+        },
+        {
+          "focusObjectiveId": "17.7",
+          "sourceModuleId": "M24",
+          "questionId": "ALF-M24-V19-Q03"
+        },
+        {
+          "focusObjectiveId": "19.4",
+          "sourceModuleId": "M26",
+          "questionId": "CQ1138"
+        },
+        {
+          "focusObjectiveId": "1.10.2",
+          "sourceModuleId": "M01",
+          "questionId": "M01-SAFE-09"
+        },
+        {
+          "focusObjectiveId": "3.5",
+          "sourceModuleId": "M12",
+          "questionId": "A49-M12-08"
+        },
+        {
+          "focusObjectiveId": "5.2",
+          "sourceModuleId": "M15",
+          "questionId": "CQ1076"
+        },
+        {
+          "focusObjectiveId": "7.6",
+          "sourceModuleId": "M22",
+          "questionId": "AV45-7-6"
+        },
+        {
+          "focusObjectiveId": "10.1",
+          "sourceModuleId": "M13",
+          "questionId": "CQ1098"
+        },
+        {
+          "focusObjectiveId": "13.5",
+          "sourceModuleId": "M17",
+          "questionId": "AV45-13-5"
+        },
+        {
+          "focusObjectiveId": "16.2",
+          "sourceModuleId": "M21",
+          "questionId": "ALF-M21-V19-Q01"
+        },
+        {
+          "focusObjectiveId": "18.6.1",
+          "sourceModuleId": "M25",
+          "questionId": "CQ1136"
+        },
+        {
+          "focusObjectiveId": "21.3",
+          "sourceModuleId": "M28",
+          "questionId": "ALF-M28-V20-Q03"
+        },
+        {
+          "focusObjectiveId": "2.2.2",
+          "sourceModuleId": "M09",
+          "questionId": "AV43-2-2-2"
+        },
+        {
+          "focusObjectiveId": "4.14",
+          "sourceModuleId": "M10",
+          "questionId": "ALF-M10-V16-Q02"
+        },
+        {
+          "focusObjectiveId": "6.10",
+          "sourceModuleId": "M05",
+          "questionId": "CQ1082"
+        },
+        {
+          "focusObjectiveId": "8.8",
+          "sourceModuleId": "M23",
+          "questionId": "AV45-8-8"
+        },
+        {
+          "focusObjectiveId": "11.6",
+          "sourceModuleId": "M14",
+          "questionId": "ALF-M14-V17-Q05"
+        },
+        {
+          "focusObjectiveId": "15.4",
+          "sourceModuleId": "M20",
+          "questionId": "A49-M20-13"
+        },
+        {
+          "focusObjectiveId": "17.1",
+          "sourceModuleId": "M24",
+          "questionId": "ALF-M24-V19-Q01"
+        },
+        {
+          "focusObjectiveId": "19.5",
+          "sourceModuleId": "M26",
+          "questionId": "ALF-M26-V20-Q08"
+        },
+        {
+          "focusObjectiveId": "2.13",
+          "sourceModuleId": "M03",
+          "questionId": "AV43-2-13"
+        },
+        {
+          "focusObjectiveId": "4.11",
+          "sourceModuleId": "M10",
+          "questionId": "A49-M10-06"
+        },
+        {
+          "focusObjectiveId": "6.2",
+          "sourceModuleId": "M05",
+          "questionId": "CQ1079"
+        },
+        {
+          "focusObjectiveId": "8.12.1",
+          "sourceModuleId": "M06",
+          "questionId": "CQ1090"
+        },
+        {
+          "focusObjectiveId": "11.1",
+          "sourceModuleId": "M14",
+          "questionId": "AV44-11-1"
+        },
+        {
+          "focusObjectiveId": "18.2.2",
+          "sourceModuleId": "M25",
+          "questionId": "CQ1135"
+        },
+        {
+          "focusObjectiveId": "1.12",
+          "sourceModuleId": "M01",
+          "questionId": "M01-SAFE-12"
+        },
+        {
+          "focusObjectiveId": "3.7",
+          "sourceModuleId": "M11",
+          "questionId": "ALF-M11-V17-Q02"
+        },
+        {
+          "focusObjectiveId": "5.1",
+          "sourceModuleId": "M15",
+          "questionId": "ALF-M15-V17-Q01"
+        },
+        {
+          "focusObjectiveId": "7.8",
+          "sourceModuleId": "M22",
+          "questionId": "AV45-7-8"
+        },
+        {
+          "focusObjectiveId": "10.4.1",
+          "sourceModuleId": "M13",
+          "questionId": "ALF-M13-V17-Q02"
+        },
+        {
+          "focusObjectiveId": "18.1",
+          "sourceModuleId": "M25",
+          "questionId": "AV45-18-1"
+        },
+        {
+          "focusObjectiveId": "1.2",
+          "sourceModuleId": "M01",
+          "questionId": "M01-SAFE-01"
+        },
+        {
+          "focusObjectiveId": "3.9.3",
+          "sourceModuleId": "M09",
+          "questionId": "A49-M09-05"
+        },
+        {
+          "focusObjectiveId": "5.3",
+          "sourceModuleId": "M15",
+          "questionId": "ALF-M15-V17-Q02"
+        },
+        {
+          "focusObjectiveId": "10.5",
+          "sourceModuleId": "M13",
+          "questionId": "CQ1101"
+        },
+        {
+          "focusObjectiveId": "18.2.1",
+          "sourceModuleId": "M25",
+          "questionId": "CQ1137"
+        },
+        {
+          "focusObjectiveId": "1.14",
+          "sourceModuleId": "M01",
+          "questionId": "M01-SAFE-14"
+        },
+        {
+          "focusObjectiveId": "5.5",
+          "sourceModuleId": "M15",
+          "questionId": "ALF-M15-V17-Q04"
+        },
+        {
+          "focusObjectiveId": "10.6",
+          "sourceModuleId": "M13",
+          "questionId": "AV44-10-6"
+        },
+        {
+          "focusObjectiveId": "18.6",
+          "sourceModuleId": "M25",
+          "questionId": "ALF-M25-V19-Q06"
+        },
+        {
+          "focusObjectiveId": "1.13",
+          "sourceModuleId": "M01",
+          "questionId": "CQ1053"
+        },
+        {
+          "focusObjectiveId": "5.12",
+          "sourceModuleId": "M15",
+          "questionId": "CQ1075"
+        },
+        {
+          "focusObjectiveId": "10.3.1",
+          "sourceModuleId": "M13",
+          "questionId": "ALF-M13-V17-Q01"
+        },
+        {
+          "focusObjectiveId": "3.2.2",
+          "sourceModuleId": "M02",
+          "questionId": "CQ1061"
+        },
+        {
+          "focusObjectiveId": "3.2",
+          "sourceModuleId": "M07",
+          "questionId": "ALF-M07-V16-Q03"
+        },
+        {
+          "focusObjectiveId": "3.1.1",
+          "sourceModuleId": "M03",
+          "questionId": "ALF-M03-V15-Q06"
+        },
+        {
+          "focusObjectiveId": "10.4.3",
+          "sourceModuleId": "M13",
+          "questionId": "A49-M13-09"
+        },
+        {
+          "focusObjectiveId": "11.8.1",
+          "sourceModuleId": "M14",
+          "questionId": "AV44-11-8-1"
+        },
+        {
+          "focusObjectiveId": "13.11",
+          "sourceModuleId": "M17",
+          "questionId": "A49-M17-12"
+        },
+        {
+          "focusObjectiveId": "18.5.1",
+          "sourceModuleId": "M25",
+          "questionId": "AV45-18-5-1"
+        },
+        {
+          "focusObjectiveId": "7.7",
+          "sourceModuleId": "M22",
+          "questionId": "CQ1085"
+        },
+        {
+          "focusObjectiveId": "6.2",
+          "sourceModuleId": "M05",
+          "questionId": "ALF-M05-V15-Q01"
+        },
+        {
+          "focusObjectiveId": "2.2",
+          "sourceModuleId": "M09",
+          "questionId": "CQ1058"
+        },
+        {
+          "focusObjectiveId": "9.2",
+          "sourceModuleId": "M03",
+          "questionId": "CQ0325"
+        },
+        {
+          "focusObjectiveId": "9.2",
+          "sourceModuleId": "M03",
+          "questionId": "CQ0321"
+        },
+        {
+          "focusObjectiveId": "9.2",
+          "sourceModuleId": "M03",
+          "questionId": "CQ0324"
+        },
+        {
+          "focusObjectiveId": "9.2",
+          "sourceModuleId": "M03",
+          "questionId": "CQ0322"
+        },
+        {
+          "focusObjectiveId": "19.11",
+          "sourceModuleId": "M26",
+          "questionId": "A49-M26-17"
+        },
+        {
+          "focusObjectiveId": "3.3.1",
+          "sourceModuleId": "M07",
+          "questionId": "AV43-3-3-1"
+        },
+        {
+          "focusObjectiveId": "5.8.2",
+          "sourceModuleId": "M15",
+          "questionId": "CQ1077"
+        },
+        {
+          "focusObjectiveId": "8.14",
+          "sourceModuleId": "M23",
+          "questionId": "CQ1092"
+        },
+        {
+          "focusObjectiveId": "5.12",
+          "sourceModuleId": "M15",
+          "questionId": "ALF-M15-V17-Q07"
+        },
+        {
+          "focusObjectiveId": "6.6",
+          "sourceModuleId": "M05",
+          "questionId": "ALF-M05-V15-Q04"
+        },
+        {
+          "focusObjectiveId": "6.10",
+          "sourceModuleId": "M05",
+          "questionId": "ALF-M05-V15-Q07"
+        },
+        {
+          "focusObjectiveId": "12.2",
+          "sourceModuleId": "M19",
+          "questionId": "CQ1112"
+        }
+      ],
+      "reusedInstructionalItems": true,
+      "independentExam": false,
+      "readinessEligible": false
+    },
+    {
+      "id": "D",
+      "title": "Coverage Rehearsal D",
+      "items": [
+        {
+          "focusObjectiveId": "2.7",
+          "sourceModuleId": "M03",
+          "questionId": "ALF-M03-V15-Q07"
+        },
+        {
+          "focusObjectiveId": "4.7",
+          "sourceModuleId": "M08",
+          "questionId": "ALF-M08-V16-Q04"
+        },
+        {
+          "focusObjectiveId": "6.7",
+          "sourceModuleId": "M05",
+          "questionId": "AV43-6-7"
+        },
+        {
+          "focusObjectiveId": "8.7",
+          "sourceModuleId": "M23",
+          "questionId": "ALF-M23-V19-Q03"
+        },
+        {
+          "focusObjectiveId": "10.3",
+          "sourceModuleId": "M13",
+          "questionId": "AV44-10-3"
+        },
+        {
+          "focusObjectiveId": "12.2",
+          "sourceModuleId": "M19",
+          "questionId": "ALF-M19-V18-Q07"
+        },
+        {
+          "focusObjectiveId": "15.6",
+          "sourceModuleId": "M20",
+          "questionId": "CQ1122"
+        },
+        {
+          "focusObjectiveId": "17.8",
+          "sourceModuleId": "M24",
+          "questionId": "CQ1131"
+        },
+        {
+          "focusObjectiveId": "19.3",
+          "sourceModuleId": "M26",
+          "questionId": "CQ1142"
+        },
+        {
+          "focusObjectiveId": "21.2",
+          "sourceModuleId": "M28",
+          "questionId": "CQ1149"
+        },
+        {
+          "focusObjectiveId": "2.3",
+          "sourceModuleId": "M09",
+          "questionId": "AV43-2-3"
+        },
+        {
+          "focusObjectiveId": "4.16",
+          "sourceModuleId": "M10",
+          "questionId": "ALF-M10-V16-Q07"
+        },
+        {
+          "focusObjectiveId": "6.8",
+          "sourceModuleId": "M05",
+          "questionId": "ALF-M05-V15-Q08"
+        },
+        {
+          "focusObjectiveId": "8.4",
+          "sourceModuleId": "M05",
+          "questionId": "ALF-M05-V15-Q06"
+        },
+        {
+          "focusObjectiveId": "10.4.2",
+          "sourceModuleId": "M13",
+          "questionId": "ALF-M13-V17-Q03"
+        },
+        {
+          "focusObjectiveId": "13.6",
+          "sourceModuleId": "M17",
+          "questionId": "ALF-M17-V18-Q08"
+        },
+        {
+          "focusObjectiveId": "16.3",
+          "sourceModuleId": "M21",
+          "questionId": "CQ1125"
+        },
+        {
+          "focusObjectiveId": "18.2",
+          "sourceModuleId": "M25",
+          "questionId": "AV45-18-2"
+        },
+        {
+          "focusObjectiveId": "21.8",
+          "sourceModuleId": "M28",
+          "questionId": "ALF-M28-V20-Q06"
+        },
+        {
+          "focusObjectiveId": "2.2.1",
+          "sourceModuleId": "M09",
+          "questionId": "AV43-2-2-1"
+        },
+        {
+          "focusObjectiveId": "4.15",
+          "sourceModuleId": "M08",
+          "questionId": "A49-M08-04"
+        },
+        {
+          "focusObjectiveId": "6.4",
+          "sourceModuleId": "M05",
+          "questionId": "CQ1080"
+        },
+        {
+          "focusObjectiveId": "8.15",
+          "sourceModuleId": "M23",
+          "questionId": "ALF-M23-V19-Q05"
+        },
+        {
+          "focusObjectiveId": "10.4.3",
+          "sourceModuleId": "M13",
+          "questionId": "AV44-10-4-3"
+        },
+        {
+          "focusObjectiveId": "13.10",
+          "sourceModuleId": "M17",
+          "questionId": "ALF-M17-V18-Q06"
+        },
+        {
+          "focusObjectiveId": "16.4",
+          "sourceModuleId": "M21",
+          "questionId": "ALF-M21-V19-Q02"
+        },
+        {
+          "focusObjectiveId": "18.3",
+          "sourceModuleId": "M25",
+          "questionId": "ALF-M25-V19-Q03"
+        },
+        {
+          "focusObjectiveId": "21.9",
+          "sourceModuleId": "M28",
+          "questionId": "CQ1152"
+        },
+        {
+          "focusObjectiveId": "2.2",
+          "sourceModuleId": "M09",
+          "questionId": "ALF-M09-V16-Q02"
+        },
+        {
+          "focusObjectiveId": "4.1",
+          "sourceModuleId": "M04",
+          "questionId": "ALF-M04-V15-Q06"
+        },
+        {
+          "focusObjectiveId": "6.5",
+          "sourceModuleId": "M05",
+          "questionId": "AV43-6-5"
+        },
+        {
+          "focusObjectiveId": "8.2",
+          "sourceModuleId": "M05",
+          "questionId": "AV43-8-2"
+        },
+        {
+          "focusObjectiveId": "10.8",
+          "sourceModuleId": "M13",
+          "questionId": "AV44-10-8"
+        },
+        {
+          "focusObjectiveId": "13.11",
+          "sourceModuleId": "M17",
+          "questionId": "CQ1117"
+        },
+        {
+          "focusObjectiveId": "16.1",
+          "sourceModuleId": "M21",
+          "questionId": "ALF-M21-V19-Q04"
+        },
+        {
+          "focusObjectiveId": "18.3.2",
+          "sourceModuleId": "M25",
+          "questionId": "AV45-18-3-2"
+        },
+        {
+          "focusObjectiveId": "21.5",
+          "sourceModuleId": "M28",
+          "questionId": "CQ1151"
+        },
+        {
+          "focusObjectiveId": "2.4",
+          "sourceModuleId": "M02",
+          "questionId": "AV43-2-4"
+        },
+        {
+          "focusObjectiveId": "4.2",
+          "sourceModuleId": "M08",
+          "questionId": "AV43-4-2"
+        },
+        {
+          "focusObjectiveId": "6.1",
+          "sourceModuleId": "M05",
+          "questionId": "AV43-6-1"
+        },
+        {
+          "focusObjectiveId": "8.1",
+          "sourceModuleId": "M05",
+          "questionId": "AV43-8-1"
+        },
+        {
+          "focusObjectiveId": "11.3.2",
+          "sourceModuleId": "M14",
+          "questionId": "AV44-11-3-2"
+        },
+        {
+          "focusObjectiveId": "15.9",
+          "sourceModuleId": "M20",
+          "questionId": "ALF-M20-V18-Q07"
+        },
+        {
+          "focusObjectiveId": "17.5",
+          "sourceModuleId": "M24",
+          "questionId": "AV45-17-5"
+        },
+        {
+          "focusObjectiveId": "19.11",
+          "sourceModuleId": "M26",
+          "questionId": "AV45-19-11"
+        },
+        {
+          "focusObjectiveId": "1.9",
+          "sourceModuleId": "M01",
+          "questionId": "M01-SAFE-06"
+        },
+        {
+          "focusObjectiveId": "3.3",
+          "sourceModuleId": "M07",
+          "questionId": "ALF-M07-V16-Q06"
+        },
+        {
+          "focusObjectiveId": "5.8.1",
+          "sourceModuleId": "M15",
+          "questionId": "ALF-M15-V17-Q05"
+        },
+        {
+          "focusObjectiveId": "7.11",
+          "sourceModuleId": "M22",
+          "questionId": "ALF-M22-V19-Q07"
+        },
+        {
+          "focusObjectiveId": "10.2",
+          "sourceModuleId": "M13",
+          "questionId": "AV44-10-2"
+        },
+        {
+          "focusObjectiveId": "13.8",
+          "sourceModuleId": "M18",
+          "questionId": "ALF-M18-V18-Q02"
+        },
+        {
+          "focusObjectiveId": "16.8",
+          "sourceModuleId": "M21",
+          "questionId": "CQ1124"
+        },
+        {
+          "focusObjectiveId": "18.5.1",
+          "sourceModuleId": "M25",
+          "questionId": "A49-M25-16"
+        },
+        {
+          "focusObjectiveId": "1.8",
+          "sourceModuleId": "M01",
+          "questionId": "A49-M01-01"
+        },
+        {
+          "focusObjectiveId": "3.1",
+          "sourceModuleId": "M03",
+          "questionId": "ALF-M03-V15-Q03"
+        },
+        {
+          "focusObjectiveId": "5.10",
+          "sourceModuleId": "M15",
+          "questionId": "ALF-M15-V17-Q06"
+        },
+        {
+          "focusObjectiveId": "7.12",
+          "sourceModuleId": "M22",
+          "questionId": "CQ1087"
+        },
+        {
+          "focusObjectiveId": "10.7",
+          "sourceModuleId": "M13",
+          "questionId": "ALF-M13-V17-Q05"
+        },
+        {
+          "focusObjectiveId": "15.3",
+          "sourceModuleId": "M20",
+          "questionId": "CQ1119"
+        },
+        {
+          "focusObjectiveId": "19.2.1",
+          "sourceModuleId": "M26",
+          "questionId": "AV45-19-2-1"
+        },
+        {
+          "focusObjectiveId": "2.12",
+          "sourceModuleId": "M02",
+          "questionId": "ALF-M02-V15-Q04"
+        },
+        {
+          "focusObjectiveId": "4.3",
+          "sourceModuleId": "M08",
+          "questionId": "AV43-4-3"
+        },
+        {
+          "focusObjectiveId": "6.6",
+          "sourceModuleId": "M05",
+          "questionId": "CQ1081"
+        },
+        {
+          "focusObjectiveId": "8.14",
+          "sourceModuleId": "M23",
+          "questionId": "A49-M23-15"
+        },
+        {
+          "focusObjectiveId": "11.9",
+          "sourceModuleId": "M14",
+          "questionId": "ALF-M14-V17-Q07"
+        },
+        {
+          "focusObjectiveId": "19.1",
+          "sourceModuleId": "M26",
+          "questionId": "ALF-M26-V20-Q07"
+        },
+        {
+          "focusObjectiveId": "2.11",
+          "sourceModuleId": "M08",
+          "questionId": "ALF-M08-V16-Q01"
+        },
+        {
+          "focusObjectiveId": "4.4",
+          "sourceModuleId": "M08",
+          "questionId": "AV43-4-4"
+        },
+        {
+          "focusObjectiveId": "7.7",
+          "sourceModuleId": "M22",
+          "questionId": "A49-M22-14"
+        },
+        {
+          "focusObjectiveId": "11.2",
+          "sourceModuleId": "M14",
+          "questionId": "ALF-M14-V17-Q03"
+        },
+        {
+          "focusObjectiveId": "19.10",
+          "sourceModuleId": "M26",
+          "questionId": "CQ1140"
+        },
+        {
+          "focusObjectiveId": "3.6",
+          "sourceModuleId": "M11",
+          "questionId": "AV44-3-6"
+        },
+        {
+          "focusObjectiveId": "7.9",
+          "sourceModuleId": "M22",
+          "questionId": "AV45-7-9"
+        },
+        {
+          "focusObjectiveId": "11.3",
+          "sourceModuleId": "M14",
+          "questionId": "CQ1105"
+        },
+        {
+          "focusObjectiveId": "19.2",
+          "sourceModuleId": "M26",
+          "questionId": "AV45-19-2"
+        },
+        {
+          "focusObjectiveId": "3.3.1",
+          "sourceModuleId": "M07",
+          "questionId": "A49-M07-03"
+        },
+        {
+          "focusObjectiveId": "7.1",
+          "sourceModuleId": "M22",
+          "questionId": "AV45-7-1"
+        },
+        {
+          "focusObjectiveId": "1.10.3",
+          "sourceModuleId": "M01",
+          "questionId": "M01-SAFE-10"
+        },
+        {
+          "focusObjectiveId": "1.11",
+          "sourceModuleId": "M01",
+          "questionId": "M01-SAFE-11"
+        },
+        {
+          "focusObjectiveId": "3.4",
+          "sourceModuleId": "M09",
+          "questionId": "AV43-3-4"
+        },
+        {
+          "focusObjectiveId": "7.12",
+          "sourceModuleId": "M22",
+          "questionId": "ALF-M22-V19-Q03"
+        },
+        {
+          "focusObjectiveId": "3.9.3",
+          "sourceModuleId": "M09",
+          "questionId": "ALF-M09-V16-Q07"
+        },
+        {
+          "focusObjectiveId": "13.8",
+          "sourceModuleId": "M18",
+          "questionId": "ALF-M18-V18-Q06"
+        },
+        {
+          "focusObjectiveId": "4.15",
+          "sourceModuleId": "M08",
+          "questionId": "CQ1070"
+        },
+        {
+          "focusObjectiveId": "3.6.2",
+          "sourceModuleId": "M11",
+          "questionId": "ALF-M11-V17-Q06"
+        },
+        {
+          "focusObjectiveId": "15.4",
+          "sourceModuleId": "M20",
+          "questionId": "CQ1118"
+        },
+        {
+          "focusObjectiveId": "4.11",
+          "sourceModuleId": "M10",
+          "questionId": "ALF-M10-V16-Q05"
+        },
+        {
+          "focusObjectiveId": "20.4",
+          "sourceModuleId": "M27",
+          "questionId": "ALF-M27-V20-Q05"
+        },
+        {
+          "focusObjectiveId": "8.7",
+          "sourceModuleId": "M23",
+          "questionId": "ALF-M23-V19-Q02"
+        },
+        {
+          "focusObjectiveId": "15.4",
+          "sourceModuleId": "M20",
+          "questionId": "ALF-M20-V18-Q08"
+        },
+        {
+          "focusObjectiveId": "15.4",
+          "sourceModuleId": "M20",
+          "questionId": "ALF-M20-V18-Q05"
+        },
+        {
+          "focusObjectiveId": "15.3",
+          "sourceModuleId": "M20",
+          "questionId": "ALF-M20-V18-Q01"
+        },
+        {
+          "focusObjectiveId": "3.1.4",
+          "sourceModuleId": "M04",
+          "questionId": "CQ0320"
+        },
+        {
+          "focusObjectiveId": "7.7",
+          "sourceModuleId": "M22",
+          "questionId": "ALF-M22-V19-Q06"
+        },
+        {
+          "focusObjectiveId": "3.1.4",
+          "sourceModuleId": "M04",
+          "questionId": "CQ0319"
+        },
+        {
+          "focusObjectiveId": "3.1.4",
+          "sourceModuleId": "M04",
+          "questionId": "CQ0316"
+        },
+        {
+          "focusObjectiveId": "3.1.4",
+          "sourceModuleId": "M04",
+          "questionId": "CQ0317"
+        },
+        {
+          "focusObjectiveId": "3.1.4",
+          "sourceModuleId": "M04",
+          "questionId": "CQ0318"
+        },
+        {
+          "focusObjectiveId": "17.1",
+          "sourceModuleId": "M24",
+          "questionId": "ALF-M24-V19-Q06"
+        },
+        {
+          "focusObjectiveId": "8.12.1",
+          "sourceModuleId": "M06",
+          "questionId": "ALF-M06-V16-Q03"
+        }
+      ],
+      "reusedInstructionalItems": true,
+      "independentExam": false,
+      "readinessEligible": false
+    }
+  ],
+  "limitations": [
+    "Previously taught questions recycled deliberately; not an independent unseen exam",
+    "Results are study evidence only, not validated ETA readiness",
+    "Only M29 and M30 contain new-editorial scenario forms; these still require independent SME review"
+  ],
+  "unsampledTargetObjectives": [
+    "1.2",
+    "1.3",
+    "1.6",
+    "1.8",
+    "1.9",
+    "1.10",
+    "1.10.1",
+    "1.10.2",
+    "1.10.3",
+    "1.11",
+    "1.12",
+    "1.13",
+    "1.14",
+    "2.2",
+    "2.2.1",
+    "2.2.2",
+    "2.3",
+    "2.4",
+    "2.5.1",
+    "2.7",
+    "2.11",
+    "2.12",
+    "2.13",
+    "3.1",
+    "3.1.1",
+    "3.1.4",
+    "3.2",
+    "3.2.2",
+    "3.3",
+    "3.3.1",
+    "3.4",
+    "3.5",
+    "3.6",
+    "3.6.2",
+    "3.7",
+    "3.9",
+    "3.9.2",
+    "3.9.3",
+    "4.1",
+    "4.2",
+    "4.3",
+    "4.4",
+    "4.7",
+    "4.11",
+    "4.14",
+    "4.15",
+    "4.16",
+    "5.1",
+    "5.2",
+    "5.3",
+    "5.5",
+    "5.6",
+    "5.8",
+    "5.8.1",
+    "5.8.2",
+    "5.9",
+    "5.10",
+    "5.12",
+    "6.1",
+    "6.2",
+    "6.4",
+    "6.5",
+    "6.6",
+    "6.7",
+    "6.8",
+    "6.10",
+    "7.1",
+    "7.2",
+    "7.4",
+    "7.5",
+    "7.6",
+    "7.7",
+    "7.8",
+    "7.9",
+    "7.11",
+    "7.12",
+    "7.13",
+    "8.1",
+    "8.2",
+    "8.4",
+    "8.7",
+    "8.8",
+    "8.12.1",
+    "8.14",
+    "8.15",
+    "9.1",
+    "9.2",
+    "9.7",
+    "9.8.1",
+    "10.1",
+    "10.2",
+    "10.3",
+    "10.3.1",
+    "10.4.1",
+    "10.4.2",
+    "10.4.3",
+    "10.5",
+    "10.6",
+    "10.7",
+    "10.8",
+    "11.1",
+    "11.2",
+    "11.3",
+    "11.3.1",
+    "11.3.2",
+    "11.5",
+    "11.6",
+    "11.8",
+    "11.8.1",
+    "11.9",
+    "12.2",
+    "13.5",
+    "13.6",
+    "13.7",
+    "13.8",
+    "13.10",
+    "13.11",
+    "15.2",
+    "15.3",
+    "15.4",
+    "15.6",
+    "15.7",
+    "15.8",
+    "15.9",
+    "16.1",
+    "16.2",
+    "16.3",
+    "16.4",
+    "16.5",
+    "16.8",
+    "17.1",
+    "17.5",
+    "17.6",
+    "17.7",
+    "17.8",
+    "17.9",
+    "18.1",
+    "18.2",
+    "18.2.1",
+    "18.2.2",
+    "18.3",
+    "18.3.2",
+    "18.5.1",
+    "18.6",
+    "18.6.1",
+    "18.7",
+    "19.1",
+    "19.2",
+    "19.2.1",
+    "19.3",
+    "19.4",
+    "19.5",
+    "19.7",
+    "19.8",
+    "19.10",
+    "19.11",
+    "20.4",
+    "21.2",
+    "21.3",
+    "21.5",
+    "21.8",
+    "21.9"
+  ]
+}

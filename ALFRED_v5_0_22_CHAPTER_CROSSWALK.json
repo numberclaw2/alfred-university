@@ -1,0 +1,465 @@
+[
+  {
+    "chapter": 1,
+    "title": "The ETA certification program",
+    "printedPages": "1–6",
+    "pdfPages": "10–15",
+    "linkedModules": [
+      "M28",
+      "M29",
+      "M30"
+    ],
+    "assignedReadings": [],
+    "chapterBoundaryVerified": true,
+    "chapterClaimsAndQuizzesIndependentlyValidated": false,
+    "auditMethod": "Publisher table of contents visual check, ETA syllabus crosswalk and selected passage inspection; not exhaustive assertion-level verification"
+  },
+  {
+    "chapter": 2,
+    "title": "Safety precautions",
+    "printedPages": "7–15",
+    "pdfPages": "16–24",
+    "linkedModules": [
+      "M01"
+    ],
+    "assignedReadings": [
+      {
+        "module": "M01",
+        "readingId": "sg-w01-ch02-p007-015",
+        "printedPages": "7–15"
+      }
+    ],
+    "chapterBoundaryVerified": true,
+    "chapterClaimsAndQuizzesIndependentlyValidated": false,
+    "auditMethod": "Publisher table of contents visual check, ETA syllabus crosswalk and selected passage inspection; not exhaustive assertion-level verification"
+  },
+  {
+    "chapter": 3,
+    "title": "Basic mathematics for electronics",
+    "printedPages": "16–24",
+    "pdfPages": "25–33",
+    "linkedModules": [
+      "M02",
+      "M03",
+      "M04"
+    ],
+    "assignedReadings": [
+      {
+        "module": "M02",
+        "readingId": "sg-w01-ch03-p016-018",
+        "printedPages": "16–18"
+      },
+      {
+        "module": "M07",
+        "readingId": "sg-w04-ch03-p019-022",
+        "printedPages": "19–22"
+      }
+    ],
+    "chapterBoundaryVerified": true,
+    "chapterClaimsAndQuizzesIndependentlyValidated": false,
+    "auditMethod": "Publisher table of contents visual check, ETA syllabus crosswalk and selected passage inspection; not exhaustive assertion-level verification"
+  },
+  {
+    "chapter": 4,
+    "title": "DC circuits",
+    "printedPages": "25–35",
+    "pdfPages": "34–44",
+    "linkedModules": [
+      "M03",
+      "M04"
+    ],
+    "assignedReadings": [
+      {
+        "module": "M03",
+        "readingId": "alf-v15-m03-ch04-p027",
+        "printedPages": "27"
+      },
+      {
+        "module": "M04",
+        "readingId": "sg-w02-ch04-p027-031",
+        "printedPages": "27–31"
+      }
+    ],
+    "chapterBoundaryVerified": true,
+    "chapterClaimsAndQuizzesIndependentlyValidated": false,
+    "auditMethod": "Publisher table of contents visual check, ETA syllabus crosswalk and selected passage inspection; not exhaustive assertion-level verification"
+  },
+  {
+    "chapter": 5,
+    "title": "Capacitance, inductance, transformers and filters",
+    "printedPages": "36–44",
+    "pdfPages": "45–53",
+    "linkedModules": [
+      "M07",
+      "M08",
+      "M09"
+    ],
+    "assignedReadings": [],
+    "chapterBoundaryVerified": true,
+    "chapterClaimsAndQuizzesIndependentlyValidated": false,
+    "auditMethod": "Publisher table of contents visual check, ETA syllabus crosswalk and selected passage inspection; not exhaustive assertion-level verification"
+  },
+  {
+    "chapter": 6,
+    "title": "AC circuit operations",
+    "printedPages": "45–52",
+    "pdfPages": "54–61",
+    "linkedModules": [
+      "M06",
+      "M08"
+    ],
+    "assignedReadings": [
+      {
+        "module": "M06",
+        "readingId": "v50-m06-ch06-whole",
+        "printedPages": "45–52"
+      },
+      {
+        "module": "M08",
+        "readingId": "sg-w06-ch06-p045-049",
+        "printedPages": "45–49"
+      }
+    ],
+    "chapterBoundaryVerified": true,
+    "chapterClaimsAndQuizzesIndependentlyValidated": false,
+    "auditMethod": "Publisher table of contents visual check, ETA syllabus crosswalk and selected passage inspection; not exhaustive assertion-level verification"
+  },
+  {
+    "chapter": 7,
+    "title": "Generators, alternators and motors",
+    "printedPages": "53–61",
+    "pdfPages": "62–70",
+    "linkedModules": [
+      "M09"
+    ],
+    "assignedReadings": [
+      {
+        "module": "M09",
+        "readingId": "sg-w07-ch07-p053-057",
+        "printedPages": "53–57"
+      }
+    ],
+    "chapterBoundaryVerified": true,
+    "chapterClaimsAndQuizzesIndependentlyValidated": false,
+    "auditMethod": "Publisher table of contents visual check, ETA syllabus crosswalk and selected passage inspection; not exhaustive assertion-level verification"
+  },
+  {
+    "chapter": 8,
+    "title": "Electronic components",
+    "printedPages": "62–69",
+    "pdfPages": "71–78",
+    "linkedModules": [
+      "M03",
+      "M05",
+      "M11"
+    ],
+    "assignedReadings": [],
+    "chapterBoundaryVerified": true,
+    "chapterClaimsAndQuizzesIndependentlyValidated": false,
+    "auditMethod": "Publisher table of contents visual check, ETA syllabus crosswalk and selected passage inspection; not exhaustive assertion-level verification"
+  },
+  {
+    "chapter": 9,
+    "title": "Semiconductors",
+    "printedPages": "70–78",
+    "pdfPages": "79–87",
+    "linkedModules": [
+      "M11",
+      "M12"
+    ],
+    "assignedReadings": [
+      {
+        "module": "M11",
+        "readingId": "sg-w08-ch09-p072-076",
+        "printedPages": "72–73;75–76"
+      },
+      {
+        "module": "M12",
+        "readingId": "v50-m12-ch09-whole",
+        "printedPages": "70–78"
+      },
+      {
+        "module": "M25",
+        "readingId": "sg-w19-ch09-p077",
+        "printedPages": "77"
+      }
+    ],
+    "chapterBoundaryVerified": true,
+    "chapterClaimsAndQuizzesIndependentlyValidated": false,
+    "auditMethod": "Publisher table of contents visual check, ETA syllabus crosswalk and selected passage inspection; not exhaustive assertion-level verification"
+  },
+  {
+    "chapter": 10,
+    "title": "Discrete solid-state circuits",
+    "printedPages": "79–84",
+    "pdfPages": "88–93",
+    "linkedModules": [
+      "M10",
+      "M11",
+      "M12"
+    ],
+    "assignedReadings": [],
+    "chapterBoundaryVerified": true,
+    "chapterClaimsAndQuizzesIndependentlyValidated": false,
+    "auditMethod": "Publisher table of contents visual check, ETA syllabus crosswalk and selected passage inspection; not exhaustive assertion-level verification"
+  },
+  {
+    "chapter": 11,
+    "title": "Electronic power supplies",
+    "printedPages": "85–90",
+    "pdfPages": "94–99",
+    "linkedModules": [
+      "M13"
+    ],
+    "assignedReadings": [
+      {
+        "module": "M13",
+        "readingId": "sg-w09-ch11-p085-089",
+        "printedPages": "85–89"
+      }
+    ],
+    "chapterBoundaryVerified": true,
+    "chapterClaimsAndQuizzesIndependentlyValidated": false,
+    "auditMethod": "Publisher table of contents visual check, ETA syllabus crosswalk and selected passage inspection; not exhaustive assertion-level verification"
+  },
+  {
+    "chapter": 12,
+    "title": "Amplifiers, gain and decibels",
+    "printedPages": "91–103",
+    "pdfPages": "100–112",
+    "linkedModules": [
+      "M14",
+      "M24"
+    ],
+    "assignedReadings": [
+      {
+        "module": "M14",
+        "readingId": "sg-w10-ch12-selected",
+        "printedPages": "91;95–96;98"
+      },
+      {
+        "module": "M24",
+        "readingId": "v50-m24-ch12-whole",
+        "printedPages": "91–103"
+      }
+    ],
+    "chapterBoundaryVerified": true,
+    "chapterClaimsAndQuizzesIndependentlyValidated": false,
+    "auditMethod": "Publisher table of contents visual check, ETA syllabus crosswalk and selected passage inspection; not exhaustive assertion-level verification"
+  },
+  {
+    "chapter": 13,
+    "title": "Basic radio and RF",
+    "printedPages": "104–112",
+    "pdfPages": "113–121",
+    "linkedModules": [
+      "M26"
+    ],
+    "assignedReadings": [
+      {
+        "module": "M22",
+        "readingId": "sg-w19-ch13-p108-109",
+        "printedPages": "109–110"
+      },
+      {
+        "module": "M26",
+        "readingId": "sg-w20-ch13-p104-107",
+        "printedPages": "104–107"
+      }
+    ],
+    "chapterBoundaryVerified": true,
+    "chapterClaimsAndQuizzesIndependentlyValidated": false,
+    "auditMethod": "Publisher table of contents visual check, ETA syllabus crosswalk and selected passage inspection; not exhaustive assertion-level verification"
+  },
+  {
+    "chapter": 14,
+    "title": "Transmitters",
+    "printedPages": "113–119",
+    "pdfPages": "122–128",
+    "linkedModules": [
+      "M26",
+      "M27"
+    ],
+    "assignedReadings": [
+      {
+        "module": "M26",
+        "readingId": "sg-w20-ch14-p113-114",
+        "printedPages": "113–114"
+      }
+    ],
+    "chapterBoundaryVerified": true,
+    "chapterClaimsAndQuizzesIndependentlyValidated": false,
+    "auditMethod": "Publisher table of contents visual check, ETA syllabus crosswalk and selected passage inspection; not exhaustive assertion-level verification"
+  },
+  {
+    "chapter": 15,
+    "title": "Telephone systems",
+    "printedPages": "120–131",
+    "pdfPages": "129–140",
+    "linkedModules": [
+      "M27"
+    ],
+    "assignedReadings": [
+      {
+        "module": "M27",
+        "readingId": "sg-w20-ch15-p120-121",
+        "printedPages": "120–121"
+      }
+    ],
+    "chapterBoundaryVerified": true,
+    "chapterClaimsAndQuizzesIndependentlyValidated": false,
+    "auditMethod": "Publisher table of contents visual check, ETA syllabus crosswalk and selected passage inspection; not exhaustive assertion-level verification"
+  },
+  {
+    "chapter": 16,
+    "title": "Digital concepts and logic",
+    "printedPages": "132–148",
+    "pdfPages": "141–157",
+    "linkedModules": [
+      "M16",
+      "M17"
+    ],
+    "assignedReadings": [
+      {
+        "module": "M16",
+        "readingId": "sg-w11-ch16-p132-140",
+        "printedPages": "132–136;138–140"
+      },
+      {
+        "module": "M17",
+        "readingId": "v50-m17-ch16-whole",
+        "printedPages": "132–148"
+      }
+    ],
+    "chapterBoundaryVerified": true,
+    "chapterClaimsAndQuizzesIndependentlyValidated": false,
+    "auditMethod": "Publisher table of contents visual check, ETA syllabus crosswalk and selected passage inspection; not exhaustive assertion-level verification"
+  },
+  {
+    "chapter": 17,
+    "title": "Microprocessors and controllers",
+    "printedPages": "149–158",
+    "pdfPages": "158–167",
+    "linkedModules": [
+      "M20",
+      "M21"
+    ],
+    "assignedReadings": [
+      {
+        "module": "M20",
+        "readingId": "sg-w14-ch17-p149-150",
+        "printedPages": "149–150"
+      },
+      {
+        "module": "M21",
+        "readingId": "v50-m21-ch17-whole",
+        "printedPages": "149–158"
+      }
+    ],
+    "chapterBoundaryVerified": true,
+    "chapterClaimsAndQuizzesIndependentlyValidated": false,
+    "auditMethod": "Publisher table of contents visual check, ETA syllabus crosswalk and selected passage inspection; not exhaustive assertion-level verification"
+  },
+  {
+    "chapter": 18,
+    "title": "Diagnostic techniques",
+    "printedPages": "159–164",
+    "pdfPages": "168–173",
+    "linkedModules": [
+      "M05",
+      "M18"
+    ],
+    "assignedReadings": [
+      {
+        "module": "M05",
+        "readingId": "sg-w13-ch18-p161-162",
+        "printedPages": "161–162"
+      },
+      {
+        "module": "M18",
+        "readingId": "v50-m18-ch18-whole",
+        "printedPages": "159–164"
+      }
+    ],
+    "chapterBoundaryVerified": true,
+    "chapterClaimsAndQuizzesIndependentlyValidated": false,
+    "auditMethod": "Publisher table of contents visual check, ETA syllabus crosswalk and selected passage inspection; not exhaustive assertion-level verification"
+  },
+  {
+    "chapter": 19,
+    "title": "Test equipment",
+    "printedPages": "165–175",
+    "pdfPages": "174–184",
+    "linkedModules": [
+      "M05",
+      "M23"
+    ],
+    "assignedReadings": [
+      {
+        "module": "M23",
+        "readingId": "v50-m23-ch19-whole",
+        "printedPages": "165–175"
+      }
+    ],
+    "chapterBoundaryVerified": true,
+    "chapterClaimsAndQuizzesIndependentlyValidated": false,
+    "auditMethod": "Publisher table of contents visual check, ETA syllabus crosswalk and selected passage inspection; not exhaustive assertion-level verification"
+  },
+  {
+    "chapter": 20,
+    "title": "Soldering, desoldering and PCB repair",
+    "printedPages": "176–181",
+    "pdfPages": "185–190",
+    "linkedModules": [
+      "M15"
+    ],
+    "assignedReadings": [
+      {
+        "module": "M15",
+        "readingId": "v50-m15-ch20-whole",
+        "printedPages": "176–181"
+      }
+    ],
+    "chapterBoundaryVerified": true,
+    "chapterClaimsAndQuizzesIndependentlyValidated": false,
+    "auditMethod": "Publisher table of contents visual check, ETA syllabus crosswalk and selected passage inspection; not exhaustive assertion-level verification"
+  },
+  {
+    "chapter": 21,
+    "title": "Record keeping and service management",
+    "printedPages": "182–187",
+    "pdfPages": "191–196",
+    "linkedModules": [
+      "M28"
+    ],
+    "assignedReadings": [
+      {
+        "module": "M28",
+        "readingId": "sg-w28-ch21-p182-184",
+        "printedPages": "182–184"
+      }
+    ],
+    "chapterBoundaryVerified": true,
+    "chapterClaimsAndQuizzesIndependentlyValidated": false,
+    "auditMethod": "Publisher table of contents visual check, ETA syllabus crosswalk and selected passage inspection; not exhaustive assertion-level verification"
+  },
+  {
+    "chapter": 22,
+    "title": "Technical writing",
+    "printedPages": "188–193",
+    "pdfPages": "197–202",
+    "linkedModules": [
+      "M28"
+    ],
+    "assignedReadings": [
+      {
+        "module": "M28",
+        "readingId": "sg-w28-ch22-p188-190",
+        "printedPages": "188–190"
+      }
+    ],
+    "chapterBoundaryVerified": true,
+    "chapterClaimsAndQuizzesIndependentlyValidated": false,
+    "auditMethod": "Publisher table of contents visual check, ETA syllabus crosswalk and selected passage inspection; not exhaustive assertion-level verification"
+  }
+]

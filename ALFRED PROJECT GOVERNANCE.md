@@ -1850,3 +1850,12 @@ Preserve project institutional identity, ETA-first scope, explicit foundational 
 - Spot-checked publisher printed pages 23, 47, 48, 74, 87, 96, 138 and 178 visually in the user-provided 234-page Sixth Edition scan. Only relevant selected topics were compared; do NOT treat this as full chapter, answer-key or 234-page line-by-line review. Respect official ETA Sixth Edition errata and 2025 competencies as controlling when a discrepancy exists.
 - Numeric solutions in six new questions were independently recomputed; 100 local Chromium render/grading checks passed. Full scholastic adequacy, psychometric calibration and an ETA pass-probability guarantee remain explicitly **UNVERIFIED**.
 - Remaining gate: full passage-level chapter audit, expert technical item and distractor review across original banks, independent multi-form coverage of a broad range of objectives and appropriate labeled visual instruction where necessary. Keep exam-success claims honest and source-based.
+
+
+## Alfred v5.0 consolidated academic freeze — 2026-10-24
+
+- The user's highest priority is the quality of teaching and likelihood of CETa success. Software features, Cloud Sync and visual polish remain subordinate. Do not shift ordinary QA responsibility back to the learner. Minimize unnecessary GitHub uploads; consolidated delivery is preferred.
+- Release v5.0 adds 23 sourced/conceptually checkable educational sections, eight authentic chapter-level mandatory reading checkpoints and 200 existing instructional questions presented in two additional 100-item syllabus-coverage rehearsals C/D. Forms C/D are familiar-question review and must **never** count as independent exam evidence, new editorial item authorship or a readiness pass.
+- The Sixth Edition is a source authority subject to ETA's 2025 competencies, official errata and current safety standards. Its complete 234-page assertion-level technical review remains open; do not silently convert chapter-boundary checks into passage certifications.
+- Existing 262 objective IDs (including EM5 cross-reference), 373 learner page IDs, previous question-answer keys and private saved evidence remain stable. Score histories must remain self-study evidence, never ETA credentials.
+- Independent subject-matter review, psychometric validation and real examination predictive calibration are not achieved and are not implied by local automated QA results. An ETA examination pass cannot be guaranteed by a course author or this AI.

@@ -1,5 +1,5 @@
 {
-  "release": "Alfred v4.9 · targeted competency-anchor and transfer accuracy repairs",
+  "release": "Alfred v5.0 · consolidated academic reinforcement and complete-syllabus practice review",
   "basis": "Current repository baseline v16.3.91 H1",
   "officialStudyGuide": "Associate CET Study Guide, Sixth Edition; user-provided; not redistributed in public deploy ZIP",
   "officialPrintedPages": 224,
@@ -299,6 +299,10 @@
               [
                 "Personal protective equipment is the last layer",
                 "PPE helps manage residual risk, but does not turn an unsafe task into a safe one. Prefer eliminating exposure, isolating energy and using engineered controls and approved procedures. Gloves, glasses and clothing must be chosen for the actual hazard and inspected before use; generic safety glasses do not substitute for arc-rated PPE where required."
+              ],
+              [
+                "What a code does and does not certify",
+                "The National Electrical Code (NFPA 70) governs installation requirements. It is not interchangeable with NFPA 70E electrical-workplace safety practices or with OSHA rules. If a certification question describes an installation, ask which code governs that installation, the applicable edition and local adoption; if it describes exposure during a task, prioritize a suitable electrical safe-work procedure and qualified personnel. A breaker sized for conductor protection does not prove a circuit is dead or safe to touch. A fuse can open under overload or fault conditions but cannot substitute for positive isolation and verification by a qualified worker."
               ]
             ],
             "worked": {
@@ -872,6 +876,10 @@
               [
                 "What a pass means",
                 "Completing this text records instruction, not physical proficiency. Your short knowledge checks are formative. The module assessment uses a stricter 100% internal safety-critical target; incorrect answers direct you back to the relevant teaching page. The course does not certify electrical work authorization, CPR competence, or compliance with a workplace safety program."
+              ],
+              [
+                "Certification scope: safety is a decision rule",
+                "CETa is a knowledge-based electronics examination, not permission to perform hazardous electrical work. The practical distinction matters whenever a test item asks what a technician should do first: establish an energy boundary and whether a qualified, authorized person may perform the task; identify stored energy and required isolation; select an approved procedure; only then plan measurements. In an incident involving a possible live conductor, an untrained bystander must not attempt an improvised rescue by touching the person or conductor. Summon emergency help and have the source isolated by qualified responders. Do not treat a multimeter's reading, a current-limited supply, or a dry-looking surface as a substitute for documented controls."
               ]
             ],
             "worked": {
@@ -1352,7 +1360,7 @@
             "ESD always creates visible burn marks."
           ],
           "answer": 0,
-          "explanation": "Latent failures are a key ESD concern.",
+          "explanation": "A latent ESD defect can damage a junction or gate oxide without an immediate open-circuit failure. That is why a board may pass one functional check and still have reduced long-term reliability. The practical control is appropriate ESD-safe handling in a de-energized, otherwise electrically safe work environment.",
           "objectiveIds": [
             "1.5"
           ],
@@ -2144,6 +2152,10 @@
               [
                 "A prefix is a multiplication factor, not a unit",
                 "For a 4.7 kΩ resistor and a 12 V supply, first convert 4.7 kΩ to 4700 Ω. Ohm’s law then gives I = 12 V / 4700 Ω = 0.00255 A = 2.55 mA. Power is P = VI = 12 × 0.00255 ≈ 0.0306 W = 30.6 mW. Estimate before computing: thousands of ohms at a few volts should produce milliamperes, not amperes. The official ETA formulas sheet gives SI prefix factors; use the formula sheet to confirm magnitude and units, but you must still select the correct relation."
+              ],
+              [
+                "Dimensional analysis as an error detector",
+                "Track units before touching a calculator. Converting 4.7 kΩ gives 4.7 × 10³ Ω = 4,700 Ω. A 4700 µA measurement converts to 4.7 mA, not 4.7 A. For Q = I × t, amperes are coulombs per second, so 0.25 A sustained for 8 s transfers 2 C. For P = V × I, 12 V and 25 mA gives 12 × 0.025 = 0.30 W. In each step, write the quantity with its unit; a factor-of-1000 error is often a prefix mistake, not an Ohm's-law mistake. Estimate the order of magnitude before calculating to detect implausible answers."
               ]
             ],
             "worked": {
@@ -5709,6 +5721,10 @@
               [
                 "Potentiometer loading can move a supposedly exact midpoint",
                 "A potentiometer used as a divider has two series segments. At a centered wiper of a 10 kΩ device across 10 V, each ideal segment is 5 kΩ, so the unloaded wiper is 5 V. A 10 kΩ load from wiper to return appears in parallel with the bottom 5 kΩ, reducing that branch to 3.333 kΩ. The output becomes 10 V × 3.333/(5 + 3.333) = 4.0 V, not 5.0 V. Contact resistance and wiper travel tolerance further limit precision. A buffer with sufficiently high input impedance is one way to avoid loading the wiper."
+              ],
+              [
+                "Loaded divider: a source is not an ideal reference",
+                "A divider with 10 kΩ upper and 10 kΩ lower resistance produces 6 V from a 12 V source only when no load is connected. Put 10 kΩ across the lower resistor: its effective resistance becomes 10 kΩ ∥ 10 kΩ = 5 kΩ. The loaded output is 12 × 5/(10+5) = 4 V. A meter of finite input resistance is itself another parallel load, so measurements can change small-signal circuit behavior. Before using the unloaded divider equation, redraw the circuit with every device connected to the output and ask whether the lower path's resistance has changed."
               ]
             ],
             "worked": {
@@ -6542,7 +6558,7 @@
             "12 V"
           ],
           "answer": 0,
-          "explanation": "Rb∥RL = 5 kΩ, then 12×5/(10+5) = 4 V.",
+          "explanation": "The connected load changes the lower divider resistance. Combine the 10 kΩ lower resistor and 10 kΩ load in parallel to obtain 5 kΩ, then use Vout=12×5/(10+5)=4 V. Ignoring the load would incorrectly produce 6 V.",
           "objectiveIds": [
             "3.1.4"
           ],
@@ -7625,6 +7641,10 @@
               [
                 "Voltage, current and resistance modes are different connections",
                 "Imagine a 10 kΩ resistor with 5 V across it: in voltage mode the DMM measures between its two nodes with a high-impedance input. In current mode, the meter belongs in a properly designed series path; placing its low-resistance current input across a source risks a short. Resistance mode is normally used only on safely de-energized and appropriately isolated circuits. A meter with finite 10 MΩ input also alters very high-impedance sensor dividers: calculate its parallel equivalent before trusting a measurement."
+              ],
+              [
+                "Choose instruments by both information and risk",
+                "A digital multimeter in voltage mode ideally presents high input impedance and connects across two points. In current mode it introduces a low-resistance path and usually requires a deliberate series connection; placing that mode across a voltage source can create a dangerous fault. Resistance and continuity modes inject their own test signals and generally require equipment to be de-energized, with stored energy addressed under a qualified procedure. Meter category, lead condition and instrument ratings must match the environment. The distinction is not which button gives a number; it is which electrical circuit the instrument becomes when attached."
               ]
             ],
             "worked": {
@@ -10278,7 +10298,7 @@
             "0 dB"
           ],
           "answer": 1,
-          "explanation": "20 log10(0.5) ≈ −6.02 dB.",
+          "explanation": "For voltage-transfer magnitude at defined comparable conditions, dB = 20log10(Vout/Vin). A ratio of 0.5 gives approximately -6.02 dB. A negative sign indicates attenuation, not reversed signal polarity.",
           "objectiveIds": [
             "8.12"
           ],
@@ -10311,7 +10331,23 @@
           "sourceModuleId": "M06"
         }
       ],
-      "readings": [],
+      "readings": [
+        {
+          "id": "v50-m06-ch06-whole",
+          "chapter": "6",
+          "pages": "45–52",
+          "firstRequiredPage": "45",
+          "afterPageIndex": 1,
+          "verified": false,
+          "chapterAndPrintedRangeVerifiedFromScan": true,
+          "topicFitStatus": "VERIFIED_CHAPTER_TOPIC__PASSAGE_TECHNICAL_REVIEW_PENDING",
+          "instruction": "Required chapter-based companion: study Sixth Edition Chapter 6, printed pp. 45–52, after the Alfred lesson. Distinguish RMS, instantaneous voltage, reactance and scope interpretation; calculate one sinusoidal measurement with units. Vintage AC examples may omit modern probe or safe-ground guidance; use Alfred safety requirements. The publisher chapter is a historical source, not automatically current technical authority.",
+          "bookBasedRetrievalTask": "Distinguish RMS, instantaneous voltage, reactance and scope interpretation; calculate one sinusoidal measurement with units.",
+          "topicFitEvidence": "Chapter 6, AC circuit operations, starts at printed page 45 and ends at 52 in the original scanned table of contents; exact passage claims were not all checked.",
+          "verificationLabel": "Chapter boundary and broad topic checked from the original scan. Individual claims/figures have NOT received full technical or independent SME approval.",
+          "passageAuditLevel": "Whole-chapter navigation reviewed, not page-by-page technical certification; ETA 2025 competencies and publisher errata control conflicts."
+        }
+      ],
       "labs": [
         {
           "id": "LAB-005",
@@ -11285,6 +11321,10 @@
               [
                 "Limits and the technician’s decision",
                 "Always distinguish instantaneous energy from average power and account for decay/loss pathways in practical devices."
+              ],
+              [
+                "Stored field energy and release paths",
+                "Capacitor energy is E = ½CV²; doubling voltage multiplies energy by four at fixed capacitance. A 100 µF capacitor charged to 20 V stores 0.5 × 100×10⁻⁶ × 20² = 0.02 J. Inductor energy is E = ½LI²; a 10 mH coil carrying 0.20 A stores 0.0002 J (0.2 mJ). When current through a coil is interrupted, its magnetic field collapses and terminal voltage can rise until an allowed current path exists. A flyback path or rated suppression network should be analyzed for the particular driver and required release time, not blindly added to every alternating-current coil."
               ]
             ],
             "worked": {
@@ -11927,7 +11967,7 @@
             "Stays unchanged"
           ],
           "answer": 0,
-          "explanation": "XC=1/(2πfC) inversely scales with f.",
+          "explanation": "Capacitive reactance is XC=1/(2πfC). Holding capacitance constant while doubling frequency doubles the denominator and halves |XC|. Ideal capacitors do not therefore become ordinary DC resistors.",
           "objectiveIds": [
             "2.8"
           ],
@@ -12770,6 +12810,10 @@
               [
                 "Limits and the technician’s decision",
                 "The sign of phase depends on the declared current and voltage reference convention. State that convention explicitly in reports."
+              ],
+              [
+                "Impedance needs complex reasoning",
+                "For sinusoidal steady-state analysis, series impedance is Z = R + j(XL − XC). Its magnitude is |Z| = √(R² + (XL−XC)²), not R+|XL|+|XC|. A circuit with R=30 Ω and net reactance +40 Ω therefore has |Z|=50 Ω, and its current lags voltage because the net reactance is inductive. At series resonance XL=XC, so the reactive portions cancel and the impedance is approximately R; this does not mean every component voltage is zero. A phasor model also reminds you that branch currents in parallel reactive paths cannot simply be added as positive scalars."
               ]
             ],
             "worked": {
@@ -14905,6 +14949,10 @@
               [
                 "Changing magnetic flux is the essential condition",
                 "A stationary transformer with a 1,000-turn secondary does not generate ongoing secondary voltage from a steady DC flux. A changing linked flux induces voltage according to Faraday’s law. For an idealized sinusoidal transformer, approximate flux swing rises as V/f; keeping applied RMS voltage constant while decreasing frequency can drive saturation and high magnetizing current. Turns ratio alone is not a safe substitute for frequency and core ratings."
+              ],
+              [
+                "Transformer behavior depends on a changing field",
+                "An ideal transformer obeys Vs/Vp=Ns/Np and reflects load impedance as Zp=(Np/Ns)²Zs. A 120-turn primary and 60-turn secondary with a 6 Vrms AC input produces 3 Vrms under ideal conditions. The reflected primary impedance of a 20 Ω secondary load through a 2:1 turns ratio is 80 Ω. Real transformers have winding resistance, leakage inductance, saturation and thermal limits. Applying constant DC to an ordinary transformer winding does not produce sustained secondary AC voltage and may cause overcurrent because the steady-state magnetizing response is different."
               ]
             ],
             "worked": {
@@ -15055,6 +15103,10 @@
               [
                 "Relay types differ in contact behavior and coil requirements",
                 "A normally open contact is open with the relay in its specified normal or de-energized state; a normally closed contact is closed. An electromechanical relay uses a coil and moving contacts, while a solid-state relay switches with semiconductor devices and may exhibit leakage and voltage drop when “off” or “on.” A latching electromechanical relay retains its commanded contact position without continuous coil current until intentionally reset or switched. A reed relay encloses magnetic contacts and is often used for low-level signals. Do not infer coil voltage, contact current rating or contact isolation solely from the name “relay”; read the actual datasheet."
+              ],
+              [
+                "Relay terminals and suppression are separate decisions",
+                "Identify coil terminals independently from contact terminals. A single-pole changeover relay has a common contact, normally closed contact in the unenergized state and normally open contact in the energized state; the contact circuit need not share the coil's supply. For a DC coil on a transistor output, a correctly oriented flyback diode can reduce switch voltage at turn-off, but also slows the coil's current decay and sometimes its mechanical release. Compare the controller's device ratings, coil polarity, and desired response speed. Never assume a solid-state relay has zero leakage when nominally off."
               ]
             ],
             "worked": {
@@ -17330,7 +17382,7 @@
             "100 dB"
           ],
           "answer": 2,
-          "explanation": "Correct. 20 log10(10) = 20 dB.",
+          "explanation": "Use the voltage-gain definition 20 log10(Vout/Vin). A factor of 10 produces 20 dB; 10 dB would correspond to a power ratio of ten or a smaller voltage ratio, not this stated voltage transfer.",
           "objectiveIds": [],
           "origin": "legacy knowledge check"
         },
@@ -18415,6 +18467,10 @@
               [
                 "Compare SCR turn-on, latch and turn-off with a transistor switch",
                 "An SCR is a four-layer thyristor that conducts in the forward direction after sufficient gate triggering, then ordinarily remains latched while the anode current stays above its holding-current requirement. Removing the gate signal alone does not reliably turn off an already latched SCR; AC naturally falls through current zero, while DC designs require current interruption or commutation. An ordinary BJT or MOSFET generally responds directly to its controlled base/gate drive rather than remaining latched until holding current falls. A TRIAC conducts bidirectionally when triggered and is common in AC control, but its gate and commutation behavior also need careful selection."
+              ],
+              [
+                "SCR conduction is a latching state, not a switch button",
+                "A silicon-controlled rectifier is a PNPN device with anode, cathode and gate. A suitable gate pulse can trigger conduction when the anode-cathode conditions support it; in the conventional device it remains on after the gate pulse is removed while anode current stays above the holding-current condition. Removing gate drive alone is therefore not a valid turn-off strategy. Distinguish the trigger current needed to establish conduction from the holding current needed to sustain it. Review device datasheet limits and never experiment on live line-connected power circuits as a student troubleshooting exercise."
               ]
             ],
             "worked": {
@@ -19962,6 +20018,10 @@
               [
                 "Where the model breaks or a technician can be misled",
                 "The actual operating point shifts with transistor gain, emitter resistance and temperature; coupling capacitors do not set DC bias by themselves."
+              ],
+              [
+                "Bias is a prediction of a DC operating point",
+                "A bipolar junction transistor in active operation requires an appropriate forward-biased base-emitter junction and a collector-emitter arrangement that avoids saturation. For a simplified NPN bias estimate, a resistor from a fixed drive to the base supplies approximately (Vdrive−VBE)/RB current, but the transistor's gain and load determine whether the active-region assumption holds. For an NPN switch, estimate required collector current, choose available base drive and check the saturation voltage and resistor power. A MOSFET gate is voltage-controlled but capacitive: check VGS threshold versus the resistance actually specified at the intended drive voltage, not merely whether threshold has been crossed."
               ]
             ],
             "worked": {
@@ -20452,7 +20512,7 @@
             "100 dB"
           ],
           "answer": 2,
-          "explanation": "Correct. 20 log10(10) = 20 dB.",
+          "explanation": "Use the voltage-gain definition 20 log10(Vout/Vin). A factor of 10 produces 20 dB; 10 dB would correspond to a power ratio of ten or a smaller voltage ratio, not this stated voltage transfer.",
           "objectiveIds": [],
           "origin": "legacy knowledge check"
         },
@@ -20622,7 +20682,23 @@
           "editorialStatus": "INTERNAL_TECHNICAL_AND_SOURCE_CHECK_ONLY__EXTERNAL_SME_PENDING"
         }
       ],
-      "readings": [],
+      "readings": [
+        {
+          "id": "v50-m12-ch09-whole",
+          "chapter": "9",
+          "pages": "70–78",
+          "firstRequiredPage": "70",
+          "afterPageIndex": 6,
+          "verified": false,
+          "chapterAndPrintedRangeVerifiedFromScan": true,
+          "topicFitStatus": "VERIFIED_CHAPTER_TOPIC__PASSAGE_TECHNICAL_REVIEW_PENDING",
+          "instruction": "Required chapter-based companion: study Sixth Edition Chapter 9, printed pp. 70–78, after the Alfred lesson. Compare BJT and FET action, show why transistor bias changes the operating point, then explain an input/output voltage observation. Use publisher correction for common-base/common-collector statements on printed page 74. The publisher chapter is a historical source, not automatically current technical authority.",
+          "bookBasedRetrievalTask": "Compare BJT and FET action, show why transistor bias changes the operating point, then explain an input/output voltage observation.",
+          "topicFitEvidence": "Chapter 9, Semiconductors, starts at printed page 70 and ends at 78 in the original scanned table of contents; exact passage claims were not all checked.",
+          "verificationLabel": "Chapter boundary and broad topic checked from the original scan. Individual claims/figures have NOT received full technical or independent SME approval.",
+          "passageAuditLevel": "Whole-chapter navigation reviewed, not page-by-page technical certification; ETA 2025 competencies and publisher errata control conflicts."
+        }
+      ],
       "labs": [],
       "courseQuality": {
         "stage": "governance-led instructional reconstruction v1.7; independent technical/editorial review pending",
@@ -21501,6 +21577,10 @@
               [
                 "C–L–C pi filters require current and resonance reasoning",
                 "A classic unregulated C–L–C pi filter places a shunt capacitor after rectification, a series choke, and a second shunt capacitor at the output. The first capacitor provides local charge storage; the choke opposes changing ripple current while passing DC; the second capacitor further bypasses AC ripple. This differs from a single reservoir capacitor and from an RC filter. Real components have ESR, DCR, current rating and possible ringing; the network must be rated for the supply voltage and ripple current. The Sixth Edition shows a pi-filter illustration on printed page 87, where it should be read as a topology rather than universal performance guarantee."
+              ],
+              [
+                "Rectifier ripple requires the correct cycle interval",
+                "In an ideal single-phase full-wave rectifier supplied with 60 Hz AC, charging opportunities recur near 120 Hz; for half-wave, near 60 Hz. A rough reservoir-capacitor ripple estimate is ΔV≈Iload/(fripple C) for modest ripple and appropriate assumptions. For 0.10 A, 120 Hz and 1000 µF, ΔV≈0.10/(120×0.001)=0.83 V peak-to-peak. This shortcut predicts discharge between charging peaks, not a complete regulator or diode model. Capacitor voltage and ripple-current ratings, startup surge, diode drop and load transients must still be checked. Always treat line-derived supplies as hazardous and use a qualified isolated test arrangement."
               ]
             ],
             "worked": {
@@ -23346,6 +23426,10 @@
               [
                 "Decibels describe a ratio, not an absolute signal level",
                 "Power ratio in dB is 10log₁₀(P₂/P₁). For voltage amplitudes measured across the same impedance, the corresponding expression is 20log₁₀(V₂/V₁). A fourfold voltage ratio gives about +12.04 dB; a fourfold power ratio gives about +6.02 dB. If impedances differ, voltage ratio alone cannot establish power gain, because P = V_rms²/R under resistive-load assumptions. Watch units: dBm is an absolute power referenced to 1 mW, whereas a plain dB value reports a dimensionless ratio."
+              ],
+              [
+                "Decibels use different multipliers for different quantities",
+                "For a voltage ratio measured at comparable impedances or as a voltage-transfer function, gain in dB is 20log10(Vout/Vin). A voltage ratio of 10 corresponds to +20 dB. Power ratios instead use 10log10(Pout/Pin); ten times the power corresponds to +10 dB. A −6 dB voltage gain represents an amplitude close to one half, not one quarter. When impedances differ and you need a power comparison, explicitly calculate power using actual load conditions; do not blindly replace a voltage-gain claim with a power-gain claim."
               ]
             ],
             "worked": {
@@ -23740,6 +23824,10 @@
               [
                 "Where the model breaks or a technician can be misled",
                 "The estimate does not substitute for checking stability, slew rate, output current or datasheet plots."
+              ],
+              [
+                "Bandwidth and gain must be considered together",
+                "For a simple compensated op-amp behaving approximately as a single-pole device, gain-bandwidth product can limit the closed-loop response. If its unity-gain bandwidth is 1 MHz, an idealized non-inverting gain of 10 suggests roughly 100 kHz small-signal bandwidth. That estimate fails when the device is not unity-gain stable or other poles, loads and circuit limits dominate. Do not confuse bandwidth limitation with slew-rate limitation: a 2 Vpeak 100 kHz sine requires a maximum rate of about 2π×100000×2 /10⁶ = 1.26 V/µs. An otherwise adequate gain-bandwidth specification does not prevent large-signal slew distortion."
               ]
             ],
             "worked": {
@@ -24309,7 +24397,7 @@
             "100 dB"
           ],
           "answer": 2,
-          "explanation": "Correct. 20 log10(10) = 20 dB.",
+          "explanation": "Use the voltage-gain definition 20 log10(Vout/Vin). A factor of 10 produces 20 dB; 10 dB would correspond to a power ratio of ten or a smaller voltage ratio, not this stated voltage transfer.",
           "objectiveIds": [],
           "origin": "legacy knowledge check"
         },
@@ -25989,6 +26077,10 @@
               [
                 "Where the model breaks or a technician can be misled",
                 "If the board is part of medical, aviation or safety-critical hardware, use authorized process and controlled evidence—not informal practice criteria."
+              ],
+              [
+                "Solder inspection distinguishes evidence from appearance",
+                "A technically sound solder connection provides electrical continuity, adequate wetting and mechanically reliable bonding without bridges or lifted pads. Appearance is evidence but does not by itself prove low contact resistance or long-term reliability. For a suspected intermittent board, start with visual inspection at appropriate magnification, then follow an approved de-energized continuity and mechanical assessment protocol; avoid flexing an energized high-density board to make a fault appear. Flux residues, heat-sensitive packages, lead-free versus tin-lead alloys and ESD controls have distinct failure mechanisms. Successful rework should be documented with before/after observations and a specified functional verification."
               ]
             ],
             "worked": {
@@ -26499,7 +26591,23 @@
           "editorialStatus": "INTERNAL_TECHNICAL_AND_SOURCE_CHECK_ONLY__EXTERNAL_SME_PENDING"
         }
       ],
-      "readings": [],
+      "readings": [
+        {
+          "id": "v50-m15-ch20-whole",
+          "chapter": "20",
+          "pages": "176–181",
+          "firstRequiredPage": "176",
+          "afterPageIndex": 4,
+          "verified": false,
+          "chapterAndPrintedRangeVerifiedFromScan": true,
+          "topicFitStatus": "VERIFIED_CHAPTER_TOPIC__PASSAGE_TECHNICAL_REVIEW_PENDING",
+          "instruction": "Required chapter-based companion: study Sixth Edition Chapter 20, printed pp. 176–181, after the Alfred lesson. Identify two signs of acceptable wetting and two rework failure mechanisms; define a low-risk inspection plan before repair. Do not treat older solder-handling directions as current lead, ventilation, or ESD safety instructions. The publisher chapter is a historical source, not automatically current technical authority.",
+          "bookBasedRetrievalTask": "Identify two signs of acceptable wetting and two rework failure mechanisms; define a low-risk inspection plan before repair.",
+          "topicFitEvidence": "Chapter 20, Soldering, desoldering and PCB repair, starts at printed page 176 and ends at 181 in the original scanned table of contents; exact passage claims were not all checked.",
+          "verificationLabel": "Chapter boundary and broad topic checked from the original scan. Individual claims/figures have NOT received full technical or independent SME approval.",
+          "passageAuditLevel": "Whole-chapter navigation reviewed, not page-by-page technical certification; ETA 2025 competencies and publisher errata control conflicts."
+        }
+      ],
       "labs": [
         {
           "id": "LAB-012",
@@ -28965,6 +29073,10 @@
               [
                 "Corrected publisher flip-flop diagram: NOR set/reset truth",
                 "ETA’s published Sixth Edition errata explicitly corrects printed page 138: the illustrated cross-coupled latch uses NOR gates, not NAND gates, and a mislabeled “S = 0” should read “R = 0.” For an ideal active-HIGH NOR SR latch: S=1,R=0 sets Q=1; S=0,R=1 resets Q=0; S=0,R=0 retains the previous state; S=1,R=1 drives both direct outputs low and is prohibited/invalid for complementary-output operation. A NAND SR latch typically has active-LOW inputs and a different truth table. Do not transfer a NAND mnemonic to a NOR circuit; inspect gate symbols and active levels."
+              ],
+              [
+                "Sequential logic requires a previous state",
+                "A combinational gate's output is a function of its present inputs; a flip-flop's output also depends on its previously stored state and control transitions. An edge-triggered D flip-flop transfers the D input to Q on its specified clock edge, subject to setup and hold requirements. An asynchronous preset or clear input can change Q independently of the clock, depending on the device's active polarity. Never infer an asynchronous input's polarity from the label alone: look for active-low bubbles, bars, truth tables and datasheets. The Sixth Edition's flip-flop figure has publisher errata; use its corrected diagram before solving the publisher's example."
               ]
             ],
             "worked": {
@@ -29681,7 +29793,23 @@
           "editorialStatus": "INTERNAL_TECHNICAL_AND_SOURCE_CHECK_ONLY__EXTERNAL_SME_PENDING"
         }
       ],
-      "readings": [],
+      "readings": [
+        {
+          "id": "v50-m17-ch16-whole",
+          "chapter": "16",
+          "pages": "132–148",
+          "firstRequiredPage": "132",
+          "afterPageIndex": 7,
+          "verified": false,
+          "chapterAndPrintedRangeVerifiedFromScan": true,
+          "topicFitStatus": "VERIFIED_CHAPTER_TOPIC__PASSAGE_TECHNICAL_REVIEW_PENDING",
+          "instruction": "Required chapter-based companion: study Sixth Edition Chapter 16, printed pp. 132–148, after the Alfred lesson. Construct a D-flip-flop timing table with an active-low asynchronous reset and explain setup/hold risk. Use the publisher corrected flip-flop diagram around printed page 138. The publisher chapter is a historical source, not automatically current technical authority.",
+          "bookBasedRetrievalTask": "Construct a D-flip-flop timing table with an active-low asynchronous reset and explain setup/hold risk.",
+          "topicFitEvidence": "Chapter 16, Digital concepts and logic, starts at printed page 132 and ends at 148 in the original scanned table of contents; exact passage claims were not all checked.",
+          "verificationLabel": "Chapter boundary and broad topic checked from the original scan. Individual claims/figures have NOT received full technical or independent SME approval.",
+          "passageAuditLevel": "Whole-chapter navigation reviewed, not page-by-page technical certification; ETA 2025 competencies and publisher errata control conflicts."
+        }
+      ],
       "labs": [
         {
           "id": "LAB-011",
@@ -30416,6 +30544,10 @@
               [
                 "Where this model can mislead you",
                 "A downstream short can pull an upstream driver down, so 'last good' is not necessarily the only affected physical region. Loading and bidirectional lines complicate isolation."
+              ],
+              [
+                "High-information measurements localize causes",
+                "Use the last-known-good/first-known-bad method as a hypothesis test rather than random probing. If the power rail is correct and the clock reaches an IC but the output is stuck, check the device's enable and reset conditions before replacing it. A logic probe gives a limited logic-level indication and a digital scope provides timing and analog amplitude; neither automatically validates protocol timing or every input threshold. A floating reference, poor grounding or excessive probe loading can create misleading readings. Document expected versus observed values, instrument setup and the next measurement that would distinguish competing explanations."
               ]
             ],
             "worked": {
@@ -31213,7 +31345,23 @@
           "sourcePageId": "L18-0-07"
         }
       ],
-      "readings": [],
+      "readings": [
+        {
+          "id": "v50-m18-ch18-whole",
+          "chapter": "18",
+          "pages": "159–164",
+          "firstRequiredPage": "159",
+          "afterPageIndex": 1,
+          "verified": false,
+          "chapterAndPrintedRangeVerifiedFromScan": true,
+          "topicFitStatus": "VERIFIED_CHAPTER_TOPIC__PASSAGE_TECHNICAL_REVIEW_PENDING",
+          "instruction": "Required chapter-based companion: study Sixth Edition Chapter 18, printed pp. 159–164, after the Alfred lesson. Draw a last-known-good/first-known-bad troubleshooting trace and state the measurement that would disprove your first theory. Real instrument reference points and safe-work controls outrank book-era bench habits. The publisher chapter is a historical source, not automatically current technical authority.",
+          "bookBasedRetrievalTask": "Draw a last-known-good/first-known-bad troubleshooting trace and state the measurement that would disprove your first theory.",
+          "topicFitEvidence": "Chapter 18, Diagnostic techniques, starts at printed page 159 and ends at 164 in the original scanned table of contents; exact passage claims were not all checked.",
+          "verificationLabel": "Chapter boundary and broad topic checked from the original scan. Individual claims/figures have NOT received full technical or independent SME approval.",
+          "passageAuditLevel": "Whole-chapter navigation reviewed, not page-by-page technical certification; ETA 2025 competencies and publisher errata control conflicts."
+        }
+      ],
       "labs": [],
       "courseQuality": {
         "stage": "governance-led reconstruction v1.8; external editorial validation pending",
@@ -32721,7 +32869,7 @@
             "Cannot ever calculate"
           ],
           "answer": 0,
-          "explanation": "High margin = 2.4−2.0 = 0.4 V.",
+          "explanation": "HIGH noise margin is transmitter VOH(min) minus receiver VIH(min). Here 2.4−2.0=0.4 V. The receiver must still have valid LOW thresholds and compatible supplies; positive HIGH margin alone does not prove complete interface compatibility.",
           "objectiveIds": [
             "12.1"
           ],
@@ -34068,6 +34216,10 @@
               [
                 "Power loss distinguishes volatile state from retained firmware",
                 "Registers and most SRAM lose their contents when power is removed, while nonvolatile flash and EEPROM can retain programmed values. “Memory” does not imply a particular persistence or write endurance. Boot ROM and firmware flash often hold startup instructions; RAM contains runtime stack, buffers and variables; cache sits nearer the CPU for speed. Retention, erase block, write endurance and latency influence which memory is appropriate for logged settings. If a controller forgets a user calibration after power cycling, look first at persistence logic and nonvolatile write success, not just CPU clock speed."
+              ],
+              [
+                "Memory and state have different power-loss behavior",
+                "Registers and ordinary SRAM are volatile: without supplied retention power, their contents generally do not survive power interruption. Flash and EEPROM are nonvolatile technologies whose writes can have limited endurance and program/erase timing constraints. A processor may execute instructions from nonvolatile storage but calculate intermediate values in volatile registers and RAM. A power-loss fault can therefore preserve firmware while losing run-time state. In a diagnostic trace, identify separately reset cause, boot source, clock state, memory map and peripheral configuration, rather than concluding that visible firmware means the entire computer state survived."
               ]
             ],
             "worked": {
@@ -36398,7 +36550,23 @@
           "sourcePageId": "L27-0-05"
         }
       ],
-      "readings": [],
+      "readings": [
+        {
+          "id": "v50-m21-ch17-whole",
+          "chapter": "17",
+          "pages": "149–158",
+          "firstRequiredPage": "149",
+          "afterPageIndex": 4,
+          "verified": false,
+          "chapterAndPrintedRangeVerifiedFromScan": true,
+          "topicFitStatus": "VERIFIED_CHAPTER_TOPIC__PASSAGE_TECHNICAL_REVIEW_PENDING",
+          "instruction": "Required chapter-based companion: study Sixth Edition Chapter 17, printed pp. 149–158, after the Alfred lesson. Identify CPU, volatile memory, nonvolatile memory and I/O from a block diagram, then predict the effect of a power interruption. Historical microprocessor examples are conceptual, not a current datasheet for modern microcontrollers. The publisher chapter is a historical source, not automatically current technical authority.",
+          "bookBasedRetrievalTask": "Identify CPU, volatile memory, nonvolatile memory and I/O from a block diagram, then predict the effect of a power interruption.",
+          "topicFitEvidence": "Chapter 17, Microprocessors and controllers, starts at printed page 149 and ends at 158 in the original scanned table of contents; exact passage claims were not all checked.",
+          "verificationLabel": "Chapter boundary and broad topic checked from the original scan. Individual claims/figures have NOT received full technical or independent SME approval.",
+          "passageAuditLevel": "Whole-chapter navigation reviewed, not page-by-page technical certification; ETA 2025 competencies and publisher errata control conflicts."
+        }
+      ],
       "labs": [],
       "courseQuality": {
         "stage": "governance-led reconstruction v1.9; independent SME review pending",
@@ -39067,6 +39235,10 @@
               [
                 "Common error and limits",
                 "Earth-connected scope grounds cannot be clipped arbitrarily to mains or floating energized nodes."
+              ],
+              [
+                "Instrument limitations change the experiment",
+                "For frequency measurement, an oscilloscope shows waveform shape and approximate timing, whereas a frequency counter can give finer periodic frequency precision but may miscount noisy or irregular signals. A spectrum analyzer shows energy versus frequency but requires suitable input protection and setup; a time trace and a spectral trace answer different questions. A scope probe with 1× attenuation often adds substantially more capacitance than a matched 10× probe and may disturb high-impedance or fast circuits. Confirm probe compensation, instrument bandwidth and reference connection before interpreting unexpected waveforms."
               ]
             ],
             "worked": {
@@ -39983,7 +40155,7 @@
             "5:1"
           ],
           "answer": 0,
-          "explanation": "VSWR=(1+0.2)/(1−0.2)=1.5.",
+          "explanation": "For |Γ|=0.2, VSWR=(1+|Γ|)/(1−|Γ|)=1.2/0.8=1.5:1. Reflected *power* is |Γ|², so 0.2 magnitude means 4% reflected power in the idealized lossless reference-plane case.",
           "objectiveIds": [
             "8.13"
           ],
@@ -40055,7 +40227,23 @@
           "editorialStatus": "INTERNAL_TECHNICAL_AND_SOURCE_CHECK_ONLY__EXTERNAL_SME_PENDING"
         }
       ],
-      "readings": [],
+      "readings": [
+        {
+          "id": "v50-m23-ch19-whole",
+          "chapter": "19",
+          "pages": "165–175",
+          "firstRequiredPage": "165",
+          "afterPageIndex": 1,
+          "verified": false,
+          "chapterAndPrintedRangeVerifiedFromScan": true,
+          "topicFitStatus": "VERIFIED_CHAPTER_TOPIC__PASSAGE_TECHNICAL_REVIEW_PENDING",
+          "instruction": "Required chapter-based companion: study Sixth Edition Chapter 19, printed pp. 165–175, after the Alfred lesson. Compare a counter, oscilloscope, DMM and spectrum analyzer for one intermittent signal complaint, including loading limits. Actual measurement category, probe ground and instrument bandwidth limits require current rated documentation. The publisher chapter is a historical source, not automatically current technical authority.",
+          "bookBasedRetrievalTask": "Compare a counter, oscilloscope, DMM and spectrum analyzer for one intermittent signal complaint, including loading limits.",
+          "topicFitEvidence": "Chapter 19, Test equipment, starts at printed page 165 and ends at 175 in the original scanned table of contents; exact passage claims were not all checked.",
+          "verificationLabel": "Chapter boundary and broad topic checked from the original scan. Individual claims/figures have NOT received full technical or independent SME approval.",
+          "passageAuditLevel": "Whole-chapter navigation reviewed, not page-by-page technical certification; ETA 2025 competencies and publisher errata control conflicts."
+        }
+      ],
       "labs": [],
       "courseQuality": {
         "stage": "governance-led reconstruction v1.9; independent SME review pending",
@@ -41591,7 +41779,23 @@
           "sourcePageId": "L19-0-01"
         }
       ],
-      "readings": [],
+      "readings": [
+        {
+          "id": "v50-m24-ch12-whole",
+          "chapter": "12",
+          "pages": "91–103",
+          "firstRequiredPage": "91",
+          "afterPageIndex": 4,
+          "verified": false,
+          "chapterAndPrintedRangeVerifiedFromScan": true,
+          "topicFitStatus": "VERIFIED_CHAPTER_TOPIC__PASSAGE_TECHNICAL_REVIEW_PENDING",
+          "instruction": "Required chapter-based companion: study Sixth Edition Chapter 12, printed pp. 91–103, after the Alfred lesson. Explain how audio amplifier gain, bandwidth and clipping affect a signal chain; calculate one gain in decibels. The publisher amplifier chapter does not comprehensively address modern digital video codecs, interfaces, or entertainment systems. Learn those in Alfred. The publisher chapter is a historical source, not automatically current technical authority.",
+          "bookBasedRetrievalTask": "Explain how audio amplifier gain, bandwidth and clipping affect a signal chain; calculate one gain in decibels.",
+          "topicFitEvidence": "Chapter 12, Amplifiers, gain and decibels, starts at printed page 91 and ends at 103 in the original scanned table of contents; exact passage claims were not all checked.",
+          "verificationLabel": "Chapter boundary and broad topic checked from the original scan. Individual claims/figures have NOT received full technical or independent SME approval.",
+          "passageAuditLevel": "Whole-chapter navigation reviewed, not page-by-page technical certification; ETA 2025 competencies and publisher errata control conflicts."
+        }
+      ],
       "labs": [],
       "courseQuality": {
         "stage": "governance-led reconstruction v1.9; independent SME review pending",
@@ -43958,6 +44162,10 @@
               [
                 "An SWR value describes reflection magnitude, not every transmission loss",
                 "On a lossless 50 Ω line with a purely resistive 100 Ω termination, |Γ| = |(100−50)/(100+50)| = 1/3; SWR = (1+|Γ|)/(1−|Γ|) = 2.0. This ideal relationship only describes mismatch at that location and frequency. It does not capture cable attenuation, connector heating, radiation hazards or transmitter power limits; lossy feedline can make SWR measured at the transmitter appear better than the load mismatch really is. Check measurement plane, line losses and ratings before diagnosing an antenna from one number."
+              ],
+              [
+                "Reflection coefficient and VSWR are related but distinct",
+                "For a lossless line at the load plane with purely resistive ZL and characteristic impedance Z0, the voltage reflection coefficient is Γ=(ZL−Z0)/(ZL+Z0). A 50 Ω line with a 100 Ω load has Γ=1/3, so the reflected power fraction is |Γ|²=1/9≈11.1%. The corresponding VSWR is (1+|Γ|)/(1−|Γ|)=2:1. A 2:1 VSWR is not 50% reflected power. Transmission-line attenuation, reference plane and complex load impedance complicate readings; a handheld SWR indication is not a complete antenna-system diagnosis."
               ]
             ],
             "worked": {
@@ -44313,6 +44521,10 @@
               [
                 "ETA 19.2 · First-principles reinforcement",
                 "An antenna is the transition between guided RF energy on a feedline and radiated electromagnetic fields. An alternating current distribution along a resonant conductor accelerates charges and changes E and H fields; a traveling wave carries energy outward. Dipole length is related to wavelength (a practical half-wave dipole is roughly half a wavelength with end effects), while radiation pattern and polarization depend on geometry and environment. A transmitter’s matched output alone does not ensure efficient radiation if the antenna is damaged, detuned or obstructed. Use low-power theory/simulations for study."
+              ],
+              [
+                "RF propagation has geometric and environmental limits",
+                "In free space, wavelength is λ=c/f, with c approximately 3×10⁸ m/s. A 150 MHz signal has λ≈2 m; this helps estimate antenna dimensions, but does not ensure a radio link. Real propagation depends on line of sight, polarization, reflections, obstruction, path loss, noise and antenna characteristics. For a reception complaint, distinguish transmitter power, antenna match, feedline loss and receiver sensitivity before adjusting a single control. Respect RF-exposure boundaries and never treat a disconnected or damaged RF antenna system as a harmless dummy load."
               ]
             ],
             "worked": {
@@ -44790,7 +45002,7 @@
             "1.59 kΩ"
           ],
           "answer": 2,
-          "explanation": "XC=1/(2π×10 MHz×100 pF)≈159 Ω.",
+          "explanation": "Use XC=1/(2πfC) after converting 10 MHz to 10×10⁶ Hz and 100 pF to 100×10⁻¹² F. The result is about 159 Ω. Higher frequency decreases ideal capacitive reactance; unit prefixes are essential.",
           "objectiveIds": [
             "19.3"
           ],
@@ -45949,6 +46161,10 @@
               [
                 "Time slots, duplex, and cellular reuse solve different problems",
                 "Time-division multiplexing shares a medium by allocating different time slots. Half-duplex links exchange information both ways but not simultaneously; full-duplex supports simultaneous directions. Cellular reuse divides coverage into geographic cells and coordinates channels/interference; it is neither identical to time-slot multiplexing nor a promise of unlimited capacity. When troubleshooting, ask whether the failure is timing, frequency, modulation, channel access or RF propagation."
+              ],
+              [
+                "Simplex, half-duplex and full-duplex describe directions",
+                "Simplex carries information in one direction. Half-duplex supports both directions but not simultaneously on the same shared channel; full-duplex supports simultaneous two-way communication, often by paired channels or suitable separation. A repeater receives and retransmits information and must be considered as part of the end-to-end signal path. A service technician should isolate application encoding, transport, physical media and RF or wireline channel faults instead of assuming every loss of voice implies a transmitter problem."
               ]
             ],
             "worked": {
@@ -47654,6 +47870,10 @@
               [
                 "A report is an engineering handoff, not a conclusion alone",
                 "A useful service report captures unit model/serial/revision, observed symptom, setup, predicted and actual measurements, work performed, and repeatable post-repair acceptance criteria. “Replaced fuse, now works” is weaker than “input 12.1 V under 0.5 A load, output 5.02 V under specified test load, no recurrence after three power cycles,” assuming those are the defined conditions. The purpose is to let another technician verify the conclusion without guessing what was tested."
+              ],
+              [
+                "A traceable report turns evidence into a repeatable decision",
+                "A useful technical report identifies the equipment and configuration, reported symptom, safety controls and constraints, expected measurements, actual readings with units, instrument settings, the fault hypothesis, test results, performed changes and final functional evidence. State uncertainty rather than claiming a root cause based on one correlation. A follow-up technician should be able to repeat a test from the record without guessing probe placement or operating conditions. A good report distinguishes a verified repair, a temporary workaround and a known unresolved risk, and is concise enough to guide the next action."
               ]
             ],
             "worked": {
@@ -75918,5 +76138,1053 @@
     "sectionAnchorCorrections": 14,
     "sourceAuthority": "ETA Associate CETa 2025 competencies, official ETA Sixth Edition errata and ETA 2025 Common Formulas; visually inspected selected printed pages 23, 47, 48, 74, 87, 96, 138 and 178",
     "limits": "Not all 234 printed pages or all 373 teaching pages technically certified; no independent item calibration; new scored lesson items are visible in their modules and are not a new unseen exam."
+  },
+  "syllabusCoverageRehearsals": [
+    {
+      "id": "C",
+      "title": "Coverage Rehearsal C",
+      "items": [
+        {
+          "focusObjectiveId": "1.3",
+          "sourceModuleId": "M01",
+          "questionId": "M01-SAFE-02"
+        },
+        {
+          "focusObjectiveId": "3.6.2",
+          "sourceModuleId": "M11",
+          "questionId": "A49-M11-07"
+        },
+        {
+          "focusObjectiveId": "5.9",
+          "sourceModuleId": "M15",
+          "questionId": "AV44-5-9"
+        },
+        {
+          "focusObjectiveId": "7.5",
+          "sourceModuleId": "M22",
+          "questionId": "CQ1086"
+        },
+        {
+          "focusObjectiveId": "9.1",
+          "sourceModuleId": "M03",
+          "questionId": "CQ0302"
+        },
+        {
+          "focusObjectiveId": "11.8.1",
+          "sourceModuleId": "M14",
+          "questionId": "A49-M14-10"
+        },
+        {
+          "focusObjectiveId": "13.7",
+          "sourceModuleId": "M18",
+          "questionId": "ALF-M18-V18-Q05"
+        },
+        {
+          "focusObjectiveId": "16.5",
+          "sourceModuleId": "M21",
+          "questionId": "ALF-M21-V19-Q06"
+        },
+        {
+          "focusObjectiveId": "18.7",
+          "sourceModuleId": "M25",
+          "questionId": "ALF-M25-V19-Q04"
+        },
+        {
+          "focusObjectiveId": "20.4",
+          "sourceModuleId": "M27",
+          "questionId": "CQ1145"
+        },
+        {
+          "focusObjectiveId": "1.10.1",
+          "sourceModuleId": "M01",
+          "questionId": "M01-SAFE-08"
+        },
+        {
+          "focusObjectiveId": "3.9",
+          "sourceModuleId": "M09",
+          "questionId": "AV43-3-9"
+        },
+        {
+          "focusObjectiveId": "5.6",
+          "sourceModuleId": "M15",
+          "questionId": "AV44-5-6"
+        },
+        {
+          "focusObjectiveId": "7.4",
+          "sourceModuleId": "M22",
+          "questionId": "AV45-7-4"
+        },
+        {
+          "focusObjectiveId": "9.7",
+          "sourceModuleId": "M02",
+          "questionId": "CQ1097"
+        },
+        {
+          "focusObjectiveId": "11.5",
+          "sourceModuleId": "M14",
+          "questionId": "AV44-11-5"
+        },
+        {
+          "focusObjectiveId": "15.2",
+          "sourceModuleId": "M20",
+          "questionId": "ALF-M20-V18-Q02"
+        },
+        {
+          "focusObjectiveId": "17.9",
+          "sourceModuleId": "M24",
+          "questionId": "CQ1132"
+        },
+        {
+          "focusObjectiveId": "19.7",
+          "sourceModuleId": "M26",
+          "questionId": "AV45-19-7"
+        },
+        {
+          "focusObjectiveId": "1.10",
+          "sourceModuleId": "M01",
+          "questionId": "M01-SAFE-07"
+        },
+        {
+          "focusObjectiveId": "3.9.2",
+          "sourceModuleId": "M09",
+          "questionId": "ALF-M09-V16-Q06"
+        },
+        {
+          "focusObjectiveId": "5.8.2",
+          "sourceModuleId": "M15",
+          "questionId": "A49-M15-11"
+        },
+        {
+          "focusObjectiveId": "7.2",
+          "sourceModuleId": "M22",
+          "questionId": "CQ1083"
+        },
+        {
+          "focusObjectiveId": "9.8.1",
+          "sourceModuleId": "M02",
+          "questionId": "ALF-M02-V15-Q07"
+        },
+        {
+          "focusObjectiveId": "11.3.1",
+          "sourceModuleId": "M14",
+          "questionId": "AV44-11-3-1"
+        },
+        {
+          "focusObjectiveId": "15.7",
+          "sourceModuleId": "M20",
+          "questionId": "ALF-M20-V18-Q06"
+        },
+        {
+          "focusObjectiveId": "17.6",
+          "sourceModuleId": "M24",
+          "questionId": "CQ1130"
+        },
+        {
+          "focusObjectiveId": "19.8",
+          "sourceModuleId": "M26",
+          "questionId": "ALF-M26-V20-Q03"
+        },
+        {
+          "focusObjectiveId": "1.6",
+          "sourceModuleId": "M01",
+          "questionId": "M01-SAFE-03"
+        },
+        {
+          "focusObjectiveId": "3.1.4",
+          "sourceModuleId": "M04",
+          "questionId": "A49-M04-02"
+        },
+        {
+          "focusObjectiveId": "5.8",
+          "sourceModuleId": "M15",
+          "questionId": "AV44-5-8"
+        },
+        {
+          "focusObjectiveId": "7.13",
+          "sourceModuleId": "M22",
+          "questionId": "AV45-7-13"
+        },
+        {
+          "focusObjectiveId": "9.2",
+          "sourceModuleId": "M03",
+          "questionId": "CQ0323"
+        },
+        {
+          "focusObjectiveId": "11.8",
+          "sourceModuleId": "M14",
+          "questionId": "CQ1104"
+        },
+        {
+          "focusObjectiveId": "15.8",
+          "sourceModuleId": "M20",
+          "questionId": "CQ1120"
+        },
+        {
+          "focusObjectiveId": "17.7",
+          "sourceModuleId": "M24",
+          "questionId": "ALF-M24-V19-Q03"
+        },
+        {
+          "focusObjectiveId": "19.4",
+          "sourceModuleId": "M26",
+          "questionId": "CQ1138"
+        },
+        {
+          "focusObjectiveId": "1.10.2",
+          "sourceModuleId": "M01",
+          "questionId": "M01-SAFE-09"
+        },
+        {
+          "focusObjectiveId": "3.5",
+          "sourceModuleId": "M12",
+          "questionId": "A49-M12-08"
+        },
+        {
+          "focusObjectiveId": "5.2",
+          "sourceModuleId": "M15",
+          "questionId": "CQ1076"
+        },
+        {
+          "focusObjectiveId": "7.6",
+          "sourceModuleId": "M22",
+          "questionId": "AV45-7-6"
+        },
+        {
+          "focusObjectiveId": "10.1",
+          "sourceModuleId": "M13",
+          "questionId": "CQ1098"
+        },
+        {
+          "focusObjectiveId": "13.5",
+          "sourceModuleId": "M17",
+          "questionId": "AV45-13-5"
+        },
+        {
+          "focusObjectiveId": "16.2",
+          "sourceModuleId": "M21",
+          "questionId": "ALF-M21-V19-Q01"
+        },
+        {
+          "focusObjectiveId": "18.6.1",
+          "sourceModuleId": "M25",
+          "questionId": "CQ1136"
+        },
+        {
+          "focusObjectiveId": "21.3",
+          "sourceModuleId": "M28",
+          "questionId": "ALF-M28-V20-Q03"
+        },
+        {
+          "focusObjectiveId": "2.2.2",
+          "sourceModuleId": "M09",
+          "questionId": "AV43-2-2-2"
+        },
+        {
+          "focusObjectiveId": "4.14",
+          "sourceModuleId": "M10",
+          "questionId": "ALF-M10-V16-Q02"
+        },
+        {
+          "focusObjectiveId": "6.10",
+          "sourceModuleId": "M05",
+          "questionId": "CQ1082"
+        },
+        {
+          "focusObjectiveId": "8.8",
+          "sourceModuleId": "M23",
+          "questionId": "AV45-8-8"
+        },
+        {
+          "focusObjectiveId": "11.6",
+          "sourceModuleId": "M14",
+          "questionId": "ALF-M14-V17-Q05"
+        },
+        {
+          "focusObjectiveId": "15.4",
+          "sourceModuleId": "M20",
+          "questionId": "A49-M20-13"
+        },
+        {
+          "focusObjectiveId": "17.1",
+          "sourceModuleId": "M24",
+          "questionId": "ALF-M24-V19-Q01"
+        },
+        {
+          "focusObjectiveId": "19.5",
+          "sourceModuleId": "M26",
+          "questionId": "ALF-M26-V20-Q08"
+        },
+        {
+          "focusObjectiveId": "2.13",
+          "sourceModuleId": "M03",
+          "questionId": "AV43-2-13"
+        },
+        {
+          "focusObjectiveId": "4.11",
+          "sourceModuleId": "M10",
+          "questionId": "A49-M10-06"
+        },
+        {
+          "focusObjectiveId": "6.2",
+          "sourceModuleId": "M05",
+          "questionId": "CQ1079"
+        },
+        {
+          "focusObjectiveId": "8.12.1",
+          "sourceModuleId": "M06",
+          "questionId": "CQ1090"
+        },
+        {
+          "focusObjectiveId": "11.1",
+          "sourceModuleId": "M14",
+          "questionId": "AV44-11-1"
+        },
+        {
+          "focusObjectiveId": "18.2.2",
+          "sourceModuleId": "M25",
+          "questionId": "CQ1135"
+        },
+        {
+          "focusObjectiveId": "1.12",
+          "sourceModuleId": "M01",
+          "questionId": "M01-SAFE-12"
+        },
+        {
+          "focusObjectiveId": "3.7",
+          "sourceModuleId": "M11",
+          "questionId": "ALF-M11-V17-Q02"
+        },
+        {
+          "focusObjectiveId": "5.1",
+          "sourceModuleId": "M15",
+          "questionId": "ALF-M15-V17-Q01"
+        },
+        {
+          "focusObjectiveId": "7.8",
+          "sourceModuleId": "M22",
+          "questionId": "AV45-7-8"
+        },
+        {
+          "focusObjectiveId": "10.4.1",
+          "sourceModuleId": "M13",
+          "questionId": "ALF-M13-V17-Q02"
+        },
+        {
+          "focusObjectiveId": "18.1",
+          "sourceModuleId": "M25",
+          "questionId": "AV45-18-1"
+        },
+        {
+          "focusObjectiveId": "1.2",
+          "sourceModuleId": "M01",
+          "questionId": "M01-SAFE-01"
+        },
+        {
+          "focusObjectiveId": "3.9.3",
+          "sourceModuleId": "M09",
+          "questionId": "A49-M09-05"
+        },
+        {
+          "focusObjectiveId": "5.3",
+          "sourceModuleId": "M15",
+          "questionId": "ALF-M15-V17-Q02"
+        },
+        {
+          "focusObjectiveId": "10.5",
+          "sourceModuleId": "M13",
+          "questionId": "CQ1101"
+        },
+        {
+          "focusObjectiveId": "18.2.1",
+          "sourceModuleId": "M25",
+          "questionId": "CQ1137"
+        },
+        {
+          "focusObjectiveId": "1.14",
+          "sourceModuleId": "M01",
+          "questionId": "M01-SAFE-14"
+        },
+        {
+          "focusObjectiveId": "5.5",
+          "sourceModuleId": "M15",
+          "questionId": "ALF-M15-V17-Q04"
+        },
+        {
+          "focusObjectiveId": "10.6",
+          "sourceModuleId": "M13",
+          "questionId": "AV44-10-6"
+        },
+        {
+          "focusObjectiveId": "18.6",
+          "sourceModuleId": "M25",
+          "questionId": "ALF-M25-V19-Q06"
+        },
+        {
+          "focusObjectiveId": "1.13",
+          "sourceModuleId": "M01",
+          "questionId": "CQ1053"
+        },
+        {
+          "focusObjectiveId": "5.12",
+          "sourceModuleId": "M15",
+          "questionId": "CQ1075"
+        },
+        {
+          "focusObjectiveId": "10.3.1",
+          "sourceModuleId": "M13",
+          "questionId": "ALF-M13-V17-Q01"
+        },
+        {
+          "focusObjectiveId": "3.2.2",
+          "sourceModuleId": "M02",
+          "questionId": "CQ1061"
+        },
+        {
+          "focusObjectiveId": "3.2",
+          "sourceModuleId": "M07",
+          "questionId": "ALF-M07-V16-Q03"
+        },
+        {
+          "focusObjectiveId": "3.1.1",
+          "sourceModuleId": "M03",
+          "questionId": "ALF-M03-V15-Q06"
+        },
+        {
+          "focusObjectiveId": "10.4.3",
+          "sourceModuleId": "M13",
+          "questionId": "A49-M13-09"
+        },
+        {
+          "focusObjectiveId": "11.8.1",
+          "sourceModuleId": "M14",
+          "questionId": "AV44-11-8-1"
+        },
+        {
+          "focusObjectiveId": "13.11",
+          "sourceModuleId": "M17",
+          "questionId": "A49-M17-12"
+        },
+        {
+          "focusObjectiveId": "18.5.1",
+          "sourceModuleId": "M25",
+          "questionId": "AV45-18-5-1"
+        },
+        {
+          "focusObjectiveId": "7.7",
+          "sourceModuleId": "M22",
+          "questionId": "CQ1085"
+        },
+        {
+          "focusObjectiveId": "6.2",
+          "sourceModuleId": "M05",
+          "questionId": "ALF-M05-V15-Q01"
+        },
+        {
+          "focusObjectiveId": "2.2",
+          "sourceModuleId": "M09",
+          "questionId": "CQ1058"
+        },
+        {
+          "focusObjectiveId": "9.2",
+          "sourceModuleId": "M03",
+          "questionId": "CQ0325"
+        },
+        {
+          "focusObjectiveId": "9.2",
+          "sourceModuleId": "M03",
+          "questionId": "CQ0321"
+        },
+        {
+          "focusObjectiveId": "9.2",
+          "sourceModuleId": "M03",
+          "questionId": "CQ0324"
+        },
+        {
+          "focusObjectiveId": "9.2",
+          "sourceModuleId": "M03",
+          "questionId": "CQ0322"
+        },
+        {
+          "focusObjectiveId": "19.11",
+          "sourceModuleId": "M26",
+          "questionId": "A49-M26-17"
+        },
+        {
+          "focusObjectiveId": "3.3.1",
+          "sourceModuleId": "M07",
+          "questionId": "AV43-3-3-1"
+        },
+        {
+          "focusObjectiveId": "5.8.2",
+          "sourceModuleId": "M15",
+          "questionId": "CQ1077"
+        },
+        {
+          "focusObjectiveId": "8.14",
+          "sourceModuleId": "M23",
+          "questionId": "CQ1092"
+        },
+        {
+          "focusObjectiveId": "5.12",
+          "sourceModuleId": "M15",
+          "questionId": "ALF-M15-V17-Q07"
+        },
+        {
+          "focusObjectiveId": "6.6",
+          "sourceModuleId": "M05",
+          "questionId": "ALF-M05-V15-Q04"
+        },
+        {
+          "focusObjectiveId": "6.10",
+          "sourceModuleId": "M05",
+          "questionId": "ALF-M05-V15-Q07"
+        },
+        {
+          "focusObjectiveId": "12.2",
+          "sourceModuleId": "M19",
+          "questionId": "CQ1112"
+        }
+      ],
+      "reusedInstructionalItems": true,
+      "independentExam": false,
+      "readinessEligible": false
+    },
+    {
+      "id": "D",
+      "title": "Coverage Rehearsal D",
+      "items": [
+        {
+          "focusObjectiveId": "2.7",
+          "sourceModuleId": "M03",
+          "questionId": "ALF-M03-V15-Q07"
+        },
+        {
+          "focusObjectiveId": "4.7",
+          "sourceModuleId": "M08",
+          "questionId": "ALF-M08-V16-Q04"
+        },
+        {
+          "focusObjectiveId": "6.7",
+          "sourceModuleId": "M05",
+          "questionId": "AV43-6-7"
+        },
+        {
+          "focusObjectiveId": "8.7",
+          "sourceModuleId": "M23",
+          "questionId": "ALF-M23-V19-Q03"
+        },
+        {
+          "focusObjectiveId": "10.3",
+          "sourceModuleId": "M13",
+          "questionId": "AV44-10-3"
+        },
+        {
+          "focusObjectiveId": "12.2",
+          "sourceModuleId": "M19",
+          "questionId": "ALF-M19-V18-Q07"
+        },
+        {
+          "focusObjectiveId": "15.6",
+          "sourceModuleId": "M20",
+          "questionId": "CQ1122"
+        },
+        {
+          "focusObjectiveId": "17.8",
+          "sourceModuleId": "M24",
+          "questionId": "CQ1131"
+        },
+        {
+          "focusObjectiveId": "19.3",
+          "sourceModuleId": "M26",
+          "questionId": "CQ1142"
+        },
+        {
+          "focusObjectiveId": "21.2",
+          "sourceModuleId": "M28",
+          "questionId": "CQ1149"
+        },
+        {
+          "focusObjectiveId": "2.3",
+          "sourceModuleId": "M09",
+          "questionId": "AV43-2-3"
+        },
+        {
+          "focusObjectiveId": "4.16",
+          "sourceModuleId": "M10",
+          "questionId": "ALF-M10-V16-Q07"
+        },
+        {
+          "focusObjectiveId": "6.8",
+          "sourceModuleId": "M05",
+          "questionId": "ALF-M05-V15-Q08"
+        },
+        {
+          "focusObjectiveId": "8.4",
+          "sourceModuleId": "M05",
+          "questionId": "ALF-M05-V15-Q06"
+        },
+        {
+          "focusObjectiveId": "10.4.2",
+          "sourceModuleId": "M13",
+          "questionId": "ALF-M13-V17-Q03"
+        },
+        {
+          "focusObjectiveId": "13.6",
+          "sourceModuleId": "M17",
+          "questionId": "ALF-M17-V18-Q08"
+        },
+        {
+          "focusObjectiveId": "16.3",
+          "sourceModuleId": "M21",
+          "questionId": "CQ1125"
+        },
+        {
+          "focusObjectiveId": "18.2",
+          "sourceModuleId": "M25",
+          "questionId": "AV45-18-2"
+        },
+        {
+          "focusObjectiveId": "21.8",
+          "sourceModuleId": "M28",
+          "questionId": "ALF-M28-V20-Q06"
+        },
+        {
+          "focusObjectiveId": "2.2.1",
+          "sourceModuleId": "M09",
+          "questionId": "AV43-2-2-1"
+        },
+        {
+          "focusObjectiveId": "4.15",
+          "sourceModuleId": "M08",
+          "questionId": "A49-M08-04"
+        },
+        {
+          "focusObjectiveId": "6.4",
+          "sourceModuleId": "M05",
+          "questionId": "CQ1080"
+        },
+        {
+          "focusObjectiveId": "8.15",
+          "sourceModuleId": "M23",
+          "questionId": "ALF-M23-V19-Q05"
+        },
+        {
+          "focusObjectiveId": "10.4.3",
+          "sourceModuleId": "M13",
+          "questionId": "AV44-10-4-3"
+        },
+        {
+          "focusObjectiveId": "13.10",
+          "sourceModuleId": "M17",
+          "questionId": "ALF-M17-V18-Q06"
+        },
+        {
+          "focusObjectiveId": "16.4",
+          "sourceModuleId": "M21",
+          "questionId": "ALF-M21-V19-Q02"
+        },
+        {
+          "focusObjectiveId": "18.3",
+          "sourceModuleId": "M25",
+          "questionId": "ALF-M25-V19-Q03"
+        },
+        {
+          "focusObjectiveId": "21.9",
+          "sourceModuleId": "M28",
+          "questionId": "CQ1152"
+        },
+        {
+          "focusObjectiveId": "2.2",
+          "sourceModuleId": "M09",
+          "questionId": "ALF-M09-V16-Q02"
+        },
+        {
+          "focusObjectiveId": "4.1",
+          "sourceModuleId": "M04",
+          "questionId": "ALF-M04-V15-Q06"
+        },
+        {
+          "focusObjectiveId": "6.5",
+          "sourceModuleId": "M05",
+          "questionId": "AV43-6-5"
+        },
+        {
+          "focusObjectiveId": "8.2",
+          "sourceModuleId": "M05",
+          "questionId": "AV43-8-2"
+        },
+        {
+          "focusObjectiveId": "10.8",
+          "sourceModuleId": "M13",
+          "questionId": "AV44-10-8"
+        },
+        {
+          "focusObjectiveId": "13.11",
+          "sourceModuleId": "M17",
+          "questionId": "CQ1117"
+        },
+        {
+          "focusObjectiveId": "16.1",
+          "sourceModuleId": "M21",
+          "questionId": "ALF-M21-V19-Q04"
+        },
+        {
+          "focusObjectiveId": "18.3.2",
+          "sourceModuleId": "M25",
+          "questionId": "AV45-18-3-2"
+        },
+        {
+          "focusObjectiveId": "21.5",
+          "sourceModuleId": "M28",
+          "questionId": "CQ1151"
+        },
+        {
+          "focusObjectiveId": "2.4",
+          "sourceModuleId": "M02",
+          "questionId": "AV43-2-4"
+        },
+        {
+          "focusObjectiveId": "4.2",
+          "sourceModuleId": "M08",
+          "questionId": "AV43-4-2"
+        },
+        {
+          "focusObjectiveId": "6.1",
+          "sourceModuleId": "M05",
+          "questionId": "AV43-6-1"
+        },
+        {
+          "focusObjectiveId": "8.1",
+          "sourceModuleId": "M05",
+          "questionId": "AV43-8-1"
+        },
+        {
+          "focusObjectiveId": "11.3.2",
+          "sourceModuleId": "M14",
+          "questionId": "AV44-11-3-2"
+        },
+        {
+          "focusObjectiveId": "15.9",
+          "sourceModuleId": "M20",
+          "questionId": "ALF-M20-V18-Q07"
+        },
+        {
+          "focusObjectiveId": "17.5",
+          "sourceModuleId": "M24",
+          "questionId": "AV45-17-5"
+        },
+        {
+          "focusObjectiveId": "19.11",
+          "sourceModuleId": "M26",
+          "questionId": "AV45-19-11"
+        },
+        {
+          "focusObjectiveId": "1.9",
+          "sourceModuleId": "M01",
+          "questionId": "M01-SAFE-06"
+        },
+        {
+          "focusObjectiveId": "3.3",
+          "sourceModuleId": "M07",
+          "questionId": "ALF-M07-V16-Q06"
+        },
+        {
+          "focusObjectiveId": "5.8.1",
+          "sourceModuleId": "M15",
+          "questionId": "ALF-M15-V17-Q05"
+        },
+        {
+          "focusObjectiveId": "7.11",
+          "sourceModuleId": "M22",
+          "questionId": "ALF-M22-V19-Q07"
+        },
+        {
+          "focusObjectiveId": "10.2",
+          "sourceModuleId": "M13",
+          "questionId": "AV44-10-2"
+        },
+        {
+          "focusObjectiveId": "13.8",
+          "sourceModuleId": "M18",
+          "questionId": "ALF-M18-V18-Q02"
+        },
+        {
+          "focusObjectiveId": "16.8",
+          "sourceModuleId": "M21",
+          "questionId": "CQ1124"
+        },
+        {
+          "focusObjectiveId": "18.5.1",
+          "sourceModuleId": "M25",
+          "questionId": "A49-M25-16"
+        },
+        {
+          "focusObjectiveId": "1.8",
+          "sourceModuleId": "M01",
+          "questionId": "A49-M01-01"
+        },
+        {
+          "focusObjectiveId": "3.1",
+          "sourceModuleId": "M03",
+          "questionId": "ALF-M03-V15-Q03"
+        },
+        {
+          "focusObjectiveId": "5.10",
+          "sourceModuleId": "M15",
+          "questionId": "ALF-M15-V17-Q06"
+        },
+        {
+          "focusObjectiveId": "7.12",
+          "sourceModuleId": "M22",
+          "questionId": "CQ1087"
+        },
+        {
+          "focusObjectiveId": "10.7",
+          "sourceModuleId": "M13",
+          "questionId": "ALF-M13-V17-Q05"
+        },
+        {
+          "focusObjectiveId": "15.3",
+          "sourceModuleId": "M20",
+          "questionId": "CQ1119"
+        },
+        {
+          "focusObjectiveId": "19.2.1",
+          "sourceModuleId": "M26",
+          "questionId": "AV45-19-2-1"
+        },
+        {
+          "focusObjectiveId": "2.12",
+          "sourceModuleId": "M02",
+          "questionId": "ALF-M02-V15-Q04"
+        },
+        {
+          "focusObjectiveId": "4.3",
+          "sourceModuleId": "M08",
+          "questionId": "AV43-4-3"
+        },
+        {
+          "focusObjectiveId": "6.6",
+          "sourceModuleId": "M05",
+          "questionId": "CQ1081"
+        },
+        {
+          "focusObjectiveId": "8.14",
+          "sourceModuleId": "M23",
+          "questionId": "A49-M23-15"
+        },
+        {
+          "focusObjectiveId": "11.9",
+          "sourceModuleId": "M14",
+          "questionId": "ALF-M14-V17-Q07"
+        },
+        {
+          "focusObjectiveId": "19.1",
+          "sourceModuleId": "M26",
+          "questionId": "ALF-M26-V20-Q07"
+        },
+        {
+          "focusObjectiveId": "2.11",
+          "sourceModuleId": "M08",
+          "questionId": "ALF-M08-V16-Q01"
+        },
+        {
+          "focusObjectiveId": "4.4",
+          "sourceModuleId": "M08",
+          "questionId": "AV43-4-4"
+        },
+        {
+          "focusObjectiveId": "7.7",
+          "sourceModuleId": "M22",
+          "questionId": "A49-M22-14"
+        },
+        {
+          "focusObjectiveId": "11.2",
+          "sourceModuleId": "M14",
+          "questionId": "ALF-M14-V17-Q03"
+        },
+        {
+          "focusObjectiveId": "19.10",
+          "sourceModuleId": "M26",
+          "questionId": "CQ1140"
+        },
+        {
+          "focusObjectiveId": "3.6",
+          "sourceModuleId": "M11",
+          "questionId": "AV44-3-6"
+        },
+        {
+          "focusObjectiveId": "7.9",
+          "sourceModuleId": "M22",
+          "questionId": "AV45-7-9"
+        },
+        {
+          "focusObjectiveId": "11.3",
+          "sourceModuleId": "M14",
+          "questionId": "CQ1105"
+        },
+        {
+          "focusObjectiveId": "19.2",
+          "sourceModuleId": "M26",
+          "questionId": "AV45-19-2"
+        },
+        {
+          "focusObjectiveId": "3.3.1",
+          "sourceModuleId": "M07",
+          "questionId": "A49-M07-03"
+        },
+        {
+          "focusObjectiveId": "7.1",
+          "sourceModuleId": "M22",
+          "questionId": "AV45-7-1"
+        },
+        {
+          "focusObjectiveId": "1.10.3",
+          "sourceModuleId": "M01",
+          "questionId": "M01-SAFE-10"
+        },
+        {
+          "focusObjectiveId": "1.11",
+          "sourceModuleId": "M01",
+          "questionId": "M01-SAFE-11"
+        },
+        {
+          "focusObjectiveId": "3.4",
+          "sourceModuleId": "M09",
+          "questionId": "AV43-3-4"
+        },
+        {
+          "focusObjectiveId": "7.12",
+          "sourceModuleId": "M22",
+          "questionId": "ALF-M22-V19-Q03"
+        },
+        {
+          "focusObjectiveId": "3.9.3",
+          "sourceModuleId": "M09",
+          "questionId": "ALF-M09-V16-Q07"
+        },
+        {
+          "focusObjectiveId": "13.8",
+          "sourceModuleId": "M18",
+          "questionId": "ALF-M18-V18-Q06"
+        },
+        {
+          "focusObjectiveId": "4.15",
+          "sourceModuleId": "M08",
+          "questionId": "CQ1070"
+        },
+        {
+          "focusObjectiveId": "3.6.2",
+          "sourceModuleId": "M11",
+          "questionId": "ALF-M11-V17-Q06"
+        },
+        {
+          "focusObjectiveId": "15.4",
+          "sourceModuleId": "M20",
+          "questionId": "CQ1118"
+        },
+        {
+          "focusObjectiveId": "4.11",
+          "sourceModuleId": "M10",
+          "questionId": "ALF-M10-V16-Q05"
+        },
+        {
+          "focusObjectiveId": "20.4",
+          "sourceModuleId": "M27",
+          "questionId": "ALF-M27-V20-Q05"
+        },
+        {
+          "focusObjectiveId": "8.7",
+          "sourceModuleId": "M23",
+          "questionId": "ALF-M23-V19-Q02"
+        },
+        {
+          "focusObjectiveId": "15.4",
+          "sourceModuleId": "M20",
+          "questionId": "ALF-M20-V18-Q08"
+        },
+        {
+          "focusObjectiveId": "15.4",
+          "sourceModuleId": "M20",
+          "questionId": "ALF-M20-V18-Q05"
+        },
+        {
+          "focusObjectiveId": "15.3",
+          "sourceModuleId": "M20",
+          "questionId": "ALF-M20-V18-Q01"
+        },
+        {
+          "focusObjectiveId": "3.1.4",
+          "sourceModuleId": "M04",
+          "questionId": "CQ0320"
+        },
+        {
+          "focusObjectiveId": "7.7",
+          "sourceModuleId": "M22",
+          "questionId": "ALF-M22-V19-Q06"
+        },
+        {
+          "focusObjectiveId": "3.1.4",
+          "sourceModuleId": "M04",
+          "questionId": "CQ0319"
+        },
+        {
+          "focusObjectiveId": "3.1.4",
+          "sourceModuleId": "M04",
+          "questionId": "CQ0316"
+        },
+        {
+          "focusObjectiveId": "3.1.4",
+          "sourceModuleId": "M04",
+          "questionId": "CQ0317"
+        },
+        {
+          "focusObjectiveId": "3.1.4",
+          "sourceModuleId": "M04",
+          "questionId": "CQ0318"
+        },
+        {
+          "focusObjectiveId": "17.1",
+          "sourceModuleId": "M24",
+          "questionId": "ALF-M24-V19-Q06"
+        },
+        {
+          "focusObjectiveId": "8.12.1",
+          "sourceModuleId": "M06",
+          "questionId": "ALF-M06-V16-Q03"
+        }
+      ],
+      "reusedInstructionalItems": true,
+      "independentExam": false,
+      "readinessEligible": false
+    }
+  ],
+  "v50AuditStatus": {
+    "standaloneETAObjectiveCount": 261,
+    "sourceCrossReferenceOnly": "2.5.1",
+    "distinctMockFormObjectiveTags": 100,
+    "previouslyUnsampledTechnicalObjectiveTags": 161,
+    "coverageRehearsalFormCounts": [
+      100,
+      100
+    ],
+    "distinctRehearsalItemIds": 200,
+    "rehearsalItemOrigin": "Existing Alfred instructional questions, already accessible in lessons; NOT independent examination items",
+    "editedInstructionPages": 23,
+    "newExamItemsAuthored": 0,
+    "independentExternalSubjectMatterReview": false,
+    "complete234PageTechnicalValidation": false,
+    "externalPassProbabilityCalibration": false
+  },
+  "v50BookReadings": {
+    "newRequiredChapterCheckpoints": 8,
+    "totalRequiredAssignments": 28,
+    "instructionalModulesWithReadings": 26,
+    "modulesWithoutAssignedBookChapters": [
+      "M10",
+      "M19"
+    ],
+    "reasonNoOtherRequiredBookChapter": "Older Sixth Edition lacks a credible stand-alone chapter match for these modern signal-shaping/interface requirements. Alfred instruction remains required.",
+    "sourceBoundaryCheckedNotPassageCertified": true
   }
 }
