@@ -1,0 +1,201 @@
+{
+  "scope": "One optional, unscored novel exercise at the end of each instructional module, after prerequisites are taught",
+  "challenges": [
+    {
+      "module": "M01",
+      "pageId": "L12-0-09",
+      "pageTitle": "Synthesis: a safe, explained, defensible decision",
+      "prompt": "A service worker sees an unplugged machine with a large DC-link capacitor and a raised spring-loaded guard. Is the machine automatically safe? Identify two different energy hazards and the type of control each requires.",
+      "modelReasoning": "No. Power removal does not verify the capacitor discharged; trained authorized staff use the equipment-specific isolation, waiting, and rated verification procedure. The spring/raised guard can retain mechanical energy, requiring approved restraint or blocking. Electrical checks never substitute for the mechanical control, and neither procedure should be improvised by an untrained learner."
+    },
+    {
+      "module": "M02",
+      "pageId": "L01-0-10",
+      "pageTitle": "Energy, component ratings, and numerical reasonableness",
+      "prompt": "The black probe is on node B at 3 V relative to circuit reference; node A is at 8 V. What does the voltmeter read with red on A and black on B? What does this NOT tell you?",
+      "modelReasoning": "V(A relative to B)=8−3=+5 V, assuming both values share the same reference and measurement conditions. The result describes potential difference, not current through the branch. To predict current you need branch impedance and an appropriate circuit model."
+    },
+    {
+      "module": "M03",
+      "pageId": "L02-0-06",
+      "pageTitle": "Thermistors, variable resistors and component choice",
+      "prompt": "A 470 Ω resistor will continuously drop 12 V at the expected operating condition. Calculate current and dissipation. Is a 0.25 W part an appropriate nominal selection?",
+      "modelReasoning": "I=12/470=0.0255 A (25.5 mA). P=V²/R=144/470≈0.306 W, already above the nominal 0.25 W rating. Choose a resistor with suitable power and voltage ratings plus environmental and thermal derating; do not select a nominal part that operates beyond its rating."
+    },
+    {
+      "module": "M04",
+      "pageId": "L05-0-04",
+      "pageTitle": "Error analysis: repair the reason, not merely the answer",
+      "prompt": "A 9 V source feeds two resistors, 1 kΩ and 2 kΩ, in parallel. What total current flows in this ideal network? Explain why series addition gives the wrong answer.",
+      "modelReasoning": "Each branch sees 9 V: currents are 9 mA and 4.5 mA, giving 13.5 mA total. Equivalent resistance is 1/(1/1000+1/2000)=666.7 Ω; 9/666.7=13.5 mA. Adding resistances as though series would assume one common branch current despite the actual two branches."
+    },
+    {
+      "module": "M05",
+      "pageId": "L13-0-08",
+      "pageTitle": "Last-good / first-bad evidence and technical defense",
+      "prompt": "A board is powered correctly, but audio enters one stage and disappears at its output. Which two drawings would you use first and next, and which electrical quantities should the chosen test points predict?",
+      "modelReasoning": "Use the functional block diagram first to identify the suspected stage and its input/output path; then consult the schematic to trace power, bias, coupling and individual nets at selected safe test points. Predict rail voltage and the expected signal/bias levels before probing. A board assembly drawing helps locate components, but cannot replace the circuit schematic."
+    },
+    {
+      "module": "M06",
+      "pageId": "L04-0-05",
+      "pageTitle": "Plan a defensible instrument characterization",
+      "prompt": "A zero-offset sinewave reaches +4 V peak and repeats every 2.5 ms. Predict its RMS voltage and frequency, and distinguish its peak-to-peak voltage.",
+      "modelReasoning": "Vrms=4/√2≈2.83 V for a sinusoid only. Period 0.0025 s means f=1/T=400 Hz. Peak-to-peak voltage is +4−(−4)=8 V. Neither 8 V nor 2.83 V is the instantaneous maximum."
+    },
+    {
+      "module": "M07",
+      "pageId": "L07-0-02",
+      "pageTitle": "Measure and explain a reactive fault",
+      "prompt": "A 100 µF capacitor was charged to 50 V and then disconnected. Calculate its ideal stored energy. Why is a zero steady current reading not proof it is discharged?",
+      "modelReasoning": "E=½CV²=0.5×100×10⁻⁶×50²=0.125 J; charge is Q=CV=0.005 C. An ideal isolated capacitor can retain charge despite zero external current. Stored energy can still be a hazard in larger banks; use equipment-rated discharge and verification procedures, never a casual finger or screwdriver test."
+    },
+    {
+      "module": "M08",
+      "pageId": "L06-1-03",
+      "pageTitle": "Complete a traceable RLC fault argument",
+      "prompt": "An ideal series load has R=6 Ω and inductive reactance +8 Ω at a specified frequency. Compute impedance magnitude, power factor, and whether current leads or lags.",
+      "modelReasoning": "Z=6+j8 Ω, so |Z|=√(6²+8²)=10 Ω. Displacement power factor cos φ=R/|Z|=0.6 (lagging); the positive reactive component is inductive, so current lags source voltage. Merely adding 6+8=14 Ω loses the phase information."
+    },
+    {
+      "module": "M09",
+      "pageId": "L07-1-02",
+      "pageTitle": "Synthesize a safe device comparison",
+      "prompt": "An ideal transformer has 100 primary turns, 10 secondary turns and 120 V RMS on the primary. A 12 VA load is attached. Predict secondary voltage and primary current, then state one non-ideal limitation.",
+      "modelReasoning": "Voltage ratio is Np/Ns=10, so Vs=12 V RMS. Ideal primary input power is 12 VA, giving Ip=12 VA/120 V=0.10 A (assuming power-factor context is consistent for the VA computation); secondary current magnitude is about 1 A. Copper, core and leakage losses make actual measurements depart from the ideal."
+    },
+    {
+      "module": "M10",
+      "pageId": "L11-0-09",
+      "pageTitle": "Monostable, astable and bistable multivibrators",
+      "prompt": "One circuit outputs a pulse of predictable width after each trigger. Another oscillates continuously without a trigger. Identify each and what you would measure to distinguish them.",
+      "modelReasoning": "The first is monostable (one-shot); the second is astable/free-running oscillator. Measure trigger-to-output timing and whether pulses cease without triggers. For the one-shot, pulse width is controlled by its timing design; for the oscillator, measure steady period and frequency. Avoid treating pulse width and repetition interval as identical."
+    },
+    {
+      "module": "M11",
+      "pageId": "L08-0-04",
+      "pageTitle": "Fault isolation in diode networks",
+      "prompt": "A 5 V low-voltage source powers an LED rated for about 2 V forward drop at 15 mA. In an ideal simple series circuit, estimate the resistor and its dissipation.",
+      "modelReasoning": "The resistor drops 5−2=3 V. R=3/0.015=200 Ω, and resistor dissipation is 3×0.015=0.045 W. Select a suitable standard resistor and ratings with margin, taking LED tolerances and device limits into account; do not connect the LED without current control."
+    },
+    {
+      "module": "M12",
+      "pageId": "L10-0-07",
+      "pageTitle": "Transistor competency integration case",
+      "prompt": "A 3.3 V microcontroller output drives an N-channel MOSFET with a motor load. Why are both the Vgs specification and inductive transient handling relevant?",
+      "modelReasoning": "MOSFET conduction is governed by gate-to-source voltage, not an absolute 3.3 V gate label; check rated on-resistance at the actual Vgs and thermal current limits, not only the threshold marking. The motor is inductive and can create a turn-off voltage transient, so a rated flyback/suppression path and appropriate switching design are needed."
+    },
+    {
+      "module": "M13",
+      "pageId": "L09-0-07",
+      "pageTitle": "Power-supply acceptance checklist",
+      "prompt": "An isolated 12 V RMS secondary feeds a bridge rectifier and reservoir capacitor. Roughly what no-load peak DC voltage could appear with two 0.7 V diode drops in the conducting path?",
+      "modelReasoning": "The AC peak is 12√2≈16.97 V. Subtract about 1.4 V for two silicon diode drops to estimate ≈15.6 V before ripple and loading; actual values depend on transformer regulation and diode characteristics. A nominal 12 V AC rating is RMS, not a promise of 12 V DC after smoothing."
+    },
+    {
+      "module": "M14",
+      "pageId": "L10-1-04",
+      "pageTitle": "Amplifier design-review case",
+      "prompt": "An ideal inverting op-amp has Rin=2 kΩ, Rf=10 kΩ and +0.3 V input. Predict the output, then identify two reasons an actual circuit might differ.",
+      "modelReasoning": "Gain = −Rf/Rin=−5, so the ideal output is −1.5 V. The result assumes negative feedback in its linear range. Real power rails, output swing/headroom, bandwidth, input common-mode limits and loading can cause clipping or other deviations. A negative output requires an appropriate supply configuration."
+    },
+    {
+      "module": "M15",
+      "pageId": "L29-0-04",
+      "pageTitle": "Workmanship practical case and evidence tiers",
+      "prompt": "During through-hole desoldering, the plated barrel begins lifting from the board. Is prolonged reheating a safe repair strategy? What evidence should a technician record?",
+      "modelReasoning": "No. Excess heat or force can further delaminate the pad/barrel and break interlayer continuity. Stop and follow approved rework criteria; document the location, board revision, physical condition and electrical continuity checks using the manufacturer/IPC workmanship standard applicable to the job. Cosmetic solder appearance alone is not proof of an intact plated via."
+    },
+    {
+      "module": "M16",
+      "pageId": "L14-0-04",
+      "pageTitle": "Truth-table verification and fault diagnosis",
+      "prompt": "Add binary 1010₂ and 0011₂, then express the result in decimal and hexadecimal. Show the place-value reasoning.",
+      "modelReasoning": "1010₂=8+2=10, and 0011₂=2+1=3; 10+3=13, so binary 1101₂ and hexadecimal D₁₆. Binary place weights are powers of two; hexadecimal groups four binary bits, not four decimal digits."
+    },
+    {
+      "module": "M17",
+      "pageId": "L11-1-05",
+      "pageTitle": "Design and troubleshoot a debounced input",
+      "prompt": "A NOR-based active-high SR latch has S=1 and R=0. What state does it establish? Why is S=R=1 generally disallowed in the basic cross-coupled circuit?",
+      "modelReasoning": "With S=1 and R=0 the basic NOR latch sets Q=1 and Q̅=0. With both inputs high, both NOR outputs are forced low, violating complementary output expectation; release can produce an indeterminate next state. Label S and R using the actual schematic, and heed the Sixth Edition errata correcting its gate caption."
+    },
+    {
+      "module": "M18",
+      "pageId": "L18-0-07",
+      "pageTitle": "Fault report and decision standard",
+      "prompt": "An embedded board has normal input power but a missing 3.3 V rail. Outline a test sequence without immediately replacing the regulator.",
+      "modelReasoning": "Confirm an appropriate safe test setup, input rail and ground reference, protection elements, regulator enable, output load/short condition and expected ripple/transients. Compare measured voltages with the schematic and datasheet requirements. A healthy input alone cannot distinguish failed regulation from downstream shorting or a disabled control."
+    },
+    {
+      "module": "M19",
+      "pageId": "L19-0-03",
+      "pageTitle": "Interface acceptance and documentation",
+      "prompt": "A 5 V CMOS-style output is connected directly to an input rated at 3.3 V maximum. The line works briefly. Why can the connection still be invalid?",
+      "modelReasoning": "Functional switching does not waive absolute maximum input ratings. A 5 V high may overstress the lower-voltage gate and produce latent damage. Check input threshold and maximum voltage specifications in both directions, use an appropriate level-shifting/isolating interface, and verify common-ground or isolation conditions."
+    },
+    {
+      "module": "M20",
+      "pageId": "L16-0-00",
+      "pageTitle": "MCU clocks, reset, bus and firmware events",
+      "prompt": "A controller receives valid ADC samples but the displayed reading remains frozen. Name three distinct subsystems or checks that could isolate the fault.",
+      "modelReasoning": "Confirm the ADC conversion/update path and whether its samples reach memory, then check CPU/control flow and the data conversion, communication/display interface. Verify interrupt/DMA operation, sample freshness and buffer address ownership. Replacing the ADC without checking software and memory handoff ignores several independent failure paths."
+    },
+    {
+      "module": "M21",
+      "pageId": "L27-0-05",
+      "pageTitle": "Verify computer-produced calculations",
+      "prompt": "A service laptop offers a firmware file from an unofficial mirror. The file name matches the device model but not its hardware revision. What sequence should precede any upgrade?",
+      "modelReasoning": "Identify the exact hardware revision and official supported firmware, verify publisher origin and integrity/signature, back up configuration and confirm recovery instructions. Do not flash an unverified version or assume a shared product name means compatible hardware. Record pre/post versions and the observed device behavior."
+    },
+    {
+      "module": "M22",
+      "pageId": "L19-0-12",
+      "pageTitle": "Attenuation and propagation are distinct",
+      "prompt": "A 50 Ω RF line is terminated in 100 Ω. Compute its ideal load reflection coefficient and corresponding SWR. What fraction of incident power reflects?",
+      "modelReasoning": "Γ=(ZL−Z0)/(ZL+Z0)=(100−50)/(100+50)=1/3. SWR=(1+1/3)/(1−1/3)=2:1, and reflected power fraction is |Γ|²=1/9≈11.1%. Continuity testing cannot reveal this characteristic-impedance mismatch."
+    },
+    {
+      "module": "M23",
+      "pageId": "L20-0-06",
+      "pageTitle": "Frequency bands, bandwidth and spectral alignment",
+      "prompt": "An oscilloscope shows one waveform period spanning four divisions at 0.5 ms/div. Its peak-to-peak height spans three divisions at 2 V/div. Calculate frequency and peak-to-peak voltage.",
+      "modelReasoning": "T=4×0.5 ms=2 ms, so f=1/0.002 s=500 Hz. Vpp=3×2 V=6 V, provided probe attenuation and vertical scaling are configured correctly. A scope trace also requires correct reference, bandwidth and triggering before trusting an observed amplitude."
+    },
+    {
+      "module": "M24",
+      "pageId": "L20-0-05",
+      "pageTitle": "Signal recovery and modulation boundaries",
+      "prompt": "Audio is captured digitally and replayed through a speaker. Build an end-to-end signal chain and locate the stage where microphone-level audio becomes digital samples.",
+      "modelReasoning": "Acoustic input → microphone transducer → suitable mic preamp/filter → ADC → storage/DSP → DAC → reconstruction/output chain → power amplifier → speaker. The ADC converts a conditioned analog voltage into numerical samples. Sampling rate, bit depth and analog levels represent different engineering constraints."
+    },
+    {
+      "module": "M25",
+      "pageId": "L19-0-13",
+      "pageTitle": "Optical interface integrity and connector losses",
+      "prompt": "An optocoupler has an LED driven at 5 mA and a nominal current-transfer ratio (CTR) of 50%. Roughly what collector current might be anticipated, and why is that not a guaranteed minimum?",
+      "modelReasoning": "Nominal CTR=Ic/If, so 0.50×5 mA≈2.5 mA. However CTR spreads with temperature, part selection and aging, and depends on operating voltage; use the manufacturer minimum under the actual conditions to design a reliable pull-up/load circuit. Rated isolation limits also remain mandatory."
+    },
+    {
+      "module": "M26",
+      "pageId": "L20-1-05",
+      "pageTitle": "RF incident report and safety handoff",
+      "prompt": "A 100 MHz signal has wavelength approximately 3 m in free space. If coax has velocity factor 0.66, estimate wavelength along that cable and explain why it differs.",
+      "modelReasoning": "λ0≈(3×10⁸ m/s)/(100×10⁶ Hz)=3 m. Along coax, phase velocity is roughly 0.66c, so wavelength λ≈0.66×3=1.98 m. The carrier frequency does not change; propagation speed and wavelength change with the medium."
+    },
+    {
+      "module": "M27",
+      "pageId": "L20-0-12",
+      "pageTitle": "RF feedline versus network payload fault",
+      "prompt": "Two handheld push-to-talk radios cannot transmit and hear on the same channel at once. A repeater extends coverage. Is the portable operation full-duplex? Explain.",
+      "modelReasoning": "No: a typical handheld user station uses half-duplex push-to-talk, alternating transmit and receive. The repeater may receive on one RF frequency and retransmit simultaneously on another, but that does not make the portable station full-duplex. Distinguish each device role and frequency plan."
+    },
+    {
+      "module": "M28",
+      "pageId": "L28-0-08",
+      "pageTitle": "Field and shop constraints: write the next safe action",
+      "prompt": "A repair requires 2.5 h at $80/h and $45 in parts, excluding taxes and fees. Calculate its subtotal and list what makes the record reproducible.",
+      "modelReasoning": "Labor subtotal is 2.5×80=$200; add $45 in parts for $245. Record the authorized scope, individual parts/quantities, symptoms, measured test conditions, instrument and calibration status, corrective actions and final verification. An invoice alone does not substitute for a defensible service report."
+    }
+  ]
+}

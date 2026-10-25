@@ -1,0 +1,156 @@
+{
+  "checks": 25,
+  "status": "Arithmetic spot checks passed; safety and hardware assumptions still require qualified technical review",
+  "cases": [
+    {
+      "test": "M02 voltage difference",
+      "computed": 5,
+      "expected": 5,
+      "passed": true
+    },
+    {
+      "test": "M03 resistor current A",
+      "computed": 0.0255319149,
+      "expected": 0.0255319149,
+      "passed": true
+    },
+    {
+      "test": "M03 resistor power W",
+      "computed": 0.3063829787,
+      "expected": 0.3063829787,
+      "passed": true
+    },
+    {
+      "test": "M04 equivalent ohm",
+      "computed": 666.6666666667,
+      "expected": 666.6666666667,
+      "passed": true
+    },
+    {
+      "test": "M04 branch current A",
+      "computed": 0.0135,
+      "expected": 0.0135,
+      "passed": true
+    },
+    {
+      "test": "M06 sine Vrms",
+      "computed": 2.8284271247,
+      "expected": 2.8284271247,
+      "passed": true
+    },
+    {
+      "test": "M06 frequency Hz",
+      "computed": 400.0,
+      "expected": 400,
+      "passed": true
+    },
+    {
+      "test": "M07 capacitor energy J",
+      "computed": 0.125,
+      "expected": 0.125,
+      "passed": true
+    },
+    {
+      "test": "M08 impedance magnitude ohm",
+      "computed": 10.0,
+      "expected": 10,
+      "passed": true
+    },
+    {
+      "test": "M08 power factor",
+      "computed": 0.6,
+      "expected": 0.6,
+      "passed": true
+    },
+    {
+      "test": "M09 secondary voltage V",
+      "computed": 12.0,
+      "expected": 12,
+      "passed": true
+    },
+    {
+      "test": "M09 primary current A",
+      "computed": 0.1,
+      "expected": 0.1,
+      "passed": true
+    },
+    {
+      "test": "M11 series resistance ohm",
+      "computed": 200.0,
+      "expected": 200,
+      "passed": true
+    },
+    {
+      "test": "M11 series resistor W",
+      "computed": 0.045,
+      "expected": 0.045,
+      "passed": true
+    },
+    {
+      "test": "M13 bridge peak V",
+      "computed": 15.5705627485,
+      "expected": 15.5705627485,
+      "passed": true
+    },
+    {
+      "test": "M14 amplifier output V",
+      "computed": -1.5,
+      "expected": -1.5,
+      "passed": true
+    },
+    {
+      "test": "M16 binary addition decimal",
+      "computed": 13,
+      "expected": 13,
+      "passed": true
+    },
+    {
+      "test": "M22 load reflection",
+      "computed": 0.3333333333,
+      "expected": 0.3333333333,
+      "passed": true
+    },
+    {
+      "test": "M22 SWR",
+      "computed": 2.0,
+      "expected": 2,
+      "passed": true
+    },
+    {
+      "test": "M22 power reflected",
+      "computed": 0.1111111111,
+      "expected": 0.1111111111,
+      "passed": true
+    },
+    {
+      "test": "M23 frequency Hz",
+      "computed": 500.0,
+      "expected": 500,
+      "passed": true
+    },
+    {
+      "test": "M23 Vpp",
+      "computed": 6,
+      "expected": 6,
+      "passed": true
+    },
+    {
+      "test": "M25 optocoupler current mA",
+      "computed": 2.5,
+      "expected": 2.5,
+      "passed": true
+    },
+    {
+      "test": "M26 coax wavelength m",
+      "computed": 1.98,
+      "expected": 1.98,
+      "passed": true
+    },
+    {
+      "test": "M28 subtotal USD",
+      "computed": 245.0,
+      "expected": 245,
+      "passed": true
+    }
+  ]
+}

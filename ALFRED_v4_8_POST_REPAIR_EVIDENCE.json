@@ -1,0 +1,20 @@
+{
+  "priorAuditBaseline": "v4.7 commit 47cbd9deb369228558643d25285c59e63d5c78dc",
+  "reusedItemIdsWithDivergentQuestionChoicesAndExplanations": 0,
+  "freshMockFeedbackCount": 200,
+  "freshMockFeedbackUnder100Chars": 0,
+  "freshMockFeedbackMinChars": 359,
+  "freshMockFeedbackMedianChars": 480,
+  "freshMockDistinctObjectives": 100,
+  "freshMockUniqueQuestionIds": 200,
+  "modulesWithIndependentNearTransferPrompt": 28,
+  "allOriginalPromptChoicesAnswersAndQuestionIdsPreservedInNewMockForms": true,
+  "allHistoricalResponseIdentifiersAndDataKeysPreserved": true,
+  "limitations": [
+    "No second set of fresh representative objectives was built",
+    "Mock rationales enhanced internally; no independent item validation",
+    "Some original distractors remain uncalibrated",
+    "The 234-page Sixth Edition source has not undergone exhaustive sentence-level review",
+    "No externally validated pass-probability claim"
+  ]
+}

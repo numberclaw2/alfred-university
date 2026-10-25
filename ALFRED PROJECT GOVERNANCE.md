@@ -1835,3 +1835,8 @@ Critical uncovered exam blueprint finding: forms A and B use the same 100 object
 ## v4.7 academic item discrimination, 2026-10-24
 
 Following the initial v4.6 audit, Alfred repaired 61 weak instructional multiple-choice items and placed 20 additional teaching checkpoints at existing pages. Correct keys, item IDs, objective tags and learner progress schema remain unchanged; future question difficulty may differ from historical results. This is internal editorial work, **not independent technician/psychometric review**. Consult `ALFRED_v4_7_EDITORIAL_ITEM_REVIEW.json`, `ALFRED_RELEASE_NOTES_v4.7.md` and `ALFRED_v4_7_ACADEMIC_QA_REPORT.md`. Do not claim full textbook validation, complete blueprint coverage or predicted/guaranteed CETa exam success.
+
+
+## v4.8 Academic evidence quality amendment — 2026-10-24
+
+Preserve project institutional identity, ETA-first scope, explicit foundational instruction, original question keys and learner data. The latest remediation normalizes 50 IDs across 55 archived contexts, expands both 100-question mock explanations, and adds an unscored late-module transfer problem in each of 28 instructional modules. The original mock objective sample remains limited to 100 distinct objectives and cannot be labelled externally validated; 234-page book passage-level verification is incomplete. Source-authentic technical visuals remain a separate academic quality gap. The learner is not responsible for release QA. Academic completion and any claim of near-certain pass probability remain prohibited without substantive independent support. See `ALFRED_RELEASE_NOTES_v4.8.md` and `ALFRED_v4_8_QA_REPORT.md`.
