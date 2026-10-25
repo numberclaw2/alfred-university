@@ -1813,3 +1813,8 @@ Learners may reuse their original Cloudflare Worker URL and private student sync
 - Do not misrepresent objective-tag coverage as verified assessment, or 100-question practice forms as official or calibrated exams. The independent exam-readiness gate remains deliberately blocked.
 - Preserve 373 teaching pages and their IDs, all prior score records, all book links and content, and storage/Cloud Sync protocols.
 - Next academic increments should prioritize the remaining 32 gaps, expert scrutiny of teaching and item banks, full publisher-guide alignment, and realistic practice under time pressure.
+
+
+## v4.4 Amendment — Unassessed ETA competencies (2026-10-24)
+
+Academic quality remains the top project priority: teach all official 2025 CETa requirements accurately from first principles, use Sixth Edition study-guide passages as evidence without mistaking topic alignment for full approval, and ask new scenarios rather than recycled memorization. This update closes fourteen tagged instructional-question coverage gaps (M11/M13/M14/M15); it does not certify the newer questions or make either 100-item mock an independently validated readiness test. Maintain the remaining 18 exceptions, including official 2.5.1 EM5 reference, as the next academic backlog. Previously saved learning evidence and cloud/sync storage are not reset. The student's explicit priority is academic effectiveness over UI and sync enhancements.

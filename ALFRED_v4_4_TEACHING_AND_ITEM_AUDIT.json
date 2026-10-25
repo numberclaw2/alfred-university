@@ -1,0 +1,243 @@
+{
+  "instructionalPages": [
+    {
+      "objectiveId": "3.6",
+      "module": "M11",
+      "pageId": "L08-0-02",
+      "pageTitle": "Controlled rectifiers and gate triggering",
+      "paragraphCountBefore": 3,
+      "paragraphCountAfter": 4
+    },
+    {
+      "objectiveId": "10.2",
+      "module": "M13",
+      "pageId": "L09-0-01",
+      "pageTitle": "Power-supply blocks from source to load",
+      "paragraphCountBefore": 3,
+      "paragraphCountAfter": 4
+    },
+    {
+      "objectiveId": "10.3",
+      "module": "M13",
+      "pageId": "L09-1-03",
+      "pageTitle": "Batteries, current limits and protection",
+      "paragraphCountBefore": 2,
+      "paragraphCountAfter": 3
+    },
+    {
+      "objectiveId": "10.4.3",
+      "module": "M13",
+      "pageId": "L09-0-01",
+      "pageTitle": "Power-supply blocks from source to load",
+      "paragraphCountBefore": 4,
+      "paragraphCountAfter": 5
+    },
+    {
+      "objectiveId": "10.6",
+      "module": "M13",
+      "pageId": "L09-0-02",
+      "pageTitle": "Switch-mode conversion and energy storage",
+      "paragraphCountBefore": 2,
+      "paragraphCountAfter": 3
+    },
+    {
+      "objectiveId": "10.8",
+      "module": "M13",
+      "pageId": "L09-0-07",
+      "pageTitle": "Power-supply acceptance checklist",
+      "paragraphCountBefore": 2,
+      "paragraphCountAfter": 3
+    },
+    {
+      "objectiveId": "11.1",
+      "module": "M14",
+      "pageId": "L10-0-00",
+      "pageTitle": "An amplifier transfers supply energy to a signal",
+      "paragraphCountBefore": 2,
+      "paragraphCountAfter": 3
+    },
+    {
+      "objectiveId": "11.3.1",
+      "module": "M14",
+      "pageId": "L10-0-05",
+      "pageTitle": "Common-emitter and common-source signal inversion",
+      "paragraphCountBefore": 2,
+      "paragraphCountAfter": 3
+    },
+    {
+      "objectiveId": "11.3.2",
+      "module": "M14",
+      "pageId": "L10-0-05",
+      "pageTitle": "Common-emitter and common-source signal inversion",
+      "paragraphCountBefore": 3,
+      "paragraphCountAfter": 4
+    },
+    {
+      "objectiveId": "11.5",
+      "module": "M14",
+      "pageId": "L10-0-04",
+      "pageTitle": "Signal levels, loading and impedance",
+      "paragraphCountBefore": 2,
+      "paragraphCountAfter": 3
+    },
+    {
+      "objectiveId": "11.8.1",
+      "module": "M14",
+      "pageId": "L10-0-04",
+      "pageTitle": "Signal levels, loading and impedance",
+      "paragraphCountBefore": 3,
+      "paragraphCountAfter": 4
+    },
+    {
+      "objectiveId": "5.6",
+      "module": "M15",
+      "pageId": "L12-0-03",
+      "pageTitle": "Heat flow, iron tips and thermal recovery",
+      "paragraphCountBefore": 2,
+      "paragraphCountAfter": 3
+    },
+    {
+      "objectiveId": "5.8",
+      "module": "M15",
+      "pageId": "L12-0-02",
+      "pageTitle": "Cold joints, bridges and lifted pads",
+      "paragraphCountBefore": 4,
+      "paragraphCountAfter": 5
+    },
+    {
+      "objectiveId": "5.9",
+      "module": "M15",
+      "pageId": "L29-0-02",
+      "pageTitle": "Solder alloys, melting and application",
+      "paragraphCountBefore": 3,
+      "paragraphCountAfter": 4
+    }
+  ],
+  "newScoredItems": [
+    {
+      "objectiveId": "3.6",
+      "module": "M11",
+      "id": "AV44-3-6",
+      "correctIndex": 0,
+      "expectedAnswer": "TRIAC, because it can control bidirectional current"
+    },
+    {
+      "objectiveId": "10.2",
+      "module": "M13",
+      "id": "AV44-10-2",
+      "correctIndex": 1,
+      "expectedAnswer": "Supply A can provide galvanic isolation; supply B may retain a hazardous mains-referenced potential"
+    },
+    {
+      "objectiveId": "10.3",
+      "module": "M13",
+      "id": "AV44-10-3",
+      "correctIndex": 2,
+      "expectedAnswer": "The pack needs appropriate overcurrent/short-circuit and charging protection for its chemistry"
+    },
+    {
+      "objectiveId": "10.4.3",
+      "module": "M13",
+      "id": "AV44-10-4-3",
+      "correctIndex": 3,
+      "expectedAnswer": "A pi (C-L-C) filter"
+    },
+    {
+      "objectiveId": "10.6",
+      "module": "M13",
+      "id": "AV44-10-6",
+      "correctIndex": 0,
+      "expectedAnswer": "A switching/deflection pulse drives a transformer assembly that develops the CRT high voltage and may include rectification or focus networks"
+    },
+    {
+      "objectiveId": "10.8",
+      "module": "M13",
+      "id": "AV44-10-8",
+      "correctIndex": 1,
+      "expectedAnswer": "Identify the root fault and replace only with the manufacturer-approved type, voltage rating, interrupting rating and time-current characteristic"
+    },
+    {
+      "objectiveId": "11.1",
+      "module": "M14",
+      "id": "AV44-11-1",
+      "correctIndex": 2,
+      "expectedAnswer": "Microphone preamplifier then audio power amplifier then speaker"
+    },
+    {
+      "objectiveId": "11.3.1",
+      "module": "M14",
+      "id": "AV44-11-3-1",
+      "correctIndex": 3,
+      "expectedAnswer": "20 and 0.08 mW"
+    },
+    {
+      "objectiveId": "11.3.2",
+      "module": "M14",
+      "id": "AV44-11-3-2",
+      "correctIndex": 0,
+      "expectedAnswer": "−6 and 0.27 mW"
+    },
+    {
+      "objectiveId": "11.5",
+      "module": "M14",
+      "id": "AV44-11-5",
+      "correctIndex": 1,
+      "expectedAnswer": "A line driver or buffer with low output impedance and adequate load-driving capability"
+    },
+    {
+      "objectiveId": "11.8.1",
+      "module": "M14",
+      "id": "AV44-11-8-1",
+      "correctIndex": 2,
+      "expectedAnswer": "Use a much higher input-impedance instrument or a suitable buffer"
+    },
+    {
+      "objectiveId": "5.6",
+      "module": "M15",
+      "id": "AV44-5-6",
+      "correctIndex": 3,
+      "expectedAnswer": "On the component lead between the joint and the component body"
+    },
+    {
+      "objectiveId": "5.8",
+      "module": "M15",
+      "id": "AV44-5-8",
+      "correctIndex": 0,
+      "expectedAnswer": "The joint is suspect because poor wetting and mechanical instability can cause intermittent or high-resistance contact"
+    },
+    {
+      "objectiveId": "5.9",
+      "module": "M15",
+      "id": "AV44-5-9",
+      "correctIndex": 1,
+      "expectedAnswer": "Clean with a manufacturer-approved brass wool or suitable sponge, re-tin the tip as specified, power off and store safely"
+    }
+  ],
+  "knownRemaining": [
+    "2.5.1",
+    "13.5",
+    "7.1",
+    "7.4",
+    "7.6",
+    "7.8",
+    "7.9",
+    "7.13",
+    "8.8",
+    "17.5",
+    "18.1",
+    "18.2",
+    "18.3.2",
+    "18.5.1",
+    "19.2",
+    "19.2.1",
+    "19.7",
+    "19.11"
+  ],
+  "sourceDocument": "2025 ETA Associate CET competency outline; chapter references ch9 (semiconductors), ch11 (power supplies), ch12 (amplifiers), ch20 (soldering)",
+  "limitations": [
+    "No newly claimed fully verified passage-level Study Guide analysis",
+    "No new M29/M30 independently reviewed exam form",
+    "Clinical, electrical and mains safety content are teaching-only; not field qualifications",
+    "Active older scores/answers preserved even if instructional mastery question count changes"
+  ]
+}
