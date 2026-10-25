@@ -442,3 +442,109 @@ h1,h2,h3,h4,.serif{font-family:Georgia,'Iowan Old Style',Cambria,serif;letter-sp
 
 /* Mobile navigation previously disabled sticky headers below 1120px; preserve the always-visible connection indicator. */
 .site-header{position:sticky;top:0;z-index:70;}
+
+
+/* Alfred v5.1 — Institutional identity + focused instructional UX.
+   Presentation-only, except for the accessible breadcrumb and lesson-progress labels.
+   Existing storage IDs, Cloud Sync, exam keys, and learning content remain unchanged. */
+:root { --ux-readable: 72ch; --ux-edge: clamp(14px,2.3vw,33px); --ux-touch: 44px; }
+html { scroll-padding-top: 108px; }
+:where(a,button,input,select,textarea,summary):focus-visible { outline: 3px solid #b58332; outline-offset: 3px; }
+.ux-course-breadcrumb { display:flex; flex-wrap:wrap; align-items:center; gap:8px; padding:4px 3px 0; color:#5a6c5e; font-size:.77rem; line-height:1.5; }
+.ux-course-breadcrumb a { font-weight:650; text-decoration:none; }
+.ux-course-breadcrumb [aria-current] { font-weight:800; color:#244d37; }
+.ux-breadcrumb-library { margin-left:auto; }
+.alfred-classroom-frame { align-items:start; }
+.alfred-classroom-frame .content-stack { min-width:0; }
+/* Campus identity stays rich; classroom keeps the same institution but more paper-like surfaces. */
+.alfred-lesson-view .page-main { background:#faf9f5; }
+.alfred-lesson-view .lesson-page { border:1px solid #dce5db; border-top:3px solid #b5924f; box-shadow:0 8px 30px rgba(27,59,36,.045); }
+.alfred-lesson-view .lesson-head { padding:clamp(21px,2.8vw,39px); background:#f7f5ee; }
+.alfred-lesson-view .lesson-head h2 { font-size:clamp(1.55rem,2.2vw,2.08rem); letter-spacing:-.022em; line-height:1.25; max-width:30ch; }
+.alfred-lesson-view .lesson-body { padding:clamp(21px,3vw,46px); }
+.alfred-lesson-view .lesson-body>p, .alfred-lesson-view .gold-section>p, .alfred-lesson-view .gold-section li { line-height:1.83; font-size:clamp(1rem,1.1vw,1.075rem); }
+.alfred-lesson-view .lesson-body > p { max-width:var(--ux-readable); }
+.alfred-lesson-view .gold-section { max-width:100%; }
+.alfred-lesson-view .lesson-body h3 { font-size:clamp(1.17rem,1.5vw,1.42rem); line-height:1.35; }
+.alfred-lesson-view .gold-visual, .alfred-lesson-view .gold-example, .alfred-lesson-view .example, .alfred-lesson-view .gold-check, .alfred-lesson-view .gold-guide { margin-block:18px; }
+.alfred-lesson-view .gold-visual img { max-height:520px; }
+.alfred-lesson-view .example, .alfred-lesson-view .gold-case-file { background:#f3f7f3; border-color:#d3e2d5; }
+.alfred-lesson-view .lesson-foot { padding:18px 24px; display:flex; flex-wrap:wrap; align-items:center; gap:10px; }
+.alfred-lesson-view .lesson-foot .btn { min-height:var(--ux-touch); font-size:.88rem; display:inline-flex; align-items:center; justify-content:center; }
+.ux-page-directory { scroll-margin-top:112px; }
+.ux-page-directory .lesson-jumps { display:flex; flex-wrap:wrap; gap:8px; }
+.ux-page-directory .page-dot { min-width:var(--ux-touch); width:var(--ux-touch); height:var(--ux-touch); display:inline-flex; align-items:center; justify-content:center; border-radius:9px; font-size:.82rem; }
+.ux-page-directory .page-dot.active { box-shadow:0 0 0 2px #b89c5f inset; }
+.ux-page-directory .page-dot.done { border-color:#9ab8a0; }
+.ux-page-directory .page-dot:focus-visible { outline-offset:2px; }
+.alfred-classroom-frame .stage-tab { min-height:var(--ux-touch); }
+.alfred-classroom-frame .course-overview { margin-top:0; }
+.alfred-classroom-frame .course-overview h2 { text-wrap:balance; }
+/* Exam tasks should resemble a calm, accessible testing center, not a feed. */
+.alfred-test-view .page-main { background:#fafaf7; }
+.alfred-test-view .content-stack { max-width:930px; }
+.alfred-test-view .question { background:#fff; border:1px solid #dbe4dc; border-radius:12px; padding:clamp(17px,2.5vw,28px); }
+.alfred-test-view .question legend { font-weight:700; color:#356149; }
+.alfred-test-view .question>p { font-size:1.075rem; line-height:1.68; max-width:72ch; }
+.alfred-test-view .choice { min-height:var(--ux-touch); display:flex; align-items:start; gap:9px; line-height:1.52; }
+.alfred-test-view .choice input { flex:none; margin-top:5px; accent-color:#1e6445; width:18px; height:18px; }
+.alfred-test-view .question .feedback { line-height:1.7; }
+/* Dense reference grids should remain usable without truncating scientific notation. */
+.eta-toc-library-row { min-height:var(--ux-touch); }
+.table-scroll { max-width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+.page-main :is(pre,code) { overflow-wrap:anywhere; }
+/* Desktop: a broad instructional column, restrained supporting chrome. */
+@media(min-width:1331px) {
+  .alfred-classroom-frame { grid-template-columns:minmax(176px,198px) minmax(0,1fr) minmax(185px,209px); gap:18px; }
+  .alfred-classroom-frame .content-stack { min-width:0; }
+}
+@media(max-width:1120px) {
+  .alfred-classroom-frame .learning-rail { grid-column:2; }
+}
+@media(max-width:800px) {
+  html { scroll-padding-top:110px; }
+  .alfred-classroom-frame { display:flex; flex-direction:column; gap:10px; }
+  .alfred-classroom-frame>.sidebar { order:0; width:100%; }
+  .alfred-classroom-frame>.content-stack { order:1; width:100%; }
+  .alfred-classroom-frame>.learning-rail { order:2; width:100%; }
+  .alfred-classroom-frame .sidebar.academic-sidebar { margin-bottom:0; }
+  .alfred-classroom-frame .module-drawer-toggle { min-height:var(--ux-touch); padding:9px 14px; border-radius:10px; }
+  .alfred-classroom-frame .ux-course-breadcrumb { margin-bottom:2px; font-size:.73rem; }
+  .alfred-classroom-frame .course-meta { padding:12px 16px 2px; }
+  .alfred-classroom-frame .course-overview-main { padding:1px 16px 10px; }
+  .alfred-classroom-frame .course-overview h2 { font-size:1.34rem; margin:4px 0 6px; }
+  .alfred-classroom-frame .course-description { display:none; }
+  .alfred-classroom-frame .course-stage-status { padding-left:12px; }
+  .alfred-classroom-frame .course-overview-tools { padding:9px 16px; flex-direction:row; justify-content:space-between; align-items:center; }
+  .alfred-classroom-frame .course-overview-tools .btn { min-height:var(--ux-touch); font-size:.77rem; }
+  .alfred-classroom-frame .learning-rail { grid-template-columns:repeat(2,minmax(0,1fr)); margin-top:12px; }
+  .alfred-classroom-frame .learning-rail .rail-record { grid-column:1/-1; }
+  .alfred-lesson-view .lesson-head { padding:20px; }
+  .alfred-lesson-view .lesson-body { padding:22px 20px; }
+  .ux-page-directory { padding:18px; }
+}
+@media(max-width:540px) {
+  .alfred-classroom-frame .course-overview-main { align-items:center; }
+  .alfred-classroom-frame .course-meta-quiet { display:none; }
+  .alfred-classroom-frame .course-stage-status strong { font-size:1.2rem; }
+  .alfred-classroom-frame .stage-tab { min-height:50px; padding:7px 2px; gap:1px; }
+  .alfred-classroom-frame .stage-step-number { width:20px; height:20px; }
+  .alfred-classroom-frame .course-overview-tools { gap:8px; }
+  .alfred-classroom-frame .course-overview-tools>span { flex:1; font-size:.7rem; }
+  .alfred-classroom-frame .course-overview-tools .btn { white-space:normal; max-width:160px; line-height:1.25; }
+  .alfred-classroom-frame .learning-rail { display:grid; grid-template-columns:1fr; }
+  .alfred-classroom-frame .learning-rail .rail-record { grid-column:1; }
+  .alfred-lesson-view .lesson-head { padding:20px 17px; }
+  .alfred-lesson-view .lesson-head h2 { font-size:1.6rem; }
+  .alfred-lesson-view .lesson-body { padding:19px 17px; }
+  .alfred-lesson-view .lesson-body>p, .alfred-lesson-view .gold-section>p { font-size:1rem; line-height:1.8; }
+  .alfred-lesson-view .lesson-foot { padding:12px; }
+  .alfred-lesson-view .lesson-foot .btn { min-height:48px; padding:10px 12px; }
+  .alfred-lesson-view .lesson-foot .cluster { flex:1; justify-content:flex-end; flex-wrap:wrap; }
+  .ux-page-directory .lesson-jumps { gap:7px; }
+  .ux-page-directory .page-dot { min-width:44px; width:44px; height:44px; }
+  .alfred-test-view .question { padding:16px; }
+  .alfred-test-view .choice { padding:13px; }
+  .alfred-classroom-frame .ux-breadcrumb-library { margin-left:0; }
+}
+@media(prefers-reduced-motion:reduce){ .ux-page-directory .page-dot,.alfred-classroom-frame .stage-tab { transition:none!important; } }

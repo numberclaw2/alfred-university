@@ -1859,3 +1859,12 @@ Preserve project institutional identity, ETA-first scope, explicit foundational 
 - The Sixth Edition is a source authority subject to ETA's 2025 competencies, official errata and current safety standards. Its complete 234-page assertion-level technical review remains open; do not silently convert chapter-boundary checks into passage certifications.
 - Existing 262 objective IDs (including EM5 cross-reference), 373 learner page IDs, previous question-answer keys and private saved evidence remain stable. Score histories must remain self-study evidence, never ETA credentials.
 - Independent subject-matter review, psychometric validation and real examination predictive calibration are not achieved and are not implied by local automated QA results. An ETA examination pass cannot be guaranteed by a course author or this AI.
+
+
+## v5.1 interface governance — learning-first hybrid aesthetic (2026-10-25)
+
+- Preserve the Alfred Grizzlies forest-green / cream / gold collegiate character, serif headlines, crest and creed on campus-facing pages.
+- In active teaching, favor a clean, structured digital textbook: legible content, prominent worked examples, diagrams and readings at point of need, reduced duplicate navigation and mobile-first controls.
+- During exams, minimize decorative distraction; prioritize spacious answer choices, clear time/progress state and consistent keyboard navigation.
+- Accessibility and non-loss of learner records outrank appearance. No new progress schema, assessment bank/answer changes, or Cloud Sync changes may be introduced as incidental UX polish.
+- v5.1 changes are presentation-only except for supporting structural/ARIA labels and focus-button wording; content-scoring validity remains at its separately documented academic baseline.
