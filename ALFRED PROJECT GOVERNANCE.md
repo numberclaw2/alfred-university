@@ -1802,3 +1802,14 @@ Learners may reuse their original Cloudflare Worker URL and private student sync
 - Academic readiness gate remains open: technical audit of all 262 objectives and all 373 lessons; evidence-backed improvements to coverage of the 162 objectives not represented in the fresh exams; quality review and independent subject-matter validation of questions; timed unfamiliar mocks and a remediation loop. Certification cannot be guaranteed and the website remains an independent practice platform.
 - A learner's already-marked teaching page is not automatically reset after an editorial revision. The student should voluntarily review the revised material; all storage identifiers and historical scores are preserved. Do not modify learner progress in a content-only release.
 - Release does not change the Cloud Sync UI, backend protocol, auth, or progress schema. Service worker cache is bumped exclusively to ensure updated learning content is refreshed at the deployed website.
+
+
+## v4.3 — Academic content must outrank feature work (2026-10-24)
+- Exam-readiness teaching, calculations, source fidelity and correctly keyed objective assessments take precedence over Cloud Sync and cosmetic changes.
+- First targeted foundational audit addresses selected objectives in M01–M09. This is **not** a comprehensive audit of those nine modules nor of all 262 competencies or the entire Sixth Edition.
+- 16 new internally checked, objective-specific scored practice questions now cover 16 formerly untagged objectives. These questions are independent from the existing M29/M30 editorial forms, but have not received outside subject-matter validation or statistical item calibration.
+- 20 additional source/technical teaching sections were placed into existing pages without deleting original instruction, media, reading assignments, or learner IDs.
+- 32 objectives remain without older/fresh/v4.3 scored-question tagging, including ETA 2.5.1, which itself is a reference to official EM5 requirements rather than a discrete skill. It should be addressed through contextual source review, not invented quiz evidence.
+- Do not misrepresent objective-tag coverage as verified assessment, or 100-question practice forms as official or calibrated exams. The independent exam-readiness gate remains deliberately blocked.
+- Preserve 373 teaching pages and their IDs, all prior score records, all book links and content, and storage/Cloud Sync protocols.
+- Next academic increments should prioritize the remaining 32 gaps, expert scrutiny of teaching and item banks, full publisher-guide alignment, and realistic practice under time pressure.

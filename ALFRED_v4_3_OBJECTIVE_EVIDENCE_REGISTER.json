@@ -1,0 +1,6616 @@
+{
+  "statement": "v4.3 objective-ID traceability: 16 new internally reason-checked questions; not externally calibrated or verified. Tags are not certificates of competence.",
+  "count": 262,
+  "objectivesWithoutFreshMockCoverage": 162,
+  "objectivesWithoutTaggedOlderOrFreshScoredQuestions": 32,
+  "records": [
+    {
+      "objectiveId": "1.1",
+      "officialDescription": "Describe the physiological reactions electrical shock causes",
+      "teachingModule": "M01",
+      "sectionId": "M01.S01",
+      "teachingPageIds": [
+        "L01-0-03",
+        "L01-0-04",
+        "L01-0-08"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1049",
+        "M01-SAFE-17"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-001",
+        "AV35-B-001"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": [
+        "L01-0-04"
+      ]
+    },
+    {
+      "objectiveId": "1.2",
+      "officialDescription": "Explain the First Aid concepts and its particular importance to workers in electric and electronics fields explaining precautions for the untrained",
+      "teachingModule": "M01",
+      "sectionId": "M01.S01",
+      "teachingPageIds": [
+        "L01-0-03",
+        "L01-0-04",
+        "L01-0-08"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "M01-SAFE-01"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": [
+        "L01-0-04"
+      ]
+    },
+    {
+      "objectiveId": "1.3",
+      "officialDescription": "Explain the National Fire Protection Association (NFPA®) 70 rules described as the National Electrical Code® - NEC®, explaining how technicians comply with safety and installations",
+      "teachingModule": "M01",
+      "sectionId": "M01.S02",
+      "teachingPageIds": [
+        "L01-0-05",
+        "L01-0-06",
+        "L01-1-00",
+        "L01-1-06",
+        "L01-1-03",
+        "L01-1-05"
+      ],
+      "academicEnhancementPageIds": [
+        "L01-1-06"
+      ],
+      "olderScoredQuestionIds": [
+        "M01-SAFE-02"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "1.4",
+      "officialDescription": "Describe fusing and circuit breaker rules and reasons for different type of fuses",
+      "teachingModule": "M01",
+      "sectionId": "M01.S02",
+      "teachingPageIds": [
+        "L01-0-05",
+        "L01-0-06",
+        "L01-1-00",
+        "L01-1-06",
+        "L01-1-03",
+        "L01-1-05"
+      ],
+      "academicEnhancementPageIds": [
+        "L01-1-06"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1050",
+        "M01-SAFE-16"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-002",
+        "AV35-B-002"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "1.5",
+      "officialDescription": "Explain static causes, electrostatic discharge and CMOS damage prevention straps, mats and grounding",
+      "teachingModule": "M01",
+      "sectionId": "M01.S02",
+      "teachingPageIds": [
+        "L01-0-05",
+        "L01-0-06",
+        "L01-1-00",
+        "L01-1-06",
+        "L01-1-03",
+        "L01-1-05"
+      ],
+      "academicEnhancementPageIds": [
+        "L01-1-06"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1051",
+        "M01-SAFE-15"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-003",
+        "AV35-B-003"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "1.6",
+      "officialDescription": "List tools hazards which are associated with technician activities in the workplace and in the field",
+      "teachingModule": "M01",
+      "sectionId": "M01.S02",
+      "teachingPageIds": [
+        "L01-0-05",
+        "L01-0-06",
+        "L01-1-00",
+        "L01-1-06",
+        "L01-1-03",
+        "L01-1-05"
+      ],
+      "academicEnhancementPageIds": [
+        "L01-1-06"
+      ],
+      "olderScoredQuestionIds": [
+        "M01-SAFE-03"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "1.7",
+      "officialDescription": "Describe lockout/tag out rules for potentially unsafe electrical or mechanical hazards",
+      "teachingModule": "M01",
+      "sectionId": "M01.S02",
+      "teachingPageIds": [
+        "L01-0-05",
+        "L01-0-06",
+        "L01-1-00",
+        "L01-1-06",
+        "L01-1-03",
+        "L01-1-05"
+      ],
+      "academicEnhancementPageIds": [
+        "L01-1-06"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1052",
+        "M01-SAFE-04"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-004",
+        "AV35-B-004"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "1.8",
+      "officialDescription": "Explain RF transmitter and transmission hazards and precautions including MPE (maximum permissible exposure)",
+      "teachingModule": "M01",
+      "sectionId": "M01.S03",
+      "teachingPageIds": [
+        "L12-0-00"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "M01-SAFE-05"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "1.9",
+      "officialDescription": "List optical fibers hazards to skin and eyes",
+      "teachingModule": "M01",
+      "sectionId": "M01.S03",
+      "teachingPageIds": [
+        "L12-0-00"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "M01-SAFE-06"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "1.10",
+      "officialDescription": "Explain personal protection needed by technicians:",
+      "teachingModule": "M01",
+      "sectionId": "M01.S02",
+      "teachingPageIds": [
+        "L01-0-05",
+        "L01-0-06",
+        "L01-1-00",
+        "L01-1-06",
+        "L01-1-03",
+        "L01-1-05"
+      ],
+      "academicEnhancementPageIds": [
+        "L01-1-06"
+      ],
+      "olderScoredQuestionIds": [
+        "M01-SAFE-07"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "1.10.1",
+      "officialDescription": "Describe PPE (personal protection equipment) needs, i.e. NFPA Table 130.5(c)",
+      "teachingModule": "M01",
+      "sectionId": "M01.S02",
+      "teachingPageIds": [
+        "L01-0-05",
+        "L01-0-06",
+        "L01-1-00",
+        "L01-1-06",
+        "L01-1-03",
+        "L01-1-05"
+      ],
+      "academicEnhancementPageIds": [
+        "L01-1-06"
+      ],
+      "olderScoredQuestionIds": [
+        "M01-SAFE-08"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "1.10.2",
+      "officialDescription": "Describe MPE in RF Safety (OSHA and ANSI)",
+      "teachingModule": "M01",
+      "sectionId": "M01.S03",
+      "teachingPageIds": [
+        "L12-0-00"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "M01-SAFE-09"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "1.10.3",
+      "officialDescription": "Describe other OSHA safety rules",
+      "teachingModule": "M01",
+      "sectionId": "M01.S02",
+      "teachingPageIds": [
+        "L01-0-05",
+        "L01-0-06",
+        "L01-1-00",
+        "L01-1-06",
+        "L01-1-03",
+        "L01-1-05"
+      ],
+      "academicEnhancementPageIds": [
+        "L01-1-06"
+      ],
+      "olderScoredQuestionIds": [
+        "M01-SAFE-10"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "1.11",
+      "officialDescription": "List ladder handling and usage (ANSI A14) and OSHA working at heights safety rules",
+      "teachingModule": "M01",
+      "sectionId": "M01.S04",
+      "teachingPageIds": [
+        "L01-0-07",
+        "L12-0-09"
+      ],
+      "academicEnhancementPageIds": [
+        "L01-0-07"
+      ],
+      "olderScoredQuestionIds": [
+        "M01-SAFE-11"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "1.12",
+      "officialDescription": "List service vehicle safety concerns such as ladder or transporting security and flying objects, driver screens inside the vehicle",
+      "teachingModule": "M01",
+      "sectionId": "M01.S04",
+      "teachingPageIds": [
+        "L01-0-07",
+        "L12-0-09"
+      ],
+      "academicEnhancementPageIds": [
+        "L01-0-07"
+      ],
+      "olderScoredQuestionIds": [
+        "M01-SAFE-12"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "1.13",
+      "officialDescription": "Differentiate the classes of fires (A, B, C, D & K) and the types of extinguishers used to fight them",
+      "teachingModule": "M01",
+      "sectionId": "M01.S04",
+      "teachingPageIds": [
+        "L01-0-07",
+        "L12-0-09"
+      ],
+      "academicEnhancementPageIds": [
+        "L01-0-07"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1053",
+        "M01-SAFE-13"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "1.14",
+      "officialDescription": "Explain emergency responses/treatments for the above safety issues",
+      "teachingModule": "M01",
+      "sectionId": "M01.S01",
+      "teachingPageIds": [
+        "L01-0-03",
+        "L01-0-04",
+        "L01-0-08"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "M01-SAFE-14"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": [
+        "L01-0-04"
+      ]
+    },
+    {
+      "objectiveId": "2.1",
+      "officialDescription": "Describe atomic structure, the components of the atom, their charges and importance to electronics technology",
+      "teachingModule": "M02",
+      "sectionId": "M02.S01",
+      "teachingPageIds": [
+        "L02-0-03"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1054"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-005",
+        "AV35-B-005"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "2.4",
+      "officialDescription": "Explain basic uses for electricity",
+      "teachingModule": "M02",
+      "sectionId": "M02.S02",
+      "teachingPageIds": [
+        "L01-0-08",
+        "L01-0-00",
+        "L01-0-09",
+        "L02-0-07",
+        "L01-0-02"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-2-4"
+      ],
+      "verificationState": "INTERNAL_NEW_QUESTION_CHECK_ONLY__FULL_TECHNICAL_AND_EXTERNAL_REVIEW_PENDING",
+      "v43AddedScoredQuestionIds": [
+        "AV43-2-4"
+      ],
+      "v43TeachingReinforcementPageIds": [
+        "L02-0-07"
+      ]
+    },
+    {
+      "objectiveId": "2.6",
+      "officialDescription": "Explain the differences between current, voltage and resistance",
+      "teachingModule": "M02",
+      "sectionId": "M02.S02",
+      "teachingPageIds": [
+        "L01-0-08",
+        "L01-0-00",
+        "L01-0-09",
+        "L02-0-07",
+        "L01-0-02"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1055",
+        "ALF-M02-V15-Q03",
+        "ALF-M02-V15-Q05"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-006",
+        "AV35-B-006"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "2.12",
+      "officialDescription": "List voltage sources, AC and DC, batteries and natural generation",
+      "teachingModule": "M02",
+      "sectionId": "M02.S02",
+      "teachingPageIds": [
+        "L01-0-08",
+        "L01-0-00",
+        "L01-0-09",
+        "L02-0-07",
+        "L01-0-02"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "ALF-M02-V15-Q04"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "3.2.2",
+      "officialDescription": "Explain the terms charge and coulomb",
+      "teachingModule": "M02",
+      "sectionId": "M02.S01",
+      "teachingPageIds": [
+        "L02-0-03"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1061",
+        "ALF-M02-V15-Q02"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "9.7",
+      "officialDescription": "Explain how graphs are used to demonstrate electronics functions",
+      "teachingModule": "M02",
+      "sectionId": "M02.S03",
+      "teachingPageIds": [
+        "L04-0-03",
+        "L04-0-05",
+        "L01-0-10"
+      ],
+      "academicEnhancementPageIds": [
+        "L04-0-03"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1097"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": [
+        "L04-0-03"
+      ]
+    },
+    {
+      "objectiveId": "9.8",
+      "officialDescription": "Explain the International System of Units (SI) prefixes (metric) and conversions",
+      "teachingModule": "M02",
+      "sectionId": "M02.S03",
+      "teachingPageIds": [
+        "L04-0-03",
+        "L04-0-05",
+        "L01-0-10"
+      ],
+      "academicEnhancementPageIds": [
+        "L04-0-03"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1093",
+        "ALF-M02-V15-Q01",
+        "ALF-M02-V15-Q06"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-007",
+        "AV35-B-007"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": [
+        "L04-0-03"
+      ]
+    },
+    {
+      "objectiveId": "9.8.1",
+      "officialDescription": "Describe the NIST.gov Special Publication 811, 9.3: unit name with SI prefix exceptions, (i.e. kilohm and megohm)",
+      "teachingModule": "M02",
+      "sectionId": "M02.S03",
+      "teachingPageIds": [
+        "L04-0-03",
+        "L04-0-05",
+        "L01-0-10"
+      ],
+      "academicEnhancementPageIds": [
+        "L04-0-03"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M02-V15-Q07"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": [
+        "L04-0-03"
+      ]
+    },
+    {
+      "objectiveId": "9.9",
+      "officialDescription": "Define exponents (powers of 10) and their calculations",
+      "teachingModule": "M02",
+      "sectionId": "M02.S03",
+      "teachingPageIds": [
+        "L04-0-03",
+        "L04-0-05",
+        "L01-0-10"
+      ],
+      "academicEnhancementPageIds": [
+        "L04-0-03"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1094"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-008",
+        "AV35-B-008"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "2.7",
+      "officialDescription": "Differentiate between the types of resistive materials and how resistors are used in electronics",
+      "teachingModule": "M03",
+      "sectionId": "M03.S01",
+      "teachingPageIds": [
+        "L07-0-03",
+        "L07-0-00",
+        "L07-0-09",
+        "L02-0-03",
+        "L02-0-06"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "ALF-M03-V15-Q07"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "2.13",
+      "officialDescription": "List Ohm’s law formulas for current, voltage, resistance and power",
+      "teachingModule": "M03",
+      "sectionId": "M03.S02",
+      "teachingPageIds": [
+        "L01-0-01",
+        "L01-0-09",
+        "L01-0-00",
+        "L02-0-02"
+      ],
+      "academicEnhancementPageIds": [
+        "L01-0-01"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-2-13"
+      ],
+      "verificationState": "INTERNAL_NEW_QUESTION_CHECK_ONLY__FULL_TECHNICAL_AND_EXTERNAL_REVIEW_PENDING",
+      "v43AddedScoredQuestionIds": [
+        "AV43-2-13"
+      ],
+      "v43TeachingReinforcementPageIds": [
+        "L01-0-01"
+      ]
+    },
+    {
+      "objectiveId": "2.13.1",
+      "officialDescription": "Explain how to calculate problems utilizing each formula",
+      "teachingModule": "M03",
+      "sectionId": "M03.S02",
+      "teachingPageIds": [
+        "L01-0-01",
+        "L01-0-09",
+        "L01-0-00",
+        "L02-0-02"
+      ],
+      "academicEnhancementPageIds": [
+        "L01-0-01"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ0288",
+        "CQ0289",
+        "CQ0290",
+        "CQ0291",
+        "CQ0292",
+        "CQ0293",
+        "CQ0294",
+        "CQ0295",
+        "CQ0296",
+        "CQ0297",
+        "CQ0298",
+        "CQ0299"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-009",
+        "AV35-B-009"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": [
+        "L01-0-01"
+      ]
+    },
+    {
+      "objectiveId": "2.14",
+      "officialDescription": "Explain how to calculate power consumption and requirements",
+      "teachingModule": "M03",
+      "sectionId": "M03.S03",
+      "teachingPageIds": [
+        "L02-0-07",
+        "L01-0-02",
+        "L01-0-10"
+      ],
+      "academicEnhancementPageIds": [
+        "L01-0-10"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ0300",
+        "CQ0301",
+        "CQ0302",
+        "CQ0303",
+        "CQ0304",
+        "CQ0305",
+        "ALF-M03-V15-Q02"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-010",
+        "AV35-B-010"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "3.1",
+      "officialDescription": "Identify resistors as to type and applications",
+      "teachingModule": "M03",
+      "sectionId": "M03.S01",
+      "teachingPageIds": [
+        "L07-0-03",
+        "L07-0-00",
+        "L07-0-09",
+        "L02-0-03",
+        "L02-0-06"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "ALF-M03-V15-Q03"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "3.1.1",
+      "officialDescription": "Describe the following type of resistors: carbon film, fixed value, metal film, potentiometer, rheostats, thermistors, and wire wound",
+      "teachingModule": "M03",
+      "sectionId": "M03.S01",
+      "teachingPageIds": [
+        "L07-0-03",
+        "L07-0-00",
+        "L07-0-09",
+        "L02-0-03",
+        "L02-0-06"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "ALF-M03-V15-Q06"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "3.1.2",
+      "officialDescription": "Identify resistor values from color code or other marks and list composition",
+      "teachingModule": "M03",
+      "sectionId": "M03.S01",
+      "teachingPageIds": [
+        "L07-0-03",
+        "L07-0-00",
+        "L07-0-09",
+        "L02-0-03",
+        "L02-0-06"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1059",
+        "ALF-M03-V15-Q01",
+        "ALF-M03-V15-Q05"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-012",
+        "AV35-B-012"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "3.1.3",
+      "officialDescription": "Explain how thermally sensitive components are used",
+      "teachingModule": "M03",
+      "sectionId": "M03.S01",
+      "teachingPageIds": [
+        "L07-0-03",
+        "L07-0-00",
+        "L07-0-09",
+        "L02-0-03",
+        "L02-0-06"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1060",
+        "ALF-M03-V15-Q04"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-011",
+        "AV35-B-011"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "9.1",
+      "officialDescription": "Quote Ohm’s law formulas for power, voltage, current and resistance and solve for circuit values",
+      "teachingModule": "M03",
+      "sectionId": "M03.S02",
+      "teachingPageIds": [
+        "L01-0-01",
+        "L01-0-09",
+        "L01-0-00",
+        "L02-0-02"
+      ],
+      "academicEnhancementPageIds": [
+        "L01-0-01"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ0288",
+        "CQ0289",
+        "CQ0290",
+        "CQ0291",
+        "CQ0292",
+        "CQ0293",
+        "CQ0294",
+        "CQ0295",
+        "CQ0296",
+        "CQ0297",
+        "CQ0298",
+        "CQ0299",
+        "CQ0300",
+        "CQ0301",
+        "CQ0302",
+        "CQ0303",
+        "CQ0304",
+        "CQ0305"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "9.2",
+      "officialDescription": "List other common basic electronic formulas",
+      "teachingModule": "M03",
+      "sectionId": "M03.S02",
+      "teachingPageIds": [
+        "L01-0-01",
+        "L01-0-09",
+        "L01-0-00",
+        "L02-0-02"
+      ],
+      "academicEnhancementPageIds": [
+        "L01-0-01"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ0321",
+        "CQ0322",
+        "CQ0323",
+        "CQ0324",
+        "CQ0325"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "3.1.4",
+      "officialDescription": "Calculate voltage division on a potentiometer",
+      "teachingModule": "M04",
+      "sectionId": "M04.S03",
+      "teachingPageIds": [
+        "L02-0-02",
+        "L02-0-15"
+      ],
+      "academicEnhancementPageIds": [
+        "L02-0-15"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ0316",
+        "CQ0317",
+        "CQ0318",
+        "CQ0319",
+        "CQ0320",
+        "ALF-M04-V15-Q04"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "4.1",
+      "officialDescription": "Identify and describe the operation of common DC circuits",
+      "teachingModule": "M04",
+      "sectionId": "M04.S01",
+      "teachingPageIds": [
+        "L02-0-00",
+        "L02-0-13",
+        "L02-1-01",
+        "L02-1-05",
+        "L05-0-00",
+        "L05-0-03",
+        "L05-0-04"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "ALF-M04-V15-Q06"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "4.10",
+      "officialDescription": "Explain Kirchhoff’s law and its importance to electronics technicians",
+      "teachingModule": "M04",
+      "sectionId": "M04.S02",
+      "teachingPageIds": [
+        "L02-0-01",
+        "L02-0-14",
+        "L02-1-00",
+        "L02-1-03",
+        "L05-0-01"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1067",
+        "CQ1068",
+        "ALF-M04-V15-Q02",
+        "ALF-M04-V15-Q03",
+        "ALF-M04-V15-Q07"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-014",
+        "AV35-B-014"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": [
+        "L02-0-01"
+      ]
+    },
+    {
+      "objectiveId": "4.17",
+      "officialDescription": "Explain series and parallel calculations for resistive networks; voltage drop, etc",
+      "teachingModule": "M04",
+      "sectionId": "M04.S02",
+      "teachingPageIds": [
+        "L02-0-01",
+        "L02-0-14",
+        "L02-1-00",
+        "L02-1-03",
+        "L05-0-01"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ0306",
+        "CQ0307",
+        "CQ0308",
+        "CQ0309",
+        "CQ0310",
+        "CQ0311",
+        "CQ0312",
+        "CQ0313",
+        "CQ0314",
+        "CQ0315",
+        "CQ0316",
+        "CQ0317",
+        "CQ0318",
+        "CQ0319",
+        "CQ0320",
+        "ALF-M04-V15-Q01",
+        "ALF-M04-V15-Q05"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-013",
+        "AV35-B-013"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "8.16",
+      "officialDescription": "Explain how a potentiometer functions and its use as a variable voltage divider",
+      "teachingModule": "M04",
+      "sectionId": "M04.S03",
+      "teachingPageIds": [
+        "L02-0-02",
+        "L02-0-15"
+      ],
+      "academicEnhancementPageIds": [
+        "L02-0-15"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [
+        "AV35-A-015",
+        "AV35-B-015"
+      ],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-8-16"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "6.1",
+      "officialDescription": "Describe common electrical/electronic symbols",
+      "teachingModule": "M05",
+      "sectionId": "M05.S01",
+      "teachingPageIds": [
+        "L13-0-00",
+        "L13-0-03",
+        "L13-0-06",
+        "L13-1-03",
+        "L13-0-07"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-6-1"
+      ],
+      "verificationState": "INTERNAL_NEW_QUESTION_CHECK_ONLY__FULL_TECHNICAL_AND_EXTERNAL_REVIEW_PENDING",
+      "v43AddedScoredQuestionIds": [
+        "AV43-6-1"
+      ],
+      "v43TeachingReinforcementPageIds": [
+        "L13-0-03"
+      ]
+    },
+    {
+      "objectiveId": "6.2",
+      "officialDescription": "Explain block diagrams use for troubleshooting and maintenance of electronics products",
+      "teachingModule": "M05",
+      "sectionId": "M05.S01",
+      "teachingPageIds": [
+        "L13-0-00",
+        "L13-0-03",
+        "L13-0-06",
+        "L13-1-03",
+        "L13-0-07"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1079",
+        "ALF-M05-V15-Q01"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "6.3",
+      "officialDescription": "Explain the differences between wiring diagrams, schematics and block diagrams",
+      "teachingModule": "M05",
+      "sectionId": "M05.S01",
+      "teachingPageIds": [
+        "L13-0-00",
+        "L13-0-03",
+        "L13-0-06",
+        "L13-1-03",
+        "L13-0-07"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1078",
+        "ALF-M05-V15-Q02"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-016",
+        "AV35-B-016"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "6.4",
+      "officialDescription": "Describe the purpose and use of test points and indicate their likely placement on schematics",
+      "teachingModule": "M05",
+      "sectionId": "M05.S02",
+      "teachingPageIds": [
+        "L13-0-04",
+        "L03-1-02",
+        "L03-1-04",
+        "L13-0-05",
+        "L13-0-08"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1080"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "6.5",
+      "officialDescription": "Point out common drafting principles used for electronic and electrical drawings",
+      "teachingModule": "M05",
+      "sectionId": "M05.S01",
+      "teachingPageIds": [
+        "L13-0-00",
+        "L13-0-03",
+        "L13-0-06",
+        "L13-1-03",
+        "L13-0-07"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-6-5"
+      ],
+      "verificationState": "INTERNAL_NEW_QUESTION_CHECK_ONLY__FULL_TECHNICAL_AND_EXTERNAL_REVIEW_PENDING",
+      "v43AddedScoredQuestionIds": [
+        "AV43-6-5"
+      ],
+      "v43TeachingReinforcementPageIds": [
+        "L13-0-06"
+      ]
+    },
+    {
+      "objectiveId": "6.6",
+      "officialDescription": "Explain methods used for signal tracing",
+      "teachingModule": "M05",
+      "sectionId": "M05.S02",
+      "teachingPageIds": [
+        "L13-0-04",
+        "L03-1-02",
+        "L03-1-04",
+        "L13-0-05",
+        "L13-0-08"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1081",
+        "ALF-M05-V15-Q04"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "6.7",
+      "officialDescription": "Describe basic building and house wiring concepts and explain why technicians need to be familiar with them",
+      "teachingModule": "M05",
+      "sectionId": "M05.S01",
+      "teachingPageIds": [
+        "L13-0-00",
+        "L13-0-03",
+        "L13-0-06",
+        "L13-1-03",
+        "L13-0-07"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-6-7"
+      ],
+      "verificationState": "INTERNAL_NEW_QUESTION_CHECK_ONLY__FULL_TECHNICAL_AND_EXTERNAL_REVIEW_PENDING",
+      "v43AddedScoredQuestionIds": [
+        "AV43-6-7"
+      ],
+      "v43TeachingReinforcementPageIds": [
+        "L13-0-05"
+      ]
+    },
+    {
+      "objectiveId": "6.8",
+      "officialDescription": "Explain use of schematics to locate component and wiring failures in electronics products",
+      "teachingModule": "M05",
+      "sectionId": "M05.S02",
+      "teachingPageIds": [
+        "L13-0-04",
+        "L03-1-02",
+        "L03-1-04",
+        "L13-0-05",
+        "L13-0-08"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "ALF-M05-V15-Q08"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "6.9",
+      "officialDescription": "Explain the methods of using flow diagrams/charts",
+      "teachingModule": "M05",
+      "sectionId": "M05.S02",
+      "teachingPageIds": [
+        "L13-0-04",
+        "L03-1-02",
+        "L03-1-04",
+        "L13-0-05",
+        "L13-0-08"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [
+        "AV35-A-019",
+        "AV35-B-019"
+      ],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-6-9"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "6.10",
+      "officialDescription": "Describe basic wiring concepts for I.C. types and pinouts",
+      "teachingModule": "M05",
+      "sectionId": "M05.S02",
+      "teachingPageIds": [
+        "L13-0-04",
+        "L03-1-02",
+        "L03-1-04",
+        "L13-0-05",
+        "L13-0-08"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1082",
+        "ALF-M05-V15-Q07"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "8.1",
+      "officialDescription": "Describe how digital and analog meters operate",
+      "teachingModule": "M05",
+      "sectionId": "M05.S03",
+      "teachingPageIds": [
+        "L03-0-00",
+        "L03-0-03"
+      ],
+      "academicEnhancementPageIds": [
+        "L03-0-00"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-8-1"
+      ],
+      "verificationState": "INTERNAL_NEW_QUESTION_CHECK_ONLY__FULL_TECHNICAL_AND_EXTERNAL_REVIEW_PENDING",
+      "v43AddedScoredQuestionIds": [
+        "AV43-8-1"
+      ],
+      "v43TeachingReinforcementPageIds": [
+        "L03-0-00"
+      ]
+    },
+    {
+      "objectiveId": "8.2",
+      "officialDescription": "Explain meter construction and components",
+      "teachingModule": "M05",
+      "sectionId": "M05.S03",
+      "teachingPageIds": [
+        "L03-0-00",
+        "L03-0-03"
+      ],
+      "academicEnhancementPageIds": [
+        "L03-0-00"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-8-2"
+      ],
+      "verificationState": "INTERNAL_NEW_QUESTION_CHECK_ONLY__FULL_TECHNICAL_AND_EXTERNAL_REVIEW_PENDING",
+      "v43AddedScoredQuestionIds": [
+        "AV43-8-2"
+      ],
+      "v43TeachingReinforcementPageIds": [
+        "L03-0-03"
+      ]
+    },
+    {
+      "objectiveId": "8.3",
+      "officialDescription": "Identify meter protection, safety and usage",
+      "teachingModule": "M05",
+      "sectionId": "M05.S03",
+      "teachingPageIds": [
+        "L03-0-00",
+        "L03-0-03"
+      ],
+      "academicEnhancementPageIds": [
+        "L03-0-00"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1088",
+        "ALF-M05-V15-Q03"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-017",
+        "AV35-B-017"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": [
+        "L03-0-03"
+      ]
+    },
+    {
+      "objectiveId": "8.4",
+      "officialDescription": "Explain care of equipment and test leads",
+      "teachingModule": "M05",
+      "sectionId": "M05.S03",
+      "teachingPageIds": [
+        "L03-0-00",
+        "L03-0-03"
+      ],
+      "academicEnhancementPageIds": [
+        "L03-0-00"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M05-V15-Q06"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "8.6",
+      "officialDescription": "Describe meter loading and precautions",
+      "teachingModule": "M05",
+      "sectionId": "M05.S03",
+      "teachingPageIds": [
+        "L03-0-00",
+        "L03-0-03"
+      ],
+      "academicEnhancementPageIds": [
+        "L03-0-00"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1089",
+        "ALF-M05-V15-Q05"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-018",
+        "AV35-B-018"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "2.12.1",
+      "officialDescription": "Identify Peak, Peak-to-Peak, and RMS AC sources",
+      "teachingModule": "M06",
+      "sectionId": "M06.S01",
+      "teachingPageIds": [
+        "L04-0-00",
+        "L04-0-08",
+        "L03-0-09"
+      ],
+      "academicEnhancementPageIds": [
+        "L04-0-08"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ0336",
+        "CQ0337",
+        "CQ0338",
+        "CQ0339",
+        "CQ0340",
+        "ALF-M06-V16-Q01"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-020",
+        "AV35-B-020"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": [
+        "L04-0-08"
+      ]
+    },
+    {
+      "objectiveId": "2.12.2",
+      "officialDescription": "Identify Duty Cycle and Pulse Width DC sources",
+      "teachingModule": "M06",
+      "sectionId": "M06.S01",
+      "teachingPageIds": [
+        "L04-0-00",
+        "L04-0-08",
+        "L03-0-09"
+      ],
+      "academicEnhancementPageIds": [
+        "L04-0-08"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M06-V16-Q02"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-021",
+        "AV35-B-021"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "8.12",
+      "officialDescription": "Describe oscilloscope uses:",
+      "teachingModule": "M06",
+      "sectionId": "M06.S02",
+      "teachingPageIds": [
+        "L03-0-00",
+        "L03-0-02",
+        "L03-0-06",
+        "L03-0-04",
+        "L03-0-05",
+        "L03-0-10",
+        "L04-1-01",
+        "L04-0-03",
+        "L04-1-03",
+        "L04-1-04",
+        "L04-0-05"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "ALF-M06-V16-Q05",
+        "ALF-M06-V16-Q06",
+        "ALF-M06-V16-Q07"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-022",
+        "AV35-B-022"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "8.12.1",
+      "officialDescription": "Explain the purposes of each front panel control",
+      "teachingModule": "M06",
+      "sectionId": "M06.S02",
+      "teachingPageIds": [
+        "L03-0-00",
+        "L03-0-02",
+        "L03-0-06",
+        "L03-0-04",
+        "L03-0-05",
+        "L03-0-10",
+        "L04-1-01",
+        "L04-0-03",
+        "L04-1-03",
+        "L04-1-04",
+        "L04-0-05"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1090",
+        "ALF-M06-V16-Q03",
+        "ALF-M06-V16-Q04"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "2.8",
+      "officialDescription": "Describe the different purposes for capacitors and list common types and construction",
+      "teachingModule": "M07",
+      "sectionId": "M07.S01",
+      "teachingPageIds": [
+        "L04-0-01",
+        "L04-0-06",
+        "L07-0-04",
+        "L04-0-05",
+        "L04-0-08",
+        "L07-0-00"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "ALF-M07-V16-Q01",
+        "ALF-M07-V16-Q02",
+        "ALF-M07-V16-Q07"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-023",
+        "AV35-B-023"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "2.9",
+      "officialDescription": "Explain how inductance relates to magnetism and describe coil construction, cores and usages",
+      "teachingModule": "M07",
+      "sectionId": "M07.S02",
+      "teachingPageIds": [
+        "L04-0-02",
+        "L04-0-07",
+        "L07-0-05",
+        "L06-0-00",
+        "L06-0-03",
+        "L06-0-05",
+        "L07-0-01",
+        "L07-0-02"
+      ],
+      "academicEnhancementPageIds": [
+        "L06-0-00"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ0326",
+        "CQ0327",
+        "CQ0328",
+        "CQ0329",
+        "CQ0330",
+        "ALF-M07-V16-Q04",
+        "ALF-M07-V16-Q05"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-024",
+        "AV35-B-024"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "3.2",
+      "officialDescription": "Identify capacitor types and list common usages",
+      "teachingModule": "M07",
+      "sectionId": "M07.S01",
+      "teachingPageIds": [
+        "L04-0-01",
+        "L04-0-06",
+        "L07-0-04",
+        "L04-0-05",
+        "L04-0-08",
+        "L07-0-00"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "ALF-M07-V16-Q03"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "3.2.1",
+      "officialDescription": "Identify methods of varying capacitance",
+      "teachingModule": "M07",
+      "sectionId": "M07.S01",
+      "teachingPageIds": [
+        "L04-0-01",
+        "L04-0-06",
+        "L07-0-04",
+        "L04-0-05",
+        "L04-0-08",
+        "L07-0-00"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [
+        "AV35-A-025",
+        "AV35-B-025"
+      ],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-3-2-1"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "3.3",
+      "officialDescription": "Identify inductor types and reasons for various core materials",
+      "teachingModule": "M07",
+      "sectionId": "M07.S02",
+      "teachingPageIds": [
+        "L04-0-02",
+        "L04-0-07",
+        "L07-0-05",
+        "L06-0-00",
+        "L06-0-03",
+        "L06-0-05",
+        "L07-0-01",
+        "L07-0-02"
+      ],
+      "academicEnhancementPageIds": [
+        "L06-0-00"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M07-V16-Q06"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "3.3.1",
+      "officialDescription": "Explain how diameter and wire size affects these values",
+      "teachingModule": "M07",
+      "sectionId": "M07.S02",
+      "teachingPageIds": [
+        "L04-0-02",
+        "L04-0-07",
+        "L07-0-05",
+        "L06-0-00",
+        "L06-0-03",
+        "L06-0-05",
+        "L07-0-01",
+        "L07-0-02"
+      ],
+      "academicEnhancementPageIds": [
+        "L06-0-00"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-3-3-1"
+      ],
+      "verificationState": "INTERNAL_NEW_QUESTION_CHECK_ONLY__FULL_TECHNICAL_AND_EXTERNAL_REVIEW_PENDING",
+      "v43AddedScoredQuestionIds": [
+        "AV43-3-3-1"
+      ],
+      "v43TeachingReinforcementPageIds": [
+        "L07-0-05"
+      ]
+    },
+    {
+      "objectiveId": "2.10",
+      "officialDescription": "Compare reactance and resistance and describe current/voltage relationships",
+      "teachingModule": "M08",
+      "sectionId": "M08.S01",
+      "teachingPageIds": [
+        "L06-0-00",
+        "L06-0-01",
+        "L06-0-03",
+        "L04-0-02",
+        "L06-1-00"
+      ],
+      "academicEnhancementPageIds": [
+        "L06-0-03"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ0321",
+        "CQ0322",
+        "CQ0323",
+        "CQ0324",
+        "CQ0325",
+        "CQ0326",
+        "CQ0327",
+        "CQ0328",
+        "CQ0329",
+        "CQ0330",
+        "CQ1056",
+        "ALF-M08-V16-Q02"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-026",
+        "AV35-B-026"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "2.11",
+      "officialDescription": "Compare impedance with reactance and resistance and then explain the causes and effects of impedance, combined reactance",
+      "teachingModule": "M08",
+      "sectionId": "M08.S01",
+      "teachingPageIds": [
+        "L06-0-00",
+        "L06-0-01",
+        "L06-0-03",
+        "L04-0-02",
+        "L06-1-00"
+      ],
+      "academicEnhancementPageIds": [
+        "L06-0-03"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M08-V16-Q01"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "4.2",
+      "officialDescription": "Identify and describe the operation of common AC circuits",
+      "teachingModule": "M08",
+      "sectionId": "M08.S01",
+      "teachingPageIds": [
+        "L06-0-00",
+        "L06-0-01",
+        "L06-0-03",
+        "L04-0-02",
+        "L06-1-00"
+      ],
+      "academicEnhancementPageIds": [
+        "L06-0-03"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-4-2"
+      ],
+      "verificationState": "INTERNAL_NEW_QUESTION_CHECK_ONLY__FULL_TECHNICAL_AND_EXTERNAL_REVIEW_PENDING",
+      "v43AddedScoredQuestionIds": [
+        "AV43-4-2"
+      ],
+      "v43TeachingReinforcementPageIds": [
+        "L06-0-03"
+      ]
+    },
+    {
+      "objectiveId": "4.3",
+      "officialDescription": "Explain how series circuits, R, L, C are used in electronics equipment",
+      "teachingModule": "M08",
+      "sectionId": "M08.S01",
+      "teachingPageIds": [
+        "L06-0-00",
+        "L06-0-01",
+        "L06-0-03",
+        "L04-0-02",
+        "L06-1-00"
+      ],
+      "academicEnhancementPageIds": [
+        "L06-0-03"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-4-3"
+      ],
+      "verificationState": "INTERNAL_NEW_QUESTION_CHECK_ONLY__FULL_TECHNICAL_AND_EXTERNAL_REVIEW_PENDING",
+      "v43AddedScoredQuestionIds": [
+        "AV43-4-3"
+      ],
+      "v43TeachingReinforcementPageIds": [
+        "L06-0-03"
+      ]
+    },
+    {
+      "objectiveId": "4.4",
+      "officialDescription": "Explain how parallel circuits, R, L, C are used in electronics equipment, loads",
+      "teachingModule": "M08",
+      "sectionId": "M08.S01",
+      "teachingPageIds": [
+        "L06-0-00",
+        "L06-0-01",
+        "L06-0-03",
+        "L04-0-02",
+        "L06-1-00"
+      ],
+      "academicEnhancementPageIds": [
+        "L06-0-03"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-4-4"
+      ],
+      "verificationState": "INTERNAL_NEW_QUESTION_CHECK_ONLY__FULL_TECHNICAL_AND_EXTERNAL_REVIEW_PENDING",
+      "v43AddedScoredQuestionIds": [
+        "AV43-4-4"
+      ],
+      "v43TeachingReinforcementPageIds": [
+        "L06-0-02"
+      ]
+    },
+    {
+      "objectiveId": "4.7",
+      "officialDescription": "Classify circuits as inductive, capacitive and resistive",
+      "teachingModule": "M08",
+      "sectionId": "M08.S01",
+      "teachingPageIds": [
+        "L06-0-00",
+        "L06-0-01",
+        "L06-0-03",
+        "L04-0-02",
+        "L06-1-00"
+      ],
+      "academicEnhancementPageIds": [
+        "L06-0-03"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M08-V16-Q04"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "4.8",
+      "officialDescription": "Explain resonance and show how to calculate resonant frequency",
+      "teachingModule": "M08",
+      "sectionId": "M08.S02",
+      "teachingPageIds": [
+        "L06-0-05",
+        "L06-0-02",
+        "L04-0-00",
+        "L04-0-05",
+        "L04-0-08",
+        "L06-1-01"
+      ],
+      "academicEnhancementPageIds": [
+        "L06-0-05"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ0331",
+        "CQ0332",
+        "CQ0333",
+        "CQ0334",
+        "CQ0335",
+        "ALF-M08-V16-Q03"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-027",
+        "AV35-B-027"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": [
+        "L06-0-05"
+      ]
+    },
+    {
+      "objectiveId": "4.9",
+      "officialDescription": "Describe polar and rectangular presentations of L, R, C circuits",
+      "teachingModule": "M08",
+      "sectionId": "M08.S03",
+      "teachingPageIds": [
+        "L06-0-04",
+        "L06-1-02",
+        "L06-1-03"
+      ],
+      "academicEnhancementPageIds": [
+        "L06-0-04"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1071",
+        "ALF-M08-V16-Q07"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-029",
+        "AV35-B-029"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "4.13",
+      "officialDescription": "Describe filter circuits, why and how they are used",
+      "teachingModule": "M08",
+      "sectionId": "M08.S02",
+      "teachingPageIds": [
+        "L06-0-05",
+        "L06-0-02",
+        "L04-0-00",
+        "L04-0-05",
+        "L04-0-08",
+        "L06-1-01"
+      ],
+      "academicEnhancementPageIds": [
+        "L06-0-05"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1069",
+        "ALF-M08-V16-Q05",
+        "ALF-M08-V16-Q08"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-028",
+        "AV35-B-028"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "4.15",
+      "officialDescription": "Describe the relationships between bandwidth and “Q” in an electronics circuit",
+      "teachingModule": "M08",
+      "sectionId": "M08.S02",
+      "teachingPageIds": [
+        "L06-0-05",
+        "L06-0-02",
+        "L04-0-00",
+        "L04-0-05",
+        "L04-0-08",
+        "L06-1-01"
+      ],
+      "academicEnhancementPageIds": [
+        "L06-0-05"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1070",
+        "ALF-M08-V16-Q06"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": [
+        "L06-0-05"
+      ]
+    },
+    {
+      "objectiveId": "2.2",
+      "officialDescription": "Describe the principles of electromagnetism",
+      "teachingModule": "M09",
+      "sectionId": "M09.S01",
+      "teachingPageIds": [
+        "L07-0-10",
+        "L06-0-00",
+        "L06-0-02",
+        "L06-0-03"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1058",
+        "ALF-M09-V16-Q02"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "2.2.1",
+      "officialDescription": "Explain the different types of magnetic fields",
+      "teachingModule": "M09",
+      "sectionId": "M09.S01",
+      "teachingPageIds": [
+        "L07-0-10",
+        "L06-0-00",
+        "L06-0-02",
+        "L06-0-03"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-2-2-1"
+      ],
+      "verificationState": "INTERNAL_NEW_QUESTION_CHECK_ONLY__FULL_TECHNICAL_AND_EXTERNAL_REVIEW_PENDING",
+      "v43AddedScoredQuestionIds": [
+        "AV43-2-2-1"
+      ],
+      "v43TeachingReinforcementPageIds": [
+        "L07-0-10"
+      ]
+    },
+    {
+      "objectiveId": "2.2.2",
+      "officialDescription": "Explain the direct relationship between electricity and magnetism",
+      "teachingModule": "M09",
+      "sectionId": "M09.S01",
+      "teachingPageIds": [
+        "L07-0-10",
+        "L06-0-00",
+        "L06-0-02",
+        "L06-0-03"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-2-2-2"
+      ],
+      "verificationState": "INTERNAL_NEW_QUESTION_CHECK_ONLY__FULL_TECHNICAL_AND_EXTERNAL_REVIEW_PENDING",
+      "v43AddedScoredQuestionIds": [
+        "AV43-2-2-2"
+      ],
+      "v43TeachingReinforcementPageIds": [
+        "L07-0-10"
+      ]
+    },
+    {
+      "objectiveId": "2.3",
+      "officialDescription": "Explain uses for magnetism in electronics technology",
+      "teachingModule": "M09",
+      "sectionId": "M09.S01",
+      "teachingPageIds": [
+        "L07-0-10",
+        "L06-0-00",
+        "L06-0-02",
+        "L06-0-03"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-2-3"
+      ],
+      "verificationState": "INTERNAL_NEW_QUESTION_CHECK_ONLY__FULL_TECHNICAL_AND_EXTERNAL_REVIEW_PENDING",
+      "v43AddedScoredQuestionIds": [
+        "AV43-2-3"
+      ],
+      "v43TeachingReinforcementPageIds": [
+        "L07-0-01"
+      ]
+    },
+    {
+      "objectiveId": "2.5",
+      "officialDescription": "Describe the basic methods of using electricity to operate a motor and how mechanical motion causes a generator to produce electrical current",
+      "teachingModule": "M09",
+      "sectionId": "M09.S02",
+      "teachingPageIds": [
+        "L07-0-11",
+        "L07-0-01",
+        "L07-0-05",
+        "L06-0-01",
+        "L06-0-04"
+      ],
+      "academicEnhancementPageIds": [
+        "L07-0-05"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1057",
+        "ALF-M09-V16-Q03"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-033",
+        "AV35-B-033"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": [
+        "L07-0-01"
+      ]
+    },
+    {
+      "objectiveId": "2.5.1",
+      "officialDescription": "Review EM5 competencies for more detail",
+      "teachingModule": "M09",
+      "sectionId": "M09.S02",
+      "teachingPageIds": [
+        "L07-0-11",
+        "L07-0-01",
+        "L07-0-05",
+        "L06-0-01",
+        "L06-0-04"
+      ],
+      "academicEnhancementPageIds": [
+        "L07-0-05"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-2-5-1"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": [
+        "L07-0-01"
+      ]
+    },
+    {
+      "objectiveId": "3.4",
+      "officialDescription": "Identify common types of transformers and list uses for each",
+      "teachingModule": "M09",
+      "sectionId": "M09.S02",
+      "teachingPageIds": [
+        "L07-0-11",
+        "L07-0-01",
+        "L07-0-05",
+        "L06-0-01",
+        "L06-0-04"
+      ],
+      "academicEnhancementPageIds": [
+        "L07-0-05"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-3-4"
+      ],
+      "verificationState": "INTERNAL_NEW_QUESTION_CHECK_ONLY__FULL_TECHNICAL_AND_EXTERNAL_REVIEW_PENDING",
+      "v43AddedScoredQuestionIds": [
+        "AV43-3-4"
+      ],
+      "v43TeachingReinforcementPageIds": [
+        "L07-0-11"
+      ]
+    },
+    {
+      "objectiveId": "3.4.1",
+      "officialDescription": "Explain step up/down voltage methods",
+      "teachingModule": "M09",
+      "sectionId": "M09.S02",
+      "teachingPageIds": [
+        "L07-0-11",
+        "L07-0-01",
+        "L07-0-05",
+        "L06-0-01",
+        "L06-0-04"
+      ],
+      "academicEnhancementPageIds": [
+        "L07-0-05"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1062",
+        "ALF-M09-V16-Q01",
+        "ALF-M09-V16-Q08"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-030",
+        "AV35-B-030"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": [
+        "L07-0-11"
+      ]
+    },
+    {
+      "objectiveId": "3.4.2",
+      "officialDescription": "Explain why laminations are used",
+      "teachingModule": "M09",
+      "sectionId": "M09.S02",
+      "teachingPageIds": [
+        "L07-0-11",
+        "L07-0-01",
+        "L07-0-05",
+        "L06-0-01",
+        "L06-0-04"
+      ],
+      "academicEnhancementPageIds": [
+        "L07-0-05"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M09-V16-Q04"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-031",
+        "AV35-B-031"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "3.9",
+      "officialDescription": "Describe various relay types",
+      "teachingModule": "M09",
+      "sectionId": "M09.S03",
+      "teachingPageIds": [
+        "L07-0-02",
+        "L07-1-04",
+        "L07-0-08",
+        "L07-0-00",
+        "L07-1-02"
+      ],
+      "academicEnhancementPageIds": [
+        "L07-1-04"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-3-9"
+      ],
+      "verificationState": "INTERNAL_NEW_QUESTION_CHECK_ONLY__FULL_TECHNICAL_AND_EXTERNAL_REVIEW_PENDING",
+      "v43AddedScoredQuestionIds": [
+        "AV43-3-9"
+      ],
+      "v43TeachingReinforcementPageIds": [
+        "L07-0-02"
+      ]
+    },
+    {
+      "objectiveId": "3.9.1",
+      "officialDescription": "Identify normally-open and normally-closed contacts and their operation",
+      "teachingModule": "M09",
+      "sectionId": "M09.S03",
+      "teachingPageIds": [
+        "L07-0-02",
+        "L07-1-04",
+        "L07-0-08",
+        "L07-0-00",
+        "L07-1-02"
+      ],
+      "academicEnhancementPageIds": [
+        "L07-1-04"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1066",
+        "ALF-M09-V16-Q05"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-032",
+        "AV35-B-032"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": [
+        "L07-0-02"
+      ]
+    },
+    {
+      "objectiveId": "3.9.2",
+      "officialDescription": "Identify the coil of a relay",
+      "teachingModule": "M09",
+      "sectionId": "M09.S03",
+      "teachingPageIds": [
+        "L07-0-02",
+        "L07-1-04",
+        "L07-0-08",
+        "L07-0-00",
+        "L07-1-02"
+      ],
+      "academicEnhancementPageIds": [
+        "L07-1-04"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M09-V16-Q06"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": [
+        "L07-0-02"
+      ]
+    },
+    {
+      "objectiveId": "3.9.3",
+      "officialDescription": "Compare the operation of a solid-state relay to a mechanical relay",
+      "teachingModule": "M09",
+      "sectionId": "M09.S03",
+      "teachingPageIds": [
+        "L07-0-02",
+        "L07-1-04",
+        "L07-0-08",
+        "L07-0-00",
+        "L07-1-02"
+      ],
+      "academicEnhancementPageIds": [
+        "L07-1-04"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M09-V16-Q07"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": [
+        "L07-0-02"
+      ]
+    },
+    {
+      "objectiveId": "4.5",
+      "officialDescription": "Explain the purpose of oscillators: crystal use",
+      "teachingModule": "M10",
+      "sectionId": "M10.S01",
+      "teachingPageIds": [
+        "L04-0-00",
+        "L04-0-02",
+        "L11-0-04",
+        "L11-0-09"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "ALF-M10-V16-Q01",
+        "ALF-M10-V16-Q03"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-034",
+        "AV35-B-034"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "4.6",
+      "officialDescription": "Differentiate between oscillators and multivibrators",
+      "teachingModule": "M10",
+      "sectionId": "M10.S01",
+      "teachingPageIds": [
+        "L04-0-00",
+        "L04-0-02",
+        "L11-0-04",
+        "L11-0-09"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "ALF-M10-V16-Q08"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-035",
+        "AV35-B-035"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "4.11",
+      "officialDescription": "Explain the purposes and types of differentiator or integrator circuits",
+      "teachingModule": "M10",
+      "sectionId": "M10.S02",
+      "teachingPageIds": [
+        "L04-0-01",
+        "L04-0-08",
+        "L06-0-03"
+      ],
+      "academicEnhancementPageIds": [
+        "L04-0-08"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M10-V16-Q05"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "4.12",
+      "officialDescription": "Describe the sections of a PLL (phase locked loop) circuit and PLL circuit use",
+      "teachingModule": "M10",
+      "sectionId": "M10.S03",
+      "teachingPageIds": [
+        "L11-0-05",
+        "L11-0-06"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1072",
+        "ALF-M10-V16-Q06"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-036",
+        "AV35-B-036"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "4.14",
+      "officialDescription": "Explain wave-shaping circuits and explain their purposes",
+      "teachingModule": "M10",
+      "sectionId": "M10.S02",
+      "teachingPageIds": [
+        "L04-0-01",
+        "L04-0-08",
+        "L06-0-03"
+      ],
+      "academicEnhancementPageIds": [
+        "L04-0-08"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M10-V16-Q02",
+        "ALF-M10-V16-Q04"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "4.16",
+      "officialDescription": "Explain the piezoelectric effect",
+      "teachingModule": "M10",
+      "sectionId": "M10.S03",
+      "teachingPageIds": [
+        "L11-0-05",
+        "L11-0-06"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "ALF-M10-V16-Q07"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "3.6",
+      "officialDescription": "Identify multi-junction semiconductors as to type and applications:",
+      "teachingModule": "M11",
+      "sectionId": "M11.S03",
+      "teachingPageIds": [
+        "L08-0-05"
+      ],
+      "academicEnhancementPageIds": [
+        "L08-0-05"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-3-6"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "3.6.1",
+      "officialDescription": "Identify Diacs, Triacs and SCRs (silicon-controlled rectifiers) and explain their operation",
+      "teachingModule": "M11",
+      "sectionId": "M11.S03",
+      "teachingPageIds": [
+        "L08-0-05"
+      ],
+      "academicEnhancementPageIds": [
+        "L08-0-05"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1065",
+        "ALF-M11-V17-Q03"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-040",
+        "AV35-B-040"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "3.6.2",
+      "officialDescription": "Compare SCRs with other semiconductors",
+      "teachingModule": "M11",
+      "sectionId": "M11.S03",
+      "teachingPageIds": [
+        "L08-0-05"
+      ],
+      "academicEnhancementPageIds": [
+        "L08-0-05"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M11-V17-Q06"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "3.7",
+      "officialDescription": "Identify various diode types: Silicon, Schottky, Germanium, LED, photo, Zener",
+      "teachingModule": "M11",
+      "sectionId": "M11.S01",
+      "teachingPageIds": [
+        "L07-0-07",
+        "L08-0-00",
+        "L08-0-01",
+        "L08-0-02",
+        "L08-1-01",
+        "L08-0-04"
+      ],
+      "academicEnhancementPageIds": [
+        "L07-0-07"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M11-V17-Q02"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "3.7.1",
+      "officialDescription": "Describe Silicon, Schottky, Germanium, LED, Photo, and Zener operations and applications",
+      "teachingModule": "M11",
+      "sectionId": "M11.S01",
+      "teachingPageIds": [
+        "L07-0-07",
+        "L08-0-00",
+        "L08-0-01",
+        "L08-0-02",
+        "L08-1-01",
+        "L08-0-04"
+      ],
+      "academicEnhancementPageIds": [
+        "L07-0-07"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M11-V17-Q01",
+        "ALF-M11-V17-Q07"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-037",
+        "AV35-B-037"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "3.7.2",
+      "officialDescription": "Analyze voltage bias, current, and power consumption in a circuit for Silicon and Germanium diodes",
+      "teachingModule": "M11",
+      "sectionId": "M11.S02",
+      "teachingPageIds": [
+        "L08-0-03",
+        "L07-0-06"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "ALF-M11-V17-Q05"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-038",
+        "AV35-B-038"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "3.7.3",
+      "officialDescription": "Explain Zener diode ratings; describe usage in regulator circuits",
+      "teachingModule": "M11",
+      "sectionId": "M11.S02",
+      "teachingPageIds": [
+        "L08-0-03",
+        "L07-0-06"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1063",
+        "ALF-M11-V17-Q04"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-039",
+        "AV35-B-039"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "3.5",
+      "officialDescription": "Identify transistors as to type, usage, biasing and applications:",
+      "teachingModule": "M12",
+      "sectionId": "M12.S01",
+      "teachingPageIds": [
+        "L08-0-01",
+        "L08-0-04",
+        "L08-0-02",
+        "L08-1-00",
+        "L08-1-04",
+        "L08-0-05",
+        "L10-0-01",
+        "L10-0-03",
+        "L10-0-06"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "ALF-M12-V17-Q01"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "3.5.1",
+      "officialDescription": "Describe MOS, CMOS, FET, IGBT and Darlington Pair operation and applications",
+      "teachingModule": "M12",
+      "sectionId": "M12.S02",
+      "teachingPageIds": [
+        "L10-0-04",
+        "L10-0-00",
+        "L10-0-05",
+        "L10-0-07"
+      ],
+      "academicEnhancementPageIds": [
+        "L10-0-00"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M12-V17-Q05"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-043",
+        "AV35-B-043"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "3.5.2",
+      "officialDescription": "Analyze biasing voltages for NPN & PNP bipolar transistors, BJTs, JFETs, and MOSFETs",
+      "teachingModule": "M12",
+      "sectionId": "M12.S02",
+      "teachingPageIds": [
+        "L10-0-04",
+        "L10-0-00",
+        "L10-0-05",
+        "L10-0-07"
+      ],
+      "academicEnhancementPageIds": [
+        "L10-0-00"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M12-V17-Q03",
+        "ALF-M12-V17-Q04",
+        "ALF-M12-V17-Q07"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-041",
+        "AV35-B-041"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "3.5.3",
+      "officialDescription": "Explain beta and alpha, enhance/depletion mode",
+      "teachingModule": "M12",
+      "sectionId": "M12.S02",
+      "teachingPageIds": [
+        "L10-0-04",
+        "L10-0-00",
+        "L10-0-05",
+        "L10-0-07"
+      ],
+      "academicEnhancementPageIds": [
+        "L10-0-00"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1064",
+        "ALF-M12-V17-Q02"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-042",
+        "AV35-B-042"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "3.8",
+      "officialDescription": "Describe types of integrated circuits (I.C.), such as microprocessors, identifying the basic components and pin-outs",
+      "teachingModule": "M12",
+      "sectionId": "M12.S03",
+      "teachingPageIds": [
+        "L10-0-02"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "ALF-M12-V17-Q06"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-044",
+        "AV35-B-044"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "10.1",
+      "officialDescription": "Explain shock hazards when servicing power supplies in electronic equipment",
+      "teachingModule": "M13",
+      "sectionId": "M13.S01",
+      "teachingPageIds": [
+        "L08-0-00",
+        "L09-0-00",
+        "L09-1-00",
+        "L09-0-02",
+        "L09-1-02",
+        "L09-0-03",
+        "L09-1-03",
+        "L09-1-05",
+        "L09-0-06",
+        "L09-0-07"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1098"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "10.2",
+      "officialDescription": "Describe the differences between transformer powered supplies and line-connected supplies",
+      "teachingModule": "M13",
+      "sectionId": "M13.S01",
+      "teachingPageIds": [
+        "L08-0-00",
+        "L09-0-00",
+        "L09-1-00",
+        "L09-0-02",
+        "L09-1-02",
+        "L09-0-03",
+        "L09-1-03",
+        "L09-1-05",
+        "L09-0-06",
+        "L09-0-07"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-10-2"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "10.3",
+      "officialDescription": "Describe battery supplies and list common usages:",
+      "teachingModule": "M13",
+      "sectionId": "M13.S01",
+      "teachingPageIds": [
+        "L08-0-00",
+        "L09-0-00",
+        "L09-1-00",
+        "L09-0-02",
+        "L09-1-02",
+        "L09-0-03",
+        "L09-1-03",
+        "L09-1-05",
+        "L09-0-06",
+        "L09-0-07"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-10-3"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "10.3.1",
+      "officialDescription": "Explain battery recharging principles",
+      "teachingModule": "M13",
+      "sectionId": "M13.S03",
+      "teachingPageIds": [
+        "L09-0-01",
+        "L08-0-02"
+      ],
+      "academicEnhancementPageIds": [
+        "L09-0-01",
+        "L08-0-02"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M13-V17-Q01"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "10.4",
+      "officialDescription": "Explain the reasons for filtering, describe hum, and identify common filter types:",
+      "teachingModule": "M13",
+      "sectionId": "M13.S02",
+      "teachingPageIds": [
+        "L09-0-05",
+        "L09-1-04"
+      ],
+      "academicEnhancementPageIds": [
+        "L09-0-05",
+        "L09-1-04"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1100"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-046",
+        "AV35-B-046"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "10.4.1",
+      "officialDescription": "“L” (L-section, choke or inductor) filter – an inductor in series with a capacitor in parallel",
+      "teachingModule": "M13",
+      "sectionId": "M13.S03",
+      "teachingPageIds": [
+        "L09-0-01",
+        "L08-0-02"
+      ],
+      "academicEnhancementPageIds": [
+        "L09-0-01",
+        "L08-0-02"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M13-V17-Q02"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "10.4.2",
+      "officialDescription": "“T” filter –add a second choke on output side, taking the output across the capacitor",
+      "teachingModule": "M13",
+      "sectionId": "M13.S03",
+      "teachingPageIds": [
+        "L09-0-01",
+        "L08-0-02"
+      ],
+      "academicEnhancementPageIds": [
+        "L09-0-01",
+        "L08-0-02"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M13-V17-Q03"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "10.4.3",
+      "officialDescription": "“Pi” filter – a single inductor with a capacitor at each end to common",
+      "teachingModule": "M13",
+      "sectionId": "M13.S03",
+      "teachingPageIds": [
+        "L09-0-01",
+        "L08-0-02"
+      ],
+      "academicEnhancementPageIds": [
+        "L09-0-01",
+        "L08-0-02"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-10-4-3"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "10.5",
+      "officialDescription": "Explain the reasons for power supply regulation and list common components used in regulated supplies",
+      "teachingModule": "M13",
+      "sectionId": "M13.S03",
+      "teachingPageIds": [
+        "L09-0-01",
+        "L08-0-02"
+      ],
+      "academicEnhancementPageIds": [
+        "L09-0-01",
+        "L08-0-02"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1101",
+        "ALF-M13-V17-Q04"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "10.6",
+      "officialDescription": "Explain the term ‘Integrated high voltage transformer’ supply and explain how it differs from direct or other power supply types",
+      "teachingModule": "M13",
+      "sectionId": "M13.S01",
+      "teachingPageIds": [
+        "L08-0-00",
+        "L09-0-00",
+        "L09-1-00",
+        "L09-0-02",
+        "L09-1-02",
+        "L09-0-03",
+        "L09-1-03",
+        "L09-1-05",
+        "L09-0-06",
+        "L09-0-07"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-10-6"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "10.7",
+      "officialDescription": "Explain how multiple output supplies can supply more than one voltage",
+      "teachingModule": "M13",
+      "sectionId": "M13.S01",
+      "teachingPageIds": [
+        "L08-0-00",
+        "L09-0-00",
+        "L09-1-00",
+        "L09-0-02",
+        "L09-1-02",
+        "L09-0-03",
+        "L09-1-03",
+        "L09-1-05",
+        "L09-0-06",
+        "L09-0-07"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "ALF-M13-V17-Q05"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "10.8",
+      "officialDescription": "Explain where fuses and circuit breakers are commonly and electrically located in circuits; approximate fuse sizes for common circuits; common fuses and circuit breaker configuration and precautions for replacement in a house service box",
+      "teachingModule": "M13",
+      "sectionId": "M13.S03",
+      "teachingPageIds": [
+        "L09-0-01",
+        "L08-0-02"
+      ],
+      "academicEnhancementPageIds": [
+        "L09-0-01",
+        "L08-0-02"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-10-8"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "10.9",
+      "officialDescription": "Explain how to calculate DC voltages from power supply circuits",
+      "teachingModule": "M13",
+      "sectionId": "M13.S02",
+      "teachingPageIds": [
+        "L09-0-05",
+        "L09-1-04"
+      ],
+      "academicEnhancementPageIds": [
+        "L09-0-05",
+        "L09-1-04"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M13-V17-Q06"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-048",
+        "AV35-B-048"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "10.10",
+      "officialDescription": "Identify and analyze rectifier circuits",
+      "teachingModule": "M13",
+      "sectionId": "M13.S02",
+      "teachingPageIds": [
+        "L09-0-05",
+        "L09-1-04"
+      ],
+      "academicEnhancementPageIds": [
+        "L09-0-05",
+        "L09-1-04"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1099",
+        "ALF-M13-V17-Q07"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-045",
+        "AV35-B-045"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "10.11",
+      "officialDescription": "Describe switch mode power supply operation",
+      "teachingModule": "M13",
+      "sectionId": "M13.S03",
+      "teachingPageIds": [
+        "L09-0-01",
+        "L08-0-02"
+      ],
+      "academicEnhancementPageIds": [
+        "L09-0-01",
+        "L08-0-02"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1102"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-047",
+        "AV35-B-047"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "9.6",
+      "officialDescription": "Explain decibels (dB) and show reasons for using dBs in signal level, power and audio calculations",
+      "teachingModule": "M14",
+      "sectionId": "M14.S03",
+      "teachingPageIds": [
+        "L10-0-02",
+        "L10-0-06"
+      ],
+      "academicEnhancementPageIds": [
+        "L10-0-02",
+        "L10-0-06"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ0354",
+        "CQ0355",
+        "CQ0356",
+        "CQ0357",
+        "CQ0358",
+        "CQ1096",
+        "ALF-M14-V17-Q01"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-049",
+        "AV35-B-049"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "11.1",
+      "officialDescription": "List common amplifier devices: such as power amps, audio preamps, video amps",
+      "teachingModule": "M14",
+      "sectionId": "M14.S01",
+      "teachingPageIds": [
+        "L10-0-00",
+        "L10-1-02",
+        "L10-0-04",
+        "L10-0-07",
+        "L10-0-03",
+        "L10-1-03",
+        "L10-1-04"
+      ],
+      "academicEnhancementPageIds": [
+        "L10-1-02"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-11-1"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "11.2",
+      "officialDescription": "Describe the purpose of each component in an amplifier circuit",
+      "teachingModule": "M14",
+      "sectionId": "M14.S01",
+      "teachingPageIds": [
+        "L10-0-00",
+        "L10-1-02",
+        "L10-0-04",
+        "L10-0-07",
+        "L10-0-03",
+        "L10-1-03",
+        "L10-1-04"
+      ],
+      "academicEnhancementPageIds": [
+        "L10-1-02"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M14-V17-Q03"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "11.3",
+      "officialDescription": "List the usages and classes of amplifiers",
+      "teachingModule": "M14",
+      "sectionId": "M14.S01",
+      "teachingPageIds": [
+        "L10-0-00",
+        "L10-1-02",
+        "L10-0-04",
+        "L10-0-07",
+        "L10-0-03",
+        "L10-1-03",
+        "L10-1-04"
+      ],
+      "academicEnhancementPageIds": [
+        "L10-1-02"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1105",
+        "ALF-M14-V17-Q02"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "11.3.1",
+      "officialDescription": "Analyze BJT amplifier circuits for gain and power",
+      "teachingModule": "M14",
+      "sectionId": "M14.S01",
+      "teachingPageIds": [
+        "L10-0-00",
+        "L10-1-02",
+        "L10-0-04",
+        "L10-0-07",
+        "L10-0-03",
+        "L10-1-03",
+        "L10-1-04"
+      ],
+      "academicEnhancementPageIds": [
+        "L10-1-02"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-11-3-1"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "11.3.2",
+      "officialDescription": "Analyze FET based amplifier circuits for gain and power",
+      "teachingModule": "M14",
+      "sectionId": "M14.S01",
+      "teachingPageIds": [
+        "L10-0-00",
+        "L10-1-02",
+        "L10-0-04",
+        "L10-0-07",
+        "L10-0-03",
+        "L10-1-03",
+        "L10-1-04"
+      ],
+      "academicEnhancementPageIds": [
+        "L10-1-02"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-11-3-2"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "11.4",
+      "officialDescription": "Explain frequency response of an amplifier circuit and why it is important",
+      "teachingModule": "M14",
+      "sectionId": "M14.S03",
+      "teachingPageIds": [
+        "L10-0-02",
+        "L10-0-06"
+      ],
+      "academicEnhancementPageIds": [
+        "L10-0-02",
+        "L10-0-06"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1107"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-051",
+        "AV35-B-051"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "11.5",
+      "officialDescription": "Explain the words ‘preamplifier’ and ‘line amplifier’ and where these units are commonly used",
+      "teachingModule": "M14",
+      "sectionId": "M14.S01",
+      "teachingPageIds": [
+        "L10-0-00",
+        "L10-1-02",
+        "L10-0-04",
+        "L10-0-07",
+        "L10-0-03",
+        "L10-1-03",
+        "L10-1-04"
+      ],
+      "academicEnhancementPageIds": [
+        "L10-1-02"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-11-5"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "11.6",
+      "officialDescription": "Explain the uses of operational amplifiers and how they differ from other amplifiers",
+      "teachingModule": "M14",
+      "sectionId": "M14.S02",
+      "teachingPageIds": [
+        "L10-0-05",
+        "L10-0-09",
+        "L10-1-00",
+        "L10-0-01",
+        "L10-1-01"
+      ],
+      "academicEnhancementPageIds": [
+        "L10-1-01"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M14-V17-Q05"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "11.6.1",
+      "officialDescription": "Analyze op-amp circuits to determine gain and power",
+      "teachingModule": "M14",
+      "sectionId": "M14.S02",
+      "teachingPageIds": [
+        "L10-0-05",
+        "L10-0-09",
+        "L10-1-00",
+        "L10-0-01",
+        "L10-1-01"
+      ],
+      "academicEnhancementPageIds": [
+        "L10-1-01"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ0359",
+        "CQ0360",
+        "CQ0361",
+        "CQ0362",
+        "CQ0363",
+        "CQ1106",
+        "ALF-M14-V17-Q04"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-050",
+        "AV35-B-050"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "11.7",
+      "officialDescription": "Explain how distortion occurs in amplifiers and list ways to reduce or eliminate it",
+      "teachingModule": "M14",
+      "sectionId": "M14.S03",
+      "teachingPageIds": [
+        "L10-0-02",
+        "L10-0-06"
+      ],
+      "academicEnhancementPageIds": [
+        "L10-0-02",
+        "L10-0-06"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1103"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-052",
+        "AV35-B-052"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "11.8",
+      "officialDescription": "Explain how inaccurate measurements can be experienced due to meter or scope loading",
+      "teachingModule": "M14",
+      "sectionId": "M14.S03",
+      "teachingPageIds": [
+        "L10-0-02",
+        "L10-0-06"
+      ],
+      "academicEnhancementPageIds": [
+        "L10-0-02",
+        "L10-0-06"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1104",
+        "ALF-M14-V17-Q06"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "11.8.1",
+      "officialDescription": "List ways to overcome loading problems",
+      "teachingModule": "M14",
+      "sectionId": "M14.S03",
+      "teachingPageIds": [
+        "L10-0-02",
+        "L10-0-06"
+      ],
+      "academicEnhancementPageIds": [
+        "L10-0-02",
+        "L10-0-06"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-11-8-1"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "11.9",
+      "officialDescription": "Describe specifications for broadband amplifiers as compared with common narrow band units",
+      "teachingModule": "M14",
+      "sectionId": "M14.S03",
+      "teachingPageIds": [
+        "L10-0-02",
+        "L10-0-06"
+      ],
+      "academicEnhancementPageIds": [
+        "L10-0-02",
+        "L10-0-06"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M14-V17-Q07"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "5.1",
+      "officialDescription": "Describe solder safety as it pertains to burns and potential fires or damage to facilities or customer products",
+      "teachingModule": "M15",
+      "sectionId": "M15.S01",
+      "teachingPageIds": [
+        "L29-0-02",
+        "L29-0-04"
+      ],
+      "academicEnhancementPageIds": [
+        "L29-0-02"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M15-V17-Q01"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "5.2",
+      "officialDescription": "Explain the cause of solder fumes and the effects of lead poisoning",
+      "teachingModule": "M15",
+      "sectionId": "M15.S01",
+      "teachingPageIds": [
+        "L29-0-02",
+        "L29-0-04"
+      ],
+      "academicEnhancementPageIds": [
+        "L29-0-02"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1076"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "5.3",
+      "officialDescription": "List causes and precautions to prevent or reduce solder splatter",
+      "teachingModule": "M15",
+      "sectionId": "M15.S01",
+      "teachingPageIds": [
+        "L29-0-02",
+        "L29-0-04"
+      ],
+      "academicEnhancementPageIds": [
+        "L29-0-02"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M15-V17-Q02"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "5.4",
+      "officialDescription": "Explain the reasons for flux usage and describe types",
+      "teachingModule": "M15",
+      "sectionId": "M15.S02",
+      "teachingPageIds": [
+        "L12-0-03",
+        "L12-0-07",
+        "L12-0-02",
+        "L12-0-08",
+        "L12-0-01",
+        "L12-0-04",
+        "L29-0-00",
+        "L29-0-03"
+      ],
+      "academicEnhancementPageIds": [
+        "L12-0-02"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1073",
+        "ALF-M15-V17-Q03"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-053",
+        "AV35-B-053"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "5.5",
+      "officialDescription": "List types of solder and reasons for choosing each",
+      "teachingModule": "M15",
+      "sectionId": "M15.S02",
+      "teachingPageIds": [
+        "L12-0-03",
+        "L12-0-07",
+        "L12-0-02",
+        "L12-0-08",
+        "L12-0-01",
+        "L12-0-04",
+        "L29-0-00",
+        "L29-0-03"
+      ],
+      "academicEnhancementPageIds": [
+        "L12-0-02"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M15-V17-Q04"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "5.6",
+      "officialDescription": "Explain heat shunts (clip-on heat sinks), why and how they are used",
+      "teachingModule": "M15",
+      "sectionId": "M15.S02",
+      "teachingPageIds": [
+        "L12-0-03",
+        "L12-0-07",
+        "L12-0-02",
+        "L12-0-08",
+        "L12-0-01",
+        "L12-0-04",
+        "L29-0-00",
+        "L29-0-03"
+      ],
+      "academicEnhancementPageIds": [
+        "L12-0-02"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-5-6"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "5.7",
+      "officialDescription": "Identify cold solder joints and explain causes",
+      "teachingModule": "M15",
+      "sectionId": "M15.S02",
+      "teachingPageIds": [
+        "L12-0-03",
+        "L12-0-07",
+        "L12-0-02",
+        "L12-0-08",
+        "L12-0-01",
+        "L12-0-04",
+        "L29-0-00",
+        "L29-0-03"
+      ],
+      "academicEnhancementPageIds": [
+        "L12-0-02"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1074"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-054",
+        "AV35-B-054"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "5.8",
+      "officialDescription": "Describe the differences between good and bad mechanical and electrical solder connections",
+      "teachingModule": "M15",
+      "sectionId": "M15.S02",
+      "teachingPageIds": [
+        "L12-0-03",
+        "L12-0-07",
+        "L12-0-02",
+        "L12-0-08",
+        "L12-0-01",
+        "L12-0-04",
+        "L29-0-00",
+        "L29-0-03"
+      ],
+      "academicEnhancementPageIds": [
+        "L12-0-02"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-5-8"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "5.8.1",
+      "officialDescription": "Explain basic handling procedures of surface mount (SMT), ball grid array (BGA), gold finger contacts on a printed circuit board (PCB)",
+      "teachingModule": "M15",
+      "sectionId": "M15.S04",
+      "teachingPageIds": [
+        "L12-0-00",
+        "L12-0-09"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "ALF-M15-V17-Q05"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "5.8.2",
+      "officialDescription": "Explain basic procedures for pad repairs (SMT, BGA), plated through hole (PTH), and PCB trace repair",
+      "teachingModule": "M15",
+      "sectionId": "M15.S04",
+      "teachingPageIds": [
+        "L12-0-00",
+        "L12-0-09"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1077"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "5.9",
+      "officialDescription": "Describe proper care of solder and de-solder equipment and aids",
+      "teachingModule": "M15",
+      "sectionId": "M15.S01",
+      "teachingPageIds": [
+        "L29-0-02",
+        "L29-0-04"
+      ],
+      "academicEnhancementPageIds": [
+        "L29-0-02"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-5-9"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "5.10",
+      "officialDescription": "Explain de-soldering principles",
+      "teachingModule": "M15",
+      "sectionId": "M15.S03",
+      "teachingPageIds": [
+        "L12-0-06",
+        "L12-0-05"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "ALF-M15-V17-Q06"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "5.11",
+      "officialDescription": "Describe various types of de-soldering equipment and how it is used",
+      "teachingModule": "M15",
+      "sectionId": "M15.S03",
+      "teachingPageIds": [
+        "L12-0-06",
+        "L12-0-05"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [
+        "AV35-A-055",
+        "AV35-B-055"
+      ],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-5-11"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "5.12",
+      "officialDescription": "Demonstrate the use of solder-wick",
+      "teachingModule": "M15",
+      "sectionId": "M15.S03",
+      "teachingPageIds": [
+        "L12-0-06",
+        "L12-0-05"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1075",
+        "ALF-M15-V17-Q07"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "9.4",
+      "officialDescription": "Convert binary, decimal, octal, hexadecimal numbers",
+      "teachingModule": "M16",
+      "sectionId": "M16.S01",
+      "teachingPageIds": [
+        "L11-0-00",
+        "L11-0-07",
+        "L14-0-01"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ0346",
+        "CQ0347",
+        "CQ0348",
+        "CQ0349",
+        "CQ0350",
+        "CQ0351",
+        "CQ0352",
+        "CQ0353",
+        "CQ1095",
+        "ALF-M16-V18-Q01",
+        "ALF-M16-V18-Q02",
+        "ALF-M16-V18-Q06"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-056",
+        "AV35-B-056"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "9.5",
+      "officialDescription": "Explain Boolean algebra and its use in digital circuitry",
+      "teachingModule": "M16",
+      "sectionId": "M16.S02",
+      "teachingPageIds": [
+        "L11-0-01",
+        "L11-0-03",
+        "L11-0-08",
+        "L11-0-05",
+        "L11-0-09",
+        "L14-0-04"
+      ],
+      "academicEnhancementPageIds": [
+        "L11-0-03"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M16-V18-Q03",
+        "ALF-M16-V18-Q04",
+        "ALF-M16-V18-Q05",
+        "ALF-M16-V18-Q07"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-057",
+        "AV35-B-057"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "13.1",
+      "officialDescription": "Identify each of the basic digital gate(s) and devices",
+      "teachingModule": "M17",
+      "sectionId": "M17.S01",
+      "teachingPageIds": [
+        "L11-0-01",
+        "L11-0-03",
+        "L11-0-08",
+        "L11-0-06"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "ALF-M17-V18-Q01"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-058",
+        "AV35-B-058"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "13.2",
+      "officialDescription": "Construct truth tables for common gates",
+      "teachingModule": "M17",
+      "sectionId": "M17.S01",
+      "teachingPageIds": [
+        "L11-0-01",
+        "L11-0-03",
+        "L11-0-08",
+        "L11-0-06"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1113",
+        "CQ1114",
+        "ALF-M17-V18-Q02"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-059",
+        "AV35-B-059"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "13.3",
+      "officialDescription": "Explain how electronic counters operate",
+      "teachingModule": "M17",
+      "sectionId": "M17.S02",
+      "teachingPageIds": [
+        "L11-0-02",
+        "L11-0-09",
+        "L11-0-04",
+        "L11-1-02",
+        "L11-1-05"
+      ],
+      "academicEnhancementPageIds": [
+        "L11-0-02"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1116",
+        "ALF-M17-V18-Q05",
+        "ALF-M17-V18-Q07"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-060",
+        "AV35-B-060"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "13.4",
+      "officialDescription": "Explain the purpose of flip-flops and list common types",
+      "teachingModule": "M17",
+      "sectionId": "M17.S02",
+      "teachingPageIds": [
+        "L11-0-02",
+        "L11-0-09",
+        "L11-0-04",
+        "L11-1-02",
+        "L11-1-05"
+      ],
+      "academicEnhancementPageIds": [
+        "L11-0-02"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1115",
+        "ALF-M17-V18-Q04"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-061",
+        "AV35-B-061"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "13.5",
+      "officialDescription": "Explain the purpose of a digital electronic circuitry bus and show how it’s connected to various sections of a product",
+      "teachingModule": "M17",
+      "sectionId": "M17.S03",
+      "teachingPageIds": [
+        "L11-1-03",
+        "L11-0-05",
+        "L15-0-04",
+        "L11-1-00",
+        "L11-1-01"
+      ],
+      "academicEnhancementPageIds": [
+        "L11-1-00"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-13-5"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "13.6",
+      "officialDescription": "List types of display circuitry and describe how numbers and letters are activated digitally",
+      "teachingModule": "M17",
+      "sectionId": "M17.S03",
+      "teachingPageIds": [
+        "L11-1-03",
+        "L11-0-05",
+        "L15-0-04",
+        "L11-1-00",
+        "L11-1-01"
+      ],
+      "academicEnhancementPageIds": [
+        "L11-1-00"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M17-V18-Q08"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "13.10",
+      "officialDescription": "Describe digital clock(s) usage and circuitry",
+      "teachingModule": "M17",
+      "sectionId": "M17.S02",
+      "teachingPageIds": [
+        "L11-0-02",
+        "L11-0-09",
+        "L11-0-04",
+        "L11-1-02",
+        "L11-1-05"
+      ],
+      "academicEnhancementPageIds": [
+        "L11-0-02"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M17-V18-Q06"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "13.11",
+      "officialDescription": "Explain voltages and logic families (TTL, CMOS)",
+      "teachingModule": "M17",
+      "sectionId": "M17.S03",
+      "teachingPageIds": [
+        "L11-1-03",
+        "L11-0-05",
+        "L15-0-04",
+        "L11-1-00",
+        "L11-1-01"
+      ],
+      "academicEnhancementPageIds": [
+        "L11-1-00"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1117",
+        "ALF-M17-V18-Q03"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "8.10",
+      "officialDescription": "List the uses and precautions for logic test probes",
+      "teachingModule": "M18",
+      "sectionId": "M18.S01",
+      "teachingPageIds": [
+        "L03-1-00",
+        "L03-1-04",
+        "L18-0-00",
+        "L18-0-01",
+        "L18-1-01",
+        "L18-1-02"
+      ],
+      "academicEnhancementPageIds": [
+        "L18-1-02"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M18-V18-Q03"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-062",
+        "AV35-B-062"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "8.11",
+      "officialDescription": "Explain how logic pulsers are used",
+      "teachingModule": "M18",
+      "sectionId": "M18.S01",
+      "teachingPageIds": [
+        "L03-1-00",
+        "L03-1-04",
+        "L18-0-00",
+        "L18-0-01",
+        "L18-1-01",
+        "L18-1-02"
+      ],
+      "academicEnhancementPageIds": [
+        "L18-1-02"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M18-V18-Q04"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-063",
+        "AV35-B-063"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "13.7",
+      "officialDescription": "Distinguish how pulsers are used for digital signal tracing",
+      "teachingModule": "M18",
+      "sectionId": "M18.S01",
+      "teachingPageIds": [
+        "L03-1-00",
+        "L03-1-04",
+        "L18-0-00",
+        "L18-0-01",
+        "L18-1-01",
+        "L18-1-02"
+      ],
+      "academicEnhancementPageIds": [
+        "L18-1-02"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M18-V18-Q05"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "13.8",
+      "officialDescription": "Describe how logic probes are used to verify states in digital equipment",
+      "teachingModule": "M18",
+      "sectionId": "M18.S01",
+      "teachingPageIds": [
+        "L03-1-00",
+        "L03-1-04",
+        "L18-0-00",
+        "L18-0-01",
+        "L18-1-01",
+        "L18-1-02"
+      ],
+      "academicEnhancementPageIds": [
+        "L18-1-02"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M18-V18-Q02",
+        "ALF-M18-V18-Q06"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "13.9",
+      "officialDescription": "Explain how to troubleshoot digital signals",
+      "teachingModule": "M18",
+      "sectionId": "M18.S02",
+      "teachingPageIds": [
+        "L13-1-00",
+        "L18-1-06",
+        "L13-1-06",
+        "L18-0-03",
+        "L18-0-05",
+        "L18-0-07"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "ALF-M18-V18-Q01",
+        "ALF-M18-V18-Q07"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-064",
+        "AV35-B-064"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "12.1",
+      "officialDescription": "List input circuit signal levels which may be expected for various common electronics products or test equipment",
+      "teachingModule": "M19",
+      "sectionId": "M19.S01",
+      "teachingPageIds": [
+        "L18-0-04",
+        "L18-0-05",
+        "L19-0-08",
+        "L17-0-08",
+        "L19-0-01"
+      ],
+      "academicEnhancementPageIds": [
+        "L18-0-05"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1110",
+        "ALF-M19-V18-Q01",
+        "ALF-M19-V18-Q02"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-065",
+        "AV35-B-065"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "12.2",
+      "officialDescription": "Explain the purposes of plugs and connectors and why it is necessary to use the proper ones per application",
+      "teachingModule": "M19",
+      "sectionId": "M19.S03",
+      "teachingPageIds": [
+        "L18-0-03",
+        "L19-0-00",
+        "L19-0-03"
+      ],
+      "academicEnhancementPageIds": [
+        "L19-0-03"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1112",
+        "ALF-M19-V18-Q07"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "12.3",
+      "officialDescription": "Explain grounding, proper and improper methods, and the results of power source mismatch",
+      "teachingModule": "M19",
+      "sectionId": "M19.S03",
+      "teachingPageIds": [
+        "L18-0-03",
+        "L19-0-00",
+        "L19-0-03"
+      ],
+      "academicEnhancementPageIds": [
+        "L19-0-03"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1111",
+        "ALF-M19-V18-Q03"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-066",
+        "AV35-B-066"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "12.4",
+      "officialDescription": "List potential signal conflict symptoms",
+      "teachingModule": "M19",
+      "sectionId": "M19.S01",
+      "teachingPageIds": [
+        "L18-0-04",
+        "L18-0-05",
+        "L19-0-08",
+        "L17-0-08",
+        "L19-0-01"
+      ],
+      "academicEnhancementPageIds": [
+        "L18-0-05"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M19-V18-Q06",
+        "ALF-M19-V18-Q08"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-067",
+        "AV35-B-067"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "12.5",
+      "officialDescription": "Describe other electronic interfacing such as USB, Zigbee, I2C (inter-integrated circuit)",
+      "teachingModule": "M19",
+      "sectionId": "M19.S02",
+      "teachingPageIds": [
+        "L17-0-07",
+        "L18-0-06",
+        "L18-0-01",
+        "L18-0-07",
+        "L17-0-01",
+        "L17-0-02"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1108",
+        "CQ1109",
+        "ALF-M19-V18-Q04",
+        "ALF-M19-V18-Q05"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-068",
+        "AV35-B-068"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "13.12",
+      "officialDescription": "Define microcontrollers and simple programming commands",
+      "teachingModule": "M20",
+      "sectionId": "M20.S03",
+      "teachingPageIds": [
+        "L16-0-03",
+        "L14-0-04",
+        "L14-0-08",
+        "L14-0-02",
+        "L14-0-07",
+        "L16-0-00"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "ALF-M20-V18-Q03"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-069",
+        "AV35-B-069"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "15.1",
+      "officialDescription": "Describe the major sections of a computer",
+      "teachingModule": "M20",
+      "sectionId": "M20.S01",
+      "teachingPageIds": [
+        "L14-0-00",
+        "L14-0-06",
+        "L14-0-03"
+      ],
+      "academicEnhancementPageIds": [
+        "L14-0-06"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [
+        "AV35-A-070",
+        "AV35-B-070"
+      ],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-15-1"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "15.2",
+      "officialDescription": "Differentiate how the computer block diagram and flow charts are utilized",
+      "teachingModule": "M20",
+      "sectionId": "M20.S01",
+      "teachingPageIds": [
+        "L14-0-00",
+        "L14-0-06",
+        "L14-0-03"
+      ],
+      "academicEnhancementPageIds": [
+        "L14-0-06"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M20-V18-Q02"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "15.3",
+      "officialDescription": "Describe the major blocks contained in a microprocessor chip and describe the purpose of each block",
+      "teachingModule": "M20",
+      "sectionId": "M20.S01",
+      "teachingPageIds": [
+        "L14-0-00",
+        "L14-0-06",
+        "L14-0-03"
+      ],
+      "academicEnhancementPageIds": [
+        "L14-0-06"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1119",
+        "ALF-M20-V18-Q01"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "15.4",
+      "officialDescription": "Describe different types of computer memory and how storage is accomplished",
+      "teachingModule": "M20",
+      "sectionId": "M20.S02",
+      "teachingPageIds": [
+        "L14-0-01",
+        "L14-0-05",
+        "L15-0-01",
+        "L15-0-04",
+        "L15-0-05"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1118",
+        "ALF-M20-V18-Q05",
+        "ALF-M20-V18-Q08"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "15.5",
+      "officialDescription": "Explain programmable logic controls (PLCs) and list usages",
+      "teachingModule": "M20",
+      "sectionId": "M20.S03",
+      "teachingPageIds": [
+        "L16-0-03",
+        "L14-0-04",
+        "L14-0-08",
+        "L14-0-02",
+        "L14-0-07",
+        "L16-0-00"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1121",
+        "ALF-M20-V18-Q04"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-071",
+        "AV35-B-071"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "15.6",
+      "officialDescription": "Describe basic programming concepts",
+      "teachingModule": "M20",
+      "sectionId": "M20.S03",
+      "teachingPageIds": [
+        "L16-0-03",
+        "L14-0-04",
+        "L14-0-08",
+        "L14-0-02",
+        "L14-0-07",
+        "L16-0-00"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1122",
+        "ALF-M20-V18-Q09"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "15.7",
+      "officialDescription": "Describe the reasons for different computer languages and their relationships",
+      "teachingModule": "M20",
+      "sectionId": "M20.S01",
+      "teachingPageIds": [
+        "L14-0-00",
+        "L14-0-06",
+        "L14-0-03"
+      ],
+      "academicEnhancementPageIds": [
+        "L14-0-06"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M20-V18-Q06"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "15.8",
+      "officialDescription": "Define a ‘peripheral’ and list various types",
+      "teachingModule": "M20",
+      "sectionId": "M20.S02",
+      "teachingPageIds": [
+        "L14-0-01",
+        "L14-0-05",
+        "L15-0-01",
+        "L15-0-04",
+        "L15-0-05"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1120"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "15.9",
+      "officialDescription": "Explain the reasons for using interface devices/chips/cards and name common types",
+      "teachingModule": "M20",
+      "sectionId": "M20.S02",
+      "teachingPageIds": [
+        "L14-0-01",
+        "L14-0-05",
+        "L15-0-01",
+        "L15-0-04",
+        "L15-0-05"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "ALF-M20-V18-Q07"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "16.1",
+      "officialDescription": "Explain knowledge of basic computer operation",
+      "teachingModule": "M21",
+      "sectionId": "M21.S01",
+      "teachingPageIds": [
+        "L17-0-03",
+        "L17-0-04",
+        "L27-0-03",
+        "L14-0-00",
+        "L14-0-03",
+        "L14-0-05",
+        "L14-0-06",
+        "L14-0-08",
+        "L27-0-05"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "ALF-M21-V19-Q04"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "16.2",
+      "officialDescription": "Explain steps in installation/set up of a computer",
+      "teachingModule": "M21",
+      "sectionId": "M21.S01",
+      "teachingPageIds": [
+        "L17-0-03",
+        "L17-0-04",
+        "L27-0-03",
+        "L14-0-00",
+        "L14-0-03",
+        "L14-0-05",
+        "L14-0-06",
+        "L14-0-08",
+        "L27-0-05"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "ALF-M21-V19-Q01"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "16.3",
+      "officialDescription": "Explain the reasons and choices used in configuring a computer",
+      "teachingModule": "M21",
+      "sectionId": "M21.S01",
+      "teachingPageIds": [
+        "L17-0-03",
+        "L17-0-04",
+        "L27-0-03",
+        "L14-0-00",
+        "L14-0-03",
+        "L14-0-05",
+        "L14-0-06",
+        "L14-0-08",
+        "L27-0-05"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1125",
+        "ALF-M21-V19-Q07"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "16.4",
+      "officialDescription": "Describe proper loading and storage of common programs and applications",
+      "teachingModule": "M21",
+      "sectionId": "M21.S01",
+      "teachingPageIds": [
+        "L17-0-03",
+        "L17-0-04",
+        "L27-0-03",
+        "L14-0-00",
+        "L14-0-03",
+        "L14-0-05",
+        "L14-0-06",
+        "L14-0-08",
+        "L27-0-05"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "ALF-M21-V19-Q02"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "16.5",
+      "officialDescription": "Explain basic common utilities software and list reasons for their use",
+      "teachingModule": "M21",
+      "sectionId": "M21.S01",
+      "teachingPageIds": [
+        "L17-0-03",
+        "L17-0-04",
+        "L27-0-03",
+        "L14-0-00",
+        "L14-0-03",
+        "L14-0-05",
+        "L14-0-06",
+        "L14-0-08",
+        "L27-0-05"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "ALF-M21-V19-Q06"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "16.6",
+      "officialDescription": "List ways to backup data and the vital importance of doing so",
+      "teachingModule": "M21",
+      "sectionId": "M21.S02",
+      "teachingPageIds": [
+        "L17-0-05",
+        "L17-0-08"
+      ],
+      "academicEnhancementPageIds": [
+        "L17-0-05"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1123",
+        "ALF-M21-V19-Q03"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-072",
+        "AV35-B-072"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "16.7",
+      "officialDescription": "Explain the causes of line surges and viruses and protection procedures against each",
+      "teachingModule": "M21",
+      "sectionId": "M21.S02",
+      "teachingPageIds": [
+        "L17-0-05",
+        "L17-0-08"
+      ],
+      "academicEnhancementPageIds": [
+        "L17-0-05"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1127"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-073",
+        "AV35-B-073"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "16.8",
+      "officialDescription": "Explain how to access the Internet, cybersecurity best practices and common applications",
+      "teachingModule": "M21",
+      "sectionId": "M21.S03",
+      "teachingPageIds": [
+        "L17-0-02",
+        "L27-0-00"
+      ],
+      "academicEnhancementPageIds": [
+        "L17-0-02"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1124"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "16.9",
+      "officialDescription": "Describe how to download a service or application, data or software",
+      "teachingModule": "M21",
+      "sectionId": "M21.S03",
+      "teachingPageIds": [
+        "L17-0-02",
+        "L27-0-00"
+      ],
+      "academicEnhancementPageIds": [
+        "L17-0-02"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [
+        "AV35-A-074",
+        "AV35-B-074"
+      ],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-16-9"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "16.10",
+      "officialDescription": "Explain the differences between an individual stand-alone computer and basic networking",
+      "teachingModule": "M21",
+      "sectionId": "M21.S03",
+      "teachingPageIds": [
+        "L17-0-02",
+        "L27-0-00"
+      ],
+      "academicEnhancementPageIds": [
+        "L17-0-02"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1126",
+        "ALF-M21-V19-Q05"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-075",
+        "AV35-B-075"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "7.1",
+      "officialDescription": "List wire types and construction",
+      "teachingModule": "M22",
+      "sectionId": "M22.S01",
+      "teachingPageIds": [
+        "L19-0-03",
+        "L19-0-04",
+        "L19-0-00",
+        "L19-0-01"
+      ],
+      "academicEnhancementPageIds": [
+        "L19-0-04"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-7-1"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "7.2",
+      "officialDescription": "List wire gauges used for various purposes",
+      "teachingModule": "M22",
+      "sectionId": "M22.S01",
+      "teachingPageIds": [
+        "L19-0-03",
+        "L19-0-04",
+        "L19-0-00",
+        "L19-0-01"
+      ],
+      "academicEnhancementPageIds": [
+        "L19-0-04"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1083",
+        "ALF-M22-V19-Q01"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "7.3",
+      "officialDescription": "Explain construction of coaxial cable and the impedance characteristics",
+      "teachingModule": "M22",
+      "sectionId": "M22.S01",
+      "teachingPageIds": [
+        "L19-0-03",
+        "L19-0-04",
+        "L19-0-00",
+        "L19-0-01"
+      ],
+      "academicEnhancementPageIds": [
+        "L19-0-04"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1084",
+        "ALF-M22-V19-Q02"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-076",
+        "AV35-B-076"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "7.4",
+      "officialDescription": "List common identifications for copper cables in standards, such as #18 and #24 diameter in the American Wire Gauge (AWG) and UTP cable in ANSI/TIA 568",
+      "teachingModule": "M22",
+      "sectionId": "M22.S01",
+      "teachingPageIds": [
+        "L19-0-03",
+        "L19-0-04",
+        "L19-0-00",
+        "L19-0-01"
+      ],
+      "academicEnhancementPageIds": [
+        "L19-0-04"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-7-4"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "7.5",
+      "officialDescription": "Explain major differences between copper, coaxial and fiber optic cables",
+      "teachingModule": "M22",
+      "sectionId": "M22.S01",
+      "teachingPageIds": [
+        "L19-0-03",
+        "L19-0-04",
+        "L19-0-00",
+        "L19-0-01"
+      ],
+      "academicEnhancementPageIds": [
+        "L19-0-04"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1086"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "7.6",
+      "officialDescription": "Describe impedance and its causes:",
+      "teachingModule": "M22",
+      "sectionId": "M22.S02",
+      "teachingPageIds": [
+        "L19-0-13",
+        "L19-1-03",
+        "L19-0-08",
+        "L19-0-12"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-7-6"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "7.6.1",
+      "officialDescription": "Explain reasons for maintaining a cable’s characteristics",
+      "teachingModule": "M22",
+      "sectionId": "M22.S02",
+      "teachingPageIds": [
+        "L19-0-13",
+        "L19-1-03",
+        "L19-0-08",
+        "L19-0-12"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "ALF-M22-V19-Q05"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-077",
+        "AV35-B-077"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "7.7",
+      "officialDescription": "Explain the effects of proper and improper termination",
+      "teachingModule": "M22",
+      "sectionId": "M22.S02",
+      "teachingPageIds": [
+        "L19-0-13",
+        "L19-1-03",
+        "L19-0-08",
+        "L19-0-12"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1085",
+        "ALF-M22-V19-Q06"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "7.8",
+      "officialDescription": "Explain the purposes and types of cabling grounding (bonding) and common conventions used in electrical / electronic work",
+      "teachingModule": "M22",
+      "sectionId": "M22.S02",
+      "teachingPageIds": [
+        "L19-0-13",
+        "L19-1-03",
+        "L19-0-08",
+        "L19-0-12"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-7-8"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "7.9",
+      "officialDescription": "Describe splicing knowledge and ability of coaxial and copper cable",
+      "teachingModule": "M22",
+      "sectionId": "M22.S03",
+      "teachingPageIds": [
+        "L19-1-04",
+        "L19-0-05",
+        "L19-0-06",
+        "L19-1-00",
+        "L19-0-02",
+        "L19-1-05"
+      ],
+      "academicEnhancementPageIds": [
+        "L19-0-06"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-7-9"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "7.9.1",
+      "officialDescription": "Explain types of fiber splices",
+      "teachingModule": "M22",
+      "sectionId": "M22.S03",
+      "teachingPageIds": [
+        "L19-1-04",
+        "L19-0-05",
+        "L19-0-06",
+        "L19-1-00",
+        "L19-0-02",
+        "L19-1-05"
+      ],
+      "academicEnhancementPageIds": [
+        "L19-0-06"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [
+        "AV35-A-078",
+        "AV35-B-078"
+      ],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-7-9-1"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "7.10",
+      "officialDescription": "Briefly explain testing methods for all three types of cables and compare decibel (dB) loss measurements and techniques",
+      "teachingModule": "M22",
+      "sectionId": "M22.S03",
+      "teachingPageIds": [
+        "L19-1-04",
+        "L19-0-05",
+        "L19-0-06",
+        "L19-1-00",
+        "L19-0-02",
+        "L19-1-05"
+      ],
+      "academicEnhancementPageIds": [
+        "L19-0-06"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M22-V19-Q04",
+        "ALF-M22-V19-Q08"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-079",
+        "AV35-B-079"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "7.11",
+      "officialDescription": "Compare the fittings and connectors used in cabling and list potential defects a technician may encounter",
+      "teachingModule": "M22",
+      "sectionId": "M22.S03",
+      "teachingPageIds": [
+        "L19-1-04",
+        "L19-0-05",
+        "L19-0-06",
+        "L19-1-00",
+        "L19-0-02",
+        "L19-1-05"
+      ],
+      "academicEnhancementPageIds": [
+        "L19-0-06"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M22-V19-Q07"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "7.12",
+      "officialDescription": "Describe proper crimping of communications wiring connectors",
+      "teachingModule": "M22",
+      "sectionId": "M22.S03",
+      "teachingPageIds": [
+        "L19-1-04",
+        "L19-0-05",
+        "L19-0-06",
+        "L19-1-00",
+        "L19-0-02",
+        "L19-1-05"
+      ],
+      "academicEnhancementPageIds": [
+        "L19-0-06"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1087",
+        "ALF-M22-V19-Q03"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "7.13",
+      "officialDescription": "Explain how cable prep tools are used and demonstrate proper and improper crimp applications",
+      "teachingModule": "M22",
+      "sectionId": "M22.S03",
+      "teachingPageIds": [
+        "L19-1-04",
+        "L19-0-05",
+        "L19-0-06",
+        "L19-1-00",
+        "L19-0-02",
+        "L19-1-05"
+      ],
+      "academicEnhancementPageIds": [
+        "L19-0-06"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-7-13"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "8.5",
+      "officialDescription": "List the purposes and types of signal generators",
+      "teachingModule": "M23",
+      "sectionId": "M23.S01",
+      "teachingPageIds": [
+        "L03-0-02",
+        "L03-0-06",
+        "L03-0-04",
+        "L03-0-03",
+        "L03-0-05",
+        "L03-0-10",
+        "L13-0-01",
+        "L13-0-02",
+        "L13-0-04",
+        "L13-0-05"
+      ],
+      "academicEnhancementPageIds": [
+        "L03-0-03"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [
+        "AV35-A-080",
+        "AV35-B-080"
+      ],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-8-5"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "8.7",
+      "officialDescription": "Explain the purposes of frequency counters and list their limitations",
+      "teachingModule": "M23",
+      "sectionId": "M23.S01",
+      "teachingPageIds": [
+        "L03-0-02",
+        "L03-0-06",
+        "L03-0-04",
+        "L03-0-03",
+        "L03-0-05",
+        "L03-0-10",
+        "L13-0-01",
+        "L13-0-02",
+        "L13-0-04",
+        "L13-0-05"
+      ],
+      "academicEnhancementPageIds": [
+        "L03-0-03"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M23-V19-Q02",
+        "ALF-M23-V19-Q03"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "8.8",
+      "officialDescription": "Explain what R-C-L substitution equipment is and its purposes",
+      "teachingModule": "M23",
+      "sectionId": "M23.S02",
+      "teachingPageIds": [
+        "L03-0-08"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-8-8"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "8.9",
+      "officialDescription": "Explain ESR (Equivalent Series Resistance) capacitance measurement equipment",
+      "teachingModule": "M23",
+      "sectionId": "M23.S02",
+      "teachingPageIds": [
+        "L03-0-08"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [
+        "AV35-A-081",
+        "AV35-B-081"
+      ],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-8-9"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "8.13",
+      "officialDescription": "Describe spectrum analyzer uses and operation",
+      "teachingModule": "M23",
+      "sectionId": "M23.S03",
+      "teachingPageIds": [
+        "L03-0-07",
+        "L20-0-04",
+        "L20-0-06"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1091",
+        "ALF-M23-V19-Q01",
+        "ALF-M23-V19-Q06",
+        "ALF-M23-V19-Q07"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-082",
+        "AV35-B-082"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "8.14",
+      "officialDescription": "Define dummy load; show where and why used",
+      "teachingModule": "M23",
+      "sectionId": "M23.S03",
+      "teachingPageIds": [
+        "L03-0-07",
+        "L20-0-04",
+        "L20-0-06"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1092",
+        "ALF-M23-V19-Q04"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "8.15",
+      "officialDescription": "Explain reasons for using rheostats, isolation transformers and variacs and why size matters",
+      "teachingModule": "M23",
+      "sectionId": "M23.S03",
+      "teachingPageIds": [
+        "L03-0-07",
+        "L20-0-04",
+        "L20-0-06"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "ALF-M23-V19-Q05"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "17.1",
+      "officialDescription": "Explain major components of the most common home entertainment products",
+      "teachingModule": "M24",
+      "sectionId": "M24.S01",
+      "teachingPageIds": [
+        "L19-0-01",
+        "L19-0-04",
+        "L19-0-09"
+      ],
+      "academicEnhancementPageIds": [
+        "L19-0-01"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M24-V19-Q01",
+        "ALF-M24-V19-Q06"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "17.2",
+      "officialDescription": "Describe microphone technology usage",
+      "teachingModule": "M24",
+      "sectionId": "M24.S02",
+      "teachingPageIds": [
+        "L19-0-07",
+        "L19-0-14"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1128",
+        "ALF-M24-V19-Q02"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-083",
+        "AV35-B-083"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "17.3",
+      "officialDescription": "Explain speaker construction and precautions",
+      "teachingModule": "M24",
+      "sectionId": "M24.S02",
+      "teachingPageIds": [
+        "L19-0-07",
+        "L19-0-14"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1129",
+        "ALF-M24-V19-Q07"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-084",
+        "AV35-B-084"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "17.4",
+      "officialDescription": "Explain basic recording and playback technology",
+      "teachingModule": "M24",
+      "sectionId": "M24.S02",
+      "teachingPageIds": [
+        "L19-0-07",
+        "L19-0-14"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [
+        "AV35-A-085",
+        "AV35-B-085"
+      ],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-17-4"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "17.5",
+      "officialDescription": "Explain how alarm-security systems may be interfaced with entertainment/information products",
+      "teachingModule": "M24",
+      "sectionId": "M24.S01",
+      "teachingPageIds": [
+        "L19-0-01",
+        "L19-0-04",
+        "L19-0-09"
+      ],
+      "academicEnhancementPageIds": [
+        "L19-0-01"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-17-5"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "17.6",
+      "officialDescription": "Differentiate between good quality sound output and distorted sound, then the electronic/acoustical reasons for each",
+      "teachingModule": "M24",
+      "sectionId": "M24.S03",
+      "teachingPageIds": [
+        "L19-0-08",
+        "L10-0-06",
+        "L10-0-07",
+        "L20-0-05"
+      ],
+      "academicEnhancementPageIds": [
+        "L10-0-06"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1130",
+        "ALF-M24-V19-Q04"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "17.7",
+      "officialDescription": "Explain how signals may conflict and the symptoms that conflict may produce",
+      "teachingModule": "M24",
+      "sectionId": "M24.S03",
+      "teachingPageIds": [
+        "L19-0-08",
+        "L10-0-06",
+        "L10-0-07",
+        "L20-0-05"
+      ],
+      "academicEnhancementPageIds": [
+        "L10-0-06"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M24-V19-Q03"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "17.8",
+      "officialDescription": "Explain how to isolate faults/glitches between discrete equipment units",
+      "teachingModule": "M24",
+      "sectionId": "M24.S03",
+      "teachingPageIds": [
+        "L19-0-08",
+        "L10-0-06",
+        "L10-0-07",
+        "L20-0-05"
+      ],
+      "academicEnhancementPageIds": [
+        "L10-0-06"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1131"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "17.9",
+      "officialDescription": "List anticipated signal or voltage levels for output circuits in audio and video equipment",
+      "teachingModule": "M24",
+      "sectionId": "M24.S01",
+      "teachingPageIds": [
+        "L19-0-01",
+        "L19-0-04",
+        "L19-0-09"
+      ],
+      "academicEnhancementPageIds": [
+        "L19-0-01"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1132",
+        "ALF-M24-V19-Q05"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "18.1",
+      "officialDescription": "List common electronics display devices",
+      "teachingModule": "M25",
+      "sectionId": "M25.S01",
+      "teachingPageIds": [
+        "L19-0-14",
+        "L19-0-09"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-18-1"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "18.1.1",
+      "officialDescription": "Explain how displays operate, their advantages and disadvantages",
+      "teachingModule": "M25",
+      "sectionId": "M25.S01",
+      "teachingPageIds": [
+        "L19-0-14",
+        "L19-0-09"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "ALF-M25-V19-Q02"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-086",
+        "AV35-B-086"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "18.2",
+      "officialDescription": "List common optical devices as to type and applications:",
+      "teachingModule": "M25",
+      "sectionId": "M25.S01",
+      "teachingPageIds": [
+        "L19-0-14",
+        "L19-0-09"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-18-2"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "18.2.1",
+      "officialDescription": "Describe operation and application of component LEDs and Seven-Segment displays",
+      "teachingModule": "M25",
+      "sectionId": "M25.S01",
+      "teachingPageIds": [
+        "L19-0-14",
+        "L19-0-09"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1137",
+        "ALF-M25-V19-Q01"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "18.2.2",
+      "officialDescription": "Describe operation and application of LCDs and OLEDs, other display types",
+      "teachingModule": "M25",
+      "sectionId": "M25.S01",
+      "teachingPageIds": [
+        "L19-0-14",
+        "L19-0-09"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1135"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "18.3",
+      "officialDescription": "Describe how photo-electronic components operate:",
+      "teachingModule": "M25",
+      "sectionId": "M25.S02",
+      "teachingPageIds": [
+        "L19-0-10",
+        "L19-0-12"
+      ],
+      "academicEnhancementPageIds": [
+        "L19-0-10"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M25-V19-Q03"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "18.3.1",
+      "officialDescription": "Explain how photovoltaic cells are activated",
+      "teachingModule": "M25",
+      "sectionId": "M25.S02",
+      "teachingPageIds": [
+        "L19-0-10",
+        "L19-0-12"
+      ],
+      "academicEnhancementPageIds": [
+        "L19-0-10"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1134"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-087",
+        "AV35-B-087"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "18.3.2",
+      "officialDescription": "Identify materials from which these devices are made",
+      "teachingModule": "M25",
+      "sectionId": "M25.S02",
+      "teachingPageIds": [
+        "L19-0-10",
+        "L19-0-12"
+      ],
+      "academicEnhancementPageIds": [
+        "L19-0-10"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-18-3-2"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "18.4",
+      "officialDescription": "Explain the basics of electronic cameras and sensors",
+      "teachingModule": "M25",
+      "sectionId": "M25.S02",
+      "teachingPageIds": [
+        "L19-0-10",
+        "L19-0-12"
+      ],
+      "academicEnhancementPageIds": [
+        "L19-0-10"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [
+        "AV35-A-088",
+        "AV35-B-088"
+      ],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-18-4"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "18.5",
+      "officialDescription": "Explain why opto-isolators are used",
+      "teachingModule": "M25",
+      "sectionId": "M25.S03",
+      "teachingPageIds": [
+        "L19-0-02",
+        "L19-0-11",
+        "L19-0-04",
+        "L19-0-07",
+        "L19-0-13"
+      ],
+      "academicEnhancementPageIds": [
+        "L19-0-11"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1133",
+        "ALF-M25-V19-Q05"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-089",
+        "AV35-B-089"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "18.5.1",
+      "officialDescription": "List some locations or circuits in which opto-isolators are used",
+      "teachingModule": "M25",
+      "sectionId": "M25.S03",
+      "teachingPageIds": [
+        "L19-0-02",
+        "L19-0-11",
+        "L19-0-04",
+        "L19-0-07",
+        "L19-0-13"
+      ],
+      "academicEnhancementPageIds": [
+        "L19-0-11"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-18-5-1"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "18.6",
+      "officialDescription": "List uses for light activated controls and how photo devices are incorporated",
+      "teachingModule": "M25",
+      "sectionId": "M25.S02",
+      "teachingPageIds": [
+        "L19-0-10",
+        "L19-0-12"
+      ],
+      "academicEnhancementPageIds": [
+        "L19-0-10"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M25-V19-Q06"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "18.6.1",
+      "officialDescription": "Identify symbols for photo-resistors, photodiodes and photo-transistors",
+      "teachingModule": "M25",
+      "sectionId": "M25.S02",
+      "teachingPageIds": [
+        "L19-0-10",
+        "L19-0-12"
+      ],
+      "academicEnhancementPageIds": [
+        "L19-0-10"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1136"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "18.7",
+      "officialDescription": "Describe how broadband signal RF and optical links are used",
+      "teachingModule": "M25",
+      "sectionId": "M25.S03",
+      "teachingPageIds": [
+        "L19-0-02",
+        "L19-0-11",
+        "L19-0-04",
+        "L19-0-07",
+        "L19-0-13"
+      ],
+      "academicEnhancementPageIds": [
+        "L19-0-11"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M25-V19-Q04",
+        "ALF-M25-V19-Q07"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "9.3",
+      "officialDescription": "Explain how to calculate wavelength, frequency and power values",
+      "teachingModule": "M26",
+      "sectionId": "M26.S01",
+      "teachingPageIds": [
+        "L20-0-09",
+        "L06-0-00",
+        "L06-0-03",
+        "L20-0-00",
+        "L20-0-03"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ0341",
+        "CQ0342",
+        "CQ0343",
+        "CQ0344",
+        "CQ0345"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-090",
+        "AV35-B-090"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "19.1",
+      "officialDescription": "Explain basic wave propagation and its importance to wireless communications",
+      "teachingModule": "M26",
+      "sectionId": "M26.S01",
+      "teachingPageIds": [
+        "L20-0-09",
+        "L06-0-00",
+        "L06-0-03",
+        "L20-0-00",
+        "L20-0-03"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "ALF-M26-V20-Q01",
+        "ALF-M26-V20-Q07"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "19.2",
+      "officialDescription": "Describe the basic theory of how antennas work",
+      "teachingModule": "M26",
+      "sectionId": "M26.S02",
+      "teachingPageIds": [
+        "L20-0-04",
+        "L20-0-10",
+        "L06-0-01",
+        "L06-0-02",
+        "L06-0-05"
+      ],
+      "academicEnhancementPageIds": [
+        "L06-0-05"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-19-2"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "19.2.1",
+      "officialDescription": "List the types of transmission lines (feedline) used between antennas and RF equipment",
+      "teachingModule": "M26",
+      "sectionId": "M26.S02",
+      "teachingPageIds": [
+        "L20-0-04",
+        "L20-0-10",
+        "L06-0-01",
+        "L06-0-02",
+        "L06-0-05"
+      ],
+      "academicEnhancementPageIds": [
+        "L06-0-05"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-19-2-1"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "19.3",
+      "officialDescription": "Define polarization, electromagnetic and electro-static fields and their relationships to each other",
+      "teachingModule": "M26",
+      "sectionId": "M26.S01",
+      "teachingPageIds": [
+        "L20-0-09",
+        "L06-0-00",
+        "L06-0-03",
+        "L20-0-00",
+        "L20-0-03"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1142",
+        "ALF-M26-V20-Q06"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "19.4",
+      "officialDescription": "Differentiate between the signals/signaling of AM, FM radio/TV, LMR including CDMA, GSM, LTE, 5G (i.e., modulation)",
+      "teachingModule": "M26",
+      "sectionId": "M26.S03",
+      "teachingPageIds": [
+        "L20-0-01",
+        "L20-0-05",
+        "L20-0-11",
+        "L20-1-05"
+      ],
+      "academicEnhancementPageIds": [
+        "L20-0-05",
+        "L20-0-11"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1138"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "19.5",
+      "officialDescription": "Differentiate usage of communications radios and commercial broadcast receivers",
+      "teachingModule": "M26",
+      "sectionId": "M26.S03",
+      "teachingPageIds": [
+        "L20-0-01",
+        "L20-0-05",
+        "L20-0-11",
+        "L20-1-05"
+      ],
+      "academicEnhancementPageIds": [
+        "L20-0-05",
+        "L20-0-11"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M26-V20-Q08"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "19.6",
+      "officialDescription": "Describe the major radio receiver circuitry sections",
+      "teachingModule": "M26",
+      "sectionId": "M26.S03",
+      "teachingPageIds": [
+        "L20-0-01",
+        "L20-0-05",
+        "L20-0-11",
+        "L20-1-05"
+      ],
+      "academicEnhancementPageIds": [
+        "L20-0-05",
+        "L20-0-11"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1139",
+        "ALF-M26-V20-Q02",
+        "ALF-M26-V20-Q05"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-091",
+        "AV35-B-091"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "19.7",
+      "officialDescription": "List common frequency bands (spectrum)",
+      "teachingModule": "M26",
+      "sectionId": "M26.S03",
+      "teachingPageIds": [
+        "L20-0-01",
+        "L20-0-05",
+        "L20-0-11",
+        "L20-1-05"
+      ],
+      "academicEnhancementPageIds": [
+        "L20-0-05",
+        "L20-0-11"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-19-7"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "19.8",
+      "officialDescription": "Explain radio circuit tuning and adjustments",
+      "teachingModule": "M26",
+      "sectionId": "M26.S03",
+      "teachingPageIds": [
+        "L20-0-01",
+        "L20-0-05",
+        "L20-0-11",
+        "L20-1-05"
+      ],
+      "academicEnhancementPageIds": [
+        "L20-0-05",
+        "L20-0-11"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M26-V20-Q03"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "19.9",
+      "officialDescription": "Explain Standing Wave Ratios (SWR) and measuring voltage standing wave ratios (VSWR)",
+      "teachingModule": "M26",
+      "sectionId": "M26.S02",
+      "teachingPageIds": [
+        "L20-0-04",
+        "L20-0-10",
+        "L06-0-01",
+        "L06-0-02",
+        "L06-0-05"
+      ],
+      "academicEnhancementPageIds": [
+        "L06-0-05"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1141",
+        "ALF-M26-V20-Q04"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-092",
+        "AV35-B-092"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "19.10",
+      "officialDescription": "Explain the relationships between frequency and wavelength",
+      "teachingModule": "M26",
+      "sectionId": "M26.S01",
+      "teachingPageIds": [
+        "L20-0-09",
+        "L06-0-00",
+        "L06-0-03",
+        "L20-0-00",
+        "L20-0-03"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1140"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "19.11",
+      "officialDescription": "Explain the importance of impedance matching; list causes of mismatches",
+      "teachingModule": "M26",
+      "sectionId": "M26.S02",
+      "teachingPageIds": [
+        "L20-0-04",
+        "L20-0-10",
+        "L06-0-01",
+        "L06-0-02",
+        "L06-0-05"
+      ],
+      "academicEnhancementPageIds": [
+        "L06-0-05"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-19-11"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "20.1",
+      "officialDescription": "Describe major types of two-way radio communications (avionics, land mobile, maritime, etc.)",
+      "teachingModule": "M27",
+      "sectionId": "M27.S01",
+      "teachingPageIds": [
+        "L20-0-02",
+        "L20-0-01",
+        "L20-0-05",
+        "L20-0-11",
+        "L20-0-07"
+      ],
+      "academicEnhancementPageIds": [
+        "L20-0-07"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1147",
+        "ALF-M27-V20-Q01"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-093",
+        "AV35-B-093"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "20.2",
+      "officialDescription": "Describe wireless telephone/video/data technology basics, list applicable ANSI/TIA standard",
+      "teachingModule": "M27",
+      "sectionId": "M27.S02",
+      "teachingPageIds": [
+        "L20-0-08",
+        "L20-0-10",
+        "L20-0-12"
+      ],
+      "academicEnhancementPageIds": [
+        "L20-0-08"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1146",
+        "ALF-M27-V20-Q02",
+        "ALF-M27-V20-Q04"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-094",
+        "AV35-B-094"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "20.3",
+      "officialDescription": "Describe satellite communications principles",
+      "teachingModule": "M27",
+      "sectionId": "M27.S02",
+      "teachingPageIds": [
+        "L20-0-08",
+        "L20-0-10",
+        "L20-0-12"
+      ],
+      "academicEnhancementPageIds": [
+        "L20-0-08"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1144",
+        "ALF-M27-V20-Q03"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-095",
+        "AV35-B-095"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "20.4",
+      "officialDescription": "Describe wired data and voice communications network technology",
+      "teachingModule": "M27",
+      "sectionId": "M27.S03",
+      "teachingPageIds": [
+        "L19-0-02",
+        "L19-0-03",
+        "L20-0-04"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1145",
+        "ALF-M27-V20-Q05"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "20.5",
+      "officialDescription": "Describe a basic telephone (POTS) circuit with the common wiring and splicing conventions",
+      "teachingModule": "M27",
+      "sectionId": "M27.S03",
+      "teachingPageIds": [
+        "L19-0-02",
+        "L19-0-03",
+        "L20-0-04"
+      ],
+      "academicEnhancementPageIds": [],
+      "olderScoredQuestionIds": [
+        "CQ1143",
+        "ALF-M27-V20-Q06"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-096",
+        "AV35-B-096"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "21.1",
+      "officialDescription": "Explain major invoice and billing concepts for service businesses",
+      "teachingModule": "M28",
+      "sectionId": "M28.S02",
+      "teachingPageIds": [
+        "L22-0-00",
+        "L28-0-03",
+        "L28-0-07"
+      ],
+      "academicEnhancementPageIds": [
+        "L28-0-03"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M28-V20-Q01"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-097",
+        "AV35-B-097"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "21.2",
+      "officialDescription": "Describe ways to procure service literature",
+      "teachingModule": "M28",
+      "sectionId": "M28.S01",
+      "teachingPageIds": [
+        "L28-0-04",
+        "L20-1-02",
+        "L20-1-03",
+        "L28-0-02"
+      ],
+      "academicEnhancementPageIds": [
+        "L28-0-04",
+        "L28-0-02"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1149",
+        "ALF-M28-V20-Q02"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "21.3",
+      "officialDescription": "Describe locations/cross referencing of parts and products",
+      "teachingModule": "M28",
+      "sectionId": "M28.S02",
+      "teachingPageIds": [
+        "L22-0-00",
+        "L28-0-03",
+        "L28-0-07"
+      ],
+      "academicEnhancementPageIds": [
+        "L28-0-03"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M28-V20-Q03"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "21.4",
+      "officialDescription": "Explain the purposes and requirements for proper record keeping, report generation",
+      "teachingModule": "M28",
+      "sectionId": "M28.S01",
+      "teachingPageIds": [
+        "L28-0-04",
+        "L20-1-02",
+        "L20-1-03",
+        "L28-0-02"
+      ],
+      "academicEnhancementPageIds": [
+        "L28-0-04",
+        "L28-0-02"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1148",
+        "ALF-M28-V20-Q04"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-098",
+        "AV35-B-098"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "21.5",
+      "officialDescription": "Explain how to calculate individual and department productivity for a specific period",
+      "teachingModule": "M28",
+      "sectionId": "M28.S02",
+      "teachingPageIds": [
+        "L22-0-00",
+        "L28-0-03",
+        "L28-0-07"
+      ],
+      "academicEnhancementPageIds": [
+        "L28-0-03"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1151",
+        "ALF-M28-V20-Q05"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "21.6",
+      "officialDescription": "Describe contacting product maker help desks and service departments",
+      "teachingModule": "M28",
+      "sectionId": "M28.S01",
+      "teachingPageIds": [
+        "L28-0-04",
+        "L20-1-02",
+        "L20-1-03",
+        "L28-0-02"
+      ],
+      "academicEnhancementPageIds": [
+        "L28-0-04",
+        "L28-0-02"
+      ],
+      "olderScoredQuestionIds": [],
+      "freshExamQuestionIds": [
+        "AV35-A-099",
+        "AV35-B-099"
+      ],
+      "diagnosticQuestionIds": [
+        "ALFRED-V3-OBJ-21-6"
+      ],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "21.7",
+      "officialDescription": "Explain estimate concepts for service work including test planning",
+      "teachingModule": "M28",
+      "sectionId": "M28.S02",
+      "teachingPageIds": [
+        "L22-0-00",
+        "L28-0-03",
+        "L28-0-07"
+      ],
+      "academicEnhancementPageIds": [
+        "L28-0-03"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1150"
+      ],
+      "freshExamQuestionIds": [
+        "AV35-A-100",
+        "AV35-B-100"
+      ],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "21.8",
+      "officialDescription": "Describe field technician work procedures that may differ from in-shop routines",
+      "teachingModule": "M28",
+      "sectionId": "M28.S03",
+      "teachingPageIds": [
+        "L28-0-05",
+        "L28-0-06",
+        "L22-0-02",
+        "L22-0-06",
+        "L28-1-00",
+        "L28-0-08"
+      ],
+      "academicEnhancementPageIds": [
+        "L28-0-05"
+      ],
+      "olderScoredQuestionIds": [
+        "ALF-M28-V20-Q06"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    },
+    {
+      "objectiveId": "21.9",
+      "officialDescription": "Explain project management and list steps to follow to achieve maximum results",
+      "teachingModule": "M28",
+      "sectionId": "M28.S03",
+      "teachingPageIds": [
+        "L28-0-05",
+        "L28-0-06",
+        "L22-0-02",
+        "L22-0-06",
+        "L28-1-00",
+        "L28-0-08"
+      ],
+      "academicEnhancementPageIds": [
+        "L28-0-05"
+      ],
+      "olderScoredQuestionIds": [
+        "CQ1152",
+        "ALF-M28-V20-Q07"
+      ],
+      "freshExamQuestionIds": [],
+      "diagnosticQuestionIds": [],
+      "verificationState": "SECTION_AND_QUESTION_TAGS_ONLY__TECHNICAL_AUDIT_PENDING",
+      "v43AddedScoredQuestionIds": [],
+      "v43TeachingReinforcementPageIds": []
+    }
+  ],
+  "v43NewQuestionEvidence": 16,
+  "v43ObjectiveStatusExceptions": [
+    "2.5.1: Official directive to review EM5 competency document, not a discrete new score item."
+  ],
+  "v43UncoveredObjectiveIds": [
+    "2.5.1",
+    "3.6",
+    "10.2",
+    "10.3",
+    "10.4.3",
+    "10.6",
+    "10.8",
+    "11.1",
+    "11.3.1",
+    "11.3.2",
+    "11.5",
+    "11.8.1",
+    "5.6",
+    "5.8",
+    "5.9",
+    "13.5",
+    "7.1",
+    "7.4",
+    "7.6",
+    "7.8",
+    "7.9",
+    "7.13",
+    "8.8",
+    "17.5",
+    "18.1",
+    "18.2",
+    "18.3.2",
+    "18.5.1",
+    "19.2",
+    "19.2.1",
+    "19.7",
+    "19.11"
+  ]
+}
