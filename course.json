@@ -1,5 +1,5 @@
 {
-  "release": "Alfred v4.8 · substantive remediation and duplicate normalization · 2026-10-24",
+  "release": "Alfred v4.9 · targeted competency-anchor and transfer accuracy repairs",
   "basis": "Current repository baseline v16.3.91 H1",
   "officialStudyGuide": "Associate CET Study Guide, Sixth Edition; user-provided; not redistributed in public deploy ZIP",
   "officialPrintedPages": 224,
@@ -810,6 +810,10 @@
               [
                 "Classify and escalate",
                 "In both RF and optical environments, technicians identify sources, labels and manufacturer procedures, restrict access, and use designated monitoring/protective equipment under training. For a novice, the correct exercise is to read the hazard information and write a safe control plan—not conduct exposure experiments."
+              ],
+              [
+                "RF exposure is a field-and-time problem, not a visual inspection",
+                "Maximum permissible exposure (MPE) depends on frequency, power density or field strength, exposure duration, and the applicable standard. A transmitter with a modest conducted output may still produce a hazardous field near a high-gain antenna. An unplugged coax connector may not be safe if other transmitters feed the system. For a technician, the defensible sequence is: identify transmitting sources and antenna access restrictions; use facility RF safety procedures and qualified measurements; de-energize or restrict access where required. Never use a person as a field detector, infer exposure from warmth, or treat any generic distance as universally safe."
               ]
             ],
             "worked": {
@@ -1392,6 +1396,24 @@
           "origin": "M01 editorial rebuild 2026-10-23; expert review pending",
           "masteryEvidence": false,
           "auditStatus": "provisional-editorial-review-required"
+        },
+        {
+          "id": "A49-M01-01",
+          "prompt": "A technician sees a high-gain antenna labeled with an RF exclusion boundary. The transmitter cabinet shows only moderate conducted output power. What is the correct access decision?",
+          "choices": [
+            "Respect the documented exclusion boundary and consult the qualified RF exposure assessment.",
+            "Enter because conducted watts alone determine safe distance.",
+            "Enter if a handheld voltmeter reads zero between the antenna housing and ground.",
+            "Enter because a 30-second stay is universally below RF exposure limits."
+          ],
+          "answer": 0,
+          "explanation": "Antenna gain, frequency, propagation geometry and exposure duration matter; conducted transmitter power alone does not establish MPE compliance. Temperature cannot verify RF exposure. An established restriction remains in force until qualified evaluation changes it.",
+          "objectiveIds": [
+            "1.8"
+          ],
+          "origin": "Alfred v4.9 internally reviewed unfamiliar conceptual/calculation problem",
+          "evidenceType": "Additional scored instructional transfer question, NOT independently validated or unseen final examination",
+          "editorialStatus": "INTERNAL_TECHNICAL_AND_SOURCE_CHECK_ONLY__EXTERNAL_SME_PENDING"
         }
       ],
       "readings": [
@@ -5683,6 +5705,10 @@
               [
                 "Solve a loaded divider by reducing the correct branch",
                 "For a 10 V source, 10 kΩ upper resistor and 10 kΩ lower resistor, the unloaded output is 5 V. Now connect a 10 kΩ load from output to return. The effective bottom leg is 10 kΩ ∥ 10 kΩ = 5 kΩ, so the new output is 10 × 5/(10 + 5) = 3.33 V. The current through the upper resistor is 10/(15 kΩ) = 0.667 mA; it then splits equally between the two bottom branches. A voltmeter with finite input resistance also loads a divider: compare its input impedance with the Thevenin resistance of the circuit before trusting a reading."
+              ],
+              [
+                "Potentiometer loading can move a supposedly exact midpoint",
+                "A potentiometer used as a divider has two series segments. At a centered wiper of a 10 kΩ device across 10 V, each ideal segment is 5 kΩ, so the unloaded wiper is 5 V. A 10 kΩ load from wiper to return appears in parallel with the bottom 5 kΩ, reducing that branch to 3.333 kΩ. The output becomes 10 V × 3.333/(5 + 3.333) = 4.0 V, not 5.0 V. Contact resistance and wiper travel tolerance further limit precision. A buffer with sufficiently high input impedance is one way to avoid loading the wiper."
               ]
             ],
             "worked": {
@@ -6589,6 +6615,24 @@
           "assessmentScope": "internal Alfred practice/mastery only",
           "sourcePageId": "L05-0-01",
           "sourceModuleId": "M04"
+        },
+        {
+          "id": "A49-M04-02",
+          "prompt": "A 10 kΩ linear potentiometer is centered across 10 V. A 10 kΩ load is then connected from wiper to the low terminal. Ignoring contact resistance, the loaded wiper voltage is closest to:",
+          "choices": [
+            "4.0 V",
+            "5.0 V",
+            "6.7 V",
+            "2.5 V"
+          ],
+          "answer": 0,
+          "explanation": "The upper half is 5 kΩ. The lower half is 5 kΩ in parallel with 10 kΩ = 3.333 kΩ. By division Vout = 10 × 3.333/(5 + 3.333) = 4.0 V. The tempting 5.0 V is the unloaded result.",
+          "objectiveIds": [
+            "3.1.4"
+          ],
+          "origin": "Alfred v4.9 internally reviewed unfamiliar conceptual/calculation problem",
+          "evidenceType": "Additional scored instructional transfer question, NOT independently validated or unseen final examination",
+          "editorialStatus": "INTERNAL_TECHNICAL_AND_SOURCE_CHECK_ONLY__EXTERNAL_SME_PENDING"
         }
       ],
       "readings": [
@@ -11196,6 +11240,10 @@
               [
                 "Coil diameter and wire thickness are different design variables",
                 "For an ideal air-core solenoid, inductance depends approximately on permeability, turns squared, cross-sectional area and inverse winding length: L ≈ μN²A/length. Enlarging coil diameter can increase area and inductance if turns and length are otherwise held fixed. Using thicker copper wire usually reduces winding resistance for a similar wire length, permitting greater current before a specified temperature rise, but does not by itself guarantee greater inductance; the winding geometry may change. Core material, saturation and proximity effects further change real results. A question asking about “diameter and wire size” requires you to say which diameter and which property changes."
+              ],
+              [
+                "Wire gauge, core and turns solve different coil constraints",
+                "More turns usually increase inductance for the same magnetic geometry; a high-permeability core can increase inductance but may saturate under DC bias. Thicker wire generally lowers winding resistance and heating at a given current, while taking more winding space. Neither wire thickness nor coil diameter alone guarantees a particular inductance: L depends on geometry, turns, magnetic path and permeability. Higher resistance can reduce usable coil current and increase losses even when nominal inductance meets the specification. Compare inductance at operating current, winding resistance, temperature rise and any saturation limit."
               ]
             ],
             "worked": {
@@ -11906,6 +11954,24 @@
           ],
           "origin": "Alfred v4.3 original reasoning assessment; internally checked, external subject-matter review pending",
           "editorialStatus": "INTERNAL_REASONING_CHECK_COMPLETE__NOT_INDEPENDENTLY_VALIDATED"
+        },
+        {
+          "id": "A49-M07-03",
+          "prompt": "Two solenoids use equal turns and the same core geometry. Coil B uses thicker copper wire. What is the most defensible expectation?",
+          "choices": [
+            "B generally has lower winding resistance, but its inductance cannot be determined from wire gauge alone.",
+            "B has precisely the same winding resistance because turns are equal.",
+            "B has a substantially larger permeability because thicker copper changes the core alloy.",
+            "B has higher inductance solely because the conductor cross-section is greater."
+          ],
+          "answer": 0,
+          "explanation": "Resistance depends on copper cross-sectional area, length and resistivity, while inductance depends primarily on turns, geometry and magnetic permeability. A thicker winding commonly reduces DC resistance but does not itself establish a numeric inductance or core saturation rating.",
+          "objectiveIds": [
+            "3.3.1"
+          ],
+          "origin": "Alfred v4.9 internally reviewed unfamiliar conceptual/calculation problem",
+          "evidenceType": "Additional scored instructional transfer question, NOT independently validated or unseen final examination",
+          "editorialStatus": "INTERNAL_TECHNICAL_AND_SOURCE_CHECK_ONLY__EXTERNAL_SME_PENDING"
         }
       ],
       "readings": [
@@ -12973,6 +13039,10 @@
               [
                 "Limits and the technician’s decision",
                 "Do not confuse −3 dB in voltage with half the amplitude; it corresponds to approximately half the power under matched conditions."
+              ],
+              [
+                "Read Q as selectivity, not as a guarantee of amplifier quality",
+                "For a resonant response defined by two half-power (−3 dB power) frequencies, bandwidth BW = f_high − f_low. The loaded Q is approximately f_center/BW when the response is appropriately narrowband and the relevant half-power points can be identified. A resonance centered at 10 kHz with half-power points at 9.5 and 10.5 kHz has BW = 1 kHz and Q ≈ 10. Increasing Q under otherwise comparable conditions produces a narrower response, but the exact relation to component losses depends on topology and load. Do not substitute a single −3 dB voltage magnitude without checking the relevant reference and measurement definition."
               ]
             ],
             "worked": {
@@ -13941,6 +14011,24 @@
           ],
           "origin": "Alfred v4.3 original reasoning assessment; internally checked, external subject-matter review pending",
           "editorialStatus": "INTERNAL_REASONING_CHECK_COMPLETE__NOT_INDEPENDENTLY_VALIDATED"
+        },
+        {
+          "id": "A49-M08-04",
+          "prompt": "A narrowband resonant response peaks at 10.0 kHz. Its two half-power frequencies are 9.5 kHz and 10.5 kHz. Approximate loaded Q is:",
+          "choices": [
+            "10",
+            "0.10",
+            "1.0",
+            "100"
+          ],
+          "answer": 0,
+          "explanation": "Bandwidth = 10.5 − 9.5 = 1.0 kHz, and Q ≈ f0/BW = 10.0/1.0 = 10. This estimate applies to an appropriate resonant response measured at its half-power frequencies.",
+          "objectiveIds": [
+            "4.15"
+          ],
+          "origin": "Alfred v4.9 internally reviewed unfamiliar conceptual/calculation problem",
+          "evidenceType": "Additional scored instructional transfer question, NOT independently validated or unseen final examination",
+          "editorialStatus": "INTERNAL_TECHNICAL_AND_SOURCE_CHECK_ONLY__EXTERNAL_SME_PENDING"
         }
       ],
       "readings": [
@@ -15057,6 +15145,10 @@
               [
                 "Limits and the technician’s decision",
                 "An SSR being “off” is not a substitute for an isolating disconnect. Semiconductor outputs often do not create a visible air gap."
+              ],
+              [
+                "Solid-state relays leak and dissipate heat where contacts do not",
+                "A mechanical relay uses an energized coil to move physical contacts, which can create bounce and wear but typically provide a genuinely open contact gap when off. A solid-state relay (SSR) uses semiconductor switching; many AC SSRs have off-state leakage, on-state voltage drop and heat dissipation, and some will not switch very small loads reliably. An AC zero-cross SSR cannot be assumed to work for DC switching. Selection therefore requires the output type, load current, transient conditions, isolation rating, heat sinking and fail-safe behavior—not just comparing control-input voltage."
               ]
             ],
             "worked": {
@@ -15819,6 +15911,24 @@
           ],
           "origin": "Alfred v4.3 original reasoning assessment; internally checked, external subject-matter review pending",
           "editorialStatus": "INTERNAL_REASONING_CHECK_COMPLETE__NOT_INDEPENDENTLY_VALIDATED"
+        },
+        {
+          "id": "A49-M09-05",
+          "prompt": "A small AC LED indicator glows faintly even when an AC solid-state relay is commanded OFF. Which explanation best fits?",
+          "choices": [
+            "Normal off-state leakage through the SSR can sustain a small indicator current.",
+            "The SSR uses mechanically moving contacts that have failed closed.",
+            "The input-side LED leaks current into the load through a metallic contact.",
+            "Its off-state resistance is necessarily infinite, so only external wiring could explain the glow."
+          ],
+          "answer": 0,
+          "explanation": "Triac-based and snubber-equipped SSRs commonly allow some off-state leakage. Sensitive indicator loads can respond to tiny current. A mechanical relay contact and an SSR should not be assumed electrically identical when off.",
+          "objectiveIds": [
+            "3.9.3"
+          ],
+          "origin": "Alfred v4.9 internally reviewed unfamiliar conceptual/calculation problem",
+          "evidenceType": "Additional scored instructional transfer question, NOT independently validated or unseen final examination",
+          "editorialStatus": "INTERNAL_TECHNICAL_AND_SOURCE_CHECK_ONLY__EXTERNAL_SME_PENDING"
         }
       ],
       "readings": [
@@ -16839,6 +16949,10 @@
               [
                 "Limits and the technician’s decision",
                 "Never assume an ideal differentiator works at arbitrarily high frequencies; parasitic effects, op-amp limits and noise can dominate. An ideal integrator can saturate from offsets unless a DC feedback path is provided."
+              ],
+              [
+                "Distinguish ideal mathematical shaping from realizable filters",
+                "An RC low-pass network approximates an integrator only when its relevant operating frequencies are well above its corner frequency; the capacitor voltage then changes slowly compared with the input. A corresponding RC high-pass network can approximate differentiation when the period is much longer than the RC time constant and the network is used within suitable bandwidth. Real differentiators amplify high-frequency noise, and op-amp circuits are limited by saturation and bandwidth. The safest exam method is to identify the topology, the RC constant relative to waveform period, and whether the output is measured across R or C rather than memorizing the names."
               ]
             ],
             "worked": {
@@ -17387,6 +17501,24 @@
           "assessmentScope": "internal Alfred practice/mastery only",
           "sourcePageId": "L11-0-09",
           "sourceModuleId": "M10"
+        },
+        {
+          "id": "A49-M10-06",
+          "prompt": "A series RC high-pass network takes its output across the resistor. A narrow positive input step produces what initial output behavior, assuming the circuit starts uncharged?",
+          "choices": [
+            "A positive pulse that decays toward zero.",
+            "A steadily increasing DC level that remains at the input amplitude.",
+            "A sustained negative DC level regardless of component connection.",
+            "A constant-amplitude sinusoid with no transient."
+          ],
+          "answer": 0,
+          "explanation": "On a positive step, capacitor voltage cannot jump instantaneously, so most of the initial input appears across the resistor. As charging current decays, the resistor voltage approaches zero. This is a transient differentiation-like response, not an indefinitely sustained pulse.",
+          "objectiveIds": [
+            "4.11"
+          ],
+          "origin": "Alfred v4.9 internally reviewed unfamiliar conceptual/calculation problem",
+          "evidenceType": "Additional scored instructional transfer question, NOT independently validated or unseen final examination",
+          "editorialStatus": "INTERNAL_TECHNICAL_AND_SOURCE_CHECK_ONLY__EXTERNAL_SME_PENDING"
         }
       ],
       "readings": [],
@@ -18173,7 +18305,7 @@
           "sourceTrack": "CETa",
           "sourceSectionIndex": 5,
           "candidateSectionId": "M11.S03",
-          "sectionId": "M11.S03",
+          "sectionId": "M11.S02",
           "goldTeaching": {
             "paragraphs": [
               [
@@ -18261,7 +18393,7 @@
           "sourceTrack": "CETa",
           "sourceSectionIndex": 2,
           "candidateSectionId": "M11.S01",
-          "sectionId": "M11.S01",
+          "sectionId": "M11.S03",
           "goldTeaching": {
             "paragraphs": [
               [
@@ -18279,6 +18411,10 @@
               [
                 "ETA competency 3.6 · targeted transfer instruction",
                 "Distinguish the three multijunction devices by terminals and current direction: an SCR is a latching, gate-triggered, mainly unidirectional thyristor; a TRIAC is gate-triggered and can conduct either polarity; a DIAC is a bidirectional breakover trigger device without a gate. Draw the current path in both AC half-cycles before choosing a device. These are theoretical mains examples only; never build or probe a live-line dimmer for this course."
+              ],
+              [
+                "Compare SCR turn-on, latch and turn-off with a transistor switch",
+                "An SCR is a four-layer thyristor that conducts in the forward direction after sufficient gate triggering, then ordinarily remains latched while the anode current stays above its holding-current requirement. Removing the gate signal alone does not reliably turn off an already latched SCR; AC naturally falls through current zero, while DC designs require current interruption or commutation. An ordinary BJT or MOSFET generally responds directly to its controlled base/gate drive rather than remaining latched until holding current falls. A TRIAC conducts bidirectionally when triggered and is common in AC control, but its gate and commutation behavior also need careful selection."
               ]
             ],
             "worked": {
@@ -18782,6 +18918,24 @@
           ],
           "origin": "v4.4 new internally reviewed transfer item; SME review pending",
           "academicReviewState": "independent_SME_review_pending"
+        },
+        {
+          "id": "A49-M11-07",
+          "prompt": "A DC load is being supplied through an SCR. The SCR has latched ON and gate drive is now removed. What action is generally required to stop anode current?",
+          "choices": [
+            "Force anode current below its holding current using a suitable circuit action.",
+            "Simply stop gate pulses; the latched device always turns off immediately.",
+            "Reduce only the gate-to-cathode voltage while leaving anode current unchanged.",
+            "Add a gate-to-cathode resistor while maintaining the load current."
+          ],
+          "answer": 0,
+          "explanation": "The SCR remains on once latched while its current exceeds the holding-current threshold. Unlike a normal MOSFET gate-controlled switch, removing the trigger does not inherently turn off a latched SCR. DC switching requires interruption or a specified commutation strategy.",
+          "objectiveIds": [
+            "3.6.2"
+          ],
+          "origin": "Alfred v4.9 internally reviewed unfamiliar conceptual/calculation problem",
+          "evidenceType": "Additional scored instructional transfer question, NOT independently validated or unseen final examination",
+          "editorialStatus": "INTERNAL_TECHNICAL_AND_SOURCE_CHECK_ONLY__EXTERNAL_SME_PENDING"
         }
       ],
       "readings": [
@@ -19608,6 +19762,10 @@
               [
                 "Where the model breaks or a technician can be misled",
                 "Device gain varies widely with temperature and production. A two-transistor Darlington adds gain but also changes input voltage and saturation behavior."
+              ],
+              [
+                "Separate active-region amplification from saturated switch design",
+                "In an NPN transistor used as a low-side switch, cutoff means insufficient base drive and approximately no controlled collector current; saturation means sufficient drive to bring collector-emitter voltage low under that load. For a BJT amplifier, the active region preserves signal variation around a bias point; driving it into saturation clips a portion of the signal. For a MOSFET, the term saturation has a different device-physics meaning and should not be confused with low-RDS(on) power-switch behavior. Always name the device and application before using region terminology."
               ]
             ],
             "worked": {
@@ -20057,7 +20215,7 @@
           "sourceTrack": "CETa",
           "sourceSectionIndex": 6,
           "candidateSectionId": "M12.S01",
-          "sectionId": "M12.S01",
+          "sectionId": "M12.S02",
           "goldTeaching": {
             "paragraphs": [
               [
@@ -20444,6 +20602,24 @@
           "assessmentScope": "internal Alfred only",
           "sourceModuleId": "M12",
           "sourcePageId": "L10-0-06"
+        },
+        {
+          "id": "A49-M12-08",
+          "prompt": "During positive-going input drive peaks, an NPN common-emitter amplifier clips because its collector voltage can no longer fall appreciably. Which operating condition is the most likely limit?",
+          "choices": [
+            "The transistor approaches saturation during the positive drive peaks.",
+            "The output buffer is at mid-supply while collector current continues increasing linearly.",
+            "The collector load is behaving like a perfect constant-current source.",
+            "The transistor has entered cutoff even though measured collector current is increasing."
+          ],
+          "answer": 0,
+          "explanation": "In a common-emitter stage, increasing base drive raises collector current and pulls collector voltage toward the emitter until saturation limits further swing. Cutoff causes the opposite-side clipping. BJT saturation in switching is not interchangeable with MOSFET saturation terminology.",
+          "objectiveIds": [
+            "3.5"
+          ],
+          "origin": "Alfred v4.9 internally reviewed unfamiliar conceptual/calculation problem",
+          "evidenceType": "Additional scored instructional transfer question, NOT independently validated or unseen final examination",
+          "editorialStatus": "INTERNAL_TECHNICAL_AND_SOURCE_CHECK_ONLY__EXTERNAL_SME_PENDING"
         }
       ],
       "readings": [],
@@ -21097,17 +21273,17 @@
         {
           "id": "10.4.1",
           "title": "“L” (L-section, choke or inductor) filter – an inductor in series with a capacitor in parallel",
-          "sectionId": "M13.S03"
+          "sectionId": "M13.S02"
         },
         {
           "id": "10.4.2",
           "title": "“T” filter –add a second choke on output side, taking the output across the capacitor",
-          "sectionId": "M13.S03"
+          "sectionId": "M13.S02"
         },
         {
           "id": "10.4.3",
           "title": "“Pi” filter – a single inductor with a capacitor at each end to common",
-          "sectionId": "M13.S03"
+          "sectionId": "M13.S02"
         },
         {
           "id": "10.5",
@@ -21156,7 +21332,7 @@
           "sourceTrack": "CETa",
           "sourceSectionIndex": 1,
           "candidateSectionId": "M13.S03",
-          "sectionId": "M13.S03",
+          "sectionId": "M13.S01",
           "goldTeaching": {
             "paragraphs": [
               [
@@ -21311,7 +21487,7 @@
           "sourceTrack": "CETa",
           "sourceSectionIndex": 0,
           "candidateSectionId": "M13.S01",
-          "sectionId": "M13.S01",
+          "sectionId": "M13.S02",
           "goldTeaching": {
             "paragraphs": [
               [
@@ -21321,6 +21497,10 @@
               [
                 "Where the model breaks or a technician can be misled",
                 "Stored charge persists after supply removal; a discharged label or unplugged cable proves nothing. Never touch energized or charged mains-supply internals."
+              ],
+              [
+                "C–L–C pi filters require current and resonance reasoning",
+                "A classic unregulated C–L–C pi filter places a shunt capacitor after rectification, a series choke, and a second shunt capacitor at the output. The first capacitor provides local charge storage; the choke opposes changing ripple current while passing DC; the second capacitor further bypasses AC ripple. This differs from a single reservoir capacitor and from an RC filter. Real components have ESR, DCR, current rating and possible ringing; the network must be rated for the supply voltage and ripple current. The Sixth Edition shows a pi-filter illustration on printed page 87, where it should be read as a topology rather than universal performance guarantee."
               ]
             ],
             "worked": {
@@ -22252,6 +22432,24 @@
           ],
           "origin": "v4.4 new internally reviewed transfer item; SME review pending",
           "academicReviewState": "independent_SME_review_pending"
+        },
+        {
+          "id": "A49-M13-09",
+          "prompt": "Which connection is the usual C–L–C pi filter following a rectifier?",
+          "choices": [
+            "A capacitor to common, a series inductor, then another capacitor to common.",
+            "A series choke followed by one shunt capacitor, without an input shunt capacitor.",
+            "Two shunt inductors around a series capacitor.",
+            "Two series chokes separated by an output smoothing capacitor."
+          ],
+          "answer": 0,
+          "explanation": "The C–L–C topology has two shunt capacitors separated by a series choke. The choke impedes ripple current; the capacitors provide lower-impedance paths for ripple to common. Its performance still depends on load, ESR, DCR and ratings.",
+          "objectiveIds": [
+            "10.4.3"
+          ],
+          "origin": "Alfred v4.9 internally reviewed unfamiliar conceptual/calculation problem",
+          "evidenceType": "Additional scored instructional transfer question, NOT independently validated or unseen final examination",
+          "editorialStatus": "INTERNAL_TECHNICAL_AND_SOURCE_CHECK_ONLY__EXTERNAL_SME_PENDING"
         }
       ],
       "readings": [
@@ -23184,7 +23382,7 @@
           "sourceTrack": "CETa",
           "sourceSectionIndex": 4,
           "candidateSectionId": "M14.S01",
-          "sectionId": "M14.S01",
+          "sectionId": "M14.S03",
           "goldTeaching": {
             "paragraphs": [
               [
@@ -23202,6 +23400,10 @@
               [
                 "ETA competency 11.8.1 · targeted transfer instruction",
                 "A finite-impedance instrument changes the circuit it measures. With 100 kΩ source and 100 kΩ meter, the meter displays only one-half of unloaded voltage. A 10 MΩ input yields approximately 0.990 of that voltage. Use an appropriately rated high-impedance probe, a suitable buffer, or a measurement method that accounts for the loading; a 10× oscilloscope probe also reduces capacitive loading but requires correct compensation and voltage/category ratings."
+              ],
+              [
+                "Reduce measurement loading by checking parallel impedance first",
+                "A voltmeter presents finite input resistance and capacitance in parallel with the circuit being measured. If a 100 kΩ Thevenin source with 10 V open-circuit output feeds a 100 kΩ meter, the indicated DC voltage is only 5 V. A 10 MΩ meter on the same source reads about 9.90 V. At high frequency, even a 10 MΩ DMM or oscilloscope probe can load a node through input capacitance; a compensated ×10 probe and appropriately rated differential instrumentation may be necessary. Check ground-reference safety separately: never attach a grounded scope clip to an arbitrary mains-connected node."
               ]
             ],
             "worked": {
@@ -23327,7 +23529,7 @@
           "sourceTrack": "CETa",
           "sourceSectionIndex": 2,
           "candidateSectionId": "M14.S03",
-          "sectionId": "M14.S03",
+          "sectionId": "M14.S02",
           "goldTeaching": {
             "paragraphs": [
               [
@@ -23431,7 +23633,7 @@
           "sourceTrack": "CETa",
           "sourceSectionIndex": 6,
           "candidateSectionId": "M14.S03",
-          "sectionId": "M14.S03",
+          "sectionId": "M14.S02",
           "goldTeaching": {
             "paragraphs": [
               [
@@ -24342,6 +24544,24 @@
           ],
           "origin": "v4.4 new internally reviewed transfer item; SME review pending",
           "academicReviewState": "independent_SME_review_pending"
+        },
+        {
+          "id": "A49-M14-10",
+          "prompt": "A 10 V source has a 100 kΩ source resistance. A DMM with 100 kΩ input resistance measures its output. What voltage should be expected?",
+          "choices": [
+            "5 V",
+            "10 V",
+            "9.9 V",
+            "0 V"
+          ],
+          "answer": 0,
+          "explanation": "The source resistance and meter input are a 100 kΩ/100 kΩ divider: 10 × 100/(100+100) = 5 V. A higher-input-impedance meter reduces loading but does not justify unsafe oscilloscope ground connections.",
+          "objectiveIds": [
+            "11.8.1"
+          ],
+          "origin": "Alfred v4.9 internally reviewed unfamiliar conceptual/calculation problem",
+          "evidenceType": "Additional scored instructional transfer question, NOT independently validated or unseen final examination",
+          "editorialStatus": "INTERNAL_TECHNICAL_AND_SOURCE_CHECK_ONLY__EXTERNAL_SME_PENDING"
         }
       ],
       "readings": [
@@ -25234,7 +25454,7 @@
           "sourceTrack": "CETa",
           "sourceSectionIndex": 0,
           "candidateSectionId": "M15.S04",
-          "sectionId": "M15.S04",
+          "sectionId": "M15.S01",
           "goldTeaching": {
             "paragraphs": [
               [
@@ -25582,7 +25802,7 @@
           "sourceTrack": "CETa",
           "sourceSectionIndex": 8,
           "candidateSectionId": "M15.S02",
-          "sectionId": "M15.S02",
+          "sectionId": "M15.S03",
           "goldTeaching": {
             "paragraphs": [
               [
@@ -25660,7 +25880,7 @@
           "sourceTrack": "CETa",
           "sourceSectionIndex": 4,
           "candidateSectionId": "M15.S02",
-          "sectionId": "M15.S02",
+          "sectionId": "M15.S04",
           "goldTeaching": {
             "paragraphs": [
               [
@@ -25670,6 +25890,10 @@
               [
                 "Where the model breaks or a technician can be misled",
                 "Some diode body bands and board silk conventions differ; documentation wins over a generalized visual rule."
+              ],
+              [
+                "PCB pad repair requires electrical and mechanical acceptance",
+                "A lifted pad or damaged plated-through via can break continuity even when a replacement component appears soldered. Repairs must follow approved workmanship procedures and the board design: inspect for delamination and trace damage, protect neighboring components from excessive heat, and verify the intended net with appropriate continuity or resistance measurements before any energized function test. In high-reliability assemblies, jumper wires, replacement pads and via repairs require authorization and may be prohibited. BGA damage is not an ordinary hand-soldering exercise. Do not claim a visually smooth fillet proves through-board continuity."
               ]
             ],
             "worked": {
@@ -26255,6 +26479,24 @@
           ],
           "origin": "v4.4 new internally reviewed transfer item; SME review pending",
           "academicReviewState": "independent_SME_review_pending"
+        },
+        {
+          "id": "A49-M15-11",
+          "prompt": "An SMT resistor was replaced, but one pad lifted and the solder joint looks shiny. What is the best acceptance decision?",
+          "choices": [
+            "Inspect the underlying connection and validate the intended net under the approved repair procedure.",
+            "Accept solely because the solder is shiny.",
+            "Heat the pad longer until the laminate returns to position.",
+            "Assume any lost via is repaired by adding more solder on the surface."
+          ],
+          "answer": 0,
+          "explanation": "Shiny surface solder cannot prove that a lifted pad, via barrel or adjoining trace remains connected. Confirm net connectivity and mechanical integrity under the applicable repair standard and authorization; excessive heat can worsen laminate damage.",
+          "objectiveIds": [
+            "5.8.2"
+          ],
+          "origin": "Alfred v4.9 internally reviewed unfamiliar conceptual/calculation problem",
+          "evidenceType": "Additional scored instructional transfer question, NOT independently validated or unseen final examination",
+          "editorialStatus": "INTERNAL_TECHNICAL_AND_SOURCE_CHECK_ONLY__EXTERNAL_SME_PENDING"
         }
       ],
       "readings": [],
@@ -28534,6 +28776,10 @@
               [
                 "Logic-family compatibility requires worst-case limits",
                 "For a driver with guaranteed VOH≥2.4 V and a receiver requiring VIH≥2.0 V, the guaranteed HIGH margin is at least 0.4 V. This calculation is not sufficient if the receiver input is exposed above its absolute maximum voltage or ground references differ. Also check VOL versus VIL, fan-out/load currents and transition times. Two signals both labeled HIGH may still be electrically incompatible."
+              ],
+              [
+                "Logic-family names are not enough to establish compatibility",
+                "A logic HIGH output is valid only when its guaranteed VOH(min) exceeds the receiving input VIH(min), and LOW compatibility requires guaranteed VOL(max) below receiver VIL(max). Use worst-case datasheet thresholds and check noise margins, output current and absolute-maximum ratings. A nominal 3.3 V MCU output is not automatically accepted by every 5 V TTL/CMOS input; conversely a 5 V output can exceed a 3.3 V receiver’s maximum rating. The Sixth Edition provides digital state and flip-flop context on printed page 138, but current logic-family voltage specifications should come from the actual component data sheet."
               ]
             ],
             "worked": {
@@ -29415,6 +29661,24 @@
           "assessmentScope": "internal Alfred course mastery, not certification",
           "sourceModuleId": "M17",
           "sourcePageId": "L11-0-04"
+        },
+        {
+          "id": "A49-M17-12",
+          "prompt": "A driver guarantees VOH(min)=2.4 V. The receiver requires VIH(min)=3.5 V. What is the correct conclusion?",
+          "choices": [
+            "Logic HIGH compatibility is not guaranteed, even if some samples work.",
+            "HIGH is guaranteed because both devices use digital signals.",
+            "Logic HIGH must be valid because VOH(min) exceeds zero by more than 2 V.",
+            "A slow rising edge can raise VOH(min) until it exceeds receiver VIH(min)."
+          ],
+          "answer": 0,
+          "explanation": "Worst-case HIGH noise margin is VOH(min) − VIH(min) = −1.1 V, so a guaranteed HIGH level is missing. Digital protocol names do not override thresholds or absolute-maximum input ratings.",
+          "objectiveIds": [
+            "13.11"
+          ],
+          "origin": "Alfred v4.9 internally reviewed unfamiliar conceptual/calculation problem",
+          "evidenceType": "Additional scored instructional transfer question, NOT independently validated or unseen final examination",
+          "editorialStatus": "INTERNAL_TECHNICAL_AND_SOURCE_CHECK_ONLY__EXTERNAL_SME_PENDING"
         }
       ],
       "readings": [],
@@ -33800,6 +34064,10 @@
               [
                 "Where this model can mislead you",
                 "Flash/EEPROM writes have finite endurance and can be interrupted by brownouts. A nonvolatile value can still be corrupt without appropriate power-fail handling."
+              ],
+              [
+                "Power loss distinguishes volatile state from retained firmware",
+                "Registers and most SRAM lose their contents when power is removed, while nonvolatile flash and EEPROM can retain programmed values. “Memory” does not imply a particular persistence or write endurance. Boot ROM and firmware flash often hold startup instructions; RAM contains runtime stack, buffers and variables; cache sits nearer the CPU for speed. Retention, erase block, write endurance and latency influence which memory is appropriate for logged settings. If a controller forgets a user calibration after power cycling, look first at persistence logic and nonvolatile write success, not just CPU clock speed."
               ]
             ],
             "worked": {
@@ -34275,6 +34543,24 @@
           "assessmentScope": "internal Alfred study only",
           "sourceModuleId": "M20",
           "sourcePageId": "L16-0-00"
+        },
+        {
+          "id": "A49-M20-13",
+          "prompt": "A microcontroller operates correctly until power is removed, after which its calibration value returns to a default. Which fault class best fits?",
+          "choices": [
+            "The calibration was kept only in volatile memory or its nonvolatile save failed.",
+            "The CPU oscillator is running slightly faster after restart.",
+            "The reading is stored in CPU registers that automatically retain it without power.",
+            "The calibration uses a volatile RAM variable that is automatically written to flash at reset."
+          ],
+          "answer": 0,
+          "explanation": "SRAM and CPU registers normally lose live state at power-off. A calibration expected to survive must be committed to a suitable nonvolatile store with correct write/verify handling and endurance limits.",
+          "objectiveIds": [
+            "15.4"
+          ],
+          "origin": "Alfred v4.9 internally reviewed unfamiliar conceptual/calculation problem",
+          "evidenceType": "Additional scored instructional transfer question, NOT independently validated or unseen final examination",
+          "editorialStatus": "INTERNAL_TECHNICAL_AND_SOURCE_CHECK_ONLY__EXTERNAL_SME_PENDING"
         }
       ],
       "readings": [
@@ -37120,6 +37406,10 @@
               [
                 "Continuity does not establish transmission-line behavior",
                 "A cable can pass an ohmmeter check yet produce severe reflections at fast edge rates when the load does not match its characteristic impedance. A signal step that reaches an open or mismatched termination launches a reflection; timing and amplitude depend on line propagation delay and termination. For a newly crimped harness, confirm each pin and short, then separately evaluate mechanical workmanship and any impedance/high-frequency criteria required by the interface."
+              ],
+              [
+                "Continuity is not a transmission-line termination test",
+                "At high signal frequencies or over sufficiently long cable runs, load impedance relative to characteristic impedance Z0 determines reflections. Γ = (ZL − Z0)/(ZL + Z0) for a resistive termination. A 50 Ω cable with 75 Ω termination gives Γ=25/125=+0.2, so reflected voltage amplitude is 20% of the incident wave. The return-power fraction is |Γ|²=4%, not 20%. A DC continuity tester can detect opens/shorts but cannot establish that a coaxial installation meets return-loss, shielding, or frequency response requirements."
               ]
             ],
             "worked": {
@@ -37947,6 +38237,24 @@
           "assessmentScope": "internal Alfred course mastery, not certification",
           "sourceModuleId": "M22",
           "sourcePageId": "L19-1-04"
+        },
+        {
+          "id": "A49-M22-14",
+          "prompt": "A lossless 50 Ω line is terminated in a resistive 75 Ω load. The reflected POWER fraction is closest to:",
+          "choices": [
+            "4%",
+            "20%",
+            "25%",
+            "40%"
+          ],
+          "answer": 0,
+          "explanation": "The voltage reflection coefficient is Γ=(75−50)/(75+50)=0.2. Reflected power fraction = |Γ|² = 0.04 = 4%. Confusing voltage reflection with power reflection leads to the tempting 20% answer.",
+          "objectiveIds": [
+            "7.7"
+          ],
+          "origin": "Alfred v4.9 internally reviewed unfamiliar conceptual/calculation problem",
+          "evidenceType": "Additional scored instructional transfer question, NOT independently validated or unseen final examination",
+          "editorialStatus": "INTERNAL_TECHNICAL_AND_SOURCE_CHECK_ONLY__EXTERNAL_SME_PENDING"
         }
       ],
       "readings": [
@@ -38964,6 +39272,10 @@
               [
                 "Common error and limits",
                 "A Variac is not an isolation transformer, and neither makes energized work automatically safe."
+              ],
+              [
+                "A dummy load must simulate impedance and absorb heat",
+                "A dummy load substitutes a defined load impedance for a real antenna, amplifier or output stage so measurements can be made without radiating or driving a real transducer. For RF, the dummy load must be non-inductive enough and impedance-matched over the frequency range, as well as rated for continuous/peak power and connector voltage. A 50 Ω, 100 W load cannot automatically absorb 200 W for ten minutes, regardless of its connector shape. Heat dissipation and safe mounting are real specifications; a multimeter resistance reading by itself cannot verify broadband impedance."
               ]
             ],
             "worked": {
@@ -39723,6 +40035,24 @@
           "assessmentScope": "internal Alfred course mastery, not certification",
           "sourceModuleId": "M23",
           "sourcePageId": "L03-0-04"
+        },
+        {
+          "id": "A49-M23-15",
+          "prompt": "An RF transmitter produces 40 W into 50 Ω. Which bench fixture is most appropriate for a conducted-output check?",
+          "choices": [
+            "A 50 Ω RF dummy load rated above 40 W at the operating frequency.",
+            "A 50 Ω 1 W RF termination rated for the correct frequency.",
+            "A 75 Ω RF dummy load rated for 100 W at that frequency.",
+            "A 50 Ω 10 W RF termination, used intermittently."
+          ],
+          "answer": 0,
+          "explanation": "The load must present the required characteristic impedance and safely dissipate continuous RF power. A quarter-watt resistor would be grossly underrated and ordinary components may be reactive at RF; an open or probe-only connection is not a specified 50 Ω termination.",
+          "objectiveIds": [
+            "8.14"
+          ],
+          "origin": "Alfred v4.9 internally reviewed unfamiliar conceptual/calculation problem",
+          "evidenceType": "Additional scored instructional transfer question, NOT independently validated or unseen final examination",
+          "editorialStatus": "INTERNAL_TECHNICAL_AND_SOURCE_CHECK_ONLY__EXTERNAL_SME_PENDING"
         }
       ],
       "readings": [],
@@ -42038,6 +42368,10 @@
               [
                 "ETA 18.5.1 · First-principles reinforcement",
                 "An optocoupler has an emitter and light-responsive receiver across an insulating barrier. Example: an isolated motor-drive fault status is passed through an optocoupler to a low-voltage logic controller; the input and output each have their *own* return paths. Other uses include industrial PLC digital inputs, certain isolated power-supply feedback loops, and alarm/status interfaces. Isolation ratings, creepage, drive current, propagation delay and device aging matter; an optocoupler does not magically make a mains circuit safe. Explain the signal path on each side without drawing a direct copper bridge between the isolated grounds."
+              ],
+              [
+                "Optical isolation separates signal transfer from a shared conductor",
+                "An optocoupler transfers information from an LED to a photosensitive output without requiring a direct electrical conductor across its rated isolation barrier. It is used for some control inputs, noisy industrial interfaces, and separation of differing reference potentials. The LED must be current-limited, the output needs an appropriate bias or pull-up, and the barrier has a finite isolation rating and specified creepage/clearance conditions. An optocoupler does not inherently isolate every signal return if a designer reconnects the grounds elsewhere. A failed LED or output transistor can interrupt the signal without changing the supply rails."
               ]
             ],
             "worked": {
@@ -42681,6 +43015,24 @@
           "assessmentScope": "internal Alfred course mastery, not certification",
           "sourceModuleId": "M25",
           "sourcePageId": "L19-0-11"
+        },
+        {
+          "id": "A49-M25-16",
+          "prompt": "A controller input should sense an externally referenced industrial contact while avoiding a direct conductive signal path. Which device is generally suitable?",
+          "choices": [
+            "A correctly rated optocoupler interface with suitable input current limiting.",
+            "A shielded twisted-pair connection that still joins both signal returns.",
+            "A transistor-level translator with a shared ground reference.",
+            "A series resistor sized to limit fault current without a galvanic barrier."
+          ],
+          "answer": 0,
+          "explanation": "A properly designed optocoupler transfers a signal through light while providing rated galvanic separation. A direct jumper defeats isolation; a resistor alone still conducts and does not provide a certified barrier.",
+          "objectiveIds": [
+            "18.5.1"
+          ],
+          "origin": "Alfred v4.9 internally reviewed unfamiliar conceptual/calculation problem",
+          "evidenceType": "Additional scored instructional transfer question, NOT independently validated or unseen final examination",
+          "editorialStatus": "INTERNAL_TECHNICAL_AND_SOURCE_CHECK_ONLY__EXTERNAL_SME_PENDING"
         }
       ],
       "readings": [
@@ -43602,6 +43954,10 @@
               [
                 "What VSWR does and does not tell you",
                 "Reflections occur when the RF line is not terminated in its characteristic impedance. For a lossless single-interface model, |Γ|=(VSWR−1)/(VSWR+1): VSWR=3 corresponds to |Γ|=0.5, or 25% reflected power locally under that model. High VSWR does not alone identify the bad connector or load; DC continuity and frequency matching are different measurements. Use approved, rated equipment and avoid live RF exposure."
+              ],
+              [
+                "An SWR value describes reflection magnitude, not every transmission loss",
+                "On a lossless 50 Ω line with a purely resistive 100 Ω termination, |Γ| = |(100−50)/(100+50)| = 1/3; SWR = (1+|Γ|)/(1−|Γ|) = 2.0. This ideal relationship only describes mismatch at that location and frequency. It does not capture cable attenuation, connector heating, radiation hazards or transmitter power limits; lossy feedline can make SWR measured at the transmitter appear better than the load mismatch really is. Check measurement plane, line losses and ratings before diagnosing an antenna from one number."
               ]
             ],
             "worked": {
@@ -44570,6 +44926,24 @@
           "assessmentScope": "internal Alfred course mastery, not certification",
           "sourceModuleId": "M26",
           "sourcePageId": "L06-0-02"
+        },
+        {
+          "id": "A49-M26-17",
+          "prompt": "A lossless 50 Ω transmission line has a resistive 100 Ω load. The ideal load SWR is:",
+          "choices": [
+            "2.0:1",
+            "1.0:1",
+            "3.0:1",
+            "0.5:1"
+          ],
+          "answer": 0,
+          "explanation": "|Γ|=|(100−50)/(100+50)|=1/3. SWR=(1+1/3)/(1−1/3)=2. SWR cannot be below 1, and 1:1 applies only when the load matches the line.",
+          "objectiveIds": [
+            "19.11"
+          ],
+          "origin": "Alfred v4.9 internally reviewed unfamiliar conceptual/calculation problem",
+          "evidenceType": "Additional scored instructional transfer question, NOT independently validated or unseen final examination",
+          "editorialStatus": "INTERNAL_TECHNICAL_AND_SOURCE_CHECK_ONLY__EXTERNAL_SME_PENDING"
         }
       ],
       "readings": [
@@ -75535,5 +75909,14 @@
     "technicalContentFullyVerified": false,
     "newUnseenExamFormsCompleted": false,
     "studentReadinessGuarantee": false
+  },
+  "academicAuditV49": {
+    "date": "2026-10-24",
+    "scope": "17 specifically authored instruction and scored-item pairs; 11 page anchors plus 3 filter objective-home repairs",
+    "supplementaryScoredQuestions": 17,
+    "teachingPagesAddedTo": 17,
+    "sectionAnchorCorrections": 14,
+    "sourceAuthority": "ETA Associate CETa 2025 competencies, official ETA Sixth Edition errata and ETA 2025 Common Formulas; visually inspected selected printed pages 23, 47, 48, 74, 87, 96, 138 and 178",
+    "limits": "Not all 234 printed pages or all 373 teaching pages technically certified; no independent item calibration; new scored lesson items are visible in their modules and are not a new unseen exam."
   }
 }

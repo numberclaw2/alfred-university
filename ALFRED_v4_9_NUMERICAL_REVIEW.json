@@ -1,0 +1,32 @@
+[
+  {
+    "questionId": "A49-M04-02",
+    "value": 4.0,
+    "kind": "divider"
+  },
+  {
+    "questionId": "A49-M08-04",
+    "value": 10.0,
+    "kind": "Q"
+  },
+  {
+    "questionId": "A49-M14-10",
+    "value": 5.0,
+    "kind": "meter"
+  },
+  {
+    "questionId": "A49-M17-12",
+    "value": -1.1,
+    "kind": "margin"
+  },
+  {
+    "questionId": "A49-M22-14",
+    "value": 4.0,
+    "kind": "reflected_power_percent"
+  },
+  {
+    "questionId": "A49-M26-17",
+    "value": 2.0,
+    "kind": "SWR"
+  }
+]

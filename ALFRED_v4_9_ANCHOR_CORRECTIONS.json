@@ -1,0 +1,101 @@
+{
+  "pageCorrections": [
+    {
+      "module": "M11",
+      "pageId": "L08-0-05",
+      "title": "Zener operation in reverse breakdown",
+      "fromSection": "M11.S03",
+      "toSection": "M11.S02"
+    },
+    {
+      "module": "M11",
+      "pageId": "L08-0-02",
+      "title": "Controlled rectifiers and gate triggering",
+      "fromSection": "M11.S01",
+      "toSection": "M11.S03"
+    },
+    {
+      "module": "M13",
+      "pageId": "L09-0-01",
+      "title": "Power-supply blocks from source to load",
+      "fromSection": "M13.S03",
+      "toSection": "M13.S01"
+    },
+    {
+      "module": "M13",
+      "pageId": "L08-0-00",
+      "title": "Reservoir capacitors and safe polarity",
+      "fromSection": "M13.S01",
+      "toSection": "M13.S02"
+    },
+    {
+      "module": "M14",
+      "pageId": "L10-0-04",
+      "title": "Signal levels, loading and impedance",
+      "fromSection": "M14.S01",
+      "toSection": "M14.S03"
+    },
+    {
+      "module": "M14",
+      "pageId": "L10-0-02",
+      "title": "Op-amp inputs, supplies and open-loop action",
+      "fromSection": "M14.S03",
+      "toSection": "M14.S02"
+    },
+    {
+      "module": "M14",
+      "pageId": "L10-0-06",
+      "title": "Non-inverting gain and follower",
+      "fromSection": "M14.S03",
+      "toSection": "M14.S02"
+    },
+    {
+      "module": "M15",
+      "pageId": "L12-0-00",
+      "title": "Workshop safety and ESD are separate protections",
+      "fromSection": "M15.S04",
+      "toSection": "M15.S01"
+    },
+    {
+      "module": "M15",
+      "pageId": "L12-0-04",
+      "title": "Surface-mount handling and orientation",
+      "fromSection": "M15.S02",
+      "toSection": "M15.S04"
+    },
+    {
+      "module": "M15",
+      "pageId": "L12-0-08",
+      "title": "Desoldering wick and suction",
+      "fromSection": "M15.S02",
+      "toSection": "M15.S03"
+    },
+    {
+      "module": "M12",
+      "pageId": "L10-0-06",
+      "title": "Darlington, IGBT and CMOS context",
+      "fromSection": "M12.S01",
+      "toSection": "M12.S02"
+    }
+  ],
+  "objectiveCorrections": [
+    {
+      "module": "M13",
+      "objective": "10.4.1",
+      "fromSection": "M13.S03",
+      "toSection": "M13.S02"
+    },
+    {
+      "module": "M13",
+      "objective": "10.4.2",
+      "fromSection": "M13.S03",
+      "toSection": "M13.S02"
+    },
+    {
+      "module": "M13",
+      "objective": "10.4.3",
+      "fromSection": "M13.S03",
+      "toSection": "M13.S02"
+    }
+  ]
+}
