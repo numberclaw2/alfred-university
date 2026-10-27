@@ -1,0 +1,227 @@
+{
+  "version": "Alfred CETa v5.2 final release candidate",
+  "date": "2026-10-26",
+  "sourceWorkingCopy": "Alfred_CETa_v5_2_Attribution_Hardening_NOT_FOR_UPLOAD(1).zip (Stage 08)",
+  "sourceProductionCommit": "49ef52ae5ecb425077192ca2f9eb3dc200d01dfb",
+  "scope": "Exam-impacting integration only; no cosmetic rebuild",
+  "questionEdits": [
+    {
+      "module": "M04",
+      "questionId": "CQ0316",
+      "previous": [
+        "3.1.4",
+        "4.17"
+      ],
+      "now": [
+        "4.17"
+      ],
+      "reason": "Correct ETA 2025 competency match; avoid false credit"
+    },
+    {
+      "module": "M04",
+      "questionId": "CQ0317",
+      "previous": [
+        "3.1.4",
+        "4.17"
+      ],
+      "now": [
+        "4.17"
+      ],
+      "reason": "Correct ETA 2025 competency match; avoid false credit"
+    },
+    {
+      "module": "M04",
+      "questionId": "CQ0318",
+      "previous": [
+        "3.1.4",
+        "4.17"
+      ],
+      "now": [
+        "4.17"
+      ],
+      "reason": "Correct ETA 2025 competency match; avoid false credit"
+    },
+    {
+      "module": "M04",
+      "questionId": "CQ0319",
+      "previous": [
+        "3.1.4",
+        "4.17"
+      ],
+      "now": [
+        "4.17"
+      ],
+      "reason": "Correct ETA 2025 competency match; avoid false credit"
+    },
+    {
+      "module": "M04",
+      "questionId": "CQ0320",
+      "previous": [
+        "3.1.4",
+        "4.17"
+      ],
+      "now": [
+        "4.17"
+      ],
+      "reason": "Correct ETA 2025 competency match; avoid false credit"
+    },
+    {
+      "module": "M04",
+      "questionId": "ALF-M04-V15-Q04",
+      "previous": [
+        "3.1.4"
+      ],
+      "now": [
+        "4.17"
+      ],
+      "reason": "Correct ETA 2025 competency match; avoid false credit"
+    },
+    {
+      "module": "M09",
+      "questionId": "ALF-M09-V16-Q04",
+      "previous": [
+        "3.4.2"
+      ],
+      "now": [],
+      "reason": "Correct ETA 2025 competency match; avoid false credit"
+    },
+    {
+      "module": "M12",
+      "questionId": "ALF-M12-V17-Q04",
+      "previous": [
+        "3.5.2"
+      ],
+      "now": [],
+      "reason": "Correct ETA 2025 competency match; avoid false credit"
+    },
+    {
+      "module": "M26",
+      "questionId": "ALF-M26-V20-Q05",
+      "previousStem": "A 50 Ω lossless line ends in 50 Ω and measures VSWR 1:1. What remains possible?",
+      "nowStem": "A nominal 50 Ω real coaxial cable is properly terminated in a 50 Ω load and has VSWR near 1:1. What remains possible?",
+      "reason": "Resolve lossless vs lossy cable contradiction without changing key or options"
+    },
+    {
+      "module": "M29",
+      "questionId": "CQ0316",
+      "previous": [
+        "3.1.4",
+        "4.17"
+      ],
+      "now": [
+        "4.17"
+      ],
+      "reason": "Correct ETA 2025 competency match; avoid false credit"
+    },
+    {
+      "module": "M29",
+      "questionId": "CQ0317",
+      "previous": [
+        "3.1.4",
+        "4.17"
+      ],
+      "now": [
+        "4.17"
+      ],
+      "reason": "Correct ETA 2025 competency match; avoid false credit"
+    },
+    {
+      "module": "M29",
+      "questionId": "CQ0318",
+      "previous": [
+        "3.1.4",
+        "4.17"
+      ],
+      "now": [
+        "4.17"
+      ],
+      "reason": "Correct ETA 2025 competency match; avoid false credit"
+    },
+    {
+      "module": "M29",
+      "questionId": "CQ0319",
+      "previous": [
+        "3.1.4",
+        "4.17"
+      ],
+      "now": [
+        "4.17"
+      ],
+      "reason": "Correct ETA 2025 competency match; avoid false credit"
+    },
+    {
+      "module": "M29",
+      "questionId": "CQ0320",
+      "previous": [
+        "3.1.4",
+        "4.17"
+      ],
+      "now": [
+        "4.17"
+      ],
+      "reason": "Correct ETA 2025 competency match; avoid false credit"
+    }
+  ],
+  "historicalCDBeforeFlags": 30,
+  "historicalCDAfterFlags": 35,
+  "preservationAndStaticChecks": {
+    "Module count/order unchanged": true,
+    "All 373 teaching pages preserved": true,
+    "Question placements and IDs unchanged": true,
+    "Question choices unchanged": true,
+    "Question answer unchanged": true,
+    "Question origin unchanged": true,
+    "Only approved technical question wording changed": true,
+    "All A/B exam bank versions and order retained": true,
+    "100 original and 100 v5.2 questions in each A/B form": true,
+    "Both C/D forms have preserved original IDs/order": true,
+    "Historical C/D flags only increase": true,
+    "All removed potentiometer claims now removed": true,
+    "Specific misleading transformer/MOSFET tags removed": true,
+    "All surviving instructional objective tags valid": true,
+    "All multi-page lesson routes retain section IDs": true,
+    "Never mark full independent readiness validated": true,
+    "No removal of book guidance metadata": true,
+    "No change in source-authentic figure listing": true,
+    "State-key and remote sync code left byte-identical": true,
+    "CSS left byte-identical": true,
+    "All 5 packaged source files present": true,
+    "Node syntax: course.js": true,
+    "Node syntax: ceta.js": true,
+    "Node syntax: service-worker.js": true,
+    "Course JSON and browser JS deeply identical": true
+  },
+  "facts": {
+    "modules": 30,
+    "teachingPages": 373,
+    "questionPlacements": 738,
+    "uniqueQuestionIDs": 518,
+    "CDFormItemPlacements": 200,
+    "releaseIncludesFullSiteAssets": false
+  },
+  "limits": [
+    "Item-to-objective mappings beyond explicitly reviewed questions are provisional",
+    "Not an ETA official endorsement or exam-pass guarantee",
+    "Cannot test authenticated Cloud Sync without the owner recovery key; never share the key",
+    "Real Safari/iPhone not available here; desktop/mobile Chromium fixture is partial",
+    "This is an update overlay: retain all unmodified site files in GitHub"
+  ],
+  "releaseDecision": "FINAL ROOT-LEVEL UPDATE READY TO UPLOAD; operational post-deploy smoke testing remains required",
+  "additionalChecks": {
+    "freshExamBankQuestions": "4 banks × 100 question entries = 400; 100 unique IDs within each form; no invalid choices, keyed indices or empty explanations",
+    "serviceWorkerModel": "PASS: 69 static assets in addAll; activation removes old Alfred cache and retains unrelated cache; cached fetch delivered",
+    "productionRepositoryStaticManifest": "PASS: 69/69 existing static cache entries resolved in GitHub repository at source commit; verified via GitHub connector",
+    "previousStage08Browser": "PASS on older stage: 32/32 isolated Chromium desktop/mobile scenarios; ceta.js and ceta.css preserved byte-for-byte in this final update",
+    "newBrowserSmokeAttempt": "NOT RUN: browser automation in current container blocks all local navigation with ERR_BLOCKED_BY_ADMINISTRATOR; not evidence of a website defect",
+    "independentItemReview": "NOT CERTIFIED: many inherited items have not received independent per-item expert approval; related competency claims explicitly labeled provisional",
+    "realCloudSync": "NOT RUN: owner credentials not requested or accessed; same sync code and progress keys retained",
+    "realIphoneAndLivePages": "NOT RUN in this environment; post-deploy operational verification required"
+  },
+  "summary": {
+    "preservationStaticPassed": 25,
+    "preservationStaticTotal": 25,
+    "questionRecordEdits": 14,
+    "newHistoricalFlags": 5,
+    "allCompletedChecksPassed": true
+  }
+}

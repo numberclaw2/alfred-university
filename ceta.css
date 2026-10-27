@@ -548,3 +548,29 @@ html { scroll-padding-top: 108px; }
   .alfred-classroom-frame .ux-breadcrumb-library { margin-left:0; }
 }
 @media(prefers-reduced-motion:reduce){ .ux-page-directory .page-dot,.alfred-classroom-frame .stage-tab { transition:none!important; } }
+
+/* Alfred phase 05: sourced workmanship photographs, keyboard-safe and mobile-readable. */
+.alfred-photo-study{margin:24px 0;padding:clamp(12px,2vw,22px);border:1px solid #ccd9d0;border-radius:14px;background:#f7f9f5;}
+.alfred-photo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:16px 0;}
+.alfred-photo-figure{min-width:0;margin:0;border:1px solid #d6dfd5;border-radius:11px;background:#fff;overflow:hidden;}
+.alfred-photo-label{background:#244a37;color:#fff;font-weight:750;padding:9px 12px;letter-spacing:.02em;}
+.alfred-photo-figure img{display:block;width:100%;height:235px;object-fit:contain;background:#fff;}
+.alfred-photo-figure figcaption{padding:13px;color:#334738;font-size:.89rem;line-height:1.65;}
+.alfred-photo-figure figcaption a{display:inline-block;margin:7px 0;text-underline-offset:3px;}
+.alfred-photo-figure .gold-credit{display:block;color:#637164;font-size:.78rem;}
+.alfred-photo-fallback{padding:24px;color:#543c20;background:#f4eee1;font-size:.87rem;}
+.alfred-photo-study details{padding:12px;background:#fff;border:1px solid #e3e7df;border-radius:9px;}
+.alfred-photo-study details summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-weight:700;}
+@media(max-width:670px){.alfred-photo-grid{grid-template-columns:1fr}.alfred-photo-figure img{height:260px}}
+
+
+/* Checkpoint 06: prevent status and evidence selector from widening mobile classroom. */
+@media(max-width:540px) {
+ .alfred-classroom-frame .content-stack { grid-template-columns:minmax(0,1fr); }
+ .alfred-classroom-frame .course-overview { min-width:0; width:100%; }
+ .alfred-classroom-frame .course-overview-main { display:block; width:100%; min-width:0; }
+ .alfred-classroom-frame .course-overview-main>div:first-child { min-width:0; overflow-wrap:anywhere; }
+ .alfred-classroom-frame .course-stage-status { border-left:0; border-top:1px solid #e0e6e0; margin-top:12px; padding:9px 0 0; display:flex; align-items:center; justify-content:flex-start; gap:10px; min-width:0; max-width:100%; text-align:left; }
+ .alfred-classroom-frame .course-stage-status small { max-width:none; font-size:.69rem; line-height:1.4; }
+ #application-evidence-tier { width:100%; min-width:0; max-width:100%; }
+}
