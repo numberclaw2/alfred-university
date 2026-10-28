@@ -1,0 +1,147 @@
+{
+  "scope": "One bounded academic pass; no further cosmetic/re-auditing work",
+  "examItemsModified": [
+    "ALF52-B-085",
+    "ALF52-B-065",
+    "ALF52-A-008",
+    "ALF52-A-097",
+    "ALF52-A-020",
+    "ALF52-B-051",
+    "ALF52-A-029",
+    "ALF52-A-033",
+    "ALF52-A-052",
+    "ALF52-A-007",
+    "ALF52-A-089",
+    "ALF52-A-042",
+    "ALF52-B-086",
+    "ALF52-A-031",
+    "ALF52-A-036",
+    "ALF52-A-074",
+    "ALF52-B-009",
+    "ALF52-B-079",
+    "ALF52-A-011",
+    "ALF52-A-019",
+    "ALF52-A-023",
+    "ALF52-B-096",
+    "ALF52-A-010",
+    "ALF52-A-037",
+    "ALF52-A-001",
+    "ALF52-B-082",
+    "ALF52-A-034",
+    "ALF52-B-022",
+    "ALF52-A-085",
+    "ALF52-A-096",
+    "ALF52-B-073",
+    "ALF52-A-024",
+    "ALF52-A-091",
+    "ALF52-B-024",
+    "ALF52-B-044",
+    "ALF52-A-021",
+    "ALF52-A-025",
+    "ALF52-A-064",
+    "ALF52-A-099",
+    "ALF52-A-032",
+    "ALF52-A-086",
+    "ALF52-B-025",
+    "ALF52-B-029",
+    "ALF52-A-014",
+    "ALF52-A-072",
+    "ALF52-B-042",
+    "ALF52-B-090",
+    "ALF52-A-078",
+    "ALF52-B-041",
+    "ALF52-B-061",
+    "ALF52-A-065",
+    "ALF52-B-058",
+    "ALF52-B-084",
+    "ALF52-A-066",
+    "ALF52-A-067",
+    "ALF52-A-083",
+    "ALF52-A-084",
+    "ALF52-A-055",
+    "ALF52-A-070",
+    "ALF52-A-087",
+    "ALF52-B-011",
+    "ALF52-B-039",
+    "ALF52-B-093",
+    "ALF52-B-032",
+    "ALF52-B-034",
+    "ALF52-B-040",
+    "ALF52-B-075",
+    "ALF52-A-035",
+    "ALF52-B-052",
+    "ALF52-A-100",
+    "ALF52-B-020",
+    "ALF52-B-033",
+    "ALF52-B-062",
+    "ALF52-B-071",
+    "ALF52-A-095",
+    "ALF52-B-028",
+    "ALF52-B-055",
+    "ALF52-B-031",
+    "ALF52-B-053",
+    "ALF52-B-068",
+    "ALF52-A-038",
+    "ALF52-A-058",
+    "ALF52-B-091",
+    "ALF52-A-026",
+    "ALF52-A-045",
+    "ALF52-A-046",
+    "ALF52-A-076",
+    "ALF52-B-049",
+    "ALF52-B-072",
+    "ALF52-A-051"
+  ],
+  "newCompetencyItems": [
+    {
+      "id": "ALF-M22-ETA-711-20261027",
+      "objectives": [
+        "7.11"
+      ]
+    },
+    {
+      "id": "ALF-M23-ETA-815-20261027",
+      "objectives": [
+        "8.15"
+      ]
+    },
+    {
+      "id": "ALF-M28-ETA-211-20261027",
+      "objectives": [
+        "21.1"
+      ]
+    },
+    {
+      "id": "ALF-M28-ETA-218-20261027",
+      "objectives": [
+        "21.8"
+      ]
+    },
+    {
+      "id": "ALF-M18-ETA-811-20261027",
+      "objectives": [
+        "8.11"
+      ]
+    },
+    {
+      "id": "ALF-M17-ETA-132-20261027",
+      "objectives": [
+        "13.2"
+      ]
+    },
+    {
+      "id": "ALF-M20-ETA-156-20261027",
+      "objectives": [
+        "15.6"
+      ]
+    },
+    {
+      "id": "ALF-M26-ETA-191-20261027",
+      "objectives": [
+        "19.1"
+      ]
+    }
+  ],
+  "sourceBaseSHA": "51f0a4c48d5ebbbc6f4c4ded1f39428b33445d50",
+  "note": "New editorial distractors and questions are NOT ETA official examination items and are not independently validated by ETA."
+}

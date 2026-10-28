@@ -1,0 +1,34 @@
+{
+  "decision": "BOUNDED FINAL ACADEMIC UPDATE READY FOR OWNER UPLOAD (not an ETA certification claim)",
+  "sourceCommit": "5b92e31970a3a2cbec415300f714f0989366bc44",
+  "sourceQuestionBank": "Alfred CETa v5.2; current GitHub course.js",
+  "patchDependency": "alfred-academic-corrections.js must load after course.js and before alfred-final-assessment-repair.js",
+  "actualChanges": {
+    "examDistractorRewrites": 90,
+    "independentInstructionalQuestionsAdded": 8,
+    "instructionalLessonReinforcements": 8,
+    "changedCorrectAnswers": 0,
+    "sourceCourseJSChanges": 0,
+    "sourceCetaJSChanges": 0,
+    "savedProgressCodeChanges": 0
+  },
+  "expectedAfterRuntime": {
+    "coreQuestionPlacements": 548,
+    "uniqueCoreIDs": 528,
+    "currentFormABQuestions": 200,
+    "uniquelyLongestCorrectChoices": 50,
+    "uniquelyLongestBefore": 140
+  },
+  "checks": {
+    "nodeSyntax": "PASS",
+    "fileIntegrity": "PASS",
+    "sourceChoiceIndexCrosscheck": "90 current answers validated against live GitHub current source",
+    "newQuestionIDs": "unique by construction; runtime rechecked",
+    "sourceCompetencies": "ETA 2025 official competency listing IDs 7.11,8.15,21.1,21.8,8.11,13.2,15.6,19.1",
+    "allSourcePages": "16 structural template matches verified against GitHub",
+    "offlineCache": "PASS: cache bumped to r4 and new script included",
+    "syntheticDataRuntime": "PASS; all original exam keys unchanged, 90 choice rewrites, 8 lesson entries, 8 new original items, fail-closed guard",
+    "allUpdatedHTML": "PASS, all 16 script orders"
+  },
+  "limit": "This is not independent psychometric validation, an official ETA question bank, a complete expert signoff of 200 item stems, or a pass guarantee. Runtime checker fails closed rather than corrupting learner history."
+}
