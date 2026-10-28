@@ -1,12 +1,12 @@
 {
-  "release": "ALFRED_CETA_FINAL_INSTRUCTIONAL_RELEASE_UPLOAD_READY",
+  "release": "ALFRED_CETA_FINAL_INSTRUCTIONAL_RELEASE_INTEGRATION_FIXED",
   "release_date": "2026-10-28",
   "target_repository": "numberclaw2/alfred-university",
   "protected_target_commit": "67076cf975e3f0663164f50b4a7471deb9bd3f23",
   "original_git_blob_learn_html": "1c3e9cce674bad77379c3f49c268d996d34e845a",
   "original_git_blob_course_js": "fbaee18f36f3282bc8ef9e4520ec49b5f9dd6f3e",
   "original_git_blob_assessment_closure": "8a044949f2e073351ab4c3c89a1cda2b50571a49",
-  "install": "Copy two root files only; manifest is documentation. The script include is between academic closure and deferred ceta.js. Check baseline commit before overwriting files.",
+  "install": "From the existing GitHub release (commit bc63871), REPLACE ONLY the repository-root file alfred-ceta-instructional-corrections.js with this revised file. learn.html remains identical and may be left alone; the manifest is documentation. Do not replace academic closure, course data, assessments, user records, or Cloud Sync.",
   "teaching_verification": {
     "pages": 373,
     "pass": 323,
@@ -28,8 +28,8 @@
     },
     {
       "file": "alfred-ceta-instructional-corrections.js",
-      "bytes": 146307,
-      "sha256": "0cad7730fc9003df4015727014cccc854ebee0feced23e08dbe959ff2347fab3"
+      "bytes": 146359,
+      "sha256": "752628d1ef38c1fd71a19501fdf33896322befd99a20ef1675a90bbcb4517be3"
     }
   ],
   "preserved": [
@@ -42,9 +42,23 @@
     "website design/navigation"
   ],
   "limitations": [
-    "Previous M15 missing authenticated four-photo practical set",
-    "Source-shaped Node local tests rather than deployed browser tests",
+    "Four-photo solder-joint practical lacks authenticated image set (historical documented exception)",
+    "Full course data and four academic scripts executed together in isolated V8; ceta.js syntax parsed but DOM/browser behavior not tested",
     "No ETA approval, exam pass guarantee or independent psychometric testing"
   ],
-  "no_github_writes": true
+  "no_github_writes": true,
+  "supersedes": "ALFRED_CETA_FINAL_INSTRUCTIONAL_RELEASE_UPLOAD_READY; first offline production-source integration caught M27/L20-0-07 stale post-closure guard",
+  "integration_fix": {
+    "affected_file": "alfred-ceta-instructional-corrections.js",
+    "source_of_mismatch": "The earlier academic closure had corrected the opening paragraph and summary for M27/L20-0-07, but final instructional overlay still expected the pre-closure opening.",
+    "repair": "Update exact expected opening and two exact precondition strings to the already-corrected closure output; the instructional target replacement and content are unchanged.",
+    "new_instructional_status": "ok=true, 49 targets, 141 added sections on full canonical course.js plus all three assessment/academic overlays",
+    "full_real_data_integration": "PASS — actual canonical 30-module, 373-page source and all four actual correction scripts loaded in order in isolated V8; 49 patch preconditions passed.",
+    "idempotence": "PASS — repeated application did not change lesson data",
+    "assessments": "PASS — module question banks, candidate questions and page IDs unchanged by instructional overlay",
+    "negative_guard": "PASS — deliberately corrupted M27 title caused fail-closed, with unrelated pages untouched",
+    "syntax": "PASS — all five JS scripts parsed, including browser-dependent ceta.js",
+    "script_order": "PASS — learn.html loads six scripts in correct order",
+    "limitations": "Source/overlay integration was executed without a DOM/browser, authenticated session or deployment; ceta.js parsed but DOM rendering and UI interaction were not exercised. No claim of end-to-end browser user testing."
+  }
 }

@@ -1,5 +1,5 @@
-/* Alfred University AU-ESET 301 — Instructional Review Batches 01–18 (2026-10-28)
-   Forty-six source-verified correction targets: additive instruction plus one guarded terminology repair.
+/* Alfred University AU-ESET 301 — Instructional Review Batches 01–19 (2026-10-28)
+   Forty-nine source-verified correction targets: additive instruction plus one guarded terminology repair.
    Requires completed academic closure before ceta.js; no questions/keys/IDs,
    storage, learner history, styling, navigation or sync changes. */
 (function () {
@@ -825,19 +825,19 @@
     "module": "M27",
     "page": "L20-0-07",
     "expectedTitle": "Simplex, duplex and repeaters",
-    "expectedOpening": "Simplex communication typically alternates transmit and receive on one shared channel;",
+    "expectedOpening": "Shared-channel push-to-talk communication typically alternates transmit and receive and is half-duplex;",
     "paragraphs": [],
     "replacements": [
         {
             "heading": "Understand the underlying model",
-            "from": "Simplex communication typically alternates transmit and receive on one shared channel; full-duplex systems can transmit and receive concurrently using separate paths or sufficiently isolated channels. A repeater receives and retransmits to extend service area. Duplexing and channel isolation create additional filter and timing constraints.",
+            "from": "Shared-channel push-to-talk communication typically alternates transmit and receive and is half-duplex; full-duplex systems can transmit and receive concurrently using separate paths or sufficiently isolated channels. A repeater receives and retransmits to extend service area. Duplexing and channel isolation create additional filter and timing constraints.",
             "to": "Simplex means information travels in only one direction on a link, as in a one-way broadcast. Push-to-talk handheld radio is normally HALF-DUPLEX: both ends may transmit but not at the same time on the shared channel. FULL-DUPLEX allows concurrent transmission and reception, usually through suitably separated or isolated paths. A repeater receives and retransmits to extend coverage, and may use separate uplink and downlink channels. Keep communication direction (simplex/half/full-duplex) distinct from the role of a repeater and from a particular modulation method."
         }
     ],
     "fieldReplacements": [
         {
             "key": "text",
-            "from": "Simplex communication typically alternates transmit and receive on one shared channel; full-duplex systems can transmit and receive concurrently using separate paths or sufficiently isolated channels. A repeater receives and retransmits to extend service area. Duplexing and channel isolation create additional filter and timing constraints.",
+            "from": "Shared-channel push-to-talk communication typically alternates transmit and receive and is half-duplex; full-duplex systems can transmit and receive concurrently using separate paths or sufficiently isolated channels. A repeater receives and retransmits to extend service area. Duplexing and channel isolation create additional filter and timing constraints.",
             "to": "Simplex means information travels in only one direction on a link, as in a one-way broadcast. Push-to-talk handheld radio is normally HALF-DUPLEX: both ends may transmit but not at the same time on the shared channel. FULL-DUPLEX allows concurrent transmission and reception, usually through suitably separated or isolated paths. A repeater receives and retransmits to extend coverage, and may use separate uplink and downlink channels. Keep communication direction (simplex/half/full-duplex) distinct from the role of a repeater and from a particular modulation method."
         },
         {
