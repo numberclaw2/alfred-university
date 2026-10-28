@@ -1,0 +1,50 @@
+{
+  "release": "ALFRED_CETA_FINAL_INSTRUCTIONAL_RELEASE_UPLOAD_READY",
+  "release_date": "2026-10-28",
+  "target_repository": "numberclaw2/alfred-university",
+  "protected_target_commit": "67076cf975e3f0663164f50b4a7471deb9bd3f23",
+  "original_git_blob_learn_html": "1c3e9cce674bad77379c3f49c268d996d34e845a",
+  "original_git_blob_course_js": "fbaee18f36f3282bc8ef9e4520ec49b5f9dd6f3e",
+  "original_git_blob_assessment_closure": "8a044949f2e073351ab4c3c89a1cda2b50571a49",
+  "install": "Copy two root files only; manifest is documentation. The script include is between academic closure and deferred ceta.js. Check baseline commit before overwriting files.",
+  "teaching_verification": {
+    "pages": 373,
+    "pass": 323,
+    "corrected_and_verified": 49,
+    "documented_exception": 1,
+    "remaining": 0,
+    "eta_objective_ids_page_trace": 262,
+    "review_sources": [
+      "2025 CETa Competencies",
+      "ETA CET Study Guide 6th Ed.",
+      "user-supplied AST 100-item practice examination"
+    ]
+  },
+  "changed_site_files": [
+    {
+      "file": "learn.html",
+      "bytes": 2571,
+      "sha256": "d5f7599d5360c6ae55fccaec7d7af97f3723776761ec880daa84dfe9f69858f2"
+    },
+    {
+      "file": "alfred-ceta-instructional-corrections.js",
+      "bytes": 146307,
+      "sha256": "0cad7730fc9003df4015727014cccc854ebee0feced23e08dbe959ff2347fab3"
+    }
+  ],
+  "preserved": [
+    "course.js",
+    "alfred-ceta-academic-closure.js",
+    "alfred-final-assessment-repair.js",
+    "assessment IDs and answer keys",
+    "saved learner data",
+    "cloud sync scripts",
+    "website design/navigation"
+  ],
+  "limitations": [
+    "Previous M15 missing authenticated four-photo practical set",
+    "Source-shaped Node local tests rather than deployed browser tests",
+    "No ETA approval, exam pass guarantee or independent psychometric testing"
+  ],
+  "no_github_writes": true
+}
