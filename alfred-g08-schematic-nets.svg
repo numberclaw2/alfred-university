@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 690" role="img" aria-labelledby="g08title g08desc">
+<title id="g08title">Reading schematic nets, junction dots, crossings, and test points</title>
+<desc id="g08desc">Three panels. Left: a black junction dot means vertical and horizontal wires share one electrical net. Right: a crossing with no dot indicates different wires in this drawing. Bottom: a resistor R12 runs from a labeled plus five volt supply to test point TP3. Capacitor C4 connects TP3 to circuit return. A meter measures between TP3 and the labeled circuit return; the return is not automatically protective earth.</desc>
+<rect x="0" y="0" width="1200" height="690" rx="24" fill="#f7fbff"/>
+<text x="44" y="60" font-family="Arial,Helvetica,sans-serif" font-size="30" font-weight="700" fill="#12304a">How to read electrical connections on a schematic</text>
+<text x="45" y="91" font-family="Arial,Helvetica,sans-serif" font-size="18" fill="#3e5c70">The symbol shape and the node connection must both be interpreted before calculating or probing.</text>
+<rect x="40" y="124" width="545" height="232" rx="18" fill="#e8f4ee" stroke="#2a8960" stroke-width="2"/>
+<rect x="615" y="124" width="545" height="232" rx="18" fill="#fff2e5" stroke="#d17a22" stroke-width="2"/>
+<text x="68" y="161" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="700" fill="#105b42">1  Connected junction</text>
+<text x="642" y="161" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="700" fill="#994b18">2  Unconnected crossing</text>
+<g stroke="#12304a" stroke-width="6" stroke-linecap="round" fill="none">
+<path d="M122 242 H490 M307 188 V310"/>
+<path d="M687 242 H1061 M875 188 V310"/>
+</g>
+<circle cx="307" cy="242" r="12" fill="#157f58"/>
+
+<text x="95" y="336" font-family="Arial,Helvetica,sans-serif" font-size="17" fill="#174f3c">● Dot = same electrical net at this crossing</text>
+<text x="642" y="336" font-family="Arial,Helvetica,sans-serif" font-size="17" fill="#874316">No dot = distinct nets in this convention</text>
+<rect x="40" y="382" width="1120" height="264" rx="18" fill="#ffffff" stroke="#91a9bc" stroke-width="2"/>
+<text x="68" y="420" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="700" fill="#12304a">3  Follow a real circuit node before choosing a test point</text>
+<g stroke="#12304a" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" fill="none">
+<path d="M111 505 H204"/>
+<path d="M204 505 l16 -15 l20 30 l20 -30 l20 30 l20 -30 l16 15"/>
+<path d="M316 505 H561"/>
+<path d="M561 505 H807"/>
+<path d="M561 505 V552"/>
+<path d="M529 552 H593 M529 566 H593"/>
+<path d="M561 566 V602"/>
+<path d="M525 602 H597 M537 611 H585 M551 620 H572"/>
+</g>
+<circle cx="561" cy="505" r="9" fill="#157f58"/>
+<circle cx="807" cy="505" r="9" fill="#1676a0"/>
+<text x="77" y="486" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="700" fill="#124e7b">+5 V</text>
+<text x="232" y="469" font-family="Arial,Helvetica,sans-serif" font-size="19" font-weight="700" fill="#12304a">R12</text>
+<text x="578" y="486" font-family="Arial,Helvetica,sans-serif" font-size="19" font-weight="700" fill="#157f58">TP3</text>
+<text x="601" y="562" font-family="Arial,Helvetica,sans-serif" font-size="19" font-weight="700" fill="#12304a">C4</text>
+<text x="615" y="612" font-family="Arial,Helvetica,sans-serif" font-size="16" fill="#3d5868">Circuit return (reference)</text>
+<rect x="822" y="461" width="294" height="156" rx="12" fill="#e9f3fc" stroke="#8eb8dc"/>
+<text x="843" y="491" font-family="Arial,Helvetica,sans-serif" font-size="20" font-weight="700" fill="#16446b">Meter placement</text>
+<text x="843" y="525" font-family="Arial,Helvetica,sans-serif" font-size="17" fill="#16446b">Red lead: TP3</text>
+<text x="843" y="552" font-family="Arial,Helvetica,sans-serif" font-size="17" fill="#16446b">Black lead: circuit return</text>
+<text x="843" y="590" font-family="Arial,Helvetica,sans-serif" font-size="14" fill="#375972">Only on an approved low-voltage trainer.</text>
+<text x="49" y="671" font-family="Arial,Helvetica,sans-serif" font-size="15" fill="#41596b">Original Alfred teaching diagram. Follow the drawing legend. Circuit return may differ from protective earth.</text>
+</svg>

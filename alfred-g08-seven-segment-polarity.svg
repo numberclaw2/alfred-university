@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 565" role="img" aria-labelledby="title desc">
+  <title id="title">Common-anode and common-cathode seven-segment LED current paths</title>
+  <desc id="desc">Two conceptual current-path diagrams for one segment. Left: positive supply to shared anode, through LED, series resistor, and low-output sinking driver to ground, so low turns the segment on. Right: high-output sourcing driver, through series resistor, LED, and shared cathode to ground, so high turns the segment on. Connections are conceptual, not a specific package pinout.</desc>
+  <rect x="0" y="0" width="1100" height="565" fill="#f8fafc"/>
+  <text x="50" y="48" font-family="Arial, sans-serif" font-size="29" font-weight="bold" fill="#14253e">Seven-segment LED polarity: follow the current</text>
+  <text x="50" y="76" font-family="Arial, sans-serif" font-size="17" fill="#43536b">One segment shown in each example. Segment labels a–g identify positions, not cathode or anode pins.</text>
+  <rect x="35" y="100" width="504" height="395" rx="16" fill="#ffffff" stroke="#b5c8dc" stroke-width="2"/>
+  <rect x="561" y="100" width="504" height="395" rx="16" fill="#ffffff" stroke="#b5c8dc" stroke-width="2"/>
+  <text x="57" y="137" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#124f70">COMMON ANODE</text>
+  <text x="583" y="137" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#176250">COMMON CATHODE</text>
+  <text x="57" y="167" font-family="Arial, sans-serif" font-size="17" fill="#41566b">Shared A (+) joins the positive supply</text>
+  <text x="583" y="167" font-family="Arial, sans-serif" font-size="17" fill="#41566b">Shared K (−) joins the return / ground</text>
+  <g stroke="#29485e" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M80 256 H156"/><path d="M278 256 H305"/><path d="M395 256 H431"/>
+    <path d="M605 256 H693"/><path d="M791 256 H814"/><path d="M943 256 H1010"/>
+  </g>
+  <rect x="58" y="222" width="97" height="67" rx="10" fill="#e4f1fa" stroke="#6aa1c9"/>
+  <text x="106" y="247" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="bold" fill="#134b73">+5 V</text>
+  <text x="106" y="268" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#134b73">SHARED A</text>
+  <rect x="156" y="214" width="122" height="82" rx="10" fill="#fff3d5" stroke="#d7aa52" stroke-width="2"/>
+  <text x="217" y="244" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#704d00">LED a</text>
+  <text x="217" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#704d00">A (+) → K (−)</text>
+  <rect x="305" y="221" width="90" height="68" rx="9" fill="#edf0f6" stroke="#8293b1" stroke-width="2"/>
+  <text x="350" y="248" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#253b56">R</text>
+  <text x="350" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#253b56">series</text>
+  <rect x="431" y="222" width="90" height="67" rx="10" fill="#ffe9e6" stroke="#bd746a"/>
+  <text x="476" y="246" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#98372c">LOW</text>
+  <text x="476" y="268" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#98372c">sink → 0 V</text>
+  <text x="59" y="319" font-family="Arial, sans-serif" font-size="16" fill="#43566f">Conventional current: supply → LED → R → sink</text>
+  <rect x="57" y="345" width="456" height="93" rx="12" fill="#e7f3fa"/>
+  <text x="79" y="377" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#124f70">Cathode driven LOW → segment ON</text>
+  <text x="79" y="408" font-family="Arial, sans-serif" font-size="16" fill="#365467">Cathode near the anode voltage → OFF</text>
+  <rect x="583" y="222" width="105" height="67" rx="10" fill="#e4f1fa" stroke="#6aa1c9"/>
+  <text x="635" y="246" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#134b73">HIGH</text>
+  <text x="635" y="268" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#134b73">source +5 V</text>
+  <rect x="693" y="221" width="98" height="68" rx="9" fill="#edf0f6" stroke="#8293b1" stroke-width="2"/>
+  <text x="742" y="248" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#253b56">R</text>
+  <text x="742" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#253b56">series</text>
+  <rect x="814" y="214" width="129" height="82" rx="10" fill="#fff3d5" stroke="#d7aa52" stroke-width="2"/>
+  <text x="878" y="244" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#704d00">LED a</text>
+  <text x="878" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#704d00">A (+) → K (−)</text>
+  <rect x="943" y="222" width="101" height="67" rx="10" fill="#e8f4eb" stroke="#79af8d"/>
+  <text x="993" y="247" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#166047">GND</text>
+  <text x="993" y="268" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#166047">SHARED K</text>
+  <text x="583" y="319" font-family="Arial, sans-serif" font-size="16" fill="#43566f">Conventional current: source → R → LED → return</text>
+  <rect x="583" y="345" width="456" height="93" rx="12" fill="#e8f4eb"/>
+  <text x="605" y="377" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#176250">Anode driven HIGH → segment ON</text>
+  <text x="605" y="408" font-family="Arial, sans-serif" font-size="16" fill="#365467">Anode near the cathode voltage → OFF</text>
+  <text x="50" y="522" font-family="Arial, sans-serif" font-size="17" font-weight="bold" fill="#18334e">Important:</text>
+  <text x="146" y="522" font-family="Arial, sans-serif" font-size="17" fill="#33475d">Each energized segment needs suitable current limiting; use rated drivers.</text>
+  <text x="50" y="548" font-family="Arial, sans-serif" font-size="15" fill="#526275">Conceptual current paths only — not a package pinout, power design, or proof that an MCU GPIO can carry the required current.</text>
+</svg>
