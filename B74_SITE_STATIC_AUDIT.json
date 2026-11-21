@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "htmlPages": 26,
+  "applicationPages": 16,
+  "standalonePages": 10,
+  "javascriptFiles": 46,
+  "svgFiles": 19,
+  "htmlReferences": 65,
+  "offlineCacheReferences": 139,
+  "missingHtmlReferences": [],
+  "missingOfflineCacheReferences": [],
+  "missingManifestReferences": [],
+  "unexpectedFrozenBlobHashes": {},
+  "scriptLoadOrderIssues": [],
+  "javascriptSyntaxIssues": [],
+  "svgIssues": [],
+  "note": "Static package validation only; not evidence of browser deployment, physical labs, or exam prediction.",
+  "baselineCommit": "63fa6452e2e1c874d2a4455dd81cbff9410b2e64",
+  "mergedOverlayFiles": 90,
+  "originalBaselineFiles": 139,
+  "frozenMissingAssetChecks": {
+    "commit": "63fa6452e2e1c874d2a4455dd81cbff9410b2e64",
+    "pinnedMissingSiteAssets": 50,
+    "pinnedMissingSiteAssetsVerified": true
+  },
+  "releaseStatus": "STATIC_CANDIDATE_ONLY_NOT_DEPLOYED_OR_PSYCHOMETRICALLY_CALIBRATED",
+  "archiveLineage": "Current staged source verified. Historic B68 ZIP byte lineage remains unverified until exact ancestor is available."
+}
